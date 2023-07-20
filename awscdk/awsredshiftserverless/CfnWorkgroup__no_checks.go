@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnWorkgroup) validateSetPubliclyAccessibleParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkgroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkgroup) validateSetWorkgroupNameParameters(val *string) error {
 	return nil
 }

@@ -16,8 +16,12 @@ package awss3
 //   	IsEnabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedcostoptimizationmetrics.html
+//
 type CfnStorageLens_AdvancedCostOptimizationMetricsProperty struct {
 	// Indicates whether advanced cost optimization metrics are enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedcostoptimizationmetrics.html#cfn-s3-storagelens-advancedcostoptimizationmetrics-isenabled
+	//
 	IsEnabled interface{} `field:"optional" json:"isEnabled" yaml:"isEnabled"`
 }
 

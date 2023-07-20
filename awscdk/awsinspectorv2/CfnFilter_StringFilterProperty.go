@@ -13,10 +13,16 @@ package awsinspectorv2
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-stringfilter.html
+//
 type CfnFilter_StringFilterProperty struct {
 	// The operator to use when comparing values in the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-stringfilter.html#cfn-inspectorv2-filter-stringfilter-comparison
+	//
 	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`
 	// The value to filter on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-stringfilter.html#cfn-inspectorv2-filter-stringfilter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

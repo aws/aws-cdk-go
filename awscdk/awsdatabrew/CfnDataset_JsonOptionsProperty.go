@@ -12,8 +12,12 @@ package awsdatabrew
 //   	MultiLine: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+//
 type CfnDataset_JsonOptionsProperty struct {
 	// A value that specifies whether JSON input contains embedded new line characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
+	//
 	MultiLine interface{} `field:"optional" json:"multiLine" yaml:"multiLine"`
 }
 

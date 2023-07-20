@@ -18,6 +18,8 @@ package awsemrcontainers
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html
+//
 type CfnVirtualCluster_ContainerProviderProperty struct {
 	// The ID of the container cluster.
 	//
@@ -26,12 +28,18 @@ type CfnVirtualCluster_ContainerProviderProperty struct {
 	// *Maximum* : 100
 	//
 	// *Pattern* : `^[0-9A-Za-z][A-Za-z0-9\-_]*`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html#cfn-emrcontainers-virtualcluster-containerprovider-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The information about the container cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html#cfn-emrcontainers-virtualcluster-containerprovider-info
+	//
 	Info interface{} `field:"required" json:"info" yaml:"info"`
 	// The type of the container provider.
 	//
 	// Amazon EKS is the only supported type as of now.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html#cfn-emrcontainers-virtualcluster-containerprovider-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

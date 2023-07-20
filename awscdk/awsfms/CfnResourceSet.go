@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FMS::ResourceSet`.
-//
 // A set of resources to include in a policy.
 //
 // Example:
@@ -37,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-resourceset.html
+//
 type CfnResourceSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the resource set.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -65,8 +66,6 @@ type CfnResourceSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The descriptive name of the resource set.
-	//
-	// You can't change the name of a resource set after you create it.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -80,18 +79,17 @@ type CfnResourceSet interface {
 	Resources() *[]*string
 	SetResources(val *[]*string)
 	// Determines the resources that can be associated to the resource set.
-	//
-	// Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 	ResourceTypeList() *[]*string
 	SetResourceTypeList(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of key:value pairs associated with a resource set.
-	//
-	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A collection of key:value pairs associated with a resource set.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -236,6 +234,7 @@ type CfnResourceSet interface {
 type jsiiProxy_CfnResourceSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnResourceSet) AttrId() *string {
@@ -378,6 +377,16 @@ func (j *jsiiProxy_CfnResourceSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceSet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -399,7 +408,6 @@ func (j *jsiiProxy_CfnResourceSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::FMS::ResourceSet`.
 func NewCfnResourceSet(scope constructs.Construct, id *string, props *CfnResourceSetProps) CfnResourceSet {
 	_init_.Initialize()
 
@@ -417,7 +425,6 @@ func NewCfnResourceSet(scope constructs.Construct, id *string, props *CfnResourc
 	return &j
 }
 
-// Create a new `AWS::FMS::ResourceSet`.
 func NewCfnResourceSet_Override(c CfnResourceSet, scope constructs.Construct, id *string, props *CfnResourceSetProps) {
 	_init_.Initialize()
 
@@ -462,6 +469,17 @@ func (j *jsiiProxy_CfnResourceSet)SetResourceTypeList(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"resourceTypeList",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

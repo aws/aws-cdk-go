@@ -16,8 +16,12 @@ package awslambda
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html
+//
 type CfnEventSourceMapping_FilterCriteriaProperty struct {
 	// A list of filters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html#cfn-lambda-eventsourcemapping-filtercriteria-filters
+	//
 	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
 }
 

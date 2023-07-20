@@ -14,8 +14,12 @@ package awspipes
 //   	Pattern: jsii.String("pattern"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filter.html
+//
 type CfnPipe_FilterProperty struct {
 	// The event pattern.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filter.html#cfn-pipes-pipe-filter-pattern
+	//
 	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
 }
 

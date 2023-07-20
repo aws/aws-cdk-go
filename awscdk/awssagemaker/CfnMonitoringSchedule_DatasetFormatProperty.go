@@ -1,6 +1,8 @@
 package awssagemaker
 
 
+// The dataset format of the data to monitor.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,12 +18,20 @@ package awssagemaker
 //   	Parquet: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-datasetformat.html
+//
 type CfnMonitoringSchedule_DatasetFormatProperty struct {
-	// `CfnMonitoringSchedule.DatasetFormatProperty.Csv`.
+	// The CSV format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-datasetformat.html#cfn-sagemaker-monitoringschedule-datasetformat-csv
+	//
 	Csv interface{} `field:"optional" json:"csv" yaml:"csv"`
-	// `CfnMonitoringSchedule.DatasetFormatProperty.Json`.
+	// The Json format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-datasetformat.html#cfn-sagemaker-monitoringschedule-datasetformat-json
+	//
 	Json interface{} `field:"optional" json:"json" yaml:"json"`
-	// `CfnMonitoringSchedule.DatasetFormatProperty.Parquet`.
+	// A flag indicating if the dataset format is Parquet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-datasetformat.html#cfn-sagemaker-monitoringschedule-datasetformat-parquet
+	//
 	Parquet interface{} `field:"optional" json:"parquet" yaml:"parquet"`
 }
 

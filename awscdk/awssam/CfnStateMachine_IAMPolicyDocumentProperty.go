@@ -13,10 +13,14 @@ package awssam
 //   	"version": jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-iampolicydocument.html
+//
 type CfnStateMachine_IAMPolicyDocumentProperty struct {
-	// `CfnStateMachine.IAMPolicyDocumentProperty.Statement`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-iampolicydocument.html#cfn-serverless-statemachine-iampolicydocument-statement
+	//
 	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
-	// `CfnStateMachine.IAMPolicyDocumentProperty.Version`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-iampolicydocument.html#cfn-serverless-statemachine-iampolicydocument-version
+	//
 	Version *string `field:"required" json:"version" yaml:"version"`
 }
 

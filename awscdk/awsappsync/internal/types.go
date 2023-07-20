@@ -9,4 +9,5 @@ type Type__awsiamIGrantable = awsiam.IGrantable
 type Type__constructsConstruct = constructs.Construct
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awscdkIResource = awscdk.IResource

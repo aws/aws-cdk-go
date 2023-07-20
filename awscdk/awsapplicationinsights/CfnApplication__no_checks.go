@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnApplication) validateSetResourceGroupNameParameters(val *s
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnApplicationParameters(scope constructs.Construct, id *string, props *CfnApplicationProps) error {
 	return nil
 }

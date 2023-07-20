@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CustomerProfiles::CalculatedAttributeDefinition`.
-//
 // A calculated attribute definition for Customer Profiles.
 //
 // Example:
@@ -52,6 +50,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html
 //
 type CfnCalculatedAttributeDefinition interface {
 	awscdk.CfnResource
@@ -112,7 +112,8 @@ type CfnCalculatedAttributeDefinition interface {
 	Statistic() *string
 	SetStatistic(val *string)
 	// An array of key-value pairs to apply to this resource.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -429,8 +430,8 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) Statistic() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCalculatedAttributeDefinition) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -460,7 +461,6 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) UpdatedProperties() *map[st
 }
 
 
-// Create a new `AWS::CustomerProfiles::CalculatedAttributeDefinition`.
 func NewCfnCalculatedAttributeDefinition(scope constructs.Construct, id *string, props *CfnCalculatedAttributeDefinitionProps) CfnCalculatedAttributeDefinition {
 	_init_.Initialize()
 
@@ -478,7 +478,6 @@ func NewCfnCalculatedAttributeDefinition(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Create a new `AWS::CustomerProfiles::CalculatedAttributeDefinition`.
 func NewCfnCalculatedAttributeDefinition_Override(c CfnCalculatedAttributeDefinition, scope constructs.Construct, id *string, props *CfnCalculatedAttributeDefinitionProps) {
 	_init_.Initialize()
 
@@ -556,6 +555,17 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition)SetStatistic(val *string) {
 	_jsii_.Set(
 		j,
 		"statistic",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

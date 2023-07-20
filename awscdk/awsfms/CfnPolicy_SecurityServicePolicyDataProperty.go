@@ -23,10 +23,14 @@ package awsfms
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html
+//
 type CfnPolicy_SecurityServicePolicyDataProperty struct {
 	// The service that the policy is using to protect the resources.
 	//
 	// This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html#cfn-fms-policy-securityservicepolicydata-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Details about the service that are specific to the service type, in JSON format.
 	//
@@ -108,8 +112,12 @@ type CfnPolicy_SecurityServicePolicyDataProperty struct {
 	// - Example: `SECURITY_GROUPS_USAGE_AUDIT`
 	//
 	// `"{\"type\":\"SECURITY_GROUPS_USAGE_AUDIT\",\"deleteUnusedSecurityGroups\":true,\"coalesceRedundantSecurityGroups\":true}"`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html#cfn-fms-policy-securityservicepolicydata-managedservicedata
+	//
 	ManagedServiceData *string `field:"optional" json:"managedServiceData" yaml:"managedServiceData"`
 	// Contains the Network Firewall firewall policy options to configure a centralized deployment model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html#cfn-fms-policy-securityservicepolicydata-policyoption
+	//
 	PolicyOption interface{} `field:"optional" json:"policyOption" yaml:"policyOption"`
 }
 

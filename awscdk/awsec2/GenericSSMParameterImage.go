@@ -7,7 +7,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Select the image based on a given SSM parameter.
+// Select the image based on a given SSM parameter at deployment time of the CloudFormation Stack.
 //
 // This Machine Image automatically updates to the latest version on every
 // deployment. Be aware this will cause your instances to be replaced when a

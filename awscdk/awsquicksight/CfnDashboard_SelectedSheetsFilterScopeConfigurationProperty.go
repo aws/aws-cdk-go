@@ -26,8 +26,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-selectedsheetsfilterscopeconfiguration.html
+//
 type CfnDashboard_SelectedSheetsFilterScopeConfigurationProperty struct {
 	// The sheet ID and visual IDs of the sheet and visuals that the filter is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-selectedsheetsfilterscopeconfiguration.html#cfn-quicksight-dashboard-selectedsheetsfilterscopeconfiguration-sheetvisualscopingconfigurations
+	//
 	SheetVisualScopingConfigurations interface{} `field:"optional" json:"sheetVisualScopingConfigurations" yaml:"sheetVisualScopingConfigurations"`
 }
 

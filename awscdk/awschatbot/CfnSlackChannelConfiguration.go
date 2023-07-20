@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Chatbot::SlackChannelConfiguration`.
-//
 // The `AWS::Chatbot::SlackChannelConfiguration` resource configures a Slack channel to allow users to use AWS Chatbot with AWS CloudFormation templates.
 //
 // This resource requires some setup to be done in the AWS Chatbot console. To provide the required Slack workspace ID, you must perform the initial authorization flow with Slack in the AWS Chatbot console, then copy and paste the workspace ID from the console. For more details, see steps 1-4 in [Setting Up AWS Chatbot with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/setting-up.html#Setup_intro) in the *AWS Chatbot User Guide* .
@@ -37,9 +35,12 @@ import (
 //   	UserRoleRequired: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html
+//
 type CfnSlackChannelConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Amazon Resource Name (ARN) of the configuration.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,18 +55,14 @@ type CfnSlackChannelConfiguration interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The list of IAM policy ARNs that are applied as channel guardrails.
-	//
-	// The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
 	GuardrailPolicies() *[]*string
 	SetGuardrailPolicies(val *[]*string)
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot .
-	//
-	// This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role. For more information, see [IAM Policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
-	// Specifies the logging level for this configuration. This property affects the log entries pushed to Amazon CloudWatch Logs.
+	// Specifies the logging level for this configuration.
 	//
-	// Logging levels include `ERROR` , `INFO` , or `NONE` .
+	// This property affects the log entries pushed to Amazon CloudWatch Logs.
 	LoggingLevel() *string
 	SetLoggingLevel(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -86,13 +83,9 @@ type CfnSlackChannelConfiguration interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ID of the Slack channel.
-	//
-	// To get the ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, `ABCBBLZZZ` .
 	SlackChannelId() *string
 	SetSlackChannelId(val *string)
 	// The ID of the Slack workspace authorized with AWS Chatbot .
-	//
-	// To get the workspace ID, you must perform the initial authorization flow with Slack in the AWS Chatbot console. Then you can copy and paste the workspace ID from the console. For more details, see steps 1-4 in [Setting Up AWS Chatbot with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/setting-up.html#Setup_intro) in the *AWS Chatbot User Guide* .
 	SlackWorkspaceId() *string
 	SetSlackWorkspaceId(val *string)
 	// The ARNs of the SNS topics that deliver notifications to AWS Chatbot .
@@ -442,7 +435,6 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) UserRoleRequired() interface{} 
 }
 
 
-// Create a new `AWS::Chatbot::SlackChannelConfiguration`.
 func NewCfnSlackChannelConfiguration(scope constructs.Construct, id *string, props *CfnSlackChannelConfigurationProps) CfnSlackChannelConfiguration {
 	_init_.Initialize()
 
@@ -460,7 +452,6 @@ func NewCfnSlackChannelConfiguration(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Create a new `AWS::Chatbot::SlackChannelConfiguration`.
 func NewCfnSlackChannelConfiguration_Override(c CfnSlackChannelConfiguration, scope constructs.Construct, id *string, props *CfnSlackChannelConfigurationProps) {
 	_init_.Initialize()
 

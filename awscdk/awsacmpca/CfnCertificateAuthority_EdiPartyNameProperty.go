@@ -13,10 +13,16 @@ package awsacmpca
 //   	PartyName: jsii.String("partyName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html
+//
 type CfnCertificateAuthority_EdiPartyNameProperty struct {
 	// Specifies the name assigner.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
+	//
 	NameAssigner *string `field:"required" json:"nameAssigner" yaml:"nameAssigner"`
 	// Specifies the party name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
+	//
 	PartyName *string `field:"required" json:"partyName" yaml:"partyName"`
 }
 

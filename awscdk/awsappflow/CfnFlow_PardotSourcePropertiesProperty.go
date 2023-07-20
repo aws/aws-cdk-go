@@ -10,8 +10,11 @@ package awsappflow
 //   	Object: jsii.String("object"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-pardotsourceproperties.html
+//
 type CfnFlow_PardotSourcePropertiesProperty struct {
-	// `CfnFlow.PardotSourcePropertiesProperty.Object`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-pardotsourceproperties.html#cfn-appflow-flow-pardotsourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 }
 

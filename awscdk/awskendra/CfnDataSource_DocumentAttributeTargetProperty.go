@@ -29,18 +29,26 @@ package awskendra
 //   	TargetDocumentAttributeValueDeletion: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributetarget.html
+//
 type CfnDataSource_DocumentAttributeTargetProperty struct {
 	// The identifier of the target document attribute or metadata field.
 	//
 	// For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributetarget.html#cfn-kendra-datasource-documentattributetarget-targetdocumentattributekey
+	//
 	TargetDocumentAttributeKey *string `field:"required" json:"targetDocumentAttributeKey" yaml:"targetDocumentAttributeKey"`
 	// The target value you want to create for the target attribute.
 	//
 	// For example, 'Finance' could be the target value for the target attribute key 'Department'.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributetarget.html#cfn-kendra-datasource-documentattributetarget-targetdocumentattributevalue
+	//
 	TargetDocumentAttributeValue interface{} `field:"optional" json:"targetDocumentAttributeValue" yaml:"targetDocumentAttributeValue"`
 	// `TRUE` to delete the existing target value for your specified target attribute key.
 	//
 	// You cannot create a target value and set this to `TRUE` . To create a target value ( `TargetDocumentAttributeValue` ), set this to `FALSE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributetarget.html#cfn-kendra-datasource-documentattributetarget-targetdocumentattributevaluedeletion
+	//
 	TargetDocumentAttributeValueDeletion interface{} `field:"optional" json:"targetDocumentAttributeValueDeletion" yaml:"targetDocumentAttributeValueDeletion"`
 }
 

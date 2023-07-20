@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTAnalytics::Pipeline`.
+// The AWS::IoTAnalytics::Pipeline resource consumes messages from one or more channels and allows you to process the messages before storing them in a data store.
 //
-// The AWS::IoTAnalytics::Pipeline resource consumes messages from one or more channels and allows you to process the messages before storing them in a data store. You must specify both a `channel` and a `datastore` activity and, optionally, as many as 23 additional activities in the `pipelineActivities` array. For more information, see [How to Use AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how) in the *AWS IoT Analytics User Guide* .
+// You must specify both a `channel` and a `datastore` activity and, optionally, as many as 23 additional activities in the `pipelineActivities` array. For more information, see [How to Use AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how) in the *AWS IoT Analytics User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -113,9 +113,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html
+//
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -139,12 +142,6 @@ type CfnPipeline interface {
 	// The tree node.
 	Node() constructs.Node
 	// A list of "PipelineActivity" objects.
-	//
-	// Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
-	//
-	// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
-	//
-	// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
 	PipelineActivities() interface{}
 	SetPipelineActivities(val interface{})
 	// The name of the pipeline.
@@ -159,10 +156,11 @@ type CfnPipeline interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata which can be used to manage the pipeline.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata which can be used to manage the pipeline.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -307,6 +305,7 @@ type CfnPipeline interface {
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPipeline) AttrId() *string {
@@ -429,6 +428,16 @@ func (j *jsiiProxy_CfnPipeline) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipeline) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipeline) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -450,7 +459,6 @@ func (j *jsiiProxy_CfnPipeline) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTAnalytics::Pipeline`.
 func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
@@ -468,7 +476,6 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 	return &j
 }
 
-// Create a new `AWS::IoTAnalytics::Pipeline`.
 func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
@@ -494,6 +501,17 @@ func (j *jsiiProxy_CfnPipeline)SetPipelineName(val *string) {
 	_jsii_.Set(
 		j,
 		"pipelineName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

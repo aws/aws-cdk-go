@@ -36,16 +36,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimedefaultvalues.html
+//
 type CfnDashboard_DateTimeDefaultValuesProperty struct {
 	// The dynamic value of the `DataTimeDefaultValues` .
 	//
 	// Different defaults are displayed according to users, groups, and values mapping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimedefaultvalues.html#cfn-quicksight-dashboard-datetimedefaultvalues-dynamicvalue
+	//
 	DynamicValue interface{} `field:"optional" json:"dynamicValue" yaml:"dynamicValue"`
 	// The rolling date of the `DataTimeDefaultValues` .
 	//
 	// The date is determined from the dataset based on input expression.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimedefaultvalues.html#cfn-quicksight-dashboard-datetimedefaultvalues-rollingdate
+	//
 	RollingDate interface{} `field:"optional" json:"rollingDate" yaml:"rollingDate"`
 	// The static values of the `DataTimeDefaultValues` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimedefaultvalues.html#cfn-quicksight-dashboard-datetimedefaultvalues-staticvalues
+	//
 	StaticValues *[]*string `field:"optional" json:"staticValues" yaml:"staticValues"`
 }
 

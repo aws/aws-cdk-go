@@ -12,8 +12,12 @@ package awsec2
 //   	AutoRecovery: jsii.String("autoRecovery"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-maintenanceoptions.html
+//
 type CfnLaunchTemplate_MaintenanceOptionsProperty struct {
 	// Disables the automatic recovery behavior of your instance or sets it to default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-maintenanceoptions.html#cfn-ec2-launchtemplate-maintenanceoptions-autorecovery
+	//
 	AutoRecovery *string `field:"optional" json:"autoRecovery" yaml:"autoRecovery"`
 }
 

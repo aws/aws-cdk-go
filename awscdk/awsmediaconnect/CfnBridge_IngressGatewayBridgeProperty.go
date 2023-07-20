@@ -15,10 +15,16 @@ package awsmediaconnect
 //   	MaxOutputs: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-ingressgatewaybridge.html
+//
 type CfnBridge_IngressGatewayBridgeProperty struct {
 	// The maximum expected bitrate (in bps) of the ingress bridge.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-ingressgatewaybridge.html#cfn-mediaconnect-bridge-ingressgatewaybridge-maxbitrate
+	//
 	MaxBitrate *float64 `field:"required" json:"maxBitrate" yaml:"maxBitrate"`
 	// The maximum number of outputs on the ingress bridge.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-ingressgatewaybridge.html#cfn-mediaconnect-bridge-ingressgatewaybridge-maxoutputs
+	//
 	MaxOutputs *float64 `field:"required" json:"maxOutputs" yaml:"maxOutputs"`
 }
 

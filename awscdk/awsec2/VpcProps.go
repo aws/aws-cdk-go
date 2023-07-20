@@ -40,6 +40,8 @@ type VpcProps struct {
 	// split across all subnets per Availability Zone.
 	// Deprecated: Use ipAddresses instead.
 	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
+	// If set to false then disable the creation of the default internet gateway.
+	CreateInternetGateway *bool `field:"optional" json:"createInternetGateway" yaml:"createInternetGateway"`
 	// The default tenancy of instances launched into the VPC.
 	//
 	// By setting this to dedicated tenancy, instances will be launched on

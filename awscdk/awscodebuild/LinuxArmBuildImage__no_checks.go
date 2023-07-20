@@ -16,6 +16,10 @@ func validateLinuxArmBuildImage_FromCodeBuildImageIdParameters(id *string) error
 	return nil
 }
 
+func validateLinuxArmBuildImage_FromDockerRegistryParameters(name *string, options *DockerImageOptions) error {
+	return nil
+}
+
 func validateLinuxArmBuildImage_FromEcrRepositoryParameters(repository awsecr.IRepository) error {
 	return nil
 }

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDestination) validateSetRoleArnParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnDestination) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDestinationParameters(scope constructs.Construct, id *string, props *CfnDestinationProps) error {
 	return nil
 }

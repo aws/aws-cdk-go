@@ -13,10 +13,16 @@ package awslookoutmetrics
 //   	ColumnName: jsii.String("columnName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html
+//
 type CfnAnomalyDetector_TimestampColumnProperty struct {
 	// The format of the timestamp column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat
+	//
 	ColumnFormat *string `field:"optional" json:"columnFormat" yaml:"columnFormat"`
 	// The name of the timestamp column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname
+	//
 	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTWireless::WirelessDeviceImportTask`.
+// Information about an import task for wireless devices.
 //
-// Information about an import task for wireless devices. When creating the resource, either create a single wireless device import task using the Sidewalk manufacturing serial number (SMSN) of the wireless device, or create an import task for multiple devices by specifying both the `DeviceCreationFile` and the `Role` .
+// When creating the resource, either create a single wireless device import task using the Sidewalk manufacturing serial number (SMSN) of the wireless device, or create an import task for multiple devices by specifying both the `DeviceCreationFile` and the `Role` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdeviceimporttask.html
+//
 type CfnWirelessDeviceImportTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN (Amazon Resource Name) of the import task.
 	AttrArn() *string
 	// The date and time at which the wireless device import task was created.
@@ -98,10 +101,11 @@ type CfnWirelessDeviceImportTask interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Adds to or modifies the tags of the given resource.
-	//
-	// Tags are metadata that you can use to manage a resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Adds to or modifies the tags of the given resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,6 +250,7 @@ type CfnWirelessDeviceImportTask interface {
 type jsiiProxy_CfnWirelessDeviceImportTask struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnWirelessDeviceImportTask) AttrArn() *string {
@@ -458,6 +463,16 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWirelessDeviceImportTask) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWirelessDeviceImportTask) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -479,7 +494,6 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::IoTWireless::WirelessDeviceImportTask`.
 func NewCfnWirelessDeviceImportTask(scope constructs.Construct, id *string, props *CfnWirelessDeviceImportTaskProps) CfnWirelessDeviceImportTask {
 	_init_.Initialize()
 
@@ -497,7 +511,6 @@ func NewCfnWirelessDeviceImportTask(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::IoTWireless::WirelessDeviceImportTask`.
 func NewCfnWirelessDeviceImportTask_Override(c CfnWirelessDeviceImportTask, scope constructs.Construct, id *string, props *CfnWirelessDeviceImportTaskProps) {
 	_init_.Initialize()
 
@@ -526,6 +539,17 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask)SetSidewalk(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sidewalk",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWirelessDeviceImportTask)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

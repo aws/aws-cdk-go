@@ -50,8 +50,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablesortconfiguration.html
+//
 type CfnAnalysis_PivotTableSortConfigurationProperty struct {
 	// The field sort options for a pivot table sort configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablesortconfiguration.html#cfn-quicksight-analysis-pivottablesortconfiguration-fieldsortoptions
+	//
 	FieldSortOptions interface{} `field:"optional" json:"fieldSortOptions" yaml:"fieldSortOptions"`
 }
 

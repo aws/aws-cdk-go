@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnUser) validateSetSecurityProfileArnsParameters(val *[]*str
 	return nil
 }
 
+func (j *jsiiProxy_CfnUser) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUser) validateSetUsernameParameters(val *string) error {
 	return nil
 }

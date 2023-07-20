@@ -12,8 +12,12 @@ package awslookoutmetrics
 //   	AnomalyDetectorFrequency: jsii.String("anomalyDetectorFrequency"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html
+//
 type CfnAnomalyDetector_AnomalyDetectorConfigProperty struct {
 	// The frequency at which the detector analyzes its source data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
+	//
 	AnomalyDetectorFrequency *string `field:"required" json:"anomalyDetectorFrequency" yaml:"anomalyDetectorFrequency"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::LakeFormation::DataLakeSettings`.
-//
 // The `AWS::LakeFormation::DataLakeSettings` resource is an AWS Lake Formation resource type that manages the data lake settings for your account.
 //
 // Example:
@@ -61,6 +59,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html
+//
 type CfnDataLakeSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -68,17 +68,10 @@ type CfnDataLakeSettings interface {
 	Admins() interface{}
 	SetAdmins(val interface{})
 	// Whether to allow Amazon EMR clusters or other third-party query engines to access data managed by Lake Formation .
-	//
-	// If set to true, you allow Amazon EMR clusters or other third-party engines to access data in Amazon S3 locations that are registered with Lake Formation .
-	//
-	// If false or null, no third-party query engines will be able to access data in Amazon S3 locations that are registered with Lake Formation.
-	//
-	// For more information, see [External data filtering setting](https://docs.aws.amazon.com/lake-formation/latest/dg/initial-LF-setup.html#external-data-filter) .
 	AllowExternalDataFiltering() interface{}
 	SetAllowExternalDataFiltering(val interface{})
+	AttrId() *string
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-	//
-	// Lake Formation will publish the acceptable key-value pair, for example key = "LakeFormationTrustedCaller" and value = "TRUE" and the third party integrator must properly tag the temporary security credentials that will be used to call Lake Formation 's administrative API operations.
 	AuthorizedSessionTagValueList() *[]*string
 	SetAuthorizedSessionTagValueList(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -87,21 +80,9 @@ type CfnDataLakeSettings interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specifies whether access control on a newly created database is managed by Lake Formation permissions or exclusively by IAM permissions.
-	//
-	// A null value indicates that the access is controlled by Lake Formation permissions. `ALL` permissions assigned to `IAM_ALLOWED_PRINCIPALS` group indicates that the user's IAM permissions determine the access to the database. This is referred to as the setting "Use only IAM access control," and is to support backward compatibility with the AWS Glue permission model implemented by IAM permissions.
-	//
-	// The only permitted values are an empty array or an array that contains a single JSON object that grants `ALL` to `IAM_ALLOWED_PRINCIPALS` .
-	//
-	// For more information, see [Changing the default security settings for your data lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) .
 	CreateDatabaseDefaultPermissions() interface{}
 	SetCreateDatabaseDefaultPermissions(val interface{})
 	// Specifies whether access control on a newly created table is managed by Lake Formation permissions or exclusively by IAM permissions.
-	//
-	// A null value indicates that the access is controlled by Lake Formation permissions. `ALL` permissions assigned to `IAM_ALLOWED_PRINCIPALS` group indicate that the user's IAM permissions determine the access to the table. This is referred to as the setting "Use only IAM access control," and is to support the backward compatibility with the AWS Glue permission model implemented by IAM permissions.
-	//
-	// The only permitted values are an empty array or an array that contains a single JSON object that grants `ALL` permissions to `IAM_ALLOWED_PRINCIPALS` .
-	//
-	// For more information, see [Changing the default security settings for your data lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) .
 	CreateTableDefaultPermissions() interface{}
 	SetCreateTableDefaultPermissions(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -124,8 +105,6 @@ type CfnDataLakeSettings interface {
 	// The tree node.
 	Node() constructs.Node
 	// A key-value map that provides an additional configuration on your data lake.
-	//
-	// `CrossAccountVersion` is the key you can configure in the `Parameters` field. Accepted values for the `CrossAccountVersion` key are 1, 2, and 3.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -138,8 +117,6 @@ type CfnDataLakeSettings interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An array of UTF-8 strings.
-	//
-	// A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs). The user ARNs can be logged in the resource owner's CloudTrail log. You may want to specify this property when you are in a high-trust boundary, such as the same team or company.
 	TrustedResourceOwners() *[]*string
 	SetTrustedResourceOwners(val *[]*string)
 	// Deprecated.
@@ -308,6 +285,16 @@ func (j *jsiiProxy_CfnDataLakeSettings) AllowExternalDataFiltering() interface{}
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataLakeSettings) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataLakeSettings) AuthorizedSessionTagValueList() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -469,7 +456,6 @@ func (j *jsiiProxy_CfnDataLakeSettings) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::LakeFormation::DataLakeSettings`.
 func NewCfnDataLakeSettings(scope constructs.Construct, id *string, props *CfnDataLakeSettingsProps) CfnDataLakeSettings {
 	_init_.Initialize()
 
@@ -487,7 +473,6 @@ func NewCfnDataLakeSettings(scope constructs.Construct, id *string, props *CfnDa
 	return &j
 }
 
-// Create a new `AWS::LakeFormation::DataLakeSettings`.
 func NewCfnDataLakeSettings_Override(c CfnDataLakeSettings, scope constructs.Construct, id *string, props *CfnDataLakeSettingsProps) {
 	_init_.Initialize()
 
@@ -562,9 +547,6 @@ func (j *jsiiProxy_CfnDataLakeSettings)SetExternalDataFilteringAllowList(val int
 }
 
 func (j *jsiiProxy_CfnDataLakeSettings)SetParameters(val interface{}) {
-	if err := j.validateSetParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parameters",

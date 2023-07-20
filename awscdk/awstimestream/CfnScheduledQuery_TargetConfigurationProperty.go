@@ -58,8 +58,12 @@ package awstimestream
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html
+//
 type CfnScheduledQuery_TargetConfigurationProperty struct {
 	// Configuration needed to write data into the Timestream database and table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html#cfn-timestream-scheduledquery-targetconfiguration-timestreamconfiguration
+	//
 	TimestreamConfiguration interface{} `field:"required" json:"timestreamConfiguration" yaml:"timestreamConfiguration"`
 }
 

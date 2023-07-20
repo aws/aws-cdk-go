@@ -15,10 +15,16 @@ package awsquicksight
 //   	DataSetIdentifier: jsii.String("dataSetIdentifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-rollingdateconfiguration.html
+//
 type CfnAnalysis_RollingDateConfigurationProperty struct {
 	// The expression of the rolling date configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-rollingdateconfiguration.html#cfn-quicksight-analysis-rollingdateconfiguration-expression
+	//
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// The data set that is used in the rolling date configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-rollingdateconfiguration.html#cfn-quicksight-analysis-rollingdateconfiguration-datasetidentifier
+	//
 	DataSetIdentifier *string `field:"optional" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
 }
 

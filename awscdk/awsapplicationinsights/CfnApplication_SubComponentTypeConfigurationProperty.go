@@ -42,10 +42,16 @@ package awsapplicationinsights
 //   	SubComponentType: jsii.String("subComponentType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
+//
 type CfnApplication_SubComponentTypeConfigurationProperty struct {
 	// The configuration settings of the sub-components.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
+	//
 	SubComponentConfigurationDetails interface{} `field:"required" json:"subComponentConfigurationDetails" yaml:"subComponentConfigurationDetails"`
 	// The sub-component type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
+	//
 	SubComponentType *string `field:"required" json:"subComponentType" yaml:"subComponentType"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::DeviceDefinitionVersion`.
+// The `AWS::Greengrass::DeviceDefinitionVersion` resource represents a device definition version for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::DeviceDefinitionVersion` resource represents a device definition version for AWS IoT Greengrass . A device definition version contains a list of devices.
+// A device definition version contains a list of devices.
 //
 // > To create a device definition version, you must specify the ID of the device definition that you want to associate with the version. For information about creating a device definition, see [`AWS::Greengrass::DeviceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html) .
 // >
@@ -36,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html
+//
 type CfnDeviceDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -49,8 +52,6 @@ type CfnDeviceDefinitionVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ID of the device definition associated with this version.
-	//
-	// This value is a GUID.
 	DeviceDefinitionId() *string
 	SetDeviceDefinitionId(val *string)
 	// The devices in this version.
@@ -223,6 +224,16 @@ type jsiiProxy_CfnDeviceDefinitionVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnDeviceDefinitionVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeviceDefinitionVersion) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -344,7 +355,6 @@ func (j *jsiiProxy_CfnDeviceDefinitionVersion) UpdatedProperties() *map[string]i
 }
 
 
-// Create a new `AWS::Greengrass::DeviceDefinitionVersion`.
 func NewCfnDeviceDefinitionVersion(scope constructs.Construct, id *string, props *CfnDeviceDefinitionVersionProps) CfnDeviceDefinitionVersion {
 	_init_.Initialize()
 
@@ -362,7 +372,6 @@ func NewCfnDeviceDefinitionVersion(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::Greengrass::DeviceDefinitionVersion`.
 func NewCfnDeviceDefinitionVersion_Override(c CfnDeviceDefinitionVersion, scope constructs.Construct, id *string, props *CfnDeviceDefinitionVersionProps) {
 	_init_.Initialize()
 

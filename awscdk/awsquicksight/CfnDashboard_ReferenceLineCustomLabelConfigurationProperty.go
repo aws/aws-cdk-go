@@ -12,8 +12,12 @@ package awsquicksight
 //   	CustomLabel: jsii.String("customLabel"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinecustomlabelconfiguration.html
+//
 type CfnDashboard_ReferenceLineCustomLabelConfigurationProperty struct {
 	// The string text of the custom label.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinecustomlabelconfiguration.html#cfn-quicksight-dashboard-referencelinecustomlabelconfiguration-customlabel
+	//
 	CustomLabel *string `field:"required" json:"customLabel" yaml:"customLabel"`
 }
 

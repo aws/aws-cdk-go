@@ -13,10 +13,16 @@ package awsec2
 //   	LogGroup: jsii.String("logGroup"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-cloudwatchlogs.html
+//
 type CfnVerifiedAccessInstance_CloudWatchLogsProperty struct {
 	// Indicates whether logging is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-cloudwatchlogs.html#cfn-ec2-verifiedaccessinstance-cloudwatchlogs-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The ID of the CloudWatch Logs log group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-cloudwatchlogs.html#cfn-ec2-verifiedaccessinstance-cloudwatchlogs-loggroup
+	//
 	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
 }
 

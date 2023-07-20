@@ -85,18 +85,30 @@ package awslakeformation
 //   	Catalog: jsii.String("catalog"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html
+//
 type CfnPrincipalPermissionsProps struct {
 	// The permissions granted or revoked.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-permissions
+	//
 	Permissions *[]*string `field:"required" json:"permissions" yaml:"permissions"`
 	// Indicates the ability to grant permissions (as a subset of permissions granted).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-permissionswithgrantoption
+	//
 	PermissionsWithGrantOption *[]*string `field:"required" json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
 	// The principal to be granted a permission.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-principal
+	//
 	Principal interface{} `field:"required" json:"principal" yaml:"principal"`
 	// The resource to be granted or revoked permissions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-resource
+	//
 	Resource interface{} `field:"required" json:"resource" yaml:"resource"`
 	// The identifier for the Data Catalog .
 	//
 	// By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-catalog
+	//
 	Catalog *string `field:"optional" json:"catalog" yaml:"catalog"`
 }
 

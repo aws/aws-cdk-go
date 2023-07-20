@@ -12,8 +12,12 @@ package awsquicksight
 //   	Color: jsii.String("color"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialheatmapdatacolor.html
+//
 type CfnDashboard_GeospatialHeatmapDataColorProperty struct {
 	// The hex color to be used in the heatmap point style.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialheatmapdatacolor.html#cfn-quicksight-dashboard-geospatialheatmapdatacolor-color
+	//
 	Color *string `field:"required" json:"color" yaml:"color"`
 }
 

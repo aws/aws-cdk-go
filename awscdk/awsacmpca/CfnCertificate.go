@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ACMPCA::Certificate`.
+// The `AWS::ACMPCA::Certificate` resource is used to issue a certificate using your private certificate authority.
 //
-// The `AWS::ACMPCA::Certificate` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
+// For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -141,6 +141,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html
+//
 type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -184,10 +186,6 @@ type CfnCertificate interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The name of the algorithm that will be used to sign the certificate to be issued.
-	//
-	// This parameter should not be confused with the `SigningAlgorithm` parameter used to sign a CSR in the `CreateCertificateAuthority` action.
-	//
-	// > The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
 	SigningAlgorithm() *string
 	SetSigningAlgorithm(val *string)
 	// The stack in which this element is defined.
@@ -195,8 +193,6 @@ type CfnCertificate interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies a custom configuration template to use when issuing a certificate.
-	//
-	// If this parameter is not provided, AWS Private CA defaults to the `EndEntityCertificate/V1` template. For more information about AWS Private CA templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) .
 	TemplateArn() *string
 	SetTemplateArn(val *string)
 	// Deprecated.
@@ -216,14 +212,6 @@ type CfnCertificate interface {
 	Validity() interface{}
 	SetValidity(val interface{})
 	// Information describing the start of the validity period of the certificate.
-	//
-	// This parameter sets the “Not Before" date for the certificate.
-	//
-	// By default, when issuing a certificate, AWS Private CA sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The `ValidityNotBefore` parameter can be used to customize the “Not Before” value.
-	//
-	// Unlike the `Validity` parameter, the `ValidityNotBefore` parameter is optional.
-	//
-	// The `ValidityNotBefore` value is expressed as an explicit date and time, using the `Validity` type value `ABSOLUTE` .
 	ValidityNotBefore() interface{}
 	SetValidityNotBefore(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -550,7 +538,6 @@ func (j *jsiiProxy_CfnCertificate) ValidityNotBefore() interface{} {
 }
 
 
-// Create a new `AWS::ACMPCA::Certificate`.
 func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
@@ -568,7 +555,6 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 	return &j
 }
 
-// Create a new `AWS::ACMPCA::Certificate`.
 func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 

@@ -12,8 +12,12 @@ package awskinesisanalytics
 //   	DatabaseArn: jsii.String("databaseArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html
+//
 type CfnApplicationV2_GlueDataCatalogConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html#cfn-kinesisanalyticsv2-application-gluedatacatalogconfiguration-databasearn
+	//
 	DatabaseArn *string `field:"optional" json:"databaseArn" yaml:"databaseArn"`
 }
 

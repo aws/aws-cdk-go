@@ -202,14 +202,6 @@ func (j *jsiiProxy_CfnStackSet) validateSetAutoDeploymentParameters(val interfac
 	return nil
 }
 
-func (j *jsiiProxy_CfnStackSet) validateSetManagedExecutionParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnStackSet) validateSetOperationPreferencesParameters(val interface{}) error {
 	switch val.(type) {
 	case IResolvable:
@@ -365,6 +357,16 @@ func (j *jsiiProxy_CfnStackSet) validateSetStackInstancesGroupParameters(val int
 func (j *jsiiProxy_CfnStackSet) validateSetStackSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnStackSet) validateSetTagsRawParameters(val *[]*CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

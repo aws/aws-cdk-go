@@ -15,10 +15,16 @@ package awsdatabrew
 //   	ValueReference: jsii.String("valueReference"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html
+//
 type CfnDataset_FilterValueProperty struct {
 	// The value to be associated with the substitution variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// The substitution variable reference.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference
+	//
 	ValueReference *string `field:"required" json:"valueReference" yaml:"valueReference"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::Subnet`.
-//
 // Specifies a subnet for the specified VPC.
 //
 // For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
@@ -18,40 +16,51 @@ import (
 // For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide* .
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
 //
-//   var privateDnsNameOptionsOnLaunch interface{}
 //
-//   cfnSubnet := awscdk.Aws_ec2.NewCfnSubnet(this, jsii.String("MyCfnSubnet"), &CfnSubnetProps{
-//   	VpcId: jsii.String("vpcId"),
+//   func associateSubnetWithV6Cidr(vpc *vpc, count *f64, subnet iSubnet) {
+//   	cfnSubnet := *subnet.Node.defaultChild.(cfnSubnet)
+//   	cfnSubnet.Ipv6CidrBlock = awscdk.Fn_Select(count, awscdk.Fn_Cidr(awscdk.Fn_Select(jsii.Number(0), vpc.VpcIpv6CidrBlocks), jsii.Number(256), (jsii.Number(128 - 64)).toString()))
+//   	cfnSubnet.AssignIpv6AddressOnCreation = true
+//   }
 //
-//   	// the properties below are optional
-//   	AssignIpv6AddressOnCreation: jsii.Boolean(false),
-//   	AvailabilityZone: jsii.String("availabilityZone"),
-//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
-//   	CidrBlock: jsii.String("cidrBlock"),
-//   	EnableDns64: jsii.Boolean(false),
-//   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
-//   	Ipv6Native: jsii.Boolean(false),
-//   	MapPublicIpOnLaunch: jsii.Boolean(false),
-//   	OutpostArn: jsii.String("outpostArn"),
-//   	PrivateDnsNameOptionsOnLaunch: privateDnsNameOptionsOnLaunch,
-//   	Tags: []cfnTag{
-//   		&cfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
+//   // make an ipv6 cidr
+//   ipv6cidr := ec2.NewCfnVPCCidrBlock(this, jsii.String("CIDR6"), &CfnVPCCidrBlockProps{
+//   	VpcId: vpc.VpcId,
+//   	AmazonProvidedIpv6CidrBlock: jsii.Boolean(true),
+//   })
+//
+//   // connect the ipv6 cidr to all vpc subnets
+//   subnetcount := 0
+//   subnets := vpc.PublicSubnets.concat(vpc.PrivateSubnets)
+//   for _, subnet := range subnets {
+//   	// Wait for the ipv6 cidr to complete
+//   	subnet.Node.AddDependency(ipv6cidr)
+//   	associateSubnetWithV6Cidr(vpc, subnetcount, subnet)
+//   	subnetcount = subnetcount + 1
+//   }
+//
+//   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+//   	Version: eks.KubernetesVersion_V1_27(),
+//   	Vpc: vpc,
+//   	IpFamily: eks.IpFamily_IP_V6,
+//   	VpcSubnets: []subnetSelection{
+//   		&subnetSelection{
+//   			Subnets: vpc.*PublicSubnets,
 //   		},
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
+//
 type CfnSubnet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is `false` .
+	awscdk.ITaggable
+	// Indicates whether a network interface created in this subnet receives an IPv6 address.
 	//
-	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
+	// The default value is `false` .
 	AssignIpv6AddressOnCreation() interface{}
 	SetAssignIpv6AddressOnCreation(val interface{})
 	// The Availability Zone of this subnet.
@@ -75,8 +84,6 @@ type CfnSubnet interface {
 	// The ID of the subnet's VPC, such as `vpc-11ad4878` .
 	AttrVpcId() *string
 	// The Availability Zone of the subnet.
-	//
-	// If you update this property, you must also update the `CidrBlock` property.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// The AZ ID of the subnet.
@@ -88,8 +95,6 @@ type CfnSubnet interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The IPv4 CIDR block assigned to the subnet.
-	//
-	// If you update this property, we create a new subnet, and then delete the existing one.
 	CidrBlock() *string
 	SetCidrBlock(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -97,18 +102,12 @@ type CfnSubnet interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
-	//
-	// For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *Amazon Virtual Private Cloud User Guide* .
 	EnableDns64() interface{}
 	SetEnableDns64(val interface{})
 	// The IPv6 CIDR block.
-	//
-	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
 	// Indicates whether this is an IPv6 only subnet.
-	//
-	// For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *Amazon Virtual Private Cloud User Guide* .
 	Ipv6Native() interface{}
 	SetIpv6Native(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -122,8 +121,6 @@ type CfnSubnet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Indicates whether instances launched in this subnet receive a public IPv4 address.
-	//
-	// The default value is `false` .
 	MapPublicIpOnLaunch() interface{}
 	SetMapPublicIpOnLaunch(val interface{})
 	// The tree node.
@@ -132,14 +129,6 @@ type CfnSubnet interface {
 	OutpostArn() *string
 	SetOutpostArn(val *string)
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled.
-	//
-	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	//
-	// Available options:
-	//
-	// - EnableResourceNameDnsAAAARecord (true | false)
-	// - EnableResourceNameDnsARecord (true | false)
-	// - HostnameType (ip-name | resource-name).
 	PrivateDnsNameOptionsOnLaunch() interface{}
 	SetPrivateDnsNameOptionsOnLaunch(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -151,8 +140,11 @@ type CfnSubnet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Any tags assigned to the subnet.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags assigned to the subnet.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -167,8 +159,6 @@ type CfnSubnet interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of the VPC the subnet is in.
-	//
-	// If you update this property, you must also update the `CidrBlock` property.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -302,6 +292,7 @@ type CfnSubnet interface {
 type jsiiProxy_CfnSubnet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSubnet) AssignIpv6AddressOnCreation() interface{} {
@@ -574,6 +565,16 @@ func (j *jsiiProxy_CfnSubnet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubnet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubnet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -605,7 +606,6 @@ func (j *jsiiProxy_CfnSubnet) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::Subnet`.
 func NewCfnSubnet(scope constructs.Construct, id *string, props *CfnSubnetProps) CfnSubnet {
 	_init_.Initialize()
 
@@ -623,7 +623,6 @@ func NewCfnSubnet(scope constructs.Construct, id *string, props *CfnSubnetProps)
 	return &j
 }
 
-// Create a new `AWS::EC2::Subnet`.
 func NewCfnSubnet_Override(c CfnSubnet, scope constructs.Construct, id *string, props *CfnSubnetProps) {
 	_init_.Initialize()
 
@@ -719,12 +718,20 @@ func (j *jsiiProxy_CfnSubnet)SetOutpostArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnSubnet)SetPrivateDnsNameOptionsOnLaunch(val interface{}) {
-	if err := j.validateSetPrivateDnsNameOptionsOnLaunchParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"privateDnsNameOptionsOnLaunch",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubnet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"privateDnsNameOptionsOnLaunch",
+		"tagsRaw",
 		val,
 	)
 }

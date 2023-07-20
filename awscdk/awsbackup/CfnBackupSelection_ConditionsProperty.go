@@ -37,20 +37,30 @@ package awsbackup
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html
+//
 type CfnBackupSelection_ConditionsProperty struct {
 	// Filters the values of your tagged resources for only those resources that you tagged with the same value.
 	//
 	// Also called "exact matching."
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html#cfn-backup-backupselection-conditions-stringequals
+	//
 	StringEquals interface{} `field:"optional" json:"stringEquals" yaml:"stringEquals"`
 	// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (*) anywhere in the string.
 	//
 	// For example, "prod*" or "*rod*" matches the tag value "production".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html#cfn-backup-backupselection-conditions-stringlike
+	//
 	StringLike interface{} `field:"optional" json:"stringLike" yaml:"stringLike"`
 	// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value.
 	//
 	// Also called "negated matching."
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html#cfn-backup-backupselection-conditions-stringnotequals
+	//
 	StringNotEquals interface{} `field:"optional" json:"stringNotEquals" yaml:"stringNotEquals"`
 	// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (*) anywhere in the string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html#cfn-backup-backupselection-conditions-stringnotlike
+	//
 	StringNotLike interface{} `field:"optional" json:"stringNotLike" yaml:"stringNotLike"`
 }
 

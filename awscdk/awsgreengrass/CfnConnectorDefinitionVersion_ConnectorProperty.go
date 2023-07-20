@@ -22,18 +22,26 @@ package awsgreengrass
 //   	Parameters: parameters,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinitionversion-connector.html
+//
 type CfnConnectorDefinitionVersion_ConnectorProperty struct {
 	// The Amazon Resource Name (ARN) of the connector.
 	//
 	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinitionversion-connector.html#cfn-greengrass-connectordefinitionversion-connector-connectorarn
+	//
 	ConnectorArn *string `field:"required" json:"connectorArn" yaml:"connectorArn"`
 	// A descriptive or arbitrary ID for the connector.
 	//
 	// This value must be unique within the connector definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinitionversion-connector.html#cfn-greengrass-connectordefinitionversion-connector-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The parameters or configuration that the connector uses.
 	//
 	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinitionversion-connector.html#cfn-greengrass-connectordefinitionversion-connector-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

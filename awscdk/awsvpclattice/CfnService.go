@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VpcLattice::Service`.
+// Creates a service.
 //
-// Creates a service. A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
+// A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
 //
 // For more information, see [Services](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html) in the *Amazon VPC Lattice User Guide* .
 //
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-service.html
+//
 type CfnService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the service.
 	AttrArn() *string
 	// The date and time that the service was created, specified in ISO-8601 format.
@@ -55,9 +58,6 @@ type CfnService interface {
 	// The status of the service.
 	AttrStatus() *string
 	// The type of IAM policy.
-	//
-	// - `NONE` : The resource does not use an IAM policy. This is the default.
-	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 	AuthType() *string
 	SetAuthType(val *string)
 	// The Amazon Resource Name (ARN) of the certificate.
@@ -75,7 +75,6 @@ type CfnService interface {
 	// The custom domain name of the service.
 	CustomDomainName() *string
 	SetCustomDomainName(val *string)
-	// `AWS::VpcLattice::Service.DnsEntry`.
 	DnsEntry() interface{}
 	SetDnsEntry(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -89,10 +88,6 @@ type CfnService interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the service.
-	//
-	// The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-	//
-	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -106,8 +101,11 @@ type CfnService interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the service.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the service.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -252,6 +250,7 @@ type CfnService interface {
 type jsiiProxy_CfnService struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnService) AttrArn() *string {
@@ -464,6 +463,16 @@ func (j *jsiiProxy_CfnService) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -485,7 +494,6 @@ func (j *jsiiProxy_CfnService) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::VpcLattice::Service`.
 func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
 
@@ -503,7 +511,6 @@ func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProp
 	return &j
 }
 
-// Create a new `AWS::VpcLattice::Service`.
 func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string, props *CfnServiceProps) {
 	_init_.Initialize()
 
@@ -553,6 +560,17 @@ func (j *jsiiProxy_CfnService)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

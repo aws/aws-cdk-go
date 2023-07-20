@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Personalize::Solution`.
+// An object that provides information about a solution.
 //
-// An object that provides information about a solution. A solution is a trained model that can be deployed as a campaign.
+// A solution is a trained model that can be deployed as a campaign.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,6 +43,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html
+//
 type CfnSolution interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -61,8 +63,6 @@ type CfnSolution interface {
 	DatasetGroupArn() *string
 	SetDatasetGroupArn(val *string)
 	// The event type (for example, 'click' or 'like') that is used for training the model.
-	//
-	// If no `eventType` is provided, Amazon Personalize uses all interactions for training with equal weight regardless of type.
 	EventType() *string
 	SetEventType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -81,20 +81,12 @@ type CfnSolution interface {
 	// The tree node.
 	Node() constructs.Node
 	// > We don't recommend enabling automated machine learning.
-	//
-	// Instead, match your use case to the available Amazon Personalize recipes. For more information, see [Determining your use case.](https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html)
-	//
-	// When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from the list specified in the solution configuration ( `recipeArn` must not be specified). When false (the default), Amazon Personalize uses `recipeArn` for training.
 	PerformAutoMl() interface{}
 	SetPerformAutoMl(val interface{})
 	// Whether to perform hyperparameter optimization (HPO) on the chosen recipe.
-	//
-	// The default is `false` .
 	PerformHpo() interface{}
 	SetPerformHpo(val interface{})
 	// The ARN of the recipe used to create the solution.
-	//
-	// This is required when `performAutoML` is false.
 	RecipeArn() *string
 	SetRecipeArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -436,7 +428,6 @@ func (j *jsiiProxy_CfnSolution) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Personalize::Solution`.
 func NewCfnSolution(scope constructs.Construct, id *string, props *CfnSolutionProps) CfnSolution {
 	_init_.Initialize()
 
@@ -454,7 +445,6 @@ func NewCfnSolution(scope constructs.Construct, id *string, props *CfnSolutionPr
 	return &j
 }
 
-// Create a new `AWS::Personalize::Solution`.
 func NewCfnSolution_Override(c CfnSolution, scope constructs.Construct, id *string, props *CfnSolutionProps) {
 	_init_.Initialize()
 

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnRecordingConfiguration) validateSetDestinationConfiguratio
 	return nil
 }
 
+func (j *jsiiProxy_CfnRecordingConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRecordingConfiguration) validateSetThumbnailConfigurationParameters(val interface{}) error {
 	return nil
 }

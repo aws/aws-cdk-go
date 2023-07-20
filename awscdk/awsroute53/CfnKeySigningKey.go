@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53::KeySigningKey`.
+// The `AWS::Route53::KeySigningKey` resource creates a new key-signing key (KSK) in a hosted zone.
 //
-// The `AWS::Route53::KeySigningKey` resource creates a new key-signing key (KSK) in a hosted zone. The hosted zone ID is passed as a parameter in the KSK properties. You can specify the properties of this KSK using the `Name` , `Status` , and `KeyManagementServiceArn` properties of the resource.
+// The hosted zone ID is passed as a parameter in the KSK properties. You can specify the properties of this KSK using the `Name` , `Status` , and `KeyManagementServiceArn` properties of the resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,6 +24,8 @@ import (
 //   	Name: jsii.String("name"),
 //   	Status: jsii.String("status"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html
 //
 type CfnKeySigningKey interface {
 	awscdk.CfnResource
@@ -38,13 +40,9 @@ type CfnKeySigningKey interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The unique string (ID) that is used to identify a hosted zone.
-	//
-	// For example: `Z00001111A1ABCaaABC11` .
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
 	// The Amazon resource name (ARN) for a customer managed customer master key (CMK) in AWS Key Management Service ( AWS KMS ).
-	//
-	// The `KeyManagementServiceArn` must be unique for each key-signing key (KSK) in a single hosted zone. For example: `arn:aws:kms:us-east-1:111122223333:key/111a2222-a11b-1ab1-2ab2-1ab21a2b3a111` .
 	KeyManagementServiceArn() *string
 	SetKeyManagementServiceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -58,8 +56,6 @@ type CfnKeySigningKey interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A string used to identify a key-signing key (KSK).
-	//
-	// `Name` can include numbers, letters, and underscores (_). `Name` must be unique for each key-signing key in the same hosted zone.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -74,14 +70,6 @@ type CfnKeySigningKey interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A string that represents the current key-signing key (KSK) status.
-	//
-	// Status can have one of the following values:
-	//
-	// - **ACTIVE** - The KSK is being used for signing.
-	// - **INACTIVE** - The KSK is not being used for signing.
-	// - **DELETING** - The KSK is in the process of being deleted.
-	// - **ACTION_NEEDED** - There is a problem with the KSK that requires you to take action to resolve. For example, the customer managed key might have been deleted, or the permissions for the customer managed key might have been changed.
-	// - **INTERNAL_FAILURE** - There was an error during a request. Before you can continue to work with DNSSEC signing, including actions that involve this KSK, you must correct the problem. For example, you may need to activate or deactivate the KSK.
 	Status() *string
 	SetStatus(val *string)
 	// Deprecated.
@@ -371,7 +359,6 @@ func (j *jsiiProxy_CfnKeySigningKey) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Route53::KeySigningKey`.
 func NewCfnKeySigningKey(scope constructs.Construct, id *string, props *CfnKeySigningKeyProps) CfnKeySigningKey {
 	_init_.Initialize()
 
@@ -389,7 +376,6 @@ func NewCfnKeySigningKey(scope constructs.Construct, id *string, props *CfnKeySi
 	return &j
 }
 
-// Create a new `AWS::Route53::KeySigningKey`.
 func NewCfnKeySigningKey_Override(c CfnKeySigningKey, scope constructs.Construct, id *string, props *CfnKeySigningKeyProps) {
 	_init_.Initialize()
 

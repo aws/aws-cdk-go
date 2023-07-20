@@ -13,10 +13,16 @@ package awsvpclattice
 //   	HostedZoneId: jsii.String("hostedZoneId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-service-dnsentry.html
+//
 type CfnService_DnsEntryProperty struct {
 	// The domain name of the service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-service-dnsentry.html#cfn-vpclattice-service-dnsentry-domainname
+	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The ID of the hosted zone.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-service-dnsentry.html#cfn-vpclattice-service-dnsentry-hostedzoneid
+	//
 	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::LoadBalancer`.
-//
 // The `AWS::Lightsail::LoadBalancer` resource specifies a load balancer that can be used with Lightsail instances.
 //
 // > You cannot attach a TLS certificate to a load balancer using the `AWS::Lightsail::LoadBalancer` resource type. Instead, use the `AWS::Lightsail::LoadBalancerTlsCertificate` resource type to create a certificate and attach it to a load balancer.
@@ -41,9 +39,12 @@ import (
 //   	TlsPolicyName: jsii.String("tlsPolicyName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html
+//
 type CfnLoadBalancer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Lightsail instances to attach to the load balancer.
 	AttachedInstances() *[]*string
 	SetAttachedInstances(val *[]*string)
@@ -59,18 +60,12 @@ type CfnLoadBalancer interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The path on the attached instance where the health check will be performed.
-	//
-	// If no path is specified, the load balancer tries to make a request to the default (root) page ( `/index.html` ).
 	HealthCheckPath() *string
 	SetHealthCheckPath(val *string)
 	// The port that the load balancer uses to direct traffic to your Lightsail instances.
-	//
-	// For HTTP traffic, specify port `80` . For HTTPS traffic, specify port `443` .
 	InstancePort() *float64
 	SetInstancePort(val *float64)
 	// The IP address type of the load balancer.
-	//
-	// The possible values are `ipv4` for IPv4 only, and `dualstack` for both IPv4 and IPv6.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The name of the load balancer.
@@ -94,25 +89,20 @@ type CfnLoadBalancer interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A Boolean value indicating whether session stickiness is enabled.
-	//
-	// Enable session stickiness (also known as *session affinity* ) to bind a user's session to a specific instance. This ensures that all requests from the user during the session are sent to the same instance.
 	SessionStickinessEnabled() interface{}
 	SetSessionStickinessEnabled(val interface{})
 	// The time period, in seconds, after which the load balancer session stickiness cookie should be considered stale.
-	//
-	// If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.
 	SessionStickinessLbCookieDurationSeconds() *string
 	SetSessionStickinessLbCookieDurationSeconds(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
-	//
-	// > The `Value` of `Tags` is optional for Lightsail resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The name of the TLS security policy for the load balancer.
 	TlsPolicyName() *string
 	SetTlsPolicyName(val *string)
@@ -260,6 +250,7 @@ type CfnLoadBalancer interface {
 type jsiiProxy_CfnLoadBalancer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLoadBalancer) AttachedInstances() *[]*string {
@@ -432,6 +423,16 @@ func (j *jsiiProxy_CfnLoadBalancer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) TlsPolicyName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -463,7 +464,6 @@ func (j *jsiiProxy_CfnLoadBalancer) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Lightsail::LoadBalancer`.
 func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) CfnLoadBalancer {
 	_init_.Initialize()
 
@@ -481,7 +481,6 @@ func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBa
 	return &j
 }
 
-// Create a new `AWS::Lightsail::LoadBalancer`.
 func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope constructs.Construct, id *string, props *CfnLoadBalancerProps) {
 	_init_.Initialize()
 
@@ -553,6 +552,17 @@ func (j *jsiiProxy_CfnLoadBalancer)SetSessionStickinessLbCookieDurationSeconds(v
 	_jsii_.Set(
 		j,
 		"sessionStickinessLbCookieDurationSeconds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLoadBalancer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

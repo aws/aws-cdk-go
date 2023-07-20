@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::HookDefaultVersion`.
+// The `HookDefaultVersion` resource specifies the default version of the hook.
 //
-// The `HookDefaultVersion` resource specifies the default version of the hook. The default version of the hook is used in CloudFormation operations for this AWS account and AWS Region .
+// The default version of the hook is used in CloudFormation operations for this AWS account and AWS Region .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,6 +23,8 @@ import (
 //   	TypeVersionArn: jsii.String("typeVersionArn"),
 //   	VersionId: jsii.String("versionId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html
 //
 type CfnHookDefaultVersion interface {
 	awscdk.CfnResource
@@ -60,13 +62,9 @@ type CfnHookDefaultVersion interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name of the hook.
-	//
-	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
 	TypeName() *string
 	SetTypeName(val *string)
 	// The version ID of the type configuration.
-	//
-	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
 	TypeVersionArn() *string
 	SetTypeVersionArn(val *string)
 	// Deprecated.
@@ -83,8 +81,6 @@ type CfnHookDefaultVersion interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The version ID of the type specified.
-	//
-	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
 	VersionId() *string
 	SetVersionId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -361,7 +357,6 @@ func (j *jsiiProxy_CfnHookDefaultVersion) VersionId() *string {
 }
 
 
-// Create a new `AWS::CloudFormation::HookDefaultVersion`.
 func NewCfnHookDefaultVersion(scope constructs.Construct, id *string, props *CfnHookDefaultVersionProps) CfnHookDefaultVersion {
 	_init_.Initialize()
 
@@ -379,7 +374,6 @@ func NewCfnHookDefaultVersion(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::HookDefaultVersion`.
 func NewCfnHookDefaultVersion_Override(c CfnHookDefaultVersion, scope constructs.Construct, id *string, props *CfnHookDefaultVersionProps) {
 	_init_.Initialize()
 

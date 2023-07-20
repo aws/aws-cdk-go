@@ -40,14 +40,13 @@ This example defines an Amazon EKS cluster with the following configuration:
 * A Kubernetes pod with a container based on the [paulbouwer/hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) image.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws-samples/dummy/awscdklambdalayerkubectlv26"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv27"
 
 
 // provisioning a cluster
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
-	KubectlLayer: awscdklambdalayerkubectlv26.NewKubectlV26Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_27(),
+	KubectlLayer: kubectlv27.NewKubectlV27Layer(this, jsii.String("kubectl")),
 })
 
 // apply a kubernetes manifest to the cluster
@@ -119,7 +118,7 @@ Creating a new cluster is done using the `Cluster` or `FargateCluster` construct
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 })
 ```
 
@@ -127,7 +126,7 @@ You can also use `FargateCluster` to provision a cluster that uses only fargate 
 
 ```go
 eks.NewFargateCluster(this, jsii.String("HelloEKS"), &FargateClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 })
 ```
 
@@ -151,7 +150,7 @@ At cluster instantiation time, you can customize the number of instances and the
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	DefaultCapacity: jsii.Number(5),
 	DefaultCapacityInstance: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_SMALL),
 })
@@ -163,7 +162,7 @@ Additional customizations are available post instantiation. To apply them, set t
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	DefaultCapacity: jsii.Number(0),
 })
 
@@ -231,7 +230,7 @@ eksClusterNodeGroupRole := iam.NewRole(this, jsii.String("eksClusterNodeGroupRol
 })
 
 cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	DefaultCapacity: jsii.Number(0),
 })
 
@@ -385,7 +384,7 @@ The following code defines an Amazon EKS cluster with a default Fargate Profile 
 
 ```go
 cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 })
 ```
 
@@ -470,7 +469,7 @@ You can also configure the cluster to use an auto-scaling group as the default c
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	DefaultCapacityType: eks.DefaultCapacityType_EC2,
 })
 ```
@@ -568,7 +567,7 @@ You can configure the [cluster endpoint access](https://docs.aws.amazon.com/eks/
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 })
 ```
@@ -633,7 +632,7 @@ var vpc vpc
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	Vpc: Vpc,
 	VpcSubnets: []subnetSelection{
 		&subnetSelection{
@@ -688,7 +687,7 @@ You can configure the environment of the Cluster Handler functions by specifying
 var proxyInstanceSecurityGroup securityGroup
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	ClusterHandlerEnvironment: map[string]*string{
 		"https_proxy": jsii.String("http://proxy.myproxy.com"),
 	},
@@ -705,9 +704,14 @@ cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 You can optionally choose to configure your cluster to use IPv6 using the [`ipFamily`](https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily) definition for your cluster.  Note that this will require the underlying subnets to have an associated IPv6 CIDR.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
+
+func associateSubnetWithV6Cidr(vpc *vpc, count *f64, subnet iSubnet) {
+	cfnSubnet := *subnet.Node.defaultChild.(cfnSubnet)
+	cfnSubnet.Ipv6CidrBlock = awscdk.Fn_Select(count, awscdk.Fn_Cidr(awscdk.Fn_Select(jsii.Number(0), vpc.VpcIpv6CidrBlocks), jsii.Number(256), (jsii.Number(128 - 64)).toString()))
+	cfnSubnet.AssignIpv6AddressOnCreation = true
+}
 
 // make an ipv6 cidr
 ipv6cidr := ec2.NewCfnVPCCidrBlock(this, jsii.String("CIDR6"), &CfnVPCCidrBlockProps{
@@ -717,28 +721,21 @@ ipv6cidr := ec2.NewCfnVPCCidrBlock(this, jsii.String("CIDR6"), &CfnVPCCidrBlockP
 
 // connect the ipv6 cidr to all vpc subnets
 subnetcount := 0
-subnets := []iSubnet{
-	(SpreadElement ...vpc.publicSubnets
-			vpc.PublicSubnets),
-	(SpreadElement ...vpc.privateSubnets
-			vpc.PrivateSubnets),
-}
+subnets := vpc.PublicSubnets.concat(vpc.PrivateSubnets)
 for _, subnet := range subnets {
 	// Wait for the ipv6 cidr to complete
 	subnet.Node.AddDependency(ipv6cidr)
-	this._associate_subnet_with_v6_cidr(subnetcount, subnet)
-	subnetcount++
+	associateSubnetWithV6Cidr(vpc, subnetcount, subnet)
+	subnetcount = subnetcount + 1
 }
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_27(),
 	Vpc: vpc,
 	IpFamily: eks.IpFamily_IP_V6,
 	VpcSubnets: []subnetSelection{
 		&subnetSelection{
-			Subnets: []*iSubnet{
-				(SpreadElement ...vpc.publicSubnets
-						vpc.*PublicSubnets),
-			},
+			Subnets: vpc.*PublicSubnets,
 		},
 	},
 })
@@ -772,7 +769,7 @@ You can configure the environment of this function by specifying it at cluster i
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	KubectlEnvironment: map[string]*string{
 		"http_proxy": jsii.String("http://proxy.myproxy.com"),
 	},
@@ -792,13 +789,12 @@ Depending on which version of kubernetes you're targeting, you will need to use 
 the `@aws-cdk/lambda-layer-kubectl-vXY` packages.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws-samples/dummy/awscdklambdalayerkubectlv26"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv27"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
-	KubectlLayer: awscdklambdalayerkubectlv26.NewKubectlV26Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_27(),
+	KubectlLayer: kubectlv27.NewKubectlV27Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -834,7 +830,7 @@ cluster1 := eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	KubectlLayer: layer,
 	Vpc: Vpc,
 	ClusterName: jsii.String("cluster-name"),
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 })
 
 // or
@@ -854,7 +850,7 @@ By default, the kubectl provider is configured with 1024MiB of memory. You can u
 var vpc vpc
 eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 })
 eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
 	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
@@ -894,7 +890,7 @@ When you create a cluster, you can specify a `mastersRole`. The `Cluster` constr
 var role role
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	MastersRole: role,
 })
 ```
@@ -944,7 +940,7 @@ You can use the `secretsEncryptionKey` to configure which key the cluster will u
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
 cluster := eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	SecretsEncryptionKey: secretsKey,
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 })
 ```
 
@@ -954,7 +950,7 @@ You can also use a similar configuration for running a cluster built using the F
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
 cluster := eks.NewFargateCluster(this, jsii.String("MyFargateCluster"), &FargateClusterProps{
 	SecretsEncryptionKey: secretsKey,
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 })
 ```
 
@@ -1288,7 +1284,7 @@ when a cluster is defined:
 
 ```go
 eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	Prune: jsii.Boolean(false),
 })
 ```
@@ -1717,7 +1713,7 @@ property. For example:
 ```go
 cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	// ...
-	Version: eks.KubernetesVersion_V1_26(),
+	Version: eks.KubernetesVersion_V1_27(),
 	ClusterLogging: []clusterLoggingTypes{
 		eks.*clusterLoggingTypes_API,
 		eks.*clusterLoggingTypes_AUTHENTICATOR,

@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnCertificateAuthority) validateSetSubjectParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnCertificateAuthority) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCertificateAuthority) validateSetTypeParameters(val *string) error {
 	return nil
 }

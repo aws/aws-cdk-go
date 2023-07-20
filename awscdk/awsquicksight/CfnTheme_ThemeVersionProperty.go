@@ -74,24 +74,42 @@ package awsquicksight
 //   	VersionNumber: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html
+//
 type CfnTheme_ThemeVersionProperty struct {
 	// The Amazon Resource Name (ARN) of the resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The Amazon QuickSight-defined ID of the theme that a custom theme inherits from.
 	//
 	// All themes initially inherit from a default Amazon QuickSight theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-basethemeid
+	//
 	BaseThemeId *string `field:"optional" json:"baseThemeId" yaml:"baseThemeId"`
 	// The theme configuration, which contains all the theme display properties.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-configuration
+	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
 	// The date and time that this theme version was created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-createdtime
+	//
 	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The description of the theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Errors associated with the theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-errors
+	//
 	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
 	// The status of the theme version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// The version number of the theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-versionnumber
+	//
 	VersionNumber *float64 `field:"optional" json:"versionNumber" yaml:"versionNumber"`
 }
 

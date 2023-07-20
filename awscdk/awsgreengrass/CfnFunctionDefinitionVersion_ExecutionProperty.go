@@ -18,6 +18,8 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html
+//
 type CfnFunctionDefinitionVersion_ExecutionProperty struct {
 	// The containerization that the Lambda function runs in.
 	//
@@ -27,6 +29,8 @@ type CfnFunctionDefinitionVersion_ExecutionProperty struct {
 	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. Omit this value to run the function with the default containerization.
 	//
 	// > We recommend that you run in a Greengrass container unless your business case requires that you run without containerization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html#cfn-greengrass-functiondefinitionversion-execution-isolationmode
+	//
 	IsolationMode *string `field:"optional" json:"isolationMode" yaml:"isolationMode"`
 	// The user and group permissions used to run the Lambda function.
 	//
@@ -36,6 +40,8 @@ type CfnFunctionDefinitionVersion_ExecutionProperty struct {
 	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. You can override the user, group, or both. Omit this value to run the function with the default permissions.
 	//
 	// > Running as the root user increases risks to your data and device. Do not run as root (UID/GID=0) unless your business case requires it. For more information and requirements, see [Running a Lambda Function as Root](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-running-as-root) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html#cfn-greengrass-functiondefinitionversion-execution-runas
+	//
 	RunAs interface{} `field:"optional" json:"runAs" yaml:"runAs"`
 }
 

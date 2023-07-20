@@ -13,13 +13,19 @@ package awstransfer
 //   	SourceFileLocation: jsii.String("sourceFileLocation"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-deletestepdetails.html
+//
 type CfnWorkflow_DeleteStepDetailsProperty struct {
 	// The name of the step, used as an identifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-deletestepdetails.html#cfn-transfer-workflow-deletestepdetails-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow.
 	//
 	// - To use the previous file as the input, enter `${previous.file}` . In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value.
 	// - To use the originally uploaded file location as input for this step, enter `${original.file}` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-deletestepdetails.html#cfn-transfer-workflow-deletestepdetails-sourcefilelocation
+	//
 	SourceFileLocation *string `field:"optional" json:"sourceFileLocation" yaml:"sourceFileLocation"`
 }
 

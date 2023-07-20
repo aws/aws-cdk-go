@@ -87,14 +87,22 @@ package awsquicksight
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomaction.html
+//
 type CfnAnalysis_VisualCustomActionProperty struct {
 	// A list of `VisualCustomActionOperations` .
 	//
 	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomaction.html#cfn-quicksight-analysis-visualcustomaction-actionoperations
+	//
 	ActionOperations interface{} `field:"required" json:"actionOperations" yaml:"actionOperations"`
 	// The ID of the `VisualCustomAction` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomaction.html#cfn-quicksight-analysis-visualcustomaction-customactionid
+	//
 	CustomActionId *string `field:"required" json:"customActionId" yaml:"customActionId"`
 	// The name of the `VisualCustomAction` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomaction.html#cfn-quicksight-analysis-visualcustomaction-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The trigger of the `VisualCustomAction` .
 	//
@@ -102,8 +110,12 @@ type CfnAnalysis_VisualCustomActionProperty struct {
 	//
 	// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
 	// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomaction.html#cfn-quicksight-analysis-visualcustomaction-trigger
+	//
 	Trigger *string `field:"required" json:"trigger" yaml:"trigger"`
 	// The status of the `VisualCustomAction` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomaction.html#cfn-quicksight-analysis-visualcustomaction-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

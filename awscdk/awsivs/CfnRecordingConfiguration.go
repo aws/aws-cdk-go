@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IVS::RecordingConfiguration`.
+// The `AWS::IVS::RecordingConfiguration` resource specifies an  recording configuration.
 //
-// The `AWS::IVS::RecordingConfiguration` resource specifies an  recording configuration. A recording configuration enables the recording of a channel’s live streams to a data store. Multiple channels can reference the same recording configuration. For more information, see [RecordingConfiguration](https://docs.aws.amazon.com/ivs/latest/APIReference/API_RecordingConfiguration.html) in the *Amazon Interactive Video Service API Reference* .
+// A recording configuration enables the recording of a channel’s live streams to a data store. Multiple channels can reference the same recording configuration. For more information, see [RecordingConfiguration](https://docs.aws.amazon.com/ivs/latest/APIReference/API_RecordingConfiguration.html) in the *Amazon Interactive Video Service API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -42,9 +42,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html
+//
 type CfnRecordingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The recording configuration ARN.
 	//
 	// For example: `arn:aws:ivs:us-west-2:123456789012:recording-configuration/abcdABCDefgh`.
@@ -63,8 +66,6 @@ type CfnRecordingConfiguration interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A destination configuration contains information about where recorded video will be stored.
-	//
-	// See the [DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html) property type for more information.
 	DestinationConfiguration() interface{}
 	SetDestinationConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -78,15 +79,11 @@ type CfnRecordingConfiguration interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Recording-configuration name.
-	//
-	// The value does not need to be unique.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
-	//
-	// *Default* : `0`.
 	RecordingReconnectWindowSeconds() *float64
 	SetRecordingReconnectWindowSeconds(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -98,13 +95,12 @@ type CfnRecordingConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session.
-	//
-	// See the [ThumbnailConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thunbnailconfiguration.html) property type for more information.
 	ThumbnailConfiguration() interface{}
 	SetThumbnailConfiguration(val interface{})
 	// Deprecated.
@@ -251,6 +247,7 @@ type CfnRecordingConfiguration interface {
 type jsiiProxy_CfnRecordingConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRecordingConfiguration) AttrArn() *string {
@@ -393,6 +390,16 @@ func (j *jsiiProxy_CfnRecordingConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRecordingConfiguration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRecordingConfiguration) ThumbnailConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -424,7 +431,6 @@ func (j *jsiiProxy_CfnRecordingConfiguration) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::IVS::RecordingConfiguration`.
 func NewCfnRecordingConfiguration(scope constructs.Construct, id *string, props *CfnRecordingConfigurationProps) CfnRecordingConfiguration {
 	_init_.Initialize()
 
@@ -442,7 +448,6 @@ func NewCfnRecordingConfiguration(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::IVS::RecordingConfiguration`.
 func NewCfnRecordingConfiguration_Override(c CfnRecordingConfiguration, scope constructs.Construct, id *string, props *CfnRecordingConfigurationProps) {
 	_init_.Initialize()
 
@@ -476,6 +481,17 @@ func (j *jsiiProxy_CfnRecordingConfiguration)SetRecordingReconnectWindowSeconds(
 	_jsii_.Set(
 		j,
 		"recordingReconnectWindowSeconds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

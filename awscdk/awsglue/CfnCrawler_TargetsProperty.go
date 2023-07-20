@@ -64,18 +64,32 @@ package awsglue
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html
+//
 type CfnCrawler_TargetsProperty struct {
 	// Specifies AWS Glue Data Catalog targets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
+	//
 	CatalogTargets interface{} `field:"optional" json:"catalogTargets" yaml:"catalogTargets"`
 	// Specifies an array of Delta data store targets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-deltatargets
+	//
 	DeltaTargets interface{} `field:"optional" json:"deltaTargets" yaml:"deltaTargets"`
 	// Specifies Amazon DynamoDB targets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
+	//
 	DynamoDbTargets interface{} `field:"optional" json:"dynamoDbTargets" yaml:"dynamoDbTargets"`
 	// Specifies JDBC targets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
+	//
 	JdbcTargets interface{} `field:"optional" json:"jdbcTargets" yaml:"jdbcTargets"`
 	// A list of Mongo DB targets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-mongodbtargets
+	//
 	MongoDbTargets interface{} `field:"optional" json:"mongoDbTargets" yaml:"mongoDbTargets"`
 	// Specifies Amazon Simple Storage Service (Amazon S3) targets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
+	//
 	S3Targets interface{} `field:"optional" json:"s3Targets" yaml:"s3Targets"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeDeploy::DeploymentGroup`.
+// The `AWS::CodeDeploy::DeploymentGroup` resource creates an AWS CodeDeploy deployment group that specifies which instances your application revisions are deployed to, along with other deployment options.
 //
-// The `AWS::CodeDeploy::DeploymentGroup` resource creates an AWS CodeDeploy deployment group that specifies which instances your application revisions are deployed to, along with other deployment options. For more information, see [CreateDeploymentGroup](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html) in the *CodeDeploy API Reference* .
+// For more information, see [CreateDeploymentGroup](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html) in the *CodeDeploy API Reference* .
 //
 // > Amazon ECS blue/green deployments through CodeDeploy do not use the `AWS::CodeDeploy::DeploymentGroup` resource. To perform Amazon ECS blue/green deployments, use the `AWS::CodeDeploy::BlueGreen` hook. See [Perform Amazon ECS blue/green deployments through CodeDeploy using AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html) for more information.
 //
@@ -179,23 +179,23 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html
+//
 type CfnDeploymentGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Information about the Amazon CloudWatch alarms that are associated with the deployment group.
 	AlarmConfiguration() interface{}
 	SetAlarmConfiguration(val interface{})
 	// The name of an existing CodeDeploy application to associate this deployment group with.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	AttrId() *string
 	// Information about the automatic rollback configuration that is associated with the deployment group.
-	//
-	// If you specify this property, don't specify the `Deployment` property.
 	AutoRollbackConfiguration() interface{}
 	SetAutoRollbackConfiguration(val interface{})
 	// A list of associated Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created.
-	//
-	// Duplicates are not allowed.
 	AutoScalingGroups() *[]*string
 	SetAutoScalingGroups(val *[]*string)
 	// Information about blue/green deployment options for a deployment group.
@@ -211,49 +211,27 @@ type CfnDeploymentGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The application revision to deploy to this deployment group.
-	//
-	// If you specify this property, your target application revision is deployed as soon as the provisioning process is complete. If you specify this property, don't specify the `AutoRollbackConfiguration` property.
 	Deployment() interface{}
 	SetDeployment(val interface{})
 	// A deployment configuration name or a predefined configuration name.
-	//
-	// With predefined configurations, you can deploy application revisions to one instance at a time ( `CodeDeployDefault.OneAtATime` ), half of the instances at a time ( `CodeDeployDefault.HalfAtATime` ), or all the instances at once ( `CodeDeployDefault.AllAtOnce` ). For more information and valid values, see [Working with Deployment Configurations](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html) in the *AWS CodeDeploy User Guide* .
 	DeploymentConfigName() *string
 	SetDeploymentConfigName(val *string)
 	// A name for the deployment group.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	DeploymentGroupName() *string
 	SetDeploymentGroupName(val *string)
 	// Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer.
-	//
-	// If you specify this property with a blue/green deployment type, don't specify the `AutoScalingGroups` , `LoadBalancerInfo` , or `Deployment` properties.
-	//
-	// > For blue/green deployments, AWS CloudFormation supports deployments on Lambda compute platforms only. You can perform Amazon ECS blue/green deployments using `AWS::CodeDeploy::BlueGreen` hook. See [Perform Amazon ECS blue/green deployments through CodeDeploy using AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html) for more information.
 	DeploymentStyle() interface{}
 	SetDeploymentStyle(val interface{})
 	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group.
-	//
-	// CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed.
-	//
-	// You can specify `EC2TagFilters` or `Ec2TagSet` , but not both.
 	Ec2TagFilters() interface{}
 	SetEc2TagFilters(val interface{})
 	// Information about groups of tags applied to Amazon EC2 instances.
-	//
-	// The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as `ec2TagFilter` .
 	Ec2TagSet() interface{}
 	SetEc2TagSet(val interface{})
 	// The target Amazon ECS services in the deployment group.
-	//
-	// This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format `<clustername>:<servicename>` .
 	EcsServices() interface{}
 	SetEcsServices(val interface{})
 	// Information about the load balancer to use in a deployment.
-	//
-	// For more information, see [Integrating CodeDeploy with Elastic Load Balancing](https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html) in the *AWS CodeDeploy User Guide* .
 	LoadBalancerInfo() interface{}
 	SetLoadBalancerInfo(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -269,20 +247,11 @@ type CfnDeploymentGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// The on-premises instance tags already applied to on-premises instances that you want to include in the deployment group.
-	//
-	// CodeDeploy includes all on-premises instances identified by any of the tags you specify in this deployment group. To register on-premises instances with CodeDeploy , see [Working with On-Premises Instances for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-on-premises.html) in the *AWS CodeDeploy User Guide* . Duplicates are not allowed.
-	//
-	// You can specify `OnPremisesInstanceTagFilters` or `OnPremisesInstanceTagSet` , but not both.
 	OnPremisesInstanceTagFilters() interface{}
 	SetOnPremisesInstanceTagFilters(val interface{})
 	// Information about groups of tags applied to on-premises instances.
-	//
-	// The deployment group includes only on-premises instances identified by all the tag groups.
-	//
-	// You can specify `OnPremisesInstanceTagFilters` or `OnPremisesInstanceTagSet` , but not both.
 	OnPremisesTagSet() interface{}
 	SetOnPremisesTagSet(val interface{})
-	// `AWS::CodeDeploy::DeploymentGroup.OutdatedInstancesStrategy`.
 	OutdatedInstancesStrategy() *string
 	SetOutdatedInstancesStrategy(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -291,21 +260,17 @@ type CfnDeploymentGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf.
-	//
-	// For more information, see [Create a Service Role for AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html) in the *AWS CodeDeploy User Guide* .
-	//
-	// > In some cases, you might need to add a dependency on the service role's policy. For more information, see IAM role policy in [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	ServiceRoleArn() *string
 	SetServiceRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::CodeDeploy::DeploymentGroup.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Information about triggers associated with the deployment group.
-	//
-	// Duplicates are not allowed.
 	TriggerConfigurations() interface{}
 	SetTriggerConfigurations(val interface{})
 	// Deprecated.
@@ -452,6 +417,7 @@ type CfnDeploymentGroup interface {
 type jsiiProxy_CfnDeploymentGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDeploymentGroup) AlarmConfiguration() interface{} {
@@ -469,6 +435,16 @@ func (j *jsiiProxy_CfnDeploymentGroup) ApplicationName() *string {
 	_jsii_.Get(
 		j,
 		"applicationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeploymentGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -714,6 +690,16 @@ func (j *jsiiProxy_CfnDeploymentGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeploymentGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeploymentGroup) TriggerConfigurations() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -745,7 +731,6 @@ func (j *jsiiProxy_CfnDeploymentGroup) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::CodeDeploy::DeploymentGroup`.
 func NewCfnDeploymentGroup(scope constructs.Construct, id *string, props *CfnDeploymentGroupProps) CfnDeploymentGroup {
 	_init_.Initialize()
 
@@ -763,7 +748,6 @@ func NewCfnDeploymentGroup(scope constructs.Construct, id *string, props *CfnDep
 	return &j
 }
 
-// Create a new `AWS::CodeDeploy::DeploymentGroup`.
 func NewCfnDeploymentGroup_Override(c CfnDeploymentGroup, scope constructs.Construct, id *string, props *CfnDeploymentGroupProps) {
 	_init_.Initialize()
 
@@ -945,6 +929,17 @@ func (j *jsiiProxy_CfnDeploymentGroup)SetServiceRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeploymentGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

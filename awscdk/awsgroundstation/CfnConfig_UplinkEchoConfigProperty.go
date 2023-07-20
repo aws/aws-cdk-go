@@ -13,10 +13,16 @@ package awsgroundstation
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html
+//
 type CfnConfig_UplinkEchoConfigProperty struct {
 	// Defines the ARN of the uplink config to echo back to a dataflow endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-antennauplinkconfigarn
+	//
 	AntennaUplinkConfigArn *string `field:"optional" json:"antennaUplinkConfigArn" yaml:"antennaUplinkConfigArn"`
 	// Whether or not uplink echo is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

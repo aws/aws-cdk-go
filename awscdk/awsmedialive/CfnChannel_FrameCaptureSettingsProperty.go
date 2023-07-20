@@ -20,14 +20,21 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html
+//
 type CfnChannel_FrameCaptureSettingsProperty struct {
 	// The frequency, in seconds, for capturing frames for inclusion in the output.
 	//
 	// For example, "10" means capture a frame every 10 seconds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureinterval
+	//
 	CaptureInterval *float64 `field:"optional" json:"captureInterval" yaml:"captureInterval"`
 	// Unit for the frame capture interval.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureintervalunits
+	//
 	CaptureIntervalUnits *string `field:"optional" json:"captureIntervalUnits" yaml:"captureIntervalUnits"`
-	// `CfnChannel.FrameCaptureSettingsProperty.TimecodeBurninSettings`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-timecodeburninsettings
+	//
 	TimecodeBurninSettings interface{} `field:"optional" json:"timecodeBurninSettings" yaml:"timecodeBurninSettings"`
 }
 

@@ -13,10 +13,16 @@ package awsevents
 //   	ClientSecret: jsii.String("clientSecret"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-clientparameters.html
+//
 type CfnConnection_ClientParametersProperty struct {
 	// The client ID to use for OAuth authorization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-clientparameters.html#cfn-events-connection-clientparameters-clientid
+	//
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret assciated with the client ID to use for OAuth authorization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-clientparameters.html#cfn-events-connection-clientparameters-clientsecret
+	//
 	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 }
 

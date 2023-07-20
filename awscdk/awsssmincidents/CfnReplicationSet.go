@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSMIncidents::ReplicationSet`.
-//
 // The `AWS::SSMIncidents::ReplicationSet` resource specifies a set of Regions that Incident Manager data is replicated to and the KMS key used to encrypt the data.
 //
 // Example:
@@ -38,9 +36,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html
+//
 type CfnReplicationSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// The ARN of the ReplicationSet.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -52,8 +54,6 @@ type CfnReplicationSet interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Determines if the replication set deletion protection is enabled or not.
-	//
-	// If deletion protection is enabled, you can't delete the last Region in the replication set.
 	DeletionProtected() interface{}
 	SetDeletionProtected(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -80,8 +80,11 @@ type CfnReplicationSet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to add to the replication set.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags to add to the replication set.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +229,7 @@ type CfnReplicationSet interface {
 type jsiiProxy_CfnReplicationSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnReplicationSet) AttrArn() *string {
@@ -348,6 +352,16 @@ func (j *jsiiProxy_CfnReplicationSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReplicationSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReplicationSet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -369,7 +383,6 @@ func (j *jsiiProxy_CfnReplicationSet) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::SSMIncidents::ReplicationSet`.
 func NewCfnReplicationSet(scope constructs.Construct, id *string, props *CfnReplicationSetProps) CfnReplicationSet {
 	_init_.Initialize()
 
@@ -387,7 +400,6 @@ func NewCfnReplicationSet(scope constructs.Construct, id *string, props *CfnRepl
 	return &j
 }
 
-// Create a new `AWS::SSMIncidents::ReplicationSet`.
 func NewCfnReplicationSet_Override(c CfnReplicationSet, scope constructs.Construct, id *string, props *CfnReplicationSetProps) {
 	_init_.Initialize()
 
@@ -416,6 +428,17 @@ func (j *jsiiProxy_CfnReplicationSet)SetRegions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"regions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnReplicationSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

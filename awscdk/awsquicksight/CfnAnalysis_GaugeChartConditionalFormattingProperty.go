@@ -84,8 +84,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gaugechartconditionalformatting.html
+//
 type CfnAnalysis_GaugeChartConditionalFormattingProperty struct {
 	// Conditional formatting options of a `GaugeChartVisual` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gaugechartconditionalformatting.html#cfn-quicksight-analysis-gaugechartconditionalformatting-conditionalformattingoptions
+	//
 	ConditionalFormattingOptions interface{} `field:"optional" json:"conditionalFormattingOptions" yaml:"conditionalFormattingOptions"`
 }
 

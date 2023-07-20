@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeStarConnections::Connection`.
-//
 // The AWS::CodeStarConnections::Connection resource can be used to connect external source providers with services like AWS CodePipeline .
 //
 // *Note:* A connection created through AWS CloudFormation is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the connection in the console.
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html
+//
 type CfnConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the connection.
 	//
 	// The ARN is used as the connection reference when the connection is shared between AWS services. For example: `arn:aws:codestar-connections:us-west-2:123456789012:connection/39e4c34d-e13a-4e94-a886-ea67651bf042` .
@@ -55,8 +56,6 @@ type CfnConnection interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The name of the connection.
-	//
-	// Connection names must be unique in an AWS user account.
 	ConnectionName() *string
 	SetConnectionName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -90,8 +89,11 @@ type CfnConnection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies the tags applied to the resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies the tags applied to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -236,6 +238,7 @@ type CfnConnection interface {
 type jsiiProxy_CfnConnection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnConnection) AttrConnectionArn() *string {
@@ -388,6 +391,16 @@ func (j *jsiiProxy_CfnConnection) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnection) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnection) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -409,7 +422,6 @@ func (j *jsiiProxy_CfnConnection) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CodeStarConnections::Connection`.
 func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnectionProps) CfnConnection {
 	_init_.Initialize()
 
@@ -427,7 +439,6 @@ func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnecti
 	return &j
 }
 
-// Create a new `AWS::CodeStarConnections::Connection`.
 func NewCfnConnection_Override(c CfnConnection, scope constructs.Construct, id *string, props *CfnConnectionProps) {
 	_init_.Initialize()
 
@@ -461,6 +472,17 @@ func (j *jsiiProxy_CfnConnection)SetProviderType(val *string) {
 	_jsii_.Set(
 		j,
 		"providerType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnection)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

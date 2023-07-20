@@ -32,14 +32,22 @@ package awsemr
 //   	ActionOnFailure: jsii.String("actionOnFailure"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-stepconfig.html
+//
 type CfnCluster_StepConfigProperty struct {
 	// The JAR file used for the step.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-stepconfig.html#cfn-emr-cluster-stepconfig-hadoopjarstep
+	//
 	HadoopJarStep interface{} `field:"required" json:"hadoopJarStep" yaml:"hadoopJarStep"`
 	// The name of the step.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-stepconfig.html#cfn-emr-cluster-stepconfig-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The action to take when the cluster step fails.
 	//
 	// Possible values are `CANCEL_AND_WAIT` and `CONTINUE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-stepconfig.html#cfn-emr-cluster-stepconfig-actiononfailure
+	//
 	ActionOnFailure *string `field:"optional" json:"actionOnFailure" yaml:"actionOnFailure"`
 }
 

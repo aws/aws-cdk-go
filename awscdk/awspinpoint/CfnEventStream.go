@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::EventStream`.
-//
 // Creates a new event stream for an application or updates the settings of an existing event stream for an application.
 //
 // Example:
@@ -24,12 +22,15 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html
+//
 type CfnEventStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The unique identifier for the Amazon Pinpoint application that you want to export data from.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -40,10 +41,6 @@ type CfnEventStream interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.
-	//
-	// For a Kinesis data stream, the ARN format is: `arn:aws:kinesis: region : account-id :stream/ stream_name`
-	//
-	// For a Kinesis Data Firehose delivery stream, the ARN format is: `arn:aws:firehose: region : account-id :deliverystream/ stream_name`.
 	DestinationStreamArn() *string
 	SetDestinationStreamArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -226,6 +223,16 @@ func (j *jsiiProxy_CfnEventStream) ApplicationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventStream) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventStream) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -347,7 +354,6 @@ func (j *jsiiProxy_CfnEventStream) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Pinpoint::EventStream`.
 func NewCfnEventStream(scope constructs.Construct, id *string, props *CfnEventStreamProps) CfnEventStream {
 	_init_.Initialize()
 
@@ -365,7 +371,6 @@ func NewCfnEventStream(scope constructs.Construct, id *string, props *CfnEventSt
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::EventStream`.
 func NewCfnEventStream_Override(c CfnEventStream, scope constructs.Construct, id *string, props *CfnEventStreamProps) {
 	_init_.Initialize()
 

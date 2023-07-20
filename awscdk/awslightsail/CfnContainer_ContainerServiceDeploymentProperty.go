@@ -46,10 +46,16 @@ package awslightsail
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html
+//
 type CfnContainer_ContainerServiceDeploymentProperty struct {
 	// An object that describes the configuration for the containers of the deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html#cfn-lightsail-container-containerservicedeployment-containers
+	//
 	Containers interface{} `field:"optional" json:"containers" yaml:"containers"`
 	// An object that describes the endpoint of the deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html#cfn-lightsail-container-containerservicedeployment-publicendpoint
+	//
 	PublicEndpoint interface{} `field:"optional" json:"publicEndpoint" yaml:"publicEndpoint"`
 }
 

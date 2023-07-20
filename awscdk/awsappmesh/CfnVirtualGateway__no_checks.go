@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnVirtualGateway) validateSetSpecParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnVirtualGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnVirtualGatewayParameters(scope constructs.Construct, id *string, props *CfnVirtualGatewayProps) error {
 	return nil
 }

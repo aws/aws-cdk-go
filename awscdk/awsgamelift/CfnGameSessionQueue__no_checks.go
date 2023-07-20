@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnGameSessionQueue) validateSetPriorityConfigurationParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnGameSessionQueue) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnGameSessionQueueParameters(scope constructs.Construct, id *string, props *CfnGameSessionQueueProps) error {
 	return nil
 }

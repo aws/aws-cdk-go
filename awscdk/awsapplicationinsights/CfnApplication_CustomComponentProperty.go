@@ -15,10 +15,16 @@ package awsapplicationinsights
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html
+//
 type CfnApplication_CustomComponentProperty struct {
 	// The name of the component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
+	//
 	ComponentName *string `field:"required" json:"componentName" yaml:"componentName"`
 	// The list of resource ARNs that belong to the component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist
+	//
 	ResourceList *[]*string `field:"required" json:"resourceList" yaml:"resourceList"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::DataCatalogEncryptionSettings`.
+// Sets the security configuration for a specified catalog.
 //
-// Sets the security configuration for a specified catalog. After the configuration has been set, the specified encryption is applied to every catalog write thereafter.
+// After the configuration has been set, the specified encryption is applied to every catalog write thereafter.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html
+//
 type CfnDataCatalogEncryptionSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The ID of the Data Catalog in which the settings are created.
 	CatalogId() *string
 	SetCatalogId(val *string)
@@ -217,6 +220,16 @@ type jsiiProxy_CfnDataCatalogEncryptionSettings struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) CatalogId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -338,7 +351,6 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) UpdatedProperties() *map[st
 }
 
 
-// Create a new `AWS::Glue::DataCatalogEncryptionSettings`.
 func NewCfnDataCatalogEncryptionSettings(scope constructs.Construct, id *string, props *CfnDataCatalogEncryptionSettingsProps) CfnDataCatalogEncryptionSettings {
 	_init_.Initialize()
 
@@ -356,7 +368,6 @@ func NewCfnDataCatalogEncryptionSettings(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Create a new `AWS::Glue::DataCatalogEncryptionSettings`.
 func NewCfnDataCatalogEncryptionSettings_Override(c CfnDataCatalogEncryptionSettings, scope constructs.Construct, id *string, props *CfnDataCatalogEncryptionSettingsProps) {
 	_init_.Initialize()
 

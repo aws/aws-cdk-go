@@ -13,10 +13,15 @@ package awsappflow
 //   	TargetFileSize: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html
+//
 type CfnFlow_AggregationConfigProperty struct {
 	// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
+	//
 	AggregationType *string `field:"optional" json:"aggregationType" yaml:"aggregationType"`
-	// `CfnFlow.AggregationConfigProperty.TargetFileSize`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-targetfilesize
+	//
 	TargetFileSize *float64 `field:"optional" json:"targetFileSize" yaml:"targetFileSize"`
 }
 

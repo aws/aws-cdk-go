@@ -18,12 +18,20 @@ package awsconfig
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
+//
 type CfnConfigurationAggregator_OrganizationAggregationSourceProperty struct {
 	// ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// If true, aggregate existing AWS Config regions and future regions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
+	//
 	AllAwsRegions interface{} `field:"optional" json:"allAwsRegions" yaml:"allAwsRegions"`
 	// The source regions being aggregated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
+	//
 	AwsRegions *[]*string `field:"optional" json:"awsRegions" yaml:"awsRegions"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::DBSubnetGroup`.
+// The `AWS::RDS::DBSubnetGroup` resource creates a database subnet group.
 //
-// The `AWS::RDS::DBSubnetGroup` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+// Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
 //
 // For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide* .
 //
@@ -36,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnetgroup.html
+//
 type CfnDBSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -51,11 +54,9 @@ type CfnDBSubnetGroup interface {
 	// The description for the DB subnet group.
 	DbSubnetGroupDescription() *string
 	SetDbSubnetGroupDescription(val *string)
-	// The name for the DB subnet group. This value is stored as a lowercase string.
+	// The name for the DB subnet group.
 	//
-	// Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-	//
-	// Example: `mysubnetgroup`.
+	// This value is stored as a lowercase string.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -82,8 +83,11 @@ type CfnDBSubnetGroup interface {
 	// The EC2 Subnet IDs for the DB subnet group.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// An optional array of key-value pairs to apply to this DB subnet group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An optional array of key-value pairs to apply to this DB subnet group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +232,7 @@ type CfnDBSubnetGroup interface {
 type jsiiProxy_CfnDBSubnetGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDBSubnetGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -350,6 +355,16 @@ func (j *jsiiProxy_CfnDBSubnetGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBSubnetGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBSubnetGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -371,7 +386,6 @@ func (j *jsiiProxy_CfnDBSubnetGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::RDS::DBSubnetGroup`.
 func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) CfnDBSubnetGroup {
 	_init_.Initialize()
 
@@ -389,7 +403,6 @@ func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSub
 	return &j
 }
 
-// Create a new `AWS::RDS::DBSubnetGroup`.
 func NewCfnDBSubnetGroup_Override(c CfnDBSubnetGroup, scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) {
 	_init_.Initialize()
 
@@ -426,6 +439,17 @@ func (j *jsiiProxy_CfnDBSubnetGroup)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBSubnetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

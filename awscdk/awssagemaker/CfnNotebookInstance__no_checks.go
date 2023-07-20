@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnNotebookInstance) validateSetRoleArnParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnNotebookInstance) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnNotebookInstanceParameters(scope constructs.Construct, id *string, props *CfnNotebookInstanceProps) error {
 	return nil
 }

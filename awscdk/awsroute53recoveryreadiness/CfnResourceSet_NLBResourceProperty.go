@@ -12,8 +12,12 @@ package awsroute53recoveryreadiness
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html
+//
 type CfnResourceSet_NLBResourceProperty struct {
 	// The Network Load Balancer resource Amazon Resource Name (ARN).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 

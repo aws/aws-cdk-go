@@ -14,10 +14,14 @@ package awsbatch
 //   	SizeInGiB: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ephemeralstorage.html
+//
 type CfnJobDefinition_EphemeralStorageProperty struct {
 	// The total amount, in GiB, of ephemeral storage to set for the task.
 	//
 	// The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ephemeralstorage.html#cfn-batch-jobdefinition-ephemeralstorage-sizeingib
+	//
 	SizeInGiB *float64 `field:"required" json:"sizeInGiB" yaml:"sizeInGiB"`
 }
 

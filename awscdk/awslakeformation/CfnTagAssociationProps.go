@@ -46,12 +46,18 @@ package awslakeformation
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html
+//
 type CfnTagAssociationProps struct {
 	// A structure containing an LF-tag key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html#cfn-lakeformation-tagassociation-lftags
+	//
 	LfTags interface{} `field:"required" json:"lfTags" yaml:"lfTags"`
 	// UTF-8 string (valid values: `DATABASE | TABLE` ).
 	//
 	// The resource for which the LF-tag policy applies.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html#cfn-lakeformation-tagassociation-resource
+	//
 	Resource interface{} `field:"required" json:"resource" yaml:"resource"`
 }
 

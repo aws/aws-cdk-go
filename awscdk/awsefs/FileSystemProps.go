@@ -53,7 +53,7 @@ type FileSystemProps struct {
 	FileSystemPolicy awsiam.PolicyDocument `field:"optional" json:"fileSystemPolicy" yaml:"fileSystemPolicy"`
 	// The KMS key used for encryption.
 	//
-	// This is required to encrypt the data at rest if @encrypted is set to true.
+	// This is required to encrypt the data at rest if.
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// A policy used by EFS lifecycle management to transition files to the Infrequent Access (IA) storage class.
 	LifecyclePolicy LifecyclePolicy `field:"optional" json:"lifecyclePolicy" yaml:"lifecyclePolicy"`

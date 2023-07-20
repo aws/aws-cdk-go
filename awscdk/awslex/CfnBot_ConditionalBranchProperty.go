@@ -114,16 +114,26 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html
+//
 type CfnBot_ConditionalBranchProperty struct {
 	// Contains the expression to evaluate.
 	//
 	// If the condition is true, the branch's actions are taken.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html#cfn-lex-bot-conditionalbranch-condition
+	//
 	Condition interface{} `field:"required" json:"condition" yaml:"condition"`
 	// The name of the branch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html#cfn-lex-bot-conditionalbranch-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The next step in the conversation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html#cfn-lex-bot-conditionalbranch-nextstep
+	//
 	NextStep interface{} `field:"required" json:"nextStep" yaml:"nextStep"`
 	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html#cfn-lex-bot-conditionalbranch-response
+	//
 	Response interface{} `field:"optional" json:"response" yaml:"response"`
 }
 

@@ -14,10 +14,14 @@ package awsapplicationinsights
 //   	PrometheusPort: jsii.String("prometheusPort"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-haclusterprometheusexporter.html
+//
 type CfnApplication_HAClusterPrometheusExporterProperty struct {
 	// The target port to which Prometheus sends metrics.
 	//
 	// If not specified, the default port 9668 is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-haclusterprometheusexporter.html#cfn-applicationinsights-application-haclusterprometheusexporter-prometheusport
+	//
 	PrometheusPort *string `field:"optional" json:"prometheusPort" yaml:"prometheusPort"`
 }
 

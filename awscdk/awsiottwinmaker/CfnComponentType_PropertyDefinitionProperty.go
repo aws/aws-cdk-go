@@ -65,20 +65,36 @@ package awsiottwinmaker
 //   	IsTimeSeries: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html
+//
 type CfnComponentType_PropertyDefinitionProperty struct {
 	// A mapping that specifies configuration information about the property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-configurations
+	//
 	Configurations interface{} `field:"optional" json:"configurations" yaml:"configurations"`
-	// `CfnComponentType.PropertyDefinitionProperty.DataType`.
+	// An object that specifies the data type of a property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-datatype
+	//
 	DataType interface{} `field:"optional" json:"dataType" yaml:"dataType"`
 	// A boolean value that specifies whether the property ID comes from an external data store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-defaultvalue
+	//
 	DefaultValue interface{} `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// A boolean value that specifies whether the property ID comes from an external data store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-isexternalid
+	//
 	IsExternalId interface{} `field:"optional" json:"isExternalId" yaml:"isExternalId"`
 	// A boolean value that specifies whether the property is required in an entity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-isrequiredinentity
+	//
 	IsRequiredInEntity interface{} `field:"optional" json:"isRequiredInEntity" yaml:"isRequiredInEntity"`
 	// A boolean value that specifies whether the property is stored externally.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-isstoredexternally
+	//
 	IsStoredExternally interface{} `field:"optional" json:"isStoredExternally" yaml:"isStoredExternally"`
 	// A boolean value that specifies whether the property consists of time series data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-istimeseries
+	//
 	IsTimeSeries interface{} `field:"optional" json:"isTimeSeries" yaml:"isTimeSeries"`
 }
 

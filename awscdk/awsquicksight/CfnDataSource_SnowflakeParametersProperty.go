@@ -14,12 +14,20 @@ package awsquicksight
 //   	Warehouse: jsii.String("warehouse"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html
+//
 type CfnDataSource_SnowflakeParametersProperty struct {
 	// Database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-database
+	//
 	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-host
+	//
 	Host *string `field:"required" json:"host" yaml:"host"`
 	// Warehouse.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse
+	//
 	Warehouse *string `field:"required" json:"warehouse" yaml:"warehouse"`
 }
 

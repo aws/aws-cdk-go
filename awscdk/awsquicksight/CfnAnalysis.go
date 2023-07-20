@@ -9,19 +9,18 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QuickSight::Analysis`.
-//
 // Creates an analysis in Amazon QuickSight.
 //
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html
+//
 type CfnAnalysis interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID for the analysis that you're creating.
-	//
-	// This ID displays in the URL of the analysis.
 	AnalysisId() *string
 	SetAnalysisId(val *string)
 	// The Amazon Resource Name (ARN) of the analysis.
@@ -46,7 +45,6 @@ type CfnAnalysis interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::QuickSight::Analysis.Definition`.
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -60,22 +58,14 @@ type CfnAnalysis interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A descriptive name for the analysis that you're creating.
-	//
-	// This name displays for the analysis in the Amazon QuickSight console.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The parameter names and override values that you want to use.
-	//
-	// An analysis can have any parameter type, and some parameters might accept multiple values.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// A structure that describes the principals and the resource-level permissions on an analysis.
-	//
-	// You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
-	//
-	// To specify no permissions, omit `Permissions` .
 	Permissions() interface{}
 	SetPermissions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -84,10 +74,6 @@ type CfnAnalysis interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A source entity to use for the analysis that you're creating.
-	//
-	// This metadata structure contains details that describe a source template and one or more datasets.
-	//
-	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity() interface{}
 	SetSourceEntity(val interface{})
 	// The stack in which this element is defined.
@@ -97,11 +83,12 @@ type CfnAnalysis interface {
 	// Status associated with the analysis.
 	Status() *string
 	SetStatus(val *string)
-	// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN for the theme to apply to the analysis that you're creating.
-	//
-	// To see the theme in the Amazon QuickSight console, make sure that you have access to it.
 	ThemeArn() *string
 	SetThemeArn(val *string)
 	// Deprecated.
@@ -248,6 +235,7 @@ type CfnAnalysis interface {
 type jsiiProxy_CfnAnalysis struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAnalysis) AnalysisId() *string {
@@ -480,6 +468,16 @@ func (j *jsiiProxy_CfnAnalysis) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnalysis) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnalysis) ThemeArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -511,7 +509,6 @@ func (j *jsiiProxy_CfnAnalysis) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::QuickSight::Analysis`.
 func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisProps) CfnAnalysis {
 	_init_.Initialize()
 
@@ -529,7 +526,6 @@ func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisPr
 	return &j
 }
 
-// Create a new `AWS::QuickSight::Analysis`.
 func NewCfnAnalysis_Override(c CfnAnalysis, scope constructs.Construct, id *string, props *CfnAnalysisProps) {
 	_init_.Initialize()
 
@@ -621,6 +617,17 @@ func (j *jsiiProxy_CfnAnalysis)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnalysis)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

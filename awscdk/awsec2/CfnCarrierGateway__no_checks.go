@@ -80,6 +80,10 @@ func validateCfnCarrierGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCarrierGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCarrierGateway) validateSetVpcIdParameters(val *string) error {
 	return nil
 }

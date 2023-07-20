@@ -33,8 +33,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartarcconditionalformatting.html
+//
 type CfnDashboard_GaugeChartArcConditionalFormattingProperty struct {
 	// The conditional formatting of the arc foreground color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartarcconditionalformatting.html#cfn-quicksight-dashboard-gaugechartarcconditionalformatting-foregroundcolor
+	//
 	ForegroundColor interface{} `field:"optional" json:"foregroundColor" yaml:"foregroundColor"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::CloudFrontOriginAccessIdentity`.
+// The request to create a new origin access identity (OAI).
 //
-// The request to create a new origin access identity (OAI). An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content. For more information, see [Restricting Access to Amazon S3 Content by Using an Origin Access Identity](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide* .
+// An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content. For more information, see [Restricting Access to Amazon S3 Content by Using an Origin Access Identity](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,6 +23,8 @@ import (
 //   		Comment: jsii.String("comment"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
 //
 type CfnCloudFrontOriginAccessIdentity interface {
 	awscdk.CfnResource
@@ -343,7 +345,6 @@ func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) UpdatedProperties() *map[s
 }
 
 
-// Create a new `AWS::CloudFront::CloudFrontOriginAccessIdentity`.
 func NewCfnCloudFrontOriginAccessIdentity(scope constructs.Construct, id *string, props *CfnCloudFrontOriginAccessIdentityProps) CfnCloudFrontOriginAccessIdentity {
 	_init_.Initialize()
 
@@ -361,7 +362,6 @@ func NewCfnCloudFrontOriginAccessIdentity(scope constructs.Construct, id *string
 	return &j
 }
 
-// Create a new `AWS::CloudFront::CloudFrontOriginAccessIdentity`.
 func NewCfnCloudFrontOriginAccessIdentity_Override(c CfnCloudFrontOriginAccessIdentity, scope constructs.Construct, id *string, props *CfnCloudFrontOriginAccessIdentityProps) {
 	_init_.Initialize()
 

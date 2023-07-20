@@ -11,16 +11,24 @@ import (
 //   import kms "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   encryptionKey := kms.NewKey(this, jsii.String("Key"), &KeyProps{
-//   	EnableKeyRotation: jsii.Boolean(true),
+//   sourceOutput := codepipeline.NewArtifact()
+//   targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//   key := kms.NewKey(this, jsii.String("EnvVarEncryptKey"), &KeyProps{
+//   	Description: jsii.String("sample key"),
 //   })
-//   table := dynamodb.NewTable(this, jsii.String("MyTable"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
+//
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   deployAction := codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+//   	ActionName: jsii.String("S3Deploy"),
+//   	Bucket: targetBucket,
+//   	Input: sourceOutput,
+//   	EncryptionKey: key,
+//   })
+//   deployStage := pipeline.AddStage(&StageOptions{
+//   	StageName: jsii.String("Deploy"),
+//   	Actions: []iAction{
+//   		deployAction,
 //   	},
-//   	Encryption: dynamodb.TableEncryption_CUSTOMER_MANAGED,
-//   	EncryptionKey: EncryptionKey,
 //   })
 //
 type KeyProps struct {

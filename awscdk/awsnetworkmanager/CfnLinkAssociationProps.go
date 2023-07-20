@@ -14,12 +14,20 @@ package awsnetworkmanager
 //   	LinkId: jsii.String("linkId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html
+//
 type CfnLinkAssociationProps struct {
 	// The device ID for the link association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
+	//
 	DeviceId *string `field:"required" json:"deviceId" yaml:"deviceId"`
 	// The ID of the global network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
+	//
 	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The ID of the link.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
+	//
 	LinkId *string `field:"required" json:"linkId" yaml:"linkId"`
 }
 

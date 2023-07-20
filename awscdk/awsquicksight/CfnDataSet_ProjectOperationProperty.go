@@ -16,8 +16,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html
+//
 type CfnDataSet_ProjectOperationProperty struct {
 	// Projected columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns
+	//
 	ProjectedColumns *[]*string `field:"required" json:"projectedColumns" yaml:"projectedColumns"`
 }
 

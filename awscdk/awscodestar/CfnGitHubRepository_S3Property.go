@@ -18,12 +18,20 @@ package awscodestar
 //   	ObjectVersion: jsii.String("objectVersion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-s3.html
+//
 type CfnGitHubRepository_S3Property struct {
 	// The name of the Amazon S3 bucket that contains the ZIP file with the content to be committed to the new repository.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-s3.html#cfn-codestar-githubrepository-s3-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The S3 object key or file name for the ZIP file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-s3.html#cfn-codestar-githubrepository-s3-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-s3.html#cfn-codestar-githubrepository-s3-objectversion
+	//
 	ObjectVersion *string `field:"optional" json:"objectVersion" yaml:"objectVersion"`
 }
 

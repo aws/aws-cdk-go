@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RoboMaker::Robot`.
+// > The following resource is now deprecated.
 //
-// > The following resource is now deprecated. This resource can no longer be provisioned via stack create or update operations, and should not be included in your stack templates.
+// This resource can no longer be provisioned via stack create or update operations, and should not be included in your stack templates.
 // >
 // > We recommend migrating to AWS IoT Greengrass Version 2. For more information, see [Support Changes: May 2, 2022](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022) in the *AWS RoboMaker Developer Guide* .
 //
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html
+//
 type CfnRobot interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The architecture of the robot.
 	Architecture() *string
 	SetArchitecture(val *string)
@@ -81,8 +84,11 @@ type CfnRobot interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A map that contains tag keys and tag values that are attached to the robot.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A map that contains tag keys and tag values that are attached to the robot.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -227,6 +233,7 @@ type CfnRobot interface {
 type jsiiProxy_CfnRobot struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRobot) Architecture() *string {
@@ -369,6 +376,16 @@ func (j *jsiiProxy_CfnRobot) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRobot) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRobot) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -390,7 +407,6 @@ func (j *jsiiProxy_CfnRobot) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::RoboMaker::Robot`.
 func NewCfnRobot(scope constructs.Construct, id *string, props *CfnRobotProps) CfnRobot {
 	_init_.Initialize()
 
@@ -408,7 +424,6 @@ func NewCfnRobot(scope constructs.Construct, id *string, props *CfnRobotProps) C
 	return &j
 }
 
-// Create a new `AWS::RoboMaker::Robot`.
 func NewCfnRobot_Override(c CfnRobot, scope constructs.Construct, id *string, props *CfnRobotProps) {
 	_init_.Initialize()
 
@@ -453,6 +468,14 @@ func (j *jsiiProxy_CfnRobot)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRobot)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -18,12 +18,20 @@ package awskinesisanalyticsv2
 //   	Mapping: jsii.String("mapping"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html
+//
 type CfnApplication_RecordColumnProperty struct {
 	// The name of the column that is created in the in-application input stream or reference table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of column created in the in-application input stream or reference table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-sqltype
+	//
 	SqlType *string `field:"required" json:"sqlType" yaml:"sqlType"`
 	// A reference to the data element in the streaming input or the reference data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-mapping
+	//
 	Mapping *string `field:"optional" json:"mapping" yaml:"mapping"`
 }
 

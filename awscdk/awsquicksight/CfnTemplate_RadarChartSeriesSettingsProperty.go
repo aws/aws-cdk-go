@@ -14,8 +14,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartseriessettings.html
+//
 type CfnTemplate_RadarChartSeriesSettingsProperty struct {
 	// The area style settings of a radar chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartseriessettings.html#cfn-quicksight-template-radarchartseriessettings-areastylesettings
+	//
 	AreaStyleSettings interface{} `field:"optional" json:"areaStyleSettings" yaml:"areaStyleSettings"`
 }
 

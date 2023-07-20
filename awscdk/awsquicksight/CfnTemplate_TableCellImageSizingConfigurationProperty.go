@@ -12,8 +12,12 @@ package awsquicksight
 //   	TableCellImageScalingConfiguration: jsii.String("tableCellImageScalingConfiguration"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablecellimagesizingconfiguration.html
+//
 type CfnTemplate_TableCellImageSizingConfigurationProperty struct {
 	// The cell scaling configuration of the sizing options for the table image configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablecellimagesizingconfiguration.html#cfn-quicksight-template-tablecellimagesizingconfiguration-tablecellimagescalingconfiguration
+	//
 	TableCellImageScalingConfiguration *string `field:"optional" json:"tableCellImageScalingConfiguration" yaml:"tableCellImageScalingConfiguration"`
 }
 

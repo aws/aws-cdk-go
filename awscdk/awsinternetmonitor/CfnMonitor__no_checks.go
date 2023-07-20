@@ -80,11 +80,19 @@ func validateCfnMonitor_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnMonitor) validateSetHealthEventsConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMonitor) validateSetInternetMeasurementsLogDeliveryParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnMonitor) validateSetMonitorNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnMonitor) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

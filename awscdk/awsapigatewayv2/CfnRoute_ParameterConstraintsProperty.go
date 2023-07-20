@@ -10,8 +10,11 @@ package awsapigatewayv2
 //   	Required: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-route-parameterconstraints.html
+//
 type CfnRoute_ParameterConstraintsProperty struct {
-	// `CfnRoute.ParameterConstraintsProperty.Required`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-route-parameterconstraints.html#cfn-apigatewayv2-route-parameterconstraints-required
+	//
 	Required interface{} `field:"required" json:"required" yaml:"required"`
 }
 

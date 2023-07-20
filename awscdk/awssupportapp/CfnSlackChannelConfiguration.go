@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SupportApp::SlackChannelConfiguration`.
+// You can use the `AWS::SupportApp::SlackChannelConfiguration` resource to specify your AWS account when you configure the AWS Support App .
 //
-// You can use the `AWS::SupportApp::SlackChannelConfiguration` resource to specify your AWS account when you configure the AWS Support App . This resource includes the following information:
+// This resource includes the following information:
 //
 // - The Slack channel name and ID
 // - The team ID in Slack
@@ -42,6 +42,8 @@ import (
 //   	NotifyOnResolveCase: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackchannelconfiguration.html
+//
 type CfnSlackChannelConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -51,18 +53,12 @@ type CfnSlackChannelConfiguration interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The channel ID in Slack.
-	//
-	// This ID identifies a channel within a Slack workspace.
 	ChannelId() *string
 	SetChannelId(val *string)
 	// The channel name in Slack.
-	//
-	// This is the channel where you invite the AWS Support App .
 	ChannelName() *string
 	SetChannelName(val *string)
 	// The Amazon Resource Name (ARN) of the IAM role for this Slack channel configuration.
-	//
-	// The AWS Support App uses this role to perform AWS Support and Service Quotas actions on your behalf.
 	ChannelRoleArn() *string
 	SetChannelRoleArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -85,8 +81,6 @@ type CfnSlackChannelConfiguration interface {
 	NotifyOnAddCorrespondenceToCase() interface{}
 	SetNotifyOnAddCorrespondenceToCase(val interface{})
 	// The case severity for your support cases that you want to receive notifications.
-	//
-	// You can specify `none` , `all` , or `high` .
 	NotifyOnCaseSeverity() *string
 	SetNotifyOnCaseSeverity(val *string)
 	// Whether to get notified when your support cases are created or reopened.
@@ -105,8 +99,6 @@ type CfnSlackChannelConfiguration interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The team ID in Slack.
-	//
-	// This ID uniquely identifies a Slack workspace.
 	TeamId() *string
 	SetTeamId(val *string)
 	// Deprecated.
@@ -436,7 +428,6 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) UpdatedProperties() *map[string
 }
 
 
-// Create a new `AWS::SupportApp::SlackChannelConfiguration`.
 func NewCfnSlackChannelConfiguration(scope constructs.Construct, id *string, props *CfnSlackChannelConfigurationProps) CfnSlackChannelConfiguration {
 	_init_.Initialize()
 
@@ -454,7 +445,6 @@ func NewCfnSlackChannelConfiguration(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Create a new `AWS::SupportApp::SlackChannelConfiguration`.
 func NewCfnSlackChannelConfiguration_Override(c CfnSlackChannelConfiguration, scope constructs.Construct, id *string, props *CfnSlackChannelConfigurationProps) {
 	_init_.Initialize()
 

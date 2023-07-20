@@ -17,10 +17,16 @@ package awscomprehend
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-documentclassificationconfig.html
+//
 type CfnFlywheel_DocumentClassificationConfigProperty struct {
 	// Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-documentclassificationconfig.html#cfn-comprehend-flywheel-documentclassificationconfig-mode
+	//
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
 	// One or more labels to associate with the custom classifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-documentclassificationconfig.html#cfn-comprehend-flywheel-documentclassificationconfig-labels
+	//
 	Labels *[]*string `field:"optional" json:"labels" yaml:"labels"`
 }
 

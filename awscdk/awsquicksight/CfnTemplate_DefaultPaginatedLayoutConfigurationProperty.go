@@ -25,8 +25,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultpaginatedlayoutconfiguration.html
+//
 type CfnTemplate_DefaultPaginatedLayoutConfigurationProperty struct {
 	// The options that determine the default settings for a section-based layout configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultpaginatedlayoutconfiguration.html#cfn-quicksight-template-defaultpaginatedlayoutconfiguration-sectionbased
+	//
 	SectionBased interface{} `field:"optional" json:"sectionBased" yaml:"sectionBased"`
 }
 

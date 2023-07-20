@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NetworkInterfacePermission`.
+// Specifies a permission for an Amazon EC2 network interface.
 //
-// Specifies a permission for an Amazon EC2 network interface. For example, you can grant an AWS authorized partner account permission to attach the specified network interface to an instance in their account.
+// For example, you can grant an AWS authorized partner account permission to attach the specified network interface to an instance in their account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,9 +24,12 @@ import (
 //   	Permission: jsii.String("permission"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html
+//
 type CfnNetworkInterfacePermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The AWS account ID.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
@@ -212,6 +215,16 @@ type jsiiProxy_CfnNetworkInterfacePermission struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnNetworkInterfacePermission) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInterfacePermission) AwsAccountId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -343,7 +356,6 @@ func (j *jsiiProxy_CfnNetworkInterfacePermission) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::EC2::NetworkInterfacePermission`.
 func NewCfnNetworkInterfacePermission(scope constructs.Construct, id *string, props *CfnNetworkInterfacePermissionProps) CfnNetworkInterfacePermission {
 	_init_.Initialize()
 
@@ -361,7 +373,6 @@ func NewCfnNetworkInterfacePermission(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::EC2::NetworkInterfacePermission`.
 func NewCfnNetworkInterfacePermission_Override(c CfnNetworkInterfacePermission, scope constructs.Construct, id *string, props *CfnNetworkInterfacePermissionProps) {
 	_init_.Initialize()
 

@@ -14,12 +14,20 @@ package awssagemaker
 //   	UserProfileName: jsii.String("userProfileName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-usercontext.html
+//
 type CfnModelCard_UserContextProperty struct {
 	// The domain associated with the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-usercontext.html#cfn-sagemaker-modelcard-usercontext-domainid
+	//
 	DomainId *string `field:"optional" json:"domainId" yaml:"domainId"`
 	// The Amazon Resource Name (ARN) of the user's profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-usercontext.html#cfn-sagemaker-modelcard-usercontext-userprofilearn
+	//
 	UserProfileArn *string `field:"optional" json:"userProfileArn" yaml:"userProfileArn"`
 	// The name of the user's profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-usercontext.html#cfn-sagemaker-modelcard-usercontext-userprofilename
+	//
 	UserProfileName *string `field:"optional" json:"userProfileName" yaml:"userProfileName"`
 }
 

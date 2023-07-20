@@ -4,19 +4,19 @@ package awsrds
 // The orchestration of updates of multiple instances.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 //   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
-//   	Writer: rds.ClusterInstance_Provisioned(map[string]instanceType{
-//   		"instanceType": ec2.*instanceType_of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 //   	}),
-//   	Readers: Readers,
-//   	Rds.ClusterInstance_Provisioned(jsii.String("reader")): ,
-//   	InstanceUpdateBehaviour: *Rds.InstanceUpdateBehaviour_ROLLING,
+//   	Readers: []iClusterInstance{
+//   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
+//   	},
+//   	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
 //   	 // Optional - defaults to rds.InstanceUpdateBehaviour.BULK
 //   	Vpc: Vpc,
 //   })

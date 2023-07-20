@@ -23,6 +23,8 @@ package awsfsx
 //   	WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html
+//
 type CfnFileSystem_LustreConfigurationProperty struct {
 	// (Optional) When you create your file system, your existing S3 objects appear as file and directory listings.
 	//
@@ -36,18 +38,26 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// For more information, see [Automatically import updates from your S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) .
 	//
 	// > This parameter is not supported for Lustre file systems with a data repository association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-autoimportpolicy
+	//
 	AutoImportPolicy *string `field:"optional" json:"autoImportPolicy" yaml:"autoImportPolicy"`
 	// The number of days to retain automatic backups.
 	//
 	// Setting this property to `0` disables automatic backups. You can retain automatic backups for a maximum of 90 days. The default is `0` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
+	//
 	AutomaticBackupRetentionDays *float64 `field:"optional" json:"automaticBackupRetentionDays" yaml:"automaticBackupRetentionDays"`
 	// A Boolean flag indicating whether tags for the file system should be copied to backups.
 	//
 	// This value defaults to false. If it's set to true, all tags for the file system are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value. Only valid for use with `PERSISTENT_1` deployment types.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-copytagstobackups
+	//
 	CopyTagsToBackups interface{} `field:"optional" json:"copyTagsToBackups" yaml:"copyTagsToBackups"`
 	// A recurring daily time, in the format `HH:MM` .
 	//
 	// `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, `05:00` specifies 5 AM daily.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-dailyautomaticbackupstarttime
+	//
 	DailyAutomaticBackupStartTime *string `field:"optional" json:"dailyAutomaticBackupStartTime" yaml:"dailyAutomaticBackupStartTime"`
 	// Sets the data compression configuration for the file system. `DataCompressionType` can have the following values:.
 	//
@@ -55,6 +65,8 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// - `LZ4` - Data compression is turned on with the LZ4 algorithm.
 	//
 	// For more information, see [Lustre data compression](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html) in the *Amazon FSx for Lustre User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-datacompressiontype
+	//
 	DataCompressionType *string `field:"optional" json:"dataCompressionType" yaml:"dataCompressionType"`
 	// (Optional) Choose `SCRATCH_1` and `SCRATCH_2` deployment types when you need temporary storage and shorter-term processing of data.
 	//
@@ -69,12 +81,16 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// Encryption of data in transit is automatically turned on when you access `SCRATCH_2` , `PERSISTENT_1` and `PERSISTENT_2` file systems from Amazon EC2 instances that support automatic encryption in the AWS Regions where they are available. For more information about encryption in transit for FSx for Lustre file systems, see [Encrypting data in transit](https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html) in the *Amazon FSx for Lustre User Guide* .
 	//
 	// (Default = `SCRATCH_1` ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
+	//
 	DeploymentType *string `field:"optional" json:"deploymentType" yaml:"deploymentType"`
 	// The type of drive cache used by `PERSISTENT_1` file systems that are provisioned with HDD storage devices.
 	//
 	// This parameter is required when storage type is HDD. Set this property to `READ` to improve the performance for frequently accessed files by caching up to 20% of the total storage capacity of the file system.
 	//
 	// This parameter is required when `StorageType` is set to `HDD` and `DeploymentType` is `PERSISTENT_1` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
+	//
 	DriveCacheType *string `field:"optional" json:"driveCacheType" yaml:"driveCacheType"`
 	// (Optional) Specifies the path in the Amazon S3 bucket where the root of your Amazon FSx file system is exported.
 	//
@@ -83,6 +99,8 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// The Amazon S3 export bucket must be the same as the import bucket specified by `ImportPath` . If you specify only a bucket name, such as `s3://import-bucket` , you get a 1:1 mapping of file system objects to S3 bucket objects. This mapping means that the input data in S3 is overwritten on export. If you provide a custom prefix in the export path, such as `s3://import-bucket/[custom-optional-prefix]` , Amazon FSx exports the contents of your file system to that export prefix in the Amazon S3 bucket.
 	//
 	// > This parameter is not supported for file systems with a data repository association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath
+	//
 	ExportPath *string `field:"optional" json:"exportPath" yaml:"exportPath"`
 	// (Optional) For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk.
 	//
@@ -91,12 +109,16 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 	//
 	// > This parameter is not supported for Lustre file systems with a data repository association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importedfilechunksize
+	//
 	ImportedFileChunkSize *float64 `field:"optional" json:"importedFileChunkSize" yaml:"importedFileChunkSize"`
 	// (Optional) The path to the Amazon S3 bucket (including the optional prefix) that you're using as the data repository for your Amazon FSx for Lustre file system.
 	//
 	// The root of your FSx for Lustre file system will be mapped to the root of the Amazon S3 bucket you select. An example is `s3://import-bucket/optional-prefix` . If you specify a prefix after the Amazon S3 bucket name, only object keys with that prefix are loaded into the file system.
 	//
 	// > This parameter is not supported for Lustre file systems with a data repository association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importpath
+	//
 	ImportPath *string `field:"optional" json:"importPath" yaml:"importPath"`
 	// Required with `PERSISTENT_1` and `PERSISTENT_2` deployment types, provisions the amount of read and write throughput for each 1 tebibyte (TiB) of file system storage capacity, in MB/s/TiB.
 	//
@@ -107,6 +129,8 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// - For `PERSISTENT_1` SSD storage: 50, 100, 200 MB/s/TiB.
 	// - For `PERSISTENT_1` HDD storage: 12, 40 MB/s/TiB.
 	// - For `PERSISTENT_2` SSD storage: 125, 250, 500, 1000 MB/s/TiB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-perunitstoragethroughput
+	//
 	PerUnitStorageThroughput *float64 `field:"optional" json:"perUnitStorageThroughput" yaml:"perUnitStorageThroughput"`
 	// A recurring weekly time, in the format `D:HH:MM` .
 	//
@@ -115,6 +139,8 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour.
 	//
 	// For example, `1:05:00` specifies maintenance at 5 AM Monday.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-weeklymaintenancestarttime
+	//
 	WeeklyMaintenanceStartTime *string `field:"optional" json:"weeklyMaintenanceStartTime" yaml:"weeklyMaintenanceStartTime"`
 }
 

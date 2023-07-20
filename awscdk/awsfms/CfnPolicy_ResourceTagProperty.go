@@ -17,10 +17,16 @@ package awsfms
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html
+//
 type CfnPolicy_ResourceTagProperty struct {
 	// The resource tag key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The resource tag value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

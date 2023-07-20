@@ -239,14 +239,6 @@ func (j *jsiiProxy_CfnPermissionSet) validateSetCustomerManagedPolicyReferencesP
 	return nil
 }
 
-func (j *jsiiProxy_CfnPermissionSet) validateSetInlinePolicyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnPermissionSet) validateSetInstanceArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -281,6 +273,16 @@ func (j *jsiiProxy_CfnPermissionSet) validateSetPermissionsBoundaryParameters(va
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPermissionSet_PermissionsBoundaryProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnPermissionSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
 		}
 	}
 

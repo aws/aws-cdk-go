@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElastiCache::CacheCluster`.
-//
 // The AWS::ElastiCache::CacheCluster type creates an Amazon ElastiCache cache cluster.
 //
 // Example:
@@ -75,9 +73,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html
+//
 type CfnCacheCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The DNS hostname of the cache node.
 	//
 	// > Redis (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
@@ -86,6 +87,7 @@ type CfnCacheCluster interface {
 	//
 	// > Redis (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
 	AttrConfigurationEndpointPort() *string
+	AttrId() *string
 	// The DNS address of the configuration endpoint for the Redis cache cluster.
 	AttrRedisEndpointAddress() *string
 	// The port number of the configuration endpoint for the Redis cache cluster.
@@ -94,87 +96,18 @@ type CfnCacheCluster interface {
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
 	// Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
-	//
-	// This parameter is only supported for Memcached clusters.
-	//
-	// If the `AZMode` and `PreferredAvailabilityZones` are not specified, ElastiCache assumes `single-az` mode.
 	AzMode() *string
 	SetAzMode(val *string)
 	// The compute and memory capacity of the nodes in the node group (shard).
-	//
-	// The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts. Changing the CacheNodeType of a Memcached instance is currently not supported. If you need to scale using Memcached, we recommend forcing a replacement update by changing the `LogicalResourceId` of the resource.
-	//
-	// - General purpose:
-	//
-	// - Current generation:
-	//
-	// *M6g node types:* `cache.m6g.large` , `cache.m6g.xlarge` , `cache.m6g.2xlarge` , `cache.m6g.4xlarge` , `cache.m6g.8xlarge` , `cache.m6g.12xlarge` , `cache.m6g.16xlarge` , `cache.m6g.24xlarge`
-	//
-	// *M5 node types:* `cache.m5.large` , `cache.m5.xlarge` , `cache.m5.2xlarge` , `cache.m5.4xlarge` , `cache.m5.12xlarge` , `cache.m5.24xlarge`
-	//
-	// *M4 node types:* `cache.m4.large` , `cache.m4.xlarge` , `cache.m4.2xlarge` , `cache.m4.4xlarge` , `cache.m4.10xlarge`
-	//
-	// *T4g node types:* `cache.t4g.micro` , `cache.t4g.small` , `cache.t4g.medium`
-	//
-	// *T3 node types:* `cache.t3.micro` , `cache.t3.small` , `cache.t3.medium`
-	//
-	// *T2 node types:* `cache.t2.micro` , `cache.t2.small` , `cache.t2.medium`
-	// - Previous generation: (not recommended)
-	//
-	// *T1 node types:* `cache.t1.micro`
-	//
-	// *M1 node types:* `cache.m1.small` , `cache.m1.medium` , `cache.m1.large` , `cache.m1.xlarge`
-	//
-	// *M3 node types:* `cache.m3.medium` , `cache.m3.large` , `cache.m3.xlarge` , `cache.m3.2xlarge`
-	// - Compute optimized:
-	//
-	// - Previous generation: (not recommended)
-	//
-	// *C1 node types:* `cache.c1.xlarge`
-	// - Memory optimized:
-	//
-	// - Current generation:
-	//
-	// *R6gd node types:* `cache.r6gd.xlarge` , `cache.r6gd.2xlarge` , `cache.r6gd.4xlarge` , `cache.r6gd.8xlarge` , `cache.r6gd.12xlarge` , `cache.r6gd.16xlarge`
-	//
-	// > The `r6gd` family is available in the following regions: `us-east-2` , `us-east-1` , `us-west-2` , `us-west-1` , `eu-west-1` , `eu-central-1` , `ap-northeast-1` , `ap-southeast-1` , `ap-southeast-2` .
-	//
-	// *R6g node types:* `cache.r6g.large` , `cache.r6g.xlarge` , `cache.r6g.2xlarge` , `cache.r6g.4xlarge` , `cache.r6g.8xlarge` , `cache.r6g.12xlarge` , `cache.r6g.16xlarge` , `cache.r6g.24xlarge`
-	//
-	// *R5 node types:* `cache.r5.large` , `cache.r5.xlarge` , `cache.r5.2xlarge` , `cache.r5.4xlarge` , `cache.r5.12xlarge` , `cache.r5.24xlarge`
-	//
-	// *R4 node types:* `cache.r4.large` , `cache.r4.xlarge` , `cache.r4.2xlarge` , `cache.r4.4xlarge` , `cache.r4.8xlarge` , `cache.r4.16xlarge`
-	// - Previous generation: (not recommended)
-	//
-	// *M2 node types:* `cache.m2.xlarge` , `cache.m2.2xlarge` , `cache.m2.4xlarge`
-	//
-	// *R3 node types:* `cache.r3.large` , `cache.r3.xlarge` , `cache.r3.2xlarge` , `cache.r3.4xlarge` , `cache.r3.8xlarge`
-	//
-	// For region availability, see [Supported Node Types by Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)
-	//
-	// *Additional node type info*
-	//
-	// - All current generation instance types are created in Amazon VPC by default.
-	// - Redis append-only files (AOF) are not supported for T1 or T2 instances.
-	// - Redis Multi-AZ with automatic failover is not supported on T1 instances.
-	// - Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2.8.22 and later.
 	CacheNodeType() *string
 	SetCacheNodeType(val *string)
 	// The name of the parameter group to associate with this cluster.
-	//
-	// If this argument is omitted, the default parameter group for the specified engine is used. You cannot use any parameter group which has `cluster-enabled='yes'` when creating a cluster.
 	CacheParameterGroupName() *string
 	SetCacheParameterGroupName(val *string)
 	// A list of security group names to associate with this cluster.
-	//
-	// Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).
 	CacheSecurityGroupNames() *[]*string
 	SetCacheSecurityGroupNames(val *[]*string)
 	// The name of the subnet group to be used for the cluster.
-	//
-	// Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
-	//
-	// > If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see [AWS::ElastiCache::SubnetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html) .
 	CacheSubnetGroupName() *string
 	SetCacheSubnetGroupName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -183,10 +116,6 @@ type CfnCacheCluster interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A name for the cache cluster.
-	//
-	// If you don't specify a name, AWSCloudFormation generates a unique physical ID and uses that ID for the cache cluster. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// The name must contain 1 to 50 alphanumeric characters or hyphens. The name must start with a letter and cannot end with a hyphen or contain two consecutive hyphens.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -194,20 +123,12 @@ type CfnCacheCluster interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the cache engine to be used for this cluster.
-	//
-	// Valid values for this parameter are: `memcached` | `redis`.
 	Engine() *string
 	SetEngine(val *string)
 	// The version number of the cache engine to be used for this cluster.
-	//
-	// To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
-	//
-	// *Important:* You can upgrade to a newer engine version (see [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement) ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster or replication group and create it anew with the earlier engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	// The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
-	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	IpDiscovery() *string
 	SetIpDiscovery(val *string)
 	// Specifies the destination, format and type of the logs.
@@ -224,64 +145,26 @@ type CfnCacheCluster interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Must be either `ipv4` | `ipv6` | `dual_stack` .
-	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	NetworkType() *string
 	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
-	//
-	// > The Amazon SNS topic owner must be the same as the cluster owner.
 	NotificationTopicArn() *string
 	SetNotificationTopicArn(val *string)
 	// The number of cache nodes that the cache cluster should have.
-	//
-	// > However, if the `PreferredAvailabilityZone` and `PreferredAvailabilityZones` properties were not previously specified and you don't specify any new values, an update requires [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	NumCacheNodes() *float64
 	SetNumCacheNodes(val *float64)
 	// The port number on which each of the cache nodes accepts connections.
 	Port() *float64
 	SetPort(val *float64)
 	// The EC2 Availability Zone in which the cluster is created.
-	//
-	// All nodes belonging to this cluster are placed in the preferred Availability Zone. If you want to create your nodes across multiple Availability Zones, use `PreferredAvailabilityZones` .
-	//
-	// Default: System chosen Availability Zone.
 	PreferredAvailabilityZone() *string
 	SetPreferredAvailabilityZone(val *string)
 	// A list of the Availability Zones in which cache nodes are created.
-	//
-	// The order of the zones in the list is not important.
-	//
-	// This option is only supported on Memcached.
-	//
-	// > If you are creating your cluster in an Amazon VPC (recommended) you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group.
-	// >
-	// > The number of Availability Zones listed must equal the value of `NumCacheNodes` .
-	//
-	// If you want all the nodes in the same Availability Zone, use `PreferredAvailabilityZone` instead, or repeat the Availability Zone multiple times in the list.
-	//
-	// Default: System chosen Availability Zones.
 	PreferredAvailabilityZones() *[]*string
 	SetPreferredAvailabilityZones(val *[]*string)
 	// Specifies the weekly time range during which maintenance on the cluster is performed.
-	//
-	// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for `ddd` are:
-	//
-	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
-	//
-	// Valid values for `ddd` are:
-	//
-	// - `sun`
-	// - `mon`
-	// - `tue`
-	// - `wed`
-	// - `thu`
-	// - `fri`
-	// - `sat`
-	//
-	// Example: `sun:23:00-mon:01:30`.
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -290,45 +173,26 @@ type CfnCacheCluster interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
-	//
-	// The snapshot file is used to populate the node group (shard). The Amazon S3 object name in the ARN cannot contain any commas.
-	//
-	// > This parameter is only valid if the `Engine` parameter is `redis` .
-	//
-	// Example of an Amazon S3 ARN: `arn:aws:s3:::my_bucket/snapshot1.rdb`
 	SnapshotArns() *[]*string
 	SetSnapshotArns(val *[]*string)
 	// The name of a Redis snapshot from which to restore data into the new node group (shard).
-	//
-	// The snapshot status changes to `restoring` while the new node group (shard) is being created.
-	//
-	// > This parameter is only valid if the `Engine` parameter is `redis` .
 	SnapshotName() *string
 	SetSnapshotName(val *string)
 	// The number of days for which ElastiCache retains automatic snapshots before deleting them.
-	//
-	// For example, if you set `SnapshotRetentionLimit` to 5, a snapshot taken today is retained for 5 days before being deleted.
-	//
-	// > This parameter is only valid if the `Engine` parameter is `redis` .
-	//
-	// Default: 0 (i.e., automatic backups are disabled for this cache cluster).
 	SnapshotRetentionLimit() *float64
 	SetSnapshotRetentionLimit(val *float64)
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
-	//
-	// Example: `05:00-09:00`
-	//
-	// If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
-	//
-	// > This parameter is only valid if the `Engine` parameter is `redis` .
 	SnapshotWindow() *string
 	SetSnapshotWindow(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to be added to this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags to be added to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A flag that enables in-transit encryption when set to true.
 	TransitEncryptionEnabled() interface{}
 	SetTransitEncryptionEnabled(val interface{})
@@ -346,8 +210,6 @@ type CfnCacheCluster interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// One or more VPC security groups associated with the cluster.
-	//
-	// Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -481,6 +343,7 @@ type CfnCacheCluster interface {
 type jsiiProxy_CfnCacheCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCacheCluster) AttrConfigurationEndpointAddress() *string {
@@ -498,6 +361,16 @@ func (j *jsiiProxy_CfnCacheCluster) AttrConfigurationEndpointPort() *string {
 	_jsii_.Get(
 		j,
 		"attrConfigurationEndpointPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCacheCluster) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -833,6 +706,16 @@ func (j *jsiiProxy_CfnCacheCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCacheCluster) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCacheCluster) TransitEncryptionEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -874,7 +757,6 @@ func (j *jsiiProxy_CfnCacheCluster) VpcSecurityGroupIds() *[]*string {
 }
 
 
-// Create a new `AWS::ElastiCache::CacheCluster`.
 func NewCfnCacheCluster(scope constructs.Construct, id *string, props *CfnCacheClusterProps) CfnCacheCluster {
 	_init_.Initialize()
 
@@ -892,7 +774,6 @@ func NewCfnCacheCluster(scope constructs.Construct, id *string, props *CfnCacheC
 	return &j
 }
 
-// Create a new `AWS::ElastiCache::CacheCluster`.
 func NewCfnCacheCluster_Override(c CfnCacheCluster, scope constructs.Construct, id *string, props *CfnCacheClusterProps) {
 	_init_.Initialize()
 
@@ -1090,6 +971,17 @@ func (j *jsiiProxy_CfnCacheCluster)SetSnapshotWindow(val *string) {
 	_jsii_.Set(
 		j,
 		"snapshotWindow",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCacheCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

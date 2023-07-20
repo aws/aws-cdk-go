@@ -13,10 +13,16 @@ package awsquicksight
 //   	UnicodeIcon: jsii.String("unicodeIcon"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-conditionalformattingcustomiconoptions.html
+//
 type CfnAnalysis_ConditionalFormattingCustomIconOptionsProperty struct {
 	// Determines the type of icon.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-conditionalformattingcustomiconoptions.html#cfn-quicksight-analysis-conditionalformattingcustomiconoptions-icon
+	//
 	Icon *string `field:"optional" json:"icon" yaml:"icon"`
 	// Determines the Unicode icon type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-conditionalformattingcustomiconoptions.html#cfn-quicksight-analysis-conditionalformattingcustomiconoptions-unicodeicon
+	//
 	UnicodeIcon *string `field:"optional" json:"unicodeIcon" yaml:"unicodeIcon"`
 }
 

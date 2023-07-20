@@ -17,22 +17,32 @@ package awselasticsearch
 //   	UserPoolId: jsii.String("userPoolId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html
+//
 type CfnDomain_CognitoOptionsProperty struct {
 	// Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards.
 	//
 	// See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
 	//
 	// Required if you enable Cognito authentication.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-identitypoolid
+	//
 	IdentityPoolId *string `field:"optional" json:"identityPoolId" yaml:"identityPoolId"`
 	// The `AmazonESCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
 	//
 	// Required if you enable Cognito authentication.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
 	//
 	// Required if you enable Cognito authentication.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-userpoolid
+	//
 	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 

@@ -13,10 +13,16 @@ package awsautoscalingplans
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-metricdimension.html
+//
 type CfnScalingPlan_MetricDimensionProperty struct {
 	// The name of the dimension.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-metricdimension.html#cfn-autoscalingplans-scalingplan-metricdimension-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value of the dimension.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-metricdimension.html#cfn-autoscalingplans-scalingplan-metricdimension-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

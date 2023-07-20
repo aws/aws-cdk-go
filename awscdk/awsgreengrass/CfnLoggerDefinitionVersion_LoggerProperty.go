@@ -22,26 +22,38 @@ package awsgreengrass
 //   	Space: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html
+//
 type CfnLoggerDefinitionVersion_LoggerProperty struct {
 	// The source of the log event.
 	//
 	// Valid values are `GreengrassSystem` or `Lambda` . When `GreengrassSystem` is used, events from Greengrass system components are logged. When `Lambda` is used, events from user-defined Lambda functions are logged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-component
+	//
 	Component *string `field:"required" json:"component" yaml:"component"`
 	// A descriptive or arbitrary ID for the logger.
 	//
 	// This value must be unique within the logger definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The log-level threshold.
 	//
 	// Log events below this threshold are filtered out and aren't stored. Valid values are `DEBUG` , `INFO` (recommended), `WARN` , `ERROR` , or `FATAL` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-level
+	//
 	Level *string `field:"required" json:"level" yaml:"level"`
 	// The storage mechanism for log events.
 	//
 	// Valid values are `FileSystem` or `AWSCloudWatch` . When `AWSCloudWatch` is used, log events are sent to CloudWatch Logs . When `FileSystem` is used, log events are stored on the local file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The amount of file space (in KB) to use when writing logs to the local file system.
 	//
 	// This property does not apply for CloudWatch Logs .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-space
+	//
 	Space *float64 `field:"optional" json:"space" yaml:"space"`
 }
 

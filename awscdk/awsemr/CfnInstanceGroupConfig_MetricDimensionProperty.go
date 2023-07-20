@@ -15,10 +15,16 @@ package awsemr
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-metricdimension.html
+//
 type CfnInstanceGroupConfig_MetricDimensionProperty struct {
 	// The dimension name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-metricdimension.html#cfn-emr-instancegroupconfig-metricdimension-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The dimension value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-metricdimension.html#cfn-emr-instancegroupconfig-metricdimension-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -12,8 +12,12 @@ package awskafkaconnect
 //   	EncryptionType: jsii.String("encryptionType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html
+//
 type CfnConnector_KafkaClusterEncryptionInTransitProperty struct {
 	// The type of encryption in transit to the Apache Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit-encryptiontype
+	//
 	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
 }
 

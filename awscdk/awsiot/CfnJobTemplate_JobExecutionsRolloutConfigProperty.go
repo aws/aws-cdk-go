@@ -20,12 +20,18 @@ package awsiot
 //   	MaximumPerMinute: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html
+//
 type CfnJobTemplate_JobExecutionsRolloutConfigProperty struct {
-	// `CfnJobTemplate.JobExecutionsRolloutConfigProperty.ExponentialRolloutRate`.
+	// Allows you to create an exponential rate of rollout for a job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html#cfn-iot-jobtemplate-jobexecutionsrolloutconfig-exponentialrolloutrate
+	//
 	ExponentialRolloutRate interface{} `field:"optional" json:"exponentialRolloutRate" yaml:"exponentialRolloutRate"`
 	// The maximum number of things that will be notified of a pending job, per minute.
 	//
 	// This parameter allows you to create a staged rollout.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html#cfn-iot-jobtemplate-jobexecutionsrolloutconfig-maximumperminute
+	//
 	MaximumPerMinute *float64 `field:"optional" json:"maximumPerMinute" yaml:"maximumPerMinute"`
 }
 

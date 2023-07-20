@@ -16,10 +16,16 @@ package awsquicksight
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualtitlelabeloptions.html
+//
 type CfnAnalysis_VisualTitleLabelOptionsProperty struct {
 	// The short text format of the title label, such as plain text or rich text.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualtitlelabeloptions.html#cfn-quicksight-analysis-visualtitlelabeloptions-formattext
+	//
 	FormatText interface{} `field:"optional" json:"formatText" yaml:"formatText"`
 	// The visibility of the title label.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualtitlelabeloptions.html#cfn-quicksight-analysis-visualtitlelabeloptions-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

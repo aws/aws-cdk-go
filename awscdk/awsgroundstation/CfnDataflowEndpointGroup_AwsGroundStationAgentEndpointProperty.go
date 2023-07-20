@@ -29,16 +29,23 @@ package awsgroundstation
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html
+//
 type CfnDataflowEndpointGroup_AwsGroundStationAgentEndpointProperty struct {
-	// `CfnDataflowEndpointGroup.AwsGroundStationAgentEndpointProperty.AgentStatus`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-agentstatus
+	//
 	AgentStatus *string `field:"optional" json:"agentStatus" yaml:"agentStatus"`
-	// `CfnDataflowEndpointGroup.AwsGroundStationAgentEndpointProperty.AuditResults`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-auditresults
+	//
 	AuditResults *string `field:"optional" json:"auditResults" yaml:"auditResults"`
-	// `CfnDataflowEndpointGroup.AwsGroundStationAgentEndpointProperty.EgressAddress`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-egressaddress
+	//
 	EgressAddress interface{} `field:"optional" json:"egressAddress" yaml:"egressAddress"`
-	// `CfnDataflowEndpointGroup.AwsGroundStationAgentEndpointProperty.IngressAddress`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-ingressaddress
+	//
 	IngressAddress interface{} `field:"optional" json:"ingressAddress" yaml:"ingressAddress"`
-	// `CfnDataflowEndpointGroup.AwsGroundStationAgentEndpointProperty.Name`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

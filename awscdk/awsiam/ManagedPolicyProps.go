@@ -13,13 +13,19 @@ package awsiam
 //   			"Action": []*string{
 //   				jsii.String("iam:ChangePassword"),
 //   			},
-//   			"Resource": jsii.String("*"),
+//   			"Resource": []*string{
+//   				jsii.String("*"),
+//   			},
 //   		},
-//   		map[string]*string{
+//   		map[string]interface{}{
 //   			"Sid": jsii.String("SecondStatement"),
 //   			"Effect": jsii.String("Allow"),
-//   			"Action": jsii.String("s3:ListAllMyBuckets"),
-//   			"Resource": jsii.String("*"),
+//   			"Action": []*string{
+//   				jsii.String("s3:ListAllMyBuckets"),
+//   			},
+//   			"Resource": []*string{
+//   				jsii.String("*"),
+//   			},
 //   		},
 //   		map[string]interface{}{
 //   			"Sid": jsii.String("ThirdStatement"),

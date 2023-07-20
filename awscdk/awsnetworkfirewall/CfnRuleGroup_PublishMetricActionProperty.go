@@ -18,8 +18,11 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html
+//
 type CfnRuleGroup_PublishMetricActionProperty struct {
-	// `CfnRuleGroup.PublishMetricActionProperty.Dimensions`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
+	//
 	Dimensions interface{} `field:"required" json:"dimensions" yaml:"dimensions"`
 }
 

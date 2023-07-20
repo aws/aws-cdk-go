@@ -14,12 +14,15 @@ package awsappmesh
 //   	VirtualNode: virtualNode,
 //
 //   	// the properties below are optional
+//   	Port: jsii.Number(123),
 //   	Weight: jsii.Number(123),
 //   }
 //
 type WeightedTarget struct {
 	// The VirtualNode the route points to.
 	VirtualNode IVirtualNode `field:"required" json:"virtualNode" yaml:"virtualNode"`
+	// The port to match from the request.
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The weight for the target.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }

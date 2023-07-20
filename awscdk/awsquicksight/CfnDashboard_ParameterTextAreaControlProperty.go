@@ -37,16 +37,28 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextareacontrol.html
+//
 type CfnDashboard_ParameterTextAreaControlProperty struct {
 	// The ID of the `ParameterTextAreaControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextareacontrol.html#cfn-quicksight-dashboard-parametertextareacontrol-parametercontrolid
+	//
 	ParameterControlId *string `field:"required" json:"parameterControlId" yaml:"parameterControlId"`
 	// The source parameter name of the `ParameterTextAreaControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextareacontrol.html#cfn-quicksight-dashboard-parametertextareacontrol-sourceparametername
+	//
 	SourceParameterName *string `field:"required" json:"sourceParameterName" yaml:"sourceParameterName"`
 	// The title of the `ParameterTextAreaControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextareacontrol.html#cfn-quicksight-dashboard-parametertextareacontrol-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// The delimiter that is used to separate the lines in text.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextareacontrol.html#cfn-quicksight-dashboard-parametertextareacontrol-delimiter
+	//
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// The display options of a control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextareacontrol.html#cfn-quicksight-dashboard-parametertextareacontrol-displayoptions
+	//
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

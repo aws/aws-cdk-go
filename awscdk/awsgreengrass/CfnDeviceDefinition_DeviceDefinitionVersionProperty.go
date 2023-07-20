@@ -25,8 +25,12 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-devicedefinitionversion.html
+//
 type CfnDeviceDefinition_DeviceDefinitionVersionProperty struct {
 	// The devices in this version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-devicedefinitionversion.html#cfn-greengrass-devicedefinition-devicedefinitionversion-devices
+	//
 	Devices interface{} `field:"required" json:"devices" yaml:"devices"`
 }
 

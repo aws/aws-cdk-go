@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnSecurityGroup) validateSetDescriptionParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnSecurityGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSecurityGroupParameters(scope constructs.Construct, id *string, props *CfnSecurityGroupProps) error {
 	return nil
 }

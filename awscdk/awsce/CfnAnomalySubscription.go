@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CE::AnomalySubscription`.
-//
 // The `AWS::CE::AnomalySubscription` resource (also referred to as an alert subscription) is a Cost Explorer resource type that sends notifications about specific anomalies that meet an alerting criteria defined by you.
 //
 // You can specify the frequency of the alerts and the subscribers to notify.
@@ -51,6 +49,8 @@ import (
 //   	ThresholdExpression: jsii.String("thresholdExpression"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html
+//
 type CfnAnomalySubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -68,8 +68,6 @@ type CfnAnomalySubscription interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The frequency that anomaly notifications are sent.
-	//
-	// Notifications are sent either over email (for DAILY and WEEKLY frequencies) or SNS (for IMMEDIATE frequency). For more information, see [Creating an Amazon SNS topic for anomaly notifications](https://docs.aws.amazon.com/cost-management/latest/userguide/ad-SNS.html) .
 	Frequency() *string
 	SetFrequency(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -92,7 +90,7 @@ type CfnAnomalySubscription interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::CE::AnomalySubscription.ResourceTags`.
+	// Tags to assign to subscription.
 	ResourceTags() interface{}
 	SetResourceTags(val interface{})
 	// The stack in which this element is defined.
@@ -106,19 +104,9 @@ type CfnAnomalySubscription interface {
 	SubscriptionName() *string
 	SetSubscriptionName(val *string)
 	// (deprecated).
-	//
-	// An absolute dollar value that must be exceeded by the anomaly's total impact (see [Impact](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html) for more details) for an anomaly notification to be generated.
-	//
-	// This field has been deprecated. To specify a threshold, use ThresholdExpression. Continued use of Threshold will be treated as shorthand syntax for a ThresholdExpression.
-	//
-	// One of Threshold or ThresholdExpression is required for `AWS::CE::AnomalySubscription` . You cannot specify both.
 	Threshold() *float64
 	SetThreshold(val *float64)
 	// An [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object in JSON string format used to specify the anomalies that you want to generate alerts for. This supports dimensions and nested expressions. The supported dimensions are `ANOMALY_TOTAL_IMPACT_ABSOLUTE` and `ANOMALY_TOTAL_IMPACT_PERCENTAGE` , corresponding to an anomaly’s TotalImpact and TotalImpactPercentage, respectively (see [Impact](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html) for more details). The supported nested expression types are `AND` and `OR` . The match option `GREATER_THAN_OR_EQUAL` is required. Values must be numbers between 0 and 10,000,000,000 in string format.
-	//
-	// One of Threshold or ThresholdExpression is required for `AWS::CE::AnomalySubscription` . You cannot specify both.
-	//
-	// For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#aws-resource-ce-anomalysubscription--examples) section of this page.
 	ThresholdExpression() *string
 	SetThresholdExpression(val *string)
 	// Deprecated.
@@ -458,7 +446,6 @@ func (j *jsiiProxy_CfnAnomalySubscription) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::CE::AnomalySubscription`.
 func NewCfnAnomalySubscription(scope constructs.Construct, id *string, props *CfnAnomalySubscriptionProps) CfnAnomalySubscription {
 	_init_.Initialize()
 
@@ -476,7 +463,6 @@ func NewCfnAnomalySubscription(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::CE::AnomalySubscription`.
 func NewCfnAnomalySubscription_Override(c CfnAnomalySubscription, scope constructs.Construct, id *string, props *CfnAnomalySubscriptionProps) {
 	_init_.Initialize()
 

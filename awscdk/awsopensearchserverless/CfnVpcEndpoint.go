@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpenSearchServerless::VpcEndpoint`.
+// Creates an OpenSearch Serverless-managed interface VPC endpoint.
 //
-// Creates an OpenSearch Serverless-managed interface VPC endpoint. For more information, see [Access Amazon OpenSearch Serverless using an interface endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html) .
+// For more information, see [Access Amazon OpenSearch Serverless using an interface endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,6 +30,8 @@ import (
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.html
 //
 type CfnVpcEndpoint interface {
 	awscdk.CfnResource
@@ -377,7 +379,6 @@ func (j *jsiiProxy_CfnVpcEndpoint) VpcId() *string {
 }
 
 
-// Create a new `AWS::OpenSearchServerless::VpcEndpoint`.
 func NewCfnVpcEndpoint(scope constructs.Construct, id *string, props *CfnVpcEndpointProps) CfnVpcEndpoint {
 	_init_.Initialize()
 
@@ -395,7 +396,6 @@ func NewCfnVpcEndpoint(scope constructs.Construct, id *string, props *CfnVpcEndp
 	return &j
 }
 
-// Create a new `AWS::OpenSearchServerless::VpcEndpoint`.
 func NewCfnVpcEndpoint_Override(c CfnVpcEndpoint, scope constructs.Construct, id *string, props *CfnVpcEndpointProps) {
 	_init_.Initialize()
 

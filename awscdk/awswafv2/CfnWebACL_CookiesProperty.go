@@ -30,16 +30,22 @@ package awswafv2
 //   	OversizeHandling: jsii.String("oversizeHandling"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html
+//
 type CfnWebACL_CookiesProperty struct {
 	// The filter to use to identify the subset of cookies to inspect in a web request.
 	//
 	// You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
 	//
 	// Example JSON: `"MatchPattern": { "IncludedCookies": [ "session-id-time", "session-id" ] }`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-matchpattern
+	//
 	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
 	// The parts of the cookies to inspect with the rule inspection criteria.
 	//
 	// If you specify `All` , AWS WAF inspects both keys and values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-matchscope
+	//
 	MatchScope *string `field:"required" json:"matchScope" yaml:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are more numerous or larger than AWS WAF can inspect.
 	//
@@ -50,6 +56,8 @@ type CfnWebACL_CookiesProperty struct {
 	// - `CONTINUE` - Inspect the available cookies normally, according to the rule inspection criteria.
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-oversizehandling
+	//
 	OversizeHandling *string `field:"required" json:"oversizeHandling" yaml:"oversizeHandling"`
 }
 

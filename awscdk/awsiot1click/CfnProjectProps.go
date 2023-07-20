@@ -27,12 +27,20 @@ package awsiot1click
 //   	ProjectName: jsii.String("projectName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html
+//
 type CfnProjectProps struct {
 	// An object describing the project's placement specifications.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-placementtemplate
+	//
 	PlacementTemplate interface{} `field:"required" json:"placementTemplate" yaml:"placementTemplate"`
 	// The description of the project.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the project from which to obtain information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-projectname
+	//
 	ProjectName *string `field:"optional" json:"projectName" yaml:"projectName"`
 }
 

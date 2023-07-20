@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnConnector) validateSetAs2ConfigParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnector) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnector) validateSetUrlParameters(val *string) error {
 	return nil
 }

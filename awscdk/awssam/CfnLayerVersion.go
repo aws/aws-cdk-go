@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Serverless::LayerVersion`.
+// Definition of AWS::Serverless::LayerVersion.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,6 +27,8 @@ import (
 //   	RetentionPolicy: jsii.String("retentionPolicy"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-layerversion.html
+//
 type CfnLayerVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -35,23 +37,18 @@ type CfnLayerVersion interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::Serverless::LayerVersion.CompatibleRuntimes`.
 	CompatibleRuntimes() *[]*string
 	SetCompatibleRuntimes(val *[]*string)
-	// `AWS::Serverless::LayerVersion.ContentUri`.
 	ContentUri() interface{}
 	SetContentUri(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Serverless::LayerVersion.Description`.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Serverless::LayerVersion.LayerName`.
 	LayerName() *string
 	SetLayerName(val *string)
-	// `AWS::Serverless::LayerVersion.LicenseInfo`.
 	LicenseInfo() *string
 	SetLicenseInfo(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -71,7 +68,6 @@ type CfnLayerVersion interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Serverless::LayerVersion.RetentionPolicy`.
 	RetentionPolicy() *string
 	SetRetentionPolicy(val *string)
 	// The stack in which this element is defined.
@@ -385,7 +381,6 @@ func (j *jsiiProxy_CfnLayerVersion) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Serverless::LayerVersion`.
 func NewCfnLayerVersion(scope constructs.Construct, id *string, props *CfnLayerVersionProps) CfnLayerVersion {
 	_init_.Initialize()
 
@@ -403,7 +398,6 @@ func NewCfnLayerVersion(scope constructs.Construct, id *string, props *CfnLayerV
 	return &j
 }
 
-// Create a new `AWS::Serverless::LayerVersion`.
 func NewCfnLayerVersion_Override(c CfnLayerVersion, scope constructs.Construct, id *string, props *CfnLayerVersionProps) {
 	_init_.Initialize()
 

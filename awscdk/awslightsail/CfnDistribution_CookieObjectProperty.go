@@ -17,8 +17,12 @@ package awslightsail
 //   	Option: jsii.String("option"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html
+//
 type CfnDistribution_CookieObjectProperty struct {
 	// The specific cookies to forward to your distribution's origin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html#cfn-lightsail-distribution-cookieobject-cookiesallowlist
+	//
 	CookiesAllowList *[]*string `field:"optional" json:"cookiesAllowList" yaml:"cookiesAllowList"`
 	// Specifies which cookies to forward to the distribution's origin for a cache behavior.
 	//
@@ -27,6 +31,8 @@ type CfnDistribution_CookieObjectProperty struct {
 	// - *`all`* - Forwards all cookies to your origin.
 	// - *`none`* - Doesn’t forward cookies to your origin.
 	// - *`allow-list`* - Forwards only the cookies that you specify using the `CookiesAllowList` parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html#cfn-lightsail-distribution-cookieobject-option
+	//
 	Option *string `field:"optional" json:"option" yaml:"option"`
 }
 

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnKeyspace) validateSetReplicationSpecificationParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnKeyspace) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnKeyspaceParameters(scope constructs.Construct, id *string, props *CfnKeyspaceProps) error {
 	return nil
 }

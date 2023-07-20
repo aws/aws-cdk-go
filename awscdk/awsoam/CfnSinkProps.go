@@ -20,8 +20,12 @@ package awsoam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-sink.html
+//
 type CfnSinkProps struct {
 	// A name for the sink.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-sink.html#cfn-oam-sink-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The IAM policy that grants permissions to source accounts to link to this sink.
 	//
@@ -29,10 +33,14 @@ type CfnSinkProps struct {
 	//
 	// - Include organization IDs or organization paths to permit all accounts in an organization
 	// - Include account IDs to permit the specified accounts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-sink.html#cfn-oam-sink-policy
+	//
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
 	// An array of key-value pairs to apply to the sink.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-sink.html#cfn-oam-sink-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

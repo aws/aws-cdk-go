@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::IPAMResourceDiscoveryAssociation`.
+// An IPAM resource discovery association.
 //
-// An IPAM resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM. IPAM aggregates the resource CIDRs discovered by the associated resource discovery.
+// An associated resource discovery is a resource discovery that has been associated with an IPAM. IPAM aggregates the resource CIDRs discovered by the associated resource discovery.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,9 +31,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscoveryassociation.html
+//
 type CfnIPAMResourceDiscoveryAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The IPAM ARN.
 	AttrIpamArn() *string
 	// The IPAM home Region.
@@ -101,10 +104,11 @@ type CfnIPAMResourceDiscoveryAssociation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A tag is a label that you assign to an AWS resource.
-	//
-	// Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your AWS costs.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A tag is a label that you assign to an AWS resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -249,6 +253,7 @@ type CfnIPAMResourceDiscoveryAssociation interface {
 type jsiiProxy_CfnIPAMResourceDiscoveryAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) AttrIpamArn() *string {
@@ -441,6 +446,16 @@ func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) Tags() awscdk.TagManager
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -462,7 +477,6 @@ func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) UpdatedProperties() *map
 }
 
 
-// Create a new `AWS::EC2::IPAMResourceDiscoveryAssociation`.
 func NewCfnIPAMResourceDiscoveryAssociation(scope constructs.Construct, id *string, props *CfnIPAMResourceDiscoveryAssociationProps) CfnIPAMResourceDiscoveryAssociation {
 	_init_.Initialize()
 
@@ -480,7 +494,6 @@ func NewCfnIPAMResourceDiscoveryAssociation(scope constructs.Construct, id *stri
 	return &j
 }
 
-// Create a new `AWS::EC2::IPAMResourceDiscoveryAssociation`.
 func NewCfnIPAMResourceDiscoveryAssociation_Override(c CfnIPAMResourceDiscoveryAssociation, scope constructs.Construct, id *string, props *CfnIPAMResourceDiscoveryAssociationProps) {
 	_init_.Initialize()
 
@@ -509,6 +522,17 @@ func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation)SetIpamResourceDiscoveryI
 	_jsii_.Set(
 		j,
 		"ipamResourceDiscoveryId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

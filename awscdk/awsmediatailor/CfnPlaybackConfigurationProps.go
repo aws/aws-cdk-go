@@ -62,38 +62,86 @@ import (
 //   	TranscodeProfileName: jsii.String("transcodeProfileName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html
+//
 type CfnPlaybackConfigurationProps struct {
-	// `AWS::MediaTailor::PlaybackConfiguration.AdDecisionServerUrl`.
+	// The URL for the ad decision server (ADS).
+	//
+	// This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-addecisionserverurl
+	//
 	AdDecisionServerUrl *string `field:"required" json:"adDecisionServerUrl" yaml:"adDecisionServerUrl"`
-	// `AWS::MediaTailor::PlaybackConfiguration.Name`.
+	// The identifier for the playback configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::MediaTailor::PlaybackConfiguration.VideoContentSourceUrl`.
+	// The URL prefix for the parent manifest for the stream, minus the asset ID.
+	//
+	// The maximum length is 512 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-videocontentsourceurl
+	//
 	VideoContentSourceUrl *string `field:"required" json:"videoContentSourceUrl" yaml:"videoContentSourceUrl"`
-	// `AWS::MediaTailor::PlaybackConfiguration.AvailSuppression`.
+	// The configuration for avail suppression, also known as ad suppression.
+	//
+	// For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-availsuppression
+	//
 	AvailSuppression interface{} `field:"optional" json:"availSuppression" yaml:"availSuppression"`
-	// `AWS::MediaTailor::PlaybackConfiguration.Bumper`.
+	// The configuration for bumpers.
+	//
+	// Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-bumper
+	//
 	Bumper interface{} `field:"optional" json:"bumper" yaml:"bumper"`
-	// `AWS::MediaTailor::PlaybackConfiguration.CdnConfiguration`.
+	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-cdnconfiguration
+	//
 	CdnConfiguration interface{} `field:"optional" json:"cdnConfiguration" yaml:"cdnConfiguration"`
 	// The player parameters and aliases used as dynamic variables during session initialization.
 	//
 	// For more information, see [Domain Variables](https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-configurationaliases
+	//
 	ConfigurationAliases interface{} `field:"optional" json:"configurationAliases" yaml:"configurationAliases"`
-	// `AWS::MediaTailor::PlaybackConfiguration.DashConfiguration`.
+	// The configuration for DASH PUT operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-dashconfiguration
+	//
 	DashConfiguration interface{} `field:"optional" json:"dashConfiguration" yaml:"dashConfiguration"`
 	// The configuration for HLS content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-hlsconfiguration
+	//
 	HlsConfiguration interface{} `field:"optional" json:"hlsConfiguration" yaml:"hlsConfiguration"`
-	// `AWS::MediaTailor::PlaybackConfiguration.LivePreRollConfiguration`.
+	// The configuration for pre-roll ad insertion.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-liveprerollconfiguration
+	//
 	LivePreRollConfiguration interface{} `field:"optional" json:"livePreRollConfiguration" yaml:"livePreRollConfiguration"`
-	// `AWS::MediaTailor::PlaybackConfiguration.ManifestProcessingRules`.
+	// The configuration for manifest processing rules.
+	//
+	// Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-manifestprocessingrules
+	//
 	ManifestProcessingRules interface{} `field:"optional" json:"manifestProcessingRules" yaml:"manifestProcessingRules"`
-	// `AWS::MediaTailor::PlaybackConfiguration.PersonalizationThresholdSeconds`.
+	// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break.
+	//
+	// If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-personalizationthresholdseconds
+	//
 	PersonalizationThresholdSeconds *float64 `field:"optional" json:"personalizationThresholdSeconds" yaml:"personalizationThresholdSeconds"`
-	// `AWS::MediaTailor::PlaybackConfiguration.SlateAdUrl`.
+	// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads.
+	//
+	// AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-slateadurl
+	//
 	SlateAdUrl *string `field:"optional" json:"slateAdUrl" yaml:"slateAdUrl"`
-	// `AWS::MediaTailor::PlaybackConfiguration.Tags`.
+	// The tags to assign to the playback configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::MediaTailor::PlaybackConfiguration.TranscodeProfileName`.
+	// The name that is used to associate this playback configuration with a custom transcode profile.
+	//
+	// This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-transcodeprofilename
+	//
 	TranscodeProfileName *string `field:"optional" json:"transcodeProfileName" yaml:"transcodeProfileName"`
 }
 

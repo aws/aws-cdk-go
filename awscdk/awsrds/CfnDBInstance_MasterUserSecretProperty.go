@@ -15,10 +15,16 @@ package awsrds
 //   	SecretArn: jsii.String("secretArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-masterusersecret.html
+//
 type CfnDBInstance_MasterUserSecretProperty struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-masterusersecret.html#cfn-rds-dbinstance-masterusersecret-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-masterusersecret.html#cfn-rds-dbinstance-masterusersecret-secretarn
+	//
 	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
 }
 

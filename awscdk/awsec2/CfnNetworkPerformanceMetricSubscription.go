@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NetworkPerformanceMetricSubscription`.
-//
 // Describes Infrastructure Performance subscriptions.
 //
 // Example:
@@ -25,6 +23,8 @@ import (
 //   	Statistic: jsii.String("statistic"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html
+//
 type CfnNetworkPerformanceMetricSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -38,8 +38,6 @@ type CfnNetworkPerformanceMetricSubscription interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Region or Availability Zone that's the target for the subscription.
-	//
-	// For example, `eu-west-1` .
 	Destination() *string
 	SetDestination(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -63,8 +61,6 @@ type CfnNetworkPerformanceMetricSubscription interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Region or Availability Zone that's the source for the subscription.
-	//
-	// For example, `us-east-1` .
 	Source() *string
 	SetSource(val *string)
 	// The stack in which this element is defined.
@@ -361,7 +357,6 @@ func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) UpdatedProperties() 
 }
 
 
-// Create a new `AWS::EC2::NetworkPerformanceMetricSubscription`.
 func NewCfnNetworkPerformanceMetricSubscription(scope constructs.Construct, id *string, props *CfnNetworkPerformanceMetricSubscriptionProps) CfnNetworkPerformanceMetricSubscription {
 	_init_.Initialize()
 
@@ -379,7 +374,6 @@ func NewCfnNetworkPerformanceMetricSubscription(scope constructs.Construct, id *
 	return &j
 }
 
-// Create a new `AWS::EC2::NetworkPerformanceMetricSubscription`.
 func NewCfnNetworkPerformanceMetricSubscription_Override(c CfnNetworkPerformanceMetricSubscription, scope constructs.Construct, id *string, props *CfnNetworkPerformanceMetricSubscriptionProps) {
 	_init_.Initialize()
 

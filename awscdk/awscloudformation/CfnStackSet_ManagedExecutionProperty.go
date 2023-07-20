@@ -12,6 +12,8 @@ package awscloudformation
 //   	Active: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-managedexecution.html
+//
 type CfnStackSet_ManagedExecutionProperty struct {
 	// When `true` , StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	//
@@ -22,6 +24,8 @@ type CfnStackSet_ManagedExecutionProperty struct {
 	// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
 	//
 	// When `false` (default), StackSets performs one operation at a time in request order.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-managedexecution.html#cfn-cloudformation-stackset-managedexecution-active
+	//
 	Active interface{} `field:"optional" json:"active" yaml:"active"`
 }
 

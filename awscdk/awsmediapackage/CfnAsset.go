@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaPackage::Asset`.
-//
 // Creates an asset to ingest VOD content.
 //
 // After it's created, the asset starts ingesting content and generates playback URLs for the packaging configurations associated with it. When ingest is complete, downstream devices use the appropriate URL to request VOD content from AWS Elemental MediaPackage .
@@ -42,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
+//
 type CfnAsset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) for the asset.
 	//
 	// You can get this from the response to any request to the asset.
@@ -93,16 +94,17 @@ type CfnAsset interface {
 	SourceArn() *string
 	SetSourceArn(val *string)
 	// The ARN for the IAM role that provides AWS Elemental MediaPackage access to the Amazon S3 bucket where the source content is stored.
-	//
-	// Valid format: arn:aws:iam::{accountID}:role/{name}.
 	SourceRoleArn() *string
 	SetSourceRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to assign to the asset.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to assign to the asset.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -247,6 +249,7 @@ type CfnAsset interface {
 type jsiiProxy_CfnAsset struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAsset) AttrArn() *string {
@@ -419,6 +422,16 @@ func (j *jsiiProxy_CfnAsset) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAsset) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAsset) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -440,7 +453,6 @@ func (j *jsiiProxy_CfnAsset) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MediaPackage::Asset`.
 func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) CfnAsset {
 	_init_.Initialize()
 
@@ -458,7 +470,6 @@ func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) C
 	return &j
 }
 
-// Create a new `AWS::MediaPackage::Asset`.
 func NewCfnAsset_Override(c CfnAsset, scope constructs.Construct, id *string, props *CfnAssetProps) {
 	_init_.Initialize()
 
@@ -528,6 +539,17 @@ func (j *jsiiProxy_CfnAsset)SetSourceRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAsset)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

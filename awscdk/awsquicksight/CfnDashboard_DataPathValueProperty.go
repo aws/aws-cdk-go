@@ -13,10 +13,16 @@ package awsquicksight
 //   	FieldValue: jsii.String("fieldValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapathvalue.html
+//
 type CfnDashboard_DataPathValueProperty struct {
 	// The field ID of the field that needs to be sorted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapathvalue.html#cfn-quicksight-dashboard-datapathvalue-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The actual value of the field that needs to be sorted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapathvalue.html#cfn-quicksight-dashboard-datapathvalue-fieldvalue
+	//
 	FieldValue *string `field:"required" json:"fieldValue" yaml:"fieldValue"`
 }
 

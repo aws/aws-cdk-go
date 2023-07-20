@@ -17,10 +17,16 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html
+//
 type CfnBucket_MetricsProperty struct {
 	// Specifies whether the replication metrics are enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 	// A container specifying the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
+	//
 	EventThreshold interface{} `field:"optional" json:"eventThreshold" yaml:"eventThreshold"`
 }
 

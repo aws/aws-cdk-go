@@ -12,8 +12,12 @@ package awskinesisanalytics
 //   	LogStreamArn: jsii.String("logStreamArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption.html
+//
 type CfnApplicationCloudWatchLoggingOptionV2_CloudWatchLoggingOptionProperty struct {
 	// The ARN of the CloudWatch log to receive application messages.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption-logstreamarn
+	//
 	LogStreamArn *string `field:"required" json:"logStreamArn" yaml:"logStreamArn"`
 }
 

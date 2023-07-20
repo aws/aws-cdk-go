@@ -17,10 +17,16 @@ package awsrekognition
 //   	ObjectKeyPrefix: jsii.String("objectKeyPrefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-s3destination.html
+//
 type CfnStreamProcessor_S3DestinationProperty struct {
 	// Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name of a stream processor's exports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-s3destination.html#cfn-rekognition-streamprocessor-s3destination-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// Describes the destination Amazon Simple Storage Service (Amazon S3) object keys of a stream processor's exports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-s3destination.html#cfn-rekognition-streamprocessor-s3destination-objectkeyprefix
+	//
 	ObjectKeyPrefix *string `field:"optional" json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 }
 

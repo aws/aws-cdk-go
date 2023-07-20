@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DocDB::DBCluster`.
+// The `AWS::DocDB::DBCluster` Amazon DocumentDB (with MongoDB compatibility) resource describes a DBCluster.
 //
-// The `AWS::DocDB::DBCluster` Amazon DocumentDB (with MongoDB compatibility) resource describes a DBCluster. Amazon DocumentDB is a fully managed, MongoDB-compatible document database engine. For more information, see [DBCluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBCluster.html) in the *Amazon DocumentDB Developer Guide* .
+// Amazon DocumentDB is a fully managed, MongoDB-compatible document database engine. For more information, see [DBCluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBCluster.html) in the *Amazon DocumentDB Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,15 +55,19 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html
+//
 type CfnDBCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The resource id for the cluster;
 	//
 	// for example: `cluster-ABCD1234EFGH5678IJKL90MNOP` . The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
 	AttrClusterResourceId() *string
 	// The connection endpoint for the cluster, such as `sample-cluster.cluster-cozrlsfrcjoc.us-east-1.docdb.amazonaws.com` .
 	AttrEndpoint() *string
+	AttrId() *string
 	// The port number on which the cluster accepts connections.
 	//
 	// For example: `27017` .
@@ -75,13 +79,9 @@ type CfnDBCluster interface {
 	// A list of Amazon EC2 Availability Zones that instances in the cluster can be created in.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
-	// The number of days for which automated backups are retained. You must specify a minimum value of 1.
+	// The number of days for which automated backups are retained.
 	//
-	// Default: 1
-	//
-	// Constraints:
-	//
-	// - Must be a value from 1 to 35.
+	// You must specify a minimum value of 1.
 	BackupRetentionPeriod() *float64
 	SetBackupRetentionPeriod(val *float64)
 	// Options for this resource, such as condition, update policy etc.
@@ -89,58 +89,33 @@ type CfnDBCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::DocDB::DBCluster.CopyTagsToSnapshot`.
 	CopyTagsToSnapshot() interface{}
 	SetCopyTagsToSnapshot(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The cluster identifier. This parameter is stored as a lowercase string.
+	// The cluster identifier.
 	//
-	// Constraints:
-	//
-	// - Must contain from 1 to 63 letters, numbers, or hyphens.
-	// - The first character must be a letter.
-	// - Cannot end with a hyphen or contain two consecutive hyphens.
-	//
-	// Example: `my-cluster`.
+	// This parameter is stored as a lowercase string.
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
 	// The name of the cluster parameter group to associate with this cluster.
 	DbClusterParameterGroupName() *string
 	SetDbClusterParameterGroupName(val *string)
 	// A subnet group to associate with this cluster.
-	//
-	// Constraints: Must match the name of an existing `DBSubnetGroup` . Must not be default.
-	//
-	// Example: `mySubnetgroup`.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
 	// Protects clusters from being accidentally deleted.
-	//
-	// If enabled, the cluster cannot be deleted unless it is modified and `DeletionProtection` is disabled.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
 	// The list of log types that need to be enabled for exporting to Amazon CloudWatch Logs.
-	//
-	// You can enable audit logs or profiler logs. For more information, see [Auditing Amazon DocumentDB Events](https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html) and [Profiling Amazon DocumentDB Operations](https://docs.aws.amazon.com/documentdb/latest/developerguide/profiling.html) .
 	EnableCloudwatchLogsExports() *[]*string
 	SetEnableCloudwatchLogsExports(val *[]*string)
 	// The version number of the database engine to use.
-	//
-	// The `--engine-version` will default to the latest major engine version. For production workloads, we recommend explicitly declaring this parameter with the intended major engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	// The AWS KMS key identifier for an encrypted cluster.
-	//
-	// The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS encryption key. If you are creating a cluster using the same AWS account that owns the AWS KMS encryption key that is used to encrypt the new cluster, you can use the AWS KMS key alias instead of the ARN for the AWS KMS encryption key.
-	//
-	// If an encryption key is not specified in `KmsKeyId` :
-	//
-	// - If the `StorageEncrypted` parameter is `true` , Amazon DocumentDB uses your default encryption key.
-	//
-	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Regions .
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -154,19 +129,9 @@ type CfnDBCluster interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the master user for the cluster.
-	//
-	// Constraints:
-	//
-	// - Must be from 1 to 63 letters or numbers.
-	// - The first character must be a letter.
-	// - Cannot be a reserved word for the chosen database engine.
 	MasterUsername() *string
 	SetMasterUsername(val *string)
 	// The password for the master database user.
-	//
-	// This password can contain any printable ASCII character except forward slash (/), double quote ("), or the "at" symbol (@).
-	//
-	// Constraints: Must contain from 8 to 100 characters.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
 	// The tree node.
@@ -175,26 +140,9 @@ type CfnDBCluster interface {
 	Port() *float64
 	SetPort(val *float64)
 	// The daily time range during which automated backups are created if automated backups are enabled using the `BackupRetentionPeriod` parameter.
-	//
-	// The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region .
-	//
-	// Constraints:
-	//
-	// - Must be in the format `hh24:mi-hh24:mi` .
-	// - Must be in Universal Coordinated Time (UTC).
-	// - Must not conflict with the preferred maintenance window.
-	// - Must be at least 30 minutes.
 	PreferredBackupWindow() *string
 	SetPreferredBackupWindow(val *string)
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// Format: `ddd:hh24:mi-ddd:hh24:mi`
-	//
-	// The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
-	//
-	// Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
-	//
-	// Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -202,22 +150,13 @@ type CfnDBCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::DocDB::DBCluster.RestoreToTime`.
 	RestoreToTime() *string
 	SetRestoreToTime(val *string)
-	// `AWS::DocDB::DBCluster.RestoreType`.
 	RestoreType() *string
 	SetRestoreType(val *string)
 	// The identifier for the snapshot or cluster snapshot to restore from.
-	//
-	// You can use either the name or the Amazon Resource Name (ARN) to specify a cluster snapshot. However, you can use only the ARN to specify a snapshot.
-	//
-	// Constraints:
-	//
-	// - Must match the identifier of an existing snapshot.
 	SnapshotIdentifier() *string
 	SetSnapshotIdentifier(val *string)
-	// `AWS::DocDB::DBCluster.SourceDBClusterIdentifier`.
 	SourceDbClusterIdentifier() *string
 	SetSourceDbClusterIdentifier(val *string)
 	// The stack in which this element is defined.
@@ -227,8 +166,11 @@ type CfnDBCluster interface {
 	// Specifies whether the cluster is encrypted.
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
-	// The tags to be assigned to the cluster.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to be assigned to the cluster.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -242,7 +184,6 @@ type CfnDBCluster interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::DocDB::DBCluster.UseLatestRestorableTime`.
 	UseLatestRestorableTime() interface{}
 	SetUseLatestRestorableTime(val interface{})
 	// A list of EC2 VPC security groups to associate with this cluster.
@@ -379,6 +320,7 @@ type CfnDBCluster interface {
 type jsiiProxy_CfnDBCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDBCluster) AttrClusterResourceId() *string {
@@ -396,6 +338,16 @@ func (j *jsiiProxy_CfnDBCluster) AttrEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -711,6 +663,16 @@ func (j *jsiiProxy_CfnDBCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -752,7 +714,6 @@ func (j *jsiiProxy_CfnDBCluster) VpcSecurityGroupIds() *[]*string {
 }
 
 
-// Create a new `AWS::DocDB::DBCluster`.
 func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
 	_init_.Initialize()
 
@@ -770,7 +731,6 @@ func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBCluster
 	return &j
 }
 
-// Create a new `AWS::DocDB::DBCluster`.
 func NewCfnDBCluster_Override(c CfnDBCluster, scope constructs.Construct, id *string, props *CfnDBClusterProps) {
 	_init_.Initialize()
 
@@ -946,6 +906,17 @@ func (j *jsiiProxy_CfnDBCluster)SetStorageEncrypted(val interface{}) {
 	_jsii_.Set(
 		j,
 		"storageEncrypted",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

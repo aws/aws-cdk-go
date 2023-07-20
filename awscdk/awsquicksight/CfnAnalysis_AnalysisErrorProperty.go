@@ -18,12 +18,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html
+//
 type CfnAnalysis_AnalysisErrorProperty struct {
 	// The message associated with the analysis error.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-message
+	//
 	Message *string `field:"optional" json:"message" yaml:"message"`
 	// The type of the analysis error.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// Lists the violated entities that caused the analysis error.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-violatedentities
+	//
 	ViolatedEntities interface{} `field:"optional" json:"violatedEntities" yaml:"violatedEntities"`
 }
 

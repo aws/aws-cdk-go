@@ -12,8 +12,12 @@ package awskendra
 //   	KeyPath: jsii.String("keyPath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html
+//
 type CfnDataSource_AccessControlListConfigurationProperty struct {
 	// Path to the AWS S3 bucket that contains the access control list files.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html#cfn-kendra-datasource-accesscontrollistconfiguration-keypath
+	//
 	KeyPath *string `field:"optional" json:"keyPath" yaml:"keyPath"`
 }
 

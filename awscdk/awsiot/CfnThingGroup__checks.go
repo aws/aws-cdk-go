@@ -179,6 +179,16 @@ func validateCfnThingGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnThingGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnThingGroup) validateSetThingGroupPropertiesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

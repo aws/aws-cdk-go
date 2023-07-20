@@ -80,6 +80,10 @@ func validateCfnCell_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCell) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCellParameters(scope constructs.Construct, id *string, props *CfnCellProps) error {
 	return nil
 }

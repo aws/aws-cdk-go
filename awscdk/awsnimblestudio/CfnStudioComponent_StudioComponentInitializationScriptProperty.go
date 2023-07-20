@@ -15,16 +15,26 @@ package awsnimblestudio
 //   	Script: jsii.String("script"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html
+//
 type CfnStudioComponent_StudioComponentInitializationScriptProperty struct {
 	// The version number of the protocol that is used by the launch profile.
 	//
 	// The only valid version is "2021-03-31".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-launchprofileprotocolversion
+	//
 	LaunchProfileProtocolVersion *string `field:"optional" json:"launchProfileProtocolVersion" yaml:"launchProfileProtocolVersion"`
 	// The platform of the initialization script, either Windows or Linux.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-platform
+	//
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// The method to use when running the initialization script.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-runcontext
+	//
 	RunContext *string `field:"optional" json:"runContext" yaml:"runContext"`
 	// The initialization script.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-script
+	//
 	Script *string `field:"optional" json:"script" yaml:"script"`
 }
 

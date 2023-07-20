@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EKS::Cluster`.
-//
 // Creates an Amazon EKS control plane.
 //
 // The Amazon EKS control plane consists of control plane instances that run the Kubernetes software, such as `etcd` and the API server. The control plane runs in an account managed by AWS , and the Kubernetes API is exposed by the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is single tenant and unique. It runs on its own set of Amazon EC2 instances.
@@ -90,9 +88,12 @@ import (
 //   	Version: jsii.String("version"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:cluster/prod` .
 	AttrArn() *string
 	// The `certificate-authority-data` for your cluster.
@@ -149,8 +150,6 @@ type CfnCluster interface {
 	// The tree node.
 	Node() constructs.Node
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost.
-	//
-	// This object isn't available for clusters on the AWS cloud.
 	OutpostConfig() interface{}
 	SetOutpostConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -159,27 +158,20 @@ type CfnCluster interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The VPC configuration that's used by the cluster control plane.
-	//
-	// Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
-	//
-	// > Updates require replacement of the `SecurityGroupIds` and `SubnetIds` sub-properties.
 	ResourcesVpcConfig() interface{}
 	SetResourcesVpcConfig(val interface{})
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	//
-	// For more information, see [Amazon EKS Service IAM Role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html) in the **Amazon EKS User Guide** .
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The metadata that you apply to the cluster to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Cluster tags don't propagate to any other resources associated with the cluster.
-	//
-	// > You must have the `eks:TagResource` and `eks:UntagResource` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The metadata that you apply to the cluster to assist with categorization and organization.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -194,10 +186,6 @@ type CfnCluster interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The desired Kubernetes version for your cluster.
-	//
-	// If you don't specify a value here, the default version available in Amazon EKS is used.
-	//
-	// > The default version might not be the latest version available.
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -331,6 +319,7 @@ type CfnCluster interface {
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCluster) AttrArn() *string {
@@ -573,6 +562,16 @@ func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -604,7 +603,6 @@ func (j *jsiiProxy_CfnCluster) Version() *string {
 }
 
 
-// Create a new `AWS::EKS::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -622,7 +620,6 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
-// Create a new `AWS::EKS::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -703,6 +700,17 @@ func (j *jsiiProxy_CfnCluster)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

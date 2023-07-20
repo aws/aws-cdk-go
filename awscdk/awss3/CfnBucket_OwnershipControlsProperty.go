@@ -18,8 +18,12 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html
+//
 type CfnBucket_OwnershipControlsProperty struct {
 	// Specifies the container element for Object Ownership rules.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
+	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 

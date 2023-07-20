@@ -219,6 +219,16 @@ func (j *jsiiProxy_CfnProtection) validateSetResourceArnParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnProtection) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnProtectionParameters(scope constructs.Construct, id *string, props *CfnProtectionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

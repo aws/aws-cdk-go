@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DevOpsGuru::LogAnomalyDetectionIntegration`.
-//
 // Information about the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
 //
 // Example:
@@ -18,7 +16,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnLogAnomalyDetectionIntegration := awscdk.Aws_devopsguru.NewCfnLogAnomalyDetectionIntegration(this, jsii.String("MyCfnLogAnomalyDetectionIntegration"))
+//   cfnLogAnomalyDetectionIntegration := awscdk.Aws_devopsguru.NewCfnLogAnomalyDetectionIntegration(this, jsii.String("MyCfnLogAnomalyDetectionIntegration"), &CfnLogAnomalyDetectionIntegrationProps{
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-loganomalydetectionintegration.html
 //
 type CfnLogAnomalyDetectionIntegration interface {
 	awscdk.CfnResource
@@ -312,31 +313,29 @@ func (j *jsiiProxy_CfnLogAnomalyDetectionIntegration) UpdatedProperties() *map[s
 }
 
 
-// Create a new `AWS::DevOpsGuru::LogAnomalyDetectionIntegration`.
-func NewCfnLogAnomalyDetectionIntegration(scope constructs.Construct, id *string) CfnLogAnomalyDetectionIntegration {
+func NewCfnLogAnomalyDetectionIntegration(scope constructs.Construct, id *string, props *CfnLogAnomalyDetectionIntegrationProps) CfnLogAnomalyDetectionIntegration {
 	_init_.Initialize()
 
-	if err := validateNewCfnLogAnomalyDetectionIntegrationParameters(scope, id); err != nil {
+	if err := validateNewCfnLogAnomalyDetectionIntegrationParameters(scope, id, props); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_CfnLogAnomalyDetectionIntegration{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_devopsguru.CfnLogAnomalyDetectionIntegration",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		&j,
 	)
 
 	return &j
 }
 
-// Create a new `AWS::DevOpsGuru::LogAnomalyDetectionIntegration`.
-func NewCfnLogAnomalyDetectionIntegration_Override(c CfnLogAnomalyDetectionIntegration, scope constructs.Construct, id *string) {
+func NewCfnLogAnomalyDetectionIntegration_Override(c CfnLogAnomalyDetectionIntegration, scope constructs.Construct, id *string, props *CfnLogAnomalyDetectionIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_devopsguru.CfnLogAnomalyDetectionIntegration",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		c,
 	)
 }

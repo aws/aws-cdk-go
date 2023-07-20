@@ -179,6 +179,30 @@ func validateCfnMonitor_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnMonitor) validateSetHealthEventsConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnMonitor_HealthEventsConfigProperty:
+		val := val.(*CfnMonitor_HealthEventsConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnMonitor_HealthEventsConfigProperty:
+		val_ := val.(CfnMonitor_HealthEventsConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnMonitor_HealthEventsConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnMonitor) validateSetInternetMeasurementsLogDeliveryParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -206,6 +230,16 @@ func (j *jsiiProxy_CfnMonitor) validateSetInternetMeasurementsLogDeliveryParamet
 func (j *jsiiProxy_CfnMonitor) validateSetMonitorNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnMonitor) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

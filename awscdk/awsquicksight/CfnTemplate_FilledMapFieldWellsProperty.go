@@ -509,8 +509,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapfieldwells.html
+//
 type CfnTemplate_FilledMapFieldWellsProperty struct {
 	// The aggregated field well of the filled map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapfieldwells.html#cfn-quicksight-template-filledmapfieldwells-filledmapaggregatedfieldwells
+	//
 	FilledMapAggregatedFieldWells interface{} `field:"optional" json:"filledMapAggregatedFieldWells" yaml:"filledMapAggregatedFieldWells"`
 }
 

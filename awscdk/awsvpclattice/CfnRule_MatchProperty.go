@@ -36,8 +36,12 @@ package awsvpclattice
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-match.html
+//
 type CfnRule_MatchProperty struct {
 	// The HTTP criteria that a rule must match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-match.html#cfn-vpclattice-rule-match-httpmatch
+	//
 	HttpMatch interface{} `field:"required" json:"httpMatch" yaml:"httpMatch"`
 }
 

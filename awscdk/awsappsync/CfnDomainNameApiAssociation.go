@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppSync::DomainNameApiAssociation`.
-//
 // The `AWS::AppSync::DomainNameApiAssociation` resource represents the mapping of your custom domain name to the assigned API URL.
 //
 // Example:
@@ -22,6 +20,8 @@ import (
 //   	ApiId: jsii.String("apiId"),
 //   	DomainName: jsii.String("domainName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html
 //
 type CfnDomainNameApiAssociation interface {
 	awscdk.CfnResource
@@ -340,7 +340,6 @@ func (j *jsiiProxy_CfnDomainNameApiAssociation) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::AppSync::DomainNameApiAssociation`.
 func NewCfnDomainNameApiAssociation(scope constructs.Construct, id *string, props *CfnDomainNameApiAssociationProps) CfnDomainNameApiAssociation {
 	_init_.Initialize()
 
@@ -358,7 +357,6 @@ func NewCfnDomainNameApiAssociation(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::AppSync::DomainNameApiAssociation`.
 func NewCfnDomainNameApiAssociation_Override(c CfnDomainNameApiAssociation, scope constructs.Construct, id *string, props *CfnDomainNameApiAssociationProps) {
 	_init_.Initialize()
 

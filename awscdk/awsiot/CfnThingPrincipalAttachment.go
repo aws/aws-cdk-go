@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::ThingPrincipalAttachment`.
-//
 // Use the `AWS::IoT::ThingPrincipalAttachment` resource to attach a principal (an X.509 certificate or another credential) to a thing.
 //
 // For more information about working with AWS IoT things and principals, see [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html) in the *AWS IoT Developer Guide* .
@@ -25,9 +23,12 @@ import (
 //   	ThingName: jsii.String("thingName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
+//
 type CfnThingPrincipalAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -210,6 +211,16 @@ type jsiiProxy_CfnThingPrincipalAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnThingPrincipalAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnThingPrincipalAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -331,7 +342,6 @@ func (j *jsiiProxy_CfnThingPrincipalAttachment) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::IoT::ThingPrincipalAttachment`.
 func NewCfnThingPrincipalAttachment(scope constructs.Construct, id *string, props *CfnThingPrincipalAttachmentProps) CfnThingPrincipalAttachment {
 	_init_.Initialize()
 
@@ -349,7 +359,6 @@ func NewCfnThingPrincipalAttachment(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::IoT::ThingPrincipalAttachment`.
 func NewCfnThingPrincipalAttachment_Override(c CfnThingPrincipalAttachment, scope constructs.Construct, id *string, props *CfnThingPrincipalAttachmentProps) {
 	_init_.Initialize()
 

@@ -40,6 +40,8 @@ package awsresiliencehub
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html
+//
 type CfnAppProps struct {
 	// A JSON string that provides information about your application structure.
 	//
@@ -207,20 +209,34 @@ type CfnAppProps struct {
 	// > Key: `"failover-regions"`
 	// >
 	// > Value: `"[{"region":"<REGION>", "accounts":[{"id":"<ACCOUNT_ID>"}]}]"`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-apptemplatebody
+	//
 	AppTemplateBody *string `field:"required" json:"appTemplateBody" yaml:"appTemplateBody"`
 	// The name for the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// An array of ResourceMapping objects.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resourcemappings
+	//
 	ResourceMappings interface{} `field:"required" json:"resourceMappings" yaml:"resourceMappings"`
 	// Assessment execution schedule with 'Daily' or 'Disabled' values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-appassessmentschedule
+	//
 	AppAssessmentSchedule *string `field:"optional" json:"appAssessmentSchedule" yaml:"appAssessmentSchedule"`
 	// The optional description for an app.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of the resiliency policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resiliencypolicyarn
+	//
 	ResiliencyPolicyArn *string `field:"optional" json:"resiliencyPolicyArn" yaml:"resiliencyPolicyArn"`
 	// The tags assigned to the resource.
 	//
 	// A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

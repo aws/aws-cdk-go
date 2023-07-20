@@ -12,8 +12,12 @@ package awsdynamodb
 //   	StreamArn: jsii.String("streamArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-kinesisstreamspecification.html
+//
 type CfnGlobalTable_KinesisStreamSpecificationProperty struct {
 	// The ARN for a specific Kinesis data stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-kinesisstreamspecification.html#cfn-dynamodb-globaltable-kinesisstreamspecification-streamarn
+	//
 	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 }
 

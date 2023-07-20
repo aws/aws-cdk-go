@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DMS::Certificate`.
-//
 // The `AWS::DMS::Certificate` resource creates an Secure Sockets Layer (SSL) certificate that encrypts connections between AWS DMS endpoints and the replication instance.
 //
 // Example:
@@ -24,20 +22,19 @@ import (
 //   	CertificateWallet: jsii.String("certificateWallet"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html
+//
 type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// A customer-assigned name for the certificate.
-	//
-	// Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
 	CertificateIdentifier() *string
 	SetCertificateIdentifier(val *string)
 	// The contents of a `.pem` file, which contains an X.509 certificate.
 	CertificatePem() *string
 	SetCertificatePem(val *string)
 	// The location of an imported Oracle Wallet certificate for use with SSL.
-	//
-	// An example is: `filebase64("${path.root}/rds-ca-2019-root.sso")`
 	CertificateWallet() *string
 	SetCertificateWallet(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -216,6 +213,16 @@ type jsiiProxy_CfnCertificate struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnCertificate) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCertificate) CertificateIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -347,7 +354,6 @@ func (j *jsiiProxy_CfnCertificate) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DMS::Certificate`.
 func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
@@ -365,7 +371,6 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 	return &j
 }
 
-// Create a new `AWS::DMS::Certificate`.
 func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 

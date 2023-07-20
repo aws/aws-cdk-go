@@ -14,10 +14,14 @@ package awskinesis
 //   	StreamMode: jsii.String("streamMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streammodedetails.html
+//
 type CfnStream_StreamModeDetailsProperty struct {
 	// Specifies the capacity mode to which you want to set your data stream.
 	//
 	// Currently, in Kinesis Data Streams, you can choose between an *on-demand* capacity mode and a *provisioned* capacity mode for your data streams.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streammodedetails.html#cfn-kinesis-stream-streammodedetails-streammode
+	//
 	StreamMode *string `field:"required" json:"streamMode" yaml:"streamMode"`
 }
 

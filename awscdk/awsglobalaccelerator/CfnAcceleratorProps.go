@@ -28,14 +28,20 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html
+//
 type CfnAcceleratorProps struct {
 	// The name of the accelerator.
 	//
 	// The name must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
 	//
 	// If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator.
 	//
@@ -46,14 +52,20 @@ type CfnAcceleratorProps struct {
 	// Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new accelerator with the new addresses.
 	//
 	// For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the *AWS Global Accelerator Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
+	//
 	IpAddresses *[]*string `field:"optional" json:"ipAddresses" yaml:"ipAddresses"`
 	// The IP address type that an accelerator supports.
 	//
 	// For a standard accelerator, the value can be IPV4 or DUAL_STACK.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
+	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Create tags for an accelerator.
 	//
 	// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

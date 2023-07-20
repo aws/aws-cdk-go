@@ -31,14 +31,20 @@ package awsgreengrassv2
 //   	IsolationMode: jsii.String("isolationMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html
+//
 type CfnComponentVersion_LambdaLinuxProcessParamsProperty struct {
 	// The parameters for the container in which the Lambda function runs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams
+	//
 	ContainerParams interface{} `field:"optional" json:"containerParams" yaml:"containerParams"`
 	// The isolation mode for the process that contains the Lambda function.
 	//
 	// The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
 	//
 	// Default: `GreengrassContainer`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
+	//
 	IsolationMode *string `field:"optional" json:"isolationMode" yaml:"isolationMode"`
 }
 

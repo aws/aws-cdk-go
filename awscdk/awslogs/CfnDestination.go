@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Logs::Destination`.
+// The AWS::Logs::Destination resource specifies a CloudWatch Logs destination.
 //
-// The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
+// A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,6 +26,8 @@ import (
 //   	// the properties below are optional
 //   	DestinationPolicy: jsii.String("destinationPolicy"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
 //
 type CfnDestination interface {
 	awscdk.CfnResource
@@ -371,7 +373,6 @@ func (j *jsiiProxy_CfnDestination) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Logs::Destination`.
 func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestinationProps) CfnDestination {
 	_init_.Initialize()
 
@@ -389,7 +390,6 @@ func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestina
 	return &j
 }
 
-// Create a new `AWS::Logs::Destination`.
 func NewCfnDestination_Override(c CfnDestination, scope constructs.Construct, id *string, props *CfnDestinationProps) {
 	_init_.Initialize()
 

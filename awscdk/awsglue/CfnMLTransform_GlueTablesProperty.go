@@ -17,14 +17,24 @@ package awsglue
 //   	ConnectionName: jsii.String("connectionName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-gluetables.html
+//
 type CfnMLTransform_GlueTablesProperty struct {
 	// A database name in the AWS Glue Data Catalog .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-gluetables.html#cfn-glue-mltransform-gluetables-databasename
+	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// A table name in the AWS Glue Data Catalog .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-gluetables.html#cfn-glue-mltransform-gluetables-tablename
+	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// A unique identifier for the AWS Glue Data Catalog .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-gluetables.html#cfn-glue-mltransform-gluetables-catalogid
+	//
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the connection to the AWS Glue Data Catalog .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-gluetables.html#cfn-glue-mltransform-gluetables-connectionname
+	//
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 }
 

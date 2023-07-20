@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnVirtualService) validateSetSpecParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnVirtualService) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVirtualService) validateSetVirtualServiceNameParameters(val *string) error {
 	return nil
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DocDB::DBInstance`.
+// The `AWS::DocDB::DBInstance` Amazon DocumentDB (with MongoDB compatibility) resource describes a DBInstance.
 //
-// The `AWS::DocDB::DBInstance` Amazon DocumentDB (with MongoDB compatibility) resource describes a DBInstance. For more information, see [DBInstance](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html) in the *Amazon DocumentDB Developer Guide* .
+// For more information, see [DBInstance](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html) in the *Amazon DocumentDB Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,27 +36,23 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html
+//
 type CfnDBInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The connection endpoint for the instance.
 	//
 	// For example: `sample-cluster.cluster-abcdefghijkl.us-east-1.docdb.amazonaws.com` .
 	AttrEndpoint() *string
+	AttrId() *string
 	// The port number on which the database accepts connections, such as `27017` .
 	AttrPort() *string
 	// This parameter does not apply to Amazon DocumentDB.
-	//
-	// Amazon DocumentDB does not perform minor version upgrades regardless of the value set.
-	//
-	// Default: `false`.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
 	// The Amazon EC2 Availability Zone that the instance is created in.
-	//
-	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
-	//
-	// Example: `us-east-1d`.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -71,23 +67,14 @@ type CfnDBInstance interface {
 	// The identifier of the cluster that the instance will belong to.
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
-	// The compute and memory capacity of the instance;
-	//
-	// for example, `db.m4.large` . If you change the class of an instance there can be some interruption in the cluster's service.
+	// The compute and memory capacity of the instance;.
 	DbInstanceClass() *string
 	SetDbInstanceClass(val *string)
-	// The instance identifier. This parameter is stored as a lowercase string.
+	// The instance identifier.
 	//
-	// Constraints:
-	//
-	// - Must contain from 1 to 63 letters, numbers, or hyphens.
-	// - The first character must be a letter.
-	// - Cannot end with a hyphen or contain two consecutive hyphens.
-	//
-	// Example: `mydbinstance`.
+	// This parameter is stored as a lowercase string.
 	DbInstanceIdentifier() *string
 	SetDbInstanceIdentifier(val *string)
-	// `AWS::DocDB::DBInstance.EnablePerformanceInsights`.
 	EnablePerformanceInsights() interface{}
 	SetEnablePerformanceInsights(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -103,14 +90,6 @@ type CfnDBInstance interface {
 	// The tree node.
 	Node() constructs.Node
 	// The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// Format: `ddd:hh24:mi-ddd:hh24:mi`
-	//
-	// The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
-	//
-	// Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
-	//
-	// Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -122,10 +101,11 @@ type CfnDBInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to be assigned to the instance.
-	//
-	// You can assign up to 10 tags to an instance.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to be assigned to the instance.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -270,6 +250,7 @@ type CfnDBInstance interface {
 type jsiiProxy_CfnDBInstance struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDBInstance) AttrEndpoint() *string {
@@ -277,6 +258,16 @@ func (j *jsiiProxy_CfnDBInstance) AttrEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -452,6 +443,16 @@ func (j *jsiiProxy_CfnDBInstance) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -473,7 +474,6 @@ func (j *jsiiProxy_CfnDBInstance) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DocDB::DBInstance`.
 func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
 	_init_.Initialize()
 
@@ -491,7 +491,6 @@ func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstan
 	return &j
 }
 
-// Create a new `AWS::DocDB::DBInstance`.
 func NewCfnDBInstance_Override(c CfnDBInstance, scope constructs.Construct, id *string, props *CfnDBInstanceProps) {
 	_init_.Initialize()
 
@@ -566,6 +565,17 @@ func (j *jsiiProxy_CfnDBInstance)SetPreferredMaintenanceWindow(val *string) {
 	_jsii_.Set(
 		j,
 		"preferredMaintenanceWindow",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

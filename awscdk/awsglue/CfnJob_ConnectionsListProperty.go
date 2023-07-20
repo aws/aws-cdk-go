@@ -14,8 +14,12 @@ package awsglue
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html
+//
 type CfnJob_ConnectionsListProperty struct {
 	// A list of connections used by the job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html#cfn-glue-job-connectionslist-connections
+	//
 	Connections *[]*string `field:"optional" json:"connections" yaml:"connections"`
 }
 

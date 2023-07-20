@@ -18,10 +18,16 @@ package awsroute53recoveryreadiness
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html
+//
 type CfnResourceSet_TargetResourceProperty struct {
 	// The Network Load Balancer resource that a DNS target resource points to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
+	//
 	NlbResource interface{} `field:"optional" json:"nlbResource" yaml:"nlbResource"`
 	// The Route 53 resource that a DNS target resource record points to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
+	//
 	R53Resource interface{} `field:"optional" json:"r53Resource" yaml:"r53Resource"`
 }
 

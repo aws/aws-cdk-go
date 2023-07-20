@@ -15,10 +15,16 @@ package awsgrafana
 //   	Xml: jsii.String("xml"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-idpmetadata.html
+//
 type CfnWorkspace_IdpMetadataProperty struct {
 	// The URL of the location containing the IdP metadata.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-idpmetadata.html#cfn-grafana-workspace-idpmetadata-url
+	//
 	Url *string `field:"optional" json:"url" yaml:"url"`
 	// The full IdP metadata, in XML format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-idpmetadata.html#cfn-grafana-workspace-idpmetadata-xml
+	//
 	Xml *string `field:"optional" json:"xml" yaml:"xml"`
 }
 

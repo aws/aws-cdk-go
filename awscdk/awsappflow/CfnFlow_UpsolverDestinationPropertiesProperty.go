@@ -31,12 +31,20 @@ package awsappflow
 //   	BucketPrefix: jsii.String("bucketPrefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html
+//
 type CfnFlow_UpsolverDestinationPropertiesProperty struct {
 	// The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The configuration that determines how data is formatted when Upsolver is used as the flow destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
+	//
 	S3OutputFormatConfig interface{} `field:"required" json:"s3OutputFormatConfig" yaml:"s3OutputFormatConfig"`
 	// The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketprefix
+	//
 	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 

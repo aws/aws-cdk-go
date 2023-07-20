@@ -29,6 +29,8 @@ package awscloudwatch
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
+//
 type CfnCompositeAlarmProps struct {
 	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state.
 	//
@@ -47,44 +49,64 @@ type CfnCompositeAlarmProps struct {
 	// TRUE and FALSE are useful for testing a complex AlarmRule structure, and for testing your alarm actions.
 	//
 	// For more information about `AlarmRule` syntax, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+	//
 	AlarmRule *string `field:"required" json:"alarmRule" yaml:"alarmRule"`
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm.
 	//
 	// The default is TRUE.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
+	//
 	ActionsEnabled interface{} `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
 	// Actions will be suppressed if the suppressor alarm is in the `ALARM` state.
 	//
 	// `ActionsSuppressor` can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionssuppressor
+	//
 	ActionsSuppressor *string `field:"optional" json:"actionsSuppressor" yaml:"actionsSuppressor"`
 	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state.
 	//
 	// After this time, the composite alarm performs its actions.
 	//
 	// > `ExtensionPeriod` is required only when `ActionsSuppressor` is specified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionssuppressorextensionperiod
+	//
 	ActionsSuppressorExtensionPeriod *float64 `field:"optional" json:"actionsSuppressorExtensionPeriod" yaml:"actionsSuppressorExtensionPeriod"`
 	// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state.
 	//
 	// After this time, the composite alarm performs its actions.
 	//
 	// > `WaitPeriod` is required only when `ActionsSuppressor` is specified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionssuppressorwaitperiod
+	//
 	ActionsSuppressorWaitPeriod *float64 `field:"optional" json:"actionsSuppressorWaitPeriod" yaml:"actionsSuppressorWaitPeriod"`
 	// The actions to execute when this alarm transitions to the ALARM state from any other state.
 	//
 	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
+	//
 	AlarmActions *[]*string `field:"optional" json:"alarmActions" yaml:"alarmActions"`
 	// The description for the composite alarm.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
+	//
 	AlarmDescription *string `field:"optional" json:"alarmDescription" yaml:"alarmDescription"`
 	// The name for the composite alarm.
 	//
 	// This name must be unique within your AWS account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
+	//
 	AlarmName *string `field:"optional" json:"alarmName" yaml:"alarmName"`
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
 	//
 	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+	//
 	InsufficientDataActions *[]*string `field:"optional" json:"insufficientDataActions" yaml:"insufficientDataActions"`
 	// The actions to execute when this alarm transitions to the OK state from any other state.
 	//
 	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+	//
 	OkActions *[]*string `field:"optional" json:"okActions" yaml:"okActions"`
 }
 

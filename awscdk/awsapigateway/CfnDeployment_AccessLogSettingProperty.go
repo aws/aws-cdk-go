@@ -15,14 +15,20 @@ package awsapigateway
 //   	Format: jsii.String("format"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html
+//
 type CfnDeployment_AccessLogSettingProperty struct {
 	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs.
 	//
 	// If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-destinationarn
+	//
 	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// A single line format of the access logs of data, as specified by selected $context variables.
 	//
 	// The format must include at least `$context.requestId` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-format
+	//
 	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 

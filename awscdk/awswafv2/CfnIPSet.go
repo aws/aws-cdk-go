@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFv2::IPSet`.
+// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019.
 //
-// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+// For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
 // Use an `IPSet` to identify web requests that originate from specific IP addresses or ranges of IP addresses. For example, if you're receiving a lot of requests from a ranges of IP addresses, you can configure AWS WAF to block them using an IP set that lists those IP addresses.
 //
@@ -40,28 +40,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html
+//
 type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses.
-	//
-	// All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all IPv4 and IPv6 CIDR ranges except for `/0` .
-	//
-	// Example address strings:
-	//
-	// - To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify `192.0.2.44/32` .
-	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
-	// - To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
-	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
-	//
-	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
-	//
-	// Example JSON `Addresses` specifications:
-	//
-	// - Empty array: `"Addresses": []`
-	// - Array with one address: `"Addresses": ["192.0.2.44/32"]`
-	// - Array with three addresses: `"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]`
-	// - INVALID specification: `"Addresses": [""]` INVALID.
 	Addresses() *[]*string
 	SetAddresses(val *[]*string)
 	// The Amazon Resource Name (ARN) of the IP set.
@@ -94,8 +79,6 @@ type CfnIPSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the IP set.
-	//
-	// You cannot change the name of an `IPSet` after you create it.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -106,22 +89,17 @@ type CfnIPSet interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
-	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
-	//
-	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope() *string
 	SetScope(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key:value pairs associated with an AWS resource.
-	//
-	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	//
-	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key:value pairs associated with an AWS resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -266,6 +244,7 @@ type CfnIPSet interface {
 type jsiiProxy_CfnIPSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIPSet) Addresses() *[]*string {
@@ -428,6 +407,16 @@ func (j *jsiiProxy_CfnIPSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPSet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -449,7 +438,6 @@ func (j *jsiiProxy_CfnIPSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::WAFv2::IPSet`.
 func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
 	_init_.Initialize()
 
@@ -467,7 +455,6 @@ func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) C
 	return &j
 }
 
-// Create a new `AWS::WAFv2::IPSet`.
 func NewCfnIPSet_Override(c CfnIPSet, scope constructs.Construct, id *string, props *CfnIPSetProps) {
 	_init_.Initialize()
 
@@ -523,6 +510,17 @@ func (j *jsiiProxy_CfnIPSet)SetScope(val *string) {
 	_jsii_.Set(
 		j,
 		"scope",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

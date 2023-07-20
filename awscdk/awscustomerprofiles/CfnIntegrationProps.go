@@ -113,18 +113,32 @@ import (
 //   	Uri: jsii.String("uri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html
+//
 type CfnIntegrationProps struct {
 	// The unique name of the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
+	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The configuration that controls how Customer Profiles retrieves data from the source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
+	//
 	FlowDefinition interface{} `field:"optional" json:"flowDefinition" yaml:"flowDefinition"`
 	// The name of the profile object type mapping to use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
+	//
 	ObjectTypeName *string `field:"optional" json:"objectTypeName" yaml:"objectTypeName"`
 	// The object type mapping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypenames
+	//
 	ObjectTypeNames interface{} `field:"optional" json:"objectTypeNames" yaml:"objectTypeNames"`
 	// The tags used to organize, track, or control access for this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The URI of the S3 bucket or any other type of data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-uri
+	//
 	Uri *string `field:"optional" json:"uri" yaml:"uri"`
 }
 

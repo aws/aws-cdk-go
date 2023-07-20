@@ -19,8 +19,12 @@ package awstimestream
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorerejecteddatalocation.html
+//
 type CfnTable_MagneticStoreRejectedDataLocationProperty struct {
 	// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorerejecteddatalocation.html#cfn-timestream-table-magneticstorerejecteddatalocation-s3configuration
+	//
 	S3Configuration interface{} `field:"optional" json:"s3Configuration" yaml:"s3Configuration"`
 }
 

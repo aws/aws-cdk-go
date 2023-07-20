@@ -15,10 +15,16 @@ package awscognito
 //   	RoleArn: jsii.String("roleArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html
+//
 type CfnIdentityPool_PushSyncProperty struct {
 	// The ARNs of the Amazon SNS platform applications that could be used by clients.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html#cfn-cognito-identitypool-pushsync-applicationarns
+	//
 	ApplicationArns *[]*string `field:"optional" json:"applicationArns" yaml:"applicationArns"`
 	// An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html#cfn-cognito-identitypool-pushsync-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

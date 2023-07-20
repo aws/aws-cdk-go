@@ -35,16 +35,28 @@ package awscustomerprofiles
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html
+//
 type CfnIntegration_SourceConnectorPropertiesProperty struct {
 	// The properties that are applied when Marketo is being used as a source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-marketo
+	//
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
 	// The properties that are applied when Amazon S3 is being used as the flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-s3
+	//
 	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 	// The properties that are applied when Salesforce is being used as a source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-salesforce
+	//
 	Salesforce interface{} `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The properties that are applied when ServiceNow is being used as a source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-servicenow
+	//
 	ServiceNow interface{} `field:"optional" json:"serviceNow" yaml:"serviceNow"`
 	// The properties that are applied when using Zendesk as a flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-zendesk
+	//
 	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 

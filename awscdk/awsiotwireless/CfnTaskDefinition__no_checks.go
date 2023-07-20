@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetLoRaWanUpdateGatewayTaskEntryPa
 	return nil
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) validateSetUpdateParameters(val interface{}) error {
 	return nil
 }

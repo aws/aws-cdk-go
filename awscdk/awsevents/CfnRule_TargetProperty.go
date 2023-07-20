@@ -147,62 +147,96 @@ package awsevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html
+//
 type CfnRule_TargetProperty struct {
 	// The Amazon Resource Name (ARN) of the target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The ID of the target within the specified rule.
 	//
 	// Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters.
 	//
 	// For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-batchparameters
+	//
 	BatchParameters interface{} `field:"optional" json:"batchParameters" yaml:"batchParameters"`
 	// The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig
+	//
 	DeadLetterConfig interface{} `field:"optional" json:"deadLetterConfig" yaml:"deadLetterConfig"`
 	// Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task.
 	//
 	// For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
+	//
 	EcsParameters interface{} `field:"optional" json:"ecsParameters" yaml:"ecsParameters"`
 	// Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
 	//
 	// If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-httpparameters
+	//
 	HttpParameters interface{} `field:"optional" json:"httpParameters" yaml:"httpParameters"`
 	// Valid JSON text passed to the target.
 	//
 	// In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input
+	//
 	Input *string `field:"optional" json:"input" yaml:"input"`
 	// The value of the JSONPath that is used for extracting part of the matched event when passing it to the target.
 	//
 	// You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputpath
+	//
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// Settings to enable you to provide custom input to a target based on certain event data.
 	//
 	// You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputtransformer
+	//
 	InputTransformer interface{} `field:"optional" json:"inputTransformer" yaml:"inputTransformer"`
 	// The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream.
 	//
 	// If you do not include this parameter, the default is to use the `eventId` as the partition key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-kinesisparameters
+	//
 	KinesisParameters interface{} `field:"optional" json:"kinesisParameters" yaml:"kinesisParameters"`
 	// Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
 	//
 	// If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
+	//
 	RedshiftDataParameters interface{} `field:"optional" json:"redshiftDataParameters" yaml:"redshiftDataParameters"`
 	// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
+	//
 	RetryPolicy interface{} `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered.
 	//
 	// If one rule triggers multiple targets, you can use a different IAM role for each target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-runcommandparameters
+	//
 	RunCommandParameters interface{} `field:"optional" json:"runCommandParameters" yaml:"runCommandParameters"`
 	// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
 	//
 	// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sagemakerpipelineparameters
+	//
 	SageMakerPipelineParameters interface{} `field:"optional" json:"sageMakerPipelineParameters" yaml:"sageMakerPipelineParameters"`
 	// Contains the message group ID to use when the target is a FIFO queue.
 	//
 	// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sqsparameters
+	//
 	SqsParameters interface{} `field:"optional" json:"sqsParameters" yaml:"sqsParameters"`
 }
 

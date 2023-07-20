@@ -15,6 +15,8 @@ package awscassandra
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html
+//
 type CfnTable_EncryptionSpecificationProperty struct {
 	// The encryption at rest options for the table.
 	//
@@ -24,8 +26,12 @@ type CfnTable_EncryptionSpecificationProperty struct {
 	// > If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
 	//
 	// Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
+	//
 	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
 	// Requires a `kms_key_identifier` in the format of a key ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
+	//
 	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 }
 

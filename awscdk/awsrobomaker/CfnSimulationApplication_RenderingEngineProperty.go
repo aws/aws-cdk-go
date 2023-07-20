@@ -13,10 +13,16 @@ package awsrobomaker
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html
+//
 type CfnSimulationApplication_RenderingEngineProperty struct {
 	// The name of the rendering engine.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The version of the rendering engine.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
+	//
 	Version *string `field:"required" json:"version" yaml:"version"`
 }
 

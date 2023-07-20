@@ -18,12 +18,20 @@ package awsecs
 //   	SoftLimit: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html
+//
 type CfnTaskDefinition_UlimitProperty struct {
 	// The hard limit for the `ulimit` type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html#cfn-ecs-taskdefinition-ulimit-hardlimit
+	//
 	HardLimit *float64 `field:"required" json:"hardLimit" yaml:"hardLimit"`
 	// The `type` of the `ulimit` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html#cfn-ecs-taskdefinition-ulimit-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The soft limit for the `ulimit` type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html#cfn-ecs-taskdefinition-ulimit-softlimit
+	//
 	SoftLimit *float64 `field:"required" json:"softLimit" yaml:"softLimit"`
 }
 

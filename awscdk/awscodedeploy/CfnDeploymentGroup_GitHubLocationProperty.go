@@ -13,12 +13,18 @@ package awscodedeploy
 //   	Repository: jsii.String("repository"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-githublocation.html
+//
 type CfnDeploymentGroup_GitHubLocationProperty struct {
 	// The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-githublocation.html#cfn-codedeploy-deploymentgroup-githublocation-commitid
+	//
 	CommitId *string `field:"required" json:"commitId" yaml:"commitId"`
 	// The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision.
 	//
 	// Specify the value as `account/repository` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-githublocation.html#cfn-codedeploy-deploymentgroup-githublocation-repository
+	//
 	Repository *string `field:"required" json:"repository" yaml:"repository"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VerifiedAccessTrustProvider`.
-//
 // Describes a Verified Access trust provider.
 //
 // Example:
@@ -46,9 +44,12 @@ import (
 //   	UserTrustProviderType: jsii.String("userTrustProviderType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html
+//
 type CfnVerifiedAccessTrustProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The creation time.
 	AttrCreationTime() *string
 	// The last updated time.
@@ -100,8 +101,11 @@ type CfnVerifiedAccessTrustProvider interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of Verified Access trust provider.
 	TrustProviderType() *string
 	SetTrustProviderType(val *string)
@@ -252,6 +256,7 @@ type CfnVerifiedAccessTrustProvider interface {
 type jsiiProxy_CfnVerifiedAccessTrustProvider struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) AttrCreationTime() *string {
@@ -424,6 +429,16 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) TrustProviderType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -465,7 +480,6 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) UserTrustProviderType() *stri
 }
 
 
-// Create a new `AWS::EC2::VerifiedAccessTrustProvider`.
 func NewCfnVerifiedAccessTrustProvider(scope constructs.Construct, id *string, props *CfnVerifiedAccessTrustProviderProps) CfnVerifiedAccessTrustProvider {
 	_init_.Initialize()
 
@@ -483,7 +497,6 @@ func NewCfnVerifiedAccessTrustProvider(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Create a new `AWS::EC2::VerifiedAccessTrustProvider`.
 func NewCfnVerifiedAccessTrustProvider_Override(c CfnVerifiedAccessTrustProvider, scope constructs.Construct, id *string, props *CfnVerifiedAccessTrustProviderProps) {
 	_init_.Initialize()
 
@@ -539,6 +552,17 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider)SetPolicyReferenceName(val *st
 	_jsii_.Set(
 		j,
 		"policyReferenceName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessTrustProvider)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

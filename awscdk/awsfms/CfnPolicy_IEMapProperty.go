@@ -27,10 +27,16 @@ package awsfms
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
+//
 type CfnPolicy_IEMapProperty struct {
 	// The account list for the map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
+	//
 	Account *[]*string `field:"optional" json:"account" yaml:"account"`
 	// The organizational unit list for the map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
+	//
 	Orgunit *[]*string `field:"optional" json:"orgunit" yaml:"orgunit"`
 }
 

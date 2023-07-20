@@ -22,9 +22,6 @@ package awsfis
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	Tags: map[string]*string{
-//   		"tagsKey": jsii.String("tags"),
-//   	},
 //   	Targets: map[string]interface{}{
 //   		"targetsKey": &ExperimentTemplateTargetProperty{
 //   			"resourceType": jsii.String("resourceType"),
@@ -76,22 +73,41 @@ package awsfis
 //   		CloudWatchLogsConfiguration: cloudWatchLogsConfiguration,
 //   		S3Configuration: s3Configuration,
 //   	},
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
 //
 type CfnExperimentTemplateProps struct {
 	// A description for the experiment template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
+	//
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The stop conditions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
+	//
 	StopConditions interface{} `field:"required" json:"stopConditions" yaml:"stopConditions"`
-	// The tags to apply to the experiment template.
-	Tags *map[string]*string `field:"required" json:"tags" yaml:"tags"`
 	// The targets for the experiment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
+	//
 	Targets interface{} `field:"required" json:"targets" yaml:"targets"`
 	// The actions for the experiment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
+	//
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// The configuration for experiment logging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-logconfiguration
+	//
 	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
+	// The tags to apply to the experiment template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
+	//
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

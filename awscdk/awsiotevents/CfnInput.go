@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTEvents::Input`.
+// The AWS::IoTEvents::Input resource creates an input.
 //
-// The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events . This is done by sending messages as *inputs* to AWS IoT Events . For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide* .
+// To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events . This is done by sending messages as *inputs* to AWS IoT Events . For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html
+//
 type CfnInput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -80,10 +83,11 @@ type CfnInput interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +232,7 @@ type CfnInput interface {
 type jsiiProxy_CfnInput struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInput) CfnOptions() awscdk.ICfnResourceOptions {
@@ -350,6 +355,16 @@ func (j *jsiiProxy_CfnInput) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInput) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInput) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -371,7 +386,6 @@ func (j *jsiiProxy_CfnInput) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTEvents::Input`.
 func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) CfnInput {
 	_init_.Initialize()
 
@@ -389,7 +403,6 @@ func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) C
 	return &j
 }
 
-// Create a new `AWS::IoTEvents::Input`.
 func NewCfnInput_Override(c CfnInput, scope constructs.Construct, id *string, props *CfnInputProps) {
 	_init_.Initialize()
 
@@ -423,6 +436,17 @@ func (j *jsiiProxy_CfnInput)SetInputName(val *string) {
 	_jsii_.Set(
 		j,
 		"inputName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInput)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

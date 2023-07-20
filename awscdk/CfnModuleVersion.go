@@ -7,9 +7,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::ModuleVersion`.
+// Registers the specified version of the module with the CloudFormation service.
 //
-// Registers the specified version of the module with the CloudFormation service. Registering a module makes it available for use in CloudFormation templates in your AWS account and Region.
+// Registering a module makes it available for use in CloudFormation templates in your AWS account and Region.
 //
 // To specify a module version as the default version, use the `[AWS::CloudFormation::ModuleDefaultVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html)` resource.
 //
@@ -24,6 +24,8 @@ import (
 //   	ModuleName: jsii.String("moduleName"),
 //   	ModulePackage: jsii.String("modulePackage"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
 //
 type CfnModuleVersion interface {
 	CfnResource
@@ -72,8 +74,6 @@ type CfnModuleVersion interface {
 	ModuleName() *string
 	SetModuleName(val *string)
 	// A URL to the S3 bucket containing the package that contains the template fragment and schema files for the module version to register.
-	//
-	// > The user registering the module version must be able to access the module package in the S3 bucket. That's, the user needs to have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
 	ModulePackage() *string
 	SetModulePackage(val *string)
 	// The tree node.
@@ -434,7 +434,6 @@ func (j *jsiiProxy_CfnModuleVersion) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::CloudFormation::ModuleVersion`.
 func NewCfnModuleVersion(scope constructs.Construct, id *string, props *CfnModuleVersionProps) CfnModuleVersion {
 	_init_.Initialize()
 
@@ -452,7 +451,6 @@ func NewCfnModuleVersion(scope constructs.Construct, id *string, props *CfnModul
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::ModuleVersion`.
 func NewCfnModuleVersion_Override(c CfnModuleVersion, scope constructs.Construct, id *string, props *CfnModuleVersionProps) {
 	_init_.Initialize()
 

@@ -76,10 +76,16 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html
+//
 type CfnChannel_ArchiveContainerSettingsProperty struct {
 	// The settings for the M2TS in the archive output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html#cfn-medialive-channel-archivecontainersettings-m2tssettings
+	//
 	M2TsSettings interface{} `field:"optional" json:"m2TsSettings" yaml:"m2TsSettings"`
 	// The settings for Raw archive output type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html#cfn-medialive-channel-archivecontainersettings-rawsettings
+	//
 	RawSettings interface{} `field:"optional" json:"rawSettings" yaml:"rawSettings"`
 }
 

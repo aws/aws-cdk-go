@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGatewayV2::DomainName`.
-//
 // The `AWS::ApiGatewayV2::DomainName` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
 //
 // You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide* .
@@ -42,9 +40,13 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html
+//
 type CfnDomainName interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// The domain name associated with the regional endpoint for this custom domain name.
 	//
 	// You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
@@ -61,8 +63,6 @@ type CfnDomainName interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The custom domain name for your API in Amazon API Gateway.
-	//
-	// Uppercase letters are not supported.
 	DomainName() *string
 	SetDomainName(val *string)
 	// The domain name configurations.
@@ -92,8 +92,11 @@ type CfnDomainName interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The collection of tags associated with a domain name.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The collection of tags associated with a domain name.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,6 +241,17 @@ type CfnDomainName interface {
 type jsiiProxy_CfnDomainName struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDomainName) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDomainName) AttrRegionalDomainName() *string {
@@ -380,6 +394,16 @@ func (j *jsiiProxy_CfnDomainName) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomainName) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomainName) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -401,7 +425,6 @@ func (j *jsiiProxy_CfnDomainName) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGatewayV2::DomainName`.
 func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNameProps) CfnDomainName {
 	_init_.Initialize()
 
@@ -419,7 +442,6 @@ func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNa
 	return &j
 }
 
-// Create a new `AWS::ApiGatewayV2::DomainName`.
 func NewCfnDomainName_Override(c CfnDomainName, scope constructs.Construct, id *string, props *CfnDomainNameProps) {
 	_init_.Initialize()
 
@@ -459,6 +481,14 @@ func (j *jsiiProxy_CfnDomainName)SetMutualTlsAuthentication(val interface{}) {
 	_jsii_.Set(
 		j,
 		"mutualTlsAuthentication",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainName)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

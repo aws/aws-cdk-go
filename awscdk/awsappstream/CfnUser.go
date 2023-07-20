@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::User`.
-//
 // The `AWS::AppStream::User` resource creates a new user in the AppStream 2.0 user pool.
 //
 // Example:
@@ -28,12 +26,13 @@ import (
 //   	MessageAction: jsii.String("messageAction"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The authentication type for the user.
-	//
-	// You must specify USERPOOL.
 	AuthenticationType() *string
 	SetAuthenticationType(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -62,10 +61,6 @@ type CfnUser interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The action to take for the welcome email that is sent to a user after the user is created in the user pool.
-	//
-	// If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
-	//
-	// > The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.
 	MessageAction() *string
 	SetMessageAction(val *string)
 	// The tree node.
@@ -93,8 +88,6 @@ type CfnUser interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The email address of the user.
-	//
-	// Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays.
 	UserName() *string
 	SetUserName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -228,6 +221,16 @@ type CfnUser interface {
 type jsiiProxy_CfnUser struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnUser) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnUser) AuthenticationType() *string {
@@ -381,7 +384,6 @@ func (j *jsiiProxy_CfnUser) UserName() *string {
 }
 
 
-// Create a new `AWS::AppStream::User`.
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
@@ -399,7 +401,6 @@ func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::AppStream::User`.
 func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 

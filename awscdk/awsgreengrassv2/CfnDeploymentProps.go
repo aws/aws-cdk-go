@@ -73,24 +73,38 @@ package awsgreengrassv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html
+//
 type CfnDeploymentProps struct {
 	// The ARN of the target AWS IoT thing or thing group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html#cfn-greengrassv2-deployment-targetarn
+	//
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// The components to deploy.
 	//
 	// This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html#cfn-greengrassv2-deployment-components
+	//
 	Components interface{} `field:"optional" json:"components" yaml:"components"`
 	// The name of the deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html#cfn-greengrassv2-deployment-deploymentname
+	//
 	DeploymentName *string `field:"optional" json:"deploymentName" yaml:"deploymentName"`
 	// The deployment policies for the deployment.
 	//
 	// These policies define how the deployment updates components and handles failure.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html#cfn-greengrassv2-deployment-deploymentpolicies
+	//
 	DeploymentPolicies interface{} `field:"optional" json:"deploymentPolicies" yaml:"deploymentPolicies"`
 	// The job configuration for the deployment configuration.
 	//
 	// The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html#cfn-greengrassv2-deployment-iotjobconfiguration
+	//
 	IotJobConfiguration interface{} `field:"optional" json:"iotJobConfiguration" yaml:"iotJobConfiguration"`
 	// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html#cfn-greengrassv2-deployment-parenttargetarn
+	//
 	ParentTargetArn *string `field:"optional" json:"parentTargetArn" yaml:"parentTargetArn"`
 	// Application-specific metadata to attach to the deployment.
 	//
@@ -102,6 +116,8 @@ type CfnDeploymentProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html#cfn-greengrassv2-deployment-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

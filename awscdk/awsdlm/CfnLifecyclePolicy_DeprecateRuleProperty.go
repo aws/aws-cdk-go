@@ -12,12 +12,17 @@ package awsdlm
 //   	IntervalUnit: jsii.String("intervalUnit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html
+//
 type CfnLifecyclePolicy_DeprecateRuleProperty struct {
-	// `CfnLifecyclePolicy.DeprecateRuleProperty.Count`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html#cfn-dlm-lifecyclepolicy-deprecaterule-count
+	//
 	Count *float64 `field:"optional" json:"count" yaml:"count"`
-	// `CfnLifecyclePolicy.DeprecateRuleProperty.Interval`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html#cfn-dlm-lifecyclepolicy-deprecaterule-interval
+	//
 	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
-	// `CfnLifecyclePolicy.DeprecateRuleProperty.IntervalUnit`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html#cfn-dlm-lifecyclepolicy-deprecaterule-intervalunit
+	//
 	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
 }
 

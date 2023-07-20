@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FinSpace::Environment`.
-//
 // The `AWS::FinSpace::Environment` resource represents an Amazon FinSpace environment.
 //
 // Example:
@@ -22,6 +20,9 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DataBundles: []*string{
+//   		jsii.String("dataBundles"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	FederationMode: jsii.String("federationMode"),
 //   	FederationParameters: &FederationParametersProperty{
@@ -51,9 +52,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html
+//
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the AWS account in which the FinSpace environment is created.
 	AttrAwsAccountId() *string
 	// The AWS account ID of the dedicated service account associated with your FinSpace environment.
@@ -77,6 +81,11 @@ type CfnEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// ARNs of FinSpace Data Bundles to install.
+	// Deprecated: this property has been deprecated.
+	DataBundles() *[]*string
+	// Deprecated: this property has been deprecated.
+	SetDataBundles(val *[]*string)
 	// The description of the FinSpace environment.
 	Description() *string
 	SetDescription(val *string)
@@ -116,8 +125,11 @@ type CfnEnvironment interface {
 	// Configuration information for the superuser.
 	SuperuserParameters() interface{}
 	SetSuperuserParameters(val interface{})
-	// `AWS::FinSpace::Environment.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -262,6 +274,7 @@ type CfnEnvironment interface {
 type jsiiProxy_CfnEnvironment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEnvironment) AttrAwsAccountId() *string {
@@ -369,6 +382,16 @@ func (j *jsiiProxy_CfnEnvironment) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) DataBundles() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"dataBundles",
 		&returns,
 	)
 	return returns
@@ -484,6 +507,16 @@ func (j *jsiiProxy_CfnEnvironment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -505,7 +538,6 @@ func (j *jsiiProxy_CfnEnvironment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::FinSpace::Environment`.
 func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
@@ -523,7 +555,6 @@ func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnviron
 	return &j
 }
 
-// Create a new `AWS::FinSpace::Environment`.
 func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 
@@ -531,6 +562,14 @@ func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id
 		"aws-cdk-lib.aws_finspace.CfnEnvironment",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetDataBundles(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"dataBundles",
+		val,
 	)
 }
 
@@ -587,6 +626,17 @@ func (j *jsiiProxy_CfnEnvironment)SetSuperuserParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"superuserParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

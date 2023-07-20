@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnBroker) validateSetPubliclyAccessibleParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnBroker) validateSetTagsRawParameters(val *[]*CfnBroker_TagsEntryProperty) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnBroker) validateSetUsersParameters(val interface{}) error {
 	return nil
 }

@@ -24,8 +24,12 @@ package awsdevopsguru
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
+//
 type CfnNotificationChannelProps struct {
 	// A `NotificationChannelConfig` object that contains information about configured notification channels.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
+	//
 	Config interface{} `field:"required" json:"config" yaml:"config"`
 }
 

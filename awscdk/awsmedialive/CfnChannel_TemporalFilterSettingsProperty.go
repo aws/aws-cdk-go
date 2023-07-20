@@ -15,14 +15,20 @@ package awsmedialive
 //   	Strength: jsii.String("strength"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html
+//
 type CfnChannel_TemporalFilterSettingsProperty struct {
 	// If you enable this filter, the results are the following: - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
 	//
 	// - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html#cfn-medialive-channel-temporalfiltersettings-postfiltersharpening
+	//
 	PostFilterSharpening *string `field:"optional" json:"postFilterSharpening" yaml:"postFilterSharpening"`
 	// Choose a filter strength.
 	//
 	// We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html#cfn-medialive-channel-temporalfiltersettings-strength
+	//
 	Strength *string `field:"optional" json:"strength" yaml:"strength"`
 }
 

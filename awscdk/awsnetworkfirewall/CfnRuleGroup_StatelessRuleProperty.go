@@ -58,6 +58,8 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html
+//
 type CfnRuleGroup_StatelessRuleProperty struct {
 	// Indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group.
 	//
@@ -66,8 +68,12 @@ type CfnRuleGroup_StatelessRuleProperty struct {
 	// Each stateless rule group uses exactly one `StatelessRulesAndCustomActions` object, and each `StatelessRulesAndCustomActions` contains exactly one `StatelessRules` object. To ensure unique priority settings for your rule groups, set unique priorities for the stateless rules that you define inside any single `StatelessRules` object.
 	//
 	// You can change the priority settings of your rules at any time. To make it easier to insert rules later, number them so there's a wide range in between, for example use 100, 200, and so on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html#cfn-networkfirewall-rulegroup-statelessrule-priority
+	//
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html#cfn-networkfirewall-rulegroup-statelessrule-ruledefinition
+	//
 	RuleDefinition interface{} `field:"required" json:"ruleDefinition" yaml:"ruleDefinition"`
 }
 

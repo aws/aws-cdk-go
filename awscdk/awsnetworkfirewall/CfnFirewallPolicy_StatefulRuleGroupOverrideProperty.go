@@ -12,10 +12,14 @@ package awsnetworkfirewall
 //   	Action: jsii.String("action"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupoverride.html
+//
 type CfnFirewallPolicy_StatefulRuleGroupOverrideProperty struct {
 	// The action that changes the rule group from `DROP` to `ALERT` .
 	//
 	// This only applies to managed rule groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupoverride.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupoverride-action
+	//
 	Action *string `field:"optional" json:"action" yaml:"action"`
 }
 

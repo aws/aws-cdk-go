@@ -18,12 +18,20 @@ package awsefs
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
+//
 type CfnAccessPoint_PosixUserProperty struct {
 	// The POSIX group ID used for all file system operations using this access point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
+	//
 	Gid *string `field:"required" json:"gid" yaml:"gid"`
 	// The POSIX user ID used for all file system operations using this access point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
+	//
 	Uid *string `field:"required" json:"uid" yaml:"uid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
+	//
 	SecondaryGids *[]*string `field:"optional" json:"secondaryGids" yaml:"secondaryGids"`
 }
 

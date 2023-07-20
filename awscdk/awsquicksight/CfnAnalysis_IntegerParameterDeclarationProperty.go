@@ -46,18 +46,29 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameterdeclaration.html
+//
 type CfnAnalysis_IntegerParameterDeclarationProperty struct {
 	// The name of the parameter that is being declared.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameterdeclaration.html#cfn-quicksight-analysis-integerparameterdeclaration-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value type determines whether the parameter is a single-value or multi-value parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameterdeclaration.html#cfn-quicksight-analysis-integerparameterdeclaration-parametervaluetype
+	//
 	ParameterValueType *string `field:"required" json:"parameterValueType" yaml:"parameterValueType"`
 	// The default values of a parameter.
 	//
 	// If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameterdeclaration.html#cfn-quicksight-analysis-integerparameterdeclaration-defaultvalues
+	//
 	DefaultValues interface{} `field:"optional" json:"defaultValues" yaml:"defaultValues"`
-	// `CfnAnalysis.IntegerParameterDeclarationProperty.MappedDataSetParameters`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameterdeclaration.html#cfn-quicksight-analysis-integerparameterdeclaration-mappeddatasetparameters
+	//
 	MappedDataSetParameters interface{} `field:"optional" json:"mappedDataSetParameters" yaml:"mappedDataSetParameters"`
 	// A parameter declaration for the `Integer` data type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameterdeclaration.html#cfn-quicksight-analysis-integerparameterdeclaration-valuewhenunset
+	//
 	ValueWhenUnset interface{} `field:"optional" json:"valueWhenUnset" yaml:"valueWhenUnset"`
 }
 

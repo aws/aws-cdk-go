@@ -203,22 +203,6 @@ func (j *jsiiProxy_CfnIntegrationResponse) validateSetIntegrationResponseKeyPara
 	return nil
 }
 
-func (j *jsiiProxy_CfnIntegrationResponse) validateSetResponseParametersParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnIntegrationResponse) validateSetResponseTemplatesParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnIntegrationResponseParameters(scope constructs.Construct, id *string, props *CfnIntegrationResponseProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

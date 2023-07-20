@@ -10,8 +10,11 @@ package awssam
 //   	KeyId: jsii.String("keyId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-keysampt.html
+//
 type CfnFunction_KeySAMPTProperty struct {
-	// `CfnFunction.KeySAMPTProperty.KeyId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-keysampt.html#cfn-serverless-function-keysampt-keyid
+	//
 	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 }
 

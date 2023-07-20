@@ -15,10 +15,16 @@ package awssagemaker
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-provisioningparameter.html
+//
 type CfnProject_ProvisioningParameterProperty struct {
 	// The key that identifies a provisioning parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-provisioningparameter.html#cfn-sagemaker-project-provisioningparameter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of the provisioning parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-provisioningparameter.html#cfn-sagemaker-project-provisioningparameter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

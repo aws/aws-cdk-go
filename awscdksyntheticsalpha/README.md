@@ -23,7 +23,6 @@ To illustrate how to use a canary, assume your application defines the following
 ```console
 % curl "https://api.example.com/user/books/topbook/"
 The Hitchhikers Guide to the Galaxy
-
 ```
 
 The below code defines a canary that will hit the `books/topbook` endpoint every 5 minutes:
@@ -234,5 +233,28 @@ cloudwatch.NewAlarm(this, jsii.String("CanaryAlarm"), &AlarmProps{
 	EvaluationPeriods: jsii.Number(2),
 	Threshold: jsii.Number(90),
 	ComparisonOperator: cloudwatch.ComparisonOperator_LESS_THAN_THRESHOLD,
+})
+```
+
+### Artifacts
+
+You can pass an S3 bucket to store artifacts from canary runs. If you do not,
+one will be auto-generated when the canary is created. You may add
+[lifecycle rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html)
+to the auto-generated bucket.
+
+```go
+canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
+	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
+		Handler: jsii.String("index.handler"),
+	}),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
+	ArtifactsBucketLifecycleRules: []lifecycleRule{
+		&lifecycleRule{
+			Expiration: awscdk.Duration_Days(jsii.Number(30)),
+		},
+	},
 })
 ```

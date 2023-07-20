@@ -13,10 +13,14 @@ package awscloudfront
 //   	OriginAccessIdentity: jsii.String("originAccessIdentity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html
+//
 type CfnDistribution_LegacyS3OriginProperty struct {
-	// `CfnDistribution.LegacyS3OriginProperty.DNSName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-dnsname
+	//
 	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
-	// `CfnDistribution.LegacyS3OriginProperty.OriginAccessIdentity`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-originaccessidentity
+	//
 	OriginAccessIdentity *string `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 

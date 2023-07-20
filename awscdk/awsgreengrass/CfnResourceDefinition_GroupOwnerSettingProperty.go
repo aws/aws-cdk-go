@@ -19,14 +19,20 @@ package awsgreengrass
 //   	GroupOwner: jsii.String("groupOwner"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-groupownersetting.html
+//
 type CfnResourceDefinition_GroupOwnerSettingProperty struct {
 	// Indicates whether to give the privileges of the Linux group that owns the resource to the Lambda process.
 	//
 	// This gives the Lambda process the file access permissions of the Linux group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-groupownersetting.html#cfn-greengrass-resourcedefinition-groupownersetting-autoaddgroupowner
+	//
 	AutoAddGroupOwner interface{} `field:"required" json:"autoAddGroupOwner" yaml:"autoAddGroupOwner"`
 	// The name of the Linux group whose privileges you want to add to the Lambda process.
 	//
 	// This value is ignored if `AutoAddGroupOwner` is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-groupownersetting.html#cfn-greengrass-resourcedefinition-groupownersetting-groupowner
+	//
 	GroupOwner *string `field:"optional" json:"groupOwner" yaml:"groupOwner"`
 }
 

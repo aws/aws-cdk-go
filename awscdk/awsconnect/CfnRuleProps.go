@@ -77,24 +77,40 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html
+//
 type CfnRuleProps struct {
 	// A list of actions to be run when the rule is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-actions
+	//
 	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
 	// The conditions of the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-function
+	//
 	Function *string `field:"required" json:"function" yaml:"function"`
 	// The Amazon Resource Name (ARN) of the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-instancearn
+	//
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name of the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The publish status of the rule.
 	//
 	// *Allowed values* : `DRAFT` | `PUBLISHED`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-publishstatus
+	//
 	PublishStatus *string `field:"required" json:"publishStatus" yaml:"publishStatus"`
 	// The event source to trigger the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-triggereventsource
+	//
 	TriggerEventSource interface{} `field:"required" json:"triggerEventSource" yaml:"triggerEventSource"`
 	// The tags used to organize, track, or control access for this resource.
 	//
 	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

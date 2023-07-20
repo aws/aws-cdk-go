@@ -15,14 +15,20 @@ package awsbatch
 //   	TerminateJobsOnUpdate: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-updatepolicy.html
+//
 type CfnComputeEnvironment_UpdatePolicyProperty struct {
 	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
 	//
 	// The default value is 30.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-updatepolicy.html#cfn-batch-computeenvironment-updatepolicy-jobexecutiontimeoutminutes
+	//
 	JobExecutionTimeoutMinutes *float64 `field:"optional" json:"jobExecutionTimeoutMinutes" yaml:"jobExecutionTimeoutMinutes"`
 	// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
 	//
 	// The default value is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-updatepolicy.html#cfn-batch-computeenvironment-updatepolicy-terminatejobsonupdate
+	//
 	TerminateJobsOnUpdate interface{} `field:"optional" json:"terminateJobsOnUpdate" yaml:"terminateJobsOnUpdate"`
 }
 

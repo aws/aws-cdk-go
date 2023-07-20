@@ -12,8 +12,12 @@ package awspinpointemail
 //   	SendingPoolName: jsii.String("sendingPoolName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-deliveryoptions.html
+//
 type CfnConfigurationSet_DeliveryOptionsProperty struct {
 	// The name of the dedicated IP pool that you want to associate with the configuration set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-deliveryoptions.html#cfn-pinpointemail-configurationset-deliveryoptions-sendingpoolname
+	//
 	SendingPoolName *string `field:"optional" json:"sendingPoolName" yaml:"sendingPoolName"`
 }
 

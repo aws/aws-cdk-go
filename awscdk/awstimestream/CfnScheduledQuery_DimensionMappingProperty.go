@@ -13,10 +13,16 @@ package awstimestream
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html
+//
 type CfnScheduledQuery_DimensionMappingProperty struct {
 	// Type for the dimension: VARCHAR.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html#cfn-timestream-scheduledquery-dimensionmapping-dimensionvaluetype
+	//
 	DimensionValueType *string `field:"required" json:"dimensionValueType" yaml:"dimensionValueType"`
 	// Column name from query result.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html#cfn-timestream-scheduledquery-dimensionmapping-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

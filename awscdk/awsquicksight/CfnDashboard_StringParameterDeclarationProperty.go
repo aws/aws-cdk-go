@@ -46,18 +46,29 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameterdeclaration.html
+//
 type CfnDashboard_StringParameterDeclarationProperty struct {
 	// The name of the parameter that is being declared.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameterdeclaration.html#cfn-quicksight-dashboard-stringparameterdeclaration-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value type determines whether the parameter is a single-value or multi-value parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameterdeclaration.html#cfn-quicksight-dashboard-stringparameterdeclaration-parametervaluetype
+	//
 	ParameterValueType *string `field:"required" json:"parameterValueType" yaml:"parameterValueType"`
 	// The default values of a parameter.
 	//
 	// If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameterdeclaration.html#cfn-quicksight-dashboard-stringparameterdeclaration-defaultvalues
+	//
 	DefaultValues interface{} `field:"optional" json:"defaultValues" yaml:"defaultValues"`
-	// `CfnDashboard.StringParameterDeclarationProperty.MappedDataSetParameters`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameterdeclaration.html#cfn-quicksight-dashboard-stringparameterdeclaration-mappeddatasetparameters
+	//
 	MappedDataSetParameters interface{} `field:"optional" json:"mappedDataSetParameters" yaml:"mappedDataSetParameters"`
 	// The configuration that defines the default value of a `String` parameter when a value has not been set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameterdeclaration.html#cfn-quicksight-dashboard-stringparameterdeclaration-valuewhenunset
+	//
 	ValueWhenUnset interface{} `field:"optional" json:"valueWhenUnset" yaml:"valueWhenUnset"`
 }
 

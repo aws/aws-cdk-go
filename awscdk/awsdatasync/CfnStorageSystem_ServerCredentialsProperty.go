@@ -15,10 +15,16 @@ package awsdatasync
 //   	Username: jsii.String("username"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-servercredentials.html
+//
 type CfnStorageSystem_ServerCredentialsProperty struct {
 	// Specifies the password for your storage system's management interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-servercredentials.html#cfn-datasync-storagesystem-servercredentials-password
+	//
 	Password *string `field:"required" json:"password" yaml:"password"`
 	// Specifies the user name for your storage system's management interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-servercredentials.html#cfn-datasync-storagesystem-servercredentials-username
+	//
 	Username *string `field:"required" json:"username" yaml:"username"`
 }
 

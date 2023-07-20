@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppSync::ApiCache`.
-//
 // The `AWS::AppSync::ApiCache` resource represents the input of a `CreateApiCache` operation.
 //
 // Example:
@@ -29,23 +27,21 @@ import (
 //   	TransitEncryptionEnabled: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html
+//
 type CfnApiCache interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Caching behavior.
-	//
-	// - *FULL_REQUEST_CACHING* : All requests are fully cached.
-	// - *PER_RESOLVER_CACHING* : Individual resolvers that you specify are cached.
 	ApiCachingBehavior() *string
 	SetApiCachingBehavior(val *string)
 	// The GraphQL API ID.
 	ApiId() *string
 	SetApiId(val *string)
 	// At-rest encryption flag for cache.
-	//
-	// You cannot update this setting after creation.
 	AtRestEncryptionEnabled() interface{}
 	SetAtRestEncryptionEnabled(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -77,37 +73,14 @@ type CfnApiCache interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Transit encryption flag when connecting to cache.
-	//
-	// You cannot update this setting after creation.
 	TransitEncryptionEnabled() interface{}
 	SetTransitEncryptionEnabled(val interface{})
 	// TTL in seconds for cache entries.
-	//
-	// Valid values are 1–3,600 seconds.
 	Ttl() *float64
 	SetTtl(val *float64)
-	// The cache instance type. Valid values are.
+	// The cache instance type.
 	//
-	// - `SMALL`
-	// - `MEDIUM`
-	// - `LARGE`
-	// - `XLARGE`
-	// - `LARGE_2X`
-	// - `LARGE_4X`
-	// - `LARGE_8X` (not available in all regions)
-	// - `LARGE_12X`
-	//
-	// Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
-	//
-	// The following legacy instance types are available, but their use is discouraged:
-	//
-	// - *T2_SMALL* : A t2.small instance type.
-	// - *T2_MEDIUM* : A t2.medium instance type.
-	// - *R4_LARGE* : A r4.large instance type.
-	// - *R4_XLARGE* : A r4.xlarge instance type.
-	// - *R4_2XLARGE* : A r4.2xlarge instance type.
-	// - *R4_4XLARGE* : A r4.4xlarge instance type.
-	// - *R4_8XLARGE* : A r4.8xlarge instance type.
+	// Valid values are.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -286,6 +259,16 @@ func (j *jsiiProxy_CfnApiCache) AtRestEncryptionEnabled() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApiCache) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApiCache) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -417,7 +400,6 @@ func (j *jsiiProxy_CfnApiCache) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppSync::ApiCache`.
 func NewCfnApiCache(scope constructs.Construct, id *string, props *CfnApiCacheProps) CfnApiCache {
 	_init_.Initialize()
 
@@ -435,7 +417,6 @@ func NewCfnApiCache(scope constructs.Construct, id *string, props *CfnApiCachePr
 	return &j
 }
 
-// Create a new `AWS::AppSync::ApiCache`.
 func NewCfnApiCache_Override(c CfnApiCache, scope constructs.Construct, id *string, props *CfnApiCacheProps) {
 	_init_.Initialize()
 

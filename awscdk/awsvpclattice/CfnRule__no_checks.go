@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnRule) validateSetPriorityParameters(val *float64) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnRule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnRuleParameters(scope constructs.Construct, id *string, props *CfnRuleProps) error {
 	return nil
 }

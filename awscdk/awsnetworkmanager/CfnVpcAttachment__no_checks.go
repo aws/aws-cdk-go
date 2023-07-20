@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnVpcAttachment) validateSetSubnetArnsParameters(val *[]*str
 	return nil
 }
 
+func (j *jsiiProxy_CfnVpcAttachment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVpcAttachment) validateSetVpcArnParameters(val *string) error {
 	return nil
 }

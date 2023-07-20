@@ -14,10 +14,14 @@ package awsquicksight
 //   	LabelVisibility: jsii.String("labelVisibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-donutcenteroptions.html
+//
 type CfnAnalysis_DonutCenterOptionsProperty struct {
 	// Determines the visibility of the label in a donut chart.
 	//
 	// In the Amazon QuickSight console, this option is called `'Show total'` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-donutcenteroptions.html#cfn-quicksight-analysis-donutcenteroptions-labelvisibility
+	//
 	LabelVisibility *string `field:"optional" json:"labelVisibility" yaml:"labelVisibility"`
 }
 

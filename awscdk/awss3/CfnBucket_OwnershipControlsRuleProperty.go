@@ -14,10 +14,14 @@ package awss3
 //   	ObjectOwnership: jsii.String("objectOwnership"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html
+//
 type CfnBucket_OwnershipControlsRuleProperty struct {
 	// Specifies an Object Ownership rule.
 	//
 	// *Allowed values* : `BucketOwnerEnforced` | `ObjectWriter` | `BucketOwnerPreferred`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership
+	//
 	ObjectOwnership *string `field:"optional" json:"objectOwnership" yaml:"objectOwnership"`
 }
 

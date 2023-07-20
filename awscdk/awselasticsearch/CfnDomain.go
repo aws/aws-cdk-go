@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Elasticsearch::Domain`.
-//
 // The AWS::Elasticsearch::Domain resource creates an Amazon OpenSearch Service domain.
 //
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and legacy Elasticsearch. For instructions to upgrade domains defined within CloudFormation from Elasticsearch to OpenSearch, see [Remarks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--remarks) .
@@ -43,6 +41,7 @@ import (
 //   		RoleArn: jsii.String("roleArn"),
 //   		UserPoolId: jsii.String("userPoolId"),
 //   	},
+//   	DomainArn: jsii.String("domainArn"),
 //   	DomainEndpointOptions: &DomainEndpointOptionsProperty{
 //   		CustomEndpoint: jsii.String("customEndpoint"),
 //   		CustomEndpointCertificateArn: jsii.String("customEndpointCertificateArn"),
@@ -107,17 +106,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions.
-	//
-	// For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guid* e.
 	AccessPolicies() interface{}
 	SetAccessPolicies(val interface{})
 	// Additional options to specify for the OpenSearch Service domain.
-	//
-	// For more information, see [Advanced cluster parameters](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options) in the *Amazon OpenSearch Service Developer Guide* .
 	AdvancedOptions() interface{}
 	SetAdvancedOptions(val interface{})
 	// Specifies options for fine-grained access control.
@@ -129,6 +127,7 @@ type CfnDomain interface {
 	AttrArn() *string
 	// The domain-specific endpoint that's used for requests to the OpenSearch APIs, such as `search-mystack-elasti-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
 	AttrDomainEndpoint() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -141,32 +140,24 @@ type CfnDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	DomainArn() *string
+	SetDomainArn(val *string)
 	// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
 	DomainEndpointOptions() interface{}
 	SetDomainEndpointOptions(val interface{})
 	// A name for the OpenSearch Service domain.
-	//
-	// For valid values, see the [DomainName](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-domainname) data type in the *Amazon OpenSearch Service Developer Guide* . If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	DomainName() *string
 	SetDomainName(val *string)
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
-	//
-	// For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
 	EbsOptions() interface{}
 	SetEbsOptions(val interface{})
 	// ElasticsearchClusterConfig is a property of the AWS::Elasticsearch::Domain resource that configures the cluster of an Amazon OpenSearch Service domain.
 	ElasticsearchClusterConfig() interface{}
 	SetElasticsearchClusterConfig(val interface{})
 	// The version of Elasticsearch to use, such as 2.3. If not specified, 1.5 is used as the default. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
-	//
-	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `ElasticsearchVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `ElasticsearchVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	ElasticsearchVersion() *string
 	SetElasticsearchVersion(val *string)
 	// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
-	//
-	// See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
 	EncryptionAtRestOptions() interface{}
 	SetEncryptionAtRestOptions(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -180,15 +171,11 @@ type CfnDomain interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish.
-	//
-	// Each key needs a valid `LogPublishingOption` value.
 	LogPublishingOptions() interface{}
 	SetLogPublishingOptions(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Specifies whether node-to-node encryption is enabled.
-	//
-	// See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
 	NodeToNodeEncryptionOptions() interface{}
 	SetNodeToNodeEncryptionOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -197,16 +184,17 @@ type CfnDomain interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// *DEPRECATED* .
-	//
-	// The automated snapshot configuration for the OpenSearch Service domain indices.
 	SnapshotOptions() interface{}
 	SetSnapshotOptions(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Service domain.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Service domain.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -221,8 +209,6 @@ type CfnDomain interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
-	//
-	// For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
 	VpcOptions() interface{}
 	SetVpcOptions(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -356,6 +342,7 @@ type CfnDomain interface {
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDomain) AccessPolicies() interface{} {
@@ -408,6 +395,16 @@ func (j *jsiiProxy_CfnDomain) AttrDomainEndpoint() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -453,6 +450,16 @@ func (j *jsiiProxy_CfnDomain) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) DomainArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domainArn",
 		&returns,
 	)
 	return returns
@@ -598,6 +605,16 @@ func (j *jsiiProxy_CfnDomain) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -629,7 +646,6 @@ func (j *jsiiProxy_CfnDomain) VpcOptions() interface{} {
 }
 
 
-// Create a new `AWS::Elasticsearch::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -647,7 +663,6 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
-// Create a new `AWS::Elasticsearch::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
@@ -659,9 +674,6 @@ func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, 
 }
 
 func (j *jsiiProxy_CfnDomain)SetAccessPolicies(val interface{}) {
-	if err := j.validateSetAccessPoliciesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"accessPolicies",
@@ -698,6 +710,14 @@ func (j *jsiiProxy_CfnDomain)SetCognitoOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"cognitoOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetDomainArn(val *string) {
+	_jsii_.Set(
+		j,
+		"domainArn",
 		val,
 	)
 }
@@ -791,6 +811,17 @@ func (j *jsiiProxy_CfnDomain)SetSnapshotOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"snapshotOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

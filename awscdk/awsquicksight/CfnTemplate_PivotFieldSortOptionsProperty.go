@@ -46,10 +46,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivotfieldsortoptions.html
+//
 type CfnTemplate_PivotFieldSortOptionsProperty struct {
 	// The field ID for the field sort options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivotfieldsortoptions.html#cfn-quicksight-template-pivotfieldsortoptions-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The sort by field for the field sort options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivotfieldsortoptions.html#cfn-quicksight-template-pivotfieldsortoptions-sortby
+	//
 	SortBy interface{} `field:"required" json:"sortBy" yaml:"sortBy"`
 }
 

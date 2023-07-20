@@ -13,10 +13,16 @@ package awsappstream
 //   	VpceId: jsii.String("vpceId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblockbuilder-accessendpoint.html
+//
 type CfnAppBlockBuilder_AccessEndpointProperty struct {
 	// The type of interface endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblockbuilder-accessendpoint.html#cfn-appstream-appblockbuilder-accessendpoint-endpointtype
+	//
 	EndpointType *string `field:"required" json:"endpointType" yaml:"endpointType"`
 	// The identifier (ID) of the VPC in which the interface endpoint is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblockbuilder-accessendpoint.html#cfn-appstream-appblockbuilder-accessendpoint-vpceid
+	//
 	VpceId *string `field:"required" json:"vpceId" yaml:"vpceId"`
 }
 

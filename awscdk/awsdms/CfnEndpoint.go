@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DMS::Endpoint`.
-//
 // The `AWS::DMS::Endpoint` resource specifies an AWS DMS endpoint.
 //
 // Currently, AWS CloudFormation supports all AWS DMS endpoint types.
@@ -296,11 +294,15 @@ import (
 //   	Username: jsii.String("username"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html
+//
 type CfnEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A value that can be used for cross-account validation.
 	AttrExternalId() *string
+	AttrId() *string
 	// The Amazon Resource Name (ARN) for the certificate.
 	CertificateArn() *string
 	SetCertificateArn(val *string)
@@ -314,70 +316,42 @@ type CfnEndpoint interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the endpoint database.
-	//
-	// For a MySQL source or target endpoint, don't specify `DatabaseName` . To migrate to a specific database, use this setting and `targetDbType` .
 	DatabaseName() *string
 	SetDatabaseName(val *string)
 	// Settings in JSON format for the source and target DocumentDB endpoint.
-	//
-	// For more information about other available settings, see [Using extra connections attributes with Amazon DocumentDB as a source](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html#CHAP_Source.DocumentDB.ECAs) and [Using Amazon DocumentDB as a target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DocumentDB.html) in the *AWS Database Migration Service User Guide* .
 	DocDbSettings() interface{}
 	SetDocDbSettings(val interface{})
 	// Settings in JSON format for the target Amazon DynamoDB endpoint.
-	//
-	// For information about other available settings, see [Using object mapping to migrate data to DynamoDB](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping) in the *AWS Database Migration Service User Guide* .
 	DynamoDbSettings() interface{}
 	SetDynamoDbSettings(val interface{})
 	// Settings in JSON format for the target OpenSearch endpoint.
-	//
-	// For more information about the available settings, see [Extra connection attributes when using OpenSearch as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration) in the *AWS Database Migration Service User Guide* .
 	ElasticsearchSettings() interface{}
 	SetElasticsearchSettings(val interface{})
 	// The database endpoint identifier.
-	//
-	// Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.
 	EndpointIdentifier() *string
 	SetEndpointIdentifier(val *string)
 	// The type of endpoint.
-	//
-	// Valid values are `source` and `target` .
 	EndpointType() *string
 	SetEndpointType(val *string)
 	// The type of engine for the endpoint, depending on the `EndpointType` value.
-	//
-	// *Valid values* : `mysql` | `oracle` | `postgres` | `mariadb` | `aurora` | `aurora-postgresql` | `opensearch` | `redshift` | `s3` | `db2` | `azuredb` | `sybase` | `dynamodb` | `mongodb` | `kinesis` | `kafka` | `elasticsearch` | `docdb` | `sqlserver` | `neptune`.
 	EngineName() *string
 	SetEngineName(val *string)
 	// Additional attributes associated with the connection.
-	//
-	// Each attribute is specified as a name-value pair associated by an equal sign (=). Multiple attributes are separated by a semicolon (;) with no additional white space. For information on the attributes available for connecting your source or target endpoint, see [Working with AWS DMS Endpoints](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Endpoints.html) in the *AWS Database Migration Service User Guide* .
 	ExtraConnectionAttributes() *string
 	SetExtraConnectionAttributes(val *string)
 	// Settings in JSON format for the source GCP MySQL endpoint.
-	//
-	// These settings are much the same as the settings for any MySQL-compatible endpoint. For more information, see [Extra connection attributes when using MySQL as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib) in the *AWS Database Migration Service User Guide* .
 	GcpMySqlSettings() interface{}
 	SetGcpMySqlSettings(val interface{})
 	// Settings in JSON format for the source IBM Db2 LUW endpoint.
-	//
-	// For information about other available settings, see [Extra connection attributes when using Db2 LUW as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html#CHAP_Source.DB2.ConnectionAttrib) in the *AWS Database Migration Service User Guide* .
 	IbmDb2Settings() interface{}
 	SetIbmDb2Settings(val interface{})
 	// Settings in JSON format for the target Apache Kafka endpoint.
-	//
-	// For more information about other available settings, see [Using object mapping to migrate data to a Kafka topic](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping) in the *AWS Database Migration Service User Guide* .
 	KafkaSettings() interface{}
 	SetKafkaSettings(val interface{})
 	// Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams.
-	//
-	// For more information about other available settings, see [Using object mapping to migrate data to a Kinesis data stream](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping) in the *AWS Database Migration Service User Guide* .
 	KinesisSettings() interface{}
 	SetKinesisSettings(val interface{})
 	// An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
-	//
-	// If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
-	//
-	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -391,30 +365,20 @@ type CfnEndpoint interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Settings in JSON format for the source and target Microsoft SQL Server endpoint.
-	//
-	// For information about other available settings, see [Extra connection attributes when using SQL Server as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.ConnectionAttrib) and [Extra connection attributes when using SQL Server as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html#CHAP_Target.SQLServer.ConnectionAttrib) in the *AWS Database Migration Service User Guide* .
 	MicrosoftSqlServerSettings() interface{}
 	SetMicrosoftSqlServerSettings(val interface{})
 	// Settings in JSON format for the source MongoDB endpoint.
-	//
-	// For more information about the available settings, see [Using MongoDB as a target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration) in the *AWS Database Migration Service User Guide* .
 	MongoDbSettings() interface{}
 	SetMongoDbSettings(val interface{})
 	// Settings in JSON format for the source and target MySQL endpoint.
-	//
-	// For information about other available settings, see [Extra connection attributes when using MySQL as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib) and [Extra connection attributes when using a MySQL-compatible database as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib) in the *AWS Database Migration Service User Guide* .
 	MySqlSettings() interface{}
 	SetMySqlSettings(val interface{})
 	// Settings in JSON format for the target Amazon Neptune endpoint.
-	//
-	// For more information about the available settings, see [Specifying endpoint settings for Amazon Neptune as a target](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings) in the *AWS Database Migration Service User Guide* .
 	NeptuneSettings() interface{}
 	SetNeptuneSettings(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Settings in JSON format for the source and target Oracle endpoint.
-	//
-	// For information about other available settings, see [Extra connection attributes when using Oracle as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib) and [Extra connection attributes when using Oracle as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib) in the *AWS Database Migration Service User Guide* .
 	OracleSettings() interface{}
 	SetOracleSettings(val interface{})
 	// The password to be used to log in to the endpoint database.
@@ -424,18 +388,12 @@ type CfnEndpoint interface {
 	Port() *float64
 	SetPort(val *float64)
 	// Settings in JSON format for the source and target PostgreSQL endpoint.
-	//
-	// For information about other available settings, see [Extra connection attributes when using PostgreSQL as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib) and [Extra connection attributes when using PostgreSQL as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html#CHAP_Target.PostgreSQL.ConnectionAttrib) in the *AWS Database Migration Service User Guide* .
 	PostgreSqlSettings() interface{}
 	SetPostgreSqlSettings(val interface{})
 	// Settings in JSON format for the target Redis endpoint.
-	//
-	// For information about other available settings, see [Specifying endpoint settings for Redis as a target](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Redis.html#CHAP_Target.Redis.EndpointSettings) in the *AWS Database Migration Service User Guide* .
 	RedisSettings() interface{}
 	SetRedisSettings(val interface{})
 	// Settings in JSON format for the Amazon Redshift endpoint.
-	//
-	// For more information about other available settings, see [Extra connection attributes when using Amazon Redshift as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Redshift.html#CHAP_Target.Redshift.ConnectionAttrib) in the *AWS Database Migration Service User Guide* .
 	RedshiftSettings() interface{}
 	SetRedshiftSettings(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -444,23 +402,17 @@ type CfnEndpoint interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A display name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object.
-	//
-	// The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1` .
-	//
-	// For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1` . If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn` .
 	ResourceIdentifier() *string
 	SetResourceIdentifier(val *string)
 	// Settings in JSON format for the source and target Amazon S3 endpoint.
-	//
-	// For more information about other available settings, see [Extra connection attributes when using Amazon S3 as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.S3.html#CHAP_Source.S3.Configuring) and [Extra connection attributes when using Amazon S3 as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring) in the *AWS Database Migration Service User Guide* .
 	S3Settings() interface{}
 	SetS3Settings(val interface{})
 	// The name of the server where the endpoint database resides.
 	ServerName() *string
 	SetServerName(val *string)
-	// The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is `none` .
+	// The Secure Sockets Layer (SSL) mode to use for the SSL connection.
 	//
-	// > When `engine_name` is set to S3, the only allowed value is `none` .
+	// The default is `none` .
 	SslMode() *string
 	SetSslMode(val *string)
 	// The stack in which this element is defined.
@@ -468,12 +420,13 @@ type CfnEndpoint interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Settings in JSON format for the source and target SAP ASE endpoint.
-	//
-	// For information about other available settings, see [Extra connection attributes when using SAP ASE as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib) and [Extra connection attributes when using SAP ASE as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib) in the *AWS Database Migration Service User Guide* .
 	SybaseSettings() interface{}
 	SetSybaseSettings(val interface{})
-	// One or more tags to be assigned to the endpoint.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more tags to be assigned to the endpoint.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -621,6 +574,7 @@ type CfnEndpoint interface {
 type jsiiProxy_CfnEndpoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEndpoint) AttrExternalId() *string {
@@ -628,6 +582,16 @@ func (j *jsiiProxy_CfnEndpoint) AttrExternalId() *string {
 	_jsii_.Get(
 		j,
 		"attrExternalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpoint) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -1013,6 +977,16 @@ func (j *jsiiProxy_CfnEndpoint) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpoint) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpoint) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1044,7 +1018,6 @@ func (j *jsiiProxy_CfnEndpoint) Username() *string {
 }
 
 
-// Create a new `AWS::DMS::Endpoint`.
 func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
@@ -1062,7 +1035,6 @@ func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointPr
 	return &j
 }
 
-// Create a new `AWS::DMS::Endpoint`.
 func NewCfnEndpoint_Override(c CfnEndpoint, scope constructs.Construct, id *string, props *CfnEndpointProps) {
 	_init_.Initialize()
 
@@ -1358,6 +1330,17 @@ func (j *jsiiProxy_CfnEndpoint)SetSybaseSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sybaseSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpoint)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

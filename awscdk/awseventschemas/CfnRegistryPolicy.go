@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EventSchemas::RegistryPolicy`.
-//
 // Use the `AWS::EventSchemas::RegistryPolicy` resource to specify resource-based policies for an EventBridge Schema Registry.
 //
 // Example:
@@ -27,6 +25,8 @@ import (
 //   	// the properties below are optional
 //   	RevisionId: jsii.String("revisionId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
 //
 type CfnRegistryPolicy interface {
 	awscdk.CfnResource
@@ -359,7 +359,6 @@ func (j *jsiiProxy_CfnRegistryPolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::EventSchemas::RegistryPolicy`.
 func NewCfnRegistryPolicy(scope constructs.Construct, id *string, props *CfnRegistryPolicyProps) CfnRegistryPolicy {
 	_init_.Initialize()
 
@@ -377,7 +376,6 @@ func NewCfnRegistryPolicy(scope constructs.Construct, id *string, props *CfnRegi
 	return &j
 }
 
-// Create a new `AWS::EventSchemas::RegistryPolicy`.
 func NewCfnRegistryPolicy_Override(c CfnRegistryPolicy, scope constructs.Construct, id *string, props *CfnRegistryPolicyProps) {
 	_init_.Initialize()
 

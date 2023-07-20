@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Backup::BackupPlan`.
+// Contains an optional backup plan display name and an array of `BackupRule` objects, each of which specifies a backup rule.
 //
-// Contains an optional backup plan display name and an array of `BackupRule` objects, each of which specifies a backup rule. Each rule in a backup plan is a separate scheduled task and can back up a different selection of AWS resources.
+// Each rule in a backup plan is a separate scheduled task and can back up a different selection of AWS resources.
 //
 // For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
 //
@@ -71,6 +71,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
+//
 type CfnBackupPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -88,8 +90,6 @@ type CfnBackupPlan interface {
 	BackupPlan() interface{}
 	SetBackupPlan(val interface{})
 	// To help organize your resources, you can assign your own metadata to the resources that you create.
-	//
-	// Each tag is a key-value pair. The specified tags are assigned to all backups created with this plan.
 	BackupPlanTags() interface{}
 	SetBackupPlanTags(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -419,7 +419,6 @@ func (j *jsiiProxy_CfnBackupPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Backup::BackupPlan`.
 func NewCfnBackupPlan(scope constructs.Construct, id *string, props *CfnBackupPlanProps) CfnBackupPlan {
 	_init_.Initialize()
 
@@ -437,7 +436,6 @@ func NewCfnBackupPlan(scope constructs.Construct, id *string, props *CfnBackupPl
 	return &j
 }
 
-// Create a new `AWS::Backup::BackupPlan`.
 func NewCfnBackupPlan_Override(c CfnBackupPlan, scope constructs.Construct, id *string, props *CfnBackupPlanProps) {
 	_init_.Initialize()
 

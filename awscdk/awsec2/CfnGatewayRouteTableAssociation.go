@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::GatewayRouteTableAssociation`.
+// Associates a virtual private gateway or internet gateway with a route table.
 //
-// Associates a virtual private gateway or internet gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
+// The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	GatewayId: jsii.String("gatewayId"),
 //   	RouteTableId: jsii.String("routeTableId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html
 //
 type CfnGatewayRouteTableAssociation interface {
 	awscdk.CfnResource
@@ -341,7 +343,6 @@ func (j *jsiiProxy_CfnGatewayRouteTableAssociation) UpdatedProperties() *map[str
 }
 
 
-// Create a new `AWS::EC2::GatewayRouteTableAssociation`.
 func NewCfnGatewayRouteTableAssociation(scope constructs.Construct, id *string, props *CfnGatewayRouteTableAssociationProps) CfnGatewayRouteTableAssociation {
 	_init_.Initialize()
 
@@ -359,7 +360,6 @@ func NewCfnGatewayRouteTableAssociation(scope constructs.Construct, id *string, 
 	return &j
 }
 
-// Create a new `AWS::EC2::GatewayRouteTableAssociation`.
 func NewCfnGatewayRouteTableAssociation_Override(c CfnGatewayRouteTableAssociation, scope constructs.Construct, id *string, props *CfnGatewayRouteTableAssociationProps) {
 	_init_.Initialize()
 

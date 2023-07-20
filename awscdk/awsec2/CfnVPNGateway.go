@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPNGateway`.
+// Specifies a virtual private gateway.
 //
-// Specifies a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
+// A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
 //
 // For more information, see [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *AWS Site-to-Site VPN User Guide* .
 //
@@ -33,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html
+//
 type CfnVPNGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
 	AmazonSideAsn() *float64
 	SetAmazonSideAsn(val *float64)
@@ -71,8 +74,11 @@ type CfnVPNGateway interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Any tags assigned to the virtual private gateway.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags assigned to the virtual private gateway.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of VPN connection the virtual private gateway supports.
 	Type() *string
 	SetType(val *string)
@@ -220,6 +226,7 @@ type CfnVPNGateway interface {
 type jsiiProxy_CfnVPNGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVPNGateway) AmazonSideAsn() *float64 {
@@ -332,6 +339,16 @@ func (j *jsiiProxy_CfnVPNGateway) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPNGateway) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPNGateway) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -363,7 +380,6 @@ func (j *jsiiProxy_CfnVPNGateway) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::VPNGateway`.
 func NewCfnVPNGateway(scope constructs.Construct, id *string, props *CfnVPNGatewayProps) CfnVPNGateway {
 	_init_.Initialize()
 
@@ -381,7 +397,6 @@ func NewCfnVPNGateway(scope constructs.Construct, id *string, props *CfnVPNGatew
 	return &j
 }
 
-// Create a new `AWS::EC2::VPNGateway`.
 func NewCfnVPNGateway_Override(c CfnVPNGateway, scope constructs.Construct, id *string, props *CfnVPNGatewayProps) {
 	_init_.Initialize()
 
@@ -396,6 +411,17 @@ func (j *jsiiProxy_CfnVPNGateway)SetAmazonSideAsn(val *float64) {
 	_jsii_.Set(
 		j,
 		"amazonSideAsn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

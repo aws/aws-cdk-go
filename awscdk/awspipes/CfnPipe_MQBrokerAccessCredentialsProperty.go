@@ -12,8 +12,12 @@ package awspipes
 //   	BasicAuth: jsii.String("basicAuth"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mqbrokeraccesscredentials.html
+//
 type CfnPipe_MQBrokerAccessCredentialsProperty struct {
 	// The ARN of the Secrets Manager secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mqbrokeraccesscredentials.html#cfn-pipes-pipe-mqbrokeraccesscredentials-basicauth
+	//
 	BasicAuth *string `field:"required" json:"basicAuth" yaml:"basicAuth"`
 }
 

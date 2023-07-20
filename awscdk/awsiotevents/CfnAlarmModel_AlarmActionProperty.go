@@ -116,6 +116,8 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html
+//
 type CfnAlarmModel_AlarmActionProperty struct {
 	// Defines an action to write to the Amazon DynamoDB table that you created.
 	//
@@ -139,6 +141,8 @@ type CfnAlarmModel_AlarmActionProperty struct {
 	// For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 	//
 	// If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-dynamodb
+	//
 	DynamoDb interface{} `field:"optional" json:"dynamoDb" yaml:"dynamoDb"`
 	// Defines an action to write to the Amazon DynamoDB table that you created.
 	//
@@ -162,10 +166,16 @@ type CfnAlarmModel_AlarmActionProperty struct {
 	// For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 	//
 	// The value for the `type` parameter in `Payload` must be `JSON` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-dynamodbv2
+	//
 	DynamoDBv2 interface{} `field:"optional" json:"dynamoDBv2" yaml:"dynamoDBv2"`
 	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-firehose
+	//
 	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
 	// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-iotevents
+	//
 	IotEvents interface{} `field:"optional" json:"iotEvents" yaml:"iotEvents"`
 	// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
 	//
@@ -182,14 +192,24 @@ type CfnAlarmModel_AlarmActionProperty struct {
 	// You must specify either `propertyAlias` or both `assetId` and `propertyId` to identify the target asset property in AWS IoT SiteWise .
 	//
 	// For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-iotsitewise
+	//
 	IotSiteWise interface{} `field:"optional" json:"iotSiteWise" yaml:"iotSiteWise"`
 	// Information required to publish the MQTT message through the AWS IoT message broker.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-iottopicpublish
+	//
 	IotTopicPublish interface{} `field:"optional" json:"iotTopicPublish" yaml:"iotTopicPublish"`
 	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-lambda
+	//
 	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
 	// Information required to publish the Amazon SNS message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-sns
+	//
 	Sns interface{} `field:"optional" json:"sns" yaml:"sns"`
 	// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-sqs
+	//
 	Sqs interface{} `field:"optional" json:"sqs" yaml:"sqs"`
 }
 

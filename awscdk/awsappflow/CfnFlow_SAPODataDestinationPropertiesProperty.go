@@ -27,22 +27,34 @@ package awsappflow
 //   	WriteOperationType: jsii.String("writeOperationType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html
+//
 type CfnFlow_SAPODataDestinationPropertiesProperty struct {
 	// The object path specified in the SAPOData flow destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-objectpath
+	//
 	ObjectPath *string `field:"required" json:"objectPath" yaml:"objectPath"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-errorhandlingconfig
+	//
 	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 	// A list of field names that can be used as an ID field when performing a write operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-idfieldnames
+	//
 	IdFieldNames *[]*string `field:"optional" json:"idFieldNames" yaml:"idFieldNames"`
 	// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
 	//
 	// For example, this setting would determine where to write the response from a destination connector upon a successful insert operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-successresponsehandlingconfig
+	//
 	SuccessResponseHandlingConfig interface{} `field:"optional" json:"successResponseHandlingConfig" yaml:"successResponseHandlingConfig"`
 	// The possible write operations in the destination connector.
 	//
 	// When this value is not provided, this defaults to the `INSERT` operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-writeoperationtype
+	//
 	WriteOperationType *string `field:"optional" json:"writeOperationType" yaml:"writeOperationType"`
 }
 

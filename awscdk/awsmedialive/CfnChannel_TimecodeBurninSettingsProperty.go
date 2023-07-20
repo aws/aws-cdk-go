@@ -12,12 +12,17 @@ package awsmedialive
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-timecodeburninsettings.html
+//
 type CfnChannel_TimecodeBurninSettingsProperty struct {
-	// `CfnChannel.TimecodeBurninSettingsProperty.FontSize`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-timecodeburninsettings.html#cfn-medialive-channel-timecodeburninsettings-fontsize
+	//
 	FontSize *string `field:"optional" json:"fontSize" yaml:"fontSize"`
-	// `CfnChannel.TimecodeBurninSettingsProperty.Position`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-timecodeburninsettings.html#cfn-medialive-channel-timecodeburninsettings-position
+	//
 	Position *string `field:"optional" json:"position" yaml:"position"`
-	// `CfnChannel.TimecodeBurninSettingsProperty.Prefix`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-timecodeburninsettings.html#cfn-medialive-channel-timecodeburninsettings-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

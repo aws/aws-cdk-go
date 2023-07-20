@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::IdentityPoolRoleAttachment`.
-//
 // The `AWS::Cognito::IdentityPoolRoleAttachment` resource manages the role configuration for an Amazon Cognito identity pool.
 //
 // Example:
@@ -46,9 +44,12 @@ import (
 //   	Roles: roles,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
+//
 type CfnIdentityPoolRoleAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -79,17 +80,9 @@ type CfnIdentityPoolRoleAttachment interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// How users for a specific identity provider are mapped to roles.
-	//
-	// This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
-	//
-	// If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
-	//
-	// For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
 	RoleMappings() interface{}
 	SetRoleMappings(val interface{})
 	// The map of the roles associated with this pool.
-	//
-	// For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
 	Roles() interface{}
 	SetRoles(val interface{})
 	// The stack in which this element is defined.
@@ -242,6 +235,16 @@ type jsiiProxy_CfnIdentityPoolRoleAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -373,7 +376,6 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::Cognito::IdentityPoolRoleAttachment`.
 func NewCfnIdentityPoolRoleAttachment(scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) CfnIdentityPoolRoleAttachment {
 	_init_.Initialize()
 
@@ -391,7 +393,6 @@ func NewCfnIdentityPoolRoleAttachment(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::Cognito::IdentityPoolRoleAttachment`.
 func NewCfnIdentityPoolRoleAttachment_Override(c CfnIdentityPoolRoleAttachment, scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) {
 	_init_.Initialize()
 
@@ -425,9 +426,6 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment)SetRoleMappings(val interface{}
 }
 
 func (j *jsiiProxy_CfnIdentityPoolRoleAttachment)SetRoles(val interface{}) {
-	if err := j.validateSetRolesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"roles",

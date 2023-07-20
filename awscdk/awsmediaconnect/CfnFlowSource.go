@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConnect::FlowSource`.
+// The AWS::MediaConnect::FlowSource resource is used to add additional sources to an existing flow.
 //
-// The AWS::MediaConnect::FlowSource resource is used to add additional sources to an existing flow. Adding an additional source requires Failover to be enabled. When you enable Failover, the additional source must use the same protocol as the existing source. A source is the external video content that includes configuration information (encryption and source type) and a network address. Each flow has at least one source. A standard source comes from a source other than another AWS Elemental MediaConnect flow, such as an on-premises encoder.
+// Adding an additional source requires Failover to be enabled. When you enable Failover, the additional source must use the same protocol as the existing source. A source is the external video content that includes configuration information (encryption and source type) and a network address. Each flow has at least one source. A standard source comes from a source other than another AWS Elemental MediaConnect flow, such as an on-premises encoder.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -60,6 +60,8 @@ import (
 //   	WhitelistCidr: jsii.String("whitelistCidr"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html
+//
 type CfnFlowSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -84,26 +86,18 @@ type CfnFlowSource interface {
 	Decryption() interface{}
 	SetDecryption(val interface{})
 	// A description of the source.
-	//
-	// This description is not visible outside of the current AWS account.
 	Description() *string
 	SetDescription(val *string)
 	// The ARN of the entitlement that allows you to subscribe to the flow.
-	//
-	// The entitlement is set by the content originator, and the ARN is generated as part of the originator's flow.
 	EntitlementArn() *string
 	SetEntitlementArn(val *string)
 	// The Amazon Resource Name (ARN) of the flow this source is connected to.
-	//
-	// The flow must have Failover enabled to add an additional source.
 	FlowArn() *string
 	SetFlowArn(val *string)
-	// `AWS::MediaConnect::FlowSource.GatewayBridgeSource`.
+	// The source configuration for cloud flows receiving a stream from a bridge.
 	GatewayBridgeSource() interface{}
 	SetGatewayBridgeSource(val interface{})
 	// The port that the flow listens on for incoming content.
-	//
-	// If the protocol of the source is Zixi, the port must be set to 2088.
 	IngestPort() *float64
 	SetIngestPort(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -120,13 +114,9 @@ type CfnFlowSource interface {
 	MaxBitrate() *float64
 	SetMaxBitrate(val *float64)
 	// The maximum latency in milliseconds.
-	//
-	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
 	MaxLatency() *float64
 	SetMaxLatency(val *float64)
 	// The minimum latency in milliseconds for SRT-based streams.
-	//
-	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
 	MinLatency() *float64
 	SetMinLatency(val *float64)
 	// The name of the source.
@@ -135,10 +125,6 @@ type CfnFlowSource interface {
 	// The tree node.
 	Node() constructs.Node
 	// The protocol that the source uses to deliver the content to MediaConnect.
-	//
-	// Adding additional sources to an existing flow requires Failover to be enabled. When you enable Failover, the additional source must use the same protocol as the existing source. Only the following protocols support failover: Zixi-push, RTP-FEC, RTP, RIST and SRT protocols.
-	//
-	// If you use failover with SRT caller or listener, the `FailoverMode` property must be set to `FAILOVER` . The `FailoverMode` property is found in the `FailoverConfig` resource of the same flow ARN you used for the source's `FlowArn` property. SRT caller/listener does not support merge mode failover.
 	Protocol() *string
 	SetProtocol(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -163,8 +149,6 @@ type CfnFlowSource interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The stream ID that you want to use for this transport.
-	//
-	// This parameter applies only to Zixi and SRT caller-based streams.
 	StreamId() *string
 	SetStreamId(val *string)
 	// Deprecated.
@@ -184,8 +168,6 @@ type CfnFlowSource interface {
 	VpcInterfaceName() *string
 	SetVpcInterfaceName(val *string)
 	// The range of IP addresses that are allowed to contribute content to your source.
-	//
-	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	WhitelistCidr() *string
 	SetWhitelistCidr(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -632,7 +614,6 @@ func (j *jsiiProxy_CfnFlowSource) WhitelistCidr() *string {
 }
 
 
-// Create a new `AWS::MediaConnect::FlowSource`.
 func NewCfnFlowSource(scope constructs.Construct, id *string, props *CfnFlowSourceProps) CfnFlowSource {
 	_init_.Initialize()
 
@@ -650,7 +631,6 @@ func NewCfnFlowSource(scope constructs.Construct, id *string, props *CfnFlowSour
 	return &j
 }
 
-// Create a new `AWS::MediaConnect::FlowSource`.
 func NewCfnFlowSource_Override(c CfnFlowSource, scope constructs.Construct, id *string, props *CfnFlowSourceProps) {
 	_init_.Initialize()
 

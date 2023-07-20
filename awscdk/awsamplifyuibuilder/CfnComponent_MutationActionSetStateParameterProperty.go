@@ -57,12 +57,20 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html
+//
 type CfnComponent_MutationActionSetStateParameterProperty struct {
 	// The name of the component that is being modified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html#cfn-amplifyuibuilder-component-mutationactionsetstateparameter-componentname
+	//
 	ComponentName *string `field:"required" json:"componentName" yaml:"componentName"`
 	// The name of the component property to apply the state configuration to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html#cfn-amplifyuibuilder-component-mutationactionsetstateparameter-property
+	//
 	Property *string `field:"required" json:"property" yaml:"property"`
 	// The state configuration to assign to the property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html#cfn-amplifyuibuilder-component-mutationactionsetstateparameter-set
+	//
 	Set interface{} `field:"required" json:"set" yaml:"set"`
 }
 

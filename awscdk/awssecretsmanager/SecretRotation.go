@@ -11,20 +11,20 @@ import (
 // Secret rotation for a service or database.
 //
 // Example:
-//   var mySecret secret
+//   var myUserSecret secret
+//   var myMasterSecret secret
 //   var myDatabase iConnectable
 //   var myVpc vpc
 //
 //
 //   secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRotationProps{
-//   	Application: secretsmanager.SecretRotationApplication_MYSQL_ROTATION_SINGLE_USER(),
-//   	 // MySQL single user scheme
-//   	Secret: mySecret,
+//   	Application: secretsmanager.SecretRotationApplication_MYSQL_ROTATION_MULTI_USER(),
+//   	Secret: myUserSecret,
+//   	 // The secret that will be rotated
+//   	MasterSecret: myMasterSecret,
+//   	 // The secret used for the rotation
 //   	Target: myDatabase,
-//   	 // a Connectable
 //   	Vpc: myVpc,
-//   	 // The VPC where the secret rotation application will be deployed
-//   	ExcludeCharacters: jsii.String(" %+:;{}"),
 //   })
 //
 type SecretRotation interface {

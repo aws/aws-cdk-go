@@ -15,10 +15,16 @@ package awstransfer
 //   	WorkflowId: jsii.String("workflowId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html
+//
 type CfnServer_WorkflowDetailProperty struct {
 	// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html#cfn-transfer-server-workflowdetail-executionrole
+	//
 	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
 	// A unique identifier for the workflow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html#cfn-transfer-server-workflowdetail-workflowid
+	//
 	WorkflowId *string `field:"required" json:"workflowId" yaml:"workflowId"`
 }
 

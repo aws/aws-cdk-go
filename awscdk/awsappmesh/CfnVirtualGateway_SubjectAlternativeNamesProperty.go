@@ -16,8 +16,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-subjectalternativenames.html
+//
 type CfnVirtualGateway_SubjectAlternativeNamesProperty struct {
 	// An object that represents the criteria for determining a SANs match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-subjectalternativenames.html#cfn-appmesh-virtualgateway-subjectalternativenames-match
+	//
 	Match interface{} `field:"required" json:"match" yaml:"match"`
 }
 

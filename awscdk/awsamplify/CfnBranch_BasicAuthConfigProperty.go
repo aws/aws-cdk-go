@@ -16,16 +16,24 @@ package awsamplify
 //   	EnableBasicAuth: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html
+//
 type CfnBranch_BasicAuthConfigProperty struct {
 	// The password for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-password
+	//
 	Password *string `field:"required" json:"password" yaml:"password"`
 	// The user name for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-username
+	//
 	Username *string `field:"required" json:"username" yaml:"username"`
 	// Enables basic authorization for the branch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-enablebasicauth
+	//
 	EnableBasicAuth interface{} `field:"optional" json:"enableBasicAuth" yaml:"enableBasicAuth"`
 }
 

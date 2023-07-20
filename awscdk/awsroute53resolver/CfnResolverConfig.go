@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::ResolverConfig`.
-//
 // A complex type that contains information about a Resolver configuration for a VPC.
 //
 // Example:
@@ -22,6 +20,8 @@ import (
 //   	AutodefinedReverseFlag: jsii.String("autodefinedReverseFlag"),
 //   	ResourceId: jsii.String("resourceId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html
 //
 type CfnResolverConfig interface {
 	awscdk.CfnResource
@@ -35,8 +35,6 @@ type CfnResolverConfig interface {
 	// The owner account ID of the Amazon Virtual Private Cloud VPC.
 	AttrOwnerId() *string
 	// Represents the desired status of `AutodefinedReverse` .
-	//
-	// The only supported value on creation is `DISABLE` . Deletion of this resource will return `AutodefinedReverse` to its default value of `ENABLED` .
 	AutodefinedReverseFlag() *string
 	SetAutodefinedReverseFlag(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -369,7 +367,6 @@ func (j *jsiiProxy_CfnResolverConfig) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Route53Resolver::ResolverConfig`.
 func NewCfnResolverConfig(scope constructs.Construct, id *string, props *CfnResolverConfigProps) CfnResolverConfig {
 	_init_.Initialize()
 
@@ -387,7 +384,6 @@ func NewCfnResolverConfig(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::ResolverConfig`.
 func NewCfnResolverConfig_Override(c CfnResolverConfig, scope constructs.Construct, id *string, props *CfnResolverConfigProps) {
 	_init_.Initialize()
 

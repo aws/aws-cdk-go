@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FraudDetector::Outcome`.
-//
 // Creates or updates an outcome.
 //
 // Example:
@@ -31,9 +29,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html
+//
 type CfnOutcome interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the outcome.
 	AttrArn() *string
 	// Timestamp of when outcome was created.
@@ -76,10 +77,11 @@ type CfnOutcome interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,6 +226,7 @@ type CfnOutcome interface {
 type jsiiProxy_CfnOutcome struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnOutcome) AttrArn() *string {
@@ -366,6 +369,16 @@ func (j *jsiiProxy_CfnOutcome) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOutcome) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOutcome) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -387,7 +400,6 @@ func (j *jsiiProxy_CfnOutcome) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::FraudDetector::Outcome`.
 func NewCfnOutcome(scope constructs.Construct, id *string, props *CfnOutcomeProps) CfnOutcome {
 	_init_.Initialize()
 
@@ -405,7 +417,6 @@ func NewCfnOutcome(scope constructs.Construct, id *string, props *CfnOutcomeProp
 	return &j
 }
 
-// Create a new `AWS::FraudDetector::Outcome`.
 func NewCfnOutcome_Override(c CfnOutcome, scope constructs.Construct, id *string, props *CfnOutcomeProps) {
 	_init_.Initialize()
 
@@ -431,6 +442,17 @@ func (j *jsiiProxy_CfnOutcome)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOutcome)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

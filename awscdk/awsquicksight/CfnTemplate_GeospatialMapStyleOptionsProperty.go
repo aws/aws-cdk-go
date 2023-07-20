@@ -12,8 +12,12 @@ package awsquicksight
 //   	BaseMapStyle: jsii.String("baseMapStyle"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialmapstyleoptions.html
+//
 type CfnTemplate_GeospatialMapStyleOptionsProperty struct {
 	// The base map style of the geospatial map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialmapstyleoptions.html#cfn-quicksight-template-geospatialmapstyleoptions-basemapstyle
+	//
 	BaseMapStyle *string `field:"optional" json:"baseMapStyle" yaml:"baseMapStyle"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::PlacementGroup`.
+// Specifies a placement group in which to launch instances.
 //
-// Specifies a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group.
+// The strategy of the placement group determines how the instances are organized within the group.
 //
 // A `cluster` placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A `spread` placement group places instances on distinct hardware. A `partition` placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition.
 //
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html
+//
 type CfnPlacementGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the placement group.
 	AttrGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -61,8 +64,6 @@ type CfnPlacementGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// The number of partitions.
-	//
-	// Valid only when *Strategy* is set to `partition` .
 	PartitionCount() *float64
 	SetPartitionCount(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -71,9 +72,6 @@ type CfnPlacementGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Determines how placement groups spread instances.
-	//
-	// - Host – You can use `host` only with Outpost placement groups.
-	// - Rack – No usage restrictions.
 	SpreadLevel() *string
 	SetSpreadLevel(val *string)
 	// The stack in which this element is defined.
@@ -83,8 +81,11 @@ type CfnPlacementGroup interface {
 	// The placement strategy.
 	Strategy() *string
 	SetStrategy(val *string)
-	// The tags to apply to the new placement group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to apply to the new placement group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -229,6 +230,7 @@ type CfnPlacementGroup interface {
 type jsiiProxy_CfnPlacementGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPlacementGroup) AttrGroupName() *string {
@@ -361,6 +363,16 @@ func (j *jsiiProxy_CfnPlacementGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlacementGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlacementGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -382,7 +394,6 @@ func (j *jsiiProxy_CfnPlacementGroup) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::EC2::PlacementGroup`.
 func NewCfnPlacementGroup(scope constructs.Construct, id *string, props *CfnPlacementGroupProps) CfnPlacementGroup {
 	_init_.Initialize()
 
@@ -400,7 +411,6 @@ func NewCfnPlacementGroup(scope constructs.Construct, id *string, props *CfnPlac
 	return &j
 }
 
-// Create a new `AWS::EC2::PlacementGroup`.
 func NewCfnPlacementGroup_Override(c CfnPlacementGroup, scope constructs.Construct, id *string, props *CfnPlacementGroupProps) {
 	_init_.Initialize()
 
@@ -431,6 +441,17 @@ func (j *jsiiProxy_CfnPlacementGroup)SetStrategy(val *string) {
 	_jsii_.Set(
 		j,
 		"strategy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPlacementGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

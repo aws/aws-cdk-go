@@ -14,8 +14,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterselectablevalues.html
+//
 type CfnTemplate_FilterSelectableValuesProperty struct {
 	// The values that are used in the `FilterSelectableValues` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterselectablevalues.html#cfn-quicksight-template-filterselectablevalues-values
+	//
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

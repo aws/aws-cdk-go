@@ -26,8 +26,12 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html
+//
 type CfnLoggerDefinition_LoggerDefinitionVersionProperty struct {
 	// The loggers in this version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html#cfn-greengrass-loggerdefinition-loggerdefinitionversion-loggers
+	//
 	Loggers interface{} `field:"required" json:"loggers" yaml:"loggers"`
 }
 

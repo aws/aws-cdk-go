@@ -17,10 +17,16 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
+//
 type CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty struct {
 	// The name of the job that performs baselining for the monitoring job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
+	//
 	BaseliningJobName *string `field:"optional" json:"baseliningJobName" yaml:"baseliningJobName"`
 	// The constraints resource for a monitoring job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
+	//
 	ConstraintsResource interface{} `field:"optional" json:"constraintsResource" yaml:"constraintsResource"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Detective::OrganizationAdmin`.
+// The `AWS::Detective::OrganizationAdmin` resource is an Amazon Detective resource type that designates the Detective administrator account for the organization in the current region.
 //
-// The `AWS::Detective::OrganizationAdmin` resource is an Amazon Detective resource type that designates the Detective administrator account for the organization in the current region. If the account does not have Detective enabled, then this resource enables Detective for that account and creates a new behavior graph.
+// If the account does not have Detective enabled, then this resource enables Detective for that account and creates a new behavior graph.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,6 +21,8 @@ import (
 //   cfnOrganizationAdmin := awscdk.Aws_detective.NewCfnOrganizationAdmin(this, jsii.String("MyCfnOrganizationAdmin"), &CfnOrganizationAdminProps{
 //   	AccountId: jsii.String("accountId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html
 //
 type CfnOrganizationAdmin interface {
 	awscdk.CfnResource
@@ -327,7 +329,6 @@ func (j *jsiiProxy_CfnOrganizationAdmin) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::Detective::OrganizationAdmin`.
 func NewCfnOrganizationAdmin(scope constructs.Construct, id *string, props *CfnOrganizationAdminProps) CfnOrganizationAdmin {
 	_init_.Initialize()
 
@@ -345,7 +346,6 @@ func NewCfnOrganizationAdmin(scope constructs.Construct, id *string, props *CfnO
 	return &j
 }
 
-// Create a new `AWS::Detective::OrganizationAdmin`.
 func NewCfnOrganizationAdmin_Override(c CfnOrganizationAdmin, scope constructs.Construct, id *string, props *CfnOrganizationAdminProps) {
 	_init_.Initialize()
 

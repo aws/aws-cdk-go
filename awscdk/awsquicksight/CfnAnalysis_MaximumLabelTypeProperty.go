@@ -12,8 +12,12 @@ package awsquicksight
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-maximumlabeltype.html
+//
 type CfnAnalysis_MaximumLabelTypeProperty struct {
 	// The visibility of the maximum label.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-maximumlabeltype.html#cfn-quicksight-analysis-maximumlabeltype-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

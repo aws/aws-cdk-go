@@ -12,8 +12,12 @@ package awsec2
 //   	TenantId: jsii.String("tenantId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-deviceoptions.html
+//
 type CfnVerifiedAccessTrustProvider_DeviceOptionsProperty struct {
 	// The ID of the tenant application with the device-identity provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-deviceoptions.html#cfn-ec2-verifiedaccesstrustprovider-deviceoptions-tenantid
+	//
 	TenantId *string `field:"optional" json:"tenantId" yaml:"tenantId"`
 }
 

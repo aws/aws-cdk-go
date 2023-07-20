@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3::Bucket`.
-//
 // The `AWS::S3::Bucket` resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.
 //
 // To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
@@ -34,19 +32,16 @@ import (
 //   	},
 //   }))
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html
+//
 type CfnBucket interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Configures the transfer acceleration state for an Amazon S3 bucket.
-	//
-	// For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide* .
 	AccelerateConfiguration() interface{}
 	SetAccelerateConfiguration(val interface{})
 	// A canned access control list (ACL) that grants predefined permissions to the bucket.
-	//
-	// For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
-	//
-	// Be aware that the syntax for this property differs from the information provided in the *Amazon S3 User Guide* . The AccessControl property is case-sensitive and must be one of the following values: Private, PublicRead, PublicReadWrite, AuthenticatedRead, LogDeliveryWrite, BucketOwnerRead, BucketOwnerFullControl, or AwsExecRead.
 	AccessControl() *string
 	SetAccessControl(val *string)
 	// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
@@ -77,15 +72,9 @@ type CfnBucket interface {
 	// Example (IPv6): `http://DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
 	AttrWebsiteUrl() *string
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS).
-	//
-	// For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide* .
 	BucketEncryption() interface{}
 	SetBucketEncryption(val interface{})
 	// A name for the bucket.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) . For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide* .
-	//
-	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 	BucketName() *string
 	SetBucketName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -94,8 +83,6 @@ type CfnBucket interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket.
-	//
-	// For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide* .
 	CorsConfiguration() interface{}
 	SetCorsConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -106,13 +93,9 @@ type CfnBucket interface {
 	IntelligentTieringConfigurations() interface{}
 	SetIntelligentTieringConfigurations(val interface{})
 	// Specifies the inventory configuration for an Amazon S3 bucket.
-	//
-	// For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference* .
 	InventoryConfigurations() interface{}
 	SetInventoryConfigurations(val interface{})
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket.
-	//
-	// For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide* .
 	LifecycleConfiguration() interface{}
 	SetLifecycleConfiguration(val interface{})
 	// Settings that define where logs are stored.
@@ -129,8 +112,6 @@ type CfnBucket interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket.
-	//
-	// If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html) .
 	MetricsConfigurations() interface{}
 	SetMetricsConfigurations(val interface{})
 	// The tree node.
@@ -139,17 +120,9 @@ type CfnBucket interface {
 	NotificationConfiguration() interface{}
 	SetNotificationConfiguration(val interface{})
 	// Places an Object Lock configuration on the specified bucket.
-	//
-	// The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) .
-	//
-	// > - The `DefaultRetention` settings require both a mode and a period.
-	// > - The `DefaultRetention` period can be either `Days` or `Years` but you must select one. You cannot specify `Days` and `Years` at the same time.
-	// > - You can only enable Object Lock for new buckets. If you want to turn on Object Lock for an existing bucket, contact AWS Support.
 	ObjectLockConfiguration() interface{}
 	SetObjectLockConfiguration(val interface{})
 	// Indicates whether this bucket has an Object Lock configuration enabled.
-	//
-	// Enable `ObjectLockEnabled` when you apply `ObjectLockConfiguration` to a bucket.
 	ObjectLockEnabled() interface{}
 	SetObjectLockEnabled(val interface{})
 	// Configuration that defines how Amazon S3 handles Object Ownership rules.
@@ -164,18 +137,17 @@ type CfnBucket interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Configuration for replicating objects in an S3 bucket.
-	//
-	// To enable replication, you must also enable versioning by using the `VersioningConfiguration` property.
-	//
-	// Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
 	ReplicationConfiguration() interface{}
 	SetReplicationConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -190,13 +162,9 @@ type CfnBucket interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Enables multiple versions of all objects in this bucket.
-	//
-	// You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
 	VersioningConfiguration() interface{}
 	SetVersioningConfiguration(val interface{})
 	// Information used to configure the bucket as a static website.
-	//
-	// For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) .
 	WebsiteConfiguration() interface{}
 	SetWebsiteConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -330,6 +298,7 @@ type CfnBucket interface {
 type jsiiProxy_CfnBucket struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnBucket) AccelerateConfiguration() interface{} {
@@ -642,6 +611,16 @@ func (j *jsiiProxy_CfnBucket) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBucket) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBucket) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -683,7 +662,6 @@ func (j *jsiiProxy_CfnBucket) WebsiteConfiguration() interface{} {
 }
 
 
-// Create a new `AWS::S3::Bucket`.
 func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps) CfnBucket {
 	_init_.Initialize()
 
@@ -701,7 +679,6 @@ func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps)
 	return &j
 }
 
-// Create a new `AWS::S3::Bucket`.
 func NewCfnBucket_Override(c CfnBucket, scope constructs.Construct, id *string, props *CfnBucketProps) {
 	_init_.Initialize()
 
@@ -889,6 +866,17 @@ func (j *jsiiProxy_CfnBucket)SetReplicationConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"replicationConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBucket)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

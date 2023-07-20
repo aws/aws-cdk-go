@@ -12,8 +12,12 @@ package awss3outposts
 //   	VpcId: jsii.String("vpcId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html
+//
 type CfnAccessPoint_VpcConfigurationProperty struct {
 	// The ID of the VPC configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
+	//
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

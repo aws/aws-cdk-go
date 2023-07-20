@@ -16,8 +16,12 @@ package awsgamelift
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-filterconfiguration.html
+//
 type CfnGameSessionQueue_FilterConfigurationProperty struct {
 	// A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-filterconfiguration.html#cfn-gamelift-gamesessionqueue-filterconfiguration-allowedlocations
+	//
 	AllowedLocations *[]*string `field:"optional" json:"allowedLocations" yaml:"allowedLocations"`
 }
 

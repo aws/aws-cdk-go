@@ -18,6 +18,8 @@ package awsfsx
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoimportpolicy.html
+//
 type CfnDataRepositoryAssociation_AutoImportPolicyProperty struct {
 	// The `AutoImportPolicy` can have the following event values:.
 	//
@@ -26,6 +28,8 @@ type CfnDataRepositoryAssociation_AutoImportPolicyProperty struct {
 	// - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
 	//
 	// You can define any combination of event types for your `AutoImportPolicy` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoimportpolicy.html#cfn-fsx-datarepositoryassociation-autoimportpolicy-events
+	//
 	Events *[]*string `field:"required" json:"events" yaml:"events"`
 }
 

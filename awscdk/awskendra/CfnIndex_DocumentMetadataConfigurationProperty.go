@@ -33,14 +33,24 @@ package awskendra
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html
+//
 type CfnIndex_DocumentMetadataConfigurationProperty struct {
 	// The name of the index field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The data type of the index field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Provides tuning parameters to determine how the field affects the search results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-relevance
+	//
 	Relevance interface{} `field:"optional" json:"relevance" yaml:"relevance"`
 	// Provides information about how the field is used during a search.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-search
+	//
 	Search interface{} `field:"optional" json:"search" yaml:"search"`
 }
 

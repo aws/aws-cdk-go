@@ -15,12 +15,18 @@ package awsevents
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbus-tagentry.html
+//
 type CfnEventBus_TagEntryProperty struct {
 	// A string you can use to assign a value.
 	//
 	// The combination of tag keys and values can help you organize and categorize your resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbus-tagentry.html#cfn-events-eventbus-tagentry-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value for the specified tag key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbus-tagentry.html#cfn-events-eventbus-tagentry-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -2,6 +2,7 @@ package awsservicecatalog
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3deployment"
 )
 
 // Product stack props.
@@ -48,5 +49,9 @@ import (
 type ProductStackProps struct {
 	// A Bucket can be passed to store assets, enabling ProductStack Asset support.
 	AssetBucket awss3.IBucket `field:"optional" json:"assetBucket" yaml:"assetBucket"`
+	// A ServerSideEncryption can be enabled to encrypt assets that are put into assetBucket.
+	ServerSideEncryption awss3deployment.ServerSideEncryption `field:"optional" json:"serverSideEncryption" yaml:"serverSideEncryption"`
+	// For AWS_KMS ServerSideEncryption a KMS KeyId must be provided which will be used to encrypt assets.
+	ServerSideEncryptionAwsKmsKeyId *string `field:"optional" json:"serverSideEncryptionAwsKmsKeyId" yaml:"serverSideEncryptionAwsKmsKeyId"`
 }
 

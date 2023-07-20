@@ -14,8 +14,11 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html
+//
 type CfnTheme_TypographyProperty struct {
-	// `CfnTheme.TypographyProperty.FontFamilies`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
+	//
 	FontFamilies interface{} `field:"optional" json:"fontFamilies" yaml:"fontFamilies"`
 }
 

@@ -13,10 +13,16 @@ package awsappmesh
 //   	Regex: jsii.String("regex"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httppathmatch.html
+//
 type CfnGatewayRoute_HttpPathMatchProperty struct {
 	// The exact path to match on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httppathmatch.html#cfn-appmesh-gatewayroute-httppathmatch-exact
+	//
 	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// The regex used to match the path.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httppathmatch.html#cfn-appmesh-gatewayroute-httppathmatch-regex
+	//
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 

@@ -78,16 +78,26 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html
+//
 type CfnWorkflowProps struct {
 	// Specifies the details for the steps that are in the specified workflow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-steps
+	//
 	Steps interface{} `field:"required" json:"steps" yaml:"steps"`
 	// Specifies the text description for the workflow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-onexceptionsteps
+	//
 	OnExceptionSteps interface{} `field:"optional" json:"onExceptionSteps" yaml:"onExceptionSteps"`
 	// Key-value pairs that can be used to group and search for workflows.
 	//
 	// Tags are metadata attached to workflows for any purpose.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

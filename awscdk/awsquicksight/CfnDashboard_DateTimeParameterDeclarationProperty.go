@@ -52,18 +52,29 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameterdeclaration.html
+//
 type CfnDashboard_DateTimeParameterDeclarationProperty struct {
 	// The name of the parameter that is being declared.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameterdeclaration.html#cfn-quicksight-dashboard-datetimeparameterdeclaration-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The default values of a parameter.
 	//
 	// If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameterdeclaration.html#cfn-quicksight-dashboard-datetimeparameterdeclaration-defaultvalues
+	//
 	DefaultValues interface{} `field:"optional" json:"defaultValues" yaml:"defaultValues"`
-	// `CfnDashboard.DateTimeParameterDeclarationProperty.MappedDataSetParameters`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameterdeclaration.html#cfn-quicksight-dashboard-datetimeparameterdeclaration-mappeddatasetparameters
+	//
 	MappedDataSetParameters interface{} `field:"optional" json:"mappedDataSetParameters" yaml:"mappedDataSetParameters"`
 	// The level of time precision that is used to aggregate `DateTime` values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameterdeclaration.html#cfn-quicksight-dashboard-datetimeparameterdeclaration-timegranularity
+	//
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`
 	// The configuration that defines the default value of a `DateTime` parameter when a value has not been set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameterdeclaration.html#cfn-quicksight-dashboard-datetimeparameterdeclaration-valuewhenunset
+	//
 	ValueWhenUnset interface{} `field:"optional" json:"valueWhenUnset" yaml:"valueWhenUnset"`
 }
 

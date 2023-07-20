@@ -10,8 +10,11 @@ package awsemr
 //   	IdleTimeout: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-autoterminationpolicy.html
+//
 type CfnCluster_AutoTerminationPolicyProperty struct {
-	// `CfnCluster.AutoTerminationPolicyProperty.IdleTimeout`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-autoterminationpolicy.html#cfn-emr-cluster-autoterminationpolicy-idletimeout
+	//
 	IdleTimeout *float64 `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 }
 

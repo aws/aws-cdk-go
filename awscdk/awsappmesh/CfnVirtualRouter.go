@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppMesh::VirtualRouter`.
-//
 // Creates a virtual router within a service mesh.
 //
 // Specify a `listener` for any inbound traffic that your virtual router receives. Create a virtual router for each protocol and port that you need to route. Virtual routers handle traffic for one or more virtual services within your mesh. After you create your virtual router, create and associate routes for your virtual router that direct incoming requests to different virtual nodes.
@@ -46,11 +44,15 @@ import (
 //   	VirtualRouterName: jsii.String("virtualRouterName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html
+//
 type CfnVirtualRouter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the virtual router.
 	AttrArn() *string
+	AttrId() *string
 	// The name of the service mesh that the virtual router resides in.
 	AttrMeshName() *string
 	// The AWS IAM account ID of the service mesh owner.
@@ -88,8 +90,6 @@ type CfnVirtualRouter interface {
 	MeshName() *string
 	SetMeshName(val *string)
 	// The AWS IAM account ID of the service mesh owner.
-	//
-	// If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
 	MeshOwner() *string
 	SetMeshOwner(val *string)
 	// The tree node.
@@ -106,10 +106,11 @@ type CfnVirtualRouter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Optional metadata that you can apply to the virtual router to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Optional metadata that you can apply to the virtual router to assist with categorization and organization.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -257,6 +258,7 @@ type CfnVirtualRouter interface {
 type jsiiProxy_CfnVirtualRouter struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVirtualRouter) AttrArn() *string {
@@ -264,6 +266,16 @@ func (j *jsiiProxy_CfnVirtualRouter) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVirtualRouter) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -439,6 +451,16 @@ func (j *jsiiProxy_CfnVirtualRouter) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVirtualRouter) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVirtualRouter) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -470,7 +492,6 @@ func (j *jsiiProxy_CfnVirtualRouter) VirtualRouterName() *string {
 }
 
 
-// Create a new `AWS::AppMesh::VirtualRouter`.
 func NewCfnVirtualRouter(scope constructs.Construct, id *string, props *CfnVirtualRouterProps) CfnVirtualRouter {
 	_init_.Initialize()
 
@@ -488,7 +509,6 @@ func NewCfnVirtualRouter(scope constructs.Construct, id *string, props *CfnVirtu
 	return &j
 }
 
-// Create a new `AWS::AppMesh::VirtualRouter`.
 func NewCfnVirtualRouter_Override(c CfnVirtualRouter, scope constructs.Construct, id *string, props *CfnVirtualRouterProps) {
 	_init_.Initialize()
 
@@ -525,6 +545,17 @@ func (j *jsiiProxy_CfnVirtualRouter)SetSpec(val interface{}) {
 	_jsii_.Set(
 		j,
 		"spec",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVirtualRouter)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

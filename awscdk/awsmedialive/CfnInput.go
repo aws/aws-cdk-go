@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaLive::Input`.
-//
 // The AWS::MediaLive::Input resource is a MediaLive resource type that creates an input.
 //
 // A MediaLive input holds information that describes how the MediaLive channel is connected to the upstream system that is providing the source content that is to be transcoded.
@@ -62,9 +60,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html
+//
 type CfnInput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the MediaLive input.
 	//
 	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:input:1234567. MediaLive creates this ARN when it creates the input.
@@ -73,6 +74,7 @@ type CfnInput interface {
 	//
 	// The destinations are the URLs of locations on MediaLive where the upstream system pushes the content to, for this input. MediaLive creates these addresses when it creates the input.
 	AttrDestinations() *[]*string
+	AttrId() *string
 	// For a pull input, the source or sources for the input.
 	//
 	// The sources are the URLs of locations on the upstream system where MediaLive pulls the content from, for this input. You included these URLs in the create request.
@@ -119,8 +121,6 @@ type CfnInput interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The IAM role for MediaLive to assume when creating a MediaConnect input or Amazon VPC input.
-	//
-	// This doesn't apply to other types of inputs. The role is identified by its ARN.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// Settings that apply only if the input is a pull type of input.
@@ -130,10 +130,11 @@ type CfnInput interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of tags for this input.
-	//
-	// Each tag is a key-value pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A collection of tags for this input.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// The type for this input.
 	Type() *string
 	SetType(val *string)
@@ -284,6 +285,7 @@ type CfnInput interface {
 type jsiiProxy_CfnInput struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInput) AttrArn() *string {
@@ -301,6 +303,16 @@ func (j *jsiiProxy_CfnInput) AttrDestinations() *[]*string {
 	_jsii_.Get(
 		j,
 		"attrDestinations",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInput) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -476,6 +488,16 @@ func (j *jsiiProxy_CfnInput) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInput) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInput) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -517,7 +539,6 @@ func (j *jsiiProxy_CfnInput) Vpc() interface{} {
 }
 
 
-// Create a new `AWS::MediaLive::Input`.
 func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) CfnInput {
 	_init_.Initialize()
 
@@ -535,7 +556,6 @@ func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) C
 	return &j
 }
 
-// Create a new `AWS::MediaLive::Input`.
 func NewCfnInput_Override(c CfnInput, scope constructs.Construct, id *string, props *CfnInputProps) {
 	_init_.Initialize()
 
@@ -610,6 +630,14 @@ func (j *jsiiProxy_CfnInput)SetSources(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sources",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInput)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

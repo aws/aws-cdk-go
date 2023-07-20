@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnOrganizationalUnit) validateSetParentIdParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnOrganizationalUnit) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnOrganizationalUnitParameters(scope constructs.Construct, id *string, props *CfnOrganizationalUnitProps) error {
 	return nil
 }

@@ -6,6 +6,7 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__awscdkITaggable = awscdk.ITaggable
 type Type__constructsConstruct = constructs.Construct
 type Type__awscodestarnotificationsINotificationRuleSource = awscodestarnotifications.INotificationRuleSource
 type Type__awscdkIResource = awscdk.IResource

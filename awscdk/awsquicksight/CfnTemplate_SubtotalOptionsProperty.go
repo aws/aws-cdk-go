@@ -193,20 +193,36 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html
+//
 type CfnTemplate_SubtotalOptionsProperty struct {
 	// The custom label string for the subtotal cells.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html#cfn-quicksight-template-subtotaloptions-customlabel
+	//
 	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
 	// The field level (all, custom, last) for the subtotal cells.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html#cfn-quicksight-template-subtotaloptions-fieldlevel
+	//
 	FieldLevel *string `field:"optional" json:"fieldLevel" yaml:"fieldLevel"`
 	// The optional configuration of subtotal cells.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html#cfn-quicksight-template-subtotaloptions-fieldleveloptions
+	//
 	FieldLevelOptions interface{} `field:"optional" json:"fieldLevelOptions" yaml:"fieldLevelOptions"`
 	// The cell styling options for the subtotals of header cells.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html#cfn-quicksight-template-subtotaloptions-metricheadercellstyle
+	//
 	MetricHeaderCellStyle interface{} `field:"optional" json:"metricHeaderCellStyle" yaml:"metricHeaderCellStyle"`
 	// The cell styling options for the subtotal cells.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html#cfn-quicksight-template-subtotaloptions-totalcellstyle
+	//
 	TotalCellStyle interface{} `field:"optional" json:"totalCellStyle" yaml:"totalCellStyle"`
 	// The visibility configuration for the subtotal cells.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html#cfn-quicksight-template-subtotaloptions-totalsvisibility
+	//
 	TotalsVisibility *string `field:"optional" json:"totalsVisibility" yaml:"totalsVisibility"`
 	// The cell styling options for the subtotals of value cells.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html#cfn-quicksight-template-subtotaloptions-valuecellstyle
+	//
 	ValueCellStyle interface{} `field:"optional" json:"valueCellStyle" yaml:"valueCellStyle"`
 }
 

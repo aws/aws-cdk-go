@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::Container`.
-//
 // The `AWS::Lightsail::Container` resource specifies a container service.
 //
 // A Lightsail container service is a compute resource to which you can deploy containers.
@@ -78,9 +76,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html
+//
 type CfnContainer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the container.
 	AttrContainerArn() *string
 	// The publicly accessible URL of the container service.
@@ -115,17 +116,9 @@ type CfnContainer interface {
 	// The tree node.
 	Node() constructs.Node
 	// The power specification of the container service.
-	//
-	// The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
 	Power() *string
 	SetPower(val *string)
 	// The public domain name of the container service, such as `example.com` and `www.example.com` .
-	//
-	// You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container that is configured as the public endpoint of your container service.
-	//
-	// If you don't specify public domain names, then you can use the default domain of the container service.
-	//
-	// > You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the [AWS::Lightsail::Certificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html) resource to create a certificate for the public domain names that you want to use with your container service.
 	PublicDomainNames() interface{}
 	SetPublicDomainNames(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -134,8 +127,6 @@ type CfnContainer interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The scale specification of the container service.
-	//
-	// The scale specifies the allocated compute nodes of the container service.
 	Scale() *float64
 	SetScale(val *float64)
 	// The name of the container service.
@@ -145,12 +136,11 @@ type CfnContainer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
-	//
-	// > The `Value` of `Tags` is optional for Lightsail resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -295,6 +285,7 @@ type CfnContainer interface {
 type jsiiProxy_CfnContainer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnContainer) AttrContainerArn() *string {
@@ -467,6 +458,16 @@ func (j *jsiiProxy_CfnContainer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContainer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContainer) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -488,7 +489,6 @@ func (j *jsiiProxy_CfnContainer) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lightsail::Container`.
 func NewCfnContainer(scope constructs.Construct, id *string, props *CfnContainerProps) CfnContainer {
 	_init_.Initialize()
 
@@ -506,7 +506,6 @@ func NewCfnContainer(scope constructs.Construct, id *string, props *CfnContainer
 	return &j
 }
 
-// Create a new `AWS::Lightsail::Container`.
 func NewCfnContainer_Override(c CfnContainer, scope constructs.Construct, id *string, props *CfnContainerProps) {
 	_init_.Initialize()
 
@@ -579,6 +578,17 @@ func (j *jsiiProxy_CfnContainer)SetServiceName(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContainer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

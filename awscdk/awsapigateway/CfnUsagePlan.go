@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::UsagePlan`.
+// The `AWS::ApiGateway::UsagePlan` resource creates a usage plan for deployed APIs.
 //
-// The `AWS::ApiGateway::UsagePlan` resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide* .
+// A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide* .
 //
 // In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
 //
@@ -52,9 +52,12 @@ import (
 //   	UsagePlanName: jsii.String("usagePlanName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
+//
 type CfnUsagePlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The associated API stages of a usage plan.
 	ApiStages() interface{}
 	SetApiStages(val interface{})
@@ -98,10 +101,11 @@ type CfnUsagePlan interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The collection of tags.
-	//
-	// Each tag element is associated with a given resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The collection of tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A map containing method level throttling information for API stage in a usage plan.
 	Throttle() interface{}
 	SetThrottle(val interface{})
@@ -252,6 +256,7 @@ type CfnUsagePlan interface {
 type jsiiProxy_CfnUsagePlan struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnUsagePlan) ApiStages() interface{} {
@@ -384,6 +389,16 @@ func (j *jsiiProxy_CfnUsagePlan) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUsagePlan) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUsagePlan) Throttle() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -425,7 +440,6 @@ func (j *jsiiProxy_CfnUsagePlan) UsagePlanName() *string {
 }
 
 
-// Create a new `AWS::ApiGateway::UsagePlan`.
 func NewCfnUsagePlan(scope constructs.Construct, id *string, props *CfnUsagePlanProps) CfnUsagePlan {
 	_init_.Initialize()
 
@@ -443,7 +457,6 @@ func NewCfnUsagePlan(scope constructs.Construct, id *string, props *CfnUsagePlan
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::UsagePlan`.
 func NewCfnUsagePlan_Override(c CfnUsagePlan, scope constructs.Construct, id *string, props *CfnUsagePlanProps) {
 	_init_.Initialize()
 
@@ -480,6 +493,17 @@ func (j *jsiiProxy_CfnUsagePlan)SetQuota(val interface{}) {
 	_jsii_.Set(
 		j,
 		"quota",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUsagePlan)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -13,6 +13,8 @@ package awsmedialive
 //   teletextDestinationSettingsProperty := &TeletextDestinationSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextdestinationsettings.html
+//
 type CfnChannel_TeletextDestinationSettingsProperty struct {
 }
 

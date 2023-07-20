@@ -37,6 +37,8 @@ package awsroute53
 //   	SearchString: jsii.String("searchString"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html
+//
 type CfnHealthCheck_HealthCheckConfigProperty struct {
 	// The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
 	//
@@ -61,10 +63,16 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	// - *RECOVERY_CONTROL* : The health check is assocated with a Route53 Application Recovery Controller routing control. If the routing control state is `ON` , the health check is considered healthy. If the state is `OFF` , the health check is considered unhealthy.
 	//
 	// For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-alarmidentifier
+	//
 	AlarmIdentifier interface{} `field:"optional" json:"alarmIdentifier" yaml:"alarmIdentifier"`
 	// (CALCULATED Health Checks Only) A complex type that contains one `ChildHealthCheck` element for each health check that you want to associate with a `CALCULATED` health check.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-childhealthchecks
+	//
 	ChildHealthChecks *[]*string `field:"optional" json:"childHealthChecks" yaml:"childHealthChecks"`
 	// Specify whether you want Amazon Route 53 to send the value of `FullyQualifiedDomainName` to the endpoint in the `client_hello` message during TLS negotiation.
 	//
@@ -73,12 +81,16 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	// Some endpoints require that `HTTPS` requests include the host name in the `client_hello` message. If you don't enable SNI, the status of the health check will be `SSL alert handshake_failure` . A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
 	//
 	// The SSL/TLS certificate on your endpoint includes a domain name in the `Common Name` field and possibly several more in the `Subject Alternative Names` field. One of the domain names in the certificate should match the value that you specify for `FullyQualifiedDomainName` . If the endpoint responds to the `client_hello` message with a certificate that does not include the domain name that you specified in `FullyQualifiedDomainName` , a health checker will retry the handshake. In the second attempt, the health checker will omit `FullyQualifiedDomainName` from the `client_hello` message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-enablesni
+	//
 	EnableSni interface{} `field:"optional" json:"enableSni" yaml:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.
 	//
 	// For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 	//
 	// If you don't specify a value for `FailureThreshold` , the default value is three health checks.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-failurethreshold
+	//
 	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 	// Amazon Route 53 behavior depends on whether you specify a value for `IPAddress` .
 	//
@@ -105,6 +117,8 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	// > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable.
 	//
 	// In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-fullyqualifieddomainname
+	//
 	FullyQualifiedDomainName *string `field:"optional" json:"fullyQualifiedDomainName" yaml:"fullyQualifiedDomainName"`
 	// The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy.
 	//
@@ -114,13 +128,19 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	//
 	// - If you specify a number greater than the number of child health checks, Route 53 always considers this health check to be unhealthy.
 	// - If you specify `0` , Route 53 always considers this health check to be healthy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-healththreshold
+	//
 	HealthThreshold *float64 `field:"optional" json:"healthThreshold" yaml:"healthThreshold"`
 	// When CloudWatch has insufficient data about the metric to determine the alarm state, the status that you want Amazon Route 53 to assign to the health check:  - `Healthy` : Route 53 considers the health check to be healthy.
 	//
 	// - `Unhealthy` : Route 53 considers the health check to be unhealthy.
 	// - `LastKnownStatus` : Route 53 uses the status of the health check from the last time that CloudWatch had sufficient data to determine the alarm state. For new health checks that have no last known status, the default status for the health check is healthy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-insufficientdatahealthstatus
+	//
 	InsufficientDataHealthStatus *string `field:"optional" json:"insufficientDataHealthStatus" yaml:"insufficientDataHealthStatus"`
 	// Specify whether you want Amazon Route 53 to invert the status of a health check, for example, to consider a health check unhealthy when it otherwise would be considered healthy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-inverted
+	//
 	Inverted interface{} `field:"optional" json:"inverted" yaml:"inverted"`
 	// The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on.
 	//
@@ -142,20 +162,28 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	// - [RFC 5156, Special-Use IPv6 Addresses](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5156)
 	//
 	// When the value of `Type` is `CALCULATED` or `CLOUDWATCH_METRIC` , omit `IPAddress` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-ipaddress
+	//
 	IpAddress *string `field:"optional" json:"ipAddress" yaml:"ipAddress"`
 	// Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
 	//
 	// > You can't change the value of `MeasureLatency` after you create a health check.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-measurelatency
+	//
 	MeasureLatency interface{} `field:"optional" json:"measureLatency" yaml:"measureLatency"`
 	// The port on the endpoint that you want Amazon Route 53 to perform health checks on.
 	//
 	// > Don't specify a value for `Port` when you specify a value for [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-type) of `CLOUDWATCH_METRIC` or `CALCULATED` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// A complex type that contains one `Region` element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
 	//
 	// If you don't specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under *Valid Values* .
 	//
 	// If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-regions
+	//
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 	// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request.
 	//
@@ -164,18 +192,25 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	// > You can't change the value of `RequestInterval` after you create a health check.
 	//
 	// If you don't specify a value for `RequestInterval` , the default value is `30` seconds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-requestinterval
+	//
 	RequestInterval *float64 `field:"optional" json:"requestInterval" yaml:"requestInterval"`
 	// The path, if any, that you want Amazon Route 53 to request when performing health checks.
 	//
 	// The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example, the file /docs/route53-health-check.html. You can also include query string parameters, for example, `/welcome.html?language=jp&login=y` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-resourcepath
+	//
 	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
-	// `CfnHealthCheck.HealthCheckConfigProperty.RoutingControlArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-routingcontrolarn
+	//
 	RoutingControlArn *string `field:"optional" json:"routingControlArn" yaml:"routingControlArn"`
 	// If the value of Type is `HTTP_STR_MATCH` or `HTTPS_STR_MATCH` , the string that you want Amazon Route 53 to search for in the response body from the specified resource.
 	//
 	// If the string appears in the response body, Route 53 considers the resource healthy.
 	//
 	// Route 53 considers case when searching for `SearchString` in the response body.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-searchstring
+	//
 	SearchString *string `field:"optional" json:"searchString" yaml:"searchString"`
 }
 

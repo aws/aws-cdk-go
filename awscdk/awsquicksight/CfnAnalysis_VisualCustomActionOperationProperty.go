@@ -79,14 +79,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html
+//
 type CfnAnalysis_VisualCustomActionOperationProperty struct {
 	// The filter operation that filters data included in a visual or in an entire sheet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html#cfn-quicksight-analysis-visualcustomactionoperation-filteroperation
+	//
 	FilterOperation interface{} `field:"optional" json:"filterOperation" yaml:"filterOperation"`
 	// The navigation operation that navigates between different sheets in the same analysis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html#cfn-quicksight-analysis-visualcustomactionoperation-navigationoperation
+	//
 	NavigationOperation interface{} `field:"optional" json:"navigationOperation" yaml:"navigationOperation"`
 	// The set parameter operation that sets parameters in custom action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html#cfn-quicksight-analysis-visualcustomactionoperation-setparametersoperation
+	//
 	SetParametersOperation interface{} `field:"optional" json:"setParametersOperation" yaml:"setParametersOperation"`
 	// The URL operation that opens a link to another webpage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html#cfn-quicksight-analysis-visualcustomactionoperation-urloperation
+	//
 	UrlOperation interface{} `field:"optional" json:"urlOperation" yaml:"urlOperation"`
 }
 

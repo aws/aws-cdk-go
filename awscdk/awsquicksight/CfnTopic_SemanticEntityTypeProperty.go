@@ -16,12 +16,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html
+//
 type CfnTopic_SemanticEntityTypeProperty struct {
 	// The semantic entity sub type name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html#cfn-quicksight-topic-semanticentitytype-subtypename
+	//
 	SubTypeName *string `field:"optional" json:"subTypeName" yaml:"subTypeName"`
 	// The semantic entity type name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html#cfn-quicksight-topic-semanticentitytype-typename
+	//
 	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
 	// The semantic entity type parameters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html#cfn-quicksight-topic-semanticentitytype-typeparameters
+	//
 	TypeParameters interface{} `field:"optional" json:"typeParameters" yaml:"typeParameters"`
 }
 

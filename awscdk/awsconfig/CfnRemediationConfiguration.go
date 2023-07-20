@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Config::RemediationConfiguration`.
-//
 // An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
 //
 // Example:
@@ -40,9 +38,12 @@ import (
 //   	TargetVersion: jsii.String("targetVersion"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html
+//
 type CfnRemediationConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The remediation is triggered automatically.
 	Automatic() interface{}
 	SetAutomatic(val interface{})
@@ -71,16 +72,16 @@ type CfnRemediationConfiguration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+	// The maximum number of failed attempts for auto-remediation.
 	//
-	// For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
+	// If you do not select a number, the default is 5.
 	MaximumAutomaticAttempts() *float64
 	SetMaximumAutomaticAttempts(val *float64)
 	// The tree node.
 	Node() constructs.Node
-	// An object of the RemediationParameterValue. For more information, see [RemediationParameterValue](https://docs.aws.amazon.com/config/latest/APIReference/API_RemediationParameterValue.html) .
+	// An object of the RemediationParameterValue.
 	//
-	// > The type is a map of strings to RemediationParameterValue.
+	// For more information, see [RemediationParameterValue](https://docs.aws.amazon.com/config/latest/APIReference/API_RemediationParameterValue.html) .
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -92,10 +93,6 @@ type CfnRemediationConfiguration interface {
 	ResourceType() *string
 	SetResourceType(val *string)
 	// Maximum time in seconds that AWS Config runs auto-remediation.
-	//
-	// If you do not select a number, the default is 60 seconds.
-	//
-	// For example, if you specify RetryAttemptSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
 	RetryAttemptSeconds() *float64
 	SetRetryAttemptSeconds(val *float64)
 	// The stack in which this element is defined.
@@ -106,13 +103,11 @@ type CfnRemediationConfiguration interface {
 	TargetId() *string
 	SetTargetId(val *string)
 	// The type of the target.
-	//
-	// Target executes remediation. For example, SSM document.
 	TargetType() *string
 	SetTargetType(val *string)
-	// Version of the target. For example, version of the SSM document.
+	// Version of the target.
 	//
-	// > If you make backward incompatible changes to the SSM document, you must call PutRemediationConfiguration API again to ensure the remediations can run.
+	// For example, version of the SSM document.
 	TargetVersion() *string
 	SetTargetVersion(val *string)
 	// Deprecated.
@@ -259,6 +254,16 @@ type CfnRemediationConfiguration interface {
 type jsiiProxy_CfnRemediationConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnRemediationConfiguration) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnRemediationConfiguration) Automatic() interface{} {
@@ -462,7 +467,6 @@ func (j *jsiiProxy_CfnRemediationConfiguration) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::Config::RemediationConfiguration`.
 func NewCfnRemediationConfiguration(scope constructs.Construct, id *string, props *CfnRemediationConfigurationProps) CfnRemediationConfiguration {
 	_init_.Initialize()
 
@@ -480,7 +484,6 @@ func NewCfnRemediationConfiguration(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::Config::RemediationConfiguration`.
 func NewCfnRemediationConfiguration_Override(c CfnRemediationConfiguration, scope constructs.Construct, id *string, props *CfnRemediationConfigurationProps) {
 	_init_.Initialize()
 
@@ -533,9 +536,6 @@ func (j *jsiiProxy_CfnRemediationConfiguration)SetMaximumAutomaticAttempts(val *
 }
 
 func (j *jsiiProxy_CfnRemediationConfiguration)SetParameters(val interface{}) {
-	if err := j.validateSetParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parameters",

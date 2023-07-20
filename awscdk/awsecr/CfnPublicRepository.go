@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECR::PublicRepository`.
+// The `AWS::ECR::PublicRepository` resource specifies an Amazon Elastic Container Registry Public (Amazon ECR Public) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts.
 //
-// The `AWS::ECR::PublicRepository` resource specifies an Amazon Elastic Container Registry Public (Amazon ECR Public) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR public repositories](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repositories.html) in the *Amazon ECR Public User Guide* .
+// For more information, see [Amazon ECR public repositories](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repositories.html) in the *Amazon ECR Public User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html
+//
 type CfnPublicRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::PublicRepository` resource.
 	//
 	// For example, `arn:aws:ecr-public:: *123456789012* :repository/ *test-repository*` .
@@ -66,27 +69,24 @@ type CfnPublicRepository interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::ECR::PublicRepository.RepositoryCatalogData`.
+	// The CatalogData property type specifies Catalog data for ECR Public Repository.
 	RepositoryCatalogData() interface{}
 	SetRepositoryCatalogData(val interface{})
 	// The name to use for the public repository.
-	//
-	// The repository name may be specified on its own (such as `nginx-web-app` ) or it can be prepended with a namespace to group the repository into a category (such as `project-a/nginx-web-app` ). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	RepositoryName() *string
 	SetRepositoryName(val *string)
 	// The JSON repository policy text to apply to the public repository.
-	//
-	// For more information, see [Amazon ECR Public repository policies](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-policies.html) in the *Amazon ECR Public User Guide* .
 	RepositoryPolicyText() interface{}
 	SetRepositoryPolicyText(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -231,6 +231,7 @@ type CfnPublicRepository interface {
 type jsiiProxy_CfnPublicRepository struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPublicRepository) AttrArn() *string {
@@ -363,6 +364,16 @@ func (j *jsiiProxy_CfnPublicRepository) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPublicRepository) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPublicRepository) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -384,7 +395,6 @@ func (j *jsiiProxy_CfnPublicRepository) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::ECR::PublicRepository`.
 func NewCfnPublicRepository(scope constructs.Construct, id *string, props *CfnPublicRepositoryProps) CfnPublicRepository {
 	_init_.Initialize()
 
@@ -402,7 +412,6 @@ func NewCfnPublicRepository(scope constructs.Construct, id *string, props *CfnPu
 	return &j
 }
 
-// Create a new `AWS::ECR::PublicRepository`.
 func NewCfnPublicRepository_Override(c CfnPublicRepository, scope constructs.Construct, id *string, props *CfnPublicRepositoryProps) {
 	_init_.Initialize()
 
@@ -414,9 +423,6 @@ func NewCfnPublicRepository_Override(c CfnPublicRepository, scope constructs.Con
 }
 
 func (j *jsiiProxy_CfnPublicRepository)SetRepositoryCatalogData(val interface{}) {
-	if err := j.validateSetRepositoryCatalogDataParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"repositoryCatalogData",
@@ -433,12 +439,20 @@ func (j *jsiiProxy_CfnPublicRepository)SetRepositoryName(val *string) {
 }
 
 func (j *jsiiProxy_CfnPublicRepository)SetRepositoryPolicyText(val interface{}) {
-	if err := j.validateSetRepositoryPolicyTextParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"repositoryPolicyText",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPublicRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"repositoryPolicyText",
+		"tagsRaw",
 		val,
 	)
 }

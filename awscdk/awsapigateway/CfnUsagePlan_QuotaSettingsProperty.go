@@ -16,14 +16,22 @@ package awsapigateway
 //   	Period: jsii.String("period"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+//
 type CfnUsagePlan_QuotaSettingsProperty struct {
 	// The target maximum number of requests that can be made in a given time period.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+	//
 	Limit *float64 `field:"optional" json:"limit" yaml:"limit"`
 	// The number of requests subtracted from the given limit in the initial time period.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+	//
 	Offset *float64 `field:"optional" json:"offset" yaml:"offset"`
 	// The time period in which the limit applies.
 	//
 	// Valid values are "DAY", "WEEK" or "MONTH".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+	//
 	Period *string `field:"optional" json:"period" yaml:"period"`
 }
 

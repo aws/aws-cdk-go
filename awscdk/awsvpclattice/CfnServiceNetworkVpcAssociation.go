@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VpcLattice::ServiceNetworkVpcAssociation`.
+// Associates a VPC with a service network.
 //
-// Associates a VPC with a service network. When you associate a VPC with the service network, it enables all the resources within that VPC to be clients and communicate with other services in the service network. For more information, see [Manage VPC associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-vpc-associations) in the *Amazon VPC Lattice User Guide* .
+// When you associate a VPC with the service network, it enables all the resources within that VPC to be clients and communicate with other services in the service network. For more information, see [Manage VPC associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-vpc-associations) in the *Amazon VPC Lattice User Guide* .
 //
 // You can't use this operation if there is a disassociation in progress. If the association fails, retry by deleting the association and recreating it.
 //
@@ -38,9 +38,12 @@ import (
 //   	VpcIdentifier: jsii.String("vpcIdentifier"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html
+//
 type CfnServiceNetworkVpcAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
 	AttrArn() *string
 	// The date and time that the association was created, specified in ISO-8601 format.
@@ -84,21 +87,20 @@ type CfnServiceNetworkVpcAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The IDs of the security groups.
-	//
-	// Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The ID or Amazon Resource Name (ARN) of the service network.
-	//
-	// You must use the ARN when the resources specified in the operation are in different accounts.
 	ServiceNetworkIdentifier() *string
 	SetServiceNetworkIdentifier(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the association.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the association.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,6 +248,7 @@ type CfnServiceNetworkVpcAssociation interface {
 type jsiiProxy_CfnServiceNetworkVpcAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) AttrArn() *string {
@@ -438,6 +441,16 @@ func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -469,7 +482,6 @@ func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) VpcIdentifier() *string {
 }
 
 
-// Create a new `AWS::VpcLattice::ServiceNetworkVpcAssociation`.
 func NewCfnServiceNetworkVpcAssociation(scope constructs.Construct, id *string, props *CfnServiceNetworkVpcAssociationProps) CfnServiceNetworkVpcAssociation {
 	_init_.Initialize()
 
@@ -487,7 +499,6 @@ func NewCfnServiceNetworkVpcAssociation(scope constructs.Construct, id *string, 
 	return &j
 }
 
-// Create a new `AWS::VpcLattice::ServiceNetworkVpcAssociation`.
 func NewCfnServiceNetworkVpcAssociation_Override(c CfnServiceNetworkVpcAssociation, scope constructs.Construct, id *string, props *CfnServiceNetworkVpcAssociationProps) {
 	_init_.Initialize()
 
@@ -510,6 +521,17 @@ func (j *jsiiProxy_CfnServiceNetworkVpcAssociation)SetServiceNetworkIdentifier(v
 	_jsii_.Set(
 		j,
 		"serviceNetworkIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

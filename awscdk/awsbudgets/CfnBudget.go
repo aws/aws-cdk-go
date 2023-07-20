@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Budgets::Budget`.
+// The `AWS::Budgets::Budget` resource allows customers to take pre-defined actions that will trigger once a budget threshold has been exceeded.
 //
-// The `AWS::Budgets::Budget` resource allows customers to take pre-defined actions that will trigger once a budget threshold has been exceeded. creates, replaces, or deletes budgets for Billing and Cost Management. For more information, see [Managing Your Costs with Budgets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html) in the *AWS Billing and Cost Management User Guide* .
+// creates, replaces, or deletes budgets for Billing and Cost Management. For more information, see [Managing Your Costs with Budgets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html) in the *AWS Billing and Cost Management User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -82,9 +82,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html
+//
 type CfnBudget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The budget object that you want to create.
 	Budget() interface{}
 	SetBudget(val interface{})
@@ -110,8 +113,6 @@ type CfnBudget interface {
 	// The tree node.
 	Node() constructs.Node
 	// A notification that you want to associate with a budget.
-	//
-	// A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your `CreateBudget` call, AWS creates the notifications and subscribers for you.
 	NotificationsWithSubscribers() interface{}
 	SetNotificationsWithSubscribers(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -269,6 +270,16 @@ type jsiiProxy_CfnBudget struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnBudget) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBudget) Budget() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -390,7 +401,6 @@ func (j *jsiiProxy_CfnBudget) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Budgets::Budget`.
 func NewCfnBudget(scope constructs.Construct, id *string, props *CfnBudgetProps) CfnBudget {
 	_init_.Initialize()
 
@@ -408,7 +418,6 @@ func NewCfnBudget(scope constructs.Construct, id *string, props *CfnBudgetProps)
 	return &j
 }
 
-// Create a new `AWS::Budgets::Budget`.
 func NewCfnBudget_Override(c CfnBudget, scope constructs.Construct, id *string, props *CfnBudgetProps) {
 	_init_.Initialize()
 

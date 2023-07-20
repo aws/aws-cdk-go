@@ -19,10 +19,14 @@ package awscognito
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html
+//
 type CfnIdentityPoolRoleAttachment_RulesConfigurationTypeProperty struct {
 	// The rules.
 	//
 	// You can specify up to 25 rules per identity provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html#cfn-cognito-identitypoolroleattachment-rulesconfigurationtype-rules
+	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 

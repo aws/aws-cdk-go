@@ -26,14 +26,22 @@ package awsiot
 //   	Quality: jsii.String("quality"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html
+//
 type CfnTopicRule_AssetPropertyValueProperty struct {
 	// The asset property value timestamp.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
+	//
 	Timestamp interface{} `field:"required" json:"timestamp" yaml:"timestamp"`
 	// The value of the asset property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
+	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// Optional.
 	//
 	// A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
+	//
 	Quality *string `field:"optional" json:"quality" yaml:"quality"`
 }
 

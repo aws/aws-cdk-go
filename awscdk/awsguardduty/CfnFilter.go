@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GuardDuty::Filter`.
-//
 // The `AWS::GuardDuty::Filter` resource specifies a new filter defined by the provided `findingCriteria` .
 //
 // Example:
@@ -61,12 +59,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html
+//
 type CfnFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Specifies the action that is to be applied to the findings that match the filter.
 	Action() *string
 	SetAction(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -77,8 +79,6 @@ type CfnFilter interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The description of the filter.
-	//
-	// Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description() *string
 	SetDescription(val *string)
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
@@ -98,17 +98,11 @@ type CfnFilter interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the filter.
-	//
-	// Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Specifies the position of the filter in the list of current filters.
-	//
-	// Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
-	//
-	// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
 	Rank() *float64
 	SetRank(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -120,12 +114,11 @@ type CfnFilter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to be added to a new filter resource.
-	//
-	// Each tag consists of a key and an optional value, both of which you define.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to be added to a new filter resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -270,6 +263,7 @@ type CfnFilter interface {
 type jsiiProxy_CfnFilter struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFilter) Action() *string {
@@ -277,6 +271,16 @@ func (j *jsiiProxy_CfnFilter) Action() *string {
 	_jsii_.Get(
 		j,
 		"action",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFilter) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -422,6 +426,16 @@ func (j *jsiiProxy_CfnFilter) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFilter) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFilter) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -443,7 +457,6 @@ func (j *jsiiProxy_CfnFilter) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GuardDuty::Filter`.
 func NewCfnFilter(scope constructs.Construct, id *string, props *CfnFilterProps) CfnFilter {
 	_init_.Initialize()
 
@@ -461,7 +474,6 @@ func NewCfnFilter(scope constructs.Construct, id *string, props *CfnFilterProps)
 	return &j
 }
 
-// Create a new `AWS::GuardDuty::Filter`.
 func NewCfnFilter_Override(c CfnFilter, scope constructs.Construct, id *string, props *CfnFilterProps) {
 	_init_.Initialize()
 
@@ -534,6 +546,17 @@ func (j *jsiiProxy_CfnFilter)SetRank(val *float64) {
 	_jsii_.Set(
 		j,
 		"rank",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFilter)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

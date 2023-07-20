@@ -16,12 +16,19 @@ package awsmedialive
 //   	Timezone: jsii.String("timezone"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html
+//
 type CfnChannel_NielsenNaesIiNwProperty struct {
 	// Enter the check digit string for the watermark.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-checkdigitstring
+	//
 	CheckDigitString *string `field:"optional" json:"checkDigitString" yaml:"checkDigitString"`
 	// Enter the Nielsen Source ID (SID) to include in the watermark.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-sid
+	//
 	Sid *float64 `field:"optional" json:"sid" yaml:"sid"`
-	// `CfnChannel.NielsenNaesIiNwProperty.Timezone`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-timezone
+	//
 	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
 }
 

@@ -12,6 +12,8 @@ package awsorganizations
 //   	FeatureSet: jsii.String("featureSet"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organization.html
+//
 type CfnOrganizationProps struct {
 	// Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
 	//
@@ -27,6 +29,8 @@ type CfnOrganizationProps struct {
 	// - Enable [integration with supported AWS services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html) to let those services provide functionality across all of the accounts in your organization.
 	//
 	// If you don't specify this property, the default value is `ALL` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organization.html#cfn-organizations-organization-featureset
+	//
 	FeatureSet *string `field:"optional" json:"featureSet" yaml:"featureSet"`
 }
 

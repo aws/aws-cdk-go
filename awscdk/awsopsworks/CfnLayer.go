@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpsWorks::Layer`.
-//
 // Creates a layer. For more information, see [How to Create a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html) .
 //
 // > You should use *CreateLayer* for noncustom layer types such as PHP App Server only if the stack does not have an existing layer of that type. A stack can have at most one instance of each noncustom layer; if you attempt to create a second instance, *CreateLayer* fails. A stack can have an arbitrary number of custom layers, so you can call *CreateLayer* as many times as you like for that layer type.
@@ -108,20 +106,20 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html
+//
 type CfnLayer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// One or more user-defined key-value pairs to be added to the stack attributes.
-	//
-	// To create a cluster layer, set the `EcsClusterArn` attribute to the cluster's ARN.
 	Attributes() interface{}
 	SetAttributes(val interface{})
+	AttrId() *string
 	// Whether to automatically assign an [Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) to the layer's instances. For more information, see [How to Edit a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html) .
 	AutoAssignElasticIps() interface{}
 	SetAutoAssignElasticIps(val interface{})
 	// For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances.
-	//
-	// For more information, see [How to Edit a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html) .
 	AutoAssignPublicIps() interface{}
 	SetAutoAssignPublicIps(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -134,13 +132,9 @@ type CfnLayer interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ARN of an IAM profile to be used for the layer's EC2 instances.
-	//
-	// For more information about IAM ARNs, see [Using Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) .
 	CustomInstanceProfileArn() *string
 	SetCustomInstanceProfileArn(val *string)
 	// A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances.
-	//
-	// For more information, see [Using Custom JSON](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html) . This feature is supported as of version 1.7.42 of the AWS CLI .
 	CustomJson() interface{}
 	SetCustomJson(val interface{})
 	// A `LayerCustomRecipes` object that specifies the layer custom recipes.
@@ -153,10 +147,6 @@ type CfnLayer interface {
 	EnableAutoHealing() interface{}
 	SetEnableAutoHealing(val interface{})
 	// Whether to install operating system and package updates when the instance boots.
-	//
-	// The default value is `true` . To control when updates are installed, set this value to `false` . You must then update your instances manually by using [CreateDeployment](https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateDeployment) to run the `update_dependencies` stack command or by manually running `yum` (Amazon Linux) or `apt-get` (Ubuntu) on the instances.
-	//
-	// > To ensure that your instances have the latest security updates, we strongly recommend using the default value of `true` .
 	InstallUpdatesOnBoot() interface{}
 	SetInstallUpdatesOnBoot(val interface{})
 	// A `LifeCycleEventConfiguration` object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
@@ -176,8 +166,6 @@ type CfnLayer interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The layer name, which is used by the console.
-	//
-	// Layer names can be a maximum of 32 characters.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -191,10 +179,6 @@ type CfnLayer interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes.
-	//
-	// The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 32 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
-	//
-	// Built-in layer short names are defined by AWS OpsWorks Stacks. For more information, see the [Layer Reference](https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html) .
 	Shortname() *string
 	SetShortname(val *string)
 	// The stack in which this element is defined.
@@ -204,13 +188,12 @@ type CfnLayer interface {
 	// The layer stack ID.
 	StackId() *string
 	SetStackId(val *string)
-	// Specifies one or more sets of tags (key–value pairs) to associate with this AWS OpsWorks layer.
-	//
-	// Use tags to manage your resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies one or more sets of tags (key–value pairs) to associate with this AWS OpsWorks layer.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The layer type.
-	//
-	// A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -363,6 +346,7 @@ type CfnLayer interface {
 type jsiiProxy_CfnLayer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLayer) Attributes() interface{} {
@@ -370,6 +354,16 @@ func (j *jsiiProxy_CfnLayer) Attributes() interface{} {
 	_jsii_.Get(
 		j,
 		"attributes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLayer) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -605,6 +599,16 @@ func (j *jsiiProxy_CfnLayer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLayer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLayer) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -656,7 +660,6 @@ func (j *jsiiProxy_CfnLayer) VolumeConfigurations() interface{} {
 }
 
 
-// Create a new `AWS::OpsWorks::Layer`.
 func NewCfnLayer(scope constructs.Construct, id *string, props *CfnLayerProps) CfnLayer {
 	_init_.Initialize()
 
@@ -674,7 +677,6 @@ func NewCfnLayer(scope constructs.Construct, id *string, props *CfnLayerProps) C
 	return &j
 }
 
-// Create a new `AWS::OpsWorks::Layer`.
 func NewCfnLayer_Override(c CfnLayer, scope constructs.Construct, id *string, props *CfnLayerProps) {
 	_init_.Initialize()
 
@@ -727,9 +729,6 @@ func (j *jsiiProxy_CfnLayer)SetCustomInstanceProfileArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnLayer)SetCustomJson(val interface{}) {
-	if err := j.validateSetCustomJsonParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"customJson",
@@ -837,6 +836,17 @@ func (j *jsiiProxy_CfnLayer)SetStackId(val *string) {
 	_jsii_.Set(
 		j,
 		"stackId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLayer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

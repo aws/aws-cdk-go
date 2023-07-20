@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSM::MaintenanceWindow`.
+// The `AWS::SSM::MaintenanceWindow` resource represents general information about a maintenance window for AWS Systems Manager .
 //
-// The `AWS::SSM::MaintenanceWindow` resource represents general information about a maintenance window for AWS Systems Manager . Maintenance Windows let you define a schedule for when to perform potentially disruptive actions on your instances, such as patching an operating system (OS), updating drivers, or installing software. Each maintenance window has a schedule, a duration, a set of registered targets, and a set of registered tasks.
+// Maintenance Windows let you define a schedule for when to perform potentially disruptive actions on your instances, such as patching an operating system (OS), updating drivers, or installing software. Each maintenance window has a schedule, a duration, a set of registered targets, and a set of registered tasks.
 //
 // For more information, see [Systems Manager Maintenance Windows](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-maintenance.html) in the *AWS Systems Manager User Guide* and [CreateMaintenanceWindow](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateMaintenanceWindow.html) in the *AWS Systems Manager API Reference* .
 //
@@ -41,14 +41,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html
+//
 type CfnMaintenanceWindow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets.
-	//
-	// If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
 	AllowUnassociatedTargets() interface{}
 	SetAllowUnassociatedTargets(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -104,14 +106,13 @@ type CfnMaintenanceWindow interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active.
-	//
-	// StartDate allows you to delay activation of the Maintenance Window until the specified future date.
 	StartDate() *string
 	SetStartDate(val *string)
-	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs).
-	//
-	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs).
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -256,6 +257,7 @@ type CfnMaintenanceWindow interface {
 type jsiiProxy_CfnMaintenanceWindow struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMaintenanceWindow) AllowUnassociatedTargets() interface{} {
@@ -263,6 +265,16 @@ func (j *jsiiProxy_CfnMaintenanceWindow) AllowUnassociatedTargets() interface{} 
 	_jsii_.Get(
 		j,
 		"allowUnassociatedTargets",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindow) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -448,6 +460,16 @@ func (j *jsiiProxy_CfnMaintenanceWindow) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMaintenanceWindow) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMaintenanceWindow) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -469,7 +491,6 @@ func (j *jsiiProxy_CfnMaintenanceWindow) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::SSM::MaintenanceWindow`.
 func NewCfnMaintenanceWindow(scope constructs.Construct, id *string, props *CfnMaintenanceWindowProps) CfnMaintenanceWindow {
 	_init_.Initialize()
 
@@ -487,7 +508,6 @@ func NewCfnMaintenanceWindow(scope constructs.Construct, id *string, props *CfnM
 	return &j
 }
 
-// Create a new `AWS::SSM::MaintenanceWindow`.
 func NewCfnMaintenanceWindow_Override(c CfnMaintenanceWindow, scope constructs.Construct, id *string, props *CfnMaintenanceWindowProps) {
 	_init_.Initialize()
 
@@ -589,6 +609,17 @@ func (j *jsiiProxy_CfnMaintenanceWindow)SetStartDate(val *string) {
 	_jsii_.Set(
 		j,
 		"startDate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindow)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

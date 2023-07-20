@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTSiteWise::Dashboard`.
-//
 // Creates a dashboard in an AWS IoT SiteWise Monitor project.
 //
 // Example:
@@ -33,9 +31,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html
+//
 type CfnDashboard interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the dashboard, which has the following format.
 	//
 	// `arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard/${DashboardId}`.
@@ -52,8 +53,6 @@ type CfnDashboard interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The dashboard definition specified in a JSON literal.
-	//
-	// For detailed information, see [Creating dashboards (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html) in the *AWS IoT SiteWise User Guide* .
 	DashboardDefinition() *string
 	SetDashboardDefinition(val *string)
 	// A description for the dashboard.
@@ -86,10 +85,11 @@ type CfnDashboard interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs that contain metadata for the dashboard.
-	//
-	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs that contain metadata for the dashboard.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +234,7 @@ type CfnDashboard interface {
 type jsiiProxy_CfnDashboard struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDashboard) AttrDashboardArn() *string {
@@ -386,6 +387,16 @@ func (j *jsiiProxy_CfnDashboard) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDashboard) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDashboard) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -407,7 +418,6 @@ func (j *jsiiProxy_CfnDashboard) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTSiteWise::Dashboard`.
 func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
 	_init_.Initialize()
 
@@ -425,7 +435,6 @@ func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboard
 	return &j
 }
 
-// Create a new `AWS::IoTSiteWise::Dashboard`.
 func NewCfnDashboard_Override(c CfnDashboard, scope constructs.Construct, id *string, props *CfnDashboardProps) {
 	_init_.Initialize()
 
@@ -473,6 +482,17 @@ func (j *jsiiProxy_CfnDashboard)SetProjectId(val *string) {
 	_jsii_.Set(
 		j,
 		"projectId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDashboard)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

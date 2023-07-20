@@ -31,10 +31,16 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html
+//
 type CfnVirtualNode_ServiceDiscoveryProperty struct {
 	// Specifies any AWS Cloud Map information for the virtual node.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-awscloudmap
+	//
 	AwsCloudMap interface{} `field:"optional" json:"awsCloudMap" yaml:"awsCloudMap"`
 	// Specifies the DNS information for the virtual node.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-dns
+	//
 	Dns interface{} `field:"optional" json:"dns" yaml:"dns"`
 }
 

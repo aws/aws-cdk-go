@@ -23,18 +23,26 @@ package awssam
 //   	MaxAge: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-corsconfigurationobject.html
+//
 type CfnHttpApi_CorsConfigurationObjectProperty struct {
-	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowCredentials`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-corsconfigurationobject.html#cfn-serverless-httpapi-corsconfigurationobject-allowcredentials
+	//
 	AllowCredentials interface{} `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
-	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowHeaders`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-corsconfigurationobject.html#cfn-serverless-httpapi-corsconfigurationobject-allowheaders
+	//
 	AllowHeaders *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
-	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowMethods`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-corsconfigurationobject.html#cfn-serverless-httpapi-corsconfigurationobject-allowmethods
+	//
 	AllowMethods *[]*string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
-	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowOrigins`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-corsconfigurationobject.html#cfn-serverless-httpapi-corsconfigurationobject-alloworigins
+	//
 	AllowOrigins *[]*string `field:"optional" json:"allowOrigins" yaml:"allowOrigins"`
-	// `CfnHttpApi.CorsConfigurationObjectProperty.ExposeHeaders`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-corsconfigurationobject.html#cfn-serverless-httpapi-corsconfigurationobject-exposeheaders
+	//
 	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
-	// `CfnHttpApi.CorsConfigurationObjectProperty.MaxAge`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-corsconfigurationobject.html#cfn-serverless-httpapi-corsconfigurationobject-maxage
+	//
 	MaxAge *float64 `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 

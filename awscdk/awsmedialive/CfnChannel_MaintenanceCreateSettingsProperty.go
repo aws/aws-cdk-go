@@ -11,10 +11,14 @@ package awsmedialive
 //   	MaintenanceStartTime: jsii.String("maintenanceStartTime"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html
+//
 type CfnChannel_MaintenanceCreateSettingsProperty struct {
-	// `CfnChannel.MaintenanceCreateSettingsProperty.MaintenanceDay`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html#cfn-medialive-channel-maintenancecreatesettings-maintenanceday
+	//
 	MaintenanceDay *string `field:"optional" json:"maintenanceDay" yaml:"maintenanceDay"`
-	// `CfnChannel.MaintenanceCreateSettingsProperty.MaintenanceStartTime`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html#cfn-medialive-channel-maintenancecreatesettings-maintenancestarttime
+	//
 	MaintenanceStartTime *string `field:"optional" json:"maintenanceStartTime" yaml:"maintenanceStartTime"`
 }
 

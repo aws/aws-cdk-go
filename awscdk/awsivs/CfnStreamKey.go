@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IVS::StreamKey`.
+// The `AWS::IVS::StreamKey` resource specifies an  stream key associated with the referenced channel.
 //
-// The `AWS::IVS::StreamKey` resource specifies an  stream key associated with the referenced channel. Use a stream key to initiate a live stream.
+// Use a stream key to initiate a live stream.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,9 +30,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
+//
 type CfnStreamKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The stream-key ARN.
 	//
 	// For example: `arn:aws:ivs:us-west-2:123456789012:stream-key/g1H2I3j4k5L6`.
@@ -74,10 +77,11 @@ type CfnStreamKey interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -222,6 +226,7 @@ type CfnStreamKey interface {
 type jsiiProxy_CfnStreamKey struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStreamKey) AttrArn() *string {
@@ -344,6 +349,16 @@ func (j *jsiiProxy_CfnStreamKey) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStreamKey) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStreamKey) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -365,7 +380,6 @@ func (j *jsiiProxy_CfnStreamKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IVS::StreamKey`.
 func NewCfnStreamKey(scope constructs.Construct, id *string, props *CfnStreamKeyProps) CfnStreamKey {
 	_init_.Initialize()
 
@@ -383,7 +397,6 @@ func NewCfnStreamKey(scope constructs.Construct, id *string, props *CfnStreamKey
 	return &j
 }
 
-// Create a new `AWS::IVS::StreamKey`.
 func NewCfnStreamKey_Override(c CfnStreamKey, scope constructs.Construct, id *string, props *CfnStreamKeyProps) {
 	_init_.Initialize()
 
@@ -401,6 +414,17 @@ func (j *jsiiProxy_CfnStreamKey)SetChannelArn(val *string) {
 	_jsii_.Set(
 		j,
 		"channelArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStreamKey)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

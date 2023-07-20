@@ -179,6 +179,16 @@ func validateCfnDHCPOptions_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDHCPOptions) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnDHCPOptionsParameters(scope constructs.Construct, id *string, props *CfnDHCPOptionsProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -33,6 +33,8 @@ import (
 //   				// the properties below are optional
 //   				CertificateArn: jsii.String("certificateArn"),
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //
@@ -84,6 +86,8 @@ import (
 //   				// the properties below are optional
 //   				CertificateArn: jsii.String("certificateArn"),
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //
@@ -129,6 +133,8 @@ import (
 //   				// the properties below are optional
 //   				CertificateArn: jsii.String("certificateArn"),
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //
@@ -165,6 +171,8 @@ import (
 //   				// the properties below are optional
 //   				CertificateArn: jsii.String("certificateArn"),
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //   		},
@@ -190,26 +198,46 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
+//
 type CfnOriginEndpointProps struct {
 	// The ID of the channel associated with this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
+	//
 	ChannelId *string `field:"required" json:"channelId" yaml:"channelId"`
 	// The manifest ID is required and must be unique within the OriginEndpoint.
 	//
 	// The ID can't be changed after the endpoint is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// Parameters for CDN authorization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
+	//
 	Authorization interface{} `field:"optional" json:"authorization" yaml:"authorization"`
 	// Parameters for Common Media Application Format (CMAF) packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
+	//
 	CmafPackage interface{} `field:"optional" json:"cmafPackage" yaml:"cmafPackage"`
 	// Parameters for DASH packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
+	//
 	DashPackage interface{} `field:"optional" json:"dashPackage" yaml:"dashPackage"`
 	// Any descriptive information that you want to add to the endpoint for future identification purposes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Parameters for Apple HLS packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
+	//
 	HlsPackage interface{} `field:"optional" json:"hlsPackage" yaml:"hlsPackage"`
 	// A short string that's appended to the end of the endpoint URL to create a unique path to this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
+	//
 	ManifestName *string `field:"optional" json:"manifestName" yaml:"manifestName"`
 	// Parameters for Microsoft Smooth Streaming packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
+	//
 	MssPackage interface{} `field:"optional" json:"mssPackage" yaml:"mssPackage"`
 	// Controls video origination from this endpoint.
 	//
@@ -217,18 +245,28 @@ type CfnOriginEndpointProps struct {
 	//
 	// - `ALLOW` - enables this endpoint to serve content to requesting devices.
 	// - `DENY` - prevents this endpoint from serving content. Denying origination is helpful for harvesting live-to-VOD assets. For more information about harvesting and origination, see [Live-to-VOD Requirements](https://docs.aws.amazon.com/mediapackage/latest/ug/ltov-reqmts.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
+	//
 	Origination *string `field:"optional" json:"origination" yaml:"origination"`
 	// Maximum duration (seconds) of content to retain for startover playback.
 	//
 	// Omit this attribute or enter `0` to indicate that startover playback is disabled for this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
+	//
 	StartoverWindowSeconds *float64 `field:"optional" json:"startoverWindowSeconds" yaml:"startoverWindowSeconds"`
 	// The tags to assign to the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Minimum duration (seconds) of delay to enforce on the playback of live content.
 	//
 	// Omit this attribute or enter `0` to indicate that there is no time delay in effect for this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
+	//
 	TimeDelaySeconds *float64 `field:"optional" json:"timeDelaySeconds" yaml:"timeDelaySeconds"`
 	// The IP addresses that can access this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+	//
 	Whitelist *[]*string `field:"optional" json:"whitelist" yaml:"whitelist"`
 }
 

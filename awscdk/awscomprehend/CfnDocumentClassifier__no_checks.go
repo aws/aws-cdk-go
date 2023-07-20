@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnDocumentClassifier) validateSetOutputDataConfigParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnDocumentClassifier) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDocumentClassifier) validateSetVpcConfigParameters(val interface{}) error {
 	return nil
 }

@@ -17,6 +17,8 @@ package awslambda
 //   	RuntimeVersionArn: jsii.String("runtimeVersionArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-runtimemanagementconfig.html
+//
 type CfnFunction_RuntimeManagementConfigProperty struct {
 	// Specify the runtime update mode.
 	//
@@ -25,10 +27,14 @@ type CfnFunction_RuntimeManagementConfigProperty struct {
 	// - *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback) .
 	//
 	// *Valid Values* : `Auto` | `FunctionUpdate` | `Manual`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-runtimemanagementconfig.html#cfn-lambda-function-runtimemanagementconfig-updateruntimeon
+	//
 	UpdateRuntimeOn *string `field:"required" json:"updateRuntimeOn" yaml:"updateRuntimeOn"`
 	// The ARN of the runtime version you want the function to use.
 	//
 	// > This is only required if you're using the *Manual* runtime update mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-runtimemanagementconfig.html#cfn-lambda-function-runtimemanagementconfig-runtimeversionarn
+	//
 	RuntimeVersionArn *string `field:"optional" json:"runtimeVersionArn" yaml:"runtimeVersionArn"`
 }
 

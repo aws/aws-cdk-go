@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::Stack`.
-//
 // The `AWS::AppStream::Stack` resource creates a stack to start streaming applications to Amazon AppStream 2.0 users. A stack consists of an associated fleet, user access policies, and storage configurations.
 //
 // Example:
@@ -71,22 +69,22 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html
+//
 type CfnStack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The list of virtual private cloud (VPC) interface endpoint objects.
-	//
-	// Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
 	AccessEndpoints() interface{}
 	SetAccessEndpoints(val interface{})
 	// The persistent application settings for users of the stack.
-	//
-	// When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
 	ApplicationSettings() interface{}
 	SetApplicationSettings(val interface{})
 	// The stack attributes to delete.
 	AttributesToDelete() *[]*string
 	SetAttributesToDelete(val *[]*string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -97,8 +95,6 @@ type CfnStack interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// *This parameter has been deprecated.*.
-	//
-	// Deletes the storage connectors currently enabled for the stack.
 	DeleteStorageConnectors() interface{}
 	SetDeleteStorageConnectors(val interface{})
 	// The description to display.
@@ -111,8 +107,6 @@ type CfnStack interface {
 	EmbedHostDomains() *[]*string
 	SetEmbedHostDomains(val *[]*string)
 	// The URL that users are redirected to after they click the Send Feedback link.
-	//
-	// If no URL is specified, no Send Feedback link is displayed.
 	FeedbackUrl() *string
 	SetFeedbackUrl(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -146,12 +140,13 @@ type CfnStack interface {
 	StorageConnectors() interface{}
 	SetStorageConnectors(val interface{})
 	// The streaming protocol that you want your stack to prefer.
-	//
-	// This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
 	StreamingExperienceSettings() interface{}
 	SetStreamingExperienceSettings(val interface{})
-	// An array of key-value pairs.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -166,8 +161,6 @@ type CfnStack interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The actions that are enabled or disabled for users during their streaming sessions.
-	//
-	// By default, these actions are enabled.
 	UserSettings() interface{}
 	SetUserSettings(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -301,6 +294,7 @@ type CfnStack interface {
 type jsiiProxy_CfnStack struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStack) AccessEndpoints() interface{} {
@@ -328,6 +322,16 @@ func (j *jsiiProxy_CfnStack) AttributesToDelete() *[]*string {
 	_jsii_.Get(
 		j,
 		"attributesToDelete",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -513,6 +517,16 @@ func (j *jsiiProxy_CfnStack) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStack) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStack) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -544,7 +558,6 @@ func (j *jsiiProxy_CfnStack) UserSettings() interface{} {
 }
 
 
-// Create a new `AWS::AppStream::Stack`.
 func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) CfnStack {
 	_init_.Initialize()
 
@@ -562,7 +575,6 @@ func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) C
 	return &j
 }
 
-// Create a new `AWS::AppStream::Stack`.
 func NewCfnStack_Override(c CfnStack, scope constructs.Construct, id *string, props *CfnStackProps) {
 	_init_.Initialize()
 
@@ -680,6 +692,17 @@ func (j *jsiiProxy_CfnStack)SetStreamingExperienceSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"streamingExperienceSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStack)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

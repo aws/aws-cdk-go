@@ -10,8 +10,11 @@ package awssam
 //   	FunctionName: jsii.String("functionName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-functionsampt.html
+//
 type CfnFunction_FunctionSAMPTProperty struct {
-	// `CfnFunction.FunctionSAMPTProperty.FunctionName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-functionsampt.html#cfn-serverless-function-functionsampt-functionname
+	//
 	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 }
 

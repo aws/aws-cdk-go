@@ -19,16 +19,22 @@ package awscloudwatch
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
+//
 type CfnMetricStream_MetricStreamFilterProperty struct {
 	// The name of the metric namespace in the filter.
 	//
 	// The namespace can contain only ASCII printable characters (ASCII range 32 through 126). It must contain at least one non-whitespace character.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
+	//
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The names of the metrics to either include or exclude from the metric stream.
 	//
 	// If you omit this parameter, all metrics in the namespace are included or excluded, depending on whether this filter is specified as an exclude filter or an include filter.
 	//
 	// Each metric name can contain only ASCII printable characters (ASCII range 32 through 126). Each metric name must contain at least one non-whitespace character.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-metricnames
+	//
 	MetricNames *[]*string `field:"optional" json:"metricNames" yaml:"metricNames"`
 }
 

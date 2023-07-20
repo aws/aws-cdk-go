@@ -131,24 +131,38 @@ package awsacmpca
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html
+//
 type CfnCertificateProps struct {
 	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
+	//
 	CertificateAuthorityArn *string `field:"required" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The certificate signing request (CSR) for the certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
+	//
 	CertificateSigningRequest *string `field:"required" json:"certificateSigningRequest" yaml:"certificateSigningRequest"`
 	// The name of the algorithm that will be used to sign the certificate to be issued.
 	//
 	// This parameter should not be confused with the `SigningAlgorithm` parameter used to sign a CSR in the `CreateCertificateAuthority` action.
 	//
 	// > The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
+	//
 	SigningAlgorithm *string `field:"required" json:"signingAlgorithm" yaml:"signingAlgorithm"`
 	// The period of time during which the certificate will be valid.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
+	//
 	Validity interface{} `field:"required" json:"validity" yaml:"validity"`
 	// Specifies X.509 certificate information to be included in the issued certificate. An `APIPassthrough` or `APICSRPassthrough` template variant must be selected, or else this parameter is ignored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+	//
 	ApiPassthrough interface{} `field:"optional" json:"apiPassthrough" yaml:"apiPassthrough"`
 	// Specifies a custom configuration template to use when issuing a certificate.
 	//
 	// If this parameter is not provided, AWS Private CA defaults to the `EndEntityCertificate/V1` template. For more information about AWS Private CA templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
+	//
 	TemplateArn *string `field:"optional" json:"templateArn" yaml:"templateArn"`
 	// Information describing the start of the validity period of the certificate.
 	//
@@ -159,6 +173,8 @@ type CfnCertificateProps struct {
 	// Unlike the `Validity` parameter, the `ValidityNotBefore` parameter is optional.
 	//
 	// The `ValidityNotBefore` value is expressed as an explicit date and time, using the `Validity` type value `ABSOLUTE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+	//
 	ValidityNotBefore interface{} `field:"optional" json:"validityNotBefore" yaml:"validityNotBefore"`
 }
 

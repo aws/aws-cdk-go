@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeArtifact::Domain`.
+// The `AWS::CodeArtifact::Domain` resource creates an AWS CodeArtifact domain.
 //
-// The `AWS::CodeArtifact::Domain` resource creates an AWS CodeArtifact domain. CodeArtifact *domains* make it easier to manage multiple repositories across an organization. You can use a domain to apply permissions across many repositories owned by different AWS accounts. For more information about domains, see the [Domain concepts information](https://docs.aws.amazon.com/codeartifact/latest/ug/codeartifact-concepts.html#welcome-concepts-domain) in the *CodeArtifact User Guide* . For more information about the `CreateDomain` API, see [CreateDomain](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateDomain.html) in the *CodeArtifact API Reference* .
+// CodeArtifact *domains* make it easier to manage multiple repositories across an organization. You can use a domain to apply permissions across many repositories owned by different AWS accounts. For more information about domains, see the [Domain concepts information](https://docs.aws.amazon.com/codeartifact/latest/ug/codeartifact-concepts.html#welcome-concepts-domain) in the *CodeArtifact User Guide* . For more information about the `CreateDomain` API, see [CreateDomain](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateDomain.html) in the *CodeArtifact API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// When you pass the logical ID of this resource, the function returns the Amazon Resource Name (ARN) of the domain.
 	AttrArn() *string
 	// When you pass the logical ID of this resource, the function returns the key used to encrypt the domain.
@@ -84,8 +87,11 @@ type CfnDomain interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to be applied to the domain.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags to be applied to the domain.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +236,7 @@ type CfnDomain interface {
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDomain) AttrArn() *string {
@@ -392,6 +399,16 @@ func (j *jsiiProxy_CfnDomain) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -413,7 +430,6 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CodeArtifact::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -431,7 +447,6 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
-// Create a new `AWS::CodeArtifact::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
@@ -462,12 +477,20 @@ func (j *jsiiProxy_CfnDomain)SetEncryptionKey(val *string) {
 }
 
 func (j *jsiiProxy_CfnDomain)SetPermissionsPolicyDocument(val interface{}) {
-	if err := j.validateSetPermissionsPolicyDocumentParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"permissionsPolicyDocument",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"permissionsPolicyDocument",
+		"tagsRaw",
 		val,
 	)
 }

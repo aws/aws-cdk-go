@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGatewayV2::Stage`.
+// The `AWS::ApiGatewayV2::Stage` resource specifies a stage for an API.
 //
-// The `AWS::ApiGatewayV2::Stage` resource specifies a stage for an API. Each stage is a named reference to a deployment of the API and is made available for client applications to call. To learn more, see [Working with stages for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html) and [Deploy a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-set-up-websocket-deployment.html) .
+// Each stage is a named reference to a deployment of the API and is made available for client applications to call. To learn more, see [Working with stages for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html) and [Deploy a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-set-up-websocket-deployment.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -48,9 +48,12 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html
+//
 type CfnStage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Settings for logging access in this stage.
 	AccessLogSettings() interface{}
 	SetAccessLogSettings(val interface{})
@@ -60,9 +63,8 @@ type CfnStage interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
+	AttrId() *string
 	// Specifies whether updates to an API automatically trigger a new deployment.
-	//
-	// The default value is `false` .
 	AutoDeploy() interface{}
 	SetAutoDeploy(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -71,8 +73,6 @@ type CfnStage interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The identifier of a client certificate for a `Stage` .
-	//
-	// Supported only for WebSocket APIs.
 	ClientCertificateId() *string
 	SetClientCertificateId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -83,8 +83,6 @@ type CfnStage interface {
 	DefaultRouteSettings() interface{}
 	SetDefaultRouteSettings(val interface{})
 	// The deployment identifier for the API stage.
-	//
-	// Can't be updated if `autoDeploy` is enabled.
 	DeploymentId() *string
 	SetDeploymentId(val *string)
 	// The description for the API stage.
@@ -115,19 +113,16 @@ type CfnStage interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The stage name.
-	//
-	// Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
 	StageName() *string
 	SetStageName(val *string)
 	// A map that defines the stage variables for a `Stage` .
-	//
-	// Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
 	StageVariables() interface{}
 	SetStageVariables(val interface{})
-	// The collection of tags.
-	//
-	// Each tag element is associated with a given resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The collection of tags.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -272,6 +267,7 @@ type CfnStage interface {
 type jsiiProxy_CfnStage struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStage) AccessLogSettings() interface{} {
@@ -299,6 +295,16 @@ func (j *jsiiProxy_CfnStage) ApiId() *string {
 	_jsii_.Get(
 		j,
 		"apiId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStage) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -474,6 +480,16 @@ func (j *jsiiProxy_CfnStage) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStage) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStage) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -495,7 +511,6 @@ func (j *jsiiProxy_CfnStage) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGatewayV2::Stage`.
 func NewCfnStage(scope constructs.Construct, id *string, props *CfnStageProps) CfnStage {
 	_init_.Initialize()
 
@@ -513,7 +528,6 @@ func NewCfnStage(scope constructs.Construct, id *string, props *CfnStageProps) C
 	return &j
 }
 
-// Create a new `AWS::ApiGatewayV2::Stage`.
 func NewCfnStage_Override(c CfnStage, scope constructs.Construct, id *string, props *CfnStageProps) {
 	_init_.Initialize()
 
@@ -601,9 +615,6 @@ func (j *jsiiProxy_CfnStage)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnStage)SetRouteSettings(val interface{}) {
-	if err := j.validateSetRouteSettingsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"routeSettings",
@@ -623,12 +634,17 @@ func (j *jsiiProxy_CfnStage)SetStageName(val *string) {
 }
 
 func (j *jsiiProxy_CfnStage)SetStageVariables(val interface{}) {
-	if err := j.validateSetStageVariablesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"stageVariables",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStage)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -25,10 +25,16 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html
+//
 type CfnClientVpnEndpoint_TagSpecificationProperty struct {
 	// The type of resource to tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-resourcetype
+	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 	// The tags to apply to the resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"required" json:"tags" yaml:"tags"`
 }
 

@@ -16,8 +16,12 @@ package awsmsk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-sasl.html
+//
 type CfnServerlessCluster_SaslProperty struct {
 	// Details for ClientAuthentication using IAM.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-sasl.html#cfn-msk-serverlesscluster-sasl-iam
+	//
 	Iam interface{} `field:"required" json:"iam" yaml:"iam"`
 }
 

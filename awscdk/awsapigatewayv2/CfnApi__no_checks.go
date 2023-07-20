@@ -80,10 +80,6 @@ func validateCfnApi_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnApi) validateSetBodyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnApi) validateSetBodyS3LocationParameters(val interface{}) error {
 	return nil
 }

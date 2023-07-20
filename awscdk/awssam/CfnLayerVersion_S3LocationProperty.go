@@ -14,12 +14,17 @@ package awssam
 //   	Version: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-layerversion-s3location.html
+//
 type CfnLayerVersion_S3LocationProperty struct {
-	// `CfnLayerVersion.S3LocationProperty.Bucket`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-layerversion-s3location.html#cfn-serverless-layerversion-s3location-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// `CfnLayerVersion.S3LocationProperty.Key`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-layerversion-s3location.html#cfn-serverless-layerversion-s3location-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// `CfnLayerVersion.S3LocationProperty.Version`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-layerversion-s3location.html#cfn-serverless-layerversion-s3location-version
+	//
 	Version *float64 `field:"optional" json:"version" yaml:"version"`
 }
 

@@ -51,14 +51,24 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
+//
 type CfnDetectorProps struct {
 	// Specifies whether the detector is to be enabled on creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
+	//
 	Enable interface{} `field:"required" json:"enable" yaml:"enable"`
 	// Describes which data sources will be enabled for the detector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
+	//
 	DataSources interface{} `field:"optional" json:"dataSources" yaml:"dataSources"`
 	// A list of features that will be configured for the detector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features
+	//
 	Features interface{} `field:"optional" json:"features" yaml:"features"`
 	// Specifies how frequently updated findings are exported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
+	//
 	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
 	// Specifies tags added to a new detector resource.
 	//
@@ -67,6 +77,8 @@ type CfnDetectorProps struct {
 	// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

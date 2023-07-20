@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnLaunch) validateSetScheduledSplitsConfigParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnLaunch) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLaunchParameters(scope constructs.Construct, id *string, props *CfnLaunchProps) error {
 	return nil
 }

@@ -65,14 +65,20 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
+//
 type CfnTableProps struct {
 	// The name of the keyspace to create the table in.
 	//
 	// The keyspace must already exist.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+	//
 	KeyspaceName *string `field:"required" json:"keyspaceName" yaml:"keyspaceName"`
 	// One or more columns that uniquely identify every row in the table.
 	//
 	// Every table must have a partition key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+	//
 	PartitionKeyColumns interface{} `field:"required" json:"partitionKeyColumns" yaml:"partitionKeyColumns"`
 	// The billing mode for the table, which determines how you'll be charged for reads and writes:.
 	//
@@ -80,6 +86,8 @@ type CfnTableProps struct {
 	// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
 	//
 	// If you don't specify a value for this property, then the table will use on-demand mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
+	//
 	BillingMode interface{} `field:"optional" json:"billingMode" yaml:"billingMode"`
 	// Enables client-side timestamps for the table.
 	//
@@ -88,14 +96,20 @@ type CfnTableProps struct {
 	// - `status: "enabled"`
 	//
 	// After client-side timestamps are enabled for a table, you can't disable this setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clientsidetimestampsenabled
+	//
 	ClientSideTimestampsEnabled interface{} `field:"optional" json:"clientSideTimestampsEnabled" yaml:"clientSideTimestampsEnabled"`
 	// One or more columns that determine how the table data is sorted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
+	//
 	ClusteringKeyColumns interface{} `field:"optional" json:"clusteringKeyColumns" yaml:"clusteringKeyColumns"`
 	// The default Time To Live (TTL) value for all rows in a table in seconds.
 	//
 	// The maximum configurable value is 630,720,000 seconds, which is the equivalent of 20 years. By default, the TTL value for a table is 0, which means data does not expire.
 	//
 	// For more information, see [Setting the default TTL value for a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl) in the *Amazon Keyspaces Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-defaulttimetolive
+	//
 	DefaultTimeToLive *float64 `field:"optional" json:"defaultTimeToLive" yaml:"defaultTimeToLive"`
 	// The encryption at rest options for the table.
 	//
@@ -105,14 +119,20 @@ type CfnTableProps struct {
 	// > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
 	//
 	// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+	//
 	EncryptionSpecification interface{} `field:"optional" json:"encryptionSpecification" yaml:"encryptionSpecification"`
 	// Specifies if point-in-time recovery is enabled or disabled for the table.
 	//
 	// The options are `PointInTimeRecoveryEnabled=true` and `PointInTimeRecoveryEnabled=false` . If not specified, the default is `PointInTimeRecoveryEnabled=false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+	//
 	PointInTimeRecoveryEnabled interface{} `field:"optional" json:"pointInTimeRecoveryEnabled" yaml:"pointInTimeRecoveryEnabled"`
 	// One or more columns that are not part of the primary key - that is, columns that are *not* defined as partition key columns or clustering key columns.
 	//
 	// You can add regular columns to existing tables by adding them to the template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+	//
 	RegularColumns interface{} `field:"optional" json:"regularColumns" yaml:"regularColumns"`
 	// The name of the table to be created.
 	//
@@ -123,10 +143,14 @@ type CfnTableProps struct {
 	// *Length constraints:* Minimum length of 3. Maximum length of 255.
 	//
 	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+	//
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

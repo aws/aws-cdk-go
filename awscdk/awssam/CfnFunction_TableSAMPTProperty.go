@@ -10,8 +10,11 @@ package awssam
 //   	TableName: jsii.String("tableName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-tablesampt.html
+//
 type CfnFunction_TableSAMPTProperty struct {
-	// `CfnFunction.TableSAMPTProperty.TableName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-tablesampt.html#cfn-serverless-function-tablesampt-tablename
+	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 

@@ -13,12 +13,18 @@ package awscloudfront
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html
+//
 type CfnContinuousDeploymentPolicy_SingleHeaderConfigProperty struct {
 	// The request header name that you want CloudFront to send to your staging distribution.
 	//
 	// The header must contain the prefix `aws-cf-cd-` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html#cfn-cloudfront-continuousdeploymentpolicy-singleheaderconfig-header
+	//
 	Header *string `field:"required" json:"header" yaml:"header"`
 	// The request header value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html#cfn-cloudfront-continuousdeploymentpolicy-singleheaderconfig-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

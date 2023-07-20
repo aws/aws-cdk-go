@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnScheduledAudit) validateSetFrequencyParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnScheduledAudit) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnScheduledAudit) validateSetTargetCheckNamesParameters(val *[]*string) error {
 	return nil
 }

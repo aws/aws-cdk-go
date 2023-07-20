@@ -10,8 +10,11 @@ package awssam
 //   	LogGroupName: jsii.String("logGroupName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-loggroupsampt.html
+//
 type CfnFunction_LogGroupSAMPTProperty struct {
-	// `CfnFunction.LogGroupSAMPTProperty.LogGroupName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-loggroupsampt.html#cfn-serverless-function-loggroupsampt-loggroupname
+	//
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 }
 

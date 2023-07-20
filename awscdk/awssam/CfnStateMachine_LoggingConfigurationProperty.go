@@ -18,12 +18,17 @@ package awssam
 //   	Level: jsii.String("level"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-loggingconfiguration.html
+//
 type CfnStateMachine_LoggingConfigurationProperty struct {
-	// `CfnStateMachine.LoggingConfigurationProperty.Destinations`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-loggingconfiguration.html#cfn-serverless-statemachine-loggingconfiguration-destinations
+	//
 	Destinations interface{} `field:"required" json:"destinations" yaml:"destinations"`
-	// `CfnStateMachine.LoggingConfigurationProperty.IncludeExecutionData`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-loggingconfiguration.html#cfn-serverless-statemachine-loggingconfiguration-includeexecutiondata
+	//
 	IncludeExecutionData interface{} `field:"required" json:"includeExecutionData" yaml:"includeExecutionData"`
-	// `CfnStateMachine.LoggingConfigurationProperty.Level`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-loggingconfiguration.html#cfn-serverless-statemachine-loggingconfiguration-level
+	//
 	Level *string `field:"required" json:"level" yaml:"level"`
 }
 

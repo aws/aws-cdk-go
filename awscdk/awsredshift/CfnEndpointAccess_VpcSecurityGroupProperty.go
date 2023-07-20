@@ -13,10 +13,16 @@ package awsredshift
 //   	VpcSecurityGroupId: jsii.String("vpcSecurityGroupId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html
+//
 type CfnEndpointAccess_VpcSecurityGroupProperty struct {
 	// The status of the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// The identifier of the VPC security group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-vpcsecuritygroupid
+	//
 	VpcSecurityGroupId *string `field:"optional" json:"vpcSecurityGroupId" yaml:"vpcSecurityGroupId"`
 }
 

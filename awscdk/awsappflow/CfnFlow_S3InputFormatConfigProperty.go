@@ -12,8 +12,12 @@ package awsappflow
 //   	S3InputFileType: jsii.String("s3InputFileType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3inputformatconfig.html
+//
 type CfnFlow_S3InputFormatConfigProperty struct {
 	// The file type that Amazon AppFlow gets from your Amazon S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3inputformatconfig.html#cfn-appflow-flow-s3inputformatconfig-s3inputfiletype
+	//
 	S3InputFileType *string `field:"optional" json:"s3InputFileType" yaml:"s3InputFileType"`
 }
 

@@ -28,10 +28,16 @@ package awsiotanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html
+//
 type CfnDatastore_FileFormatConfigurationProperty struct {
 	// Contains the configuration information of the JSON format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html#cfn-iotanalytics-datastore-fileformatconfiguration-jsonconfiguration
+	//
 	JsonConfiguration interface{} `field:"optional" json:"jsonConfiguration" yaml:"jsonConfiguration"`
 	// Contains the configuration information of the Parquet format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html#cfn-iotanalytics-datastore-fileformatconfiguration-parquetconfiguration
+	//
 	ParquetConfiguration interface{} `field:"optional" json:"parquetConfiguration" yaml:"parquetConfiguration"`
 }
 

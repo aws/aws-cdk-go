@@ -38,18 +38,26 @@ package awsconnect
 //   	DisplayAs: jsii.String("displayAs"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionproperties.html
+//
 type CfnEvaluationForm_EvaluationFormSingleSelectQuestionPropertiesProperty struct {
 	// The answer options of the single select question.
 	//
 	// *Minimum* : 2
 	//
 	// *Maximum* : 256.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionproperties.html#cfn-connect-evaluationform-evaluationformsingleselectquestionproperties-options
+	//
 	Options interface{} `field:"required" json:"options" yaml:"options"`
 	// The display mode of the single select question.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionproperties.html#cfn-connect-evaluationform-evaluationformsingleselectquestionproperties-automation
+	//
 	Automation interface{} `field:"optional" json:"automation" yaml:"automation"`
 	// The display mode of the single select question.
 	//
 	// *Allowed values* : `DROPDOWN` | `RADIO`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionproperties.html#cfn-connect-evaluationform-evaluationformsingleselectquestionproperties-displayas
+	//
 	DisplayAs *string `field:"optional" json:"displayAs" yaml:"displayAs"`
 }
 

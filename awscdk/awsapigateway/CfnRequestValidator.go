@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::RequestValidator`.
+// The `AWS::ApiGateway::RequestValidator` resource sets up basic validation rules for incoming requests to your API.
 //
-// The `AWS::ApiGateway::RequestValidator` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide* .
+// For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,6 +26,8 @@ import (
 //   	ValidateRequestBody: jsii.Boolean(false),
 //   	ValidateRequestParameters: jsii.Boolean(false),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
 //
 type CfnRequestValidator interface {
 	awscdk.CfnResource
@@ -373,7 +375,6 @@ func (j *jsiiProxy_CfnRequestValidator) ValidateRequestParameters() interface{} 
 }
 
 
-// Create a new `AWS::ApiGateway::RequestValidator`.
 func NewCfnRequestValidator(scope constructs.Construct, id *string, props *CfnRequestValidatorProps) CfnRequestValidator {
 	_init_.Initialize()
 
@@ -391,7 +392,6 @@ func NewCfnRequestValidator(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::RequestValidator`.
 func NewCfnRequestValidator_Override(c CfnRequestValidator, scope constructs.Construct, id *string, props *CfnRequestValidatorProps) {
 	_init_.Initialize()
 

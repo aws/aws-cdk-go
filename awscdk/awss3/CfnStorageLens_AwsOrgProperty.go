@@ -12,8 +12,12 @@ package awss3
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
+//
 type CfnStorageLens_AwsOrgProperty struct {
 	// This resource contains the ARN of the AWS Organization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 

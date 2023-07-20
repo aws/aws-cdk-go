@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Serverless::StateMachine`.
+// Definition of AWS::Serverless::StateMachine.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,7 +26,7 @@ import (
 //   	DefinitionUri: jsii.String("definitionUri"),
 //   	Events: map[string]interface{}{
 //   		"eventsKey": &EventSourceProperty{
-//   			"properties": &CloudWatchEventEventProperty{
+//   			"properties": &ApiEventProperty{
 //   				"method": jsii.String("method"),
 //   				"path": jsii.String("path"),
 //
@@ -60,9 +60,12 @@ import (
 //   	Type: jsii.String("type"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html
+//
 type CfnStateMachine interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -72,19 +75,14 @@ type CfnStateMachine interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Serverless::StateMachine.Definition`.
 	Definition() interface{}
 	SetDefinition(val interface{})
-	// `AWS::Serverless::StateMachine.DefinitionSubstitutions`.
 	DefinitionSubstitutions() interface{}
 	SetDefinitionSubstitutions(val interface{})
-	// `AWS::Serverless::StateMachine.DefinitionUri`.
 	DefinitionUri() interface{}
 	SetDefinitionUri(val interface{})
-	// `AWS::Serverless::StateMachine.Events`.
 	Events() interface{}
 	SetEvents(val interface{})
-	// `AWS::Serverless::StateMachine.Logging`.
 	Logging() interface{}
 	SetLogging(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -97,15 +95,12 @@ type CfnStateMachine interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Serverless::StateMachine.Name`.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Serverless::StateMachine.PermissionsBoundaries`.
 	PermissionsBoundaries() *string
 	SetPermissionsBoundaries(val *string)
-	// `AWS::Serverless::StateMachine.Policies`.
 	Policies() interface{}
 	SetPolicies(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -113,19 +108,18 @@ type CfnStateMachine interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Serverless::StateMachine.Role`.
 	Role() *string
 	SetRole(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Serverless::StateMachine.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// `AWS::Serverless::StateMachine.Tracing`.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	Tracing() interface{}
 	SetTracing(val interface{})
-	// `AWS::Serverless::StateMachine.Type`.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -272,6 +266,7 @@ type CfnStateMachine interface {
 type jsiiProxy_CfnStateMachine struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStateMachine) CfnOptions() awscdk.ICfnResourceOptions {
@@ -454,6 +449,16 @@ func (j *jsiiProxy_CfnStateMachine) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStateMachine) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStateMachine) Tracing() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -495,7 +500,6 @@ func (j *jsiiProxy_CfnStateMachine) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Serverless::StateMachine`.
 func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateMachineProps) CfnStateMachine {
 	_init_.Initialize()
 
@@ -513,7 +517,6 @@ func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateM
 	return &j
 }
 
-// Create a new `AWS::Serverless::StateMachine`.
 func NewCfnStateMachine_Override(c CfnStateMachine, scope constructs.Construct, id *string, props *CfnStateMachineProps) {
 	_init_.Initialize()
 
@@ -525,9 +528,6 @@ func NewCfnStateMachine_Override(c CfnStateMachine, scope constructs.Construct, 
 }
 
 func (j *jsiiProxy_CfnStateMachine)SetDefinition(val interface{}) {
-	if err := j.validateSetDefinitionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"definition",
@@ -610,6 +610,14 @@ func (j *jsiiProxy_CfnStateMachine)SetRole(val *string) {
 	_jsii_.Set(
 		j,
 		"role",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStateMachine)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

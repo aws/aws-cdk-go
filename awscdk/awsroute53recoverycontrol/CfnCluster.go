@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53RecoveryControl::Cluster`.
+// Creates a cluster in Amazon Route 53 Application Recovery Controller.
 //
-// Creates a cluster in Amazon Route 53 Application Recovery Controller. A cluster is a set of redundant Regional endpoints that you can run Route 53 ARC API calls against to update or get the state of one or more routing controls.
+// A cluster is a set of redundant Regional endpoints that you can run Route 53 ARC API calls against to update or get the state of one or more routing controls.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,9 +30,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the cluster.
 	AttrClusterArn() *string
 	// An array of endpoints for the cluster.
@@ -63,8 +66,6 @@ type CfnCluster interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Name of the cluster.
-	//
-	// You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon).
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -78,8 +79,11 @@ type CfnCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The value for a tag.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The value for a tag.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,6 +228,7 @@ type CfnCluster interface {
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCluster) AttrClusterArn() *string {
@@ -356,6 +361,16 @@ func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -377,7 +392,6 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Route53RecoveryControl::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -395,7 +409,6 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
-// Create a new `AWS::Route53RecoveryControl::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -413,6 +426,17 @@ func (j *jsiiProxy_CfnCluster)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

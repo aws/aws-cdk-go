@@ -15,10 +15,16 @@ package awsvpclattice
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatchtype.html
+//
 type CfnRule_PathMatchTypeProperty struct {
 	// An exact match of the path.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatchtype.html#cfn-vpclattice-rule-pathmatchtype-exact
+	//
 	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// A prefix match of the path.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatchtype.html#cfn-vpclattice-rule-pathmatchtype-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

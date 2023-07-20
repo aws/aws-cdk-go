@@ -229,14 +229,24 @@ package awsinspectorv2
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html
+//
 type CfnFilterProps struct {
 	// The action that is to be applied to the findings that match the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-filteraction
+	//
 	FilterAction *string `field:"required" json:"filterAction" yaml:"filterAction"`
 	// Details on the filter criteria associated with this filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-filtercriteria
+	//
 	FilterCriteria interface{} `field:"required" json:"filterCriteria" yaml:"filterCriteria"`
 	// The name of the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

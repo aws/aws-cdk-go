@@ -14,8 +14,12 @@ package awsrekognition
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-kinesisvideostream.html
+//
 type CfnStreamProcessor_KinesisVideoStreamProperty struct {
 	// ARN of the Kinesis video stream stream that streams the source video.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-kinesisvideostream.html#cfn-rekognition-streamprocessor-kinesisvideostream-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 

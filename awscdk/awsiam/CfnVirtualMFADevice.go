@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IAM::VirtualMFADevice`.
+// Creates a new virtual MFA device for the AWS account .
 //
-// Creates a new virtual MFA device for the AWS account . After creating the virtual MFA, use [EnableMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html) to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, see [Using a virtual MFA device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html) in the *IAM User Guide* .
+// After creating the virtual MFA, use [EnableMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html) to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, see [Using a virtual MFA device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html) in the *IAM User Guide* .
 //
 // For information about the maximum number of MFA devices you can create, see [IAM and AWS STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide* .
 //
@@ -38,9 +38,12 @@ import (
 //   	VirtualMfaDeviceName: jsii.String("virtualMfaDeviceName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html
+//
 type CfnVirtualMFADevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
 	AttrSerialNumber() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -65,12 +68,6 @@ type CfnVirtualMFADevice interface {
 	// The tree node.
 	Node() constructs.Node
 	// The path for the virtual MFA device.
-	//
-	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
-	//
-	// This parameter is optional. If it is not included, it defaults to a slash (/).
-	//
-	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
 	Path() *string
 	SetPath(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -82,12 +79,11 @@ type CfnVirtualMFADevice interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags that you want to attach to the new IAM virtual MFA device.
-	//
-	// Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
-	//
-	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags that you want to attach to the new IAM virtual MFA device.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -105,10 +101,6 @@ type CfnVirtualMFADevice interface {
 	Users() *[]*string
 	SetUsers(val *[]*string)
 	// The name of the virtual MFA device, which must be unique.
-	//
-	// Use with path to uniquely identify a virtual MFA device.
-	//
-	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	VirtualMfaDeviceName() *string
 	SetVirtualMfaDeviceName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -242,6 +234,7 @@ type CfnVirtualMFADevice interface {
 type jsiiProxy_CfnVirtualMFADevice struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVirtualMFADevice) AttrSerialNumber() *string {
@@ -354,6 +347,16 @@ func (j *jsiiProxy_CfnVirtualMFADevice) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVirtualMFADevice) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVirtualMFADevice) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -395,7 +398,6 @@ func (j *jsiiProxy_CfnVirtualMFADevice) VirtualMfaDeviceName() *string {
 }
 
 
-// Create a new `AWS::IAM::VirtualMFADevice`.
 func NewCfnVirtualMFADevice(scope constructs.Construct, id *string, props *CfnVirtualMFADeviceProps) CfnVirtualMFADevice {
 	_init_.Initialize()
 
@@ -413,7 +415,6 @@ func NewCfnVirtualMFADevice(scope constructs.Construct, id *string, props *CfnVi
 	return &j
 }
 
-// Create a new `AWS::IAM::VirtualMFADevice`.
 func NewCfnVirtualMFADevice_Override(c CfnVirtualMFADevice, scope constructs.Construct, id *string, props *CfnVirtualMFADeviceProps) {
 	_init_.Initialize()
 
@@ -428,6 +429,17 @@ func (j *jsiiProxy_CfnVirtualMFADevice)SetPath(val *string) {
 	_jsii_.Set(
 		j,
 		"path",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVirtualMFADevice)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

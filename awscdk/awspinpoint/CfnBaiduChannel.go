@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::BaiduChannel`.
+// A *channel* is a type of platform that you can deliver messages to.
 //
-// A *channel* is a type of platform that you can deliver messages to. You can use the Baidu channel to send notifications to the Baidu Cloud Push notification service. Before you can use Amazon Pinpoint to send notifications to the Baidu Cloud Push service, you have to enable the Baidu channel for an Amazon Pinpoint application.
+// You can use the Baidu channel to send notifications to the Baidu Cloud Push notification service. Before you can use Amazon Pinpoint to send notifications to the Baidu Cloud Push service, you have to enable the Baidu channel for an Amazon Pinpoint application.
 //
 // The BaiduChannel resource represents the status and authentication settings of the Baidu channel for an application.
 //
@@ -29,6 +29,8 @@ import (
 //   	Enabled: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-baiduchannel.html
+//
 type CfnBaiduChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -38,6 +40,7 @@ type CfnBaiduChannel interface {
 	// The unique identifier for the Amazon Pinpoint application that you're configuring the Baidu channel for.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -240,6 +243,16 @@ func (j *jsiiProxy_CfnBaiduChannel) ApplicationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBaiduChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBaiduChannel) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -361,7 +374,6 @@ func (j *jsiiProxy_CfnBaiduChannel) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Pinpoint::BaiduChannel`.
 func NewCfnBaiduChannel(scope constructs.Construct, id *string, props *CfnBaiduChannelProps) CfnBaiduChannel {
 	_init_.Initialize()
 
@@ -379,7 +391,6 @@ func NewCfnBaiduChannel(scope constructs.Construct, id *string, props *CfnBaiduC
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::BaiduChannel`.
 func NewCfnBaiduChannel_Override(c CfnBaiduChannel, scope constructs.Construct, id *string, props *CfnBaiduChannelProps) {
 	_init_.Initialize()
 

@@ -19,10 +19,14 @@ package awsmediaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeoutput.html
+//
 type CfnBridge_BridgeOutputProperty struct {
 	// The output of the bridge.
 	//
 	// A network output is delivered to your premises.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeoutput.html#cfn-mediaconnect-bridge-bridgeoutput-networkoutput
+	//
 	NetworkOutput interface{} `field:"optional" json:"networkOutput" yaml:"networkOutput"`
 }
 

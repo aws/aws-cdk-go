@@ -12,8 +12,12 @@ package awsappmesh
 //   	Exact: jsii.String("exact"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutepathrewrite.html
+//
 type CfnGatewayRoute_HttpGatewayRoutePathRewriteProperty struct {
 	// The exact path to rewrite.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutepathrewrite.html#cfn-appmesh-gatewayroute-httpgatewayroutepathrewrite-exact
+	//
 	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 }
 

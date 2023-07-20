@@ -12,8 +12,12 @@ package awslambda
 //   	Mode: jsii.String("mode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html
+//
 type CfnFunction_TracingConfigProperty struct {
 	// The tracing mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html#cfn-lambda-function-tracingconfig-mode
+	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 }
 

@@ -18,10 +18,16 @@ package awsopensearchservice
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindowoptions.html
+//
 type CfnDomain_OffPeakWindowOptionsProperty struct {
 	// Specifies whether off-peak window settings are enabled for the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindowoptions.html#cfn-opensearchservice-domain-offpeakwindowoptions-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Off-peak window settings for the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindowoptions.html#cfn-opensearchservice-domain-offpeakwindowoptions-offpeakwindow
+	//
 	OffPeakWindow interface{} `field:"optional" json:"offPeakWindow" yaml:"offPeakWindow"`
 }
 

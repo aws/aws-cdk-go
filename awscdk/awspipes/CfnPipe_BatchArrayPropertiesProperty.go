@@ -14,8 +14,12 @@ package awspipes
 //   	Size: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batcharrayproperties.html
+//
 type CfnPipe_BatchArrayPropertiesProperty struct {
 	// The size of the array, if this is an array batch job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batcharrayproperties.html#cfn-pipes-pipe-batcharrayproperties-size
+	//
 	Size *float64 `field:"optional" json:"size" yaml:"size"`
 }
 

@@ -13,10 +13,16 @@ package awsglue
 //   	Identifier: jsii.String("identifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-federateddatabase.html
+//
 type CfnDatabase_FederatedDatabaseProperty struct {
 	// The name of the connection to the external metastore.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-federateddatabase.html#cfn-glue-database-federateddatabase-connectionname
+	//
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// A unique identifier for the federated database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-federateddatabase.html#cfn-glue-database-federateddatabase-identifier
+	//
 	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 }
 

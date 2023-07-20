@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::IPAMPool`.
+// In IPAM, a pool is a collection of contiguous IP addresses CIDRs.
 //
-// In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.
+// Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,30 +52,25 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html
+//
 type CfnIPAMPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The address family of the pool.
 	AddressFamily() *string
 	SetAddressFamily(val *string)
 	// The default netmask length for allocations added to this pool.
-	//
-	// If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
 	AllocationDefaultNetmaskLength() *float64
 	SetAllocationDefaultNetmaskLength(val *float64)
 	// The maximum netmask length possible for CIDR allocations in this IPAM pool to be compliant.
-	//
-	// The maximum netmask length must be greater than the minimum netmask length. Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
 	AllocationMaxNetmaskLength() *float64
 	SetAllocationMaxNetmaskLength(val *float64)
 	// The minimum netmask length required for CIDR allocations in this IPAM pool to be compliant.
-	//
-	// The minimum netmask length must be less than the maximum netmask length. Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
 	AllocationMinNetmaskLength() *float64
 	SetAllocationMinNetmaskLength(val *float64)
 	// Tags that are required for resources that use CIDRs from this IPAM pool.
-	//
-	// Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
 	AllocationResourceTags() interface{}
 	SetAllocationResourceTags(val interface{})
 	// The ARN of the IPAM pool.
@@ -97,15 +92,9 @@ type CfnIPAMPool interface {
 	// A message related to the failed creation of an IPAM pool.
 	AttrStateMessage() *string
 	// If selected, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-	//
-	// The CIDRs that will be allocated for these resources must not already be allocated to other resources in order for the import to succeed. IPAM will import a CIDR regardless of its compliance with the pool's allocation rules, so a resource might be imported and subsequently marked as noncompliant. If IPAM discovers multiple CIDRs that overlap, IPAM will import the largest CIDR only. If IPAM discovers multiple CIDRs with matching CIDRs, IPAM will randomly import one of them only.
-	//
-	// A locale must be set on the pool for this feature to work.
 	AutoImport() interface{}
 	SetAutoImport(val interface{})
 	// Limits which service in AWS that the pool can be used in.
-	//
-	// "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
 	AwsService() *string
 	SetAwsService(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -124,8 +113,6 @@ type CfnIPAMPool interface {
 	IpamScopeId() *string
 	SetIpamScopeId(val *string)
 	// The locale of the IPAM pool.
-	//
-	// In IPAM, the locale is the AWS Region where you want to make an IPAM pool available for allocations. Only resources in the same Region as the locale of the pool can get IP address allocations from the pool. You can only allocate a CIDR for a VPC, for example, from an IPAM pool that shares a locale with the VPC’s Region. Note that once you choose a Locale for a pool, you cannot modify it. If you choose an AWS Region for locale that has not been configured as an operating Region for the IPAM, you'll get an error.
 	Locale() *string
 	SetLocale(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -144,13 +131,9 @@ type CfnIPAMPool interface {
 	ProvisionedCidrs() interface{}
 	SetProvisionedCidrs(val interface{})
 	// The IP address source for pools in the public scope.
-	//
-	// Only used for provisioning IP address CIDRs to pools in the public scope. Default is `BYOIP` . For more information, see [Create IPv6 pools](https://docs.aws.amazon.com//vpc/latest/ipam/intro-create-ipv6-pools.html) in the *Amazon VPC IPAM User Guide* . By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see [Quotas for your IPAM](https://docs.aws.amazon.com//vpc/latest/ipam/quotas-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	PublicIpSource() *string
 	SetPublicIpSource(val *string)
 	// Determines if a pool is publicly advertisable.
-	//
-	// This option is not available for pools with AddressFamily set to `ipv4` .
 	PubliclyAdvertisable() interface{}
 	SetPubliclyAdvertisable(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -159,18 +142,17 @@ type CfnIPAMPool interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ID of the source IPAM pool.
-	//
-	// You can use this option to create an IPAM pool within an existing source pool.
 	SourceIpamPoolId() *string
 	SetSourceIpamPoolId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The key/value combination of a tag assigned to the resource.
-	//
-	// Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key `Owner` and the value `TeamA` , specify `tag:Owner` for the filter name and `TeamA` for the filter value.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key/value combination of a tag assigned to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -315,6 +297,7 @@ type CfnIPAMPool interface {
 type jsiiProxy_CfnIPAMPool struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIPAMPool) AddressFamily() *string {
@@ -627,6 +610,16 @@ func (j *jsiiProxy_CfnIPAMPool) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAMPool) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAMPool) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -648,7 +641,6 @@ func (j *jsiiProxy_CfnIPAMPool) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::IPAMPool`.
 func NewCfnIPAMPool(scope constructs.Construct, id *string, props *CfnIPAMPoolProps) CfnIPAMPool {
 	_init_.Initialize()
 
@@ -666,7 +658,6 @@ func NewCfnIPAMPool(scope constructs.Construct, id *string, props *CfnIPAMPoolPr
 	return &j
 }
 
-// Create a new `AWS::EC2::IPAMPool`.
 func NewCfnIPAMPool_Override(c CfnIPAMPool, scope constructs.Construct, id *string, props *CfnIPAMPoolProps) {
 	_init_.Initialize()
 
@@ -803,6 +794,17 @@ func (j *jsiiProxy_CfnIPAMPool)SetSourceIpamPoolId(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceIpamPoolId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAMPool)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

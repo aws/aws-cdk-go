@@ -86,52 +86,77 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html
+//
 type CfnApiProps struct {
-	// `AWS::Serverless::Api.StageName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-stagename
+	//
 	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
-	// `AWS::Serverless::Api.AccessLogSetting`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-accesslogsetting
+	//
 	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
-	// `AWS::Serverless::Api.Auth`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-auth
+	//
 	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
-	// `AWS::Serverless::Api.BinaryMediaTypes`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-binarymediatypes
+	//
 	BinaryMediaTypes *[]*string `field:"optional" json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
-	// `AWS::Serverless::Api.CacheClusterEnabled`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-cacheclusterenabled
+	//
 	CacheClusterEnabled interface{} `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
-	// `AWS::Serverless::Api.CacheClusterSize`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-cacheclustersize
+	//
 	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
-	// `AWS::Serverless::Api.CanarySetting`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-canarysetting
+	//
 	CanarySetting interface{} `field:"optional" json:"canarySetting" yaml:"canarySetting"`
-	// `AWS::Serverless::Api.Cors`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-cors
+	//
 	Cors interface{} `field:"optional" json:"cors" yaml:"cors"`
-	// `AWS::Serverless::Api.DefinitionBody`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-definitionbody
+	//
 	DefinitionBody interface{} `field:"optional" json:"definitionBody" yaml:"definitionBody"`
-	// `AWS::Serverless::Api.DefinitionUri`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-definitionuri
+	//
 	DefinitionUri interface{} `field:"optional" json:"definitionUri" yaml:"definitionUri"`
-	// `AWS::Serverless::Api.Description`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Serverless::Api.DisableExecuteApiEndpoint`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-disableexecuteapiendpoint
+	//
 	DisableExecuteApiEndpoint interface{} `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
-	// `AWS::Serverless::Api.Domain`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-domain
+	//
 	Domain interface{} `field:"optional" json:"domain" yaml:"domain"`
-	// `AWS::Serverless::Api.EndpointConfiguration`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-endpointconfiguration
+	//
 	EndpointConfiguration interface{} `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
-	// `AWS::Serverless::Api.GatewayResponses`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-gatewayresponses
+	//
 	GatewayResponses interface{} `field:"optional" json:"gatewayResponses" yaml:"gatewayResponses"`
-	// `AWS::Serverless::Api.MethodSettings`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-methodsettings
+	//
 	MethodSettings interface{} `field:"optional" json:"methodSettings" yaml:"methodSettings"`
-	// `AWS::Serverless::Api.MinimumCompressionSize`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-minimumcompressionsize
+	//
 	MinimumCompressionSize *float64 `field:"optional" json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
-	// `AWS::Serverless::Api.Models`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-models
+	//
 	Models interface{} `field:"optional" json:"models" yaml:"models"`
-	// `AWS::Serverless::Api.Name`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::Serverless::Api.OpenApiVersion`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-openapiversion
+	//
 	OpenApiVersion *string `field:"optional" json:"openApiVersion" yaml:"openApiVersion"`
-	// `AWS::Serverless::Api.Tags`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::Serverless::Api.TracingEnabled`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-tracingenabled
+	//
 	TracingEnabled interface{} `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
-	// `AWS::Serverless::Api.Variables`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-variables
+	//
 	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 

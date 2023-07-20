@@ -125,32 +125,56 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
+//
 type CfnModelBiasJobDefinitionProps struct {
 	// Identifies the resources to deploy for a monitoring job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
+	//
 	JobResources interface{} `field:"required" json:"jobResources" yaml:"jobResources"`
 	// Configures the model bias job to run a specified Docker container image.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
+	//
 	ModelBiasAppSpecification interface{} `field:"required" json:"modelBiasAppSpecification" yaml:"modelBiasAppSpecification"`
 	// Inputs for the model bias job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
+	//
 	ModelBiasJobInput interface{} `field:"required" json:"modelBiasJobInput" yaml:"modelBiasJobInput"`
 	// The output configuration for monitoring jobs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
+	//
 	ModelBiasJobOutputConfig interface{} `field:"required" json:"modelBiasJobOutputConfig" yaml:"modelBiasJobOutputConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// `AWS::SageMaker::ModelBiasJobDefinition.EndpointName`.
+	// The name of the endpoint used to run the monitoring job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-endpointname
+	//
 	EndpointName *string `field:"optional" json:"endpointName" yaml:"endpointName"`
 	// The name of the bias job definition.
 	//
 	// The name must be unique within an AWS Region in the AWS account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
+	//
 	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// The baseline configuration for a model bias job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
+	//
 	ModelBiasBaselineConfig interface{} `field:"optional" json:"modelBiasBaselineConfig" yaml:"modelBiasBaselineConfig"`
 	// Networking options for a model bias job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
+	//
 	NetworkConfig interface{} `field:"optional" json:"networkConfig" yaml:"networkConfig"`
 	// A time limit for how long the monitoring job is allowed to run before stopping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
+	//
 	StoppingCondition interface{} `field:"optional" json:"stoppingCondition" yaml:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -15,10 +15,16 @@ package awsssm
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html
+//
 type CfnMaintenanceWindowTask_MaintenanceWindowStepFunctionsParametersProperty struct {
 	// The inputs for the `STEP_FUNCTIONS` task.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
+	//
 	Input *string `field:"optional" json:"input" yaml:"input"`
 	// The name of the `STEP_FUNCTIONS` task.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

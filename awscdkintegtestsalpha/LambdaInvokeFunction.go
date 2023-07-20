@@ -44,6 +44,10 @@ type LambdaInvokeFunction interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// Experimental.
+	OutputPaths() *[]*string
+	// Experimental.
+	SetOutputPaths(val *[]*string)
 	// access the AssertionsProvider.
 	//
 	// This can be used to add additional IAM policies
@@ -157,6 +161,16 @@ func (j *jsiiProxy_LambdaInvokeFunction) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_LambdaInvokeFunction) OutputPaths() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"outputPaths",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_LambdaInvokeFunction) Provider() AssertionsProvider {
 	var returns AssertionsProvider
 	_jsii_.Get(
@@ -232,6 +246,14 @@ func (j *jsiiProxy_LambdaInvokeFunction)SetFlattenResponse(val *string) {
 	_jsii_.Set(
 		j,
 		"flattenResponse",
+		val,
+	)
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction)SetOutputPaths(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"outputPaths",
 		val,
 	)
 }

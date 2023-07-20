@@ -80,6 +80,10 @@ func validateCfnObservabilityConfiguration_IsConstructParameters(x interface{}) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnObservabilityConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnObservabilityConfiguration) validateSetTraceConfigurationParameters(val interface{}) error {
 	return nil
 }

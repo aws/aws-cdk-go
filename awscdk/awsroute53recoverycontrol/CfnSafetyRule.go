@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53RecoveryControl::SafetyRule`.
+// Creates a safety rule in a control panel in Amazon Route 53 Application Recovery Controller.
 //
-// Creates a safety rule in a control panel in Amazon Route 53 Application Recovery Controller. Safety rules in Amazon Route 53 Application Recovery Controller let you add safeguards around changing routing control states, and enabling and disabling routing controls, to help prevent unwanted outcomes. Note that the name of a safety rule must be unique within a control panel.
+// Safety rules in Amazon Route 53 Application Recovery Controller let you add safeguards around changing routing control states, and enabling and disabling routing controls, to help prevent unwanted outcomes. Note that the name of a safety rule must be unique within a control panel.
 //
 // There are two types of safety rules in Route 53 ARC: assertion rules and gating rules.
 //
@@ -59,12 +59,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html
+//
 type CfnSafetyRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met.
-	//
-	// Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
 	AssertionRule() interface{}
 	SetAssertionRule(val interface{})
 	// The Amazon Resource Name (ARN) of the safety rule.
@@ -86,8 +87,6 @@ type CfnSafetyRule interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
-	//
-	// For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
 	GatingRule() interface{}
 	SetGatingRule(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -101,8 +100,6 @@ type CfnSafetyRule interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the assertion rule.
-	//
-	// The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -113,16 +110,17 @@ type CfnSafetyRule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction.
-	//
-	// For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
 	RuleConfig() interface{}
 	SetRuleConfig(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The value for a tag.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The value for a tag.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -267,6 +265,7 @@ type CfnSafetyRule interface {
 type jsiiProxy_CfnSafetyRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSafetyRule) AssertionRule() interface{} {
@@ -429,6 +428,16 @@ func (j *jsiiProxy_CfnSafetyRule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSafetyRule) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSafetyRule) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -450,7 +459,6 @@ func (j *jsiiProxy_CfnSafetyRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Route53RecoveryControl::SafetyRule`.
 func NewCfnSafetyRule(scope constructs.Construct, id *string, props *CfnSafetyRuleProps) CfnSafetyRule {
 	_init_.Initialize()
 
@@ -468,7 +476,6 @@ func NewCfnSafetyRule(scope constructs.Construct, id *string, props *CfnSafetyRu
 	return &j
 }
 
-// Create a new `AWS::Route53RecoveryControl::SafetyRule`.
 func NewCfnSafetyRule_Override(c CfnSafetyRule, scope constructs.Construct, id *string, props *CfnSafetyRuleProps) {
 	_init_.Initialize()
 
@@ -530,6 +537,17 @@ func (j *jsiiProxy_CfnSafetyRule)SetRuleConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"ruleConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSafetyRule)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

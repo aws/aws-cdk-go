@@ -8,20 +8,14 @@ package awssagemaker
 //
 //   pipelineDefinitionProperty := &PipelineDefinitionProperty{
 //   	PipelineDefinitionBody: jsii.String("pipelineDefinitionBody"),
-//   	PipelineDefinitionS3Location: &S3LocationProperty{
-//   		Bucket: jsii.String("bucket"),
-//   		Key: jsii.String("key"),
-//
-//   		// the properties below are optional
-//   		ETag: jsii.String("eTag"),
-//   		Version: jsii.String("version"),
-//   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html
+//
 type CfnPipeline_PipelineDefinitionProperty struct {
-	// `CfnPipeline.PipelineDefinitionProperty.PipelineDefinitionBody`.
-	PipelineDefinitionBody *string `field:"optional" json:"pipelineDefinitionBody" yaml:"pipelineDefinitionBody"`
-	// `CfnPipeline.PipelineDefinitionProperty.PipelineDefinitionS3Location`.
-	PipelineDefinitionS3Location interface{} `field:"optional" json:"pipelineDefinitionS3Location" yaml:"pipelineDefinitionS3Location"`
+	// A specification that defines the pipeline in JSON format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html#cfn-sagemaker-pipeline-pipelinedefinition-pipelinedefinitionbody
+	//
+	PipelineDefinitionBody *string `field:"required" json:"pipelineDefinitionBody" yaml:"pipelineDefinitionBody"`
 }
 

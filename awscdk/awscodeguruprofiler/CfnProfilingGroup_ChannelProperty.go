@@ -17,10 +17,16 @@ package awscodeguruprofiler
 //   	ChannelId: jsii.String("channelId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
+//
 type CfnProfilingGroup_ChannelProperty struct {
 	// The channel URI.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
+	//
 	ChannelUri *string `field:"required" json:"channelUri" yaml:"channelUri"`
 	// The channel ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
+	//
 	ChannelId *string `field:"optional" json:"channelId" yaml:"channelId"`
 }
 

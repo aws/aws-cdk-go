@@ -15,14 +15,20 @@ package awsemr
 //   	MinCapacity: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scalingconstraints.html
+//
 type CfnCluster_ScalingConstraintsProperty struct {
 	// The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow.
 	//
 	// Scale-out activities will not add instances beyond this boundary.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scalingconstraints.html#cfn-emr-cluster-scalingconstraints-maxcapacity
+	//
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink.
 	//
 	// Scale-in activities will not terminate instances below this boundary.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scalingconstraints.html#cfn-emr-cluster-scalingconstraints-mincapacity
+	//
 	MinCapacity *float64 `field:"required" json:"minCapacity" yaml:"minCapacity"`
 }
 

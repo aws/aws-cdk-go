@@ -21,6 +21,8 @@ package awsgrafana
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-vpcconfiguration.html
+//
 type CfnWorkspace_VpcConfigurationProperty struct {
 	// The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
 	//
@@ -29,6 +31,8 @@ type CfnWorkspace_VpcConfigurationProperty struct {
 	// *Array Members* : Minimum number of 1 items. Maximum number of 5 items.
 	//
 	// *Length* : Minimum length of 0. Maximum length of 255.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-vpcconfiguration.html#cfn-grafana-workspace-vpcconfiguration-securitygroupids
+	//
 	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
 	//
@@ -37,6 +41,8 @@ type CfnWorkspace_VpcConfigurationProperty struct {
 	// *Array Members* : Minimum number of 2 items. Maximum number of 6 items.
 	//
 	// *Length* : Minimum length of 0. Maximum length of 255.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-vpcconfiguration.html#cfn-grafana-workspace-vpcconfiguration-subnetids
+	//
 	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 }
 

@@ -15,8 +15,11 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-destinationconfig.html
+//
 type CfnFunction_DestinationConfigProperty struct {
-	// `CfnFunction.DestinationConfigProperty.OnFailure`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-destinationconfig.html#cfn-serverless-function-destinationconfig-onfailure
+	//
 	OnFailure interface{} `field:"required" json:"onFailure" yaml:"onFailure"`
 }
 

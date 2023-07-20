@@ -93,36 +93,62 @@ package awskafkaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html
+//
 type CfnConnectorProps struct {
 	// The connector's compute capacity settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-capacity
+	//
 	Capacity interface{} `field:"required" json:"capacity" yaml:"capacity"`
 	// The configuration of the connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorconfiguration
+	//
 	ConnectorConfiguration interface{} `field:"required" json:"connectorConfiguration" yaml:"connectorConfiguration"`
 	// The name of the connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorname
+	//
 	ConnectorName *string `field:"required" json:"connectorName" yaml:"connectorName"`
 	// The details of the Apache Kafka cluster to which the connector is connected.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkacluster
+	//
 	KafkaCluster interface{} `field:"required" json:"kafkaCluster" yaml:"kafkaCluster"`
 	// The type of client authentication used to connect to the Apache Kafka cluster.
 	//
 	// The value is NONE when no client authentication is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterclientauthentication
+	//
 	KafkaClusterClientAuthentication interface{} `field:"required" json:"kafkaClusterClientAuthentication" yaml:"kafkaClusterClientAuthentication"`
 	// Details of encryption in transit to the Apache Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit
+	//
 	KafkaClusterEncryptionInTransit interface{} `field:"required" json:"kafkaClusterEncryptionInTransit" yaml:"kafkaClusterEncryptionInTransit"`
 	// The version of Kafka Connect.
 	//
 	// It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaconnectversion
+	//
 	KafkaConnectVersion *string `field:"required" json:"kafkaConnectVersion" yaml:"kafkaConnectVersion"`
 	// Specifies which plugin to use for the connector.
 	//
 	// You must specify a single-element list. Amazon MSK Connect does not currently support specifying multiple plugins.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-plugins
+	//
 	Plugins interface{} `field:"required" json:"plugins" yaml:"plugins"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon Web Services resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-serviceexecutionrolearn
+	//
 	ServiceExecutionRoleArn *string `field:"required" json:"serviceExecutionRoleArn" yaml:"serviceExecutionRoleArn"`
 	// The description of the connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectordescription
+	//
 	ConnectorDescription *string `field:"optional" json:"connectorDescription" yaml:"connectorDescription"`
 	// The settings for delivering connector logs to Amazon CloudWatch Logs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-logdelivery
+	//
 	LogDelivery interface{} `field:"optional" json:"logDelivery" yaml:"logDelivery"`
 	// The worker configurations that are in use with the connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-workerconfiguration
+	//
 	WorkerConfiguration interface{} `field:"optional" json:"workerConfiguration" yaml:"workerConfiguration"`
 }
 

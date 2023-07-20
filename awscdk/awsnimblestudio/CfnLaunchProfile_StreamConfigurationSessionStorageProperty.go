@@ -20,12 +20,18 @@ package awsnimblestudio
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfigurationsessionstorage.html
+//
 type CfnLaunchProfile_StreamConfigurationSessionStorageProperty struct {
 	// Allows artists to upload files to their workstations.
 	//
 	// The only valid option is `UPLOAD` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfigurationsessionstorage.html#cfn-nimblestudio-launchprofile-streamconfigurationsessionstorage-mode
+	//
 	Mode *[]*string `field:"required" json:"mode" yaml:"mode"`
 	// The configuration for the upload storage root of the streaming session.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfigurationsessionstorage.html#cfn-nimblestudio-launchprofile-streamconfigurationsessionstorage-root
+	//
 	Root interface{} `field:"optional" json:"root" yaml:"root"`
 }
 

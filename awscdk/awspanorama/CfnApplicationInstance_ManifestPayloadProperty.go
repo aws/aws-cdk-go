@@ -14,8 +14,12 @@ package awspanorama
 //   	PayloadData: jsii.String("payloadData"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestpayload.html
+//
 type CfnApplicationInstance_ManifestPayloadProperty struct {
 	// The application manifest.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestpayload.html#cfn-panorama-applicationinstance-manifestpayload-payloaddata
+	//
 	PayloadData *string `field:"optional" json:"payloadData" yaml:"payloadData"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CertificateManager::Certificate`.
+// The `AWS::CertificateManager::Certificate` resource requests an AWS Certificate Manager ( ACM ) certificate that you can use to enable secure connections.
 //
-// The `AWS::CertificateManager::Certificate` resource requests an AWS Certificate Manager ( ACM ) certificate that you can use to enable secure connections. For example, you can deploy an ACM certificate to an Elastic Load Balancer to enable HTTPS support. For more information, see [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) in the AWS Certificate Manager API Reference.
+// For example, you can deploy an ACM certificate to an Elastic Load Balancer to enable HTTPS support. For more information, see [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) in the AWS Certificate Manager API Reference.
 //
 // > When you use the `AWS::CertificateManager::Certificate` resource in a CloudFormation stack, domain validation is handled automatically if all three of the following are true: The certificate domain is hosted in Amazon Route 53, the domain resides in your AWS account , and you are using DNS validation.
 // >
@@ -49,21 +49,19 @@ import (
 //   	ValidationMethod: jsii.String("validationMethod"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
+//
 type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate.
-	//
-	// If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the [AWS Private Certificate Authority](https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html) user guide. The ARN must have the following form:
-	//
-	// `arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012`.
 	CertificateAuthorityArn() *string
 	SetCertificateAuthorityArn(val *string)
-	// You can opt out of certificate transparency logging by specifying the `DISABLED` option. Opt in by specifying `ENABLED` .
+	// You can opt out of certificate transparency logging by specifying the `DISABLED` option.
 	//
-	// If you do not specify a certificate transparency logging preference on a new CloudFormation template, or if you remove the logging preference from an existing template, this is the same as explicitly enabling the preference.
-	//
-	// Changing the certificate transparency logging preference will update the existing resource by calling `UpdateCertificateOptions` on the certificate. This action will not create a new resource.
+	// Opt in by specifying `ENABLED` .
 	CertificateTransparencyLoggingPreference() *string
 	SetCertificateTransparencyLoggingPreference(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -79,8 +77,6 @@ type CfnCertificate interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// Domain information that domain name registrars use to verify your identity.
-	//
-	// > In order for a AWS::CertificateManager::Certificate to be provisioned and validated in CloudFormation automatically, the `DomainName` property needs to be identical to one of the `DomainName` property supplied in DomainValidationOptions, if the ValidationMethod is **DNS**. Failing to keep them like-for-like will result in failure to create the domain validation records in Route53.
 	DomainValidationOptions() interface{}
 	SetDomainValidationOptions(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -105,12 +101,13 @@ type CfnCertificate interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
-	//
-	// For example, you can add www.example.net to a certificate for which the `DomainName` field is www.example.com if users can reach your site by using either name.
 	SubjectAlternativeNames() *[]*string
 	SetSubjectAlternativeNames(val *[]*string)
-	// Key-value pairs that can identify the certificate.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs that can identify the certificate.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -125,10 +122,6 @@ type CfnCertificate interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The method you want to use to validate that you own or control the domain associated with a public certificate.
-	//
-	// You can [validate with DNS](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html) or [validate with email](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html) . We recommend that you use DNS validation.
-	//
-	// If not specified, this property defaults to email validation.
 	ValidationMethod() *string
 	SetValidationMethod(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -262,6 +255,17 @@ type CfnCertificate interface {
 type jsiiProxy_CfnCertificate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnCertificate) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCertificate) CertificateAuthorityArn() *string {
@@ -404,6 +408,16 @@ func (j *jsiiProxy_CfnCertificate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCertificate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCertificate) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -435,7 +449,6 @@ func (j *jsiiProxy_CfnCertificate) ValidationMethod() *string {
 }
 
 
-// Create a new `AWS::CertificateManager::Certificate`.
 func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
@@ -453,7 +466,6 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 	return &j
 }
 
-// Create a new `AWS::CertificateManager::Certificate`.
 func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 
@@ -506,6 +518,17 @@ func (j *jsiiProxy_CfnCertificate)SetSubjectAlternativeNames(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subjectAlternativeNames",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCertificate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

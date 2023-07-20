@@ -33,10 +33,16 @@ package awsquicksight
 //   	Target: jsii.String("target"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldlinkconfiguration.html
+//
 type CfnTemplate_TableFieldLinkConfigurationProperty struct {
 	// The URL content (text, icon) for the table link configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldlinkconfiguration.html#cfn-quicksight-template-tablefieldlinkconfiguration-content
+	//
 	Content interface{} `field:"required" json:"content" yaml:"content"`
 	// The URL target (new tab, new window, same tab) for the table link configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldlinkconfiguration.html#cfn-quicksight-template-tablefieldlinkconfiguration-target
+	//
 	Target *string `field:"required" json:"target" yaml:"target"`
 }
 

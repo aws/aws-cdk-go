@@ -12,8 +12,12 @@ package awsappflow
 //   	Object: jsii.String("object"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html
+//
 type CfnFlow_SingularSourcePropertiesProperty struct {
 	// The object specified in the Singular flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html#cfn-appflow-flow-singularsourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 }
 

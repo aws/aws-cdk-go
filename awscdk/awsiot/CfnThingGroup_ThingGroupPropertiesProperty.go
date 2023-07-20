@@ -17,10 +17,16 @@ package awsiot
 //   	ThingGroupDescription: jsii.String("thingGroupDescription"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-thinggroupproperties.html
+//
 type CfnThingGroup_ThingGroupPropertiesProperty struct {
 	// The thing group attributes in JSON format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-thinggroupproperties.html#cfn-iot-thinggroup-thinggroupproperties-attributepayload
+	//
 	AttributePayload interface{} `field:"optional" json:"attributePayload" yaml:"attributePayload"`
 	// The thing group description.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-thinggroupproperties.html#cfn-iot-thinggroup-thinggroupproperties-thinggroupdescription
+	//
 	ThingGroupDescription *string `field:"optional" json:"thingGroupDescription" yaml:"thingGroupDescription"`
 }
 

@@ -12,8 +12,12 @@ package awsdatabrew
 //   	Delimiter: jsii.String("delimiter"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html
+//
 type CfnJob_CsvOutputOptionsProperty struct {
 	// A single character that specifies the delimiter used to create CSV job output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
+	//
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 }
 

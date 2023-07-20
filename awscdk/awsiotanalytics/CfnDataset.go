@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTAnalytics::Dataset`.
+// The AWS::IoTAnalytics::Dataset resource stores data retrieved from a data store by applying a `queryAction` (an SQL query) or a `containerAction` (executing a containerized application).
 //
-// The AWS::IoTAnalytics::Dataset resource stores data retrieved from a data store by applying a `queryAction` (an SQL query) or a `containerAction` (executing a containerized application). The data set can be populated manually by calling `CreateDatasetContent` or automatically according to a `trigger` you specify. For more information, see [How to Use AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how) in the *AWS IoT Analytics User Guide* .
+// The data set can be populated manually by calling `CreateDatasetContent` or automatically according to a `trigger` you specify. For more information, see [How to Use AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how) in the *AWS IoT Analytics User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -129,9 +129,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html
+//
 type CfnDataset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The `DatasetAction` objects that automatically create the dataset contents.
 	Actions() interface{}
 	SetActions(val interface{})
@@ -152,8 +155,6 @@ type CfnDataset interface {
 	DatasetName() *string
 	SetDatasetName(val *string)
 	// A list of data rules that send notifications to CloudWatch, when data arrives late.
-	//
-	// To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
 	LateDataRules() interface{}
 	SetLateDataRules(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -174,18 +175,17 @@ type CfnDataset interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Optional.
-	//
-	// How long, in days, message data is kept for the dataset.
 	RetentionPeriod() interface{}
 	SetRetentionPeriod(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata which can be used to manage the data set.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata which can be used to manage the data set.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The `DatasetTrigger` objects that specify when the dataset is automatically updated.
 	Triggers() interface{}
 	SetTriggers(val interface{})
@@ -203,8 +203,6 @@ type CfnDataset interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Optional.
-	//
-	// How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
 	VersioningConfiguration() interface{}
 	SetVersioningConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -338,6 +336,7 @@ type CfnDataset interface {
 type jsiiProxy_CfnDataset struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDataset) Actions() interface{} {
@@ -490,6 +489,16 @@ func (j *jsiiProxy_CfnDataset) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataset) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataset) Triggers() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -531,7 +540,6 @@ func (j *jsiiProxy_CfnDataset) VersioningConfiguration() interface{} {
 }
 
 
-// Create a new `AWS::IoTAnalytics::Dataset`.
 func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProps) CfnDataset {
 	_init_.Initialize()
 
@@ -549,7 +557,6 @@ func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProp
 	return &j
 }
 
-// Create a new `AWS::IoTAnalytics::Dataset`.
 func NewCfnDataset_Override(c CfnDataset, scope constructs.Construct, id *string, props *CfnDatasetProps) {
 	_init_.Initialize()
 
@@ -608,6 +615,17 @@ func (j *jsiiProxy_CfnDataset)SetRetentionPeriod(val interface{}) {
 	_jsii_.Set(
 		j,
 		"retentionPeriod",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataset)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

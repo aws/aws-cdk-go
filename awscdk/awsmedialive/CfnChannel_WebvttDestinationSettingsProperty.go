@@ -14,10 +14,14 @@ package awsmedialive
 //   	StyleControl: jsii.String("styleControl"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-webvttdestinationsettings.html
+//
 type CfnChannel_WebvttDestinationSettingsProperty struct {
 	// Controls whether the color and position of the source captions is passed through to the WebVTT output captions.
 	//
 	// PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO_STYLE_DATA - Don't pass through the style. The output captions will not contain any font styling information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-webvttdestinationsettings.html#cfn-medialive-channel-webvttdestinationsettings-stylecontrol
+	//
 	StyleControl *string `field:"optional" json:"styleControl" yaml:"styleControl"`
 }
 

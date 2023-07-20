@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppSync::GraphQLApi`.
+// The `AWS::AppSync::GraphQLApi` resource creates a new AWS AppSync GraphQL API.
 //
-// The `AWS::AppSync::GraphQLApi` resource creates a new AWS AppSync GraphQL API. This is the top-level construct for your application. For more information, see [Quick Start](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html) in the *AWS AppSync Developer Guide* .
+// This is the top-level construct for your application. For more information, see [Quick Start](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html) in the *AWS AppSync Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -81,17 +81,16 @@ import (
 //   	XrayEnabled: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
+//
 type CfnGraphQLApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A list of additional authentication providers for the `GraphqlApi` API.
 	AdditionalAuthenticationProviders() interface{}
 	SetAdditionalAuthenticationProviders(val interface{})
 	// The value that indicates whether the GraphQL API is a standard API ( `GRAPHQL` ) or merged API ( `MERGED` ).
-	//
-	// The following values are valid:
-	//
-	// `GRAPHQL | MERGED`.
 	ApiType() *string
 	SetApiType(val *string)
 	// Unique AWS AppSync GraphQL API identifier.
@@ -102,6 +101,7 @@ type CfnGraphQLApi interface {
 	AttrGraphQlDns() *string
 	// The Endpoint URL of your GraphQL API.
 	AttrGraphQlUrl() *string
+	AttrId() *string
 	// The fully qualified domain name (FQDN) of the real-time endpoint URL of your GraphQL API.
 	AttrRealtimeDns() *string
 	// The GraphQL API real-time endpoint URL.
@@ -109,8 +109,6 @@ type CfnGraphQLApi interface {
 	// For more information, see [Discovering the real-time endpoint from the GraphQL endpoint](https://docs.aws.amazon.com/appsync/latest/devguide/real-time-websocket-client.html#handshake-details-to-establish-the-websocket-connection) .
 	AttrRealtimeUrl() *string
 	// Security configuration for your GraphQL API.
-	//
-	// For allowed values (such as `API_KEY` , `AWS_IAM` , `AMAZON_COGNITO_USER_POOLS` , `OPENID_CONNECT` , or `AWS_LAMBDA` ), see [Security](https://docs.aws.amazon.com/appsync/latest/devguide/security.html) in the *AWS AppSync Developer Guide* .
 	AuthenticationType() *string
 	SetAuthenticationType(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -123,8 +121,6 @@ type CfnGraphQLApi interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A `LambdaAuthorizerConfig` holds configuration on how to authorize AWS AppSync API access when using the `AWS_LAMBDA` authorizer mode.
-	//
-	// Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
 	LambdaAuthorizerConfig() interface{}
 	SetLambdaAuthorizerConfig(val interface{})
 	// The Amazon CloudWatch Logs configuration.
@@ -141,8 +137,6 @@ type CfnGraphQLApi interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The AWS Identity and Access Management service role ARN for a merged API.
-	//
-	// The AppSync service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to prompt the `AUTO_MERGE` to update the merged API endpoint with the source API changes automatically.
 	MergedApiExecutionRoleArn() *string
 	SetMergedApiExecutionRoleArn(val *string)
 	// The API name.
@@ -154,8 +148,6 @@ type CfnGraphQLApi interface {
 	OpenIdConnectConfig() interface{}
 	SetOpenIdConnectConfig(val interface{})
 	// The owner contact information for an API resource.
-	//
-	// This field accepts any string input with a length of 0 - 256 characters.
 	OwnerContact() *string
 	SetOwnerContact(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -167,8 +159,11 @@ type CfnGraphQLApi interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An arbitrary set of tags (key-value pairs) for this GraphQL API.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An arbitrary set of tags (key-value pairs) for this GraphQL API.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -186,8 +181,6 @@ type CfnGraphQLApi interface {
 	UserPoolConfig() interface{}
 	SetUserPoolConfig(val interface{})
 	// Sets the scope of the GraphQL API to public ( `GLOBAL` ) or private ( `PRIVATE` ).
-	//
-	// By default, the scope is set to `Global` if no value is provided.
 	Visibility() *string
 	SetVisibility(val *string)
 	// A flag indicating whether to use AWS X-Ray tracing for this `GraphqlApi` .
@@ -324,6 +317,7 @@ type CfnGraphQLApi interface {
 type jsiiProxy_CfnGraphQLApi struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnGraphQLApi) AdditionalAuthenticationProviders() interface{} {
@@ -381,6 +375,16 @@ func (j *jsiiProxy_CfnGraphQLApi) AttrGraphQlUrl() *string {
 	_jsii_.Get(
 		j,
 		"attrGraphQlUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraphQLApi) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -566,6 +570,16 @@ func (j *jsiiProxy_CfnGraphQLApi) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -617,7 +631,6 @@ func (j *jsiiProxy_CfnGraphQLApi) XrayEnabled() interface{} {
 }
 
 
-// Create a new `AWS::AppSync::GraphQLApi`.
 func NewCfnGraphQLApi(scope constructs.Construct, id *string, props *CfnGraphQLApiProps) CfnGraphQLApi {
 	_init_.Initialize()
 
@@ -635,7 +648,6 @@ func NewCfnGraphQLApi(scope constructs.Construct, id *string, props *CfnGraphQLA
 	return &j
 }
 
-// Create a new `AWS::AppSync::GraphQLApi`.
 func NewCfnGraphQLApi_Override(c CfnGraphQLApi, scope constructs.Construct, id *string, props *CfnGraphQLApiProps) {
 	_init_.Initialize()
 
@@ -732,6 +744,17 @@ func (j *jsiiProxy_CfnGraphQLApi)SetOwnerContact(val *string) {
 	_jsii_.Set(
 		j,
 		"ownerContact",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGraphQLApi)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

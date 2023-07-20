@@ -12,8 +12,12 @@ package awskinesisanalytics
 //   	ApplicationMaintenanceWindowStartTime: jsii.String("applicationMaintenanceWindowStartTime"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationmaintenanceconfiguration.html
+//
 type CfnApplicationV2_ApplicationMaintenanceConfigurationProperty struct {
 	// Specifies the start time of the maintence window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationmaintenanceconfiguration.html#cfn-kinesisanalyticsv2-application-applicationmaintenanceconfiguration-applicationmaintenancewindowstarttime
+	//
 	ApplicationMaintenanceWindowStartTime *string `field:"required" json:"applicationMaintenanceWindowStartTime" yaml:"applicationMaintenanceWindowStartTime"`
 }
 

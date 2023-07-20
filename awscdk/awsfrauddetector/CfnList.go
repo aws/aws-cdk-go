@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FraudDetector::List`.
-//
 // Creates a list.
 //
 // List is a set of input data for a variable in your event dataset. You use the input data in a rule that's associated with your detector. For more information, see [Lists](https://docs.aws.amazon.com//frauddetector/latest/ug/lists.html) .
@@ -37,9 +35,12 @@ import (
 //   	VariableType: jsii.String("variableType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-list.html
+//
 type CfnList interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The event type ARN.
 	AttrArn() *string
 	// Timestamp of when the list was created.
@@ -85,10 +86,11 @@ type CfnList interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -103,8 +105,6 @@ type CfnList interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The variable type of the list.
-	//
-	// For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types)
 	VariableType() *string
 	SetVariableType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -238,6 +238,7 @@ type CfnList interface {
 type jsiiProxy_CfnList struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnList) AttrArn() *string {
@@ -390,6 +391,16 @@ func (j *jsiiProxy_CfnList) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnList) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnList) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -421,7 +432,6 @@ func (j *jsiiProxy_CfnList) VariableType() *string {
 }
 
 
-// Create a new `AWS::FraudDetector::List`.
 func NewCfnList(scope constructs.Construct, id *string, props *CfnListProps) CfnList {
 	_init_.Initialize()
 
@@ -439,7 +449,6 @@ func NewCfnList(scope constructs.Construct, id *string, props *CfnListProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::FraudDetector::List`.
 func NewCfnList_Override(c CfnList, scope constructs.Construct, id *string, props *CfnListProps) {
 	_init_.Initialize()
 
@@ -473,6 +482,17 @@ func (j *jsiiProxy_CfnList)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnList)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

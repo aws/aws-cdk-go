@@ -13,12 +13,18 @@ package awsimagebuilder
 //   	Service: jsii.String("service"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+//
 type CfnContainerRecipe_TargetContainerRepositoryProperty struct {
 	// The name of the container repository where the output container image is stored.
 	//
 	// This name is prefixed by the repository location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+	//
 	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// Specifies the service in which this image was registered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+	//
 	Service *string `field:"optional" json:"service" yaml:"service"`
 }
 

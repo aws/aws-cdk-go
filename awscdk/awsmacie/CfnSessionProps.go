@@ -13,6 +13,8 @@ package awsmacie
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
+//
 type CfnSessionProps struct {
 	// Specifies how often Amazon Macie publishes updates to policy findings for the account.
 	//
@@ -21,10 +23,14 @@ type CfnSessionProps struct {
 	// - FIFTEEN_MINUTES
 	// - ONE_HOUR
 	// - SIX_HOURS.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+	//
 	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
 	// The status of Amazon Macie for the account.
 	//
 	// Valid values are: `ENABLED` , start or resume all Macie activities for the account; and, `PAUSED` , suspend all Macie activities for the account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

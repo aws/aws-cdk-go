@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnServer) validateSetProtocolDetailsParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnServer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnServer) validateSetWorkflowDetailsParameters(val interface{}) error {
 	return nil
 }

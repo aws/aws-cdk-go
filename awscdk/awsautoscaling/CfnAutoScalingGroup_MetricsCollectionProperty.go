@@ -19,10 +19,14 @@ package awsautoscaling
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-metricscollection.html
+//
 type CfnAutoScalingGroup_MetricsCollectionProperty struct {
 	// The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch.
 	//
 	// The only valid value is `1Minute` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-metricscollection.html#cfn-autoscaling-autoscalinggroup-metricscollection-granularity
+	//
 	Granularity *string `field:"required" json:"granularity" yaml:"granularity"`
 	// Identifies the metrics to enable.
 	//
@@ -52,6 +56,8 @@ type CfnAutoScalingGroup_MetricsCollectionProperty struct {
 	// If you specify `Granularity` and don't specify any metrics, all metrics are enabled.
 	//
 	// For more information, see [Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics) in the *Amazon EC2 Auto Scaling User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-metricscollection.html#cfn-autoscaling-autoscalinggroup-metricscollection-metrics
+	//
 	Metrics *[]*string `field:"optional" json:"metrics" yaml:"metrics"`
 }
 

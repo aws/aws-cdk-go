@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EMR::StudioSessionMapping`.
-//
 // The `AWS::EMR::StudioSessionMapping` resource is an Amazon EMR resource type that maps a user or group to the Amazon EMR Studio specified by `StudioId` , and applies a session policy that defines Studio permissions for that user or group.
 //
 // Example:
@@ -25,6 +23,8 @@ import (
 //   	StudioId: jsii.String("studioId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html
+//
 type CfnStudioSessionMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -38,8 +38,6 @@ type CfnStudioSessionMapping interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the user or group.
-	//
-	// For more information, see [UserName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName) and [DisplayName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName) in the *IAM Identity Center Identity Store API Reference* .
 	IdentityName() *string
 	SetIdentityName(val *string)
 	// Specifies whether the identity to map to the Amazon EMR Studio is a user or a group.
@@ -63,8 +61,6 @@ type CfnStudioSessionMapping interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group.
-	//
-	// Session policies refine Studio user permissions without the need to use multiple IAM user roles. For more information, see [Create an EMR Studio user role with session policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html) in the *Amazon EMR Management Guide* .
 	SessionPolicyArn() *string
 	SetSessionPolicyArn(val *string)
 	// The stack in which this element is defined.
@@ -361,7 +357,6 @@ func (j *jsiiProxy_CfnStudioSessionMapping) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::EMR::StudioSessionMapping`.
 func NewCfnStudioSessionMapping(scope constructs.Construct, id *string, props *CfnStudioSessionMappingProps) CfnStudioSessionMapping {
 	_init_.Initialize()
 
@@ -379,7 +374,6 @@ func NewCfnStudioSessionMapping(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::EMR::StudioSessionMapping`.
 func NewCfnStudioSessionMapping_Override(c CfnStudioSessionMapping, scope constructs.Construct, id *string, props *CfnStudioSessionMappingProps) {
 	_init_.Initialize()
 

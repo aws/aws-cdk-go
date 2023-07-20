@@ -20,14 +20,24 @@ package awsiot1click
 //   	PlacementName: jsii.String("placementName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html
+//
 type CfnPlacementProps struct {
 	// The name of the project containing the placement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-projectname
+	//
 	ProjectName *string `field:"required" json:"projectName" yaml:"projectName"`
 	// The devices to associate with the placement, as defined by a mapping of zero or more key-value pairs wherein the key is a template name and the value is a device ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-associateddevices
+	//
 	AssociatedDevices interface{} `field:"optional" json:"associatedDevices" yaml:"associatedDevices"`
 	// The user-defined attributes associated with the placement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-attributes
+	//
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The name of the placement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-placementname
+	//
 	PlacementName *string `field:"optional" json:"placementName" yaml:"placementName"`
 }
 

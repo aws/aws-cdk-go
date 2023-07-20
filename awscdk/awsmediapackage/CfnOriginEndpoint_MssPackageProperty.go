@@ -21,6 +21,8 @@ package awsmediapackage
 //   			// the properties below are optional
 //   			CertificateArn: jsii.String("certificateArn"),
 //   			EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   				PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   				PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   			},
 //   		},
 //   	},
@@ -33,16 +35,26 @@ package awsmediapackage
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
+//
 type CfnOriginEndpoint_MssPackageProperty struct {
 	// Parameters for encrypting content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
+	//
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// Time window (in seconds) contained in each manifest.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
+	//
 	ManifestWindowSeconds *float64 `field:"optional" json:"manifestWindowSeconds" yaml:"manifestWindowSeconds"`
 	// Duration (in seconds) of each fragment.
 	//
 	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
+	//
 	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 	// Limitations for outputs from the endpoint, based on the video bitrate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
+	//
 	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 }
 

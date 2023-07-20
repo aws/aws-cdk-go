@@ -92,14 +92,6 @@ func (j *jsiiProxy_CfnIntegrationResponse) validateSetIntegrationResponseKeyPara
 	return nil
 }
 
-func (j *jsiiProxy_CfnIntegrationResponse) validateSetResponseParametersParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnIntegrationResponse) validateSetResponseTemplatesParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnIntegrationResponseParameters(scope constructs.Construct, id *string, props *CfnIntegrationResponseProps) error {
 	return nil
 }

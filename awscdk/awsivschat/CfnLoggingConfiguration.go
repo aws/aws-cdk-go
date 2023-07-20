@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IVSChat::LoggingConfiguration`.
+// The `AWS::IVSChat::LoggingConfiguration` resource specifies an  logging configuration that allows clients to store and record sent messages.
 //
-// The `AWS::IVSChat::LoggingConfiguration` resource specifies an  logging configuration that allows clients to store and record sent messages. For more information, see [CreateLoggingConfiguration](https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_CreateLoggingConfiguration.html) in the *Amazon Interactive Video Service Chat API Reference* .
+// For more information, see [CreateLoggingConfiguration](https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_CreateLoggingConfiguration.html) in the *Amazon Interactive Video Service Chat API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,9 +41,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-loggingconfiguration.html
+//
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The logging-configuration ARN.
 	//
 	// For example: `arn:aws:ivschat:us-west-2:123456789012:logging-configuration/abcdABCDefgh`.
@@ -79,8 +82,6 @@ type CfnLoggingConfiguration interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Logging-configuration name.
-	//
-	// The value does not need to be unique.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -94,10 +95,11 @@ type CfnLoggingConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -242,6 +244,7 @@ type CfnLoggingConfiguration interface {
 type jsiiProxy_CfnLoggingConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLoggingConfiguration) AttrArn() *string {
@@ -384,6 +387,16 @@ func (j *jsiiProxy_CfnLoggingConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoggingConfiguration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -405,7 +418,6 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::IVSChat::LoggingConfiguration`.
 func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
@@ -423,7 +435,6 @@ func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::IVSChat::LoggingConfiguration`.
 func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 
@@ -449,6 +460,17 @@ func (j *jsiiProxy_CfnLoggingConfiguration)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLoggingConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

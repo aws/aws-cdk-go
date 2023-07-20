@@ -13,10 +13,16 @@ package awsnimblestudio
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html
+//
 type CfnStudioComponent_ActiveDirectoryComputerAttributeProperty struct {
 	// The name for the LDAP attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value for the LDAP attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

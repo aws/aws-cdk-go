@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECS::CapacityProvider`.
+// Creates a new capacity provider.
 //
-// Creates a new capacity provider. Capacity providers are associated with an Amazon ECS cluster and are used in capacity provider strategies to facilitate cluster auto scaling.
+// Capacity providers are associated with an Amazon ECS cluster and are used in capacity provider strategies to facilitate cluster auto scaling.
 //
 // Only capacity providers that use an Auto Scaling group can be created. Amazon ECS tasks on AWS Fargate use the `FARGATE` and `FARGATE_SPOT` capacity providers. These providers are available to all accounts in the AWS Regions that AWS Fargate supports.
 //
@@ -45,9 +45,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html
+//
 type CfnCapacityProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider() interface{}
 	SetAutoScalingGroupProvider(val interface{})
@@ -71,8 +74,6 @@ type CfnCapacityProvider interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the capacity provider.
-	//
-	// If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -86,20 +87,11 @@ type CfnCapacityProvider interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The metadata that you apply to the capacity provider to help you categorize and organize it.
-	//
-	// Each tag consists of a key and an optional value. You define both.
-	//
-	// The following basic restrictions apply to tags:
-	//
-	// - Maximum number of tags per resource - 50
-	// - For each resource, each tag key must be unique, and each tag key can have only one value.
-	// - Maximum key length - 128 Unicode characters in UTF-8
-	// - Maximum value length - 256 Unicode characters in UTF-8
-	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-	// - Tag keys and values are case-sensitive.
-	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The metadata that you apply to the capacity provider to help you categorize and organize it.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -244,6 +236,7 @@ type CfnCapacityProvider interface {
 type jsiiProxy_CfnCapacityProvider struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCapacityProvider) AutoScalingGroupProvider() interface{} {
@@ -356,6 +349,16 @@ func (j *jsiiProxy_CfnCapacityProvider) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCapacityProvider) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCapacityProvider) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -377,7 +380,6 @@ func (j *jsiiProxy_CfnCapacityProvider) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::ECS::CapacityProvider`.
 func NewCfnCapacityProvider(scope constructs.Construct, id *string, props *CfnCapacityProviderProps) CfnCapacityProvider {
 	_init_.Initialize()
 
@@ -395,7 +397,6 @@ func NewCfnCapacityProvider(scope constructs.Construct, id *string, props *CfnCa
 	return &j
 }
 
-// Create a new `AWS::ECS::CapacityProvider`.
 func NewCfnCapacityProvider_Override(c CfnCapacityProvider, scope constructs.Construct, id *string, props *CfnCapacityProviderProps) {
 	_init_.Initialize()
 
@@ -421,6 +422,17 @@ func (j *jsiiProxy_CfnCapacityProvider)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityProvider)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

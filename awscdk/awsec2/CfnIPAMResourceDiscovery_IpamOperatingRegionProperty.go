@@ -16,8 +16,12 @@ package awsec2
 //   	RegionName: jsii.String("regionName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamoperatingregion.html
+//
 type CfnIPAMResourceDiscovery_IpamOperatingRegionProperty struct {
 	// The name of the operating Region.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamoperatingregion.html#cfn-ec2-ipamresourcediscovery-ipamoperatingregion-regionname
+	//
 	RegionName *string `field:"required" json:"regionName" yaml:"regionName"`
 }
 

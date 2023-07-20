@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnApp) validateSetResourceSpecParameters(val interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnApp) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApp) validateSetUserProfileNameParameters(val *string) error {
 	return nil
 }

@@ -12,8 +12,12 @@ package awssagemaker
 //   	S3Uri: jsii.String("s3Uri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html
+//
 type CfnModelQualityJobDefinition_MonitoringGroundTruthS3InputProperty struct {
 	// The address of the Amazon S3 location of the ground truth labels.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input-s3uri
+	//
 	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 }
 

@@ -18,10 +18,14 @@ package awsiotthingsgraph
 //   	CompatibleNamespaceVersion: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html
+//
 type CfnFlowTemplateProps struct {
-	// `AWS::IoTThingsGraph::FlowTemplate.Definition`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html#cfn-iotthingsgraph-flowtemplate-definition
+	//
 	Definition interface{} `field:"required" json:"definition" yaml:"definition"`
-	// `AWS::IoTThingsGraph::FlowTemplate.CompatibleNamespaceVersion`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html#cfn-iotthingsgraph-flowtemplate-compatiblenamespaceversion
+	//
 	CompatibleNamespaceVersion *float64 `field:"optional" json:"compatibleNamespaceVersion" yaml:"compatibleNamespaceVersion"`
 }
 

@@ -15,10 +15,16 @@ package awsevidently
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html
+//
 type CfnProject_S3DestinationProperty struct {
 	// The name of the bucket in which Evidently stores evaluation events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html#cfn-evidently-project-s3destination-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The bucket prefix in which Evidently stores evaluation events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html#cfn-evidently-project-s3destination-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

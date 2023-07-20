@@ -14,12 +14,20 @@ package awsservicecatalogappregistry
 //   	ResourceType: jsii.String("resourceType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html
+//
 type CfnResourceAssociationProps struct {
 	// The name or ID of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+	//
 	Application *string `field:"required" json:"application" yaml:"application"`
 	// The name or ID of the resource of which the application will be associated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+	//
 	Resource *string `field:"required" json:"resource" yaml:"resource"`
 	// The type of resource of which the application will be associated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 }
 

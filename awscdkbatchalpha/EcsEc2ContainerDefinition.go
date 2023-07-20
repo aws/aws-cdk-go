@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdkbatchalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -103,7 +102,7 @@ type EcsEc2ContainerDefinition interface {
 	// Allows your job definitions
 	// to reference the secret by the environment variable name defined in this property.
 	// Experimental.
-	Secrets() *map[string]awssecretsmanager.ISecret
+	Secrets() *map[string]Secret
 	// Limits to set for the user this docker container will run as.
 	// Experimental.
 	Ulimits() *[]*Ulimit
@@ -263,8 +262,8 @@ func (j *jsiiProxy_EcsEc2ContainerDefinition) ReadonlyRootFilesystem() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_EcsEc2ContainerDefinition) Secrets() *map[string]awssecretsmanager.ISecret {
-	var returns *map[string]awssecretsmanager.ISecret
+func (j *jsiiProxy_EcsEc2ContainerDefinition) Secrets() *map[string]Secret {
+	var returns *map[string]Secret
 	_jsii_.Get(
 		j,
 		"secrets",

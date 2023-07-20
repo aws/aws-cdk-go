@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::CoreNetwork`.
-//
 // Describes a core network.
 //
 // Example:
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html
+//
 type CfnCoreNetwork interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the core network.
 	AttrCoreNetworkArn() *string
 	// The ID of the core network.
@@ -45,6 +46,7 @@ type CfnCoreNetwork interface {
 	AttrCreatedAt() *string
 	// The edges.
 	AttrEdges() awscdk.IResolvable
+	// Owner of the core network.
 	AttrOwnerAccount() *string
 	// The segments.
 	AttrSegments() awscdk.IResolvable
@@ -79,9 +81,9 @@ type CfnCoreNetwork interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Describes a core network policy. For more information, see [Core network policies](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) .
+	// Describes a core network policy.
 	//
-	// If you update the policy document, CloudFormation will apply the core network change set generated from the updated policy document, and then set it as the LIVE policy.
+	// For more information, see [Core network policies](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) .
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -93,8 +95,11 @@ type CfnCoreNetwork interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The list of key-value tags associated with a core network.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of key-value tags associated with a core network.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -239,6 +244,7 @@ type CfnCoreNetwork interface {
 type jsiiProxy_CfnCoreNetwork struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCoreNetwork) AttrCoreNetworkArn() *string {
@@ -431,6 +437,16 @@ func (j *jsiiProxy_CfnCoreNetwork) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCoreNetwork) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCoreNetwork) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -452,7 +468,6 @@ func (j *jsiiProxy_CfnCoreNetwork) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::NetworkManager::CoreNetwork`.
 func NewCfnCoreNetwork(scope constructs.Construct, id *string, props *CfnCoreNetworkProps) CfnCoreNetwork {
 	_init_.Initialize()
 
@@ -470,7 +485,6 @@ func NewCfnCoreNetwork(scope constructs.Construct, id *string, props *CfnCoreNet
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::CoreNetwork`.
 func NewCfnCoreNetwork_Override(c CfnCoreNetwork, scope constructs.Construct, id *string, props *CfnCoreNetworkProps) {
 	_init_.Initialize()
 
@@ -501,12 +515,20 @@ func (j *jsiiProxy_CfnCoreNetwork)SetGlobalNetworkId(val *string) {
 }
 
 func (j *jsiiProxy_CfnCoreNetwork)SetPolicyDocument(val interface{}) {
-	if err := j.validateSetPolicyDocumentParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"policyDocument",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCoreNetwork)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"policyDocument",
+		"tagsRaw",
 		val,
 	)
 }

@@ -22,12 +22,18 @@ package awssso
 //   	ManagedPolicyArn: jsii.String("managedPolicyArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-permissionsboundary.html
+//
 type CfnPermissionSet_PermissionsBoundaryProperty struct {
 	// Specifies the name and path of a customer managed policy.
 	//
 	// You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-permissionsboundary.html#cfn-sso-permissionset-permissionsboundary-customermanagedpolicyreference
+	//
 	CustomerManagedPolicyReference interface{} `field:"optional" json:"customerManagedPolicyReference" yaml:"customerManagedPolicyReference"`
 	// The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-permissionsboundary.html#cfn-sso-permissionset-permissionsboundary-managedpolicyarn
+	//
 	ManagedPolicyArn *string `field:"optional" json:"managedPolicyArn" yaml:"managedPolicyArn"`
 }
 

@@ -80,6 +80,10 @@ func validateCfnClientCertificate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnClientCertificate) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnClientCertificateParameters(scope constructs.Construct, id *string, props *CfnClientCertificateProps) error {
 	return nil
 }

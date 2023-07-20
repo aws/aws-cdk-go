@@ -280,6 +280,16 @@ func (j *jsiiProxy_CfnCacheCluster) validateSetNumCacheNodesParameters(val *floa
 	return nil
 }
 
+func (j *jsiiProxy_CfnCacheCluster) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCacheCluster) validateSetTransitEncryptionEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

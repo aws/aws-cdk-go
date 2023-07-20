@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::LocationS3`.
-//
 // The `AWS::DataSync::LocationS3` resource specifies an endpoint for an Amazon S3 bucket.
 //
 // For more information, see [Create an Amazon S3 location](https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli) in the *AWS DataSync User Guide* .
@@ -37,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html
+//
 type CfnLocationS3 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the specified Amazon S3 location.
 	AttrLocationArn() *string
 	// The URI of the specified Amazon S3 location.
@@ -74,15 +75,9 @@ type CfnLocationS3 interface {
 	S3BucketArn() *string
 	SetS3BucketArn(val *string)
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
-	//
-	// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
 	S3Config() interface{}
 	SetS3Config(val interface{})
 	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination.
-	//
-	// For buckets in AWS Regions , the storage class defaults to S3 Standard.
-	//
-	// For more information about S3 storage classes, see [Amazon S3 Storage Classes](https://docs.aws.amazon.com/s3/storage-classes/) . Some storage classes have behaviors that can affect your S3 storage costs. For detailed information, see [Considerations When Working with Amazon S3 Storage Classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) .
 	S3StorageClass() *string
 	SetS3StorageClass(val *string)
 	// The stack in which this element is defined.
@@ -90,14 +85,13 @@ type CfnLocationS3 interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A subdirectory in the Amazon S3 bucket.
-	//
-	// This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// The key-value pair that represents the tag that you want to add to the location.
-	//
-	// The value can be an empty string. We recommend using tags to name your resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key-value pair that represents the tag that you want to add to the location.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -242,6 +236,7 @@ type CfnLocationS3 interface {
 type jsiiProxy_CfnLocationS3 struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocationS3) AttrLocationArn() *string {
@@ -394,6 +389,16 @@ func (j *jsiiProxy_CfnLocationS3) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationS3) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationS3) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -415,7 +420,6 @@ func (j *jsiiProxy_CfnLocationS3) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DataSync::LocationS3`.
 func NewCfnLocationS3(scope constructs.Construct, id *string, props *CfnLocationS3Props) CfnLocationS3 {
 	_init_.Initialize()
 
@@ -433,7 +437,6 @@ func NewCfnLocationS3(scope constructs.Construct, id *string, props *CfnLocation
 	return &j
 }
 
-// Create a new `AWS::DataSync::LocationS3`.
 func NewCfnLocationS3_Override(c CfnLocationS3, scope constructs.Construct, id *string, props *CfnLocationS3Props) {
 	_init_.Initialize()
 
@@ -475,6 +478,17 @@ func (j *jsiiProxy_CfnLocationS3)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationS3)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

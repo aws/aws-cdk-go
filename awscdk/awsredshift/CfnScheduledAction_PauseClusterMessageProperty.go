@@ -14,8 +14,12 @@ package awsredshift
 //   	ClusterIdentifier: jsii.String("clusterIdentifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html
+//
 type CfnScheduledAction_PauseClusterMessageProperty struct {
 	// The identifier of the cluster to be paused.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html#cfn-redshift-scheduledaction-pauseclustermessage-clusteridentifier
+	//
 	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 }
 

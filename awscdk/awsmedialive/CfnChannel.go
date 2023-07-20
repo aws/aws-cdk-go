@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaLive::Channel`.
-//
 // The AWS::MediaLive::Channel resource is a MediaLive resource type that creates a channel.
 //
 // A MediaLive channel ingests and transcodes (decodes and encodes) source content from the inputs that are attached to that channel, and packages the new content into outputs.
@@ -18,13 +16,17 @@ import (
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html
+//
 type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the MediaLive channel.
 	//
 	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:channel:1234567.
 	AttrArn() *string
+	AttrId() *string
 	// The inputs that are attached to this channel.
 	//
 	// The inputs are identified by their IDs (not by their names or their ARNs).
@@ -38,8 +40,6 @@ type CfnChannel interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The class for this channel.
-	//
-	// For a channel with two pipelines, the class is STANDARD. For a channel with one pipeline, the class is SINGLE_PIPELINE.
 	ChannelClass() *string
 	SetChannelClass(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -56,8 +56,6 @@ type CfnChannel interface {
 	InputAttachments() interface{}
 	SetInputAttachments(val interface{})
 	// The input specification for this channel.
-	//
-	// It specifies the key characteristics of the inputs for this channel: the maximum bitrate, the resolution, and the codec.
 	InputSpecification() interface{}
 	SetInputSpecification(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -71,16 +69,11 @@ type CfnChannel interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The verbosity for logging activity for this channel.
-	//
-	// Charges for logging (which are generated through Amazon CloudWatch Logging) are higher for higher verbosities.
 	LogLevel() *string
 	SetLogLevel(val *string)
-	// `AWS::MediaLive::Channel.Maintenance`.
 	Maintenance() interface{}
 	SetMaintenance(val interface{})
 	// A name for this audio selector.
-	//
-	// The AudioDescription (in an output) references this name in order to identify a specific input audio to include in that output.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -91,18 +84,17 @@ type CfnChannel interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The IAM role for MediaLive to assume when running this channel.
-	//
-	// The role is identified by its ARN.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of tags for this channel.
-	//
-	// Each tag is a key-value pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A collection of tags for this channel.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -250,6 +242,7 @@ type CfnChannel interface {
 type jsiiProxy_CfnChannel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnChannel) AttrArn() *string {
@@ -257,6 +250,16 @@ func (j *jsiiProxy_CfnChannel) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -462,6 +465,16 @@ func (j *jsiiProxy_CfnChannel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -493,7 +506,6 @@ func (j *jsiiProxy_CfnChannel) Vpc() interface{} {
 }
 
 
-// Create a new `AWS::MediaLive::Channel`.
 func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
@@ -511,7 +523,6 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 	return &j
 }
 
-// Create a new `AWS::MediaLive::Channel`.
 func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 
@@ -616,6 +627,14 @@ func (j *jsiiProxy_CfnChannel)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

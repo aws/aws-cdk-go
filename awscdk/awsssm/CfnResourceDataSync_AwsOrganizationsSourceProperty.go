@@ -19,12 +19,18 @@ package awsssm
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html
+//
 type CfnResourceDataSync_AwsOrganizationsSourceProperty struct {
 	// If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` .
 	//
 	// For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
+	//
 	OrganizationSourceType *string `field:"required" json:"organizationSourceType" yaml:"organizationSourceType"`
 	// The AWS Organizations organization units included in the sync.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
+	//
 	OrganizationalUnits *[]*string `field:"optional" json:"organizationalUnits" yaml:"organizationalUnits"`
 }
 

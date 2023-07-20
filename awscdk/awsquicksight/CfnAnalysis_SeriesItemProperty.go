@@ -54,10 +54,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-seriesitem.html
+//
 type CfnAnalysis_SeriesItemProperty struct {
 	// The data field series item configuration of a line chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-seriesitem.html#cfn-quicksight-analysis-seriesitem-datafieldseriesitem
+	//
 	DataFieldSeriesItem interface{} `field:"optional" json:"dataFieldSeriesItem" yaml:"dataFieldSeriesItem"`
 	// The field series item configuration of a line chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-seriesitem.html#cfn-quicksight-analysis-seriesitem-fieldseriesitem
+	//
 	FieldSeriesItem interface{} `field:"optional" json:"fieldSeriesItem" yaml:"fieldSeriesItem"`
 }
 

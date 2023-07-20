@@ -16,8 +16,12 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-allowedstatistics.html
+//
 type CfnJob_AllowedStatisticsProperty struct {
 	// One or more column statistics to allow for columns that contain detected entities.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-allowedstatistics.html#cfn-databrew-job-allowedstatistics-statistics
+	//
 	Statistics *[]*string `field:"required" json:"statistics" yaml:"statistics"`
 }
 

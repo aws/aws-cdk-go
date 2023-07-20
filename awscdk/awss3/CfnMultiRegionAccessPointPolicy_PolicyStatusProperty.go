@@ -12,10 +12,14 @@ package awss3
 //   	IsPublic: jsii.String("isPublic"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspointpolicy-policystatus.html
+//
 type CfnMultiRegionAccessPointPolicy_PolicyStatusProperty struct {
 	// The policy status for this bucket.
 	//
 	// `TRUE` indicates that this bucket is public. `FALSE` indicates that the bucket is not public.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspointpolicy-policystatus.html#cfn-s3-multiregionaccesspointpolicy-policystatus-ispublic
+	//
 	IsPublic *string `field:"required" json:"isPublic" yaml:"isPublic"`
 }
 

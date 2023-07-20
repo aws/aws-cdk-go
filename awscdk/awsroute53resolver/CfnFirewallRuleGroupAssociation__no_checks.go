@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) validateSetPriorityParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) validateSetVpcIdParameters(val *string) error {
 	return nil
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GreengrassV2::ComponentVersion`.
+// Creates a component.
 //
-// Creates a component. Components are software that run on AWS IoT Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to AWS IoT Greengrass . Then, you can deploy the component to other core devices.
+// Components are software that run on AWS IoT Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to AWS IoT Greengrass . Then, you can deploy the component to other core devices.
 //
 // You can use this operation to do the following:
 //
@@ -109,9 +109,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
+//
 type CfnComponentVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the component version.
 	AttrArn() *string
 	// The name of the component.
@@ -128,15 +131,9 @@ type CfnComponentVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The recipe to use to create the component.
-	//
-	// The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
-	//
-	// You must specify either `InlineRecipe` or `LambdaFunction` .
 	InlineRecipe() *string
 	SetInlineRecipe(val *string)
 	// The parameters to create a component from a Lambda function.
-	//
-	// You must specify either `InlineRecipe` or `LambdaFunction` .
 	LambdaFunction() interface{}
 	SetLambdaFunction(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -160,17 +157,11 @@ type CfnComponentVersion interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Application-specific metadata to attach to the component version.
-	//
-	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
-	//
-	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
-	//
-	// ```json
-	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
-	// }
-	// ```.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Application-specific metadata to attach to the component version.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -315,6 +306,7 @@ type CfnComponentVersion interface {
 type jsiiProxy_CfnComponentVersion struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnComponentVersion) AttrArn() *string {
@@ -457,6 +449,16 @@ func (j *jsiiProxy_CfnComponentVersion) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComponentVersion) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComponentVersion) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -478,7 +480,6 @@ func (j *jsiiProxy_CfnComponentVersion) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::GreengrassV2::ComponentVersion`.
 func NewCfnComponentVersion(scope constructs.Construct, id *string, props *CfnComponentVersionProps) CfnComponentVersion {
 	_init_.Initialize()
 
@@ -496,7 +497,6 @@ func NewCfnComponentVersion(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
-// Create a new `AWS::GreengrassV2::ComponentVersion`.
 func NewCfnComponentVersion_Override(c CfnComponentVersion, scope constructs.Construct, id *string, props *CfnComponentVersionProps) {
 	_init_.Initialize()
 
@@ -522,6 +522,14 @@ func (j *jsiiProxy_CfnComponentVersion)SetLambdaFunction(val interface{}) {
 	_jsii_.Set(
 		j,
 		"lambdaFunction",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComponentVersion)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -50,16 +50,26 @@ package awsglue
 //   	WorkerType: jsii.String("workerType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html
+//
 type CfnJobProps struct {
 	// The code that executes a job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-command
+	//
 	Command interface{} `field:"required" json:"command" yaml:"command"`
 	// The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-role
+	//
 	Role *string `field:"required" json:"role" yaml:"role"`
 	// This parameter is no longer supported. Use `MaxCapacity` instead.
 	//
 	// The number of capacity units that are allocated to this job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-allocatedcapacity
+	//
 	AllocatedCapacity *float64 `field:"optional" json:"allocatedCapacity" yaml:"allocatedCapacity"`
 	// The connections used for this job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-connections
+	//
 	Connections interface{} `field:"optional" json:"connections" yaml:"connections"`
 	// The default arguments for this job, specified as name-value pairs.
 	//
@@ -68,8 +78,12 @@ type CfnJobProps struct {
 	// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
 	//
 	// For information about the key-value pairs that AWS Glue consumes to set up your job, see [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) in the *AWS Glue Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-defaultarguments
+	//
 	DefaultArguments interface{} `field:"optional" json:"defaultArguments" yaml:"defaultArguments"`
 	// A description of the job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the job is run with a standard or flexible execution class.
 	//
@@ -78,8 +92,12 @@ type CfnJobProps struct {
 	// The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary.
 	//
 	// Only jobs with AWS Glue version 3.0 and above and command type `glueetl` will be allowed to set `ExecutionClass` to `FLEX` . The flexible execution class is available for Spark jobs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-executionclass
+	//
 	ExecutionClass *string `field:"optional" json:"executionClass" yaml:"executionClass"`
 	// The maximum number of concurrent runs that are allowed for this job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-executionproperty
+	//
 	ExecutionProperty interface{} `field:"optional" json:"executionProperty" yaml:"executionProperty"`
 	// Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
 	//
@@ -88,8 +106,12 @@ type CfnJobProps struct {
 	// For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 	//
 	// Jobs that are created without specifying a Glue version default to Glue 0.9.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-glueversion
+	//
 	GlueVersion *string `field:"optional" json:"glueVersion" yaml:"glueVersion"`
 	// This field is reserved for future use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-loguri
+	//
 	LogUri *string `field:"optional" json:"logUri" yaml:"logUri"`
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	//
@@ -101,26 +123,44 @@ type CfnJobProps struct {
 	//
 	// - When you specify a Python shell job ( `JobCommand.Name` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
 	// - When you specify an Apache Spark ETL job ( `JobCommand.Name` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maxcapacity
+	//
 	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum number of times to retry this job after a JobRun fails.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maxretries
+	//
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// The name you assign to this job definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Non-overridable arguments for this job, specified as name-value pairs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-nonoverridablearguments
+	//
 	NonOverridableArguments interface{} `field:"optional" json:"nonOverridableArguments" yaml:"nonOverridableArguments"`
 	// Specifies configuration properties of a notification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-notificationproperty
+	//
 	NotificationProperty interface{} `field:"optional" json:"notificationProperty" yaml:"notificationProperty"`
 	// The number of workers of a defined `workerType` that are allocated when a job runs.
 	//
 	// The maximum number of workers you can define are 299 for `G.1X` , and 149 for `G.2X` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-numberofworkers
+	//
 	NumberOfWorkers *float64 `field:"optional" json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// The name of the `SecurityConfiguration` structure to be used with this job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-securityconfiguration
+	//
 	SecurityConfiguration *string `field:"optional" json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The tags to use with this job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-tags
+	//
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// The job timeout in minutes.
 	//
 	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-timeout
+	//
 	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 	// The type of predefined worker that is allocated when a job runs.
 	//
@@ -129,6 +169,8 @@ type CfnJobProps struct {
 	// - For the `Standard` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
 	// - For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
 	// - For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-workertype
+	//
 	WorkerType *string `field:"optional" json:"workerType" yaml:"workerType"`
 }
 

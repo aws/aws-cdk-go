@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IAM::Policy`.
-//
 // Adds or updates an inline policy document that is embedded in the specified IAM user, group, or role.
 //
 // An IAM user can also have a managed policy attached to it. For information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide* .
@@ -44,9 +42,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html
+//
 type CfnPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -57,8 +58,6 @@ type CfnPolicy interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the group to associate the policy with.
-	//
-	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
 	Groups() *[]*string
 	SetGroups(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -74,19 +73,9 @@ type CfnPolicy interface {
 	// The tree node.
 	Node() constructs.Node
 	// The policy document.
-	//
-	// You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
-	//
-	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
-	//
-	// - Any printable ASCII character ranging from the space character ( `\ u0020` ) through the end of the ASCII character range
-	// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` )
-	// - The special characters tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ).
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	// The name of the policy document.
-	//
-	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	PolicyName() *string
 	SetPolicyName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -95,10 +84,6 @@ type CfnPolicy interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The name of the role to associate the policy with.
-	//
-	// This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	//
-	// > If an external policy (such as `AWS::IAM::Policy` or `AWS::IAM::ManagedPolicy` ) has a `Ref` to a role and if a resource (such as `AWS::ECS::Service` ) also has a `Ref` to the same role, add a `DependsOn` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an `AWS::ECS::Service` resource, the `DependsOn` attribute ensures that AWS CloudFormation deletes the `AWS::ECS::Service` resource before deleting its role's policy.
 	Roles() *[]*string
 	SetRoles(val *[]*string)
 	// The stack in which this element is defined.
@@ -119,8 +104,6 @@ type CfnPolicy interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The name of the user to associate the policy with.
-	//
-	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	Users() *[]*string
 	SetUsers(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -254,6 +237,16 @@ type CfnPolicy interface {
 type jsiiProxy_CfnPolicy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnPolicy) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnPolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -407,7 +400,6 @@ func (j *jsiiProxy_CfnPolicy) Users() *[]*string {
 }
 
 
-// Create a new `AWS::IAM::Policy`.
 func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
 	_init_.Initialize()
 
@@ -425,7 +417,6 @@ func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps)
 	return &j
 }
 
-// Create a new `AWS::IAM::Policy`.
 func NewCfnPolicy_Override(c CfnPolicy, scope constructs.Construct, id *string, props *CfnPolicyProps) {
 	_init_.Initialize()
 

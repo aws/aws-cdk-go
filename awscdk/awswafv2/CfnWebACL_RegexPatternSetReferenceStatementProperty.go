@@ -80,14 +80,22 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
+//
 type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The part of the web request that you want AWS WAF to inspect.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
+	//
 	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
+	//
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 

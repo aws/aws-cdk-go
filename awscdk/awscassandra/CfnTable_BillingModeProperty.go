@@ -18,6 +18,8 @@ package awscassandra
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html
+//
 type CfnTable_BillingModeProperty struct {
 	// The billing mode for the table:.
 	//
@@ -27,10 +29,14 @@ type CfnTable_BillingModeProperty struct {
 	// > If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
 	//
 	// Valid values: `ON_DEMAND` | `PROVISIONED`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode
+	//
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
 	// The provisioned read capacity and write capacity for the table.
 	//
 	// For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput
+	//
 	ProvisionedThroughput interface{} `field:"optional" json:"provisionedThroughput" yaml:"provisionedThroughput"`
 }
 

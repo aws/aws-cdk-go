@@ -19,6 +19,8 @@ package awss3objectlambda
 //   	RestrictPublicBuckets: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html
+//
 type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account.
 	//
@@ -31,6 +33,8 @@ type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	// Enabling this setting doesn't affect existing policies or ACLs.
 	//
 	// This property is not supported for Amazon S3 on Outposts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html#cfn-s3objectlambda-accesspoint-publicaccessblockconfiguration-blockpublicacls
+	//
 	BlockPublicAcls interface{} `field:"optional" json:"blockPublicAcls" yaml:"blockPublicAcls"`
 	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account.
 	//
@@ -39,6 +43,8 @@ type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	// Enabling this setting doesn't affect existing bucket policies.
 	//
 	// This property is not supported for Amazon S3 on Outposts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html#cfn-s3objectlambda-accesspoint-publicaccessblockconfiguration-blockpublicpolicy
+	//
 	BlockPublicPolicy interface{} `field:"optional" json:"blockPublicPolicy" yaml:"blockPublicPolicy"`
 	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account.
 	//
@@ -47,6 +53,8 @@ type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	// Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 	//
 	// This property is not supported for Amazon S3 on Outposts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html#cfn-s3objectlambda-accesspoint-publicaccessblockconfiguration-ignorepublicacls
+	//
 	IgnorePublicAcls interface{} `field:"optional" json:"ignorePublicAcls" yaml:"ignorePublicAcls"`
 	// Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account.
 	//
@@ -55,6 +63,8 @@ type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 	//
 	// This property is not supported for Amazon S3 on Outposts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html#cfn-s3objectlambda-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+	//
 	RestrictPublicBuckets interface{} `field:"optional" json:"restrictPublicBuckets" yaml:"restrictPublicBuckets"`
 }
 

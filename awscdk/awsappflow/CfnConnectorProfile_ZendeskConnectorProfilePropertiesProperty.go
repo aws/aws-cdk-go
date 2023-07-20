@@ -12,8 +12,12 @@ package awsappflow
 //   	InstanceUrl: jsii.String("instanceUrl"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html
+//
 type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 	// The location of the Zendesk resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl
+	//
 	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 

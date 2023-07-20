@@ -26,8 +26,12 @@ package awsecs
 //   	IngressPortOverride: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html
+//
 type CfnService_ServiceConnectServiceProperty struct {
 	// The `portName` must match the name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-portname
+	//
 	PortName *string `field:"required" json:"portName" yaml:"portName"`
 	// The list of client aliases for this Service Connect service.
 	//
@@ -38,18 +42,24 @@ type CfnService_ServiceConnectServiceProperty struct {
 	// Each name and port mapping must be unique within the namespace.
 	//
 	// For each `ServiceConnectService` , you must provide at least one `clientAlias` with one `port` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-clientaliases
+	//
 	ClientAliases interface{} `field:"optional" json:"clientAliases" yaml:"clientAliases"`
 	// The `discoveryName` is the name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	//
 	// This must be unique within the AWS Cloud Map namespace. The name can contain up to 64 characters. The name can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
 	//
 	// If the `discoveryName` isn't specified, the port mapping name from the task definition is used in `portName.namespace` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-discoveryname
+	//
 	DiscoveryName *string `field:"optional" json:"discoveryName" yaml:"discoveryName"`
 	// The port number for the Service Connect proxy to listen on.
 	//
 	// Use the value of this field to bypass the proxy for traffic on the port number specified in the named `portMapping` in the task definition of this application, and then use it in your VPC security groups to allow traffic into the proxy for this Amazon ECS service.
 	//
 	// In `awsvpc` mode and Fargate, the default value is the container port number. The container port number is in the `portMapping` in the task definition. In bridge mode, the default value is the ephemeral port of the Service Connect proxy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-ingressportoverride
+	//
 	IngressPortOverride *float64 `field:"optional" json:"ingressPortOverride" yaml:"ingressPortOverride"`
 }
 

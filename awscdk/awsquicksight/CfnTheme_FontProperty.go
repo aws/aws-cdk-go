@@ -10,8 +10,11 @@ package awsquicksight
 //   	FontFamily: jsii.String("fontFamily"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html
+//
 type CfnTheme_FontProperty struct {
-	// `CfnTheme.FontProperty.FontFamily`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html#cfn-quicksight-theme-font-fontfamily
+	//
 	FontFamily *string `field:"optional" json:"fontFamily" yaml:"fontFamily"`
 }
 

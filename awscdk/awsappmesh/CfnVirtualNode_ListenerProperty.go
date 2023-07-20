@@ -131,18 +131,32 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html
+//
 type CfnVirtualNode_ListenerProperty struct {
 	// The port mapping information for the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
+	//
 	PortMapping interface{} `field:"required" json:"portMapping" yaml:"portMapping"`
 	// The connection pool information for the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool
+	//
 	ConnectionPool interface{} `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
+	//
 	HealthCheck interface{} `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The outlier detection information for the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection
+	//
 	OutlierDetection interface{} `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// An object that represents timeouts for different protocols.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-timeout
+	//
 	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
 	// A reference to an object that represents the Transport Layer Security (TLS) properties for a listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-tls
+	//
 	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 }
 

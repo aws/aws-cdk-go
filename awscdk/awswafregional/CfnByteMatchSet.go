@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFRegional::ByteMatchSet`.
+// > This is *AWS WAF Classic* documentation.
 //
-// > This is *AWS WAF Classic* documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+// For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
 // >
 // > *For the latest version of AWS WAF* , use the AWS WAF V2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) . With the latest version, AWS WAF has a single set of endpoints for regional and global use.
 //
@@ -44,9 +44,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html
+//
 type CfnByteMatchSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
 	ByteMatchTuples() interface{}
 	SetByteMatchTuples(val interface{})
@@ -70,8 +73,6 @@ type CfnByteMatchSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A friendly name or description of the `ByteMatchSet` .
-	//
-	// You can't change `Name` after you create a `ByteMatchSet` .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -231,6 +232,16 @@ type jsiiProxy_CfnByteMatchSet struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnByteMatchSet) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnByteMatchSet) ByteMatchTuples() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -352,7 +363,6 @@ func (j *jsiiProxy_CfnByteMatchSet) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::WAFRegional::ByteMatchSet`.
 func NewCfnByteMatchSet(scope constructs.Construct, id *string, props *CfnByteMatchSetProps) CfnByteMatchSet {
 	_init_.Initialize()
 
@@ -370,7 +380,6 @@ func NewCfnByteMatchSet(scope constructs.Construct, id *string, props *CfnByteMa
 	return &j
 }
 
-// Create a new `AWS::WAFRegional::ByteMatchSet`.
 func NewCfnByteMatchSet_Override(c CfnByteMatchSet, scope constructs.Construct, id *string, props *CfnByteMatchSetProps) {
 	_init_.Initialize()
 

@@ -224,32 +224,50 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html
+//
 type CfnChannel_OutputSettingsProperty struct {
 	// The settings for an archive output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-archiveoutputsettings
+	//
 	ArchiveOutputSettings interface{} `field:"optional" json:"archiveOutputSettings" yaml:"archiveOutputSettings"`
 	// The settings for a frame capture output.
 	//
 	// The parent of this entity is OutputGroupSettings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-framecaptureoutputsettings
+	//
 	FrameCaptureOutputSettings interface{} `field:"optional" json:"frameCaptureOutputSettings" yaml:"frameCaptureOutputSettings"`
 	// The settings for an HLS output.
 	//
 	// The parent of this entity is OutputGroupSettings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-hlsoutputsettings
+	//
 	HlsOutputSettings interface{} `field:"optional" json:"hlsOutputSettings" yaml:"hlsOutputSettings"`
 	// The settings for a MediaPackage output.
 	//
 	// The parent of this entity is OutputGroupSettings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-mediapackageoutputsettings
+	//
 	MediaPackageOutputSettings interface{} `field:"optional" json:"mediaPackageOutputSettings" yaml:"mediaPackageOutputSettings"`
 	// The settings for a Microsoft Smooth output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-mssmoothoutputsettings
+	//
 	MsSmoothOutputSettings interface{} `field:"optional" json:"msSmoothOutputSettings" yaml:"msSmoothOutputSettings"`
 	// Configuration of a Multiplex output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-multiplexoutputsettings
+	//
 	MultiplexOutputSettings interface{} `field:"optional" json:"multiplexOutputSettings" yaml:"multiplexOutputSettings"`
 	// The settings for an RTMP output.
 	//
 	// The parent of this entity is OutputGroupSettings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-rtmpoutputsettings
+	//
 	RtmpOutputSettings interface{} `field:"optional" json:"rtmpOutputSettings" yaml:"rtmpOutputSettings"`
 	// The settings for a UDP output.
 	//
 	// The parent of this entity is OutputGroupSettings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-udpoutputsettings
+	//
 	UdpOutputSettings interface{} `field:"optional" json:"udpOutputSettings" yaml:"udpOutputSettings"`
 }
 

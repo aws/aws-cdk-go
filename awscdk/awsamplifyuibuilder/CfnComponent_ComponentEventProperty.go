@@ -361,10 +361,16 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html
+//
 type CfnComponent_ComponentEventProperty struct {
 	// The action to perform when a specific event is raised.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-action
+	//
 	Action *string `field:"optional" json:"action" yaml:"action"`
 	// Describes information about the action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

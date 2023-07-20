@@ -7,8 +7,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::PublicTypeVersion`.
-//
 // Tests and publishes a registered extension as a public, third-party extension.
 //
 // CloudFormation first tests the extension to make sure it meets all necessary requirements for being published in the CloudFormation registry. If it does, CloudFormation then publishes it to the registry as a public third-party extension in this Region. Public extensions are available for use by all CloudFormation users.
@@ -37,12 +35,12 @@ import (
 //   	TypeName: jsii.String("typeName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html
+//
 type CfnPublicTypeVersion interface {
 	CfnResource
 	IInspectable
 	// The Amazon Resource Number (ARN) of the extension.
-	//
-	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
 	Arn() *string
 	SetArn(val *string)
 	// The Amazon Resource Number (ARN) assigned to the public extension upon publication.
@@ -61,15 +59,6 @@ type CfnPublicTypeVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The S3 bucket to which CloudFormation delivers the contract test execution logs.
-	//
-	// CloudFormation delivers the logs by the time contract testing has completed and the extension has been assigned a test type status of `PASSED` or `FAILED` .
-	//
-	// The user initiating the stack operation must be able to access items in the specified S3 bucket. Specifically, the user needs the following permissions:
-	//
-	// - GetObject
-	// - PutObject
-	//
-	// For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
 	LogDeliveryBucket() *string
 	SetLogDeliveryBucket(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -85,16 +74,6 @@ type CfnPublicTypeVersion interface {
 	// The tree node.
 	Node() constructs.Node
 	// The version number to assign to this version of the extension.
-	//
-	// Use the following format, and adhere to semantic versioning when assigning a version number to your extension:
-	//
-	// `MAJOR.MINOR.PATCH`
-	//
-	// For more information, see [Semantic Versioning 2.0.0](https://docs.aws.amazon.com/https://semver.org/) .
-	//
-	// If you don't specify a version number, CloudFormation increments the version number by one minor version release.
-	//
-	// You cannot specify a version number the first time you publish a type. AWS CloudFormation automatically sets the first version number to be `1.0.0` .
 	PublicVersionNumber() *string
 	SetPublicVersionNumber(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -107,13 +86,9 @@ type CfnPublicTypeVersion interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() Stack
 	// The type of the extension to test.
-	//
-	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
 	Type() *string
 	SetType(val *string)
 	// The name of the extension to test.
-	//
-	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
 	TypeName() *string
 	SetTypeName(val *string)
 	// Deprecated.
@@ -443,7 +418,6 @@ func (j *jsiiProxy_CfnPublicTypeVersion) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::CloudFormation::PublicTypeVersion`.
 func NewCfnPublicTypeVersion(scope constructs.Construct, id *string, props *CfnPublicTypeVersionProps) CfnPublicTypeVersion {
 	_init_.Initialize()
 
@@ -461,7 +435,6 @@ func NewCfnPublicTypeVersion(scope constructs.Construct, id *string, props *CfnP
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::PublicTypeVersion`.
 func NewCfnPublicTypeVersion_Override(c CfnPublicTypeVersion, scope constructs.Construct, id *string, props *CfnPublicTypeVersionProps) {
 	_init_.Initialize()
 

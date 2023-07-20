@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::Model`.
+// The `AWS::SageMaker::Model` resource to create a model to host at an Amazon SageMaker endpoint.
 //
-// The `AWS::SageMaker::Model` resource to create a model to host at an Amazon SageMaker endpoint. For more information, see [Deploying a Model on Amazon SageMaker Hosting Services](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html) in the *Amazon SageMaker Developer Guide* .
+// For more information, see [Deploying a Model on Amazon SageMaker Hosting Services](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html) in the *Amazon SageMaker Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -87,9 +87,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html
+//
 type CfnModel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// The name of the model, such as `MyModel` .
 	AttrModelName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -105,15 +109,9 @@ type CfnModel interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Isolates the model container.
-	//
-	// No inbound or outbound network calls can be made to or from the model container.
 	EnableNetworkIsolation() interface{}
 	SetEnableNetworkIsolation(val interface{})
 	// The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs.
-	//
-	// Deploying on ML compute instances is part of model hosting. For more information, see [SageMaker Roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html) .
-	//
-	// > To be able to pass this role to SageMaker, the caller of this API must have the `iam:PassRole` permission.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// Specifies details of how containers in a multi-container endpoint are called.
@@ -146,10 +144,11 @@ type CfnModel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Resource Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) and [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what) in the *AWS Billing and Cost Management User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -297,6 +296,17 @@ type CfnModel interface {
 type jsiiProxy_CfnModel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnModel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnModel) AttrModelName() *string {
@@ -459,6 +469,16 @@ func (j *jsiiProxy_CfnModel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnModel) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnModel) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -490,7 +510,6 @@ func (j *jsiiProxy_CfnModel) VpcConfig() interface{} {
 }
 
 
-// Create a new `AWS::SageMaker::Model`.
 func NewCfnModel(scope constructs.Construct, id *string, props *CfnModelProps) CfnModel {
 	_init_.Initialize()
 
@@ -508,7 +527,6 @@ func NewCfnModel(scope constructs.Construct, id *string, props *CfnModelProps) C
 	return &j
 }
 
-// Create a new `AWS::SageMaker::Model`.
 func NewCfnModel_Override(c CfnModel, scope constructs.Construct, id *string, props *CfnModelProps) {
 	_init_.Initialize()
 
@@ -578,6 +596,17 @@ func (j *jsiiProxy_CfnModel)SetPrimaryContainer(val interface{}) {
 	_jsii_.Set(
 		j,
 		"primaryContainer",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

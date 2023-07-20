@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConnect::BridgeSource`.
-//
 // Adds sources to an existing bridge.
 //
 // Example:
@@ -38,6 +36,8 @@ import (
 //   		Protocol: jsii.String("protocol"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html
 //
 type CfnBridgeSource interface {
 	awscdk.CfnResource
@@ -68,8 +68,6 @@ type CfnBridgeSource interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the network source.
-	//
-	// This name is used to reference the source and must be unique among sources in this bridge.
 	Name() *string
 	SetName(val *string)
 	// Add a network source to an existing bridge.
@@ -373,7 +371,6 @@ func (j *jsiiProxy_CfnBridgeSource) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::MediaConnect::BridgeSource`.
 func NewCfnBridgeSource(scope constructs.Construct, id *string, props *CfnBridgeSourceProps) CfnBridgeSource {
 	_init_.Initialize()
 
@@ -391,7 +388,6 @@ func NewCfnBridgeSource(scope constructs.Construct, id *string, props *CfnBridge
 	return &j
 }
 
-// Create a new `AWS::MediaConnect::BridgeSource`.
 func NewCfnBridgeSource_Override(c CfnBridgeSource, scope constructs.Construct, id *string, props *CfnBridgeSourceProps) {
 	_init_.Initialize()
 

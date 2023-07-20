@@ -386,14 +386,6 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetNotificationChannelParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnStreamProcessor) validateSetPolygonRegionsOfInterestParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnStreamProcessor) validateSetRoleArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -420,6 +412,16 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetS3DestinationParameters(val in
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_S3DestinationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnStreamProcessor) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
 		}
 	}
 

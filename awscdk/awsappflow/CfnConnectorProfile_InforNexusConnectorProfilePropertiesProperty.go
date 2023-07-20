@@ -12,8 +12,12 @@ package awsappflow
 //   	InstanceUrl: jsii.String("instanceUrl"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html
+//
 type CfnConnectorProfile_InforNexusConnectorProfilePropertiesProperty struct {
 	// The location of the Infor Nexus resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl
+	//
 	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Organizations::Policy`.
-//
 // Creates a policy of a specified type that you can attach to a root, an organizational unit (OU), or an individual AWS account .
 //
 // For more information about policies and their use, see [Managing Organization Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html) .
@@ -46,9 +44,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-policy.html
+//
 type CfnPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the policy.
 	//
 	// For example: `arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111` .
@@ -66,18 +67,9 @@ type CfnPolicy interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The policy text content. You can specify the policy content as a JSON object or a JSON string.
+	// The policy text content.
 	//
-	// > When you specify the policy content as a JSON string, you can't perform drift detection on the CloudFormation stack. For this reason, we recommend specifying the policy content as a JSON object instead.
-	//
-	// The text that you supply must adhere to the rules of the policy type you specify in the `Type` parameter. The following AWS Organizations quotas are enforced for the maximum size of a policy document:
-	//
-	// - Service control policies: 5,120 bytes *(not characters)*
-	// - AI services opt-out policies: 2,500 characters
-	// - Backup policies: 10,000 characters
-	// - Tag policies: 10,000 characters
-	//
-	// For more information about Organizations service quotas, see [Quotas for AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html) in the *AWS Organizations User Guide* .
+	// You can specify the policy content as a JSON object or a JSON string.
 	Content() interface{}
 	SetContent(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -98,8 +90,6 @@ type CfnPolicy interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Name of the policy.
-	//
-	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -113,21 +103,12 @@ type CfnPolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags that you want to attach to the newly created policy.
-	//
-	// For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to `null` . For more information about tagging, see [Tagging AWS Organizations resources](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html) in the AWS Organizations User Guide.
-	//
-	// > If any one of the tags is not valid or if you exceed the allowed number of tags for a policy, then the entire request fails and the policy is not created.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags that you want to attach to the newly created policy.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to.
-	//
-	// You can get the ID by calling the [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html) , [ListOrganizationalUnitsForParent](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListOrganizationalUnitsForParent.html) , or [ListAccounts](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccounts.html) operations. If you don't specify this parameter, the policy is created but not attached to any organization resource.
-	//
-	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) for a target ID string requires one of the following:
-	//
-	// - *Root* - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
-	// - *Account* - A string that consists of exactly 12 digits.
-	// - *Organizational unit (OU)* - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
 	TargetIds() *[]*string
 	SetTargetIds(val *[]*string)
 	// The type of policy to create.
@@ -277,6 +258,7 @@ type CfnPolicy interface {
 type jsiiProxy_CfnPolicy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPolicy) AttrArn() *string {
@@ -429,6 +411,16 @@ func (j *jsiiProxy_CfnPolicy) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPolicy) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPolicy) TargetIds() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -470,7 +462,6 @@ func (j *jsiiProxy_CfnPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Organizations::Policy`.
 func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
 	_init_.Initialize()
 
@@ -488,7 +479,6 @@ func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps)
 	return &j
 }
 
-// Create a new `AWS::Organizations::Policy`.
 func NewCfnPolicy_Override(c CfnPolicy, scope constructs.Construct, id *string, props *CfnPolicyProps) {
 	_init_.Initialize()
 
@@ -525,6 +515,17 @@ func (j *jsiiProxy_CfnPolicy)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPolicy)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

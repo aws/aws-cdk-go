@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::KinesisVideo::SignalingChannel`.
-//
 // Specifies a signaling channel.
 //
 // `CreateSignalingChannel` is an asynchronous operation.
@@ -32,9 +30,12 @@ import (
 //   	Type: jsii.String("type"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html
+//
 type CfnSignalingChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the signaling channel.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -60,8 +61,6 @@ type CfnSignalingChannel interface {
 	MessageTtlSeconds() *float64
 	SetMessageTtlSeconds(val *float64)
 	// A name for the signaling channel that you are creating.
-	//
-	// It must be unique for each AWS account and AWS Region .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -75,13 +74,12 @@ type CfnSignalingChannel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A type of the signaling channel that you are creating.
-	//
-	// Currently, `SINGLE_MASTER` is the only supported channel type.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -228,6 +226,7 @@ type CfnSignalingChannel interface {
 type jsiiProxy_CfnSignalingChannel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSignalingChannel) AttrArn() *string {
@@ -350,6 +349,16 @@ func (j *jsiiProxy_CfnSignalingChannel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSignalingChannel) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSignalingChannel) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -381,7 +390,6 @@ func (j *jsiiProxy_CfnSignalingChannel) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::KinesisVideo::SignalingChannel`.
 func NewCfnSignalingChannel(scope constructs.Construct, id *string, props *CfnSignalingChannelProps) CfnSignalingChannel {
 	_init_.Initialize()
 
@@ -399,7 +407,6 @@ func NewCfnSignalingChannel(scope constructs.Construct, id *string, props *CfnSi
 	return &j
 }
 
-// Create a new `AWS::KinesisVideo::SignalingChannel`.
 func NewCfnSignalingChannel_Override(c CfnSignalingChannel, scope constructs.Construct, id *string, props *CfnSignalingChannelProps) {
 	_init_.Initialize()
 
@@ -422,6 +429,17 @@ func (j *jsiiProxy_CfnSignalingChannel)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSignalingChannel)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

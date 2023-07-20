@@ -15,10 +15,16 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
+//
 type CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProperty struct {
 	// The name of the baseline model explainability job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
+	//
 	BaseliningJobName *string `field:"optional" json:"baseliningJobName" yaml:"baseliningJobName"`
 	// The constraints resource for a model explainability job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
+	//
 	ConstraintsResource interface{} `field:"optional" json:"constraintsResource" yaml:"constraintsResource"`
 }
 

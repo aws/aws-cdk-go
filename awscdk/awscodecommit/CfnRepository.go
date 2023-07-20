@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeCommit::Repository`.
-//
 // Creates a new, empty repository.
 //
 // Example:
@@ -58,15 +56,19 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html
+//
 type CfnRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// When you pass the logical ID of this resource, the function returns the Amazon Resource Name (ARN) of the repository.
 	AttrArn() *string
 	// When you pass the logical ID of this resource, the function returns the URL to use for cloning the repository over HTTPS.
 	AttrCloneUrlHttp() *string
 	// When you pass the logical ID of this resource, the function returns the URL to use for cloning the repository over SSH.
 	AttrCloneUrlSsh() *string
+	AttrId() *string
 	// When you pass the logical ID of this resource, the function returns the repository's name.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -75,10 +77,6 @@ type CfnRepository interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Information about code to be committed to a repository after it is created in an AWS CloudFormation stack.
-	//
-	// Information about code is only used in resource creation. Updates to a stack will not reflect changes made to code properties after initial resource creation.
-	//
-	// > You can only use this property to add code when creating a repository with a AWS CloudFormation template at creation time. This property cannot be used for updating code to an existing repository.
 	Code() interface{}
 	SetCode(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -103,21 +101,20 @@ type CfnRepository interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A comment or description about the new repository.
-	//
-	// > The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a webpage can expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a webpage.
 	RepositoryDescription() *string
 	SetRepositoryDescription(val *string)
 	// The name of the new repository to be created.
-	//
-	// > The repository name must be unique across the calling AWS account . Repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. For more information about the limits on repository names, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *AWS CodeCommit User Guide* . The suffix .git is prohibited.
 	RepositoryName() *string
 	SetRepositoryName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// One or more tag key-value pairs to use when tagging this repository.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more tag key-value pairs to use when tagging this repository.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The JSON block of configuration information for each trigger.
 	Triggers() interface{}
 	SetTriggers(val interface{})
@@ -265,6 +262,7 @@ type CfnRepository interface {
 type jsiiProxy_CfnRepository struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRepository) AttrArn() *string {
@@ -292,6 +290,16 @@ func (j *jsiiProxy_CfnRepository) AttrCloneUrlSsh() *string {
 	_jsii_.Get(
 		j,
 		"attrCloneUrlSsh",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRepository) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -427,6 +435,16 @@ func (j *jsiiProxy_CfnRepository) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRepository) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRepository) Triggers() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -458,7 +476,6 @@ func (j *jsiiProxy_CfnRepository) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CodeCommit::Repository`.
 func NewCfnRepository(scope constructs.Construct, id *string, props *CfnRepositoryProps) CfnRepository {
 	_init_.Initialize()
 
@@ -476,7 +493,6 @@ func NewCfnRepository(scope constructs.Construct, id *string, props *CfnReposito
 	return &j
 }
 
-// Create a new `AWS::CodeCommit::Repository`.
 func NewCfnRepository_Override(c CfnRepository, scope constructs.Construct, id *string, props *CfnRepositoryProps) {
 	_init_.Initialize()
 
@@ -513,6 +529,17 @@ func (j *jsiiProxy_CfnRepository)SetRepositoryName(val *string) {
 	_jsii_.Set(
 		j,
 		"repositoryName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

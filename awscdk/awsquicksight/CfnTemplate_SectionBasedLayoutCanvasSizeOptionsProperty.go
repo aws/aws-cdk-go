@@ -21,8 +21,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionbasedlayoutcanvassizeoptions.html
+//
 type CfnTemplate_SectionBasedLayoutCanvasSizeOptionsProperty struct {
 	// The options for a paper canvas of a section-based layout.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionbasedlayoutcanvassizeoptions.html#cfn-quicksight-template-sectionbasedlayoutcanvassizeoptions-papercanvassizeoptions
+	//
 	PaperCanvasSizeOptions interface{} `field:"optional" json:"paperCanvasSizeOptions" yaml:"paperCanvasSizeOptions"`
 }
 

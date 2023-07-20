@@ -19,12 +19,20 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html
+//
 type CfnChannel_H264ColorSpaceSettingsProperty struct {
 	// Passthrough applies no color space conversion to the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-colorspacepassthroughsettings
+	//
 	ColorSpacePassthroughSettings interface{} `field:"optional" json:"colorSpacePassthroughSettings" yaml:"colorSpacePassthroughSettings"`
 	// Settings to configure the handling of Rec601 color space.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-rec601settings
+	//
 	Rec601Settings interface{} `field:"optional" json:"rec601Settings" yaml:"rec601Settings"`
 	// Settings to configure the handling of Rec709 color space.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-rec709settings
+	//
 	Rec709Settings interface{} `field:"optional" json:"rec709Settings" yaml:"rec709Settings"`
 }
 

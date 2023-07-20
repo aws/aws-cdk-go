@@ -36,14 +36,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtertextfieldcontrol.html
+//
 type CfnTemplate_FilterTextFieldControlProperty struct {
 	// The ID of the `FilterTextFieldControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtertextfieldcontrol.html#cfn-quicksight-template-filtertextfieldcontrol-filtercontrolid
+	//
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
 	// The source filter ID of the `FilterTextFieldControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtertextfieldcontrol.html#cfn-quicksight-template-filtertextfieldcontrol-sourcefilterid
+	//
 	SourceFilterId *string `field:"required" json:"sourceFilterId" yaml:"sourceFilterId"`
 	// The title of the `FilterTextFieldControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtertextfieldcontrol.html#cfn-quicksight-template-filtertextfieldcontrol-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// The display options of a control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtertextfieldcontrol.html#cfn-quicksight-template-filtertextfieldcontrol-displayoptions
+	//
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

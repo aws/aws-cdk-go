@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DAX::SubnetGroup`.
-//
 // Creates a new subnet group.
 //
 // Example:
@@ -28,9 +26,12 @@ import (
 //   	SubnetGroupName: jsii.String("subnetGroupName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html
+//
 type CfnSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -216,6 +217,16 @@ type jsiiProxy_CfnSubnetGroup struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnSubnetGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubnetGroup) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -347,7 +358,6 @@ func (j *jsiiProxy_CfnSubnetGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DAX::SubnetGroup`.
 func NewCfnSubnetGroup(scope constructs.Construct, id *string, props *CfnSubnetGroupProps) CfnSubnetGroup {
 	_init_.Initialize()
 
@@ -365,7 +375,6 @@ func NewCfnSubnetGroup(scope constructs.Construct, id *string, props *CfnSubnetG
 	return &j
 }
 
-// Create a new `AWS::DAX::SubnetGroup`.
 func NewCfnSubnetGroup_Override(c CfnSubnetGroup, scope constructs.Construct, id *string, props *CfnSubnetGroupProps) {
 	_init_.Initialize()
 

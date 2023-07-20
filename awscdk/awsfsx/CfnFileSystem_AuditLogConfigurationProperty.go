@@ -16,6 +16,8 @@ package awsfsx
 //   	AuditLogDestination: jsii.String("auditLogDestination"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-auditlogconfiguration.html
+//
 type CfnFileSystem_AuditLogConfigurationProperty struct {
 	// Sets which attempt type is logged by Amazon FSx for file and folder accesses.
 	//
@@ -23,6 +25,8 @@ type CfnFileSystem_AuditLogConfigurationProperty struct {
 	// - `FAILURE_ONLY` - only failed attempts to access files or folders are logged.
 	// - `SUCCESS_AND_FAILURE` - both successful attempts and failed attempts to access files or folders are logged.
 	// - `DISABLED` - access auditing of files and folders is turned off.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-auditlogconfiguration.html#cfn-fsx-filesystem-auditlogconfiguration-fileaccessauditloglevel
+	//
 	FileAccessAuditLogLevel *string `field:"required" json:"fileAccessAuditLogLevel" yaml:"fileAccessAuditLogLevel"`
 	// Sets which attempt type is logged by Amazon FSx for file share accesses.
 	//
@@ -30,6 +34,8 @@ type CfnFileSystem_AuditLogConfigurationProperty struct {
 	// - `FAILURE_ONLY` - only failed attempts to access file shares are logged.
 	// - `SUCCESS_AND_FAILURE` - both successful attempts and failed attempts to access file shares are logged.
 	// - `DISABLED` - access auditing of file shares is turned off.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-auditlogconfiguration.html#cfn-fsx-filesystem-auditlogconfiguration-fileshareaccessauditloglevel
+	//
 	FileShareAccessAuditLogLevel *string `field:"required" json:"fileShareAccessAuditLogLevel" yaml:"fileShareAccessAuditLogLevel"`
 	// The Amazon Resource Name (ARN) for the destination of the audit logs.
 	//
@@ -38,6 +44,8 @@ type CfnFileSystem_AuditLogConfigurationProperty struct {
 	// The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix.
 	//
 	// The destination ARN (either CloudWatch Logs log group or Kinesis Data Firehose delivery stream) must be in the same AWS partition, AWS Region , and AWS account as your Amazon FSx file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-auditlogconfiguration.html#cfn-fsx-filesystem-auditlogconfiguration-auditlogdestination
+	//
 	AuditLogDestination *string `field:"optional" json:"auditLogDestination" yaml:"auditLogDestination"`
 }
 

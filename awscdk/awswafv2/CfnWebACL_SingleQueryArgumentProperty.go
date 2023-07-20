@@ -18,8 +18,12 @@ package awswafv2
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singlequeryargument.html
+//
 type CfnWebACL_SingleQueryArgumentProperty struct {
 	// The name of the query argument to inspect.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singlequeryargument.html#cfn-wafv2-webacl-singlequeryargument-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

@@ -13,10 +13,16 @@ package awsquicksight
 //   	DataValue: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datacolor.html
+//
 type CfnDashboard_DataColorProperty struct {
 	// The color that is applied to the data value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datacolor.html#cfn-quicksight-dashboard-datacolor-color
+	//
 	Color *string `field:"optional" json:"color" yaml:"color"`
 	// The data value that the color is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datacolor.html#cfn-quicksight-dashboard-datacolor-datavalue
+	//
 	DataValue *float64 `field:"optional" json:"dataValue" yaml:"dataValue"`
 }
 

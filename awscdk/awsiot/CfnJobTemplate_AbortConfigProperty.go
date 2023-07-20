@@ -19,8 +19,12 @@ package awsiot
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortconfig.html
+//
 type CfnJobTemplate_AbortConfigProperty struct {
 	// The list of criteria that determine when and how to abort the job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortconfig.html#cfn-iot-jobtemplate-abortconfig-criterialist
+	//
 	CriteriaList interface{} `field:"required" json:"criteriaList" yaml:"criteriaList"`
 }
 

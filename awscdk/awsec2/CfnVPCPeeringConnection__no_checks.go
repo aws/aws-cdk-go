@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) validateSetPeerVpcIdParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPCPeeringConnection) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPCPeeringConnection) validateSetVpcIdParameters(val *string) error {
 	return nil
 }

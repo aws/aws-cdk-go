@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElasticLoadBalancing::LoadBalancer`.
-//
 // Specifies a Classic Load Balancer.
 //
 // You can specify the `AvailabilityZones` or `Subnets` property, but not both.
@@ -117,9 +115,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html
+//
 type CfnLoadBalancer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Information about where and how access logs are stored for the load balancer.
 	AccessLoggingPolicy() interface{}
 	SetAccessLoggingPolicy(val interface{})
@@ -134,13 +135,14 @@ type CfnLoadBalancer interface {
 	AttrCanonicalHostedZoneNameId() *string
 	// The DNS name for the load balancer.
 	AttrDnsName() *string
+	AttrId() *string
 	// The name of the security group that you can use as part of your inbound rules for your load balancer's back-end instances.
 	AttrSourceSecurityGroupGroupName() *string
 	// The owner of the source security group.
 	AttrSourceSecurityGroupOwnerAlias() *string
-	// The Availability Zones for the load balancer. For load balancers in a VPC, specify `Subnets` instead.
+	// The Availability Zones for the load balancer.
 	//
-	// Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
+	// For load balancers in a VPC, specify `Subnets` instead.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -149,13 +151,9 @@ type CfnLoadBalancer interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-	//
-	// For more information, see [Configure Connection Draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *Classic Load Balancers Guide* .
 	ConnectionDrainingPolicy() interface{}
 	SetConnectionDrainingPolicy(val interface{})
 	// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-	//
-	// By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure Idle Connection Timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *Classic Load Balancers Guide* .
 	ConnectionSettings() interface{}
 	SetConnectionSettings(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -163,13 +161,9 @@ type CfnLoadBalancer interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-	//
-	// For more information, see [Configure Cross-Zone Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *Classic Load Balancers Guide* .
 	CrossZone() interface{}
 	SetCrossZone(val interface{})
 	// The health check settings to use when evaluating the health of your EC2 instances.
-	//
-	// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
 	HealthCheck() interface{}
 	SetHealthCheck(val interface{})
 	// The IDs of the instances for the load balancer.
@@ -178,16 +172,12 @@ type CfnLoadBalancer interface {
 	// Information about a policy for duration-based session stickiness.
 	LbCookieStickinessPolicy() interface{}
 	SetLbCookieStickinessPolicy(val interface{})
-	// The listeners for the load balancer. You can specify at most one listener per port.
+	// The listeners for the load balancer.
 	//
-	// If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
+	// You can specify at most one listener per port.
 	Listeners() interface{}
 	SetListeners(val interface{})
 	// The name of the load balancer.
-	//
-	// This name must be unique within your set of load balancers for the region.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	LoadBalancerName() *string
 	SetLoadBalancerName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -203,8 +193,6 @@ type CfnLoadBalancer interface {
 	// The tree node.
 	Node() constructs.Node
 	// The policies defined for your Classic Load Balancer.
-	//
-	// Specify only back-end server policies.
 	Policies() interface{}
 	SetPolicies(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -212,29 +200,28 @@ type CfnLoadBalancer interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The type of load balancer. Valid only for load balancers in a VPC.
+	// The type of load balancer.
 	//
-	// If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
-	//
-	// If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
+	// Valid only for load balancers in a VPC.
 	Scheme() *string
 	SetScheme(val *string)
 	// The security groups for the load balancer.
-	//
-	// Valid only for load balancers in a VPC.
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
+	// The IDs of the subnets for the load balancer.
 	//
-	// Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
+	// You can specify at most one subnet per Availability Zone.
 	Subnets() *[]*string
 	SetSubnets(val *[]*string)
-	// The tags associated with a load balancer.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags associated with a load balancer.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -379,6 +366,7 @@ type CfnLoadBalancer interface {
 type jsiiProxy_CfnLoadBalancer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLoadBalancer) AccessLoggingPolicy() interface{} {
@@ -426,6 +414,16 @@ func (j *jsiiProxy_CfnLoadBalancer) AttrDnsName() *string {
 	_jsii_.Get(
 		j,
 		"attrDnsName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoadBalancer) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -671,6 +669,16 @@ func (j *jsiiProxy_CfnLoadBalancer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -692,7 +700,6 @@ func (j *jsiiProxy_CfnLoadBalancer) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::ElasticLoadBalancing::LoadBalancer`.
 func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) CfnLoadBalancer {
 	_init_.Initialize()
 
@@ -710,7 +717,6 @@ func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBa
 	return &j
 }
 
-// Create a new `AWS::ElasticLoadBalancing::LoadBalancer`.
 func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope constructs.Construct, id *string, props *CfnLoadBalancerProps) {
 	_init_.Initialize()
 
@@ -864,6 +870,17 @@ func (j *jsiiProxy_CfnLoadBalancer)SetSubnets(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnets",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLoadBalancer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -27,12 +27,20 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
+//
 type CfnDataset_FormatOptionsProperty struct {
 	// Options that define how CSV input is to be interpreted by DataBrew.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
+	//
 	Csv interface{} `field:"optional" json:"csv" yaml:"csv"`
 	// Options that define how Excel input is to be interpreted by DataBrew.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
+	//
 	Excel interface{} `field:"optional" json:"excel" yaml:"excel"`
 	// Options that define how JSON input is to be interpreted by DataBrew.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
+	//
 	Json interface{} `field:"optional" json:"json" yaml:"json"`
 }
 

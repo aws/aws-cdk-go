@@ -17,10 +17,14 @@ package awsec2
 //   	VolumeType: jsii.String("volumeType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html
+//
 type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	// Indicates whether the EBS volume is deleted on instance termination.
 	//
 	// For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
+	//
 	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot.
 	//
@@ -31,6 +35,8 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
 	//
 	// This parameter is not returned by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
+	//
 	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The number of I/O operations per second (IOPS).
 	//
@@ -45,8 +51,12 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	// For `io1` and `io2` volumes, we guarantee 64,000 IOPS only for [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families guarantee performance up to 32,000 IOPS.
 	//
 	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-iops
+	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The ID of the snapshot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
+	//
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The size of the volume, in GiBs.
 	//
@@ -58,10 +68,14 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	// - `io1` and `io2` : 4-16,384
 	// - `st1` and `sc1` : 125-16,384
 	// - `standard` : 1-1,024.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
+	//
 	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
 	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide* . If the volume type is `io1` or `io2` , you must specify the IOPS that the volume supports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
+	//
 	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 

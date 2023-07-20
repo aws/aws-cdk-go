@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::User`.
-//
 // Specifies a user account for an Amazon Connect instance.
 //
 // For information about how to create user accounts using the Amazon Connect console, see [Add Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html) in the *Amazon Connect Administrator Guide* .
@@ -55,9 +53,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the user.
 	AttrUserArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -114,8 +115,11 @@ type CfnUser interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -263,6 +267,7 @@ type CfnUser interface {
 type jsiiProxy_CfnUser struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnUser) AttrUserArn() *string {
@@ -445,6 +450,16 @@ func (j *jsiiProxy_CfnUser) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUser) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUser) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -476,7 +491,6 @@ func (j *jsiiProxy_CfnUser) Username() *string {
 }
 
 
-// Create a new `AWS::Connect::User`.
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
@@ -494,7 +508,6 @@ func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::Connect::User`.
 func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 
@@ -580,6 +593,17 @@ func (j *jsiiProxy_CfnUser)SetSecurityProfileArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityProfileArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUser)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

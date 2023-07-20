@@ -12,8 +12,12 @@ package awsquicksight
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-progressbaroptions.html
+//
 type CfnAnalysis_ProgressBarOptionsProperty struct {
 	// The visibility of the progress bar.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-progressbaroptions.html#cfn-quicksight-analysis-progressbaroptions-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

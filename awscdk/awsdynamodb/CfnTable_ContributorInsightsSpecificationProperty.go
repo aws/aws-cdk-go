@@ -12,8 +12,12 @@ package awsdynamodb
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html
+//
 type CfnTable_ContributorInsightsSpecificationProperty struct {
 	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html#cfn-dynamodb-table-contributorinsightsspecification-enabled
+	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::StackSetConstraint`.
-//
 // Specifies a StackSet constraint.
 //
 // Example:
@@ -36,13 +34,12 @@ import (
 //   	AcceptLanguage: jsii.String("acceptLanguage"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html
+//
 type CfnStackSetConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
 	// One or more AWS accounts that will have access to the provisioned product.
@@ -51,6 +48,7 @@ type CfnStackSetConstraint interface {
 	// AdminRole ARN.
 	AdminRole() *string
 	SetAdminRole(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -90,12 +88,6 @@ type CfnStackSetConstraint interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// One or more AWS Regions where the provisioned product will be available.
-	//
-	// Applicable only to a `CFN_STACKSET` provisioned product type.
-	//
-	// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-	//
-	// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
 	RegionList() *[]*string
 	SetRegionList(val *[]*string)
 	// The stack in which this element is defined.
@@ -103,8 +95,6 @@ type CfnStackSetConstraint interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Permission to create, update, and delete stack instances.
-	//
-	// Choose from ALLOWED and NOT_ALLOWED.
 	StackInstanceControl() *string
 	SetStackInstanceControl(val *string)
 	// Deprecated.
@@ -283,6 +273,16 @@ func (j *jsiiProxy_CfnStackSetConstraint) AdminRole() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStackSetConstraint) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStackSetConstraint) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -444,7 +444,6 @@ func (j *jsiiProxy_CfnStackSetConstraint) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::ServiceCatalog::StackSetConstraint`.
 func NewCfnStackSetConstraint(scope constructs.Construct, id *string, props *CfnStackSetConstraintProps) CfnStackSetConstraint {
 	_init_.Initialize()
 
@@ -462,7 +461,6 @@ func NewCfnStackSetConstraint(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::StackSetConstraint`.
 func NewCfnStackSetConstraint_Override(c CfnStackSetConstraint, scope constructs.Construct, id *string, props *CfnStackSetConstraintProps) {
 	_init_.Initialize()
 

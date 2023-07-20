@@ -12,8 +12,12 @@ package awselasticloadbalancingv2
 //   	CertificateArn: jsii.String("certificateArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
+//
 type CfnListener_CertificateProperty struct {
 	// The Amazon Resource Name (ARN) of the certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
+	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 }
 

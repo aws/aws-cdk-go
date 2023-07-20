@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnFirewallPolicy) validateSetFirewallPolicyNameParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnFirewallPolicy) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFirewallPolicyParameters(scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) error {
 	return nil
 }

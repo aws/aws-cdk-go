@@ -21,12 +21,20 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html
+//
 type CfnGatewayRoute_HttpGatewayRouteRewriteProperty struct {
 	// The host name to rewrite.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-hostname
+	//
 	Hostname interface{} `field:"optional" json:"hostname" yaml:"hostname"`
 	// The path to rewrite.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-path
+	//
 	Path interface{} `field:"optional" json:"path" yaml:"path"`
 	// The specified beginning characters to rewrite.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-prefix
+	//
 	Prefix interface{} `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

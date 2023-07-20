@@ -14,8 +14,12 @@ package awsservicediscovery
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-privatednspropertiesmutable.html
+//
 type CfnPrivateDnsNamespace_PrivateDnsPropertiesMutableProperty struct {
 	// Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-privatednspropertiesmutable.html#cfn-servicediscovery-privatednsnamespace-privatednspropertiesmutable-soa
+	//
 	Soa interface{} `field:"optional" json:"soa" yaml:"soa"`
 }
 

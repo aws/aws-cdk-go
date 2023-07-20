@@ -15,14 +15,20 @@ package awsgamelift
 //   	PolicyDurationSeconds: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-playerlatencypolicy.html
+//
 type CfnGameSessionQueue_PlayerLatencyPolicyProperty struct {
 	// The maximum latency value that is allowed for any player, in milliseconds.
 	//
 	// All policies must have a value set for this property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-playerlatencypolicy.html#cfn-gamelift-gamesessionqueue-playerlatencypolicy-maximumindividualplayerlatencymilliseconds
+	//
 	MaximumIndividualPlayerLatencyMilliseconds *float64 `field:"optional" json:"maximumIndividualPlayerLatencyMilliseconds" yaml:"maximumIndividualPlayerLatencyMilliseconds"`
 	// The length of time, in seconds, that the policy is enforced while placing a new game session.
 	//
 	// A null value for this property means that the policy is enforced until the queue times out.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-playerlatencypolicy.html#cfn-gamelift-gamesessionqueue-playerlatencypolicy-policydurationseconds
+	//
 	PolicyDurationSeconds *float64 `field:"optional" json:"policyDurationSeconds" yaml:"policyDurationSeconds"`
 }
 

@@ -15,10 +15,16 @@ package awsconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html
+//
 type CfnTaskTemplate_DefaultFieldValueProperty struct {
 	// Default value for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html#cfn-connect-tasktemplate-defaultfieldvalue-defaultvalue
+	//
 	DefaultValue *string `field:"required" json:"defaultValue" yaml:"defaultValue"`
 	// Identifier of a field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html#cfn-connect-tasktemplate-defaultfieldvalue-id
+	//
 	Id interface{} `field:"required" json:"id" yaml:"id"`
 }
 

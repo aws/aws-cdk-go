@@ -19,6 +19,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDetails", GoGetter: "AttrDetails"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDetailsClientIds", GoGetter: "AttrDetailsClientIds"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDetailsDiscoveryUrl", GoGetter: "AttrDetailsDiscoveryUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDetailsOpenIdIssuer", GoGetter: "AttrDetailsOpenIdIssuer"},

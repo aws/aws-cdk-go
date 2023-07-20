@@ -9,24 +9,29 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QuickSight::Template`.
+// Creates a template from an existing Amazon QuickSight analysis or template.
 //
-// Creates a template from an existing Amazon QuickSight analysis or template. You can use the resulting template to create a dashboard.
+// You can use the resulting template to create a dashboard.
 //
 // A *template* is an entity in Amazon QuickSight that encapsulates the metadata required to create an analysis and that you can use to create s dashboard. A template adds a layer of abstraction by using placeholders to replace the dataset associated with the analysis. You can use templates to create dashboards by replacing dataset placeholders with datasets that follow the same schema that was used to create the source analysis and template.
 //
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html
+//
 type CfnTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the template.
 	AttrArn() *string
 	// The time this template was created.
 	AttrCreatedTime() *string
 	// The time this template was last updated.
 	AttrLastUpdatedTime() *string
+	// The version of the template.
+	AttrVersion() awscdk.IResolvable
 	AttrVersionCreatedTime() *string
 	AttrVersionDataSetConfigurations() awscdk.IResolvable
 	AttrVersionDescription() *string
@@ -37,8 +42,6 @@ type CfnTemplate interface {
 	AttrVersionThemeArn() *string
 	AttrVersionVersionNumber() awscdk.IResolvable
 	// The ID for the AWS account that the group is in.
-	//
-	// You use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -50,7 +53,6 @@ type CfnTemplate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::QuickSight::Template.Definition`.
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -77,23 +79,18 @@ type CfnTemplate interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The entity that you are using as a source when you create the template.
-	//
-	// In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
-	//
-	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
-	//
-	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity() interface{}
 	SetSourceEntity(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// An ID for the template that you want to create.
-	//
-	// This template is unique per AWS Region ; in each AWS account.
 	TemplateId() *string
 	SetTemplateId(val *string)
 	// Deprecated.
@@ -110,8 +107,6 @@ type CfnTemplate interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A description of the current template version being created.
-	//
-	// This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -245,6 +240,7 @@ type CfnTemplate interface {
 type jsiiProxy_CfnTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTemplate) AttrArn() *string {
@@ -272,6 +268,16 @@ func (j *jsiiProxy_CfnTemplate) AttrLastUpdatedTime() *string {
 	_jsii_.Get(
 		j,
 		"attrLastUpdatedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTemplate) AttrVersion() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVersion",
 		&returns,
 	)
 	return returns
@@ -507,6 +513,16 @@ func (j *jsiiProxy_CfnTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTemplate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTemplate) TemplateId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -548,7 +564,6 @@ func (j *jsiiProxy_CfnTemplate) VersionDescription() *string {
 }
 
 
-// Create a new `AWS::QuickSight::Template`.
 func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
 	_init_.Initialize()
 
@@ -566,7 +581,6 @@ func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplatePr
 	return &j
 }
 
-// Create a new `AWS::QuickSight::Template`.
 func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *string, props *CfnTemplateProps) {
 	_init_.Initialize()
 
@@ -625,6 +639,17 @@ func (j *jsiiProxy_CfnTemplate)SetSourceEntity(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceEntity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTemplate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeStar::GitHubRepository`.
+// The `AWS::CodeStar::GitHubRepository` resource creates a GitHub repository where users can store source code for use with AWS workflows.
 //
-// The `AWS::CodeStar::GitHubRepository` resource creates a GitHub repository where users can store source code for use with AWS workflows. You must provide a location for the source code ZIP file in the AWS CloudFormation template, so the code can be uploaded to the created repository. You must have created a personal access token in GitHub to provide in the AWS CloudFormation template. AWS uses this token to connect to GitHub on your behalf. For more information about using a GitHub source repository with AWS CodeStar projects, see [AWS CodeStar Project Files and Resources](https://docs.aws.amazon.com/codestar/latest/userguide/templates.html#templates-whatis) .
+// You must provide a location for the source code ZIP file in the AWS CloudFormation template, so the code can be uploaded to the created repository. You must have created a personal access token in GitHub to provide in the AWS CloudFormation template. AWS uses this token to connect to GitHub on your behalf. For more information about using a GitHub source repository with AWS CodeStar projects, see [AWS CodeStar Project Files and Resources](https://docs.aws.amazon.com/codestar/latest/userguide/templates.html#templates-whatis) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,9 +39,12 @@ import (
 //   	RepositoryDescription: jsii.String("repositoryDescription"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html
+//
 type CfnGitHubRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -50,7 +53,6 @@ type CfnGitHubRepository interface {
 	// Information about code to be committed to a repository after it is created in an AWS CloudFormation stack.
 	Code() interface{}
 	SetCode(val interface{})
-	// `AWS::CodeStar::GitHubRepository.ConnectionArn`.
 	ConnectionArn() *string
 	SetConnectionArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -58,13 +60,9 @@ type CfnGitHubRepository interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether to enable issues for the GitHub repository.
-	//
-	// You can use GitHub issues to track information and bugs for your repository.
 	EnableIssues() interface{}
 	SetEnableIssues(val interface{})
 	// Indicates whether the GitHub repository is a private repository.
-	//
-	// If so, you choose who can see and commit to this repository.
 	IsPrivate() interface{}
 	SetIsPrivate(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -88,16 +86,12 @@ type CfnGitHubRepository interface {
 	RepositoryAccessToken() *string
 	SetRepositoryAccessToken(val *string)
 	// A comment or description about the new repository.
-	//
-	// This description is displayed in GitHub after the repository is created.
 	RepositoryDescription() *string
 	SetRepositoryDescription(val *string)
 	// The name of the repository you want to create in GitHub with AWS CloudFormation stack creation.
 	RepositoryName() *string
 	SetRepositoryName(val *string)
 	// The GitHub user name for the owner of the GitHub repository to be created.
-	//
-	// If this repository should be owned by a GitHub organization, provide its name.
 	RepositoryOwner() *string
 	SetRepositoryOwner(val *string)
 	// The stack in which this element is defined.
@@ -248,6 +242,16 @@ type CfnGitHubRepository interface {
 type jsiiProxy_CfnGitHubRepository struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnGitHubRepository) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnGitHubRepository) CfnOptions() awscdk.ICfnResourceOptions {
@@ -431,7 +435,6 @@ func (j *jsiiProxy_CfnGitHubRepository) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::CodeStar::GitHubRepository`.
 func NewCfnGitHubRepository(scope constructs.Construct, id *string, props *CfnGitHubRepositoryProps) CfnGitHubRepository {
 	_init_.Initialize()
 
@@ -449,7 +452,6 @@ func NewCfnGitHubRepository(scope constructs.Construct, id *string, props *CfnGi
 	return &j
 }
 
-// Create a new `AWS::CodeStar::GitHubRepository`.
 func NewCfnGitHubRepository_Override(c CfnGitHubRepository, scope constructs.Construct, id *string, props *CfnGitHubRepositoryProps) {
 	_init_.Initialize()
 

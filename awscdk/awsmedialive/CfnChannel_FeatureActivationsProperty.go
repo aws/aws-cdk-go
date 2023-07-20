@@ -14,11 +14,15 @@ package awsmedialive
 //   	InputPrepareScheduleActions: jsii.String("inputPrepareScheduleActions"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html
+//
 type CfnChannel_FeatureActivationsProperty struct {
 	// Enables the Input Prepare feature.
 	//
 	// You can create Input Prepare actions in the schedule only if this feature is enabled.
 	// If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html#cfn-medialive-channel-featureactivations-inputpreparescheduleactions
+	//
 	InputPrepareScheduleActions *string `field:"optional" json:"inputPrepareScheduleActions" yaml:"inputPrepareScheduleActions"`
 }
 

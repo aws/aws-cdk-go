@@ -37,10 +37,16 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselector.html
+//
 type CfnChannel_AudioSelectorProperty struct {
 	// A name for this AudioSelector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselector.html#cfn-medialive-channel-audioselector-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Information about the specific audio to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselector.html#cfn-medialive-channel-audioselector-selectorsettings
+	//
 	SelectorSettings interface{} `field:"optional" json:"selectorSettings" yaml:"selectorSettings"`
 }
 

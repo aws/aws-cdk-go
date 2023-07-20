@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EKS::FargateProfile`.
+// Creates an AWS Fargate profile for your Amazon EKS cluster.
 //
-// Creates an AWS Fargate profile for your Amazon EKS cluster. You must have at least one Fargate profile in a cluster to be able to run pods on Fargate.
+// You must have at least one Fargate profile in a cluster to be able to run pods on Fargate.
 //
 // The Fargate profile allows an administrator to declare which pods run on Fargate and specify which pods run on which Fargate profile. This declaration is done through the profile’s selectors. Each profile can have up to five selectors that contain a namespace and labels. A namespace is required for every selector. The label field consists of multiple optional key-value pairs. Pods that match the selectors are scheduled on Fargate. If a to-be-scheduled pod matches any of the selectors in the Fargate profile, then that pod is run on Fargate.
 //
@@ -58,9 +58,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
+//
 type CfnFargateProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:fargateprofile/myCluster/myFargateProfile/1cb1a11a-1dc1-1d11-cf11-1111f11fa111` .
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -91,8 +94,6 @@ type CfnFargateProfile interface {
 	// The tree node.
 	Node() constructs.Node
 	// The Amazon Resource Name (ARN) of the pod execution role to use for pods that match the selectors in the Fargate profile.
-	//
-	// The pod execution role allows Fargate infrastructure to register with your cluster as a node, and it provides read access to Amazon ECR image repositories. For more information, see [Pod Execution Role](https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html) in the *Amazon EKS User Guide* .
 	PodExecutionRoleArn() *string
 	SetPodExecutionRoleArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -101,8 +102,6 @@ type CfnFargateProfile interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The selectors to match for pods to use this Fargate profile.
-	//
-	// Each selector must have an associated namespace. Optionally, you can also specify labels for a namespace. You may specify up to five selectors in a Fargate profile.
 	Selectors() interface{}
 	SetSelectors(val interface{})
 	// The stack in which this element is defined.
@@ -110,14 +109,13 @@ type CfnFargateProfile interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The IDs of subnets to launch your pods into.
-	//
-	// At this time, pods running on Fargate are not assigned public IP addresses, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
 	Subnets() *[]*string
 	SetSubnets(val *[]*string)
-	// The metadata to apply to the Fargate profile to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value. You define both. Fargate profile tags do not propagate to any other resources associated with the Fargate profile, such as the pods that are scheduled with it.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The metadata to apply to the Fargate profile to assist with categorization and organization.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -262,6 +260,7 @@ type CfnFargateProfile interface {
 type jsiiProxy_CfnFargateProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFargateProfile) AttrArn() *string {
@@ -414,6 +413,16 @@ func (j *jsiiProxy_CfnFargateProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFargateProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFargateProfile) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -435,7 +444,6 @@ func (j *jsiiProxy_CfnFargateProfile) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::EKS::FargateProfile`.
 func NewCfnFargateProfile(scope constructs.Construct, id *string, props *CfnFargateProfileProps) CfnFargateProfile {
 	_init_.Initialize()
 
@@ -453,7 +461,6 @@ func NewCfnFargateProfile(scope constructs.Construct, id *string, props *CfnFarg
 	return &j
 }
 
-// Create a new `AWS::EKS::FargateProfile`.
 func NewCfnFargateProfile_Override(c CfnFargateProfile, scope constructs.Construct, id *string, props *CfnFargateProfileProps) {
 	_init_.Initialize()
 
@@ -509,6 +516,17 @@ func (j *jsiiProxy_CfnFargateProfile)SetSubnets(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnets",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFargateProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::Classifier`.
+// The `AWS::Glue::Classifier` resource creates an AWS Glue classifier that categorizes data sources and specifies schemas.
 //
-// The `AWS::Glue::Classifier` resource creates an AWS Glue classifier that categorizes data sources and specifies schemas. For more information, see [Adding Classifiers to a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-classifier.html) and [Classifier Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-Classifier) in the *AWS Glue Developer Guide* .
+// For more information, see [Adding Classifiers to a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-classifier.html) and [Classifier Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-Classifier) in the *AWS Glue Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -53,9 +53,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html
+//
 type CfnClassifier interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -244,6 +247,16 @@ type jsiiProxy_CfnClassifier struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnClassifier) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClassifier) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -385,7 +398,6 @@ func (j *jsiiProxy_CfnClassifier) XmlClassifier() interface{} {
 }
 
 
-// Create a new `AWS::Glue::Classifier`.
 func NewCfnClassifier(scope constructs.Construct, id *string, props *CfnClassifierProps) CfnClassifier {
 	_init_.Initialize()
 
@@ -403,7 +415,6 @@ func NewCfnClassifier(scope constructs.Construct, id *string, props *CfnClassifi
 	return &j
 }
 
-// Create a new `AWS::Glue::Classifier`.
 func NewCfnClassifier_Override(c CfnClassifier, scope constructs.Construct, id *string, props *CfnClassifierProps) {
 	_init_.Initialize()
 

@@ -15,10 +15,16 @@ package awscustomerprofiles
 //   	Property: jsii.String("property"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html
+//
 type CfnIntegration_TaskPropertiesMapProperty struct {
 	// The task property key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-operatorpropertykey
+	//
 	OperatorPropertyKey *string `field:"required" json:"operatorPropertyKey" yaml:"operatorPropertyKey"`
 	// The task property value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-property
+	//
 	Property *string `field:"required" json:"property" yaml:"property"`
 }
 

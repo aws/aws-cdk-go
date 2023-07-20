@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFv2::LoggingConfiguration`.
+// Defines an association between logging destinations and a web ACL resource, for logging from AWS WAF .
 //
-// Defines an association between logging destinations and a web ACL resource, for logging from AWS WAF . As part of the association, you can specify parts of the standard logging fields to keep out of the logs and you can specify filters so that you log only a subset of the logging records.
+// As part of the association, you can specify parts of the standard logging fields to keep out of the logs and you can specify filters so that you log only a subset of the logging records.
 //
 // > You can define one logging destination per web ACL.
 //
@@ -59,6 +59,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html
+//
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -76,13 +78,9 @@ type CfnLoggingConfiguration interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The logging destination configuration that you want to associate with the web ACL.
-	//
-	// > You can associate one logging destination to a web ACL.
 	LogDestinationConfigs() *[]*string
 	SetLogDestinationConfigs(val *[]*string)
 	// Filtering that specifies which web requests are kept in the logs and which are dropped.
-	//
-	// You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
 	LoggingFilter() interface{}
 	SetLoggingFilter(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -98,12 +96,6 @@ type CfnLoggingConfiguration interface {
 	// The tree node.
 	Node() constructs.Node
 	// The parts of the request that you want to keep out of the logs.
-	//
-	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the logs will be `REDACTED` for all rules that use the `SingleHeader` `FieldToMatch` setting.
-	//
-	// Redaction applies only to the component that's specified in the rule's `FieldToMatch` setting, so the `SingleHeader` redaction doesn't apply to rules that use the `Headers` `FieldToMatch` .
-	//
-	// > You can specify only the following fields for redaction: `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
 	RedactedFields() interface{}
 	SetRedactedFields(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -415,7 +407,6 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::WAFv2::LoggingConfiguration`.
 func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
@@ -433,7 +424,6 @@ func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::WAFv2::LoggingConfiguration`.
 func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 
@@ -456,9 +446,6 @@ func (j *jsiiProxy_CfnLoggingConfiguration)SetLogDestinationConfigs(val *[]*stri
 }
 
 func (j *jsiiProxy_CfnLoggingConfiguration)SetLoggingFilter(val interface{}) {
-	if err := j.validateSetLoggingFilterParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"loggingFilter",

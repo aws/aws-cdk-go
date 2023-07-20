@@ -13,10 +13,16 @@ package awslakeformation
 //   	ResourceArn: jsii.String("resourceArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalocationresource.html
+//
 type CfnPrincipalPermissions_DataLocationResourceProperty struct {
 	// The identifier for the Data Catalog where the location is registered with AWS Lake Formation .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalocationresource.html#cfn-lakeformation-principalpermissions-datalocationresource-catalogid
+	//
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalocationresource.html#cfn-lakeformation-principalpermissions-datalocationresource-resourcearn
+	//
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 

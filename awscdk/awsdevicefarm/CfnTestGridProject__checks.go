@@ -187,6 +187,16 @@ func (j *jsiiProxy_CfnTestGridProject) validateSetNameParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnTestGridProject) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnTestGridProject) validateSetVpcConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

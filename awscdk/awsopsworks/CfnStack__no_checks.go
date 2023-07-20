@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnStack) validateSetCustomCookbooksSourceParameters(val inte
 	return nil
 }
 
-func (j *jsiiProxy_CfnStack) validateSetCustomJsonParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnStack) validateSetDefaultInstanceProfileArnParameters(val *string) error {
 	return nil
 }
@@ -121,6 +117,10 @@ func (j *jsiiProxy_CfnStack) validateSetRdsDbInstancesParameters(val interface{}
 }
 
 func (j *jsiiProxy_CfnStack) validateSetServiceRoleArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnStack) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

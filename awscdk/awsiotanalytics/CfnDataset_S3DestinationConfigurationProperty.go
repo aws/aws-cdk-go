@@ -20,8 +20,12 @@ package awsiotanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html
+//
 type CfnDataset_S3DestinationConfigurationProperty struct {
 	// The name of the S3 bucket to which dataset contents are delivered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The key of the dataset contents object in an S3 bucket.
 	//
@@ -36,10 +40,16 @@ type CfnDataset_S3DestinationConfigurationProperty struct {
 	// The following example creates a unique key for a CSV file: `dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv`
 	//
 	// > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-glueconfiguration
+	//
 	GlueConfiguration interface{} `field:"optional" json:"glueConfiguration" yaml:"glueConfiguration"`
 }
 

@@ -15,10 +15,16 @@ package awsiot
 //   	Unit: jsii.String("unit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestamp.html
+//
 type CfnTopicRule_TimestampProperty struct {
 	// An expression that returns a long epoch time value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestamp.html#cfn-iot-topicrule-timestamp-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// The precision of the timestamp value that results from the expression described in `value` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestamp.html#cfn-iot-topicrule-timestamp-unit
+	//
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

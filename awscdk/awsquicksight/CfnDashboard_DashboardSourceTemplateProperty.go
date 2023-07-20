@@ -18,10 +18,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html
+//
 type CfnDashboard_DashboardSourceTemplateProperty struct {
 	// The Amazon Resource Name (ARN) of the resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// Dataset references.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
+	//
 	DataSetReferences interface{} `field:"required" json:"dataSetReferences" yaml:"dataSetReferences"`
 }
 

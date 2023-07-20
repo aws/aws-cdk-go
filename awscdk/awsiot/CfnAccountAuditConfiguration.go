@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::AccountAuditConfiguration`.
+// Use the `AWS::IoT::AccountAuditConfiguration` resource to configure or reconfigure the Device Defender audit settings for your account.
 //
-// Use the `AWS::IoT::AccountAuditConfiguration` resource to configure or reconfigure the Device Defender audit settings for your account. Settings include how audit notifications are sent and which audit checks are enabled or disabled. For API reference, see [UpdateAccountAuditConfiguration](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateAccountAuditConfiguration.html) and for detailed information on all available audit checks, see [Audit checks](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit-checks.html) .
+// Settings include how audit notifications are sent and which audit checks are enabled or disabled. For API reference, see [UpdateAccountAuditConfiguration](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateAccountAuditConfiguration.html) and for detailed information on all available audit checks, see [Audit checks](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit-checks.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -82,23 +82,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html
+//
 type CfnAccountAuditConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The ID of the account.
-	//
-	// You can use the expression `!Sub "${AWS::AccountId}"` to use your account ID.
 	AccountId() *string
 	SetAccountId(val *string)
 	// Specifies which audit checks are enabled and disabled for this account.
-	//
-	// Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
-	//
-	// If an enabled check is removed from the template, it will also be disabled.
-	//
-	// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
-	//
-	// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
 	AuditCheckConfigurations() interface{}
 	SetAuditCheckConfigurations(val interface{})
 	// Information about the targets to which audit notifications are sent.
@@ -424,7 +416,6 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) UpdatedProperties() *map[string
 }
 
 
-// Create a new `AWS::IoT::AccountAuditConfiguration`.
 func NewCfnAccountAuditConfiguration(scope constructs.Construct, id *string, props *CfnAccountAuditConfigurationProps) CfnAccountAuditConfiguration {
 	_init_.Initialize()
 
@@ -442,7 +433,6 @@ func NewCfnAccountAuditConfiguration(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Create a new `AWS::IoT::AccountAuditConfiguration`.
 func NewCfnAccountAuditConfiguration_Override(c CfnAccountAuditConfiguration, scope constructs.Construct, id *string, props *CfnAccountAuditConfigurationProps) {
 	_init_.Initialize()
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTTwinMaker::SyncJob`.
-//
 // The SyncJob.
 //
 // Example:
@@ -29,9 +27,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html
+//
 type CfnSyncJob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The SyncJob ARN.
 	AttrArn() *string
 	// The creation date and time of the SyncJob.
@@ -71,17 +72,16 @@ type CfnSyncJob interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The SyncJob IAM role.
-	//
-	// This IAM role is used by the sync job to read from the syncSource, and create, update or delete the corresponding resources.
 	SyncRole() *string
 	SetSyncRole(val *string)
 	// The sync source.
-	//
-	// > Currently the only supported syncSoucre is `SITEWISE` .
 	SyncSource() *string
 	SetSyncSource(val *string)
-	// Metadata you can use to manage the SyncJob.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata you can use to manage the SyncJob.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -229,6 +229,7 @@ type CfnSyncJob interface {
 type jsiiProxy_CfnSyncJob struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSyncJob) AttrArn() *string {
@@ -381,6 +382,16 @@ func (j *jsiiProxy_CfnSyncJob) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSyncJob) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSyncJob) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -412,7 +423,6 @@ func (j *jsiiProxy_CfnSyncJob) WorkspaceId() *string {
 }
 
 
-// Create a new `AWS::IoTTwinMaker::SyncJob`.
 func NewCfnSyncJob(scope constructs.Construct, id *string, props *CfnSyncJobProps) CfnSyncJob {
 	_init_.Initialize()
 
@@ -430,7 +440,6 @@ func NewCfnSyncJob(scope constructs.Construct, id *string, props *CfnSyncJobProp
 	return &j
 }
 
-// Create a new `AWS::IoTTwinMaker::SyncJob`.
 func NewCfnSyncJob_Override(c CfnSyncJob, scope constructs.Construct, id *string, props *CfnSyncJobProps) {
 	_init_.Initialize()
 
@@ -459,6 +468,14 @@ func (j *jsiiProxy_CfnSyncJob)SetSyncSource(val *string) {
 	_jsii_.Set(
 		j,
 		"syncSource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSyncJob)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

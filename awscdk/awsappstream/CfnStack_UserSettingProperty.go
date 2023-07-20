@@ -13,10 +13,16 @@ package awsappstream
 //   	Permission: jsii.String("permission"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html
+//
 type CfnStack_UserSettingProperty struct {
 	// The action that is enabled or disabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-action
+	//
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// Indicates whether the action is enabled or disabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-permission
+	//
 	Permission *string `field:"required" json:"permission" yaml:"permission"`
 }
 

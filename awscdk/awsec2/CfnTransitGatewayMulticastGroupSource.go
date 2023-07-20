@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayMulticastGroupSource`.
-//
 // Registers sources (network interfaces) with the specified transit gateway multicast domain.
 //
 // A multicast source is a network interface attached to a supported instance that sends multicast traffic. For information about supported instances, see [Multicast Considerations](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits) in *Amazon VPC Transit Gateways* .
@@ -25,6 +23,8 @@ import (
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
 //   	TransitGatewayMulticastDomainId: jsii.String("transitGatewayMulticastDomainId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html
 //
 type CfnTransitGatewayMulticastGroupSource interface {
 	awscdk.CfnResource
@@ -441,7 +441,6 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) UpdatedProperties() *m
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayMulticastGroupSource`.
 func NewCfnTransitGatewayMulticastGroupSource(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastGroupSourceProps) CfnTransitGatewayMulticastGroupSource {
 	_init_.Initialize()
 
@@ -459,7 +458,6 @@ func NewCfnTransitGatewayMulticastGroupSource(scope constructs.Construct, id *st
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayMulticastGroupSource`.
 func NewCfnTransitGatewayMulticastGroupSource_Override(c CfnTransitGatewayMulticastGroupSource, scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastGroupSourceProps) {
 	_init_.Initialize()
 

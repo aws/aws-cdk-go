@@ -46,14 +46,22 @@ package awskinesisanalytics
 //   	TableName: jsii.String("tableName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html
+//
 type CfnApplicationReferenceDataSourceV2_ReferenceDataSourceProperty struct {
 	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource-referenceschema
+	//
 	ReferenceSchema interface{} `field:"required" json:"referenceSchema" yaml:"referenceSchema"`
 	// Identifies the S3 bucket and object that contains the reference data.
 	//
 	// A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UpdateApplication.html) operation to trigger reloading of data into your application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource-s3referencedatasource
+	//
 	S3ReferenceDataSource interface{} `field:"optional" json:"s3ReferenceDataSource" yaml:"s3ReferenceDataSource"`
 	// The name of the in-application table to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource-tablename
+	//
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 }
 

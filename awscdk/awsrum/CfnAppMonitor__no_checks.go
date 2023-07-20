@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnAppMonitor) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppMonitor) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAppMonitorParameters(scope constructs.Construct, id *string, props *CfnAppMonitorProps) error {
 	return nil
 }

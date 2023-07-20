@@ -14,8 +14,12 @@ package awsmedialive
 //   	Pid: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopidselection.html
+//
 type CfnChannel_AudioPidSelectionProperty struct {
 	// Select the audio by this PID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopidselection.html#cfn-medialive-channel-audiopidselection-pid
+	//
 	Pid *float64 `field:"optional" json:"pid" yaml:"pid"`
 }
 

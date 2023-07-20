@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnReplicaKey) validateSetPrimaryKeyArnParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicaKey) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnReplicaKeyParameters(scope constructs.Construct, id *string, props *CfnReplicaKeyProps) error {
 	return nil
 }

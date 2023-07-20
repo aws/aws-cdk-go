@@ -12,6 +12,8 @@ package awssagemaker
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html
+//
 type CfnMonitoringSchedule_ScheduleConfigProperty struct {
 	// A cron expression that describes details about the monitoring schedule.
 	//
@@ -40,6 +42,8 @@ type CfnMonitoringSchedule_ScheduleConfigProperty struct {
 	//
 	// > - Even though the cron expression is set to start at 5PM UTC, note that there could be a delay of 0-20 minutes from the actual requested time to run the execution.
 	// > - We recommend that if you would like a daily schedule, you do not provide this parameter. Amazon SageMaker will pick a time for running every day.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
+	//
 	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 

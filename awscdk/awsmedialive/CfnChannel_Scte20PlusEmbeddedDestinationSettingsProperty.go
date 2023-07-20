@@ -13,6 +13,8 @@ package awsmedialive
 //   scte20PlusEmbeddedDestinationSettingsProperty := &Scte20PlusEmbeddedDestinationSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte20plusembeddeddestinationsettings.html
+//
 type CfnChannel_Scte20PlusEmbeddedDestinationSettingsProperty struct {
 }
 

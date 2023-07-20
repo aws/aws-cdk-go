@@ -26,6 +26,8 @@ package awswaf
 //   	TextTransformation: jsii.String("textTransformation"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html
+//
 type CfnSizeConstraintSet_SizeConstraintProperty struct {
 	// The type of comparison you want AWS WAF to perform.
 	//
@@ -42,8 +44,12 @@ type CfnSizeConstraintSet_SizeConstraintProperty struct {
 	// *GE* : Used to test if the `Size` is greater than or equal to the size of the `FieldToMatch`
 	//
 	// *GT* : Used to test if the `Size` is strictly greater than the size of the `FieldToMatch`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-comparisonoperator
+	//
 	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The part of a web request that you want to inspect, such as a specified header or a query string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-fieldtomatch
+	//
 	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The size in bytes that you want AWS WAF to compare against the size of the specified `FieldToMatch` .
 	//
@@ -52,6 +58,8 @@ type CfnSizeConstraintSet_SizeConstraintProperty struct {
 	// Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).
 	//
 	// If you specify `URI` for the value of `Type` , the / in the URI path that you specify counts as one character. For example, the URI `/logo.jpg` is nine characters long.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-size
+	//
 	Size *float64 `field:"required" json:"size" yaml:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF .
 	//
@@ -106,6 +114,8 @@ type CfnSizeConstraintSet_SizeConstraintProperty struct {
 	// *URL_DECODE*
 	//
 	// Use this option to decode a URL-encoded value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-texttransformation
+	//
 	TextTransformation *string `field:"required" json:"textTransformation" yaml:"textTransformation"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::LaunchRoleConstraint`.
-//
 // Specifies a launch constraint.
 //
 // Example:
@@ -29,15 +27,15 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html
+//
 type CfnLaunchRoleConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -51,10 +49,6 @@ type CfnLaunchRoleConstraint interface {
 	Description() *string
 	SetDescription(val *string)
 	// You are required to specify either the `RoleArn` or the `LocalRoleName` but can't use both.
-	//
-	// If you specify the `LocalRoleName` property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
-	//
-	// The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.
 	LocalRoleName() *string
 	SetLocalRoleName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -81,8 +75,6 @@ type CfnLaunchRoleConstraint interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN of the launch role.
-	//
-	// You are required to specify `RoleArn` or `LocalRoleName` but can't use both.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -245,6 +237,16 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) AcceptLanguage() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLaunchRoleConstraint) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLaunchRoleConstraint) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -396,7 +398,6 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::ServiceCatalog::LaunchRoleConstraint`.
 func NewCfnLaunchRoleConstraint(scope constructs.Construct, id *string, props *CfnLaunchRoleConstraintProps) CfnLaunchRoleConstraint {
 	_init_.Initialize()
 
@@ -414,7 +415,6 @@ func NewCfnLaunchRoleConstraint(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::LaunchRoleConstraint`.
 func NewCfnLaunchRoleConstraint_Override(c CfnLaunchRoleConstraint, scope constructs.Construct, id *string, props *CfnLaunchRoleConstraintProps) {
 	_init_.Initialize()
 

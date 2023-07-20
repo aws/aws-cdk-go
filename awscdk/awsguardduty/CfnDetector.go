@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GuardDuty::Detector`.
+// The `AWS::GuardDuty::Detector` resource specifies a new GuardDuty detector.
 //
-// The `AWS::GuardDuty::Detector` resource specifies a new GuardDuty detector. A detector is an object that represents the GuardDuty service. A detector is required for GuardDuty to become operational.
+// A detector is an object that represents the GuardDuty service. A detector is required for GuardDuty to become operational.
 //
 // Make sure you use either `DataSources` or `Features` in a one request, and not both.
 //
@@ -60,9 +60,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
+//
 type CfnDetector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -105,14 +109,11 @@ type CfnDetector interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies tags added to a new detector resource.
-	//
-	// Each tag consists of a key and an optional value, both of which you define.
-	//
-	// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies tags added to a new detector resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -257,6 +258,17 @@ type CfnDetector interface {
 type jsiiProxy_CfnDetector struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDetector) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDetector) CfnOptions() awscdk.ICfnResourceOptions {
@@ -389,6 +401,16 @@ func (j *jsiiProxy_CfnDetector) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDetector) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDetector) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -410,7 +432,6 @@ func (j *jsiiProxy_CfnDetector) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GuardDuty::Detector`.
 func NewCfnDetector(scope constructs.Construct, id *string, props *CfnDetectorProps) CfnDetector {
 	_init_.Initialize()
 
@@ -428,7 +449,6 @@ func NewCfnDetector(scope constructs.Construct, id *string, props *CfnDetectorPr
 	return &j
 }
 
-// Create a new `AWS::GuardDuty::Detector`.
 func NewCfnDetector_Override(c CfnDetector, scope constructs.Construct, id *string, props *CfnDetectorProps) {
 	_init_.Initialize()
 
@@ -476,6 +496,17 @@ func (j *jsiiProxy_CfnDetector)SetFindingPublishingFrequency(val *string) {
 	_jsii_.Set(
 		j,
 		"findingPublishingFrequency",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDetector)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

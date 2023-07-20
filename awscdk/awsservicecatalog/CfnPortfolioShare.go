@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::PortfolioShare`.
-//
 // Shares the specified portfolio with the specified account.
 //
 // Example:
@@ -27,20 +25,18 @@ import (
 //   	ShareTagOptions: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html
+//
 type CfnPortfolioShare interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
 	// The AWS account ID.
-	//
-	// For example, `123456789012` .
 	AccountId() *string
 	SetAccountId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -243,6 +239,16 @@ func (j *jsiiProxy_CfnPortfolioShare) AccountId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortfolioShare) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortfolioShare) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -364,7 +370,6 @@ func (j *jsiiProxy_CfnPortfolioShare) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::ServiceCatalog::PortfolioShare`.
 func NewCfnPortfolioShare(scope constructs.Construct, id *string, props *CfnPortfolioShareProps) CfnPortfolioShare {
 	_init_.Initialize()
 
@@ -382,7 +387,6 @@ func NewCfnPortfolioShare(scope constructs.Construct, id *string, props *CfnPort
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::PortfolioShare`.
 func NewCfnPortfolioShare_Override(c CfnPortfolioShare, scope constructs.Construct, id *string, props *CfnPortfolioShareProps) {
 	_init_.Initialize()
 

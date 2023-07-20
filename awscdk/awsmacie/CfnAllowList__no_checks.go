@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnAllowList) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAllowList) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAllowListParameters(scope constructs.Construct, id *string, props *CfnAllowListProps) error {
 	return nil
 }

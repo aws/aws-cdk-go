@@ -17,8 +17,12 @@ package awsopensearchservice
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindow.html
+//
 type CfnDomain_OffPeakWindowProperty struct {
 	// The desired start time for an off-peak maintenance window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindow.html#cfn-opensearchservice-domain-offpeakwindow-windowstarttime
+	//
 	WindowStartTime interface{} `field:"optional" json:"windowStartTime" yaml:"windowStartTime"`
 }
 

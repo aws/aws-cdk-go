@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::LocationEFS`.
+// The `AWS::DataSync::LocationEFS` resource creates an endpoint for an Amazon EFS file system.
 //
-// The `AWS::DataSync::LocationEFS` resource creates an endpoint for an Amazon EFS file system. AWS DataSync can access this endpoint as a source or destination location.
+// AWS DataSync can access this endpoint as a source or destination location.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html
+//
 type CfnLocationEFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
 	AccessPointArn() *string
 	SetAccessPointArn(val *string)
@@ -69,8 +72,6 @@ type CfnLocationEFS interface {
 	FileSystemAccessRoleArn() *string
 	SetFileSystemAccessRoleArn(val *string)
 	// Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption when it copies data to or from the Amazon EFS file system.
-	//
-	// If you specify an access point using `AccessPointArn` or an IAM role using `FileSystemAccessRoleArn` , you must set this parameter to `TLS1_2` .
 	InTransitEncryption() *string
 	SetInTransitEncryption(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -95,16 +96,13 @@ type CfnLocationEFS interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies a mount path for your Amazon EFS file system.
-	//
-	// This is where DataSync reads or writes data (depending on if this is a source or destination location). By default, DataSync uses the root directory, but you can also include subdirectories.
-	//
-	// > You must specify a value with forward slashes (for example, `/path/to/folder` ).
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// Specifies the key-value pair that represents a tag that you want to add to the resource.
-	//
-	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies the key-value pair that represents a tag that you want to add to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -249,6 +247,7 @@ type CfnLocationEFS interface {
 type jsiiProxy_CfnLocationEFS struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocationEFS) AccessPointArn() *string {
@@ -421,6 +420,16 @@ func (j *jsiiProxy_CfnLocationEFS) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationEFS) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationEFS) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -442,7 +451,6 @@ func (j *jsiiProxy_CfnLocationEFS) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DataSync::LocationEFS`.
 func NewCfnLocationEFS(scope constructs.Construct, id *string, props *CfnLocationEFSProps) CfnLocationEFS {
 	_init_.Initialize()
 
@@ -460,7 +468,6 @@ func NewCfnLocationEFS(scope constructs.Construct, id *string, props *CfnLocatio
 	return &j
 }
 
-// Create a new `AWS::DataSync::LocationEFS`.
 func NewCfnLocationEFS_Override(c CfnLocationEFS, scope constructs.Construct, id *string, props *CfnLocationEFSProps) {
 	_init_.Initialize()
 
@@ -518,6 +525,17 @@ func (j *jsiiProxy_CfnLocationEFS)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationEFS)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

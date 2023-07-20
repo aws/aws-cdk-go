@@ -21,18 +21,28 @@ package awsgreengrass
 //   	SyncShadow: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html
+//
 type CfnDeviceDefinitionVersion_DeviceProperty struct {
 	// The ARN of the device certificate for the device.
 	//
 	// This X.509 certificate is used to authenticate the device with AWS IoT and AWS IoT Greengrass services.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-certificatearn
+	//
 	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 	// A descriptive or arbitrary ID for the device.
 	//
 	// This value must be unique within the device definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The Amazon Resource Name (ARN) of the device, which is an AWS IoT device (thing).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-thingarn
+	//
 	ThingArn *string `field:"required" json:"thingArn" yaml:"thingArn"`
 	// Indicates whether the device's local shadow is synced with the cloud automatically.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-syncshadow
+	//
 	SyncShadow interface{} `field:"optional" json:"syncShadow" yaml:"syncShadow"`
 }
 

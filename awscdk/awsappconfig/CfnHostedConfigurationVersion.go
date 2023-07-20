@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppConfig::HostedConfigurationVersion`.
+// Create a new configuration in the AWS AppConfig hosted configuration store.
 //
-// Create a new configuration in the AWS AppConfig hosted configuration store. Configurations must be 1 MB or smaller. The AWS AppConfig hosted configuration store provides the following benefits over other configuration store options.
+// Configurations must be 1 MB or smaller. The AWS AppConfig hosted configuration store provides the following benefits over other configuration store options.
 //
 // - You don't need to set up and configure other services such as Amazon Simple Storage Service ( Amazon S3 ) or Parameter Store.
 // - You don't need to configure AWS Identity and Access Management ( IAM ) permissions to use the configuration store.
@@ -36,12 +36,15 @@ import (
 //   	VersionLabel: jsii.String("versionLabel"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html
+//
 type CfnHostedConfigurationVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The application ID.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -54,8 +57,6 @@ type CfnHostedConfigurationVersion interface {
 	Content() *string
 	SetContent(val *string)
 	// A standard MIME type describing the format of the configuration content.
-	//
-	// For more information, see [Content-Type](https://docs.aws.amazon.com/https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17) .
 	ContentType() *string
 	SetContentType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -66,8 +67,6 @@ type CfnHostedConfigurationVersion interface {
 	Description() *string
 	SetDescription(val *string)
 	// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version.
-	//
-	// To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
 	LatestVersionNumber() *float64
 	SetLatestVersionNumber(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -250,6 +249,16 @@ func (j *jsiiProxy_CfnHostedConfigurationVersion) ApplicationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHostedConfigurationVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHostedConfigurationVersion) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -411,7 +420,6 @@ func (j *jsiiProxy_CfnHostedConfigurationVersion) VersionLabel() *string {
 }
 
 
-// Create a new `AWS::AppConfig::HostedConfigurationVersion`.
 func NewCfnHostedConfigurationVersion(scope constructs.Construct, id *string, props *CfnHostedConfigurationVersionProps) CfnHostedConfigurationVersion {
 	_init_.Initialize()
 
@@ -429,7 +437,6 @@ func NewCfnHostedConfigurationVersion(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::AppConfig::HostedConfigurationVersion`.
 func NewCfnHostedConfigurationVersion_Override(c CfnHostedConfigurationVersion, scope constructs.Construct, id *string, props *CfnHostedConfigurationVersionProps) {
 	_init_.Initialize()
 

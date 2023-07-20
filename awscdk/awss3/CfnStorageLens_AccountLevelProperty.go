@@ -49,16 +49,28 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
+//
 type CfnStorageLens_AccountLevelProperty struct {
 	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
+	//
 	BucketLevel interface{} `field:"required" json:"bucketLevel" yaml:"bucketLevel"`
 	// This property contains the details of account-level activity metrics for S3 Storage Lens.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
+	//
 	ActivityMetrics interface{} `field:"optional" json:"activityMetrics" yaml:"activityMetrics"`
 	// This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advancedcostoptimizationmetrics
+	//
 	AdvancedCostOptimizationMetrics interface{} `field:"optional" json:"advancedCostOptimizationMetrics" yaml:"advancedCostOptimizationMetrics"`
 	// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advanceddataprotectionmetrics
+	//
 	AdvancedDataProtectionMetrics interface{} `field:"optional" json:"advancedDataProtectionMetrics" yaml:"advancedDataProtectionMetrics"`
 	// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-detailedstatuscodesmetrics
+	//
 	DetailedStatusCodesMetrics interface{} `field:"optional" json:"detailedStatusCodesMetrics" yaml:"detailedStatusCodesMetrics"`
 }
 

@@ -20,10 +20,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisscale.html
+//
 type CfnTemplate_AxisScaleProperty struct {
 	// The linear axis scale setup.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisscale.html#cfn-quicksight-template-axisscale-linear
+	//
 	Linear interface{} `field:"optional" json:"linear" yaml:"linear"`
 	// The logarithmic axis scale setup.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisscale.html#cfn-quicksight-template-axisscale-logarithmic
+	//
 	Logarithmic interface{} `field:"optional" json:"logarithmic" yaml:"logarithmic"`
 }
 

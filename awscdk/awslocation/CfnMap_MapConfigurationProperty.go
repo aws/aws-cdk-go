@@ -12,6 +12,8 @@ package awslocation
 //   	Style: jsii.String("style"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
+//
 type CfnMap_MapConfigurationProperty struct {
 	// Specifies the map style selected from an available data provider.
 	//
@@ -49,6 +51,8 @@ type CfnMap_MapConfigurationProperty struct {
 	// - `VectorOpenDataStandardDark` – Open Data Standard Dark is a dark-themed map style that provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.
 	// - `VectorOpenDataVisualizationLight` – The Open Data Visualization Light map style is a light-themed style with muted colors and fewer features that aids in understanding overlaid data.
 	// - `VectorOpenDataVisualizationDark` – The Open Data Visualization Dark map style is a dark-themed style with muted colors and fewer features that aids in understanding overlaid data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
+	//
 	Style *string `field:"required" json:"style" yaml:"style"`
 }
 

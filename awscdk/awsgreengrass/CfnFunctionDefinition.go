@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::FunctionDefinition`.
+// The `AWS::Greengrass::FunctionDefinition` resource represents a function definition for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::FunctionDefinition` resource represents a function definition for AWS IoT Greengrass . Function definitions are used to organize your function definition versions.
+// Function definitions are used to organize your function definition versions.
 //
 // Function definitions can reference multiple function definition versions. All function definition versions must be associated with a function definition. Each function definition version can contain one or more functions.
 //
@@ -80,9 +80,12 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html
+//
 type CfnFunctionDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `FunctionDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/functions/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
 	// The ID of the `FunctionDefinition` , such as `1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
@@ -101,10 +104,6 @@ type CfnFunctionDefinition interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The function definition version to include when the function definition is created.
-	//
-	// A function definition version contains a list of [`function`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html) property types.
-	//
-	// > To associate a function definition version after the function definition is created, create an [`AWS::Greengrass::FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html) resource and specify the ID of this function definition.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -131,17 +130,11 @@ type CfnFunctionDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Application-specific metadata to attach to the function definition.
-	//
-	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
-	//
-	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
-	//
-	// ```json
-	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
-	// }
-	// ```.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Application-specific metadata to attach to the function definition.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -286,6 +279,7 @@ type CfnFunctionDefinition interface {
 type jsiiProxy_CfnFunctionDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFunctionDefinition) AttrArn() *string {
@@ -438,6 +432,16 @@ func (j *jsiiProxy_CfnFunctionDefinition) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunctionDefinition) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunctionDefinition) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -459,7 +463,6 @@ func (j *jsiiProxy_CfnFunctionDefinition) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::Greengrass::FunctionDefinition`.
 func NewCfnFunctionDefinition(scope constructs.Construct, id *string, props *CfnFunctionDefinitionProps) CfnFunctionDefinition {
 	_init_.Initialize()
 
@@ -477,7 +480,6 @@ func NewCfnFunctionDefinition(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Greengrass::FunctionDefinition`.
 func NewCfnFunctionDefinition_Override(c CfnFunctionDefinition, scope constructs.Construct, id *string, props *CfnFunctionDefinitionProps) {
 	_init_.Initialize()
 
@@ -506,6 +508,14 @@ func (j *jsiiProxy_CfnFunctionDefinition)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunctionDefinition)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

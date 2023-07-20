@@ -27,10 +27,14 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-permission.html
+//
 type CfnPermissionProps struct {
 	// Specifies the name of the customer managed permission.
 	//
 	// The name must be unique within the AWS Region .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-permission.html#cfn-ram-permission-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A string in JSON format string that contains the following elements of a resource-based policy:.
 	//
@@ -39,12 +43,18 @@ type CfnPermissionProps struct {
 	// - *Condition* : (optional) specifies conditional parameters that must evaluate to true when a user attempts an action for that action to be allowed. For more information about the Condition element, see [IAM policies: Condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *AWS Identity and Access Management User Guide* .
 	//
 	// This template can't include either the `Resource` or `Principal` elements. Those are both filled in by AWS RAM when it instantiates the resource-based policy on each resource shared using this managed permission. The `Resource` comes from the ARN of the specific resource that you are sharing. The `Principal` comes from the list of identities added to the resource share.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-permission.html#cfn-ram-permission-policytemplate
+	//
 	PolicyTemplate interface{} `field:"required" json:"policyTemplate" yaml:"policyTemplate"`
 	// Specifies the name of the resource type that this customer managed permission applies to.
 	//
 	// The format is `*<service-code>* : *<resource-type>*` and is not case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the string `ec2:subnet` . To see the list of valid values for this parameter, query the [ListResourceTypes](https://docs.aws.amazon.com/ram/latest/APIReference/API_ListResourceTypes.html) operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-permission.html#cfn-ram-permission-resourcetype
+	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 	// Specifies a list of one or more tag key and value pairs to attach to the permission.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-permission.html#cfn-ram-permission-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

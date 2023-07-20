@@ -17,10 +17,14 @@ package awsgroundstation
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html
+//
 type CfnDataflowEndpointGroup_RangedConnectionDetailsProperty struct {
-	// `CfnDataflowEndpointGroup.RangedConnectionDetailsProperty.Mtu`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html#cfn-groundstation-dataflowendpointgroup-rangedconnectiondetails-mtu
+	//
 	Mtu *float64 `field:"optional" json:"mtu" yaml:"mtu"`
-	// `CfnDataflowEndpointGroup.RangedConnectionDetailsProperty.SocketAddress`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html#cfn-groundstation-dataflowendpointgroup-rangedconnectiondetails-socketaddress
+	//
 	SocketAddress interface{} `field:"optional" json:"socketAddress" yaml:"socketAddress"`
 }
 

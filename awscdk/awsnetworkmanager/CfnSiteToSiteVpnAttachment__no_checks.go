@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetProposedSegmentChangeP
 	return nil
 }
 
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetVpnConnectionArnParameters(val *string) error {
 	return nil
 }

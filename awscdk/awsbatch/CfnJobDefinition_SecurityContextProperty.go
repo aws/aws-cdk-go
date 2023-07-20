@@ -14,16 +14,23 @@ package awsbatch
 //   	RunAsUser: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-securitycontext.html
+//
 type CfnJobDefinition_SecurityContextProperty struct {
-	// `CfnJobDefinition.SecurityContextProperty.Privileged`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-securitycontext.html#cfn-batch-jobdefinition-securitycontext-privileged
+	//
 	Privileged interface{} `field:"optional" json:"privileged" yaml:"privileged"`
-	// `CfnJobDefinition.SecurityContextProperty.ReadOnlyRootFilesystem`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-securitycontext.html#cfn-batch-jobdefinition-securitycontext-readonlyrootfilesystem
+	//
 	ReadOnlyRootFilesystem interface{} `field:"optional" json:"readOnlyRootFilesystem" yaml:"readOnlyRootFilesystem"`
-	// `CfnJobDefinition.SecurityContextProperty.RunAsGroup`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-securitycontext.html#cfn-batch-jobdefinition-securitycontext-runasgroup
+	//
 	RunAsGroup *float64 `field:"optional" json:"runAsGroup" yaml:"runAsGroup"`
-	// `CfnJobDefinition.SecurityContextProperty.RunAsNonRoot`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-securitycontext.html#cfn-batch-jobdefinition-securitycontext-runasnonroot
+	//
 	RunAsNonRoot interface{} `field:"optional" json:"runAsNonRoot" yaml:"runAsNonRoot"`
-	// `CfnJobDefinition.SecurityContextProperty.RunAsUser`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-securitycontext.html#cfn-batch-jobdefinition-securitycontext-runasuser
+	//
 	RunAsUser *float64 `field:"optional" json:"runAsUser" yaml:"runAsUser"`
 }
 

@@ -15,14 +15,20 @@ package awsappmesh
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html
+//
 type CfnVirtualNode_AwsCloudMapInstanceAttributeProperty struct {
 	// The name of an AWS Cloud Map service instance attribute key.
 	//
 	// Any AWS Cloud Map service instance that contains the specified key and value is returned.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html#cfn-appmesh-virtualnode-awscloudmapinstanceattribute-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of an AWS Cloud Map service instance attribute key.
 	//
 	// Any AWS Cloud Map service instance that contains the specified key and value is returned.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html#cfn-appmesh-virtualnode-awscloudmapinstanceattribute-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

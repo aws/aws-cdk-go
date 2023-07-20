@@ -33,8 +33,12 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html
+//
 type CfnChannel_AvailConfigurationProperty struct {
 	// The setup of ad avail handling in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html#cfn-medialive-channel-availconfiguration-availsettings
+	//
 	AvailSettings interface{} `field:"optional" json:"availSettings" yaml:"availSettings"`
 }
 

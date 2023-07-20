@@ -17,6 +17,7 @@ import (
 //   secret.addRotationSchedule(jsii.String("RotationSchedule"), &RotationScheduleOptions{
 //   	RotationLambda: fn,
 //   	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(15)),
+//   	RotateImmediatelyOnUpdate: jsii.Boolean(false),
 //   })
 //
 type RotationScheduleOptions struct {

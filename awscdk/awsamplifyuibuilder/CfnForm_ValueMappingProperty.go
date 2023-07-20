@@ -21,10 +21,16 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemapping.html
+//
 type CfnForm_ValueMappingProperty struct {
 	// The complex object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemapping.html#cfn-amplifyuibuilder-form-valuemapping-value
+	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The value to display for the complex object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemapping.html#cfn-amplifyuibuilder-form-valuemapping-displayvalue
+	//
 	DisplayValue interface{} `field:"optional" json:"displayValue" yaml:"displayValue"`
 }
 

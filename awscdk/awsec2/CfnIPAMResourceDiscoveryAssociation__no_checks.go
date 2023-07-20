@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateSetIpamResourceD
 	return nil
 }
 
+func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnIPAMResourceDiscoveryAssociationParameters(scope constructs.Construct, id *string, props *CfnIPAMResourceDiscoveryAssociationProps) error {
 	return nil
 }

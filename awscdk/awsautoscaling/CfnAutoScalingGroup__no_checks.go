@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetTagsRawParameters(val *[]*CfnAutoScalingGroup_TagPropertyProperty) error {
+	return nil
+}
+
 func validateNewCfnAutoScalingGroupParameters(scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) error {
 	return nil
 }

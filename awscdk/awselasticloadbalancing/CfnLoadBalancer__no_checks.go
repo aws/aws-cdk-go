@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetPoliciesParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLoadBalancerParameters(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) error {
 	return nil
 }

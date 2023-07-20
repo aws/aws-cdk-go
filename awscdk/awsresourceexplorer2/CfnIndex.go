@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ResourceExplorer2::Index`.
+// Turns on Resource Explorer in the AWS Region in which you called this operation by creating an index.
 //
-// Turns on Resource Explorer in the AWS Region in which you called this operation by creating an index. Resource Explorer begins discovering the resources in this Region and stores the details about the resources in the index so that they can be queried by using the [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation.
+// Resource Explorer begins discovering the resources in this Region and stores the details about the resources in the index so that they can be queried by using the [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation.
 //
 // You can create either a local index that returns search results from only the AWS Region in which the index exists, or you can create an aggregator index that returns search results from all AWS Regions in the AWS account .
 //
@@ -33,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-index.html
+//
 type CfnIndex interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the new index for the AWS Region . For example:.
 	//
 	// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`.
@@ -74,13 +77,12 @@ type CfnIndex interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The specified tags are attached to only the index created in this AWS Region .
-	//
-	// The tags don't attach to any of the resources listed in the index.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The specified tags are attached to only the index created in this AWS Region .
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Specifies the type of the index in this Region.
-	//
-	// For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -227,6 +229,7 @@ type CfnIndex interface {
 type jsiiProxy_CfnIndex struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIndex) AttrArn() *string {
@@ -339,6 +342,16 @@ func (j *jsiiProxy_CfnIndex) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIndex) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIndex) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -370,7 +383,6 @@ func (j *jsiiProxy_CfnIndex) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ResourceExplorer2::Index`.
 func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) CfnIndex {
 	_init_.Initialize()
 
@@ -388,7 +400,6 @@ func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) C
 	return &j
 }
 
-// Create a new `AWS::ResourceExplorer2::Index`.
 func NewCfnIndex_Override(c CfnIndex, scope constructs.Construct, id *string, props *CfnIndexProps) {
 	_init_.Initialize()
 
@@ -396,6 +407,14 @@ func NewCfnIndex_Override(c CfnIndex, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_resourceexplorer2.CfnIndex",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnIndex)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
+		val,
 	)
 }
 

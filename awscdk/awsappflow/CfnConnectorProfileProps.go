@@ -225,6 +225,7 @@ package awsappflow
 //   				ApplicationHostUrl: jsii.String("applicationHostUrl"),
 //   				ApplicationServicePath: jsii.String("applicationServicePath"),
 //   				ClientNumber: jsii.String("clientNumber"),
+//   				DisableSso: jsii.Boolean(false),
 //   				LogonLanguage: jsii.String("logonLanguage"),
 //   				OAuthProperties: &OAuthPropertiesProperty{
 //   					AuthCodeUrl: jsii.String("authCodeUrl"),
@@ -264,22 +265,36 @@ package awsappflow
 //   	KmsArn: jsii.String("kmsArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
+//
 type CfnConnectorProfileProps struct {
 	// Indicates the connection mode and if it is public or private.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
+	//
 	ConnectionMode *string `field:"required" json:"connectionMode" yaml:"connectionMode"`
 	// The name of the connector profile.
 	//
 	// The name is unique for each `ConnectorProfile` in the AWS account .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
+	//
 	ConnectorProfileName *string `field:"required" json:"connectorProfileName" yaml:"connectorProfileName"`
 	// The type of connector, such as Salesforce, Amplitude, and so on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
+	//
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// The label for the connector profile being created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorlabel
+	//
 	ConnectorLabel *string `field:"optional" json:"connectorLabel" yaml:"connectorLabel"`
 	// Defines the connector-specific configuration and credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
+	//
 	ConnectorProfileConfig interface{} `field:"optional" json:"connectorProfileConfig" yaml:"connectorProfileConfig"`
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
 	//
 	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+	//
 	KmsArn *string `field:"optional" json:"kmsArn" yaml:"kmsArn"`
 }
 

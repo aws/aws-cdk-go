@@ -14,8 +14,12 @@ package awsautoscaling
 //   	ReuseOnScaleIn: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-warmpool-instancereusepolicy.html
+//
 type CfnWarmPool_InstanceReusePolicyProperty struct {
 	// Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-warmpool-instancereusepolicy.html#cfn-autoscaling-warmpool-instancereusepolicy-reuseonscalein
+	//
 	ReuseOnScaleIn interface{} `field:"optional" json:"reuseOnScaleIn" yaml:"reuseOnScaleIn"`
 }
 

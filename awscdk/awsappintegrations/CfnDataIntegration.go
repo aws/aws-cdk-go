@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppIntegrations::DataIntegration`.
-//
 // Creates and persists a DataIntegration resource.
 //
 // Example:
@@ -52,9 +50,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html
+//
 type CfnDataIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) for the DataIntegration.
 	AttrDataIntegrationArn() *string
 	// A unique identifier.
@@ -71,7 +72,7 @@ type CfnDataIntegration interface {
 	// A description of the DataIntegration.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::AppIntegrations::DataIntegration.FileConfiguration`.
+	// The configuration for what files should be pulled from the source.
 	FileConfiguration() interface{}
 	SetFileConfiguration(val interface{})
 	// The KMS key for the DataIntegration.
@@ -92,7 +93,7 @@ type CfnDataIntegration interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::AppIntegrations::DataIntegration.ObjectConfiguration`.
+	// The configuration for what data should be pulled from the source.
 	ObjectConfiguration() interface{}
 	SetObjectConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -110,10 +111,11 @@ type CfnDataIntegration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -258,6 +260,7 @@ type CfnDataIntegration interface {
 type jsiiProxy_CfnDataIntegration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDataIntegration) AttrDataIntegrationArn() *string {
@@ -440,6 +443,16 @@ func (j *jsiiProxy_CfnDataIntegration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataIntegration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataIntegration) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -461,7 +474,6 @@ func (j *jsiiProxy_CfnDataIntegration) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::AppIntegrations::DataIntegration`.
 func NewCfnDataIntegration(scope constructs.Construct, id *string, props *CfnDataIntegrationProps) CfnDataIntegration {
 	_init_.Initialize()
 
@@ -479,7 +491,6 @@ func NewCfnDataIntegration(scope constructs.Construct, id *string, props *CfnDat
 	return &j
 }
 
-// Create a new `AWS::AppIntegrations::DataIntegration`.
 func NewCfnDataIntegration_Override(c CfnDataIntegration, scope constructs.Construct, id *string, props *CfnDataIntegrationProps) {
 	_init_.Initialize()
 
@@ -532,9 +543,6 @@ func (j *jsiiProxy_CfnDataIntegration)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataIntegration)SetObjectConfiguration(val interface{}) {
-	if err := j.validateSetObjectConfigurationParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"objectConfiguration",
@@ -560,6 +568,17 @@ func (j *jsiiProxy_CfnDataIntegration)SetSourceUri(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceUri",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataIntegration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

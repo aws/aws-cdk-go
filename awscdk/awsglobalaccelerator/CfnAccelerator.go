@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GlobalAccelerator::Accelerator`.
+// The `AWS::GlobalAccelerator::Accelerator` resource is a Global Accelerator resource type that contains information about how you create an accelerator.
 //
-// The `AWS::GlobalAccelerator::Accelerator` resource is a Global Accelerator resource type that contains information about how you create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic to one or more endpoint groups, each of which includes endpoints, such as Application Load Balancers, Network Load Balancers, and Amazon EC2 instances.
+// An accelerator includes one or more listeners that process inbound connections and direct traffic to one or more endpoint groups, each of which includes endpoints, such as Application Load Balancers, Network Load Balancers, and Amazon EC2 instances.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html
+//
 type CfnAccelerator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the accelerator, such as `arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh` .
 	AttrAcceleratorArn() *string
 	// The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses.
@@ -61,25 +64,15 @@ type CfnAccelerator interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+	// Indicates whether the accelerator is enabled.
 	//
-	// If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.
+	// The value is true or false. The default value is true.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator.
-	//
-	// You can specify one or two addresses, separated by a comma. Do not include the /32 suffix.
-	//
-	// Only one IP address from each of your IP address ranges can be used for each accelerator. If you specify only one IP address from your IP address range, Global Accelerator assigns a second static IP address for the accelerator from the AWS IP address pool.
-	//
-	// Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new accelerator with the new addresses.
-	//
-	// For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the *AWS Global Accelerator Developer Guide* .
 	IpAddresses() *[]*string
 	SetIpAddresses(val *[]*string)
 	// The IP address type that an accelerator supports.
-	//
-	// For a standard accelerator, the value can be IPV4 or DUAL_STACK.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -93,8 +86,6 @@ type CfnAccelerator interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the accelerator.
-	//
-	// The name must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -108,10 +99,11 @@ type CfnAccelerator interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Create tags for an accelerator.
-	//
-	// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Create tags for an accelerator.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -256,6 +248,7 @@ type CfnAccelerator interface {
 type jsiiProxy_CfnAccelerator struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAccelerator) AttrAcceleratorArn() *string {
@@ -438,6 +431,16 @@ func (j *jsiiProxy_CfnAccelerator) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccelerator) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccelerator) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -459,7 +462,6 @@ func (j *jsiiProxy_CfnAccelerator) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GlobalAccelerator::Accelerator`.
 func NewCfnAccelerator(scope constructs.Construct, id *string, props *CfnAcceleratorProps) CfnAccelerator {
 	_init_.Initialize()
 
@@ -477,7 +479,6 @@ func NewCfnAccelerator(scope constructs.Construct, id *string, props *CfnAcceler
 	return &j
 }
 
-// Create a new `AWS::GlobalAccelerator::Accelerator`.
 func NewCfnAccelerator_Override(c CfnAccelerator, scope constructs.Construct, id *string, props *CfnAcceleratorProps) {
 	_init_.Initialize()
 
@@ -522,6 +523,17 @@ func (j *jsiiProxy_CfnAccelerator)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccelerator)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

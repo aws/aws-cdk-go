@@ -11,27 +11,25 @@ import (
 // used for secret rotation.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"),
-//   Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   	Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
-//   }),
-//   Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
-//    // Optional - will default to 'admin' username and generated password
-//   Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+//   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
+//   	}),
+//   	ServerlessV2MinCapacity: jsii.Number(6.5),
+//   	ServerlessV2MaxCapacity: jsii.Number(64),
 //   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
-//   			PromotionTier: jsii.Number(1),
+//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
+//   			ScaleWithWriter: jsii.Boolean(true),
 //   		}),
-//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader2")),
+//   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),
 //   	},
-//   	VpcSubnets: map[string]subnetType{
-//   		"subnetType": ec2.*subnetType_PRIVATE_WITH_EGRESS,
-//   	},
-//   	Vpc: *Vpc,
-//   }),
+//   	Vpc: Vpc,
+//   })
 //
 type DatabaseClusterEngine interface {
 }

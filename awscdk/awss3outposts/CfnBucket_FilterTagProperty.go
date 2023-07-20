@@ -11,10 +11,14 @@ package awss3outposts
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filtertag.html
+//
 type CfnBucket_FilterTagProperty struct {
-	// `CfnBucket.FilterTagProperty.Key`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filtertag.html#cfn-s3outposts-bucket-filtertag-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// `CfnBucket.FilterTagProperty.Value`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filtertag.html#cfn-s3outposts-bucket-filtertag-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

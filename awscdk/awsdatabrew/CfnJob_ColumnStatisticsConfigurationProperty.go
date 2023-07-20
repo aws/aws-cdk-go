@@ -34,14 +34,20 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
+//
 type CfnJob_ColumnStatisticsConfigurationProperty struct {
 	// Configuration for evaluations.
 	//
 	// Statistics can be used to select evaluations and override parameters of evaluations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
+	//
 	Statistics interface{} `field:"required" json:"statistics" yaml:"statistics"`
 	// List of column selectors.
 	//
 	// Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
+	//
 	Selectors interface{} `field:"optional" json:"selectors" yaml:"selectors"`
 }
 

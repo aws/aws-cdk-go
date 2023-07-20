@@ -22,10 +22,16 @@ package awsservicecatalog
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html
+//
 type CfnCloudFormationProduct_SourceConnectionProperty struct {
 	// The connection details based on the connection `Type` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html#cfn-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters
+	//
 	ConnectionParameters interface{} `field:"required" json:"connectionParameters" yaml:"connectionParameters"`
 	// The only supported `SourceConnection` type is Codestar.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html#cfn-servicecatalog-cloudformationproduct-sourceconnection-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

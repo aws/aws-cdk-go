@@ -17,12 +17,18 @@ package awsbatch
 //   	Order: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html
+//
 type CfnJobQueue_ComputeEnvironmentOrderProperty struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-computeenvironment
+	//
 	ComputeEnvironment *string `field:"required" json:"computeEnvironment" yaml:"computeEnvironment"`
 	// The order of the compute environment.
 	//
 	// Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower `order` integer value is tried for job placement first.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-order
+	//
 	Order *float64 `field:"required" json:"order" yaml:"order"`
 }
 

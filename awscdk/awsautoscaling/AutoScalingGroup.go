@@ -100,7 +100,7 @@ type AutoScalingGroup interface {
 	UserData() awsec2.UserData
 	// Send a message to either an SQS queue or SNS topic when instances launch or terminate.
 	AddLifecycleHook(id *string, props *BasicLifecycleHookProps) LifecycleHook
-	// Add the security group to all instances via the launch configuration security groups array.
+	// Add the security group to all instances via the launch template security groups array.
 	AddSecurityGroup(securityGroup awsec2.ISecurityGroup)
 	// Adds a statement to the IAM role assumed by instances of this fleet.
 	AddToRolePolicy(statement awsiam.PolicyStatement)

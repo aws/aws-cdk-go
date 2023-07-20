@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QuickSight::Dashboard`.
-//
 // Creates a dashboard from a template. To first create a template, see the `CreateTemplate` API operation.
 //
 // A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created from analyses. You can share Amazon QuickSight dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different AWS account .
@@ -18,9 +16,12 @@ import (
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html
+//
 type CfnDashboard interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the dashboard.
 	AttrArn() *string
 	// The time this dashboard version was created.
@@ -29,6 +30,8 @@ type CfnDashboard interface {
 	AttrLastPublishedTime() *string
 	// The time that the dashboard was last updated.
 	AttrLastUpdatedTime() *string
+	// The version of the dashboard.
+	AttrVersion() awscdk.IResolvable
 	AttrVersionArn() *string
 	AttrVersionCreatedTime() *string
 	AttrVersionDataSetArns() *[]*string
@@ -55,13 +58,8 @@ type CfnDashboard interface {
 	DashboardId() *string
 	SetDashboardId(val *string)
 	// Options for publishing the dashboard when you create it:.
-	//
-	// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
-	// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
-	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
 	DashboardPublishOptions() interface{}
 	SetDashboardPublishOptions(val interface{})
-	// `AWS::QuickSight::Dashboard.Definition`.
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -80,15 +78,9 @@ type CfnDashboard interface {
 	// The tree node.
 	Node() constructs.Node
 	// The parameters for the creation of the dashboard, which you want to use to override the default settings.
-	//
-	// A dashboard can have any type of parameters, and some parameters might accept multiple values.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// A structure that contains the permissions of the dashboard.
-	//
-	// You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
-	//
-	// To specify no permissions, omit the permissions list.
 	Permissions() interface{}
 	SetPermissions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -97,21 +89,18 @@ type CfnDashboard interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The entity that you are using as a source when you create the dashboard.
-	//
-	// In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
-	//
-	// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	SourceEntity() interface{}
 	SetSourceEntity(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard.
-	//
-	// If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn() *string
 	SetThemeArn(val *string)
 	// Deprecated.
@@ -261,6 +250,7 @@ type CfnDashboard interface {
 type jsiiProxy_CfnDashboard struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDashboard) AttrArn() *string {
@@ -298,6 +288,16 @@ func (j *jsiiProxy_CfnDashboard) AttrLastUpdatedTime() *string {
 	_jsii_.Get(
 		j,
 		"attrLastUpdatedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDashboard) AttrVersion() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVersion",
 		&returns,
 	)
 	return returns
@@ -573,6 +573,16 @@ func (j *jsiiProxy_CfnDashboard) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDashboard) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDashboard) ThemeArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -614,7 +624,6 @@ func (j *jsiiProxy_CfnDashboard) VersionDescription() *string {
 }
 
 
-// Create a new `AWS::QuickSight::Dashboard`.
 func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
 	_init_.Initialize()
 
@@ -632,7 +641,6 @@ func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboard
 	return &j
 }
 
-// Create a new `AWS::QuickSight::Dashboard`.
 func NewCfnDashboard_Override(c CfnDashboard, scope constructs.Construct, id *string, props *CfnDashboardProps) {
 	_init_.Initialize()
 
@@ -727,6 +735,17 @@ func (j *jsiiProxy_CfnDashboard)SetSourceEntity(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceEntity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDashboard)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::StreamingDistribution`.
+// This resource is deprecated.
 //
-// This resource is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020. For more information, [read the announcement](https://docs.aws.amazon.com/ann.jspa?annID=7356) on the Amazon CloudFront discussion forum.
+// Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020. For more information, [read the announcement](https://docs.aws.amazon.com/ann.jspa?annID=7356) on the Amazon CloudFront discussion forum.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,6 +46,8 @@ import (
 //   		},
 //   		PriceClass: jsii.String("priceClass"),
 //   	},
+//
+//   	// the properties below are optional
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -54,11 +56,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html
+//
 type CfnStreamingDistribution interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
 	AttrDomainName() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -92,8 +98,11 @@ type CfnStreamingDistribution interface {
 	// The current configuration information for the RTMP distribution.
 	StreamingDistributionConfig() interface{}
 	SetStreamingDistributionConfig(val interface{})
-	// A complex type that contains zero or more `Tag` elements.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A complex type that contains zero or more `Tag` elements.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,6 +247,7 @@ type CfnStreamingDistribution interface {
 type jsiiProxy_CfnStreamingDistribution struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStreamingDistribution) AttrDomainName() *string {
@@ -245,6 +255,16 @@ func (j *jsiiProxy_CfnStreamingDistribution) AttrDomainName() *string {
 	_jsii_.Get(
 		j,
 		"attrDomainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStreamingDistribution) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -350,6 +370,16 @@ func (j *jsiiProxy_CfnStreamingDistribution) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStreamingDistribution) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStreamingDistribution) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -371,7 +401,6 @@ func (j *jsiiProxy_CfnStreamingDistribution) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::CloudFront::StreamingDistribution`.
 func NewCfnStreamingDistribution(scope constructs.Construct, id *string, props *CfnStreamingDistributionProps) CfnStreamingDistribution {
 	_init_.Initialize()
 
@@ -389,7 +418,6 @@ func NewCfnStreamingDistribution(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::CloudFront::StreamingDistribution`.
 func NewCfnStreamingDistribution_Override(c CfnStreamingDistribution, scope constructs.Construct, id *string, props *CfnStreamingDistributionProps) {
 	_init_.Initialize()
 
@@ -407,6 +435,17 @@ func (j *jsiiProxy_CfnStreamingDistribution)SetStreamingDistributionConfig(val i
 	_jsii_.Set(
 		j,
 		"streamingDistributionConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStreamingDistribution)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

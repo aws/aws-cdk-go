@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::ApplicationSettings`.
+// Specifies the settings for an Amazon Pinpoint application.
 //
-// Specifies the settings for an Amazon Pinpoint application. In Amazon Pinpoint, an *application* (also referred to as an *app* or *project* ) is a collection of related settings, customer information, segments, and campaigns, and other types of Amazon Pinpoint resources.
+// In Amazon Pinpoint, an *application* (also referred to as an *app* or *project* ) is a collection of related settings, customer information, segments, and campaigns, and other types of Amazon Pinpoint resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,15 +40,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html
+//
 type CfnApplicationSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The unique identifier for the Amazon Pinpoint application.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// The settings for the Lambda function to use by default as a code hook for campaigns in the application.
-	//
-	// To override these settings for a specific campaign, use the Campaign resource to define custom Lambda function settings for the campaign.
 	CampaignHook() interface{}
 	SetCampaignHook(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -64,8 +65,6 @@ type CfnApplicationSettings interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The default sending limits for campaigns in the application.
-	//
-	// To override these limits for a specific campaign, use the Campaign resource to define custom limits for the campaign.
 	Limits() interface{}
 	SetLimits(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -81,18 +80,6 @@ type CfnApplicationSettings interface {
 	// The tree node.
 	Node() constructs.Node
 	// The default quiet time for campaigns in the application.
-	//
-	// Quiet time is a specific time range when campaigns don't send messages to endpoints, if all the following conditions are met:
-	//
-	// - The `EndpointDemographic.Timezone` property of the endpoint is set to a valid value.
-	//
-	// - The current time in the endpoint's time zone is later than or equal to the time specified by the `QuietTime.Start` property for the application (or a campaign that has custom quiet time settings).
-	//
-	// - The current time in the endpoint's time zone is earlier than or equal to the time specified by the `QuietTime.End` property for the application (or a campaign that has custom quiet time settings).
-	//
-	// If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign, even if quiet time is enabled.
-	//
-	// To override the default quiet time settings for a specific campaign, use the Campaign resource to define a custom quiet time for the campaign.
 	QuietTime() interface{}
 	SetQuietTime(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -260,6 +247,16 @@ func (j *jsiiProxy_CfnApplicationSettings) ApplicationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplicationSettings) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplicationSettings) CampaignHook() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -401,7 +398,6 @@ func (j *jsiiProxy_CfnApplicationSettings) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::Pinpoint::ApplicationSettings`.
 func NewCfnApplicationSettings(scope constructs.Construct, id *string, props *CfnApplicationSettingsProps) CfnApplicationSettings {
 	_init_.Initialize()
 
@@ -419,7 +415,6 @@ func NewCfnApplicationSettings(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::ApplicationSettings`.
 func NewCfnApplicationSettings_Override(c CfnApplicationSettings, scope constructs.Construct, id *string, props *CfnApplicationSettingsProps) {
 	_init_.Initialize()
 

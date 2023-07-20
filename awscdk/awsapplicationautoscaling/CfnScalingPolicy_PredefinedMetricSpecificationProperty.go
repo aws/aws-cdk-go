@@ -17,10 +17,14 @@ package awsapplicationautoscaling
 //   	ResourceLabel: jsii.String("resourceLabel"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html
+//
 type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
 	// The metric type.
 	//
 	// The `ALBRequestCountPerTarget` metric type applies only to Spot fleet requests and ECS services.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-predefinedmetricspecification-predefinedmetrictype
+	//
 	PredefinedMetricType *string `field:"required" json:"predefinedMetricType" yaml:"predefinedMetricType"`
 	// Identifies the resource associated with the metric type.
 	//
@@ -36,6 +40,8 @@ type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
 	// - targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
 	//
 	// To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
+	//
 	ResourceLabel *string `field:"optional" json:"resourceLabel" yaml:"resourceLabel"`
 }
 

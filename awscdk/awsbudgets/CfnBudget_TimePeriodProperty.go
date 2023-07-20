@@ -15,12 +15,16 @@ package awsbudgets
 //   	Start: jsii.String("start"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html
+//
 type CfnBudget_TimePeriodProperty struct {
 	// The end date for a budget.
 	//
 	// If you didn't specify an end date, AWS set your end date to `06/15/87 00:00 UTC` . The defaults are the same for the AWS Billing and Cost Management console and the API.
 	//
 	// After the end date, AWS deletes the budget and all the associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end
+	//
 	End *string `field:"optional" json:"end" yaml:"end"`
 	// The start date for a budget.
 	//
@@ -32,6 +36,8 @@ type CfnBudget_TimePeriodProperty struct {
 	//
 	// - If `BudgetType` is `COST` or `USAGE` : Valid values are `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
 	// - If `BudgetType` is `RI_UTILIZATION` or `RI_COVERAGE` : Valid values are `DAILY` , `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-start
+	//
 	Start *string `field:"optional" json:"start" yaml:"start"`
 }
 

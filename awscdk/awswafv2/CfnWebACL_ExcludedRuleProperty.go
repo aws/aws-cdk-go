@@ -14,8 +14,12 @@ package awswafv2
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
+//
 type CfnWebACL_ExcludedRuleProperty struct {
 	// The name of the rule whose action you want to override to `Count` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

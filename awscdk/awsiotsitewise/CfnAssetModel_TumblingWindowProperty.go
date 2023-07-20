@@ -21,12 +21,16 @@ package awsiotsitewise
 //   	Offset: jsii.String("offset"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html
+//
 type CfnAssetModel_TumblingWindowProperty struct {
 	// The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
 	//
 	// AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
 	//
 	// When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
+	//
 	Interval *string `field:"required" json:"interval" yaml:"interval"`
 	// The offset for the tumbling window. The `offset` parameter accepts the following:.
 	//
@@ -51,6 +55,8 @@ type CfnAssetModel_TumblingWindowProperty struct {
 	//
 	// - If you create the metric before or at 6 PM (PST), you get the first aggregation result at 6 PM (PST) on the day when you create the metric.
 	// - If you create the metric after 6 PM (PST), you get the first aggregation result at 6 PM (PST) the next day.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
+	//
 	Offset *string `field:"optional" json:"offset" yaml:"offset"`
 }
 

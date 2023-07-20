@@ -250,12 +250,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-dimensionfield.html
+//
 type CfnAnalysis_DimensionFieldProperty struct {
 	// The dimension type field with categorical type columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-dimensionfield.html#cfn-quicksight-analysis-dimensionfield-categoricaldimensionfield
+	//
 	CategoricalDimensionField interface{} `field:"optional" json:"categoricalDimensionField" yaml:"categoricalDimensionField"`
 	// The dimension type field with date type columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-dimensionfield.html#cfn-quicksight-analysis-dimensionfield-datedimensionfield
+	//
 	DateDimensionField interface{} `field:"optional" json:"dateDimensionField" yaml:"dateDimensionField"`
 	// The dimension type field with numerical type columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-dimensionfield.html#cfn-quicksight-analysis-dimensionfield-numericaldimensionfield
+	//
 	NumericalDimensionField interface{} `field:"optional" json:"numericalDimensionField" yaml:"numericalDimensionField"`
 }
 

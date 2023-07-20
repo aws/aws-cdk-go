@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTTwinMaker::Entity`.
-//
 // Use the `AWS::IoTTwinMaker::Entity` resource to declare an entity.
 //
 // Example:
@@ -76,15 +74,22 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html
+//
 type CfnEntity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The entity ARN.
 	AttrArn() *string
 	// The date and time the entity was created.
 	AttrCreationDateTime() *string
 	// A boolean value that specifies whether the entity has child entities or not.
 	AttrHasChildEntities() awscdk.IResolvable
+	// The entity status.
+	AttrStatus() awscdk.IResolvable
+	// The error.
+	AttrStatusError() awscdk.IResolvable
 	// The error code.
 	AttrStatusErrorCode() *string
 	// The error message.
@@ -99,10 +104,6 @@ type CfnEntity interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// An object that maps strings to the components in the entity.
-	//
-	// Each string in the mapping must be unique to this object.
-	//
-	// For information on the component object see the [component](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_ComponentResponse.html) API reference.
 	Components() interface{}
 	SetComponents(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -142,8 +143,11 @@ type CfnEntity interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that you can use to manage the entity.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that you can use to manage the entity.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -291,6 +295,7 @@ type CfnEntity interface {
 type jsiiProxy_CfnEntity struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEntity) AttrArn() *string {
@@ -318,6 +323,26 @@ func (j *jsiiProxy_CfnEntity) AttrHasChildEntities() awscdk.IResolvable {
 	_jsii_.Get(
 		j,
 		"attrHasChildEntities",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEntity) AttrStatus() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEntity) AttrStatusError() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrStatusError",
 		&returns,
 	)
 	return returns
@@ -503,6 +528,16 @@ func (j *jsiiProxy_CfnEntity) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEntity) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEntity) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -534,7 +569,6 @@ func (j *jsiiProxy_CfnEntity) WorkspaceId() *string {
 }
 
 
-// Create a new `AWS::IoTTwinMaker::Entity`.
 func NewCfnEntity(scope constructs.Construct, id *string, props *CfnEntityProps) CfnEntity {
 	_init_.Initialize()
 
@@ -552,7 +586,6 @@ func NewCfnEntity(scope constructs.Construct, id *string, props *CfnEntityProps)
 	return &j
 }
 
-// Create a new `AWS::IoTTwinMaker::Entity`.
 func NewCfnEntity_Override(c CfnEntity, scope constructs.Construct, id *string, props *CfnEntityProps) {
 	_init_.Initialize()
 
@@ -605,6 +638,14 @@ func (j *jsiiProxy_CfnEntity)SetParentEntityId(val *string) {
 	_jsii_.Set(
 		j,
 		"parentEntityId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEntity)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

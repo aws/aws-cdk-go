@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::DataQualityRuleset`.
+// The `AWS::Glue::DataQualityRuleset` resource specifies a data quality ruleset with DQDL rules applied to a specified AWS Glue table.
 //
-// The `AWS::Glue::DataQualityRuleset` resource specifies a data quality ruleset with DQDL rules applied to a specified AWS Glue table. For more information, see AWS Glue Data Quality in the AWS Glue Developer Guide.
+// For more information, see AWS Glue Data Quality in the AWS Glue Developer Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-dataqualityruleset.html
+//
 type CfnDataQualityRuleset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -71,8 +74,6 @@ type CfnDataQualityRuleset interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A Data Quality Definition Language (DQDL) ruleset.
-	//
-	// For more information see the AWS Glue Developer Guide.
 	Ruleset() *string
 	SetRuleset(val *string)
 	// The stack in which this element is defined.
@@ -80,7 +81,8 @@ type CfnDataQualityRuleset interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A list of tags applied to the data quality ruleset.
-	Tags() awscdk.TagManager
+	Tags() interface{}
+	SetTags(val interface{})
 	// An object representing an AWS Glue table.
 	TargetTable() interface{}
 	SetTargetTable(val interface{})
@@ -230,6 +232,16 @@ type jsiiProxy_CfnDataQualityRuleset struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnDataQualityRuleset) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataQualityRuleset) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -350,8 +362,8 @@ func (j *jsiiProxy_CfnDataQualityRuleset) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataQualityRuleset) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnDataQualityRuleset) Tags() interface{} {
+	var returns interface{}
 	_jsii_.Get(
 		j,
 		"tags",
@@ -391,7 +403,6 @@ func (j *jsiiProxy_CfnDataQualityRuleset) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::Glue::DataQualityRuleset`.
 func NewCfnDataQualityRuleset(scope constructs.Construct, id *string, props *CfnDataQualityRulesetProps) CfnDataQualityRuleset {
 	_init_.Initialize()
 
@@ -409,7 +420,6 @@ func NewCfnDataQualityRuleset(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Glue::DataQualityRuleset`.
 func NewCfnDataQualityRuleset_Override(c CfnDataQualityRuleset, scope constructs.Construct, id *string, props *CfnDataQualityRulesetProps) {
 	_init_.Initialize()
 
@@ -448,6 +458,14 @@ func (j *jsiiProxy_CfnDataQualityRuleset)SetRuleset(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleset",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataQualityRuleset)SetTags(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

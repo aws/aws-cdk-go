@@ -80,10 +80,6 @@ func validateCfnStateMachine_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionSubstitutionsParameters(val interface{}) error {
 	return nil
 }

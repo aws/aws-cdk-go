@@ -25,10 +25,16 @@ package awswaf
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html
+//
 type CfnSqlInjectionMatchSetProps struct {
 	// The name, if any, of the `SqlInjectionMatchSet` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-sqlinjectionmatchtuples
+	//
 	SqlInjectionMatchTuples interface{} `field:"optional" json:"sqlInjectionMatchTuples" yaml:"sqlInjectionMatchTuples"`
 }
 

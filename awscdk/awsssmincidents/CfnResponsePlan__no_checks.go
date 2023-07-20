@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnResponsePlan) validateSetNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnResponsePlan) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnResponsePlanParameters(scope constructs.Construct, id *string, props *CfnResponsePlanProps) error {
 	return nil
 }

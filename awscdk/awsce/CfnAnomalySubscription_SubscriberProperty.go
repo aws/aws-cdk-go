@@ -16,12 +16,20 @@ package awsce
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html
+//
 type CfnAnomalySubscription_SubscriberProperty struct {
 	// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html#cfn-ce-anomalysubscription-subscriber-address
+	//
 	Address *string `field:"required" json:"address" yaml:"address"`
 	// The notification delivery channel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html#cfn-ce-anomalysubscription-subscriber-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Indicates if the subscriber accepts the notifications.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html#cfn-ce-anomalysubscription-subscriber-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

@@ -12,8 +12,12 @@ package awsscheduler
 //   	MessageGroupId: jsii.String("messageGroupId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sqsparameters.html
+//
 type CfnSchedule_SqsParametersProperty struct {
 	// The FIFO message group ID to use as the target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sqsparameters.html#cfn-scheduler-schedule-sqsparameters-messagegroupid
+	//
 	MessageGroupId *string `field:"optional" json:"messageGroupId" yaml:"messageGroupId"`
 }
 

@@ -13,10 +13,16 @@ package awsquicksight
 //   	Suffix: jsii.String("suffix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-negativeformat.html
+//
 type CfnTopic_NegativeFormatProperty struct {
 	// The prefix for a negative format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-negativeformat.html#cfn-quicksight-topic-negativeformat-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The suffix for a negative format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-negativeformat.html#cfn-quicksight-topic-negativeformat-suffix
+	//
 	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 

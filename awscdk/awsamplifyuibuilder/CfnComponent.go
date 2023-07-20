@@ -9,24 +9,25 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AmplifyUIBuilder::Component`.
+// The AWS::AmplifyUIBuilder::Component resource specifies a component within an Amplify app.
 //
-// The AWS::AmplifyUIBuilder::Component resource specifies a component within an Amplify app. A component is a user interface (UI) element that you can customize. Use `ComponentChild` to configure an instance of a `Component` . A `ComponentChild` instance inherits the configuration of the main `Component` .
+// A component is a user interface (UI) element that you can customize. Use `ComponentChild` to configure an instance of a `Component` . A `ComponentChild` instance inherits the configuration of the main `Component` .
 //
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html
+//
 type CfnComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique ID of the Amplify app associated with the component.
 	AppId() *string
 	SetAppId(val *string)
 	// The unique ID of the component.
 	AttrId() *string
 	// The information to connect a component's properties to data at runtime.
-	//
-	// You can't specify `tags` as a valid property for `bindingProperties` .
 	BindingProperties() interface{}
 	SetBindingProperties(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -38,13 +39,9 @@ type CfnComponent interface {
 	Children() interface{}
 	SetChildren(val interface{})
 	// The data binding configuration for the component's properties.
-	//
-	// Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 	CollectionProperties() interface{}
 	SetCollectionProperties(val interface{})
 	// The type of the component.
-	//
-	// This can be an Amplify custom UI component or another custom component.
 	ComponentType() *string
 	SetComponentType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -55,8 +52,6 @@ type CfnComponent interface {
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
 	// Describes the events that can be raised on the component.
-	//
-	// Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
 	Events() interface{}
 	SetEvents(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -75,13 +70,9 @@ type CfnComponent interface {
 	// The tree node.
 	Node() constructs.Node
 	// Describes the component's properties that can be overriden in a customized instance of the component.
-	//
-	// You can't specify `tags` as a valid property for `overrides` .
 	Overrides() interface{}
 	SetOverrides(val interface{})
 	// Describes the component's properties.
-	//
-	// You can't specify `tags` as a valid property for `properties` .
 	Properties() interface{}
 	SetProperties(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -99,8 +90,11 @@ type CfnComponent interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// One or more key-value pairs to use when tagging the component.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more key-value pairs to use when tagging the component.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -115,8 +109,6 @@ type CfnComponent interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A list of the component's variants.
-	//
-	// A variant is a unique style configuration of a main component.
 	Variants() interface{}
 	SetVariants(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -250,6 +242,7 @@ type CfnComponent interface {
 type jsiiProxy_CfnComponent struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnComponent) AppId() *string {
@@ -472,6 +465,16 @@ func (j *jsiiProxy_CfnComponent) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComponent) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComponent) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -503,7 +506,6 @@ func (j *jsiiProxy_CfnComponent) Variants() interface{} {
 }
 
 
-// Create a new `AWS::AmplifyUIBuilder::Component`.
 func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponentProps) CfnComponent {
 	_init_.Initialize()
 
@@ -521,7 +523,6 @@ func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponent
 	return &j
 }
 
-// Create a new `AWS::AmplifyUIBuilder::Component`.
 func NewCfnComponent_Override(c CfnComponent, scope constructs.Construct, id *string, props *CfnComponentProps) {
 	_init_.Initialize()
 
@@ -648,6 +649,14 @@ func (j *jsiiProxy_CfnComponent)SetSourceId(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComponent)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

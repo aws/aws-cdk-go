@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnMaintenanceWindow) validateSetScheduleParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnMaintenanceWindow) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMaintenanceWindowParameters(scope constructs.Construct, id *string, props *CfnMaintenanceWindowProps) error {
 	return nil
 }

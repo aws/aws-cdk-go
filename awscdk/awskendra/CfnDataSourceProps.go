@@ -566,14 +566,24 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html
+//
 type CfnDataSourceProps struct {
 	// The identifier of the index you want to use with the data source connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
+	//
 	IndexId *string `field:"required" json:"indexId" yaml:"indexId"`
 	// The name of the data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of the data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Configuration information for altering document metadata and content during the document ingestion process.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-customdocumentenrichmentconfiguration
+	//
 	CustomDocumentEnrichmentConfiguration interface{} `field:"optional" json:"customDocumentEnrichmentConfiguration" yaml:"customDocumentEnrichmentConfiguration"`
 	// Configuration information for an Amazon Kendra data source.
 	//
@@ -582,22 +592,32 @@ type CfnDataSourceProps struct {
 	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
 	//
 	// The `Configuration` parameter is required for all other data sources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
+	//
 	DataSourceConfiguration interface{} `field:"optional" json:"dataSourceConfiguration" yaml:"dataSourceConfiguration"`
 	// A description for the data source connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
 	//
 	// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
 	//
 	// The `RoleArn` parameter is required for all other data sources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index.
 	//
 	// If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-schedule
+	//
 	Schedule *string `field:"optional" json:"schedule" yaml:"schedule"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

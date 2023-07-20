@@ -33,8 +33,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpiprogressbarconditionalformatting.html
+//
 type CfnAnalysis_KPIProgressBarConditionalFormattingProperty struct {
 	// The conditional formatting of the progress bar's foreground color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpiprogressbarconditionalformatting.html#cfn-quicksight-analysis-kpiprogressbarconditionalformatting-foregroundcolor
+	//
 	ForegroundColor interface{} `field:"optional" json:"foregroundColor" yaml:"foregroundColor"`
 }
 

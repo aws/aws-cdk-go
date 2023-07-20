@@ -218,6 +218,7 @@ package awsappflow
 //   			ApplicationHostUrl: jsii.String("applicationHostUrl"),
 //   			ApplicationServicePath: jsii.String("applicationServicePath"),
 //   			ClientNumber: jsii.String("clientNumber"),
+//   			DisableSso: jsii.Boolean(false),
 //   			LogonLanguage: jsii.String("logonLanguage"),
 //   			OAuthProperties: &OAuthPropertiesProperty{
 //   				AuthCodeUrl: jsii.String("authCodeUrl"),
@@ -255,10 +256,16 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
+//
 type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 	// The connector-specific credentials required by each connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
+	//
 	ConnectorProfileCredentials interface{} `field:"optional" json:"connectorProfileCredentials" yaml:"connectorProfileCredentials"`
 	// The connector-specific properties of the profile configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
+	//
 	ConnectorProfileProperties interface{} `field:"optional" json:"connectorProfileProperties" yaml:"connectorProfileProperties"`
 }
 

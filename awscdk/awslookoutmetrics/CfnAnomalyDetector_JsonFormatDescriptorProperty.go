@@ -13,10 +13,16 @@ package awslookoutmetrics
 //   	FileCompression: jsii.String("fileCompression"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html
+//
 type CfnAnomalyDetector_JsonFormatDescriptorProperty struct {
 	// The character set in which the source JSON file is written.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset
+	//
 	Charset *string `field:"optional" json:"charset" yaml:"charset"`
 	// The level of compression of the source CSV file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression
+	//
 	FileCompression *string `field:"optional" json:"fileCompression" yaml:"fileCompression"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Location::Map`.
-//
 // The `AWS::Location::Map` resource specifies a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.
 //
 // Example:
@@ -28,6 +26,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html
 //
 type CfnMap interface {
 	awscdk.CfnResource
@@ -54,8 +54,6 @@ type CfnMap interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specifies the `MapConfiguration` , including the map style, for the map resource that you create.
-	//
-	// The map style defines the look of maps and the data provider for your map resource.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -76,19 +74,13 @@ type CfnMap interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name for the map resource.
-	//
-	// Requirements:
-	//
-	// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
-	// - Must be a unique map resource name.
-	// - No spaces allowed. For example, `ExampleMap` .
 	MapName() *string
 	SetMapName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+	// No longer used.
 	//
-	// *Allowed Values* : `RequestBasedUsage`.
+	// If included, the only allowed value is `RequestBasedUsage` .
 	PricingPlan() *string
 	SetPricingPlan(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -437,7 +429,6 @@ func (j *jsiiProxy_CfnMap) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Location::Map`.
 func NewCfnMap(scope constructs.Construct, id *string, props *CfnMapProps) CfnMap {
 	_init_.Initialize()
 
@@ -455,7 +446,6 @@ func NewCfnMap(scope constructs.Construct, id *string, props *CfnMapProps) CfnMa
 	return &j
 }
 
-// Create a new `AWS::Location::Map`.
 func NewCfnMap_Override(c CfnMap, scope constructs.Construct, id *string, props *CfnMapProps) {
 	_init_.Initialize()
 

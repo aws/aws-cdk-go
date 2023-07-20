@@ -15,8 +15,12 @@ package awspinpoint
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-behavior.html
+//
 type CfnSegment_BehaviorProperty struct {
 	// Specifies how recently segment members were active.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-behavior.html#cfn-pinpoint-segment-behavior-recency
+	//
 	Recency interface{} `field:"optional" json:"recency" yaml:"recency"`
 }
 

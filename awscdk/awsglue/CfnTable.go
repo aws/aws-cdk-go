@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::Table`.
+// The `AWS::Glue::Table` resource specifies tabular data in the AWS Glue data catalog.
 //
-// The `AWS::Glue::Table` resource specifies tabular data in the AWS Glue data catalog. For more information, see [Defining Tables in the AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/tables-described.html) and [Table Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-Table) in the *AWS Glue Developer Guide* .
+// For more information, see [Defining Tables in the AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/tables-described.html) and [Table Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-Table) in the *AWS Glue Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -100,9 +100,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html
+//
 type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The ID of the Data Catalog in which to create the `Table` .
 	CatalogId() *string
 	SetCatalogId(val *string)
@@ -116,8 +119,6 @@ type CfnTable interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the database where the table metadata resides.
-	//
-	// For Hive compatibility, this must be all lowercase.
 	DatabaseName() *string
 	SetDatabaseName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -290,6 +291,16 @@ type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnTable) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) CatalogId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -421,7 +432,6 @@ func (j *jsiiProxy_CfnTable) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Glue::Table`.
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
@@ -439,7 +449,6 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 	return &j
 }
 
-// Create a new `AWS::Glue::Table`.
 func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 

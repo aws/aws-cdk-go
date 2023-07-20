@@ -12,6 +12,8 @@ package awskendra
 //   	QueryIdentifiersEnclosingOption: jsii.String("queryIdentifiersEnclosingOption"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html
+//
 type CfnDataSource_SqlConfigurationProperty struct {
 	// Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query.
 	//
@@ -22,6 +24,8 @@ type CfnDataSource_SqlConfigurationProperty struct {
 	// PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.
 	//
 	// For MySQL databases, you must enable the ansi_quotes option when you set this field to `DOUBLE_QUOTES` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html#cfn-kendra-datasource-sqlconfiguration-queryidentifiersenclosingoption
+	//
 	QueryIdentifiersEnclosingOption *string `field:"optional" json:"queryIdentifiersEnclosingOption" yaml:"queryIdentifiersEnclosingOption"`
 }
 

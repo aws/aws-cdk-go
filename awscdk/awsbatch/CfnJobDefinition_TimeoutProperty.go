@@ -12,6 +12,8 @@ package awsbatch
 //   	AttemptDurationSeconds: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-timeout.html
+//
 type CfnJobDefinition_TimeoutProperty struct {
 	// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp.
 	//
@@ -20,6 +22,8 @@ type CfnJobDefinition_TimeoutProperty struct {
 	// For array jobs, the timeout applies to the child jobs, not to the parent array job.
 	//
 	// For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-timeout.html#cfn-batch-jobdefinition-timeout-attemptdurationseconds
+	//
 	AttemptDurationSeconds *float64 `field:"optional" json:"attemptDurationSeconds" yaml:"attemptDurationSeconds"`
 }
 

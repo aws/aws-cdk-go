@@ -14,12 +14,20 @@ package awss3
 //   	MinStorageBytesPercentage: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+//
 type CfnStorageLens_SelectionCriteriaProperty struct {
 	// This property contains the details of the S3 Storage Lens delimiter being used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+	//
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// This property contains the details of the max depth that S3 Storage Lens will collect metrics up to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+	//
 	MaxDepth *float64 `field:"optional" json:"maxDepth" yaml:"maxDepth"`
 	// This property contains the details of the minimum storage bytes percentage threshold that S3 Storage Lens will collect metrics up to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+	//
 	MinStorageBytesPercentage *float64 `field:"optional" json:"minStorageBytesPercentage" yaml:"minStorageBytesPercentage"`
 }
 

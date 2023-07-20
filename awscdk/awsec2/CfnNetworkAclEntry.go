@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NetworkAclEntry`.
+// Specifies an entry, known as a rule, in a network ACL with a rule number you specify.
 //
-// Specifies an entry, known as a rule, in a network ACL with a rule number you specify. Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules.
+// Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules.
 //
 // For information about the protocol value, see [Protocol Numbers](https://docs.aws.amazon.com/https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 //
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html
+//
 type CfnNetworkAclEntry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -56,18 +59,12 @@ type CfnNetworkAclEntry interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Whether this rule applies to egress traffic from the subnet ( `true` ) or ingress traffic to the subnet ( `false` ).
-	//
-	// By default, AWS CloudFormation specifies `false` .
 	Egress() interface{}
 	SetEgress(val interface{})
 	// The Internet Control Message Protocol (ICMP) code and type.
-	//
-	// Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter.
 	Icmp() interface{}
 	SetIcmp(val interface{})
 	// The IPv6 network range to allow or deny, in CIDR notation.
-	//
-	// Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -86,15 +83,9 @@ type CfnNetworkAclEntry interface {
 	// The tree node.
 	Node() constructs.Node
 	// The range of port numbers for the UDP/TCP protocol.
-	//
-	// Conditional required if specifying 6 (TCP) or 17 (UDP) for the protocol parameter.
 	PortRange() interface{}
 	SetPortRange(val interface{})
 	// The IP protocol that the rule applies to.
-	//
-	// You must specify -1 or a protocol number. You can specify -1 for all protocols.
-	//
-	// > If you specify -1, all ports are opened and the `PortRange` property is ignored.
 	Protocol() *float64
 	SetProtocol(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -102,14 +93,10 @@ type CfnNetworkAclEntry interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Whether to allow or deny traffic that matches the rule;
-	//
-	// valid values are "allow" or "deny".
+	// Whether to allow or deny traffic that matches the rule;.
 	RuleAction() *string
 	SetRuleAction(val *string)
 	// Rule number to assign to the entry, such as 100.
-	//
-	// ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.
 	RuleNumber() *float64
 	SetRuleNumber(val *float64)
 	// The stack in which this element is defined.
@@ -260,6 +247,16 @@ type CfnNetworkAclEntry interface {
 type jsiiProxy_CfnNetworkAclEntry struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnNetworkAclEntry) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnNetworkAclEntry) CfnOptions() awscdk.ICfnResourceOptions {
@@ -453,7 +450,6 @@ func (j *jsiiProxy_CfnNetworkAclEntry) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::EC2::NetworkAclEntry`.
 func NewCfnNetworkAclEntry(scope constructs.Construct, id *string, props *CfnNetworkAclEntryProps) CfnNetworkAclEntry {
 	_init_.Initialize()
 
@@ -471,7 +467,6 @@ func NewCfnNetworkAclEntry(scope constructs.Construct, id *string, props *CfnNet
 	return &j
 }
 
-// Create a new `AWS::EC2::NetworkAclEntry`.
 func NewCfnNetworkAclEntry_Override(c CfnNetworkAclEntry, scope constructs.Construct, id *string, props *CfnNetworkAclEntryProps) {
 	_init_.Initialize()
 

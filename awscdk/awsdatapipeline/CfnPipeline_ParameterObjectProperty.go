@@ -18,10 +18,16 @@ package awsdatapipeline
 //   	Id: jsii.String("id"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html
+//
 type CfnPipeline_ParameterObjectProperty struct {
 	// The attributes of the parameter object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-attributes
+	//
 	Attributes interface{} `field:"required" json:"attributes" yaml:"attributes"`
 	// The ID of the parameter object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 }
 

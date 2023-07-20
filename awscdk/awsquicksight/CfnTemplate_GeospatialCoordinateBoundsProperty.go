@@ -15,14 +15,24 @@ package awsquicksight
 //   	West: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcoordinatebounds.html
+//
 type CfnTemplate_GeospatialCoordinateBoundsProperty struct {
 	// The longitude of the east bound of the geospatial coordinate bounds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcoordinatebounds.html#cfn-quicksight-template-geospatialcoordinatebounds-east
+	//
 	East *float64 `field:"required" json:"east" yaml:"east"`
 	// The latitude of the north bound of the geospatial coordinate bounds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcoordinatebounds.html#cfn-quicksight-template-geospatialcoordinatebounds-north
+	//
 	North *float64 `field:"required" json:"north" yaml:"north"`
 	// The latitude of the south bound of the geospatial coordinate bounds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcoordinatebounds.html#cfn-quicksight-template-geospatialcoordinatebounds-south
+	//
 	South *float64 `field:"required" json:"south" yaml:"south"`
 	// The longitude of the west bound of the geospatial coordinate bounds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcoordinatebounds.html#cfn-quicksight-template-geospatialcoordinatebounds-west
+	//
 	West *float64 `field:"required" json:"west" yaml:"west"`
 }
 

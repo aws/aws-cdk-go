@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDatasetGroup) validateSetDomainParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnDatasetGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDatasetGroupParameters(scope constructs.Construct, id *string, props *CfnDatasetGroupProps) error {
 	return nil
 }

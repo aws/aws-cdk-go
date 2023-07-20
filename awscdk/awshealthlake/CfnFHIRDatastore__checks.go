@@ -187,6 +187,30 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetDatastoreTypeVersionParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore) validateSetIdentityProviderConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFHIRDatastore_IdentityProviderConfigurationProperty:
+		val := val.(*CfnFHIRDatastore_IdentityProviderConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFHIRDatastore_IdentityProviderConfigurationProperty:
+		val_ := val.(CfnFHIRDatastore_IdentityProviderConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFHIRDatastore_IdentityProviderConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore) validateSetPreloadDataConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -229,6 +253,16 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetSseConfigurationParameters(val i
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFHIRDatastore_SseConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnFHIRDatastore) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
 		}
 	}
 

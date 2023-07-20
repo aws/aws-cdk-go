@@ -29,8 +29,12 @@ package awsecr
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
+//
 type CfnReplicationConfiguration_ReplicationConfigurationProperty struct {
 	// An array of objects representing the replication destinations and repository filters for a replication configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 

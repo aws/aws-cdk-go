@@ -15,10 +15,16 @@ package awsbackup
 //   	ParameterValue: jsii.String("parameterValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-controlinputparameter.html
+//
 type CfnFramework_ControlInputParameterProperty struct {
 	// The name of a parameter, for example, `BackupPlanFrequency` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-controlinputparameter.html#cfn-backup-framework-controlinputparameter-parametername
+	//
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// The value of parameter, for example, `hourly` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-controlinputparameter.html#cfn-backup-framework-controlinputparameter-parametervalue
+	//
 	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 

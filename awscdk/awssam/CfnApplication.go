@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Serverless::Application`.
+// Definition of AWS::Serverless::Application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,12 @@ import (
 //   	TimeoutInMinutes: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-application.html
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -44,7 +47,6 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Serverless::Application.Location`.
 	Location() interface{}
 	SetLocation(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -59,10 +61,8 @@ type CfnApplication interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Serverless::Application.NotificationArns`.
 	NotificationArns() *[]*string
 	SetNotificationArns(val *[]*string)
-	// `AWS::Serverless::Application.Parameters`.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -74,9 +74,10 @@ type CfnApplication interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Serverless::Application.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// `AWS::Serverless::Application.TimeoutInMinutes`.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	TimeoutInMinutes() *float64
 	SetTimeoutInMinutes(val *float64)
 	// Deprecated.
@@ -223,6 +224,7 @@ type CfnApplication interface {
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnApplication) CfnOptions() awscdk.ICfnResourceOptions {
@@ -345,6 +347,16 @@ func (j *jsiiProxy_CfnApplication) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) TimeoutInMinutes() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -376,7 +388,6 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Serverless::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -394,7 +405,6 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
-// Create a new `AWS::Serverless::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
@@ -431,6 +441,14 @@ func (j *jsiiProxy_CfnApplication)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

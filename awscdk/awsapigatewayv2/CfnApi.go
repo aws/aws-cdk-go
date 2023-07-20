@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGatewayV2::Api`.
+// The `AWS::ApiGatewayV2::Api` resource creates an API.
 //
-// The `AWS::ApiGatewayV2::Api` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide* . For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
+// WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide* . For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -62,12 +62,13 @@ import (
 //   	Version: jsii.String("version"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html
+//
 type CfnApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// An API key selection expression.
-	//
-	// Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions) .
 	ApiKeySelectionExpression() *string
 	SetApiKeySelectionExpression(val *string)
 	// The default endpoint for an API.
@@ -77,18 +78,12 @@ type CfnApi interface {
 	// The API identifier.
 	AttrApiId() *string
 	// Specifies how to interpret the base path of the API during import.
-	//
-	// Valid values are `ignore` , `prepend` , and `split` . The default value is `ignore` . To learn more, see [Set the OpenAPI basePath Property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html) . Supported only for HTTP APIs.
 	BasePath() *string
 	SetBasePath(val *string)
 	// The OpenAPI definition.
-	//
-	// Supported only for HTTP APIs. To import an HTTP API, you must specify a `Body` or `BodyS3Location` . If you specify a `Body` or `BodyS3Location` , don't specify CloudFormation resources such as `AWS::ApiGatewayV2::Authorizer` or `AWS::ApiGatewayV2::Route` . API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
 	Body() interface{}
 	SetBody(val interface{})
 	// The S3 location of an OpenAPI definition.
-	//
-	// Supported only for HTTP APIs. To import an HTTP API, you must specify a `Body` or `BodyS3Location` . If you specify a `Body` or `BodyS3Location` , don't specify CloudFormation resources such as `AWS::ApiGatewayV2::Authorizer` or `AWS::ApiGatewayV2::Route` . API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
 	BodyS3Location() interface{}
 	SetBodyS3Location(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -97,8 +92,6 @@ type CfnApi interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A CORS configuration.
-	//
-	// Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
 	CorsConfiguration() interface{}
 	SetCorsConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -106,26 +99,18 @@ type CfnApi interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// This property is part of quick create.
-	//
-	// It specifies the credentials required for the integration, if any. For a Lambda integration, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify `arn:aws:iam::*:user/*` . To use resource-based permissions on supported AWS services, specify `null` . Currently, this property is not used for HTTP integrations. Supported only for HTTP APIs.
 	CredentialsArn() *string
 	SetCredentialsArn(val *string)
 	// The description of the API.
 	Description() *string
 	SetDescription(val *string)
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint.
-	//
-	// By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
 	DisableExecuteApiEndpoint() interface{}
 	SetDisableExecuteApiEndpoint(val interface{})
 	// Avoid validating models when creating a deployment.
-	//
-	// Supported only for WebSocket APIs.
 	DisableSchemaValidation() interface{}
 	SetDisableSchemaValidation(val interface{})
 	// Specifies whether to rollback the API creation when a warning is encountered.
-	//
-	// By default, API creation continues if a warning is encountered.
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -139,15 +124,11 @@ type CfnApi interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the API.
-	//
-	// Required unless you specify an OpenAPI definition for `Body` or `S3BodyLocation` .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The API protocol.
-	//
-	// Valid values are `WEBSOCKET` or `HTTP` . Required unless you specify an OpenAPI definition for `Body` or `S3BodyLocation` .
 	ProtocolType() *string
 	SetProtocolType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -156,26 +137,21 @@ type CfnApi interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// This property is part of quick create.
-	//
-	// If you don't specify a `routeKey` , a default route of `$default` is created. The `$default` route acts as a catch-all for any request made to your API, for a particular stage. The `$default` route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.
 	RouteKey() *string
 	SetRouteKey(val *string)
 	// The route selection expression for the API.
-	//
-	// For HTTP APIs, the `routeSelectionExpression` must be `${request.method} ${request.path}` . If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
 	RouteSelectionExpression() *string
 	SetRouteSelectionExpression(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The collection of tags.
-	//
-	// Each tag element is associated with a given resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The collection of tags.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// This property is part of quick create.
-	//
-	// Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
 	Target() *string
 	SetTarget(val *string)
 	// Deprecated.
@@ -325,6 +301,7 @@ type CfnApi interface {
 type jsiiProxy_CfnApi struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnApi) ApiKeySelectionExpression() *string {
@@ -577,6 +554,16 @@ func (j *jsiiProxy_CfnApi) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApi) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApi) Target() *string {
 	var returns *string
 	_jsii_.Get(
@@ -618,7 +605,6 @@ func (j *jsiiProxy_CfnApi) Version() *string {
 }
 
 
-// Create a new `AWS::ApiGatewayV2::Api`.
 func NewCfnApi(scope constructs.Construct, id *string, props *CfnApiProps) CfnApi {
 	_init_.Initialize()
 
@@ -636,7 +622,6 @@ func NewCfnApi(scope constructs.Construct, id *string, props *CfnApiProps) CfnAp
 	return &j
 }
 
-// Create a new `AWS::ApiGatewayV2::Api`.
 func NewCfnApi_Override(c CfnApi, scope constructs.Construct, id *string, props *CfnApiProps) {
 	_init_.Initialize()
 
@@ -664,9 +649,6 @@ func (j *jsiiProxy_CfnApi)SetBasePath(val *string) {
 }
 
 func (j *jsiiProxy_CfnApi)SetBody(val interface{}) {
-	if err := j.validateSetBodyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"body",
@@ -773,6 +755,14 @@ func (j *jsiiProxy_CfnApi)SetRouteSelectionExpression(val *string) {
 	_jsii_.Set(
 		j,
 		"routeSelectionExpression",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApi)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::VoiceChannel`.
+// A *channel* is a type of platform that you can deliver messages to.
 //
-// A *channel* is a type of platform that you can deliver messages to. To send a voice message, you send the message through the voice channel. Before you can use Amazon Pinpoint to send voice messages, you have to enable the voice channel for an Amazon Pinpoint application.
+// To send a voice message, you send the message through the voice channel. Before you can use Amazon Pinpoint to send voice messages, you have to enable the voice channel for an Amazon Pinpoint application.
 //
 // The VoiceChannel resource represents the status and other information about the voice channel for an application.
 //
@@ -27,12 +27,15 @@ import (
 //   	Enabled: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-voicechannel.html
+//
 type CfnVoiceChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The unique identifier for the Amazon Pinpoint application that the voice channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -222,6 +225,16 @@ func (j *jsiiProxy_CfnVoiceChannel) ApplicationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVoiceChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVoiceChannel) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -333,7 +346,6 @@ func (j *jsiiProxy_CfnVoiceChannel) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Pinpoint::VoiceChannel`.
 func NewCfnVoiceChannel(scope constructs.Construct, id *string, props *CfnVoiceChannelProps) CfnVoiceChannel {
 	_init_.Initialize()
 
@@ -351,7 +363,6 @@ func NewCfnVoiceChannel(scope constructs.Construct, id *string, props *CfnVoiceC
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::VoiceChannel`.
 func NewCfnVoiceChannel_Override(c CfnVoiceChannel, scope constructs.Construct, id *string, props *CfnVoiceChannelProps) {
 	_init_.Initialize()
 

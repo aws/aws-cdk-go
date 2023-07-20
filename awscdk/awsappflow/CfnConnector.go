@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppFlow::Connector`.
+// Creates a new connector profile associated with your AWS account .
 //
-// Creates a new connector profile associated with your AWS account . There is a soft quota of 100 connector profiles per AWS account . If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel. In each connector profile that you create, you can provide the credentials and properties for only one connector.
+// There is a soft quota of 100 connector profiles per AWS account . If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel. In each connector profile that you create, you can provide the credentials and properties for only one connector.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,9 +31,14 @@ import (
 //   	Description: jsii.String("description"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html
+//
 type CfnConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The arn of the connector.
+	//
+	// The arn is unique for each ConnectorRegistration in your AWS account.
 	AttrConnectorArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -374,7 +379,6 @@ func (j *jsiiProxy_CfnConnector) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppFlow::Connector`.
 func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnectorProps) CfnConnector {
 	_init_.Initialize()
 
@@ -392,7 +396,6 @@ func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnector
 	return &j
 }
 
-// Create a new `AWS::AppFlow::Connector`.
 func NewCfnConnector_Override(c CfnConnector, scope constructs.Construct, id *string, props *CfnConnectorProps) {
 	_init_.Initialize()
 

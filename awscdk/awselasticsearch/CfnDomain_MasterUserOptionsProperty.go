@@ -16,18 +16,26 @@ package awselasticsearch
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html
+//
 type CfnDomain_MasterUserOptionsProperty struct {
 	// ARN for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is false in `AdvancedSecurityOptions` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserarn
+	//
 	MasterUserArn *string `field:"optional" json:"masterUserArn" yaml:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masterusername
+	//
 	MasterUserName *string `field:"optional" json:"masterUserName" yaml:"masterUserName"`
 	// Password for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserpassword
+	//
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 }
 

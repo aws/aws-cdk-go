@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppSync::DataSource`.
+// The `AWS::AppSync::DataSource` resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB , AWS Lambda , and Amazon OpenSearch Service .
 //
-// The `AWS::AppSync::DataSource` resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB , AWS Lambda , and Amazon OpenSearch Service . Resolvers use these data sources to fetch data when clients make GraphQL calls.
+// Resolvers use these data sources to fetch data when clients make GraphQL calls.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -83,6 +83,8 @@ import (
 //   	ServiceRoleArn: jsii.String("serviceRoleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html
+//
 type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -91,6 +93,7 @@ type CfnDataSource interface {
 	SetApiId(val *string)
 	// The Amazon Resource Name (ARN) of the API key, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/datasources/datasourcename` .
 	AttrDataSourceArn() *string
+	AttrId() *string
 	// Friendly name for you to identify your AWS AppSync data source after creation.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -109,8 +112,6 @@ type CfnDataSource interface {
 	DynamoDbConfig() interface{}
 	SetDynamoDbConfig(val interface{})
 	// AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
-	//
-	// As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service . This property is deprecated. For new data sources, use *OpenSearchServiceConfig* to specify an OpenSearch Service data source.
 	ElasticsearchConfig() interface{}
 	SetElasticsearchConfig(val interface{})
 	// An EventBridge configuration that contains a valid ARN of an event bus.
@@ -120,8 +121,6 @@ type CfnDataSource interface {
 	HttpConfig() interface{}
 	SetHttpConfig(val interface{})
 	// An ARN of a Lambda function in valid ARN format.
-	//
-	// This can be the ARN of a Lambda function that exists in the current account or in another account.
 	LambdaConfig() interface{}
 	SetLambdaConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -151,10 +150,6 @@ type CfnDataSource interface {
 	RelationalDatabaseConfig() interface{}
 	SetRelationalDatabaseConfig(val interface{})
 	// The AWS Identity and Access Management service role ARN for the data source.
-	//
-	// The system assumes this role when accessing the data source.
-	//
-	// Required if `Type` is specified as `AWS_LAMBDA` , `AMAZON_DYNAMODB` , `AMAZON_ELASTICSEARCH` , `AMAZON_EVENTBRIDGE` , or `AMAZON_OPENSEARCH_SERVICE` .
 	ServiceRoleArn() *string
 	SetServiceRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -162,15 +157,6 @@ type CfnDataSource interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The type of the data source.
-	//
-	// - *AWS_LAMBDA* : The data source is an AWS Lambda function.
-	// - *AMAZON_DYNAMODB* : The data source is an Amazon DynamoDB table.
-	// - *AMAZON_ELASTICSEARCH* : The data source is an Amazon OpenSearch Service domain.
-	// - *AMAZON_EVENTBRIDGE* : The data source is an Amazon EventBridge event bus.
-	// - *AMAZON_OPENSEARCH_SERVICE* : The data source is an Amazon OpenSearch Service domain.
-	// - *NONE* : There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
-	// - *HTTP* : The data source is an HTTP endpoint.
-	// - *RELATIONAL_DATABASE* : The data source is a relational database.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -334,6 +320,16 @@ func (j *jsiiProxy_CfnDataSource) AttrDataSourceArn() *string {
 	_jsii_.Get(
 		j,
 		"attrDataSourceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -560,7 +556,6 @@ func (j *jsiiProxy_CfnDataSource) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppSync::DataSource`.
 func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
@@ -578,7 +573,6 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 	return &j
 }
 
-// Create a new `AWS::AppSync::DataSource`.
 func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 

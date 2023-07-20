@@ -12,11 +12,22 @@ import (
 // A CloudWatch dashboard.
 //
 // Example:
-//   import cw "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
 //   	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
+//   	Variables: []iVariable{
+//   		cw.NewDashboardVariable(&DashboardVariableOptions{
+//   			Id: jsii.String("region2"),
+//   			Type: cw.VariableType_PATTERN,
+//   			Label: jsii.String("RegionPattern"),
+//   			InputType: cw.VariableInputType_INPUT,
+//   			Value: jsii.String("us-east-1"),
+//   			DefaultValue: cw.DefaultValue_Value(jsii.String("us-east-1")),
+//   			Visible: jsii.Boolean(true),
+//   		}),
+//   	},
 //   })
 //
 type Dashboard interface {
@@ -46,6 +57,10 @@ type Dashboard interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// Add a variable to the dashboard.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_dashboard_variables.html
+	//
+	AddVariable(variable IVariable)
 	// Add a widget to the dashboard.
 	//
 	// Widgets given in multiple calls to add() will be laid out stacked on
@@ -246,6 +261,17 @@ func Dashboard_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (d *jsiiProxy_Dashboard) AddVariable(variable IVariable) {
+	if err := d.validateAddVariableParameters(variable); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"addVariable",
+		[]interface{}{variable},
+	)
 }
 
 func (d *jsiiProxy_Dashboard) AddWidgets(widgets ...IWidget) {

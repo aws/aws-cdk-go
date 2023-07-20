@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IAM::OIDCProvider`.
-//
 // Creates or updates an IAM entity to describe an identity provider (IdP) that supports [OpenID Connect (OIDC)](https://docs.aws.amazon.com/http://openid.net/connect/) .
 //
 // The OIDC provider that you create with this operation can be used as a principal in a role's trust policy. Such a policy establishes a trust relationship between AWS and the OIDC provider.
@@ -56,9 +54,12 @@ import (
 //   	Url: jsii.String("url"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html
+//
 type CfnOIDCProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::OIDCProvider` resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -67,8 +68,6 @@ type CfnOIDCProvider interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object.
-	//
-	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 	ClientIdList() *[]*string
 	SetClientIdList(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -96,13 +95,12 @@ type CfnOIDCProvider interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags that are attached to the specified IAM OIDC provider.
-	//
-	// The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags that are attached to the specified IAM OIDC provider.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object.
-	//
-	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 	ThumbprintList() *[]*string
 	SetThumbprintList(val *[]*string)
 	// Deprecated.
@@ -119,8 +117,6 @@ type CfnOIDCProvider interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The URL that the IAM OIDC provider resource object is associated with.
-	//
-	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 	Url() *string
 	SetUrl(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -254,6 +250,7 @@ type CfnOIDCProvider interface {
 type jsiiProxy_CfnOIDCProvider struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnOIDCProvider) AttrArn() *string {
@@ -366,6 +363,16 @@ func (j *jsiiProxy_CfnOIDCProvider) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOIDCProvider) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOIDCProvider) ThumbprintList() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -407,7 +414,6 @@ func (j *jsiiProxy_CfnOIDCProvider) Url() *string {
 }
 
 
-// Create a new `AWS::IAM::OIDCProvider`.
 func NewCfnOIDCProvider(scope constructs.Construct, id *string, props *CfnOIDCProviderProps) CfnOIDCProvider {
 	_init_.Initialize()
 
@@ -425,7 +431,6 @@ func NewCfnOIDCProvider(scope constructs.Construct, id *string, props *CfnOIDCPr
 	return &j
 }
 
-// Create a new `AWS::IAM::OIDCProvider`.
 func NewCfnOIDCProvider_Override(c CfnOIDCProvider, scope constructs.Construct, id *string, props *CfnOIDCProviderProps) {
 	_init_.Initialize()
 
@@ -440,6 +445,17 @@ func (j *jsiiProxy_CfnOIDCProvider)SetClientIdList(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"clientIdList",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOIDCProvider)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

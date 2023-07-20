@@ -43,12 +43,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablesortby.html
+//
 type CfnAnalysis_PivotTableSortByProperty struct {
 	// The column sort (field id, direction) for the pivot table sort by options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablesortby.html#cfn-quicksight-analysis-pivottablesortby-column
+	//
 	Column interface{} `field:"optional" json:"column" yaml:"column"`
 	// The data path sort (data path value, direction) for the pivot table sort by options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablesortby.html#cfn-quicksight-analysis-pivottablesortby-datapath
+	//
 	DataPath interface{} `field:"optional" json:"dataPath" yaml:"dataPath"`
 	// The field sort (field id, direction) for the pivot table sort by options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablesortby.html#cfn-quicksight-analysis-pivottablesortby-field
+	//
 	Field interface{} `field:"optional" json:"field" yaml:"field"`
 }
 

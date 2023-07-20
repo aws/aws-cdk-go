@@ -13,12 +13,18 @@ package awsiotanalytics
 //   	Unlimited: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-versioningconfiguration.html
+//
 type CfnDataset_VersioningConfigurationProperty struct {
 	// How many versions of dataset contents are kept.
 	//
 	// The `unlimited` parameter must be `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-versioningconfiguration.html#cfn-iotanalytics-dataset-versioningconfiguration-maxversions
+	//
 	MaxVersions *float64 `field:"optional" json:"maxVersions" yaml:"maxVersions"`
 	// If true, unlimited versions of dataset contents are kept.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-versioningconfiguration.html#cfn-iotanalytics-dataset-versioningconfiguration-unlimited
+	//
 	Unlimited interface{} `field:"optional" json:"unlimited" yaml:"unlimited"`
 }
 

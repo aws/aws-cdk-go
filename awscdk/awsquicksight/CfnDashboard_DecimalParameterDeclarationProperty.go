@@ -46,18 +46,29 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameterdeclaration.html
+//
 type CfnDashboard_DecimalParameterDeclarationProperty struct {
 	// The name of the parameter that is being declared.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameterdeclaration.html#cfn-quicksight-dashboard-decimalparameterdeclaration-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value type determines whether the parameter is a single-value or multi-value parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameterdeclaration.html#cfn-quicksight-dashboard-decimalparameterdeclaration-parametervaluetype
+	//
 	ParameterValueType *string `field:"required" json:"parameterValueType" yaml:"parameterValueType"`
 	// The default values of a parameter.
 	//
 	// If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameterdeclaration.html#cfn-quicksight-dashboard-decimalparameterdeclaration-defaultvalues
+	//
 	DefaultValues interface{} `field:"optional" json:"defaultValues" yaml:"defaultValues"`
-	// `CfnDashboard.DecimalParameterDeclarationProperty.MappedDataSetParameters`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameterdeclaration.html#cfn-quicksight-dashboard-decimalparameterdeclaration-mappeddatasetparameters
+	//
 	MappedDataSetParameters interface{} `field:"optional" json:"mappedDataSetParameters" yaml:"mappedDataSetParameters"`
 	// The configuration that defines the default value of a `Decimal` parameter when a value has not been set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameterdeclaration.html#cfn-quicksight-dashboard-decimalparameterdeclaration-valuewhenunset
+	//
 	ValueWhenUnset interface{} `field:"optional" json:"valueWhenUnset" yaml:"valueWhenUnset"`
 }
 

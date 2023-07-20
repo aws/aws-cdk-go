@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAF::WebACL`.
+// > This is *AWS WAF Classic* documentation.
 //
-// > This is *AWS WAF Classic* documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+// For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
 // >
 // > *For the latest version of AWS WAF* , use the AWS WAF V2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) . With the latest version, AWS WAF has a single set of endpoints for regional and global use.
 //
@@ -43,9 +43,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html
+//
 type CfnWebACL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -56,8 +59,6 @@ type CfnWebACL interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
-	//
-	// The action is specified by the `WafAction` object.
 	DefaultAction() interface{}
 	SetDefaultAction(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -71,13 +72,9 @@ type CfnWebACL interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the metrics for this `WebACL` .
-	//
-	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF , including "All" and "Default_Action." You can't change `MetricName` after you create the `WebACL` .
 	MetricName() *string
 	SetMetricName(val *string)
 	// A friendly name or description of the `WebACL` .
-	//
-	// You can't change the name of a `WebACL` after you create it.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -240,6 +237,16 @@ type jsiiProxy_CfnWebACL struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnWebACL) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebACL) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -381,7 +388,6 @@ func (j *jsiiProxy_CfnWebACL) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::WAF::WebACL`.
 func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
 	_init_.Initialize()
 
@@ -399,7 +405,6 @@ func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps)
 	return &j
 }
 
-// Create a new `AWS::WAF::WebACL`.
 func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, props *CfnWebACLProps) {
 	_init_.Initialize()
 

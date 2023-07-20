@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnReplicationSet) validateSetRegionsParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicationSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnReplicationSetParameters(scope constructs.Construct, id *string, props *CfnReplicationSetProps) error {
 	return nil
 }

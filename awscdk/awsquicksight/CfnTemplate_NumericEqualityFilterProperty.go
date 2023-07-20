@@ -33,28 +33,46 @@ package awsquicksight
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html
+//
 type CfnTemplate_NumericEqualityFilterProperty struct {
 	// The column that the filter is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html#cfn-quicksight-template-numericequalityfilter-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html#cfn-quicksight-template-numericequalityfilter-filterid
+	//
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
 	// The match operator that is used to determine if a filter should be applied.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html#cfn-quicksight-template-numericequalityfilter-matchoperator
+	//
 	MatchOperator *string `field:"required" json:"matchOperator" yaml:"matchOperator"`
 	// This option determines how null values should be treated when filtering data.
 	//
 	// - `ALL_VALUES` : Include null values in filtered results.
 	// - `NULLS_ONLY` : Only include null values in filtered results.
 	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html#cfn-quicksight-template-numericequalityfilter-nulloption
+	//
 	NullOption *string `field:"required" json:"nullOption" yaml:"nullOption"`
 	// The aggregation function of the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html#cfn-quicksight-template-numericequalityfilter-aggregationfunction
+	//
 	AggregationFunction interface{} `field:"optional" json:"aggregationFunction" yaml:"aggregationFunction"`
 	// The parameter whose value should be used for the filter value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html#cfn-quicksight-template-numericequalityfilter-parametername
+	//
 	ParameterName *string `field:"optional" json:"parameterName" yaml:"parameterName"`
 	// Select all of the values. Null is not the assigned value of select all.
 	//
 	// - `FILTER_ALL_VALUES`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html#cfn-quicksight-template-numericequalityfilter-selectalloptions
+	//
 	SelectAllOptions *string `field:"optional" json:"selectAllOptions" yaml:"selectAllOptions"`
 	// The input value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html#cfn-quicksight-template-numericequalityfilter-value
+	//
 	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 

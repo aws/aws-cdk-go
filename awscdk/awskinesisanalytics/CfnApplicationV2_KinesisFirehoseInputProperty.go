@@ -14,8 +14,12 @@ package awskinesisanalytics
 //   	ResourceArn: jsii.String("resourceArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisfirehoseinput.html
+//
 type CfnApplicationV2_KinesisFirehoseInputProperty struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisfirehoseinput.html#cfn-kinesisanalyticsv2-application-kinesisfirehoseinput-resourcearn
+	//
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 

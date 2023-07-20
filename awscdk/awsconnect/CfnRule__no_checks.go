@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnRule) validateSetPublishStatusParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnRule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRule) validateSetTriggerEventSourceParameters(val interface{}) error {
 	return nil
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Omics::SequenceStore`.
-//
 // Creates a sequence store.
 //
 // Example:
@@ -35,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html
+//
 type CfnSequenceStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The store's ARN.
 	AttrArn() *string
 	// When the store was created.
@@ -56,7 +57,7 @@ type CfnSequenceStore interface {
 	// A description for the store.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Omics::SequenceStore.FallbackLocation`.
+	// An S3 URI representing the bucket and folder to store failed read set uploads.
 	FallbackLocation() *string
 	SetFallbackLocation(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -86,8 +87,11 @@ type CfnSequenceStore interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags for the store.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags for the store.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +236,7 @@ type CfnSequenceStore interface {
 type jsiiProxy_CfnSequenceStore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSequenceStore) AttrArn() *string {
@@ -394,6 +399,16 @@ func (j *jsiiProxy_CfnSequenceStore) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSequenceStore) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSequenceStore) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -415,7 +430,6 @@ func (j *jsiiProxy_CfnSequenceStore) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Omics::SequenceStore`.
 func NewCfnSequenceStore(scope constructs.Construct, id *string, props *CfnSequenceStoreProps) CfnSequenceStore {
 	_init_.Initialize()
 
@@ -433,7 +447,6 @@ func NewCfnSequenceStore(scope constructs.Construct, id *string, props *CfnSeque
 	return &j
 }
 
-// Create a new `AWS::Omics::SequenceStore`.
 func NewCfnSequenceStore_Override(c CfnSequenceStore, scope constructs.Construct, id *string, props *CfnSequenceStoreProps) {
 	_init_.Initialize()
 
@@ -478,6 +491,14 @@ func (j *jsiiProxy_CfnSequenceStore)SetSseConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sseConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSequenceStore)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

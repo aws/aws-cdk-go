@@ -33,8 +33,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-shapeconditionalformat.html
+//
 type CfnAnalysis_ShapeConditionalFormatProperty struct {
 	// The conditional formatting for the shape background color of a filled map visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-shapeconditionalformat.html#cfn-quicksight-analysis-shapeconditionalformat-backgroundcolor
+	//
 	BackgroundColor interface{} `field:"required" json:"backgroundColor" yaml:"backgroundColor"`
 }
 

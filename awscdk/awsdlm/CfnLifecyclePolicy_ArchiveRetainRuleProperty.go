@@ -14,8 +14,11 @@ package awsdlm
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiveretainrule.html
+//
 type CfnLifecyclePolicy_ArchiveRetainRuleProperty struct {
-	// `CfnLifecyclePolicy.ArchiveRetainRuleProperty.RetentionArchiveTier`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiveretainrule.html#cfn-dlm-lifecyclepolicy-archiveretainrule-retentionarchivetier
+	//
 	RetentionArchiveTier interface{} `field:"required" json:"retentionArchiveTier" yaml:"retentionArchiveTier"`
 }
 

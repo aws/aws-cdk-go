@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Events::Connection`.
+// Creates a connection.
 //
-// Creates a connection. A connection defines the authorization type and credentials to use for authorization with an API destination HTTP endpoint.
+// A connection defines the authorization type and credentials to use for authorization with an API destination HTTP endpoint.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -104,6 +104,8 @@ import (
 //   	Name: jsii.String("name"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html
+//
 type CfnConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -112,8 +114,6 @@ type CfnConnection interface {
 	// The ARN for the secret created for the connection.
 	AttrSecretArn() *string
 	// The type of authorization to use for the connection.
-	//
-	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 	AuthorizationType() *string
 	SetAuthorizationType(val *string)
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
@@ -462,7 +462,6 @@ func (j *jsiiProxy_CfnConnection) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Events::Connection`.
 func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnectionProps) CfnConnection {
 	_init_.Initialize()
 
@@ -480,7 +479,6 @@ func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnecti
 	return &j
 }
 
-// Create a new `AWS::Events::Connection`.
 func NewCfnConnection_Override(c CfnConnection, scope constructs.Construct, id *string, props *CfnConnectionProps) {
 	_init_.Initialize()
 

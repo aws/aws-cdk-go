@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AuditManager::Assessment`.
+// The `AWS::AuditManager::Assessment` resource is an Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager .
 //
-// The `AWS::AuditManager::Assessment` resource is an Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager . An Audit Manager assessment is an implementation of an Audit Manager framework.
+// An Audit Manager assessment is an implementation of an Audit Manager framework.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -75,9 +75,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
+//
 type CfnAssessment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination() interface{}
 	SetAssessmentReportsDestination(val interface{})
@@ -145,14 +148,13 @@ type CfnAssessment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The overall status of the assessment.
-	//
-	// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
-	//
-	// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 	Status() *string
 	SetStatus(val *string)
-	// The tags that are associated with the assessment.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags that are associated with the assessment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -297,6 +299,7 @@ type CfnAssessment interface {
 type jsiiProxy_CfnAssessment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAssessment) AssessmentReportsDestination() interface{} {
@@ -509,6 +512,16 @@ func (j *jsiiProxy_CfnAssessment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssessment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssessment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -530,7 +543,6 @@ func (j *jsiiProxy_CfnAssessment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AuditManager::Assessment`.
 func NewCfnAssessment(scope constructs.Construct, id *string, props *CfnAssessmentProps) CfnAssessment {
 	_init_.Initialize()
 
@@ -548,7 +560,6 @@ func NewCfnAssessment(scope constructs.Construct, id *string, props *CfnAssessme
 	return &j
 }
 
-// Create a new `AWS::AuditManager::Assessment`.
 func NewCfnAssessment_Override(c CfnAssessment, scope constructs.Construct, id *string, props *CfnAssessmentProps) {
 	_init_.Initialize()
 
@@ -642,6 +653,17 @@ func (j *jsiiProxy_CfnAssessment)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssessment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

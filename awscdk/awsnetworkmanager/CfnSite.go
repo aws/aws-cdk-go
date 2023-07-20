@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::Site`.
-//
 // Creates a new site in a global network.
 //
 // Example:
@@ -36,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html
+//
 type CfnSite interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the site.
 	//
 	// For example, `arn:aws:networkmanager::123456789012:site/global-network-01231231231231231/site-444555aaabbb11223` .
@@ -57,20 +58,12 @@ type CfnSite interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A description of your site.
-	//
-	// Constraints: Maximum length of 256 characters.
 	Description() *string
 	SetDescription(val *string)
 	// The ID of the global network.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
 	// The site location.
-	//
-	// This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.
-	//
-	// - `Address` : The physical address of the site.
-	// - `Latitude` : The latitude of the site.
-	// - `Longitude` : The longitude of the site.
 	Location() interface{}
 	SetLocation(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -94,8 +87,11 @@ type CfnSite interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the site.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the site.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -240,6 +236,7 @@ type CfnSite interface {
 type jsiiProxy_CfnSite struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSite) AttrSiteArn() *string {
@@ -382,6 +379,16 @@ func (j *jsiiProxy_CfnSite) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSite) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSite) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -403,7 +410,6 @@ func (j *jsiiProxy_CfnSite) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::NetworkManager::Site`.
 func NewCfnSite(scope constructs.Construct, id *string, props *CfnSiteProps) CfnSite {
 	_init_.Initialize()
 
@@ -421,7 +427,6 @@ func NewCfnSite(scope constructs.Construct, id *string, props *CfnSiteProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::Site`.
 func NewCfnSite_Override(c CfnSite, scope constructs.Construct, id *string, props *CfnSiteProps) {
 	_init_.Initialize()
 
@@ -458,6 +463,17 @@ func (j *jsiiProxy_CfnSite)SetLocation(val interface{}) {
 	_jsii_.Set(
 		j,
 		"location",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSite)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

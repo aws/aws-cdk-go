@@ -24,12 +24,20 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html
+//
 type CfnChannel_FailoverConditionSettingsProperty struct {
 	// MediaLive will perform a failover if the specified audio selector is silent for the specified period.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-audiosilencesettings
+	//
 	AudioSilenceSettings interface{} `field:"optional" json:"audioSilenceSettings" yaml:"audioSilenceSettings"`
 	// MediaLive will perform a failover if content is not detected in this input for the specified period.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-inputlosssettings
+	//
 	InputLossSettings interface{} `field:"optional" json:"inputLossSettings" yaml:"inputLossSettings"`
 	// MediaLive will perform a failover if content is considered black for the specified period.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-videoblacksettings
+	//
 	VideoBlackSettings interface{} `field:"optional" json:"videoBlackSettings" yaml:"videoBlackSettings"`
 }
 

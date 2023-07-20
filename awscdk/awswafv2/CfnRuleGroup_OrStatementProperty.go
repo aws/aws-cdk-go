@@ -13,13 +13,14 @@ package awswafv2
 //   var all interface{}
 //   var allQueryArguments interface{}
 //   var method interface{}
+//   var orStatementProperty_ orStatementProperty
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
-//   orStatementProperty := &OrStatementProperty{
+//   orStatementProperty := &orStatementProperty{
 //   	Statements: []interface{}{
 //   		&statementProperty{
 //   			AndStatement: &AndStatementProperty{
@@ -116,11 +117,7 @@ package awswafv2
 //   			NotStatement: &NotStatementProperty{
 //   				Statement: statementProperty_,
 //   			},
-//   			OrStatement: &OrStatementProperty{
-//   				Statements: []interface{}{
-//   					statementProperty_,
-//   				},
-//   			},
+//   			OrStatement: orStatementProperty_,
 //   			RateBasedStatement: &RateBasedStatementProperty{
 //   				AggregateKeyType: jsii.String("aggregateKeyType"),
 //   				Limit: jsii.Number(123),
@@ -433,10 +430,14 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
+//
 type CfnRuleGroup_OrStatementProperty struct {
 	// The statements to combine with OR logic.
 	//
 	// You can use any statements that can be nested.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
+	//
 	Statements interface{} `field:"required" json:"statements" yaml:"statements"`
 }
 

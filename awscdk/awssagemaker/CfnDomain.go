@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::Domain`.
+// Creates a `Domain` used by Amazon SageMaker Studio.
 //
-// Creates a `Domain` used by Amazon SageMaker Studio. A domain consists of an associated Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can share notebook files and other artifacts with each other.
+// A domain consists of an associated Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can share notebook files and other artifacts with each other.
 //
 // *EFS storage*
 //
@@ -167,22 +167,18 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly` .
+	awscdk.ITaggable
+	// Specifies the VPC used for non-EFS traffic.
 	//
-	// - `PublicInternetOnly` - Non-EFS traffic is through a VPC managed by Amazon SageMaker , which allows direct internet access
-	// - `VpcOnly` - All Studio traffic is through the specified VPC and subnets
-	//
-	// *Valid Values* : `PublicInternetOnly | VpcOnly`.
+	// The default value is `PublicInternetOnly` .
 	AppNetworkAccessType() *string
 	SetAppNetworkAccessType(val *string)
 	// The entity that creates and manages the required security groups for inter-app communication in `VpcOnly` mode.
-	//
-	// Required when `CreateDomain.AppNetworkAccessType` is `VpcOnly` and `DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn` is provided. If setting up the domain for use with RStudio, this value must be set to `Service` .
-	//
-	// *Allowed Values* : `Service` | `Customer`.
 	AppSecurityGroupManagement() *string
 	SetAppSecurityGroupManagement(val *string)
 	// The Amazon Resource Name (ARN) of the Domain, such as `arn:aws:sagemaker:us-west-2:account-id:domain/my-domain-name` .
@@ -198,8 +194,6 @@ type CfnDomain interface {
 	// The URL for the Domain.
 	AttrUrl() *string
 	// The mode of authentication that members use to access the Domain.
-	//
-	// *Valid Values* : `SSO | IAM`.
 	AuthMode() *string
 	SetAuthMode(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -211,7 +205,7 @@ type CfnDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::SageMaker::Domain.DefaultSpaceSettings`.
+	// A collection of settings that apply to spaces of Amazon SageMaker Studio.
 	DefaultSpaceSettings() interface{}
 	SetDefaultSpaceSettings(val interface{})
 	// The default user settings.
@@ -221,17 +215,9 @@ type CfnDomain interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// A collection of settings that apply to the `SageMaker Domain` .
-	//
-	// These settings are specified through the `CreateDomain` API call.
 	DomainSettings() interface{}
 	SetDomainSettings(val interface{})
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the Domain with an AWS managed customer master key (CMK) by default.
-	//
-	// For more control, specify a customer managed CMK.
-	//
-	// *Length Constraints* : Maximum length of 2048.
-	//
-	// *Pattern* : `.*`
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -256,22 +242,13 @@ type CfnDomain interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The VPC subnets that Studio uses for communication.
-	//
-	// *Length Constraints* : Maximum length of 32.
-	//
-	// *Array members* : Minimum number of 1 item. Maximum number of 16 items.
-	//
-	// *Pattern* : `[-0-9a-zA-Z]+`.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// Tags to associated with the Domain.
-	//
-	// Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
-	//
-	// Tags that you specify for the Domain are also added to all apps that are launched in the Domain.
-	//
-	// *Array members* : Minimum number of 0 items. Maximum number of 50 items.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags to associated with the Domain.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -286,10 +263,6 @@ type CfnDomain interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) that Studio uses for communication.
-	//
-	// *Length Constraints* : Maximum length of 32.
-	//
-	// *Pattern* : `[-0-9a-zA-Z]+`.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -423,6 +396,7 @@ type CfnDomain interface {
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDomain) AppNetworkAccessType() *string {
@@ -665,6 +639,16 @@ func (j *jsiiProxy_CfnDomain) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -696,7 +680,6 @@ func (j *jsiiProxy_CfnDomain) VpcId() *string {
 }
 
 
-// Create a new `AWS::SageMaker::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -714,7 +697,6 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
-// Create a new `AWS::SageMaker::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
@@ -811,6 +793,17 @@ func (j *jsiiProxy_CfnDomain)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

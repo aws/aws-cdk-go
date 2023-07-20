@@ -12,6 +12,8 @@ package awswafregional
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-action.html
+//
 type CfnWebACL_ActionProperty struct {
 	// For actions that are associated with a rule, the action that AWS WAF takes when a web request matches all conditions in a rule.
 	//
@@ -22,6 +24,8 @@ type CfnWebACL_ActionProperty struct {
 	// - `ALLOW` : AWS WAF allows requests
 	// - `BLOCK` : AWS WAF blocks requests
 	// - `COUNT` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify `COUNT` for the default action for a WebACL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-action.html#cfn-wafregional-webacl-action-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

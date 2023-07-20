@@ -64,28 +64,44 @@ package awsapplicationinsights
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
+//
 type CfnApplication_ConfigurationDetailsProperty struct {
 	// A list of metrics to monitor for the component.
 	//
 	// All component types can use `AlarmMetrics` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
+	//
 	AlarmMetrics interface{} `field:"optional" json:"alarmMetrics" yaml:"alarmMetrics"`
 	// A list of alarms to monitor for the component.
 	//
 	// All component types can use `Alarm` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
+	//
 	Alarms interface{} `field:"optional" json:"alarms" yaml:"alarms"`
 	// The HA cluster Prometheus Exporter settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-haclusterprometheusexporter
+	//
 	HaClusterPrometheusExporter interface{} `field:"optional" json:"haClusterPrometheusExporter" yaml:"haClusterPrometheusExporter"`
 	// The HANA DB Prometheus Exporter settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-hanaprometheusexporter
+	//
 	HanaPrometheusExporter interface{} `field:"optional" json:"hanaPrometheusExporter" yaml:"hanaPrometheusExporter"`
 	// A list of Java metrics to monitor for the component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
+	//
 	JmxPrometheusExporter interface{} `field:"optional" json:"jmxPrometheusExporter" yaml:"jmxPrometheusExporter"`
 	// A list of logs to monitor for the component.
 	//
 	// Only Amazon EC2 instances can use `Logs` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
+	//
 	Logs interface{} `field:"optional" json:"logs" yaml:"logs"`
 	// A list of Windows Events to monitor for the component.
 	//
 	// Only Amazon EC2 instances running on Windows can use `WindowsEvents` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+	//
 	WindowsEvents interface{} `field:"optional" json:"windowsEvents" yaml:"windowsEvents"`
 }
 

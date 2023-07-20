@@ -6,7 +6,6 @@ package awsrds
 // Used in `DatabaseClusterEngine.auroraMysql`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{

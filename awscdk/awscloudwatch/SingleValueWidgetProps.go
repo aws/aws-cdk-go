@@ -1,5 +1,8 @@
 package awscloudwatch
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for a SingleValueWidget.
 //
@@ -11,7 +14,7 @@ package awscloudwatch
 //   	Metrics: []iMetric{
 //   	},
 //
-//   	FullPrecision: jsii.Boolean(true),
+//   	Period: awscdk.Duration_Minutes(jsii.Number(15)),
 //   }))
 //
 type SingleValueWidgetProps struct {
@@ -27,6 +30,11 @@ type SingleValueWidgetProps struct {
 	Metrics *[]IMetric `field:"required" json:"metrics" yaml:"metrics"`
 	// Whether to show as many digits as can fit, before rounding.
 	FullPrecision *bool `field:"optional" json:"fullPrecision" yaml:"fullPrecision"`
+	// The default period for all metrics in this widget.
+	//
+	// The period is the length of time represented by one data point on the graph.
+	// This default can be overridden within each metric definition.
+	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Whether to show the value from the entire time range.
 	SetPeriodToTimeRange *bool `field:"optional" json:"setPeriodToTimeRange" yaml:"setPeriodToTimeRange"`
 	// Whether to show a graph below the value illustrating the value for the whole time range.

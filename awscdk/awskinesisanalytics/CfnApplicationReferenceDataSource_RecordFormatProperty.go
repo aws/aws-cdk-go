@@ -23,10 +23,16 @@ package awskinesisanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordformat.html
+//
 type CfnApplicationReferenceDataSource_RecordFormatProperty struct {
 	// The type of record format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordformat.html#cfn-kinesisanalytics-applicationreferencedatasource-recordformat-recordformattype
+	//
 	RecordFormatType *string `field:"required" json:"recordFormatType" yaml:"recordFormatType"`
 	// When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordformat.html#cfn-kinesisanalytics-applicationreferencedatasource-recordformat-mappingparameters
+	//
 	MappingParameters interface{} `field:"optional" json:"mappingParameters" yaml:"mappingParameters"`
 }
 

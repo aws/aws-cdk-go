@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnModel) validateSetPrimaryContainerParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnModel) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnModel) validateSetVpcConfigParameters(val interface{}) error {
 	return nil
 }

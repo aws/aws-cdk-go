@@ -15,8 +15,11 @@ package awss3objectlambda
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-contenttransformation.html
+//
 type CfnAccessPoint_ContentTransformationProperty struct {
-	// `CfnAccessPoint.ContentTransformationProperty.AwsLambda`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-contenttransformation.html#cfn-s3objectlambda-accesspoint-contenttransformation-awslambda
+	//
 	AwsLambda interface{} `field:"required" json:"awsLambda" yaml:"awsLambda"`
 }
 

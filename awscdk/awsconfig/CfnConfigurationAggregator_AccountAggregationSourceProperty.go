@@ -20,12 +20,20 @@ package awsconfig
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
+//
 type CfnConfigurationAggregator_AccountAggregationSourceProperty struct {
 	// The 12-digit account ID of the account being aggregated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
+	//
 	AccountIds *[]*string `field:"required" json:"accountIds" yaml:"accountIds"`
 	// If true, aggregate existing AWS Config regions and future regions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
+	//
 	AllAwsRegions interface{} `field:"optional" json:"allAwsRegions" yaml:"allAwsRegions"`
 	// The source regions being aggregated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
+	//
 	AwsRegions *[]*string `field:"optional" json:"awsRegions" yaml:"awsRegions"`
 }
 

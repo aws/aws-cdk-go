@@ -22,20 +22,36 @@ package awsconnect
 //   	UseCustomTtsVoices: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html
+//
 type CfnInstance_AttributesProperty struct {
-	// `CfnInstance.AttributesProperty.InboundCalls`.
+	// Mandatory element which enables inbound calls on new instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-inboundcalls
+	//
 	InboundCalls interface{} `field:"required" json:"inboundCalls" yaml:"inboundCalls"`
-	// `CfnInstance.AttributesProperty.OutboundCalls`.
+	// Mandatory element which enables outbound calls on new instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-outboundcalls
+	//
 	OutboundCalls interface{} `field:"required" json:"outboundCalls" yaml:"outboundCalls"`
-	// `CfnInstance.AttributesProperty.AutoResolveBestVoices`.
+	// Boolean flag which enables AUTO_RESOLVE_BEST_VOICES on an instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-autoresolvebestvoices
+	//
 	AutoResolveBestVoices interface{} `field:"optional" json:"autoResolveBestVoices" yaml:"autoResolveBestVoices"`
-	// `CfnInstance.AttributesProperty.ContactflowLogs`.
+	// Boolean flag which enables CONTACTFLOW_LOGS on an instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-contactflowlogs
+	//
 	ContactflowLogs interface{} `field:"optional" json:"contactflowLogs" yaml:"contactflowLogs"`
-	// `CfnInstance.AttributesProperty.ContactLens`.
+	// Boolean flag which enables CONTACT_LENS on an instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-contactlens
+	//
 	ContactLens interface{} `field:"optional" json:"contactLens" yaml:"contactLens"`
-	// `CfnInstance.AttributesProperty.EarlyMedia`.
+	// Boolean flag which enables EARLY_MEDIA on an instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-earlymedia
+	//
 	EarlyMedia interface{} `field:"optional" json:"earlyMedia" yaml:"earlyMedia"`
-	// `CfnInstance.AttributesProperty.UseCustomTTSVoices`.
+	// Boolean flag which enables USE_CUSTOM_TTS_VOICES on an instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-usecustomttsvoices
+	//
 	UseCustomTtsVoices interface{} `field:"optional" json:"useCustomTtsVoices" yaml:"useCustomTtsVoices"`
 }
 

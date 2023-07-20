@@ -11,10 +11,14 @@ package awssam
 //   	PreTraffic: jsii.String("preTraffic"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-hooks.html
+//
 type CfnFunction_HooksProperty struct {
-	// `CfnFunction.HooksProperty.PostTraffic`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-hooks.html#cfn-serverless-function-hooks-posttraffic
+	//
 	PostTraffic *string `field:"optional" json:"postTraffic" yaml:"postTraffic"`
-	// `CfnFunction.HooksProperty.PreTraffic`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-hooks.html#cfn-serverless-function-hooks-pretraffic
+	//
 	PreTraffic *string `field:"optional" json:"preTraffic" yaml:"preTraffic"`
 }
 

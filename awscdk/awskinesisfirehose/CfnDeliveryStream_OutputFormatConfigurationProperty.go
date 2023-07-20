@@ -37,10 +37,14 @@ package awskinesisfirehose
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html
+//
 type CfnDeliveryStream_OutputFormatConfigurationProperty struct {
 	// Specifies which serializer to use.
 	//
 	// You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-outputformatconfiguration-serializer
+	//
 	Serializer interface{} `field:"optional" json:"serializer" yaml:"serializer"`
 }
 

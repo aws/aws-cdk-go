@@ -14,6 +14,8 @@ package awscloudfront
 //   	OriginAccessIdentity: jsii.String("originAccessIdentity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html
+//
 type CfnDistribution_S3OriginConfigProperty struct {
 	// The CloudFront origin access identity to associate with the origin.
 	//
@@ -30,6 +32,8 @@ type CfnDistribution_S3OriginConfigProperty struct {
 	// To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
 	//
 	// For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
+	//
 	OriginAccessIdentity *string `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 

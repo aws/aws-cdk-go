@@ -12,8 +12,12 @@ package awsappflow
 //   	Object: jsii.String("object"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html
+//
 type CfnFlow_AmplitudeSourcePropertiesProperty struct {
 	// The object specified in the Amplitude flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html#cfn-appflow-flow-amplitudesourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 }
 

@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnTrail) validateSetS3BucketNameParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrail) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnTrailParameters(scope constructs.Construct, id *string, props *CfnTrailProps) error {
 	return nil
 }

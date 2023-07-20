@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VerifiedPermissions::PolicyStore`.
+// Creates a policy store.
 //
-// Creates a policy store. A policy store is a container for policy resources. You can create a separate policy store for each of your applications.
+// A policy store is a container for policy resources. You can create a separate policy store for each of your applications.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,6 +28,8 @@ import (
 //   		CedarJson: jsii.String("cedarJson"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html
 //
 type CfnPolicyStore interface {
 	awscdk.CfnResource
@@ -63,8 +65,6 @@ type CfnPolicyStore interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Creates or updates the policy schema in a policy store.
-	//
-	// Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
 	Schema() interface{}
 	SetSchema(val interface{})
 	// The stack in which this element is defined.
@@ -85,10 +85,6 @@ type CfnPolicyStore interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Specifies the validation setting for this policy store.
-	//
-	// Currently, the only valid and required value is `Mode` .
-	//
-	// > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
 	ValidationSettings() interface{}
 	SetValidationSettings(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -365,7 +361,6 @@ func (j *jsiiProxy_CfnPolicyStore) ValidationSettings() interface{} {
 }
 
 
-// Create a new `AWS::VerifiedPermissions::PolicyStore`.
 func NewCfnPolicyStore(scope constructs.Construct, id *string, props *CfnPolicyStoreProps) CfnPolicyStore {
 	_init_.Initialize()
 
@@ -383,7 +378,6 @@ func NewCfnPolicyStore(scope constructs.Construct, id *string, props *CfnPolicyS
 	return &j
 }
 
-// Create a new `AWS::VerifiedPermissions::PolicyStore`.
 func NewCfnPolicyStore_Override(c CfnPolicyStore, scope constructs.Construct, id *string, props *CfnPolicyStoreProps) {
 	_init_.Initialize()
 

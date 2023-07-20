@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Logs::LogGroup`.
+// The `AWS::Logs::LogGroup` resource specifies a log group.
 //
-// The `AWS::Logs::LogGroup` resource specifies a log group. A log group defines common properties for log streams, such as their retention and access control rules. Each log stream must belong to one log group.
+// A log group defines common properties for log streams, such as their retention and access control rules. Each log stream must belong to one log group.
 //
 // You can create up to 1,000,000 log groups per Region per account. You must use the following guidelines when naming a log group:
 //
@@ -39,9 +39,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
+//
 type CfnLogGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -54,24 +57,12 @@ type CfnLogGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Creates a data protection policy and assigns it to the log group.
-	//
-	// A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
-	//
-	// For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html) .
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
-	//
-	// To associate an AWS KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs . This enables CloudWatch Logs to decrypt this data whenever it is requested.
-	//
-	// If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an `InvalidParameterException` error.
-	//
-	// Log group data is always encrypted in CloudWatch Logs . If you omit this key, the encryption does not use AWS KMS . For more information, see [Encrypt log data in CloudWatch Logs using AWS Key Management Service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The name of the log group.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
 	LogGroupName() *string
 	SetLogGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -92,20 +83,17 @@ type CfnLogGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The number of days to retain the log events in the specified log group.
-	//
-	// Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
-	//
-	// To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html) .
 	RetentionInDays() *float64
 	SetRetentionInDays(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to the log group.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to the log group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -250,6 +238,7 @@ type CfnLogGroup interface {
 type jsiiProxy_CfnLogGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLogGroup) AttrArn() *string {
@@ -392,6 +381,16 @@ func (j *jsiiProxy_CfnLogGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLogGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLogGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -413,7 +412,6 @@ func (j *jsiiProxy_CfnLogGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Logs::LogGroup`.
 func NewCfnLogGroup(scope constructs.Construct, id *string, props *CfnLogGroupProps) CfnLogGroup {
 	_init_.Initialize()
 
@@ -431,7 +429,6 @@ func NewCfnLogGroup(scope constructs.Construct, id *string, props *CfnLogGroupPr
 	return &j
 }
 
-// Create a new `AWS::Logs::LogGroup`.
 func NewCfnLogGroup_Override(c CfnLogGroup, scope constructs.Construct, id *string, props *CfnLogGroupProps) {
 	_init_.Initialize()
 
@@ -443,9 +440,6 @@ func NewCfnLogGroup_Override(c CfnLogGroup, scope constructs.Construct, id *stri
 }
 
 func (j *jsiiProxy_CfnLogGroup)SetDataProtectionPolicy(val interface{}) {
-	if err := j.validateSetDataProtectionPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"dataProtectionPolicy",
@@ -473,6 +467,17 @@ func (j *jsiiProxy_CfnLogGroup)SetRetentionInDays(val *float64) {
 	_jsii_.Set(
 		j,
 		"retentionInDays",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLogGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

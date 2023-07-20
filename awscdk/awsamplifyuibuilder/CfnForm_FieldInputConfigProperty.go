@@ -53,40 +53,74 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html
+//
 type CfnForm_FieldInputConfigProperty struct {
 	// The input type for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Specifies whether a field has a default value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-defaultchecked
+	//
 	DefaultChecked interface{} `field:"optional" json:"defaultChecked" yaml:"defaultChecked"`
 	// The default country code for a phone number.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-defaultcountrycode
+	//
 	DefaultCountryCode *string `field:"optional" json:"defaultCountryCode" yaml:"defaultCountryCode"`
 	// The default value for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-defaultvalue
+	//
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The text to display to describe the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-descriptivetext
+	//
 	DescriptiveText *string `field:"optional" json:"descriptiveText" yaml:"descriptiveText"`
 	// The configuration for the file uploader field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-fileuploaderconfig
+	//
 	FileUploaderConfig interface{} `field:"optional" json:"fileUploaderConfig" yaml:"fileUploaderConfig"`
 	// Specifies whether to render the field as an array.
 	//
 	// This property is ignored if the `dataSourceType` for the form is a Data Store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-isarray
+	//
 	IsArray interface{} `field:"optional" json:"isArray" yaml:"isArray"`
 	// The maximum value to display for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-maxvalue
+	//
 	MaxValue *float64 `field:"optional" json:"maxValue" yaml:"maxValue"`
 	// The minimum value to display for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-minvalue
+	//
 	MinValue *float64 `field:"optional" json:"minValue" yaml:"minValue"`
 	// The name of the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The text to display as a placeholder for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-placeholder
+	//
 	Placeholder *string `field:"optional" json:"placeholder" yaml:"placeholder"`
 	// Specifies a read only field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-readonly
+	//
 	ReadOnly interface{} `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Specifies a field that requires input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-required
+	//
 	Required interface{} `field:"optional" json:"required" yaml:"required"`
 	// The stepping increment for a numeric value in a field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-step
+	//
 	Step *float64 `field:"optional" json:"step" yaml:"step"`
 	// The value for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 	// The information to use to customize the input fields with data at runtime.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-valuemappings
+	//
 	ValueMappings interface{} `field:"optional" json:"valueMappings" yaml:"valueMappings"`
 }
 

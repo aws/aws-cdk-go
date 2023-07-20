@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeGuruReviewer::RepositoryAssociation`.
+// This resource configures how Amazon CodeGuru Reviewer retrieves the source code to be reviewed.
 //
-// This resource configures how Amazon CodeGuru Reviewer retrieves the source code to be reviewed. You can use an AWS CloudFormation template to create an association with the following repository types:
+// You can use an AWS CloudFormation template to create an association with the following repository types:
 //
 // - AWS CodeCommit - For more information, see [Create an AWS CodeCommit repository association](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/create-codecommit-association.html) in the *Amazon CodeGuru Reviewer User Guide* .
 // - Bitbucket - For more information, see [Create a Bitbucket repository association](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/create-bitbucket-association.html) in the *Amazon CodeGuru Reviewer User Guide* .
@@ -41,14 +41,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html
+//
 type CfnRepositoryAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the [`RepositoryAssociation`](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html) object. You can retrieve this ARN by calling `ListRepositories` .
 	AttrAssociationArn() *string
 	// The name of the bucket.
-	//
-	// This is required for your S3Bucket repository. The name must start with the prefix `codeguru-reviewer-*` .
 	BucketName() *string
 	SetBucketName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -57,10 +58,6 @@ type CfnRepositoryAssociation interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-	//
-	// Its format is `arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id` . For more information, see [Connection](https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html) in the *AWS CodeStar Connections API Reference* .
-	//
-	// `ConnectionArn` must be specified for Bitbucket and GitHub Enterprise Server repositories. It has no effect if it is specified for an AWS CodeCommit repository.
 	ConnectionArn() *string
 	SetConnectionArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -83,10 +80,6 @@ type CfnRepositoryAssociation interface {
 	// The tree node.
 	Node() constructs.Node
 	// The owner of the repository.
-	//
-	// For a GitHub Enterprise Server or Bitbucket repository, this is the username for the account that owns the repository.
-	//
-	// `Owner` must be specified for Bitbucket and GitHub Enterprise Server repositories. It has no effect if it is specified for an AWS CodeCommit repository.
 	Owner() *string
 	SetOwner(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -98,19 +91,14 @@ type CfnRepositoryAssociation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs used to tag an associated repository.
-	//
-	// A tag is a custom attribute label with two parts:
-	//
-	// - A *tag key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag keys are case sensitive.
-	// - An optional field known as a *tag value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The type of repository that contains the source code to be reviewed. The valid values are:.
+	// An array of key-value pairs used to tag an associated repository.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The type of repository that contains the source code to be reviewed.
 	//
-	// - `CodeCommit`
-	// - `Bitbucket`
-	// - `GitHubEnterpriseServer`
-	// - `S3Bucket`.
+	// The valid values are:.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -257,6 +245,7 @@ type CfnRepositoryAssociation interface {
 type jsiiProxy_CfnRepositoryAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRepositoryAssociation) AttrAssociationArn() *string {
@@ -399,6 +388,16 @@ func (j *jsiiProxy_CfnRepositoryAssociation) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRepositoryAssociation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRepositoryAssociation) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -430,7 +429,6 @@ func (j *jsiiProxy_CfnRepositoryAssociation) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::CodeGuruReviewer::RepositoryAssociation`.
 func NewCfnRepositoryAssociation(scope constructs.Construct, id *string, props *CfnRepositoryAssociationProps) CfnRepositoryAssociation {
 	_init_.Initialize()
 
@@ -448,7 +446,6 @@ func NewCfnRepositoryAssociation(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::CodeGuruReviewer::RepositoryAssociation`.
 func NewCfnRepositoryAssociation_Override(c CfnRepositoryAssociation, scope constructs.Construct, id *string, props *CfnRepositoryAssociationProps) {
 	_init_.Initialize()
 
@@ -490,6 +487,17 @@ func (j *jsiiProxy_CfnRepositoryAssociation)SetOwner(val *string) {
 	_jsii_.Set(
 		j,
 		"owner",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRepositoryAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

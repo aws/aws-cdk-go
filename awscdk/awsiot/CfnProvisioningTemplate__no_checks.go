@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnProvisioningTemplate) validateSetProvisioningRoleArnParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnProvisioningTemplate) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnProvisioningTemplate) validateSetTemplateBodyParameters(val *string) error {
 	return nil
 }

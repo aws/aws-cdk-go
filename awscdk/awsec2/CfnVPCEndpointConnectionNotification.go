@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPCEndpointConnectionNotification`.
+// Specifies a connection notification for a VPC endpoint or VPC endpoint service.
 //
-// Specifies a connection notification for a VPC endpoint or VPC endpoint service. A connection notification notifies you of specific endpoint events. You must create an SNS topic to receive notifications. For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the *Amazon Simple Notification Service Developer Guide* .
+// A connection notification notifies you of specific endpoint events. You must create an SNS topic to receive notifications. For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the *Amazon Simple Notification Service Developer Guide* .
 //
 // You can create a connection notification for interface endpoints only.
 //
@@ -31,17 +31,18 @@ import (
 //   	VpcEndpointId: jsii.String("vpcEndpointId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html
+//
 type CfnVPCEndpointConnectionNotification interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// The endpoint events for which to receive notifications.
-	//
-	// Valid values are `Accept` , `Connect` , `Delete` , and `Reject` .
 	ConnectionEvents() *[]*string
 	SetConnectionEvents(val *[]*string)
 	// The ARN of the SNS topic for the notifications.
@@ -224,6 +225,16 @@ type jsiiProxy_CfnVPCEndpointConnectionNotification struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -365,7 +376,6 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) VpcEndpointId() *string
 }
 
 
-// Create a new `AWS::EC2::VPCEndpointConnectionNotification`.
 func NewCfnVPCEndpointConnectionNotification(scope constructs.Construct, id *string, props *CfnVPCEndpointConnectionNotificationProps) CfnVPCEndpointConnectionNotification {
 	_init_.Initialize()
 
@@ -383,7 +393,6 @@ func NewCfnVPCEndpointConnectionNotification(scope constructs.Construct, id *str
 	return &j
 }
 
-// Create a new `AWS::EC2::VPCEndpointConnectionNotification`.
 func NewCfnVPCEndpointConnectionNotification_Override(c CfnVPCEndpointConnectionNotification, scope constructs.Construct, id *string, props *CfnVPCEndpointConnectionNotificationProps) {
 	_init_.Initialize()
 

@@ -16,8 +16,12 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-monitoringsubscription.html
+//
 type CfnMonitoringSubscription_MonitoringSubscriptionProperty struct {
 	// A subscription configuration for additional CloudWatch metrics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-monitoringsubscription.html#cfn-cloudfront-monitoringsubscription-monitoringsubscription-realtimemetricssubscriptionconfig
+	//
 	RealtimeMetricsSubscriptionConfig interface{} `field:"optional" json:"realtimeMetricsSubscriptionConfig" yaml:"realtimeMetricsSubscriptionConfig"`
 }
 

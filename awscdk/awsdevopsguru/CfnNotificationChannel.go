@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DevOpsGuru::NotificationChannel`.
+// Adds a notification channel to DevOps Guru.
 //
-// Adds a notification channel to DevOps Guru. A notification channel is used to notify you about important DevOps Guru events, such as when an insight is generated.
+// A notification channel is used to notify you about important DevOps Guru events, such as when an insight is generated.
 //
 // If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see [Permissions for Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .
 //
@@ -37,6 +37,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
 //
 type CfnNotificationChannel interface {
 	awscdk.CfnResource
@@ -343,7 +345,6 @@ func (j *jsiiProxy_CfnNotificationChannel) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::DevOpsGuru::NotificationChannel`.
 func NewCfnNotificationChannel(scope constructs.Construct, id *string, props *CfnNotificationChannelProps) CfnNotificationChannel {
 	_init_.Initialize()
 
@@ -361,7 +362,6 @@ func NewCfnNotificationChannel(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::DevOpsGuru::NotificationChannel`.
 func NewCfnNotificationChannel_Override(c CfnNotificationChannel, scope constructs.Construct, id *string, props *CfnNotificationChannelProps) {
 	_init_.Initialize()
 

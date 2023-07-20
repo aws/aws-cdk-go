@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Transfer::Agreement`.
+// Creates an agreement.
 //
-// Creates an agreement. An agreement is a bilateral trading partner agreement, or partnership, between an AWS Transfer Family server and an AS2 process. The agreement defines the file and message transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family combines a server, local profile, partner profile, certificate, and other attributes.
+// An agreement is a bilateral trading partner agreement, or partnership, between an AWS Transfer Family server and an AS2 process. The agreement defines the file and message transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family combines a server, local profile, partner profile, certificate, and other attributes.
 //
 // The partner is identified with the `PartnerProfileId` , and the AS2 process is identified with the `LocalProfileId` .
 //
@@ -38,18 +38,18 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html
+//
 type CfnAgreement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// With AS2, you can send files by calling `StartFileTransfer` and specifying the file paths in the request parameter, `SendFilePaths` .
-	//
-	// We use the file’s parent directory (for example, for `--send-file-paths /bucket/dir/file.txt` , parent directory is `/bucket/dir/` ) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the `AccessRole` needs to provide read and write access to the parent directory of the file location used in the `StartFileTransfer` request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with `StartFileTransfer` .
-	//
-	// If you are using Basic authentication for your AS2 connector, the access role requires the `secretsmanager:GetSecretValue` permission for the secret. If the secret is encrypted using a customer-managed key instead of the AWS managed key in Secrets Manager, then the role also needs the `kms:Decrypt` permission for that key.
 	AccessRole() *string
 	SetAccessRole(val *string)
 	// The unique identifier for the AS2 agreement, returned after the API call succeeds.
 	AttrAgreementId() *string
+	// Specifies the unique Amazon Resource Name (ARN) for the agreement.
 	AttrArn() *string
 	// The landing directory (folder) for files that are transferred by using the AS2 protocol.
 	BaseDirectory() *string
@@ -90,8 +90,6 @@ type CfnAgreement interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A system-assigned unique identifier for a server instance.
-	//
-	// This identifier indicates the specific server that the agreement uses.
 	ServerId() *string
 	SetServerId(val *string)
 	// The stack in which this element is defined.
@@ -101,8 +99,11 @@ type CfnAgreement interface {
 	// The current status of the agreement, either `ACTIVE` or `INACTIVE` .
 	Status() *string
 	SetStatus(val *string)
-	// Key-value pairs that can be used to group and search for agreements.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs that can be used to group and search for agreements.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -247,6 +248,7 @@ type CfnAgreement interface {
 type jsiiProxy_CfnAgreement struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAgreement) AccessRole() *string {
@@ -429,6 +431,16 @@ func (j *jsiiProxy_CfnAgreement) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAgreement) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAgreement) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -450,7 +462,6 @@ func (j *jsiiProxy_CfnAgreement) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Transfer::Agreement`.
 func NewCfnAgreement(scope constructs.Construct, id *string, props *CfnAgreementProps) CfnAgreement {
 	_init_.Initialize()
 
@@ -468,7 +479,6 @@ func NewCfnAgreement(scope constructs.Construct, id *string, props *CfnAgreement
 	return &j
 }
 
-// Create a new `AWS::Transfer::Agreement`.
 func NewCfnAgreement_Override(c CfnAgreement, scope constructs.Construct, id *string, props *CfnAgreementProps) {
 	_init_.Initialize()
 
@@ -546,6 +556,17 @@ func (j *jsiiProxy_CfnAgreement)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAgreement)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

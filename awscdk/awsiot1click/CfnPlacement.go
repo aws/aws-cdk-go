@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT1Click::Placement`.
+// The `AWS::IoT1Click::Placement` resource creates a placement to be associated with an AWS IoT 1-Click project.
 //
-// The `AWS::IoT1Click::Placement` resource creates a placement to be associated with an AWS IoT 1-Click project. A placement is an instance of a device in a location. For more information, see [Projects, Templates, and Placements](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-PTP.html) in the *AWS IoT 1-Click Developer Guide* .
+// A placement is an instance of a device in a location. For more information, see [Projects, Templates, and Placements](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-PTP.html) in the *AWS IoT 1-Click Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,6 +30,8 @@ import (
 //   	PlacementName: jsii.String("placementName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html
+//
 type CfnPlacement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -39,6 +41,7 @@ type CfnPlacement interface {
 	// The user-defined attributes associated with the placement.
 	Attributes() interface{}
 	SetAttributes(val interface{})
+	AttrId() *string
 	// The name of the placement, such as `floor17` .
 	AttrPlacementName() *string
 	// The name of the project containing the placement, such as `conference-rooms` .
@@ -245,6 +248,16 @@ func (j *jsiiProxy_CfnPlacement) Attributes() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlacement) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlacement) AttrPlacementName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -386,7 +399,6 @@ func (j *jsiiProxy_CfnPlacement) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT1Click::Placement`.
 func NewCfnPlacement(scope constructs.Construct, id *string, props *CfnPlacementProps) CfnPlacement {
 	_init_.Initialize()
 
@@ -404,7 +416,6 @@ func NewCfnPlacement(scope constructs.Construct, id *string, props *CfnPlacement
 	return &j
 }
 
-// Create a new `AWS::IoT1Click::Placement`.
 func NewCfnPlacement_Override(c CfnPlacement, scope constructs.Construct, id *string, props *CfnPlacementProps) {
 	_init_.Initialize()
 
@@ -416,9 +427,6 @@ func NewCfnPlacement_Override(c CfnPlacement, scope constructs.Construct, id *st
 }
 
 func (j *jsiiProxy_CfnPlacement)SetAssociatedDevices(val interface{}) {
-	if err := j.validateSetAssociatedDevicesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"associatedDevices",
@@ -427,9 +435,6 @@ func (j *jsiiProxy_CfnPlacement)SetAssociatedDevices(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnPlacement)SetAttributes(val interface{}) {
-	if err := j.validateSetAttributesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"attributes",

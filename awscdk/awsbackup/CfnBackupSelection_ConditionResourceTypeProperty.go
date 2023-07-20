@@ -16,16 +16,24 @@ package awsbackup
 //   	ConditionValue: jsii.String("conditionValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html
+//
 type CfnBackupSelection_ConditionResourceTypeProperty struct {
 	// The key in a key-value pair.
 	//
 	// For example, in `"Department": "accounting"` , `"Department"` is the key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
+	//
 	ConditionKey *string `field:"required" json:"conditionKey" yaml:"conditionKey"`
 	// An operation, such as `STRINGEQUALS` , that is applied to a key-value pair used to filter resources in a selection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype
+	//
 	ConditionType *string `field:"required" json:"conditionType" yaml:"conditionType"`
 	// The value in a key-value pair.
 	//
 	// For example, in `"Department": "accounting"` , `"accounting"` is the value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue
+	//
 	ConditionValue *string `field:"required" json:"conditionValue" yaml:"conditionValue"`
 }
 

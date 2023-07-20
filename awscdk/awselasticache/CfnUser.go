@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElastiCache::User`.
-//
 // For Redis engine version 6.0 onwards: Creates a Redis user. For more information, see [Using Role Based Access Control (RBAC)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html) .
 //
 // Example:
@@ -40,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Access permissions string used for this user.
 	AccessString() *string
 	SetAccessString(val *string)
@@ -52,12 +53,9 @@ type CfnUser interface {
 	//
 	// Can be "active", "modifying" or "deleting".
 	AttrStatus() *string
-	// Specifies the authentication mode to use. Below is an example of the possible JSON values:.
+	// Specifies the authentication mode to use.
 	//
-	// ```
-	// { Type: <iam | no-password-required | password> Passwords: ["*****", "******"] // If Type is password.
-	// }
-	// ```.
+	// Below is an example of the possible JSON values:.
 	AuthenticationMode() interface{}
 	SetAuthenticationMode(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -88,8 +86,6 @@ type CfnUser interface {
 	NoPasswordRequired() interface{}
 	SetNoPasswordRequired(val interface{})
 	// Passwords used for this user.
-	//
-	// You can create up to two passwords for each user.
 	Passwords() *[]*string
 	SetPasswords(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -101,8 +97,11 @@ type CfnUser interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::ElastiCache::User.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this user.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -253,6 +252,7 @@ type CfnUser interface {
 type jsiiProxy_CfnUser struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnUser) AccessString() *string {
@@ -415,6 +415,16 @@ func (j *jsiiProxy_CfnUser) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUser) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUser) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -456,7 +466,6 @@ func (j *jsiiProxy_CfnUser) UserName() *string {
 }
 
 
-// Create a new `AWS::ElastiCache::User`.
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
@@ -474,7 +483,6 @@ func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::ElastiCache::User`.
 func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 
@@ -494,9 +502,6 @@ func (j *jsiiProxy_CfnUser)SetAccessString(val *string) {
 }
 
 func (j *jsiiProxy_CfnUser)SetAuthenticationMode(val interface{}) {
-	if err := j.validateSetAuthenticationModeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"authenticationMode",
@@ -530,6 +535,17 @@ func (j *jsiiProxy_CfnUser)SetPasswords(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"passwords",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUser)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

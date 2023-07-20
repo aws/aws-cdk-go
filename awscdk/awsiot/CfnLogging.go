@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::Logging`.
-//
 // Configure logging.
 //
 // Example:
@@ -23,6 +21,8 @@ import (
 //   	DefaultLogLevel: jsii.String("defaultLogLevel"),
 //   	RoleArn: jsii.String("roleArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html
 //
 type CfnLogging interface {
 	awscdk.CfnResource
@@ -40,8 +40,6 @@ type CfnLogging interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The default log level.
-	//
-	// Valid Values: `DEBUG | INFO | ERROR | WARN | DISABLED`.
 	DefaultLogLevel() *string
 	SetDefaultLogLevel(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -345,7 +343,6 @@ func (j *jsiiProxy_CfnLogging) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::Logging`.
 func NewCfnLogging(scope constructs.Construct, id *string, props *CfnLoggingProps) CfnLogging {
 	_init_.Initialize()
 
@@ -363,7 +360,6 @@ func NewCfnLogging(scope constructs.Construct, id *string, props *CfnLoggingProp
 	return &j
 }
 
-// Create a new `AWS::IoT::Logging`.
 func NewCfnLogging_Override(c CfnLogging, scope constructs.Construct, id *string, props *CfnLoggingProps) {
 	_init_.Initialize()
 

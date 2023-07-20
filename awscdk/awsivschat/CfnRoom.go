@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IVSChat::Room`.
+// The `AWS::IVSChat::Room` resource specifies an  room that allows clients to connect and pass messages.
 //
-// The `AWS::IVSChat::Room` resource specifies an  room that allows clients to connect and pass messages. For more information, see [CreateRoom](https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_CreateRoom.html) in the *Amazon Interactive Video Service Chat API Reference* .
+// For more information, see [CreateRoom](https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_CreateRoom.html) in the *Amazon Interactive Video Service Chat API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-room.html
+//
 type CfnRoom interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The room ARN.
 	//
 	// For example: `arn:aws:ivschat:us-west-2:123456789012:room/abcdABCDefgh`.
@@ -71,8 +74,6 @@ type CfnRoom interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Maximum number of characters in a single message.
-	//
-	// Messages are expected to be UTF-8 encoded and this limit applies specifically to rune/code-point count, not number of bytes.
 	MaximumMessageLength() *float64
 	SetMaximumMessageLength(val *float64)
 	// Maximum number of messages per second that can be sent to the room (by all clients).
@@ -82,8 +83,6 @@ type CfnRoom interface {
 	MessageReviewHandler() interface{}
 	SetMessageReviewHandler(val interface{})
 	// Room name.
-	//
-	// The value does not need to be unique.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -97,10 +96,11 @@ type CfnRoom interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -245,6 +245,7 @@ type CfnRoom interface {
 type jsiiProxy_CfnRoom struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRoom) AttrArn() *string {
@@ -407,6 +408,16 @@ func (j *jsiiProxy_CfnRoom) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRoom) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRoom) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -428,7 +439,6 @@ func (j *jsiiProxy_CfnRoom) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IVSChat::Room`.
 func NewCfnRoom(scope constructs.Construct, id *string, props *CfnRoomProps) CfnRoom {
 	_init_.Initialize()
 
@@ -446,7 +456,6 @@ func NewCfnRoom(scope constructs.Construct, id *string, props *CfnRoomProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::IVSChat::Room`.
 func NewCfnRoom_Override(c CfnRoom, scope constructs.Construct, id *string, props *CfnRoomProps) {
 	_init_.Initialize()
 
@@ -496,6 +505,17 @@ func (j *jsiiProxy_CfnRoom)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRoom)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

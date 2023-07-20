@@ -19,8 +19,12 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
+//
 type CfnModelBiasJobDefinition_MonitoringResourcesProperty struct {
 	// The configuration for the cluster resources used to run the processing job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
+	//
 	ClusterConfig interface{} `field:"required" json:"clusterConfig" yaml:"clusterConfig"`
 }
 

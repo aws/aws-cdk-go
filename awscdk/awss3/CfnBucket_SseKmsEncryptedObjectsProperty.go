@@ -12,8 +12,12 @@ package awss3
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html
+//
 type CfnBucket_SseKmsEncryptedObjectsProperty struct {
 	// Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html#cfn-s3-bucket-ssekmsencryptedobjects-status
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 }
 

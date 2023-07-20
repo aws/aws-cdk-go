@@ -14,8 +14,12 @@ package awslex
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-custompayload.html
+//
 type CfnBot_CustomPayloadProperty struct {
 	// The string that is sent to your application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-custompayload.html#cfn-lex-bot-custompayload-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

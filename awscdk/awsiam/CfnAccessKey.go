@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IAM::AccessKey`.
+// Creates a new AWS secret access key and corresponding AWS access key ID for the specified user.
 //
-// Creates a new AWS secret access key and corresponding AWS access key ID for the specified user. The default status for new keys is `Active` .
+// The default status for new keys is `Active` .
 //
 // For information about quotas on the number of keys you can create, see [IAM and AWS STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide* .
 //
@@ -30,9 +30,12 @@ import (
 //   	Status: jsii.String("status"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html
+//
 type CfnAccessKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Returns the secret access key for the specified AWS::IAM::AccessKey resource.
 	//
 	// For example: wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY.
@@ -64,8 +67,6 @@ type CfnAccessKey interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// This value is specific to CloudFormation and can only be *incremented* .
-	//
-	// Incrementing this value notifies CloudFormation that you want to rotate your access key. When you update your stack, CloudFormation will replace the existing access key with a new key.
 	Serial() *float64
 	SetSerial(val *float64)
 	// The stack in which this element is defined.
@@ -73,8 +74,6 @@ type CfnAccessKey interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The status of the access key.
-	//
-	// `Active` means that the key is valid for API calls, while `Inactive` means it is not.
 	Status() *string
 	SetStatus(val *string)
 	// Deprecated.
@@ -91,8 +90,6 @@ type CfnAccessKey interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The name of the IAM user that the new key will belong to.
-	//
-	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	UserName() *string
 	SetUserName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -226,6 +223,16 @@ type CfnAccessKey interface {
 type jsiiProxy_CfnAccessKey struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnAccessKey) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAccessKey) AttrSecretAccessKey() *string {
@@ -369,7 +376,6 @@ func (j *jsiiProxy_CfnAccessKey) UserName() *string {
 }
 
 
-// Create a new `AWS::IAM::AccessKey`.
 func NewCfnAccessKey(scope constructs.Construct, id *string, props *CfnAccessKeyProps) CfnAccessKey {
 	_init_.Initialize()
 
@@ -387,7 +393,6 @@ func NewCfnAccessKey(scope constructs.Construct, id *string, props *CfnAccessKey
 	return &j
 }
 
-// Create a new `AWS::IAM::AccessKey`.
 func NewCfnAccessKey_Override(c CfnAccessKey, scope constructs.Construct, id *string, props *CfnAccessKeyProps) {
 	_init_.Initialize()
 

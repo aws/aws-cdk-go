@@ -80,6 +80,10 @@ func validateCfnServiceNetworkVpcAssociation_IsConstructParameters(x interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnServiceNetworkVpcAssociationParameters(scope constructs.Construct, id *string, props *CfnServiceNetworkVpcAssociationProps) error {
 	return nil
 }

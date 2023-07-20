@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnImage) validateSetImageRoleArnParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnImage) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnImageParameters(scope constructs.Construct, id *string, props *CfnImageProps) error {
 	return nil
 }

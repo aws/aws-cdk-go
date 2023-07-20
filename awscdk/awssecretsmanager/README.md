@@ -102,8 +102,6 @@ secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
 secret.grantRead(otherAccount)
 ```
 
-## Rotating a Secret
-
 ### Using a Custom Lambda Function
 
 A rotation schedule can be added to a Secret using a custom Lambda function:
@@ -118,6 +116,7 @@ secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 secret.addRotationSchedule(jsii.String("RotationSchedule"), &RotationScheduleOptions{
 	RotationLambda: fn,
 	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(15)),
+	RotateImmediatelyOnUpdate: jsii.Boolean(false),
 })
 ```
 
@@ -134,7 +133,6 @@ secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 
 secret.addRotationSchedule(jsii.String("RotationSchedule"), &RotationScheduleOptions{
 	HostedRotation: secretsmanager.HostedRotation_MysqlSingleUser(),
-	RotateImmediatelyOnUpdate: jsii.Boolean(false),
 })
 ```
 
@@ -218,6 +216,28 @@ secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRot
 	 // The secret used for the rotation
 	Target: myDatabase,
 	Vpc: myVpc,
+})
+```
+
+By default, any stack updates will cause AWS Secrets Manager to rotate a secret immediately. To prevent this behavior and wait until the next scheduled rotation window specified via the `automaticallyAfter` property, set the `rotateImmediatelyOnUpdate` property to false:
+
+```go
+var myUserSecret secret
+var myMasterSecret secret
+var myDatabase iConnectable
+var myVpc vpc
+
+
+secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRotationProps{
+	Application: secretsmanager.SecretRotationApplication_MYSQL_ROTATION_MULTI_USER(),
+	Secret: myUserSecret,
+	 // The secret that will be rotated
+	MasterSecret: myMasterSecret,
+	 // The secret used for the rotation
+	Target: myDatabase,
+	Vpc: myVpc,
+	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(7)),
+	RotateImmediatelyOnUpdate: jsii.Boolean(false),
 })
 ```
 

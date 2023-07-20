@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::Image`.
+// Creates a custom SageMaker image.
 //
-// Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image version represents a container image stored in Amazon Elastic Container Registry (ECR). For more information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html) .
+// A SageMaker image is a set of image versions. Each image version represents a container image stored in Amazon Elastic Container Registry (ECR). For more information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html
+//
 type CfnImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the image.
 	//
 	// *Type* : String
@@ -54,31 +57,17 @@ type CfnImage interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The description of the image.
-	//
-	// *Length Constraints* : Minimum length of 1. Maximum length of 512.
-	//
-	// *Pattern* : `.*`
 	ImageDescription() *string
 	SetImageDescription(val *string)
 	// The display name of the image.
-	//
-	// *Length Constraints* : Minimum length of 1. Maximum length of 128.
-	//
-	// *Pattern* : `^\S(.*\S)?$`
 	ImageDisplayName() *string
 	SetImageDisplayName(val *string)
-	// The name of the Image. Must be unique by region in your account.
+	// The name of the Image.
 	//
-	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
-	//
-	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+	// Must be unique by region in your account.
 	ImageName() *string
 	SetImageName(val *string)
 	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
-	//
-	// *Length Constraints* : Minimum length of 20. Maximum length of 2048.
-	//
-	// *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
 	ImageRoleArn() *string
 	SetImageRoleArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -102,10 +91,11 @@ type CfnImage interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs to apply to this resource.
-	//
-	// *Array Members* : Minimum number of 0 items. Maximum number of 50 items.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -250,6 +240,7 @@ type CfnImage interface {
 type jsiiProxy_CfnImage struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnImage) AttrImageArn() *string {
@@ -392,6 +383,16 @@ func (j *jsiiProxy_CfnImage) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImage) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImage) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -413,7 +414,6 @@ func (j *jsiiProxy_CfnImage) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SageMaker::Image`.
 func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) CfnImage {
 	_init_.Initialize()
 
@@ -431,7 +431,6 @@ func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) C
 	return &j
 }
 
-// Create a new `AWS::SageMaker::Image`.
 func NewCfnImage_Override(c CfnImage, scope constructs.Construct, id *string, props *CfnImageProps) {
 	_init_.Initialize()
 
@@ -476,6 +475,17 @@ func (j *jsiiProxy_CfnImage)SetImageRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"imageRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImage)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

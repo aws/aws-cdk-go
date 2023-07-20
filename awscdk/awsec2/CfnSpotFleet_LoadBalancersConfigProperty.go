@@ -25,10 +25,16 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html
+//
 type CfnSpotFleet_LoadBalancersConfigProperty struct {
 	// The Classic Load Balancers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-classicloadbalancersconfig
+	//
 	ClassicLoadBalancersConfig interface{} `field:"optional" json:"classicLoadBalancersConfig" yaml:"classicLoadBalancersConfig"`
 	// The target groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-targetgroupsconfig
+	//
 	TargetGroupsConfig interface{} `field:"optional" json:"targetGroupsConfig" yaml:"targetGroupsConfig"`
 }
 

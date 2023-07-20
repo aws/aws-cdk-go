@@ -258,14 +258,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-measurefield.html
+//
 type CfnTemplate_MeasureFieldProperty struct {
 	// The calculated measure field only used in pivot tables.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-measurefield.html#cfn-quicksight-template-measurefield-calculatedmeasurefield
+	//
 	CalculatedMeasureField interface{} `field:"optional" json:"calculatedMeasureField" yaml:"calculatedMeasureField"`
 	// The measure type field with categorical type columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-measurefield.html#cfn-quicksight-template-measurefield-categoricalmeasurefield
+	//
 	CategoricalMeasureField interface{} `field:"optional" json:"categoricalMeasureField" yaml:"categoricalMeasureField"`
 	// The measure type field with date type columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-measurefield.html#cfn-quicksight-template-measurefield-datemeasurefield
+	//
 	DateMeasureField interface{} `field:"optional" json:"dateMeasureField" yaml:"dateMeasureField"`
 	// The measure type field with numerical type columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-measurefield.html#cfn-quicksight-template-measurefield-numericalmeasurefield
+	//
 	NumericalMeasureField interface{} `field:"optional" json:"numericalMeasureField" yaml:"numericalMeasureField"`
 }
 

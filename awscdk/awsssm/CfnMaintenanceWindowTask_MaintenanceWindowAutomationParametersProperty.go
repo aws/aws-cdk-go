@@ -19,10 +19,16 @@ package awsssm
 //   	Parameters: parameters,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html
+//
 type CfnMaintenanceWindowTask_MaintenanceWindowAutomationParametersProperty struct {
 	// The version of an Automation runbook to use during task execution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
+	//
 	DocumentVersion *string `field:"optional" json:"documentVersion" yaml:"documentVersion"`
 	// The parameters for the AUTOMATION task.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

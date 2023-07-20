@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnRoute) validateSetSpecParameters(val interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnRoute) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRoute) validateSetVirtualRouterNameParameters(val *string) error {
 	return nil
 }

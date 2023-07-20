@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTWireless::Destination`.
-//
 // Creates a new destination that maps a device message to an AWS IoT rule.
 //
 // Example:
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html
+//
 type CfnDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the destination created.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -49,8 +50,6 @@ type CfnDestination interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The description of the new resource.
-	//
-	// Maximum length is 2048 characters.
 	Description() *string
 	SetDescription(val *string)
 	// The rule name to send messages to.
@@ -86,10 +85,11 @@ type CfnDestination interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags are an array of key-value pairs to attach to the specified resource.
-	//
-	// Tags can have a minimum of 0 and a maximum of 50 items.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +234,7 @@ type CfnDestination interface {
 type jsiiProxy_CfnDestination struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDestination) AttrArn() *string {
@@ -386,6 +387,16 @@ func (j *jsiiProxy_CfnDestination) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDestination) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDestination) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -407,7 +418,6 @@ func (j *jsiiProxy_CfnDestination) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTWireless::Destination`.
 func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestinationProps) CfnDestination {
 	_init_.Initialize()
 
@@ -425,7 +435,6 @@ func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestina
 	return &j
 }
 
-// Create a new `AWS::IoTWireless::Destination`.
 func NewCfnDestination_Override(c CfnDestination, scope constructs.Construct, id *string, props *CfnDestinationProps) {
 	_init_.Initialize()
 
@@ -484,6 +493,17 @@ func (j *jsiiProxy_CfnDestination)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDestination)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

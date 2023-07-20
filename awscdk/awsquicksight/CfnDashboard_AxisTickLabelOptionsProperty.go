@@ -27,10 +27,16 @@ package awsquicksight
 //   	RotationAngle: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisticklabeloptions.html
+//
 type CfnDashboard_AxisTickLabelOptionsProperty struct {
 	// Determines whether or not the axis ticks are visible.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisticklabeloptions.html#cfn-quicksight-dashboard-axisticklabeloptions-labeloptions
+	//
 	LabelOptions interface{} `field:"optional" json:"labelOptions" yaml:"labelOptions"`
 	// The rotation angle of the axis tick labels.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisticklabeloptions.html#cfn-quicksight-dashboard-axisticklabeloptions-rotationangle
+	//
 	RotationAngle *float64 `field:"optional" json:"rotationAngle" yaml:"rotationAngle"`
 }
 

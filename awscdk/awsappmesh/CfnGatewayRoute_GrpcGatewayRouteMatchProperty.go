@@ -35,14 +35,24 @@ package awsappmesh
 //   	ServiceName: jsii.String("serviceName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html
+//
 type CfnGatewayRoute_GrpcGatewayRouteMatchProperty struct {
 	// The gateway route host name to be matched on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-hostname
+	//
 	Hostname interface{} `field:"optional" json:"hostname" yaml:"hostname"`
 	// The gateway route metadata to be matched on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-metadata
+	//
 	Metadata interface{} `field:"optional" json:"metadata" yaml:"metadata"`
 	// The gateway route port to be matched on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The fully qualified domain name for the service to match from the request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-servicename
+	//
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 

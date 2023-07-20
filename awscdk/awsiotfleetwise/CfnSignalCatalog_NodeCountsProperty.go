@@ -16,16 +16,28 @@ package awsiotfleetwise
 //   	TotalSensors: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-nodecounts.html
+//
 type CfnSignalCatalog_NodeCountsProperty struct {
 	// (Optional) The total number of nodes in a vehicle network that represent actuators.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-nodecounts.html#cfn-iotfleetwise-signalcatalog-nodecounts-totalactuators
+	//
 	TotalActuators *float64 `field:"optional" json:"totalActuators" yaml:"totalActuators"`
 	// (Optional) The total number of nodes in a vehicle network that represent attributes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-nodecounts.html#cfn-iotfleetwise-signalcatalog-nodecounts-totalattributes
+	//
 	TotalAttributes *float64 `field:"optional" json:"totalAttributes" yaml:"totalAttributes"`
 	// (Optional) The total number of nodes in a vehicle network that represent branches.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-nodecounts.html#cfn-iotfleetwise-signalcatalog-nodecounts-totalbranches
+	//
 	TotalBranches *float64 `field:"optional" json:"totalBranches" yaml:"totalBranches"`
 	// (Optional) The total number of nodes in a vehicle network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-nodecounts.html#cfn-iotfleetwise-signalcatalog-nodecounts-totalnodes
+	//
 	TotalNodes *float64 `field:"optional" json:"totalNodes" yaml:"totalNodes"`
 	// (Optional) The total number of nodes in a vehicle network that represent sensors.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-nodecounts.html#cfn-iotfleetwise-signalcatalog-nodecounts-totalsensors
+	//
 	TotalSensors *float64 `field:"optional" json:"totalSensors" yaml:"totalSensors"`
 }
 

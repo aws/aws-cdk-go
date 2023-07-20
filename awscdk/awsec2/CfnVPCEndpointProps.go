@@ -29,16 +29,24 @@ package awsec2
 //   	VpcEndpointType: jsii.String("vpcEndpointType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html
+//
 type CfnVPCEndpointProps struct {
 	// The name of the endpoint service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename
+	//
 	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// The ID of the VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid
+	//
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// An endpoint policy, which controls access to the service from the VPC.
 	//
 	// The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
 	//
 	// For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation converts YAML policies to JSON format before calling the API to create or modify the VPC endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument
+	//
 	PolicyDocument interface{} `field:"optional" json:"policyDocument" yaml:"policyDocument"`
 	// Indicate whether to associate a private hosted zone with the specified VPC.
 	//
@@ -49,22 +57,32 @@ type CfnVPCEndpointProps struct {
 	// This property is supported only for interface endpoints.
 	//
 	// Default: `false`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled
+	//
 	PrivateDnsEnabled interface{} `field:"optional" json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
 	// The IDs of the route tables.
 	//
 	// Routing is supported only for gateway endpoints.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
+	//
 	RouteTableIds *[]*string `field:"optional" json:"routeTableIds" yaml:"routeTableIds"`
 	// The IDs of the security groups to associate with the endpoint network interfaces.
 	//
 	// If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids
+	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The IDs of the subnets in which to create endpoint network interfaces.
 	//
 	// You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids
+	//
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// The type of endpoint.
 	//
 	// Default: Gateway.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype
+	//
 	VpcEndpointType *string `field:"optional" json:"vpcEndpointType" yaml:"vpcEndpointType"`
 }
 

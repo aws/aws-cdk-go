@@ -30,10 +30,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-conditionalformattingicon.html
+//
 type CfnDashboard_ConditionalFormattingIconProperty struct {
 	// Determines the custom condition for an icon set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-conditionalformattingicon.html#cfn-quicksight-dashboard-conditionalformattingicon-customcondition
+	//
 	CustomCondition interface{} `field:"optional" json:"customCondition" yaml:"customCondition"`
 	// Formatting configuration for icon set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-conditionalformattingicon.html#cfn-quicksight-dashboard-conditionalformattingicon-iconset
+	//
 	IconSet interface{} `field:"optional" json:"iconSet" yaml:"iconSet"`
 }
 

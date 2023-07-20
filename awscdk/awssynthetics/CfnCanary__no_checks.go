@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnCanary) validateSetStartCanaryAfterCreationParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnCanary) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCanary) validateSetVisualReferenceParameters(val interface{}) error {
 	return nil
 }

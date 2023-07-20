@@ -15,8 +15,12 @@ package awsopsworks
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html
+//
 type CfnLayer_LifecycleEventConfigurationProperty struct {
 	// The Shutdown event configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html#cfn-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration
+	//
 	ShutdownEventConfiguration interface{} `field:"optional" json:"shutdownEventConfiguration" yaml:"shutdownEventConfiguration"`
 }
 

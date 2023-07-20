@@ -35,6 +35,11 @@ type BundlingOptions struct {
 	// Docker [Networking options](https://docs.docker.com/engine/reference/commandline/run/#connect-a-container-to-a-network---network).
 	// Experimental.
 	Network *string `field:"optional" json:"network" yaml:"network"`
+	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
+	//
+	// Example value: `linux/amd64`.
+	// Experimental.
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
 	// Experimental.
 	SecurityOpt *string `field:"optional" json:"securityOpt" yaml:"securityOpt"`

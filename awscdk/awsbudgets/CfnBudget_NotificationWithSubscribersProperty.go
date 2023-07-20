@@ -27,10 +27,16 @@ package awsbudgets
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html
+//
 type CfnBudget_NotificationWithSubscribersProperty struct {
 	// The notification that's associated with a budget.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification
+	//
 	Notification interface{} `field:"required" json:"notification" yaml:"notification"`
 	// A list of subscribers who are subscribed to this notification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-subscribers
+	//
 	Subscribers interface{} `field:"required" json:"subscribers" yaml:"subscribers"`
 }
 

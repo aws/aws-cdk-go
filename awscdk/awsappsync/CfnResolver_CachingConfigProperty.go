@@ -17,14 +17,20 @@ package awsappsync
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html
+//
 type CfnResolver_CachingConfigProperty struct {
 	// The TTL in seconds for a resolver that has caching activated.
 	//
 	// Valid values are 1–3,600 seconds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html#cfn-appsync-resolver-cachingconfig-ttl
+	//
 	Ttl *float64 `field:"required" json:"ttl" yaml:"ttl"`
 	// The caching keys for a resolver that has caching activated.
 	//
 	// Valid values are entries from the `$context.arguments` , `$context.source` , and `$context.identity` maps.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html#cfn-appsync-resolver-cachingconfig-cachingkeys
+	//
 	CachingKeys *[]*string `field:"optional" json:"cachingKeys" yaml:"cachingKeys"`
 }
 

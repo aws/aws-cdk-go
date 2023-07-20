@@ -18,6 +18,8 @@ package awscodedeploy
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgroupinfo.html
+//
 type CfnDeploymentGroup_TargetGroupInfoProperty struct {
 	// For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with.
 	//
@@ -26,6 +28,8 @@ type CfnDeploymentGroup_TargetGroupInfoProperty struct {
 	// > AWS CloudFormation supports blue/green deployments on AWS Lambda compute platforms only.
 	//
 	// This value cannot exceed 32 characters, so you should use the `Name` property of the target group, or the `TargetGroupName` attribute with the `Fn::GetAtt` intrinsic function, as shown in the following example. Don't use the group's Amazon Resource Name (ARN) or `TargetGroupFullName` attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgroupinfo.html#cfn-codedeploy-deploymentgroup-targetgroupinfo-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

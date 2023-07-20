@@ -12,8 +12,12 @@ package awsquicksight
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinestaticdataconfiguration.html
+//
 type CfnTemplate_ReferenceLineStaticDataConfigurationProperty struct {
 	// The double input of the static data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinestaticdataconfiguration.html#cfn-quicksight-template-referencelinestaticdataconfiguration-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

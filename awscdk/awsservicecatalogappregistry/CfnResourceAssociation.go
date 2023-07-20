@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalogAppRegistry::ResourceAssociation`.
+// Associates a resource with an application.
 //
-// Associates a resource with an application. Both the resource and the application can be specified either by ID or name.
+// Both the resource and the application can be specified either by ID or name.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,6 +23,8 @@ import (
 //   	Resource: jsii.String("resource"),
 //   	ResourceType: jsii.String("resourceType"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html
 //
 type CfnResourceAssociation interface {
 	awscdk.CfnResource
@@ -379,7 +381,6 @@ func (j *jsiiProxy_CfnResourceAssociation) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::ServiceCatalogAppRegistry::ResourceAssociation`.
 func NewCfnResourceAssociation(scope constructs.Construct, id *string, props *CfnResourceAssociationProps) CfnResourceAssociation {
 	_init_.Initialize()
 
@@ -397,7 +398,6 @@ func NewCfnResourceAssociation(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalogAppRegistry::ResourceAssociation`.
 func NewCfnResourceAssociation_Override(c CfnResourceAssociation, scope constructs.Construct, id *string, props *CfnResourceAssociationProps) {
 	_init_.Initialize()
 

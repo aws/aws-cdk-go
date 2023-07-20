@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElastiCache::SecurityGroupIngress`.
+// The AWS::ElastiCache::SecurityGroupIngress type authorizes ingress to a cache security group from hosts in specified Amazon EC2 security groups.
 //
-// The AWS::ElastiCache::SecurityGroupIngress type authorizes ingress to a cache security group from hosts in specified Amazon EC2 security groups. For more information about ElastiCache security group ingress, go to [AuthorizeCacheSecurityGroupIngress](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html) in the *Amazon ElastiCache API Reference Guide* .
+// For more information about ElastiCache security group ingress, go to [AuthorizeCacheSecurityGroupIngress](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html) in the *Amazon ElastiCache API Reference Guide* .
 //
 // > Updates are not supported.
 //
@@ -28,9 +28,12 @@ import (
 //   	Ec2SecurityGroupOwnerId: jsii.String("ec2SecurityGroupOwnerId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-securitygroupingress.html
+//
 type CfnSecurityGroupIngress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The name of the Cache Security Group to authorize.
 	CacheSecurityGroupName() *string
 	SetCacheSecurityGroupName(val *string)
@@ -47,8 +50,6 @@ type CfnSecurityGroupIngress interface {
 	Ec2SecurityGroupName() *string
 	SetEc2SecurityGroupName(val *string)
 	// Specifies the Amazon Account ID of the owner of the EC2 security group specified in the EC2SecurityGroupName property.
-	//
-	// The Amazon access key ID is not an acceptable value.
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -218,6 +219,16 @@ type jsiiProxy_CfnSecurityGroupIngress struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnSecurityGroupIngress) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecurityGroupIngress) CacheSecurityGroupName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -349,7 +360,6 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::ElastiCache::SecurityGroupIngress`.
 func NewCfnSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnSecurityGroupIngressProps) CfnSecurityGroupIngress {
 	_init_.Initialize()
 
@@ -367,7 +377,6 @@ func NewCfnSecurityGroupIngress(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::ElastiCache::SecurityGroupIngress`.
 func NewCfnSecurityGroupIngress_Override(c CfnSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnSecurityGroupIngressProps) {
 	_init_.Initialize()
 

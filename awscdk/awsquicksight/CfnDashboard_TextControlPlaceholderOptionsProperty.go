@@ -12,8 +12,12 @@ package awsquicksight
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-textcontrolplaceholderoptions.html
+//
 type CfnDashboard_TextControlPlaceholderOptionsProperty struct {
 	// The visibility configuration of the placeholder options in a text control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-textcontrolplaceholderoptions.html#cfn-quicksight-dashboard-textcontrolplaceholderoptions-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

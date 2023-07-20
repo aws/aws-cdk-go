@@ -13,10 +13,16 @@ package awscodepipeline
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html
+//
 type CfnPipeline_BlockerDeclarationProperty struct {
 	// Reserved for future use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html#cfn-codepipeline-pipeline-blockerdeclaration-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Reserved for future use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html#cfn-codepipeline-pipeline-blockerdeclaration-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

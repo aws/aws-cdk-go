@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFRegional::IPSet`.
+// > This is *AWS WAF Classic* documentation.
 //
-// > This is *AWS WAF Classic* documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+// For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
 // >
 // > *For the latest version of AWS WAF* , use the AWS WAF V2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) . With the latest version, AWS WAF has a single set of endpoints for regional and global use.
 //
@@ -36,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html
+//
 type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -62,8 +65,6 @@ type CfnIPSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A friendly name or description of the `IPSet` .
-	//
-	// You can't change the name of an `IPSet` after you create it.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -223,6 +224,16 @@ type jsiiProxy_CfnIPSet struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnIPSet) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPSet) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -344,7 +355,6 @@ func (j *jsiiProxy_CfnIPSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::WAFRegional::IPSet`.
 func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
 	_init_.Initialize()
 
@@ -362,7 +372,6 @@ func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) C
 	return &j
 }
 
-// Create a new `AWS::WAFRegional::IPSet`.
 func NewCfnIPSet_Override(c CfnIPSet, scope constructs.Construct, id *string, props *CfnIPSetProps) {
 	_init_.Initialize()
 

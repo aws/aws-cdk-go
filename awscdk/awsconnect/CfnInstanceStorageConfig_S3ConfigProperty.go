@@ -19,12 +19,20 @@ package awsconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html
+//
 type CfnInstanceStorageConfig_S3ConfigProperty struct {
 	// The S3 bucket name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html#cfn-connect-instancestorageconfig-s3config-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The S3 bucket prefix.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html#cfn-connect-instancestorageconfig-s3config-bucketprefix
+	//
 	BucketPrefix *string `field:"required" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The Amazon S3 encryption configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html#cfn-connect-instancestorageconfig-s3config-encryptionconfig
+	//
 	EncryptionConfig interface{} `field:"optional" json:"encryptionConfig" yaml:"encryptionConfig"`
 }
 

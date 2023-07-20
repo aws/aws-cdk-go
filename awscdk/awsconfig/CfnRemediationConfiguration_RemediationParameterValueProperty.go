@@ -15,16 +15,25 @@ package awsconfig
 //   		Value: jsii.String("value"),
 //   	},
 //   	StaticValue: &StaticValueProperty{
+//   		Value: []*string{
+//   			jsii.String("value"),
+//   		},
 //   		Values: []*string{
 //   			jsii.String("values"),
 //   		},
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html
+//
 type CfnRemediationConfiguration_RemediationParameterValueProperty struct {
 	// The value is dynamic and changes at run-time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-resourcevalue
+	//
 	ResourceValue interface{} `field:"optional" json:"resourceValue" yaml:"resourceValue"`
 	// The value is static and does not change at run-time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-staticvalue
+	//
 	StaticValue interface{} `field:"optional" json:"staticValue" yaml:"staticValue"`
 }
 

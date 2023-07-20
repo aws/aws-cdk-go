@@ -17,6 +17,8 @@ package awsevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.html
+//
 type CfnRule_InputTransformerProperty struct {
 	// Input template where you specify placeholders that will be filled with the values of the keys from `InputPathsMap` to customize the data sent to the target.
 	//
@@ -61,6 +63,8 @@ type CfnRule_InputTransformerProperty struct {
 	// `"InputTemplate": '{"myInstance": <instance>,"myStatus": "<instance> is in state \"<status>\""}'`
 	//
 	// `}`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.html#cfn-events-rule-inputtransformer-inputtemplate
+	//
 	InputTemplate *string `field:"required" json:"inputTemplate" yaml:"inputTemplate"`
 	// Map of JSON paths to be extracted from the event.
 	//
@@ -69,6 +73,8 @@ type CfnRule_InputTransformerProperty struct {
 	// `InputPathsMap` is an array key-value pairs, where each value is a valid JSON path. You can have as many as 100 key-value pairs. You must use JSON dot notation, not bracket notation.
 	//
 	// The keys cannot start with " AWS ."
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.html#cfn-events-rule-inputtransformer-inputpathsmap
+	//
 	InputPathsMap interface{} `field:"optional" json:"inputPathsMap" yaml:"inputPathsMap"`
 }
 

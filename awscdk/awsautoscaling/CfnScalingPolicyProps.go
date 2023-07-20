@@ -179,14 +179,20 @@ package awsautoscaling
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html
+//
 type CfnScalingPolicyProps struct {
 	// The name of the Auto Scaling group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-autoscalinggroupname
+	//
 	AutoScalingGroupName *string `field:"required" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage).
 	//
 	// The valid values are `ChangeInCapacity` , `ExactCapacity` , and `PercentChangeInCapacity` .
 	//
 	// Required if the policy type is `StepScaling` or `SimpleScaling` . For more information, see [Scaling adjustment types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment) in the *Amazon EC2 Auto Scaling User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-adjustmenttype
+	//
 	AdjustmentType *string `field:"optional" json:"adjustmentType" yaml:"adjustmentType"`
 	// A cooldown period, in seconds, that applies to a specific simple scaling policy.
 	//
@@ -195,6 +201,8 @@ type CfnScalingPolicyProps struct {
 	// Valid only if the policy type is `SimpleScaling` . For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	//
 	// Default: None.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-cooldown
+	//
 	Cooldown *string `field:"optional" json:"cooldown" yaml:"cooldown"`
 	// *Not needed if the default instance warmup is defined for the group.*.
 	//
@@ -203,12 +211,16 @@ type CfnScalingPolicyProps struct {
 	// Valid only if the policy type is `TargetTrackingScaling` or `StepScaling` .
 	//
 	// > The default is to use the value for the default instance warmup defined for the group. If default instance warmup is null, then `EstimatedInstanceWarmup` falls back to the value of default cooldown.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-estimatedinstancewarmup
+	//
 	EstimatedInstanceWarmup *float64 `field:"optional" json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// The aggregation type for the CloudWatch metrics.
 	//
 	// The valid values are `Minimum` , `Maximum` , and `Average` . If the aggregation type is null, the value is treated as `Average` .
 	//
 	// Valid only if the policy type is `StepScaling` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-metricaggregationtype
+	//
 	MetricAggregationType *string `field:"optional" json:"metricAggregationType" yaml:"metricAggregationType"`
 	// The minimum value to scale by when the adjustment type is `PercentChangeInCapacity` .
 	//
@@ -217,6 +229,8 @@ type CfnScalingPolicyProps struct {
 	// Valid only if the policy type is `StepScaling` or `SimpleScaling` . For more information, see [Scaling adjustment types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment) in the *Amazon EC2 Auto Scaling User Guide* .
 	//
 	// > Some Auto Scaling groups use instance weights. In this case, set the `MinAdjustmentMagnitude` to a value that is at least as large as your largest instance weight.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-minadjustmentmagnitude
+	//
 	MinAdjustmentMagnitude *float64 `field:"optional" json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 	// One of the following policy types:.
 	//
@@ -224,22 +238,30 @@ type CfnScalingPolicyProps struct {
 	// - `StepScaling`
 	// - `SimpleScaling` (default)
 	// - `PredictiveScaling`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-policytype
+	//
 	PolicyType *string `field:"optional" json:"policyType" yaml:"policyType"`
 	// A predictive scaling policy. Provides support for predefined and custom metrics.
 	//
 	// Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.
 	//
 	// Required if the policy type is `PredictiveScaling` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration
+	//
 	PredictiveScalingConfiguration interface{} `field:"optional" json:"predictiveScalingConfiguration" yaml:"predictiveScalingConfiguration"`
 	// The amount by which to scale, based on the specified adjustment type.
 	//
 	// A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a non-negative value.
 	//
 	// Required if the policy type is `SimpleScaling` . (Not used with any other policy type.)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-scalingadjustment
+	//
 	ScalingAdjustment *float64 `field:"optional" json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// A set of adjustments that enable you to scale based on the size of the alarm breach.
 	//
 	// Required if the policy type is `StepScaling` . (Not used with any other policy type.)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-stepadjustments
+	//
 	StepAdjustments interface{} `field:"optional" json:"stepAdjustments" yaml:"stepAdjustments"`
 	// A target tracking scaling policy. Provides support for predefined or custom metrics.
 	//
@@ -253,6 +275,8 @@ type CfnScalingPolicyProps struct {
 	// If you specify `ALBRequestCountPerTarget` for the metric, you must specify the `ResourceLabel` property with the `PredefinedMetricSpecification` .
 	//
 	// Required if the policy type is `TargetTrackingScaling` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration
+	//
 	TargetTrackingConfiguration interface{} `field:"optional" json:"targetTrackingConfiguration" yaml:"targetTrackingConfiguration"`
 }
 

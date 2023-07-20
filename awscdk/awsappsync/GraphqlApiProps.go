@@ -4,13 +4,15 @@ package awsappsync
 // Properties for an AppSync GraphQL API.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   api := appsync.NewGraphqlApi(stack, jsii.String("EventBridgeApi"), &GraphqlApiProps{
+//   import events "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   api := appsync.NewGraphqlApi(this, jsii.String("EventBridgeApi"), &GraphqlApiProps{
 //   	Name: jsii.String("EventBridgeApi"),
 //   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
 //   })
 //
-//   bus := events.NewEventBus(stack, jsii.String("DestinationEventBus"), map[string]interface{}{
+//   bus := events.NewEventBus(this, jsii.String("DestinationEventBus"), &EventBusProps{
 //   })
 //
 //   dataSource := api.AddEventBridgeDataSource(jsii.String("NoneDS"), bus)

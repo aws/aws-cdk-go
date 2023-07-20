@@ -13,10 +13,14 @@ package awsec2
 //   	TunnelInsideCidr: jsii.String("tunnelInsideCidr"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html
+//
 type CfnVPNConnection_VpnTunnelOptionsSpecificationProperty struct {
 	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
 	//
 	// Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-presharedkey
+	//
 	PreSharedKey *string `field:"optional" json:"preSharedKey" yaml:"preSharedKey"`
 	// The range of inside IP addresses for the tunnel.
 	//
@@ -31,6 +35,8 @@ type CfnVPNConnection_VpnTunnelOptionsSpecificationProperty struct {
 	// - `169.254.4.0/30`
 	// - `169.254.5.0/30`
 	// - `169.254.169.252/30`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-tunnelinsidecidr
+	//
 	TunnelInsideCidr *string `field:"optional" json:"tunnelInsideCidr" yaml:"tunnelInsideCidr"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConvert::Queue`.
+// The AWS::MediaConvert::Queue resource is an AWS Elemental MediaConvert resource type that you can use to manage the resources that are available to your account for parallel processing of jobs.
 //
-// The AWS::MediaConvert::Queue resource is an AWS Elemental MediaConvert resource type that you can use to manage the resources that are available to your account for parallel processing of jobs. For more information about queues, see [Working with AWS Elemental MediaConvert Queues](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html) in the ** .
+// For more information about queues, see [Working with AWS Elemental MediaConvert Queues](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html) in the ** .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,11 +28,15 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html
+//
 type CfnQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the queue, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
 	AttrArn() *string
+	AttrId() *string
 	// The name of the queue, such as `Queue 2` .
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -45,8 +49,6 @@ type CfnQueue interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Optional.
-	//
-	// A description of the queue that you are creating.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -65,10 +67,6 @@ type CfnQueue interface {
 	// The tree node.
 	Node() constructs.Node
 	// When you use AWS CloudFormation , you can create only on-demand queues.
-	//
-	// Therefore, always set `PricingPlan` to the value "ON_DEMAND" when declaring an AWS::MediaConvert::Queue in your AWS CloudFormation template.
-	//
-	// To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see [Working with AWS Elemental MediaConvert Queues](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html) in the ** .
 	PricingPlan() *string
 	SetPricingPlan(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -81,14 +79,13 @@ type CfnQueue interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Initial state of the queue.
-	//
-	// Queues can be either ACTIVE or PAUSED. If you create a paused queue, then jobs that you send to that queue won't begin.
 	Status() *string
 	SetStatus(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -233,6 +230,7 @@ type CfnQueue interface {
 type jsiiProxy_CfnQueue struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnQueue) AttrArn() *string {
@@ -240,6 +238,16 @@ func (j *jsiiProxy_CfnQueue) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueue) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -385,6 +393,16 @@ func (j *jsiiProxy_CfnQueue) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -406,7 +424,6 @@ func (j *jsiiProxy_CfnQueue) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MediaConvert::Queue`.
 func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) CfnQueue {
 	_init_.Initialize()
 
@@ -424,7 +441,6 @@ func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) C
 	return &j
 }
 
-// Create a new `AWS::MediaConvert::Queue`.
 func NewCfnQueue_Override(c CfnQueue, scope constructs.Construct, id *string, props *CfnQueueProps) {
 	_init_.Initialize()
 
@@ -463,6 +479,14 @@ func (j *jsiiProxy_CfnQueue)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

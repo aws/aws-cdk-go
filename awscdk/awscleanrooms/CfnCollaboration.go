@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CleanRooms::Collaboration`.
-//
 // Creates a new collaboration.
 //
 // Example:
@@ -50,6 +48,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html
 //
 type CfnCollaboration interface {
 	awscdk.CfnResource
@@ -94,13 +94,9 @@ type CfnCollaboration interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A list of initial members, not including the creator.
-	//
-	// This list is immutable.
 	Members() interface{}
 	SetMembers(val interface{})
 	// A human-readable identifier provided by the collaboration owner.
-	//
-	// Display names are not unique.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -118,9 +114,8 @@ type CfnCollaboration interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An optional label that you can assign to a resource when you create it.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -437,8 +432,8 @@ func (j *jsiiProxy_CfnCollaboration) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCollaboration) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnCollaboration) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -468,7 +463,6 @@ func (j *jsiiProxy_CfnCollaboration) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::CleanRooms::Collaboration`.
 func NewCfnCollaboration(scope constructs.Construct, id *string, props *CfnCollaborationProps) CfnCollaboration {
 	_init_.Initialize()
 
@@ -486,7 +480,6 @@ func NewCfnCollaboration(scope constructs.Construct, id *string, props *CfnColla
 	return &j
 }
 
-// Create a new `AWS::CleanRooms::Collaboration`.
 func NewCfnCollaboration_Override(c CfnCollaboration, scope constructs.Construct, id *string, props *CfnCollaborationProps) {
 	_init_.Initialize()
 
@@ -570,6 +563,17 @@ func (j *jsiiProxy_CfnCollaboration)SetQueryLogStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"queryLogStatus",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollaboration)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

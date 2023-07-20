@@ -13,10 +13,16 @@ package awsdatapipeline
 //   	StringValue: jsii.String("stringValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalue.html
+//
 type CfnPipeline_ParameterValueProperty struct {
 	// The ID of the parameter value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalue.html#cfn-datapipeline-pipeline-parametervalue-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The field value, expressed as a String.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalue.html#cfn-datapipeline-pipeline-parametervalue-stringvalue
+	//
 	StringValue *string `field:"required" json:"stringValue" yaml:"stringValue"`
 }
 

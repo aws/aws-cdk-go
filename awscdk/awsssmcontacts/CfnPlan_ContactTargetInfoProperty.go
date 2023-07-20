@@ -13,10 +13,16 @@ package awsssmcontacts
 //   	IsEssential: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-contacttargetinfo.html
+//
 type CfnPlan_ContactTargetInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the contact.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-contacttargetinfo.html#cfn-ssmcontacts-plan-contacttargetinfo-contactid
+	//
 	ContactId *string `field:"required" json:"contactId" yaml:"contactId"`
 	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-contacttargetinfo.html#cfn-ssmcontacts-plan-contacttargetinfo-isessential
+	//
 	IsEssential interface{} `field:"required" json:"isEssential" yaml:"isEssential"`
 }
 

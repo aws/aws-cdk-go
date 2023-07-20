@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnUserGroup) validateSetEngineParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUserGroup) validateSetUserGroupIdParameters(val *string) error {
 	return nil
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayAttachment`.
-//
 // Attaches a VPC to a transit gateway.
 //
 // If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is already attached, the new VPC CIDR range is not propagated to the default propagation route table.
@@ -43,9 +41,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html
+//
 type CfnTransitGatewayAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the attachment.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -82,12 +83,13 @@ type CfnTransitGatewayAttachment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The IDs of one or more subnets.
-	//
-	// You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// The tags for the attachment.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the attachment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ID of the transit gateway.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
@@ -238,6 +240,7 @@ type CfnTransitGatewayAttachment interface {
 type jsiiProxy_CfnTransitGatewayAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTransitGatewayAttachment) AttrId() *string {
@@ -360,6 +363,16 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayAttachment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayAttachment) TransitGatewayId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -401,7 +414,6 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayAttachment`.
 func NewCfnTransitGatewayAttachment(scope constructs.Construct, id *string, props *CfnTransitGatewayAttachmentProps) CfnTransitGatewayAttachment {
 	_init_.Initialize()
 
@@ -419,7 +431,6 @@ func NewCfnTransitGatewayAttachment(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayAttachment`.
 func NewCfnTransitGatewayAttachment_Override(c CfnTransitGatewayAttachment, scope constructs.Construct, id *string, props *CfnTransitGatewayAttachmentProps) {
 	_init_.Initialize()
 
@@ -431,9 +442,6 @@ func NewCfnTransitGatewayAttachment_Override(c CfnTransitGatewayAttachment, scop
 }
 
 func (j *jsiiProxy_CfnTransitGatewayAttachment)SetOptions(val interface{}) {
-	if err := j.validateSetOptionsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"options",
@@ -448,6 +456,17 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayAttachment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

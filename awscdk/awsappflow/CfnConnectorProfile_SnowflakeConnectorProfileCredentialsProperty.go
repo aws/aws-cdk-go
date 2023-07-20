@@ -13,10 +13,16 @@ package awsappflow
 //   	Username: jsii.String("username"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html
+//
 type CfnConnectorProfile_SnowflakeConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
+	//
 	Password *string `field:"required" json:"password" yaml:"password"`
 	// The name of the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username
+	//
 	Username *string `field:"required" json:"username" yaml:"username"`
 }
 

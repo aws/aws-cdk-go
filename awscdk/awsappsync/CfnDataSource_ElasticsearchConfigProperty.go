@@ -17,10 +17,16 @@ package awsappsync
 //   	Endpoint: jsii.String("endpoint"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-elasticsearchconfig.html
+//
 type CfnDataSource_ElasticsearchConfigProperty struct {
 	// The AWS Region.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-elasticsearchconfig.html#cfn-appsync-datasource-elasticsearchconfig-awsregion
+	//
 	AwsRegion *string `field:"required" json:"awsRegion" yaml:"awsRegion"`
 	// The endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-elasticsearchconfig.html#cfn-appsync-datasource-elasticsearchconfig-endpoint
+	//
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 }
 

@@ -108,15 +108,15 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetNotificationChannelParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnStreamProcessor) validateSetPolygonRegionsOfInterestParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnStreamProcessor) validateSetRoleArnParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnStreamProcessor) validateSetS3DestinationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnStreamProcessor) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

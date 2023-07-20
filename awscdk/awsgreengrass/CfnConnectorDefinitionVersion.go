@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::ConnectorDefinitionVersion`.
+// The `AWS::Greengrass::ConnectorDefinitionVersion` resource represents a connector definition version for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::ConnectorDefinitionVersion` resource represents a connector definition version for AWS IoT Greengrass . A connector definition version contains a list of connectors.
+// A connector definition version contains a list of connectors.
 //
 // > To create a connector definition version, you must specify the ID of the connector definition that you want to associate with the version. For information about creating a connector definition, see [`AWS::Greengrass::ConnectorDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html) .
 // >
@@ -37,22 +37,21 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html
+//
 type CfnConnectorDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// The ID of the connector definition associated with this version.
-	//
-	// This value is a GUID.
 	ConnectorDefinitionId() *string
 	SetConnectorDefinitionId(val *string)
 	// The connectors in this version.
-	//
-	// Only one instance of a given connector can be added to the connector definition version at a time.
 	Connectors() interface{}
 	SetConnectors(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -226,6 +225,16 @@ type jsiiProxy_CfnConnectorDefinitionVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnConnectorDefinitionVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnectorDefinitionVersion) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -347,7 +356,6 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::Greengrass::ConnectorDefinitionVersion`.
 func NewCfnConnectorDefinitionVersion(scope constructs.Construct, id *string, props *CfnConnectorDefinitionVersionProps) CfnConnectorDefinitionVersion {
 	_init_.Initialize()
 
@@ -365,7 +373,6 @@ func NewCfnConnectorDefinitionVersion(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::Greengrass::ConnectorDefinitionVersion`.
 func NewCfnConnectorDefinitionVersion_Override(c CfnConnectorDefinitionVersion, scope constructs.Construct, id *string, props *CfnConnectorDefinitionVersionProps) {
 	_init_.Initialize()
 

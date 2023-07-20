@@ -22,14 +22,20 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html
+//
 type CfnCoreDefinitionVersionProps struct {
 	// The ID of the core definition associated with this version.
 	//
 	// This value is a GUID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html#cfn-greengrass-coredefinitionversion-coredefinitionid
+	//
 	CoreDefinitionId *string `field:"required" json:"coreDefinitionId" yaml:"coreDefinitionId"`
 	// The Greengrass core in this version.
 	//
 	// Currently, the `Cores` property for a core definition version can contain only one core.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html#cfn-greengrass-coredefinitionversion-cores
+	//
 	Cores interface{} `field:"required" json:"cores" yaml:"cores"`
 }
 

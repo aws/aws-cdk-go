@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Serverless::Api`.
+// Definition of AWS::Serverless::Api.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -94,25 +94,22 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html
+//
 type CfnApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Serverless::Api.AccessLogSetting`.
+	awscdk.ITaggable
 	AccessLogSetting() interface{}
 	SetAccessLogSetting(val interface{})
-	// `AWS::Serverless::Api.Auth`.
 	Auth() interface{}
 	SetAuth(val interface{})
-	// `AWS::Serverless::Api.BinaryMediaTypes`.
 	BinaryMediaTypes() *[]*string
 	SetBinaryMediaTypes(val *[]*string)
-	// `AWS::Serverless::Api.CacheClusterEnabled`.
 	CacheClusterEnabled() interface{}
 	SetCacheClusterEnabled(val interface{})
-	// `AWS::Serverless::Api.CacheClusterSize`.
 	CacheClusterSize() *string
 	SetCacheClusterSize(val *string)
-	// `AWS::Serverless::Api.CanarySetting`.
 	CanarySetting() interface{}
 	SetCanarySetting(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -120,32 +117,24 @@ type CfnApi interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::Serverless::Api.Cors`.
 	Cors() interface{}
 	SetCors(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Serverless::Api.DefinitionBody`.
 	DefinitionBody() interface{}
 	SetDefinitionBody(val interface{})
-	// `AWS::Serverless::Api.DefinitionUri`.
 	DefinitionUri() interface{}
 	SetDefinitionUri(val interface{})
-	// `AWS::Serverless::Api.Description`.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Serverless::Api.DisableExecuteApiEndpoint`.
 	DisableExecuteApiEndpoint() interface{}
 	SetDisableExecuteApiEndpoint(val interface{})
-	// `AWS::Serverless::Api.Domain`.
 	Domain() interface{}
 	SetDomain(val interface{})
-	// `AWS::Serverless::Api.EndpointConfiguration`.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
-	// `AWS::Serverless::Api.GatewayResponses`.
 	GatewayResponses() interface{}
 	SetGatewayResponses(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -158,21 +147,16 @@ type CfnApi interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Serverless::Api.MethodSettings`.
 	MethodSettings() interface{}
 	SetMethodSettings(val interface{})
-	// `AWS::Serverless::Api.MinimumCompressionSize`.
 	MinimumCompressionSize() *float64
 	SetMinimumCompressionSize(val *float64)
-	// `AWS::Serverless::Api.Models`.
 	Models() interface{}
 	SetModels(val interface{})
-	// `AWS::Serverless::Api.Name`.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Serverless::Api.OpenApiVersion`.
 	OpenApiVersion() *string
 	SetOpenApiVersion(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -184,12 +168,12 @@ type CfnApi interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Serverless::Api.StageName`.
 	StageName() *string
 	SetStageName(val *string)
-	// `AWS::Serverless::Api.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// `AWS::Serverless::Api.TracingEnabled`.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	TracingEnabled() interface{}
 	SetTracingEnabled(val interface{})
 	// Deprecated.
@@ -205,7 +189,6 @@ type CfnApi interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::Serverless::Api.Variables`.
 	Variables() interface{}
 	SetVariables(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -339,6 +322,7 @@ type CfnApi interface {
 type jsiiProxy_CfnApi struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnApi) AccessLogSetting() interface{} {
@@ -631,6 +615,16 @@ func (j *jsiiProxy_CfnApi) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApi) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApi) TracingEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -672,7 +666,6 @@ func (j *jsiiProxy_CfnApi) Variables() interface{} {
 }
 
 
-// Create a new `AWS::Serverless::Api`.
 func NewCfnApi(scope constructs.Construct, id *string, props *CfnApiProps) CfnApi {
 	_init_.Initialize()
 
@@ -690,7 +683,6 @@ func NewCfnApi(scope constructs.Construct, id *string, props *CfnApiProps) CfnAp
 	return &j
 }
 
-// Create a new `AWS::Serverless::Api`.
 func NewCfnApi_Override(c CfnApi, scope constructs.Construct, id *string, props *CfnApiProps) {
 	_init_.Initialize()
 
@@ -773,9 +765,6 @@ func (j *jsiiProxy_CfnApi)SetCors(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnApi)SetDefinitionBody(val interface{}) {
-	if err := j.validateSetDefinitionBodyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"definitionBody",
@@ -836,9 +825,6 @@ func (j *jsiiProxy_CfnApi)SetEndpointConfiguration(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnApi)SetGatewayResponses(val interface{}) {
-	if err := j.validateSetGatewayResponsesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"gatewayResponses",
@@ -866,9 +852,6 @@ func (j *jsiiProxy_CfnApi)SetMinimumCompressionSize(val *float64) {
 }
 
 func (j *jsiiProxy_CfnApi)SetModels(val interface{}) {
-	if err := j.validateSetModelsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"models",
@@ -899,6 +882,14 @@ func (j *jsiiProxy_CfnApi)SetStageName(val *string) {
 	_jsii_.Set(
 		j,
 		"stageName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApi)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

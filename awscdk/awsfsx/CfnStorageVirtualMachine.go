@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FSx::StorageVirtualMachine`.
-//
 // Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.
 //
 // Example:
@@ -46,9 +44,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-storagevirtualmachine.html
+//
 type CfnStorageVirtualMachine interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Describes the Microsoft Active Directory configuration to which the SVM is joined, if applicable.
 	ActiveDirectoryConfiguration() interface{}
 	SetActiveDirectoryConfiguration(val interface{})
@@ -96,11 +97,9 @@ type CfnStorageVirtualMachine interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The security style of the root volume of the SVM. Specify one of the following values:.
+	// The security style of the root volume of the SVM.
 	//
-	// - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
-	// - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
-	// - `MIXED` if the file system is managed by both UNIX and Windows administrators and users consist of both NFS and SMB clients.
+	// Specify one of the following values:.
 	RootVolumeSecurityStyle() *string
 	SetRootVolumeSecurityStyle(val *string)
 	// The stack in which this element is defined.
@@ -108,14 +107,13 @@ type CfnStorageVirtualMachine interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint.
-	//
-	// Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's `fsxadmin` user to manage the SVM. For more information, see [Managing SVMs using the NetApp ONTAP CLI](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html#vsadmin-ontap-cli) in the *FSx for ONTAP User Guide* .
 	SvmAdminPassword() *string
 	SetSvmAdminPassword(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -260,6 +258,7 @@ type CfnStorageVirtualMachine interface {
 type jsiiProxy_CfnStorageVirtualMachine struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStorageVirtualMachine) ActiveDirectoryConfiguration() interface{} {
@@ -432,6 +431,16 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStorageVirtualMachine) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStorageVirtualMachine) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -453,7 +462,6 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::FSx::StorageVirtualMachine`.
 func NewCfnStorageVirtualMachine(scope constructs.Construct, id *string, props *CfnStorageVirtualMachineProps) CfnStorageVirtualMachine {
 	_init_.Initialize()
 
@@ -471,7 +479,6 @@ func NewCfnStorageVirtualMachine(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::FSx::StorageVirtualMachine`.
 func NewCfnStorageVirtualMachine_Override(c CfnStorageVirtualMachine, scope constructs.Construct, id *string, props *CfnStorageVirtualMachineProps) {
 	_init_.Initialize()
 
@@ -527,6 +534,17 @@ func (j *jsiiProxy_CfnStorageVirtualMachine)SetSvmAdminPassword(val *string) {
 	_jsii_.Set(
 		j,
 		"svmAdminPassword",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStorageVirtualMachine)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

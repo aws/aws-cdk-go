@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::LaunchTemplate`.
-//
 // Specifies the properties for creating a launch template.
 //
 // The minimum required properties for specifying a launch template are as follows:
@@ -50,6 +48,8 @@ import (
 //   		Version: lt.AttrLatestVersionNumber,
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html
 //
 type CfnLaunchTemplate interface {
 	awscdk.CfnResource
@@ -99,10 +99,6 @@ type CfnLaunchTemplate interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The tags to apply to the launch template on creation.
-	//
-	// To tag the launch template, the resource type must be `launch-template` .
-	//
-	// > To specify the tags for the resources that are created when an instance is launched, you must use the `TagSpecifications` parameter in the [launch template data](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html) structure.
 	TagSpecifications() interface{}
 	SetTagSpecifications(val interface{})
 	// Deprecated.
@@ -425,7 +421,6 @@ func (j *jsiiProxy_CfnLaunchTemplate) VersionDescription() *string {
 }
 
 
-// Create a new `AWS::EC2::LaunchTemplate`.
 func NewCfnLaunchTemplate(scope constructs.Construct, id *string, props *CfnLaunchTemplateProps) CfnLaunchTemplate {
 	_init_.Initialize()
 
@@ -443,7 +438,6 @@ func NewCfnLaunchTemplate(scope constructs.Construct, id *string, props *CfnLaun
 	return &j
 }
 
-// Create a new `AWS::EC2::LaunchTemplate`.
 func NewCfnLaunchTemplate_Override(c CfnLaunchTemplate, scope constructs.Construct, id *string, props *CfnLaunchTemplateProps) {
 	_init_.Initialize()
 

@@ -55,10 +55,16 @@ package awssagemaker
 //   	ValidationRole: jsii.String("validationRole"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html
+//
 type CfnModelPackage_ValidationSpecificationProperty struct {
 	// An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html#cfn-sagemaker-modelpackage-validationspecification-validationprofiles
+	//
 	ValidationProfiles interface{} `field:"required" json:"validationProfiles" yaml:"validationProfiles"`
 	// The IAM roles to be used for the validation of the model package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html#cfn-sagemaker-modelpackage-validationspecification-validationrole
+	//
 	ValidationRole *string `field:"required" json:"validationRole" yaml:"validationRole"`
 }
 

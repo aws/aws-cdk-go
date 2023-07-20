@@ -84,18 +84,26 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
+//
 type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the entity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// Rules in the referenced rule group whose actions are set to `Count` .
 	//
 	// > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
+	//
 	ExcludedRules interface{} `field:"optional" json:"excludedRules" yaml:"excludedRules"`
 	// Action settings to use in the place of the rule actions that are configured inside the rule group.
 	//
 	// You specify one override for each rule whose action you want to change.
 	//
 	// You can use overrides for testing, for example you can override all of rule actions to `Count` and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-ruleactionoverrides
+	//
 	RuleActionOverrides interface{} `field:"optional" json:"ruleActionOverrides" yaml:"ruleActionOverrides"`
 }
 

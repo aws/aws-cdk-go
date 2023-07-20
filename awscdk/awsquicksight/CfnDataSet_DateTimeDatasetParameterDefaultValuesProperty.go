@@ -1,6 +1,10 @@
 package awsquicksight
 
 
+// <p>List of default values defined for a given string date time parameter type.
+//
+// Currently only static values are supported.</p>
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,10 +16,11 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameterdefaultvalues.html
+//
 type CfnDataSet_DateTimeDatasetParameterDefaultValuesProperty struct {
-	// A list of static default values for a given date time parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameterdefaultvalues.html#cfn-quicksight-dataset-datetimedatasetparameterdefaultvalues-staticvalues
 	//
-	// The valid format for this property is `yyyy-MM-dd’T’HH:mm:ss’Z’` .
 	StaticValues *[]*string `field:"optional" json:"staticValues" yaml:"staticValues"`
 }
 

@@ -13,6 +13,8 @@ package awsquicksight
 //   	UrlTemplate: jsii.String("urlTemplate"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-customactionurloperation.html
+//
 type CfnAnalysis_CustomActionURLOperationProperty struct {
 	// The target of the `CustomActionURLOperation` .
 	//
@@ -21,8 +23,12 @@ type CfnAnalysis_CustomActionURLOperationProperty struct {
 	// - `NEW_TAB` : Opens the target URL in a new browser tab.
 	// - `NEW_WINDOW` : Opens the target URL in a new browser window.
 	// - `SAME_TAB` : Opens the target URL in the same browser tab.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-customactionurloperation.html#cfn-quicksight-analysis-customactionurloperation-urltarget
+	//
 	UrlTarget *string `field:"required" json:"urlTarget" yaml:"urlTarget"`
 	// THe URL link of the `CustomActionURLOperation` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-customactionurloperation.html#cfn-quicksight-analysis-customactionurloperation-urltemplate
+	//
 	UrlTemplate *string `field:"required" json:"urlTemplate" yaml:"urlTemplate"`
 }
 

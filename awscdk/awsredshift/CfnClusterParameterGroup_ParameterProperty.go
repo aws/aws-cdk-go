@@ -13,12 +13,18 @@ package awsredshift
 //   	ParameterValue: jsii.String("parameterValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-clusterparametergroup-parameter.html
+//
 type CfnClusterParameterGroup_ParameterProperty struct {
 	// The name of the parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametername
+	//
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// The value of the parameter.
 	//
 	// If `ParameterName` is `wlm_json_configuration` , then the maximum size of `ParameterValue` is 8000 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametervalue
+	//
 	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 

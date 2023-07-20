@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::JobTemplate`.
-//
 // Represents a job template.
 //
 // Example:
@@ -57,9 +55,12 @@ import (
 //   	TimeoutConfig: timeoutConfig,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html
+//
 type CfnJobTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The criteria that determine when and how a job abort takes place.
 	AbortConfig() interface{}
 	SetAbortConfig(val interface{})
@@ -78,17 +79,9 @@ type CfnJobTemplate interface {
 	Description() *string
 	SetDescription(val *string)
 	// The job document.
-	//
-	// Required if you don't specify a value for `documentSource` .
 	Document() *string
 	SetDocument(val *string)
 	// An S3 link, or S3 object URL, to the job document.
-	//
-	// The link is an Amazon S3 object URL and is required if you don't specify a value for `document` .
-	//
-	// For example, `--document-source https://s3. *region-code* .amazonaws.com/example-firmware/device-firmware.1.0`
-	//
-	// For more information, see [Methods for accessing a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) .
 	DocumentSource() *string
 	SetDocumentSource(val *string)
 	// The ARN of the job to use as the basis for the job template.
@@ -101,8 +94,6 @@ type CfnJobTemplate interface {
 	JobExecutionsRolloutConfig() interface{}
 	SetJobExecutionsRolloutConfig(val interface{})
 	// A unique identifier for the job template.
-	//
-	// We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
 	JobTemplateId() *string
 	SetJobTemplateId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -132,11 +123,12 @@ type CfnJobTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that can be used to manage the job template.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that can be used to manage the job template.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Specifies the amount of time each device has to finish its execution of the job.
-	//
-	// A timer is started when the job execution status is set to `IN_PROGRESS` . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to `TIMED_OUT` .
 	TimeoutConfig() interface{}
 	SetTimeoutConfig(val interface{})
 	// Deprecated.
@@ -283,6 +275,7 @@ type CfnJobTemplate interface {
 type jsiiProxy_CfnJobTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnJobTemplate) AbortConfig() interface{} {
@@ -485,6 +478,16 @@ func (j *jsiiProxy_CfnJobTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobTemplate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobTemplate) TimeoutConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -516,7 +519,6 @@ func (j *jsiiProxy_CfnJobTemplate) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::JobTemplate`.
 func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemplateProps) CfnJobTemplate {
 	_init_.Initialize()
 
@@ -534,7 +536,6 @@ func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemp
 	return &j
 }
 
-// Create a new `AWS::IoT::JobTemplate`.
 func NewCfnJobTemplate_Override(c CfnJobTemplate, scope constructs.Construct, id *string, props *CfnJobTemplateProps) {
 	_init_.Initialize()
 
@@ -546,9 +547,6 @@ func NewCfnJobTemplate_Override(c CfnJobTemplate, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnJobTemplate)SetAbortConfig(val interface{}) {
-	if err := j.validateSetAbortConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"abortConfig",
@@ -603,9 +601,6 @@ func (j *jsiiProxy_CfnJobTemplate)SetJobExecutionsRetryConfig(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnJobTemplate)SetJobExecutionsRolloutConfig(val interface{}) {
-	if err := j.validateSetJobExecutionsRolloutConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"jobExecutionsRolloutConfig",
@@ -636,9 +631,6 @@ func (j *jsiiProxy_CfnJobTemplate)SetMaintenanceWindows(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnJobTemplate)SetPresignedUrlConfig(val interface{}) {
-	if err := j.validateSetPresignedUrlConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"presignedUrlConfig",
@@ -646,10 +638,18 @@ func (j *jsiiProxy_CfnJobTemplate)SetPresignedUrlConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate)SetTimeoutConfig(val interface{}) {
-	if err := j.validateSetTimeoutConfigParameters(val); err != nil {
+func (j *jsiiProxy_CfnJobTemplate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobTemplate)SetTimeoutConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"timeoutConfig",

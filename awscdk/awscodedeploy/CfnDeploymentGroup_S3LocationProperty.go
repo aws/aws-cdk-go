@@ -18,10 +18,16 @@ package awscodedeploy
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-s3location.html
+//
 type CfnDeploymentGroup_S3LocationProperty struct {
 	// The name of the Amazon S3 bucket where the application revision is stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-s3location.html#cfn-codedeploy-deploymentgroup-s3location-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-s3location.html#cfn-codedeploy-deploymentgroup-s3location-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The file type of the application revision. Must be one of the following:.
 	//
@@ -30,14 +36,20 @@ type CfnDeploymentGroup_S3LocationProperty struct {
 	// - tgz: A compressed tar archive file.
 	// - YAML
 	// - zip: A zip archive file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-s3location.html#cfn-codedeploy-deploymentgroup-s3location-bundletype
+	//
 	BundleType *string `field:"optional" json:"bundleType" yaml:"bundleType"`
 	// The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision.
 	//
 	// If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-s3location.html#cfn-codedeploy-deploymentgroup-s3location-etag
+	//
 	ETag *string `field:"optional" json:"eTag" yaml:"eTag"`
 	// A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision.
 	//
 	// If the version is not specified, the system uses the most recent version by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-s3location.html#cfn-codedeploy-deploymentgroup-s3location-version
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

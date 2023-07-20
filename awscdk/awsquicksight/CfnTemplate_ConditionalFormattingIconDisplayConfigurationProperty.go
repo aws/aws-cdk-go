@@ -12,8 +12,12 @@ package awsquicksight
 //   	IconDisplayOption: jsii.String("iconDisplayOption"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingicondisplayconfiguration.html
+//
 type CfnTemplate_ConditionalFormattingIconDisplayConfigurationProperty struct {
 	// Determines the icon display configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingicondisplayconfiguration.html#cfn-quicksight-template-conditionalformattingicondisplayconfiguration-icondisplayoption
+	//
 	IconDisplayOption *string `field:"optional" json:"iconDisplayOption" yaml:"iconDisplayOption"`
 }
 

@@ -18,10 +18,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathsort.html
+//
 type CfnAnalysis_DataPathSortProperty struct {
 	// Determines the sort direction.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathsort.html#cfn-quicksight-analysis-datapathsort-direction
+	//
 	Direction *string `field:"required" json:"direction" yaml:"direction"`
 	// The list of data paths that need to be sorted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathsort.html#cfn-quicksight-analysis-datapathsort-sortpaths
+	//
 	SortPaths interface{} `field:"required" json:"sortPaths" yaml:"sortPaths"`
 }
 

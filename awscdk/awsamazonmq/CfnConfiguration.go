@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AmazonMQ::Configuration`.
+// Creates a new configuration for the specified configuration name.
 //
-// Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
+// Amazon MQ uses the default configuration (the engine type and version).
 //
 // > Does not apply to RabbitMQ brokers.
 //
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html
+//
 type CfnConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the Amazon MQ configuration.
 	//
 	// `arn:aws:mq:us-east-2:123456789012:configuration:MyConfigurationDevelopment:c-1234a5b6-78cd-901e-2fgh-3i45j6k178l9`.
@@ -53,8 +56,6 @@ type CfnConfiguration interface {
 	// `1`.
 	AttrRevision() *float64
 	// Optional.
-	//
-	// The authentication strategy associated with the configuration. The default is `SIMPLE` .
 	AuthenticationStrategy() *string
 	SetAuthenticationStrategy(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -73,13 +74,9 @@ type CfnConfiguration interface {
 	Description() *string
 	SetDescription(val *string)
 	// The type of broker engine.
-	//
-	// Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
 	EngineType() *string
 	SetEngineType(val *string)
 	// The version of the broker engine.
-	//
-	// For a list of supported engine versions, see [](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html)
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -93,8 +90,6 @@ type CfnConfiguration interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the configuration.
-	//
-	// This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -108,8 +103,11 @@ type CfnConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Create tags when creating the configuration.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Create tags when creating the configuration.
+	TagsRaw() *[]*CfnConfiguration_TagsEntryProperty
+	SetTagsRaw(val *[]*CfnConfiguration_TagsEntryProperty)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -254,6 +252,7 @@ type CfnConfiguration interface {
 type jsiiProxy_CfnConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnConfiguration) AttrArn() *string {
@@ -436,6 +435,16 @@ func (j *jsiiProxy_CfnConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfiguration) TagsRaw() *[]*CfnConfiguration_TagsEntryProperty {
+	var returns *[]*CfnConfiguration_TagsEntryProperty
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfiguration) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -457,7 +466,6 @@ func (j *jsiiProxy_CfnConfiguration) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::AmazonMQ::Configuration`.
 func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfigurationProps) CfnConfiguration {
 	_init_.Initialize()
 
@@ -475,7 +483,6 @@ func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfi
 	return &j
 }
 
-// Create a new `AWS::AmazonMQ::Configuration`.
 func NewCfnConfiguration_Override(c CfnConfiguration, scope constructs.Construct, id *string, props *CfnConfigurationProps) {
 	_init_.Initialize()
 
@@ -542,6 +549,17 @@ func (j *jsiiProxy_CfnConfiguration)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfiguration)SetTagsRaw(val *[]*CfnConfiguration_TagsEntryProperty) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

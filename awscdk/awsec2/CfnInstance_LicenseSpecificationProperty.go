@@ -14,8 +14,12 @@ package awsec2
 //   	LicenseConfigurationArn: jsii.String("licenseConfigurationArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html
+//
 type CfnInstance_LicenseSpecificationProperty struct {
 	// The Amazon Resource Name (ARN) of the license configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html#cfn-ec2-instance-licensespecification-licenseconfigurationarn
+	//
 	LicenseConfigurationArn *string `field:"required" json:"licenseConfigurationArn" yaml:"licenseConfigurationArn"`
 }
 

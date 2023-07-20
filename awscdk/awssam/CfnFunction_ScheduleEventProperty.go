@@ -16,16 +16,23 @@ package awssam
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-scheduleevent.html
+//
 type CfnFunction_ScheduleEventProperty struct {
-	// `CfnFunction.ScheduleEventProperty.Schedule`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-scheduleevent.html#cfn-serverless-function-scheduleevent-schedule
+	//
 	Schedule *string `field:"required" json:"schedule" yaml:"schedule"`
-	// `CfnFunction.ScheduleEventProperty.Description`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-scheduleevent.html#cfn-serverless-function-scheduleevent-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `CfnFunction.ScheduleEventProperty.Enabled`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-scheduleevent.html#cfn-serverless-function-scheduleevent-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// `CfnFunction.ScheduleEventProperty.Input`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-scheduleevent.html#cfn-serverless-function-scheduleevent-input
+	//
 	Input *string `field:"optional" json:"input" yaml:"input"`
-	// `CfnFunction.ScheduleEventProperty.Name`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-scheduleevent.html#cfn-serverless-function-scheduleevent-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::CapacityReservation`.
+// Creates a new Capacity Reservation with the specified attributes.
 //
-// Creates a new Capacity Reservation with the specified attributes. For more information, see [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* .
+// For more information, see [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,6 +45,8 @@ import (
 //   	},
 //   	Tenancy: jsii.String("tenancy"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html
 //
 type CfnCapacityReservation interface {
 	awscdk.CfnResource
@@ -84,49 +86,29 @@ type CfnCapacityReservation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
-	//
-	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 	EbsOptimized() interface{}
 	SetEbsOptimized(val interface{})
 	// The date and time at which the Capacity Reservation expires.
-	//
-	// When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
-	//
-	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
-	//
-	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
 	EndDate() *string
 	SetEndDate(val *string)
 	// Indicates the way in which the Capacity Reservation ends.
-	//
-	// A Capacity Reservation can have one of the following end types:
-	//
-	// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
-	// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
 	EndDateType() *string
 	SetEndDateType(val *string)
 	// *Deprecated.*.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
 	// The number of instances for which to reserve capacity.
-	//
-	// Valid range: 1 - 1000.
 	InstanceCount() *float64
 	SetInstanceCount(val *float64)
-	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:.
+	// Indicates the type of instance launches that the Capacity Reservation accepts.
 	//
-	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
-	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
-	//
-	// Default: `open`.
+	// The options include:.
 	InstanceMatchCriteria() *string
 	SetInstanceMatchCriteria(val *string)
 	// The type of operating system for which to reserve capacity.
 	InstancePlatform() *string
 	SetInstancePlatform(val *string)
 	// The instance type for which to reserve capacity.
-	//
-	// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 	InstanceType() *string
 	SetInstanceType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -145,8 +127,6 @@ type CfnCapacityReservation interface {
 	OutPostArn() *string
 	SetOutPostArn(val *string)
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
-	//
-	// For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn() *string
 	SetPlacementGroupArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -161,10 +141,9 @@ type CfnCapacityReservation interface {
 	// The tags to apply to the Capacity Reservation during launch.
 	TagSpecifications() interface{}
 	SetTagSpecifications(val interface{})
-	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:.
+	// Indicates the tenancy of the Capacity Reservation.
 	//
-	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
-	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+	// A Capacity Reservation can have one of the following tenancy settings:.
 	Tenancy() *string
 	SetTenancy(val *string)
 	// Deprecated.
@@ -604,7 +583,6 @@ func (j *jsiiProxy_CfnCapacityReservation) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::EC2::CapacityReservation`.
 func NewCfnCapacityReservation(scope constructs.Construct, id *string, props *CfnCapacityReservationProps) CfnCapacityReservation {
 	_init_.Initialize()
 
@@ -622,7 +600,6 @@ func NewCfnCapacityReservation(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::EC2::CapacityReservation`.
 func NewCfnCapacityReservation_Override(c CfnCapacityReservation, scope constructs.Construct, id *string, props *CfnCapacityReservationProps) {
 	_init_.Initialize()
 

@@ -12,8 +12,11 @@ package awsresourceexplorer2
 //   	FilterString: jsii.String("filterString"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-filters.html
+//
 type CfnView_FiltersProperty struct {
-	// `CfnView.FiltersProperty.FilterString`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-filters.html#cfn-resourceexplorer2-view-filters-filterstring
+	//
 	FilterString *string `field:"required" json:"filterString" yaml:"filterString"`
 }
 

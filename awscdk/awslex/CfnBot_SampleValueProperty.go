@@ -12,8 +12,12 @@ package awslex
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-samplevalue.html
+//
 type CfnBot_SampleValueProperty struct {
 	// The value that can be used for a slot type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-samplevalue.html#cfn-lex-bot-samplevalue-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

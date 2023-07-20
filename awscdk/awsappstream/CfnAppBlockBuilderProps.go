@@ -46,32 +46,56 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html
+//
 type CfnAppBlockBuilderProps struct {
 	// The instance type of the app block builder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-instancetype
+	//
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The name of the app block builder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The platform of the app block builder.
 	//
 	// *Allowed values* : `WINDOWS_SERVER_2019`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-platform
+	//
 	Platform *string `field:"required" json:"platform" yaml:"platform"`
 	// The VPC configuration for the app block builder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-vpcconfig
+	//
 	VpcConfig interface{} `field:"required" json:"vpcConfig" yaml:"vpcConfig"`
 	// The access endpoints of the app block builder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-accessendpoints
+	//
 	AccessEndpoints interface{} `field:"optional" json:"accessEndpoints" yaml:"accessEndpoints"`
 	// The ARN of the app block.
 	//
 	// *Maximum* : `1`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-appblockarns
+	//
 	AppBlockArns *[]*string `field:"optional" json:"appBlockArns" yaml:"appBlockArns"`
 	// The description of the app block builder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The display name of the app block builder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-displayname
+	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// Indicates whether default internet access is enabled for the app block builder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-enabledefaultinternetaccess
+	//
 	EnableDefaultInternetAccess interface{} `field:"optional" json:"enableDefaultInternetAccess" yaml:"enableDefaultInternetAccess"`
 	// The ARN of the IAM role that is applied to the app block builder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-iamrolearn
+	//
 	IamRoleArn *string `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The tags of the app block builder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

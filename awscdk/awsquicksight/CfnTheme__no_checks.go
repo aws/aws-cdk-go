@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnTheme) validateSetPermissionsParameters(val interface{}) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnTheme) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTheme) validateSetThemeIdParameters(val *string) error {
 	return nil
 }

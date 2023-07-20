@@ -80,6 +80,10 @@ func validateCfnFirewallDomainList_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFirewallDomainList) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFirewallDomainListParameters(scope constructs.Construct, id *string, props *CfnFirewallDomainListProps) error {
 	return nil
 }

@@ -49,8 +49,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-analysisdefaults.html
+//
 type CfnTemplate_AnalysisDefaultsProperty struct {
 	// The configuration for default new sheet settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-analysisdefaults.html#cfn-quicksight-template-analysisdefaults-defaultnewsheetconfiguration
+	//
 	DefaultNewSheetConfiguration interface{} `field:"required" json:"defaultNewSheetConfiguration" yaml:"defaultNewSheetConfiguration"`
 }
 

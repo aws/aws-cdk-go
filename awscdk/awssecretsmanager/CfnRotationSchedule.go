@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SecretsManager::RotationSchedule`.
-//
 // Sets the rotation schedule and Lambda rotation function for a secret. For more information, see [How rotation works](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) .
 //
 // For Amazon RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html) .
@@ -55,9 +53,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
+//
 type CfnRotationSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -68,8 +69,6 @@ type CfnRotationSchedule interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Creates a new Lambda rotation function based on one of the [Secrets Manager rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) . To use a rotation function that already exists, specify `RotationLambdaARN` instead.
-	//
-	// For Amazon RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html) .
 	HostedRotationLambda() interface{}
 	SetHostedRotationLambda(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -90,31 +89,15 @@ type CfnRotationSchedule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
-	//
-	// The rotation schedule is defined in `RotationRules` .
-	//
-	// If you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the [`testSecret` step](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an `AWSPENDING` version of the secret and then removes it.
-	//
-	// If you don't specify this value, then by default, Secrets Manager rotates the secret immediately.
-	//
-	// Rotation is an asynchronous process. For more information, see [How rotation works](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) .
 	RotateImmediatelyOnUpdate() interface{}
 	SetRotateImmediatelyOnUpdate(val interface{})
 	// The ARN of an existing Lambda rotation function.
-	//
-	// To specify a rotation function that is also defined in this template, use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function.
-	//
-	// For Amazon RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html) .
-	//
-	// To create a new rotation function based on one of the [Secrets Manager rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) , specify `HostedRotationLambda` instead.
 	RotationLambdaArn() *string
 	SetRotationLambdaArn(val *string)
 	// A structure that defines the rotation configuration for this secret.
 	RotationRules() interface{}
 	SetRotationRules(val interface{})
 	// The ARN or name of the secret to rotate.
-	//
-	// To reference a secret also created in this template, use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID.
 	SecretId() *string
 	SetSecretId(val *string)
 	// The stack in which this element is defined.
@@ -265,6 +248,16 @@ type CfnRotationSchedule interface {
 type jsiiProxy_CfnRotationSchedule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnRotationSchedule) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnRotationSchedule) CfnOptions() awscdk.ICfnResourceOptions {
@@ -418,7 +411,6 @@ func (j *jsiiProxy_CfnRotationSchedule) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::SecretsManager::RotationSchedule`.
 func NewCfnRotationSchedule(scope constructs.Construct, id *string, props *CfnRotationScheduleProps) CfnRotationSchedule {
 	_init_.Initialize()
 
@@ -436,7 +428,6 @@ func NewCfnRotationSchedule(scope constructs.Construct, id *string, props *CfnRo
 	return &j
 }
 
-// Create a new `AWS::SecretsManager::RotationSchedule`.
 func NewCfnRotationSchedule_Override(c CfnRotationSchedule, scope constructs.Construct, id *string, props *CfnRotationScheduleProps) {
 	_init_.Initialize()
 

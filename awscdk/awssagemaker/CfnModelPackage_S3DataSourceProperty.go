@@ -15,6 +15,8 @@ package awssagemaker
 //   	S3Uri: jsii.String("s3Uri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html
+//
 type CfnModelPackage_S3DataSourceProperty struct {
 	// If you choose `S3Prefix` , `S3Uri` identifies a key name prefix.
 	//
@@ -23,6 +25,8 @@ type CfnModelPackage_S3DataSourceProperty struct {
 	// If you choose `ManifestFile` , `S3Uri` identifies an object that is a manifest file containing a list of object keys that you want SageMaker to use for model training.
 	//
 	// If you choose `AugmentedManifestFile` , S3Uri identifies an object that is an augmented manifest file in JSON lines format. This file contains the data you want to use for model training. `AugmentedManifestFile` can only be used if the Channel's input mode is `Pipe` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html#cfn-sagemaker-modelpackage-s3datasource-s3datatype
+	//
 	S3DataType *string `field:"required" json:"s3DataType" yaml:"s3DataType"`
 	// Depending on the value specified for the `S3DataType` , identifies either a key name prefix or a manifest.
 	//
@@ -60,6 +64,8 @@ type CfnModelPackage_S3DataSourceProperty struct {
 	// The complete set of `S3Uri` in this manifest is the input data for the channel for this data source. The object that each `S3Uri` points to must be readable by the IAM role that SageMaker uses to perform tasks on your behalf.
 	//
 	// Your input bucket must be located in same AWS region as your training job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html#cfn-sagemaker-modelpackage-s3datasource-s3uri
+	//
 	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 }
 

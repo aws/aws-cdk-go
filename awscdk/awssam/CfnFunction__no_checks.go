@@ -80,10 +80,6 @@ func validateCfnFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnFunction) validateSetAssumeRolePolicyDocumentParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnFunction) validateSetCodeUriParameters(val interface{}) error {
 	return nil
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GameLift::MatchmakingRuleSet`.
+// Creates a new rule set for FlexMatch matchmaking.
 //
-// Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match to create, such as the number and size of teams. It also sets the parameters for acceptable player matches, such as minimum skill level or character type.
+// A rule set describes the type of match to create, such as the number and size of teams. It also sets the parameters for acceptable player matches, such as minimum skill level or character type.
 //
 // To create a matchmaking rule set, provide unique rule set name and the rule set body in JSON format. Rule sets must be defined in the same Region as the matchmaking configuration they are used with.
 //
@@ -41,11 +41,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingruleset.html
+//
 type CfnMatchmakingRuleSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique Amazon Resource Name (ARN) assigned to the rule set.
 	AttrArn() *string
+	AttrId() *string
 	// The unique name of the rule set.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -68,8 +72,6 @@ type CfnMatchmakingRuleSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A unique identifier for the matchmaking rule set.
-	//
-	// A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional `name` field in the rule set body.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -80,18 +82,17 @@ type CfnMatchmakingRuleSet interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A collection of matchmaking rules, formatted as a JSON string.
-	//
-	// Comments are not allowed in JSON, but most elements support a description field.
 	RuleSetBody() *string
 	SetRuleSetBody(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of labels to assign to the new matchmaking rule set resource.
-	//
-	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of labels to assign to the new matchmaking rule set resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -236,6 +237,7 @@ type CfnMatchmakingRuleSet interface {
 type jsiiProxy_CfnMatchmakingRuleSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMatchmakingRuleSet) AttrArn() *string {
@@ -243,6 +245,16 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMatchmakingRuleSet) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -368,6 +380,16 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMatchmakingRuleSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMatchmakingRuleSet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -389,7 +411,6 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::GameLift::MatchmakingRuleSet`.
 func NewCfnMatchmakingRuleSet(scope constructs.Construct, id *string, props *CfnMatchmakingRuleSetProps) CfnMatchmakingRuleSet {
 	_init_.Initialize()
 
@@ -407,7 +428,6 @@ func NewCfnMatchmakingRuleSet(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::GameLift::MatchmakingRuleSet`.
 func NewCfnMatchmakingRuleSet_Override(c CfnMatchmakingRuleSet, scope constructs.Construct, id *string, props *CfnMatchmakingRuleSetProps) {
 	_init_.Initialize()
 
@@ -436,6 +456,17 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet)SetRuleSetBody(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleSetBody",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMatchmakingRuleSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

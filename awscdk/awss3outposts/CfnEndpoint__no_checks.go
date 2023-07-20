@@ -80,6 +80,10 @@ func validateCfnEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnEndpoint) validateSetFailedReasonParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEndpoint) validateSetOutpostIdParameters(val *string) error {
 	return nil
 }

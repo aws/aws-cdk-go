@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnTask) validateSetSourceLocationArnParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnTask) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnTaskParameters(scope constructs.Construct, id *string, props *CfnTaskProps) error {
 	return nil
 }

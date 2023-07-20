@@ -13,10 +13,16 @@ package awsautoscaling
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html
+//
 type CfnAutoScalingGroup_MemoryGiBPerVCpuRequestProperty struct {
 	// The memory maximum in GiB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html#cfn-autoscaling-autoscalinggroup-memorygibpervcpurequest-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The memory minimum in GiB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html#cfn-autoscaling-autoscalinggroup-memorygibpervcpurequest-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

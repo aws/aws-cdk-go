@@ -89,14 +89,24 @@ package awsquicksight
 //   	HierarchyId: jsii.String("hierarchyId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-categoricaldimensionfield.html
+//
 type CfnDashboard_CategoricalDimensionFieldProperty struct {
 	// The column that is used in the `CategoricalDimensionField` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-categoricaldimensionfield.html#cfn-quicksight-dashboard-categoricaldimensionfield-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// The custom field ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-categoricaldimensionfield.html#cfn-quicksight-dashboard-categoricaldimensionfield-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The format configuration of the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-categoricaldimensionfield.html#cfn-quicksight-dashboard-categoricaldimensionfield-formatconfiguration
+	//
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
 	// The custom hierarchy ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-categoricaldimensionfield.html#cfn-quicksight-dashboard-categoricaldimensionfield-hierarchyid
+	//
 	HierarchyId *string `field:"optional" json:"hierarchyId" yaml:"hierarchyId"`
 }
 

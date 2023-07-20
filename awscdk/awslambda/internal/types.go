@@ -7,6 +7,7 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awscdkResource = awscdk.Resource
 type Type__awsec2IClientVpnConnectionHandler = awsec2.IClientVpnConnectionHandler
 type Type__awscdkIAspect = awscdk.IAspect

@@ -11,10 +11,14 @@ package awssam
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3keyfilterrule.html
+//
 type CfnFunction_S3KeyFilterRuleProperty struct {
-	// `CfnFunction.S3KeyFilterRuleProperty.Name`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3keyfilterrule.html#cfn-serverless-function-s3keyfilterrule-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnFunction.S3KeyFilterRuleProperty.Value`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3keyfilterrule.html#cfn-serverless-function-s3keyfilterrule-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

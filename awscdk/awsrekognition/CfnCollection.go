@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Rekognition::Collection`.
+// The `AWS::Rekognition::Collection` type creates a server-side container called a collection.
 //
-// The `AWS::Rekognition::Collection` type creates a server-side container called a collection. You can use a collection to store information about detected faces and search for known faces in images, stored videos, and streaming videos.
+// You can use a collection to store information about detected faces and search for known faces in images, stored videos, and streaming videos.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,9 +30,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-collection.html
+//
 type CfnCollection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name of the collection.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -68,8 +71,11 @@ type CfnCollection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A set of tags (key-value pairs) that you want to attach to the collection.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A set of tags (key-value pairs) that you want to attach to the collection.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -214,6 +220,7 @@ type CfnCollection interface {
 type jsiiProxy_CfnCollection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCollection) AttrArn() *string {
@@ -326,6 +333,16 @@ func (j *jsiiProxy_CfnCollection) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollection) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCollection) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -347,7 +364,6 @@ func (j *jsiiProxy_CfnCollection) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Rekognition::Collection`.
 func NewCfnCollection(scope constructs.Construct, id *string, props *CfnCollectionProps) CfnCollection {
 	_init_.Initialize()
 
@@ -365,7 +381,6 @@ func NewCfnCollection(scope constructs.Construct, id *string, props *CfnCollecti
 	return &j
 }
 
-// Create a new `AWS::Rekognition::Collection`.
 func NewCfnCollection_Override(c CfnCollection, scope constructs.Construct, id *string, props *CfnCollectionProps) {
 	_init_.Initialize()
 
@@ -383,6 +398,17 @@ func (j *jsiiProxy_CfnCollection)SetCollectionId(val *string) {
 	_jsii_.Set(
 		j,
 		"collectionId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollection)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

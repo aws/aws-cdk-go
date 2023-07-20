@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConnect::Bridge`.
+// The AWS::MediaConnect::Bridge resource defines a connection between your data center’s gateway instances and the cloud.
 //
-// The AWS::MediaConnect::Bridge resource defines a connection between your data center’s gateway instances and the cloud. For each bridge, you specify the type of bridge, transport protocol to use, and details for any outputs and failover.
+// For each bridge, you specify the type of bridge, transport protocol to use, and details for any outputs and failover.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -73,6 +73,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html
+//
 type CfnBridge interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -92,13 +94,9 @@ type CfnBridge interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Create a bridge with the egress bridge type.
-	//
-	// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
 	EgressGatewayBridge() interface{}
 	SetEgressGatewayBridge(val interface{})
 	// Create a bridge with the ingress bridge type.
-	//
-	// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 	IngressGatewayBridge() interface{}
 	SetIngressGatewayBridge(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -112,8 +110,6 @@ type CfnBridge interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The network output name.
-	//
-	// This name is used to reference the output and must be unique among outputs in this bridge.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -476,7 +472,6 @@ func (j *jsiiProxy_CfnBridge) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MediaConnect::Bridge`.
 func NewCfnBridge(scope constructs.Construct, id *string, props *CfnBridgeProps) CfnBridge {
 	_init_.Initialize()
 
@@ -494,7 +489,6 @@ func NewCfnBridge(scope constructs.Construct, id *string, props *CfnBridgeProps)
 	return &j
 }
 
-// Create a new `AWS::MediaConnect::Bridge`.
 func NewCfnBridge_Override(c CfnBridge, scope constructs.Construct, id *string, props *CfnBridgeProps) {
 	_init_.Initialize()
 

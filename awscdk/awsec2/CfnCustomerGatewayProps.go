@@ -26,20 +26,32 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html
+//
 type CfnCustomerGatewayProps struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//
 	// Default: 65000.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn
+	//
 	BgpAsn *float64 `field:"required" json:"bgpAsn" yaml:"bgpAsn"`
 	// IPv4 address for the customer gateway device's outside interface.
 	//
 	// The address must be static.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-ipaddress
+	//
 	IpAddress *string `field:"required" json:"ipAddress" yaml:"ipAddress"`
 	// The type of VPN connection that this customer gateway supports ( `ipsec.1` ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The name of customer gateway device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-devicename
+	//
 	DeviceName *string `field:"optional" json:"deviceName" yaml:"deviceName"`
 	// One or more tags for the customer gateway.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

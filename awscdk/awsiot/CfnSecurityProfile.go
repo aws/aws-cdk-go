@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::SecurityProfile`.
+// Use the `AWS::IoT::SecurityProfile` resource to create a Device Defender security profile.
 //
-// Use the `AWS::IoT::SecurityProfile` resource to create a Device Defender security profile. For API reference, see [CreateSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateSecurityProfile.html) and for general information, see [Detect](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html) .
+// For API reference, see [CreateSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateSecurityProfile.html) and for general information, see [Detect](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -94,17 +94,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html
+//
 type CfnSecurityProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A list of metrics whose data is retained (stored).
-	//
-	// By default, data is retained for any metric used in the profile's `behaviors` , but it's also retained for any metric specified here. Can be used with custom metrics; can't be used with dimensions.
 	AdditionalMetricsToRetainV2() interface{}
 	SetAdditionalMetricsToRetainV2(val interface{})
 	// Specifies the destinations to which alerts are sent.
-	//
-	// (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
 	AlertTargets() interface{}
 	SetAlertTargets(val interface{})
 	// The Amazon Resource Name (ARN) of the security profile.
@@ -148,8 +147,11 @@ type CfnSecurityProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that can be used to manage the security profile.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that can be used to manage the security profile.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN of the target (thing group) to which the security profile is attached.
 	TargetArns() *[]*string
 	SetTargetArns(val *[]*string)
@@ -297,6 +299,7 @@ type CfnSecurityProfile interface {
 type jsiiProxy_CfnSecurityProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSecurityProfile) AdditionalMetricsToRetainV2() interface{} {
@@ -449,6 +452,16 @@ func (j *jsiiProxy_CfnSecurityProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSecurityProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecurityProfile) TargetArns() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -480,7 +493,6 @@ func (j *jsiiProxy_CfnSecurityProfile) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::IoT::SecurityProfile`.
 func NewCfnSecurityProfile(scope constructs.Construct, id *string, props *CfnSecurityProfileProps) CfnSecurityProfile {
 	_init_.Initialize()
 
@@ -498,7 +510,6 @@ func NewCfnSecurityProfile(scope constructs.Construct, id *string, props *CfnSec
 	return &j
 }
 
-// Create a new `AWS::IoT::SecurityProfile`.
 func NewCfnSecurityProfile_Override(c CfnSecurityProfile, scope constructs.Construct, id *string, props *CfnSecurityProfileProps) {
 	_init_.Initialize()
 
@@ -554,6 +565,17 @@ func (j *jsiiProxy_CfnSecurityProfile)SetSecurityProfileName(val *string) {
 	_jsii_.Set(
 		j,
 		"securityProfileName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecurityProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

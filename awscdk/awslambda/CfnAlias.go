@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lambda::Alias`.
-//
 // The `AWS::Lambda::Alias` resource creates an [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html) for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.
 //
 // You can also map an alias to split invocation requests between two versions. Use the `RoutingConfig` parameter to specify a second version and the percentage of invocation requests that it receives.
@@ -40,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
+//
 type CfnAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -56,12 +57,6 @@ type CfnAlias interface {
 	Description() *string
 	SetDescription(val *string)
 	// The name of the Lambda function.
-	//
-	// **Name formats** - *Function name* - `MyFunction` .
-	// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
-	// - *Partial ARN* - `123456789012:function:MyFunction` .
-	//
-	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// The function version that the alias invokes.
@@ -243,6 +238,16 @@ type jsiiProxy_CfnAlias struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnAlias) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAlias) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -404,7 +409,6 @@ func (j *jsiiProxy_CfnAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lambda::Alias`.
 func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) CfnAlias {
 	_init_.Initialize()
 
@@ -422,7 +426,6 @@ func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) C
 	return &j
 }
 
-// Create a new `AWS::Lambda::Alias`.
 func NewCfnAlias_Override(c CfnAlias, scope constructs.Construct, id *string, props *CfnAliasProps) {
 	_init_.Initialize()
 

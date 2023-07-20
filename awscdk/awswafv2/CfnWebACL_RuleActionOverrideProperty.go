@@ -72,10 +72,16 @@ package awswafv2
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html
+//
 type CfnWebACL_RuleActionOverrideProperty struct {
 	// The override action to use, in place of the configured action of the rule in the rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html#cfn-wafv2-webacl-ruleactionoverride-actiontouse
+	//
 	ActionToUse interface{} `field:"required" json:"actionToUse" yaml:"actionToUse"`
 	// The name of the rule to override.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html#cfn-wafv2-webacl-ruleactionoverride-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

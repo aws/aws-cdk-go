@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::BasePathMapping`.
-//
 // The `AWS::ApiGateway::BasePathMapping` resource creates a base path that clients who call your API must use in the invocation URL.
 //
 // Example:
@@ -27,6 +25,8 @@ import (
 //   	RestApiId: jsii.String("restApiId"),
 //   	Stage: jsii.String("stage"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html
 //
 type CfnBasePathMapping interface {
 	awscdk.CfnResource
@@ -46,7 +46,6 @@ type CfnBasePathMapping interface {
 	// The domain name of the BasePathMapping resource to be described.
 	DomainName() *string
 	SetDomainName(val *string)
-	// `AWS::ApiGateway::BasePathMapping.Id`.
 	Id() *string
 	SetId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -373,7 +372,6 @@ func (j *jsiiProxy_CfnBasePathMapping) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::ApiGateway::BasePathMapping`.
 func NewCfnBasePathMapping(scope constructs.Construct, id *string, props *CfnBasePathMappingProps) CfnBasePathMapping {
 	_init_.Initialize()
 
@@ -391,7 +389,6 @@ func NewCfnBasePathMapping(scope constructs.Construct, id *string, props *CfnBas
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::BasePathMapping`.
 func NewCfnBasePathMapping_Override(c CfnBasePathMapping, scope constructs.Construct, id *string, props *CfnBasePathMappingProps) {
 	_init_.Initialize()
 

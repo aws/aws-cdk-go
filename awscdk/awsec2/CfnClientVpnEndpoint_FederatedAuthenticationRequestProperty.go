@@ -15,10 +15,16 @@ package awsec2
 //   	SelfServiceSamlProviderArn: jsii.String("selfServiceSamlProviderArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html
+//
 type CfnClientVpnEndpoint_FederatedAuthenticationRequestProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
+	//
 	SamlProviderArn *string `field:"required" json:"samlProviderArn" yaml:"samlProviderArn"`
 	// The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+	//
 	SelfServiceSamlProviderArn *string `field:"optional" json:"selfServiceSamlProviderArn" yaml:"selfServiceSamlProviderArn"`
 }
 

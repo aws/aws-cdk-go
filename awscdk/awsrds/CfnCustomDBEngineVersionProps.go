@@ -30,10 +30,14 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html
+//
 type CfnCustomDBEngineVersionProps struct {
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV.
 	//
 	// For example, a valid bucket name is `my-custom-installation-files` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-databaseinstallationfiless3bucketname
+	//
 	DatabaseInstallationFilesS3BucketName *string `field:"required" json:"databaseInstallationFilesS3BucketName" yaml:"databaseInstallationFilesS3BucketName"`
 	// The database engine to use for your custom engine version (CEV).
 	//
@@ -41,6 +45,8 @@ type CfnCustomDBEngineVersionProps struct {
 	//
 	// - `custom-oracle-ee`
 	// - `custom-oracle-ee-cdb`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-engine
+	//
 	Engine *string `field:"required" json:"engine" yaml:"engine"`
 	// The name of your CEV.
 	//
@@ -49,12 +55,18 @@ type CfnCustomDBEngineVersionProps struct {
 	// *Constraints:* Minimum length is 1. Maximum length is 60.
 	//
 	// *Pattern:* `^[a-z0-9_.-]{1,60$` }
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-engineversion
+	//
 	EngineVersion *string `field:"required" json:"engineVersion" yaml:"engineVersion"`
 	// The Amazon S3 directory that contains the database installation files for your CEV.
 	//
 	// For example, a valid bucket name is `123456789012/cev1` . If this setting isn't specified, no prefix is assumed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-databaseinstallationfiless3prefix
+	//
 	DatabaseInstallationFilesS3Prefix *string `field:"optional" json:"databaseInstallationFilesS3Prefix" yaml:"databaseInstallationFilesS3Prefix"`
 	// An optional description of your CEV.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The AWS KMS key identifier for an encrypted CEV.
 	//
@@ -63,6 +75,8 @@ type CfnCustomDBEngineVersionProps struct {
 	// If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS Key Management Service Developer Guide* .
 	//
 	// You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
 	//
@@ -75,12 +89,18 @@ type CfnCustomDBEngineVersionProps struct {
 	// - **OtherPatchFileNames** - The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.
 	//
 	// For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-manifest
+	//
 	Manifest *string `field:"optional" json:"manifest" yaml:"manifest"`
 	// A value that indicates the status of a custom engine version (CEV).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// A list of tags.
 	//
 	// For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

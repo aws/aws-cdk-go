@@ -18,12 +18,20 @@ package awsomics
 //   	Schema: schema,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-tsvstoreoptions.html
+//
 type CfnAnnotationStore_TsvStoreOptionsProperty struct {
 	// The store's annotation type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-tsvstoreoptions.html#cfn-omics-annotationstore-tsvstoreoptions-annotationtype
+	//
 	AnnotationType *string `field:"optional" json:"annotationType" yaml:"annotationType"`
 	// The store's header key to column name mapping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-tsvstoreoptions.html#cfn-omics-annotationstore-tsvstoreoptions-formattoheader
+	//
 	FormatToHeader interface{} `field:"optional" json:"formatToHeader" yaml:"formatToHeader"`
 	// The schema of an annotation store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-tsvstoreoptions.html#cfn-omics-annotationstore-tsvstoreoptions-schema
+	//
 	Schema interface{} `field:"optional" json:"schema" yaml:"schema"`
 }
 

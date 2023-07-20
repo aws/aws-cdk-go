@@ -19,24 +19,32 @@ package awsamplify
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html
+//
 type CfnApp_CustomRuleProperty struct {
 	// The source pattern for a URL rewrite or redirect rule.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 2048.
 	//
 	// *Pattern:* (?s).+
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-source
+	//
 	Source *string `field:"required" json:"source" yaml:"source"`
 	// The target pattern for a URL rewrite or redirect rule.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 2048.
 	//
 	// *Pattern:* (?s).+
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-target
+	//
 	Target *string `field:"required" json:"target" yaml:"target"`
 	// The condition for a URL rewrite or redirect rule, such as a country code.
 	//
 	// *Length Constraints:* Minimum length of 0. Maximum length of 2048.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-condition
+	//
 	Condition *string `field:"optional" json:"condition" yaml:"condition"`
 	// The status code for a URL rewrite or redirect rule.
 	//
@@ -49,6 +57,8 @@ type CfnApp_CustomRuleProperty struct {
 	// *Length Constraints:* Minimum length of 3. Maximum length of 7.
 	//
 	// *Pattern:* .{3,7}
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

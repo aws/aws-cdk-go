@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnAssociation) validateSetOutputLocationParameters(val inter
 	return nil
 }
 
-func (j *jsiiProxy_CfnAssociation) validateSetParametersParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnAssociation) validateSetTargetsParameters(val interface{}) error {
 	return nil
 }

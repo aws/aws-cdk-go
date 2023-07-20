@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnInferenceScheduler) validateSetRoleArnParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnInferenceScheduler) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnInferenceSchedulerParameters(scope constructs.Construct, id *string, props *CfnInferenceSchedulerProps) error {
 	return nil
 }

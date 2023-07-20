@@ -10,8 +10,11 @@ package awssam
 //   	SseEnabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-simpletable-ssespecification.html
+//
 type CfnSimpleTable_SSESpecificationProperty struct {
-	// `CfnSimpleTable.SSESpecificationProperty.SSEEnabled`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-simpletable-ssespecification.html#cfn-serverless-simpletable-ssespecification-sseenabled
+	//
 	SseEnabled interface{} `field:"optional" json:"sseEnabled" yaml:"sseEnabled"`
 }
 

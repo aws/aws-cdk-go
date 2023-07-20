@@ -238,6 +238,16 @@ func (j *jsiiProxy_CfnStream) validateSetStreamNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnStream) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnStreamParameters(scope constructs.Construct, id *string, props *CfnStreamProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

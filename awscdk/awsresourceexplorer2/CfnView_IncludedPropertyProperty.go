@@ -12,8 +12,12 @@ package awsresourceexplorer2
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-includedproperty.html
+//
 type CfnView_IncludedPropertyProperty struct {
 	// The name of the property that is included in this view.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-includedproperty.html#cfn-resourceexplorer2-view-includedproperty-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

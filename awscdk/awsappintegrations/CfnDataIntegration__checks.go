@@ -219,14 +219,6 @@ func (j *jsiiProxy_CfnDataIntegration) validateSetNameParameters(val *string) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnDataIntegration) validateSetObjectConfigurationParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnDataIntegration) validateSetScheduleConfigParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -257,6 +249,16 @@ func (j *jsiiProxy_CfnDataIntegration) validateSetScheduleConfigParameters(val i
 func (j *jsiiProxy_CfnDataIntegration) validateSetSourceUriParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataIntegration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

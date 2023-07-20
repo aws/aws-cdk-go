@@ -13,14 +13,20 @@ package awssimspaceweaver
 //   	ObjectKey: jsii.String("objectKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simspaceweaver-simulation-s3location.html
+//
 type CfnSimulation_S3LocationProperty struct {
 	// The name of an Amazon S3 bucket.
 	//
 	// For more information about buckets, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the *Amazon Simple Storage Service User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simspaceweaver-simulation-s3location.html#cfn-simspaceweaver-simulation-s3location-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The key name of an object in Amazon S3 .
 	//
 	// For more information about Amazon S3 objects and object keys, see [Uploading, downloading, and working with objects in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-downloading-objects.html) in the *Amazon Simple Storage Service User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simspaceweaver-simulation-s3location.html#cfn-simspaceweaver-simulation-s3location-objectkey
+	//
 	ObjectKey *string `field:"required" json:"objectKey" yaml:"objectKey"`
 }
 

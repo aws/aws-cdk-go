@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::LookoutMetrics::Alert`.
-//
 // The `AWS::LookoutMetrics::Alert` type creates an alert for an anomaly detector.
 //
 // Example:
@@ -36,6 +34,8 @@ import (
 //   	AlertDescription: jsii.String("alertDescription"),
 //   	AlertName: jsii.String("alertName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html
 //
 type CfnAlert interface {
 	awscdk.CfnResource
@@ -396,7 +396,6 @@ func (j *jsiiProxy_CfnAlert) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::LookoutMetrics::Alert`.
 func NewCfnAlert(scope constructs.Construct, id *string, props *CfnAlertProps) CfnAlert {
 	_init_.Initialize()
 
@@ -414,7 +413,6 @@ func NewCfnAlert(scope constructs.Construct, id *string, props *CfnAlertProps) C
 	return &j
 }
 
-// Create a new `AWS::LookoutMetrics::Alert`.
 func NewCfnAlert_Override(c CfnAlert, scope constructs.Construct, id *string, props *CfnAlertProps) {
 	_init_.Initialize()
 

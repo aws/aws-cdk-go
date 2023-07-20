@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnMetricStream) validateSetStatisticsConfigurationsParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnMetricStream) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMetricStreamParameters(scope constructs.Construct, id *string, props *CfnMetricStreamProps) error {
 	return nil
 }

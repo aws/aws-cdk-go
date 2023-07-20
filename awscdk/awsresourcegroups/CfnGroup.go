@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ResourceGroups::Group`.
+// Creates a resource group with the specified name and description.
 //
-// Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/getting_started-query.html) in the *AWS Resource Groups User Guide* . For more information about service-linked groups and service configurations, see [Service configurations for Resource Groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) .
+// You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/getting_started-query.html) in the *AWS Resource Groups User Guide* . For more information about service-linked groups and service configurations, see [Service configurations for Resource Groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) .
 //
 // *Minimum permissions*
 //
@@ -70,9 +70,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html
+//
 type CfnGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the new resource group.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -81,10 +84,6 @@ type CfnGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The service configuration currently associated with the resource group and in effect for the members of the resource group.
-	//
-	// A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
-	//
-	// > You can include either a `Configuration` or a `ResourceQuery` , but not both.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -105,8 +104,6 @@ type CfnGroup interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of a resource group.
-	//
-	// The name must be unique within the AWS Region in which you create the resource. To create multiple resource groups based on the same CloudFormation stack, you must generate unique names for each.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -117,25 +114,20 @@ type CfnGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group.
-	//
-	// For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
-	//
-	// > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
-	// > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
 	ResourceQuery() interface{}
 	SetResourceQuery(val interface{})
 	// A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
-	//
-	// > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
-	// > - You can include a `Resources` property only if you also specify a `Configuration` property.
 	Resources() *[]*string
 	SetResources(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tag key and value pairs that are attached to the resource group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tag key and value pairs that are attached to the resource group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -280,6 +272,7 @@ type CfnGroup interface {
 type jsiiProxy_CfnGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnGroup) AttrArn() *string {
@@ -432,6 +425,16 @@ func (j *jsiiProxy_CfnGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -453,7 +456,6 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ResourceGroups::Group`.
 func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
@@ -471,7 +473,6 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 	return &j
 }
 
-// Create a new `AWS::ResourceGroups::Group`.
 func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 
@@ -527,6 +528,17 @@ func (j *jsiiProxy_CfnGroup)SetResources(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"resources",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

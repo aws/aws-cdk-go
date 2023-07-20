@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnInsightRule) validateSetRuleStateParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnInsightRule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnInsightRuleParameters(scope constructs.Construct, id *string, props *CfnInsightRuleProps) error {
 	return nil
 }

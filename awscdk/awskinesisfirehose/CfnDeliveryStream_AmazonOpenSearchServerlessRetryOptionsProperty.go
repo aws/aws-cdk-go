@@ -10,8 +10,11 @@ package awskinesisfirehose
 //   	DurationInSeconds: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessretryoptions.html
+//
 type CfnDeliveryStream_AmazonOpenSearchServerlessRetryOptionsProperty struct {
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessRetryOptionsProperty.DurationInSeconds`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessretryoptions.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessretryoptions-durationinseconds
+	//
 	DurationInSeconds *float64 `field:"optional" json:"durationInSeconds" yaml:"durationInSeconds"`
 }
 

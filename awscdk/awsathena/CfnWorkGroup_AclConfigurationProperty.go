@@ -14,10 +14,14 @@ package awsathena
 //   	S3AclOption: jsii.String("s3AclOption"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-aclconfiguration.html
+//
 type CfnWorkGroup_AclConfigurationProperty struct {
 	// The Amazon S3 canned ACL that Athena should specify when storing query results.
 	//
 	// Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . If a query runs in a workgroup and the workgroup overrides client-side settings, then the Amazon S3 canned ACL specified in the workgroup's settings is used for all queries that run in the workgroup. For more information about Amazon S3 canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-aclconfiguration.html#cfn-athena-workgroup-aclconfiguration-s3acloption
+	//
 	S3AclOption *string `field:"required" json:"s3AclOption" yaml:"s3AclOption"`
 }
 

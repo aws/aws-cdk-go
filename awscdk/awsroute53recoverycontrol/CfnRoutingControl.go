@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53RecoveryControl::RoutingControl`.
+// Creates a routing control in Amazon Route 53 Application Recovery Controller.
 //
-// Creates a routing control in Amazon Route 53 Application Recovery Controller. Routing control states are maintained on the highly reliable cluster data plane.
+// Routing control states are maintained on the highly reliable cluster data plane.
 //
 // To get or update the state of the routing control, you must specify a cluster endpoint, which is an endpoint URL and an AWS Region. For more information, see [Code examples](https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
 //
@@ -27,6 +27,8 @@ import (
 //   	ClusterArn: jsii.String("clusterArn"),
 //   	ControlPanelArn: jsii.String("controlPanelArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html
 //
 type CfnRoutingControl interface {
 	awscdk.CfnResource
@@ -63,8 +65,6 @@ type CfnRoutingControl interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the routing control.
-	//
-	// You can use any non-white space character in the name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -375,7 +375,6 @@ func (j *jsiiProxy_CfnRoutingControl) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Route53RecoveryControl::RoutingControl`.
 func NewCfnRoutingControl(scope constructs.Construct, id *string, props *CfnRoutingControlProps) CfnRoutingControl {
 	_init_.Initialize()
 
@@ -393,7 +392,6 @@ func NewCfnRoutingControl(scope constructs.Construct, id *string, props *CfnRout
 	return &j
 }
 
-// Create a new `AWS::Route53RecoveryControl::RoutingControl`.
 func NewCfnRoutingControl_Override(c CfnRoutingControl, scope constructs.Construct, id *string, props *CfnRoutingControlProps) {
 	_init_.Initialize()
 

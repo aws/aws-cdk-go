@@ -54,10 +54,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiprimaryvalueconditionalformatting.html
+//
 type CfnDashboard_KPIPrimaryValueConditionalFormattingProperty struct {
 	// The conditional formatting of the primary value's icon.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiprimaryvalueconditionalformatting.html#cfn-quicksight-dashboard-kpiprimaryvalueconditionalformatting-icon
+	//
 	Icon interface{} `field:"optional" json:"icon" yaml:"icon"`
 	// The conditional formatting of the primary value's text color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiprimaryvalueconditionalformatting.html#cfn-quicksight-dashboard-kpiprimaryvalueconditionalformatting-textcolor
+	//
 	TextColor interface{} `field:"optional" json:"textColor" yaml:"textColor"`
 }
 

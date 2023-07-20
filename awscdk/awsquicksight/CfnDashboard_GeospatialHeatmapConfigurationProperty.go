@@ -18,8 +18,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialheatmapconfiguration.html
+//
 type CfnDashboard_GeospatialHeatmapConfigurationProperty struct {
 	// The color scale specification for the heatmap point style.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialheatmapconfiguration.html#cfn-quicksight-dashboard-geospatialheatmapconfiguration-heatmapcolor
+	//
 	HeatmapColor interface{} `field:"optional" json:"heatmapColor" yaml:"heatmapColor"`
 }
 

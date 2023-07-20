@@ -89,12 +89,11 @@ history when CloudFormation deletes your state machine.
 Alternatively you can specify an existing step functions definition by providing a string or a file that contains the ASL JSON.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-sfn.NewStateMachine(stack, jsii.String("StateMachineFromString"), &StateMachineProps{
+sfn.NewStateMachine(this, jsii.String("StateMachineFromString"), &StateMachineProps{
 	DefinitionBody: sfn.DefinitionBody_FromString(jsii.String("{\"StartAt\":\"Pass\",\"States\":{\"Pass\":{\"Type\":\"Pass\",\"End\":true}}}")),
 })
 
-sfn.NewStateMachine(stack, jsii.String("StateMachineFromFile"), &StateMachineProps{
+sfn.NewStateMachine(this, jsii.String("StateMachineFromFile"), &StateMachineProps{
 	DefinitionBody: sfn.DefinitionBody_FromFile(jsii.String("./asl.json")),
 })
 ```

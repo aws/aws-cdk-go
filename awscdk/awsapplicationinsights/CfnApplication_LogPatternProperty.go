@@ -14,16 +14,24 @@ package awsapplicationinsights
 //   	Rank: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
+//
 type CfnApplication_LogPatternProperty struct {
 	// A regular expression that defines the log pattern.
 	//
 	// A log pattern can contain up to 50 characters, and it cannot be empty.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
+	//
 	Pattern *string `field:"required" json:"pattern" yaml:"pattern"`
 	// The name of the log pattern.
 	//
 	// A log pattern name can contain up to 50 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
+	//
 	PatternName *string `field:"required" json:"patternName" yaml:"patternName"`
 	// The rank of the log pattern.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
+	//
 	Rank *float64 `field:"required" json:"rank" yaml:"rank"`
 }
 

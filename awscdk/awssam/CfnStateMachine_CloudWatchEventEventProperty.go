@@ -17,14 +17,20 @@ package awssam
 //   	InputPath: jsii.String("inputPath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-cloudwatcheventevent.html
+//
 type CfnStateMachine_CloudWatchEventEventProperty struct {
-	// `CfnStateMachine.CloudWatchEventEventProperty.Pattern`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-cloudwatcheventevent.html#cfn-serverless-statemachine-cloudwatcheventevent-pattern
+	//
 	Pattern interface{} `field:"required" json:"pattern" yaml:"pattern"`
-	// `CfnStateMachine.CloudWatchEventEventProperty.EventBusName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-cloudwatcheventevent.html#cfn-serverless-statemachine-cloudwatcheventevent-eventbusname
+	//
 	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
-	// `CfnStateMachine.CloudWatchEventEventProperty.Input`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-cloudwatcheventevent.html#cfn-serverless-statemachine-cloudwatcheventevent-input
+	//
 	Input *string `field:"optional" json:"input" yaml:"input"`
-	// `CfnStateMachine.CloudWatchEventEventProperty.InputPath`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-cloudwatcheventevent.html#cfn-serverless-statemachine-cloudwatcheventevent-inputpath
+	//
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 }
 

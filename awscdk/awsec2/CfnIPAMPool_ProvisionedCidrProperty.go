@@ -16,10 +16,14 @@ package awsec2
 //   	Cidr: jsii.String("cidr"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-provisionedcidr.html
+//
 type CfnIPAMPool_ProvisionedCidrProperty struct {
 	// The CIDR provisioned to the IPAM pool.
 	//
 	// A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-provisionedcidr.html#cfn-ec2-ipampool-provisionedcidr-cidr
+	//
 	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 }
 

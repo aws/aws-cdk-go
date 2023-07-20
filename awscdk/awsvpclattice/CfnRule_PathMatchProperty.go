@@ -18,12 +18,18 @@ package awsvpclattice
 //   	CaseSensitive: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatch.html
+//
 type CfnRule_PathMatchProperty struct {
 	// The type of path match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatch.html#cfn-vpclattice-rule-pathmatch-match
+	//
 	Match interface{} `field:"required" json:"match" yaml:"match"`
 	// Indicates whether the match is case sensitive.
 	//
 	// Defaults to false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatch.html#cfn-vpclattice-rule-pathmatch-casesensitive
+	//
 	CaseSensitive interface{} `field:"optional" json:"caseSensitive" yaml:"caseSensitive"`
 }
 

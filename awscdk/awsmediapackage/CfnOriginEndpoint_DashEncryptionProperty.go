@@ -20,6 +20,8 @@ package awsmediapackage
 //   		// the properties below are optional
 //   		CertificateArn: jsii.String("certificateArn"),
 //   		EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   			PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   			PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   		},
 //   	},
 //
@@ -27,12 +29,18 @@ package awsmediapackage
 //   	KeyRotationIntervalSeconds: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
+//
 type CfnOriginEndpoint_DashEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
+	//
 	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 	// Number of seconds before AWS Elemental MediaPackage rotates to a new key.
 	//
 	// By default, rotation is set to 60 seconds. Set to `0` to disable key rotation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
+	//
 	KeyRotationIntervalSeconds *float64 `field:"optional" json:"keyRotationIntervalSeconds" yaml:"keyRotationIntervalSeconds"`
 }
 

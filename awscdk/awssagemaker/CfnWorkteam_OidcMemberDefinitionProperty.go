@@ -16,8 +16,11 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-oidcmemberdefinition.html
+//
 type CfnWorkteam_OidcMemberDefinitionProperty struct {
-	// `CfnWorkteam.OidcMemberDefinitionProperty.OidcGroups`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-oidcmemberdefinition.html#cfn-sagemaker-workteam-oidcmemberdefinition-oidcgroups
+	//
 	OidcGroups *[]*string `field:"required" json:"oidcGroups" yaml:"oidcGroups"`
 }
 

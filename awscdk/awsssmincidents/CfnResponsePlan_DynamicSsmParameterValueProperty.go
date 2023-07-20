@@ -12,10 +12,14 @@ package awsssmincidents
 //   	Variable: jsii.String("variable"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparametervalue.html
+//
 type CfnResponsePlan_DynamicSsmParameterValueProperty struct {
 	// Variable dynamic parameters.
 	//
 	// A parameter value is determined when an incident is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparametervalue.html#cfn-ssmincidents-responseplan-dynamicssmparametervalue-variable
+	//
 	Variable *string `field:"optional" json:"variable" yaml:"variable"`
 }
 

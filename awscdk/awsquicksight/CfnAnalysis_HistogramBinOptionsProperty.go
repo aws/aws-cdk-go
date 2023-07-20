@@ -20,14 +20,24 @@ package awsquicksight
 //   	StartValue: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-histogrambinoptions.html
+//
 type CfnAnalysis_HistogramBinOptionsProperty struct {
 	// The options that determine the bin count of a histogram.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-histogrambinoptions.html#cfn-quicksight-analysis-histogrambinoptions-bincount
+	//
 	BinCount interface{} `field:"optional" json:"binCount" yaml:"binCount"`
 	// The options that determine the bin width of a histogram.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-histogrambinoptions.html#cfn-quicksight-analysis-histogrambinoptions-binwidth
+	//
 	BinWidth interface{} `field:"optional" json:"binWidth" yaml:"binWidth"`
 	// The options that determine the selected bin type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-histogrambinoptions.html#cfn-quicksight-analysis-histogrambinoptions-selectedbintype
+	//
 	SelectedBinType *string `field:"optional" json:"selectedBinType" yaml:"selectedBinType"`
 	// The options that determine the bin start value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-histogrambinoptions.html#cfn-quicksight-analysis-histogrambinoptions-startvalue
+	//
 	StartValue *float64 `field:"optional" json:"startValue" yaml:"startValue"`
 }
 

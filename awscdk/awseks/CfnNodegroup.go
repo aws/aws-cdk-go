@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EKS::Nodegroup`.
+// Creates a managed node group for an Amazon EKS cluster.
 //
-// Creates a managed node group for an Amazon EKS cluster. You can only create a node group for your cluster that is equal to the current Kubernetes version for the cluster.
+// You can only create a node group for your cluster that is equal to the current Kubernetes version for the cluster.
 //
 // An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that are managed by AWS for an Amazon EKS cluster. For more information, see [Managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) in the *Amazon EKS User Guide* .
 //
@@ -77,12 +77,13 @@ import (
 //   	Version: jsii.String("version"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html
+//
 type CfnNodegroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The AMI type for your node group.
-	//
-	// If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `amiType` , or the node group deployment will fail. If your launch template uses a Windows custom AMI, then add `eks:kube-proxy-windows` to your Windows nodes `rolearn` in the `aws-auth` `ConfigMap` . For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	AmiType() *string
 	SetAmiType(val *string)
 	// The Amazon Resource Name (ARN) associated with the managed node group.
@@ -108,28 +109,18 @@ type CfnNodegroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The root device disk size (in GiB) for your node group instances.
-	//
-	// The default disk size is 20 GiB for Linux and Bottlerocket. The default disk size is 50 GiB for Windows. If you specify `launchTemplate` , then don't specify `diskSize` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	DiskSize() *float64
 	SetDiskSize(val *float64)
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
-	//
-	// If an update fails because pods could not be drained, you can force the update after it fails to terminate the old node whether or not any pods are running on the node.
 	ForceUpdateEnabled() interface{}
 	SetForceUpdateEnabled(val interface{})
 	// Specify the instance types for a node group.
-	//
-	// If you specify a GPU instance type, make sure to also specify an applicable GPU AMI type with the `amiType` parameter. If you specify `launchTemplate` , then you can specify zero or one instance type in your launch template *or* you can specify 0-20 instance types for `instanceTypes` . If however, you specify an instance type in your launch template *and* specify any `instanceTypes` , the node group deployment will fail. If you don't specify an instance type in a launch template or for `instanceTypes` , then `t3.medium` is used, by default. If you specify `Spot` for `capacityType` , then we recommend specifying multiple values for `instanceTypes` . For more information, see [Managed node group capacity types](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) and [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	InstanceTypes() *[]*string
 	SetInstanceTypes(val *[]*string)
 	// The Kubernetes labels applied to the nodes in the node group.
-	//
-	// > Only labels that are applied with the Amazon EKS API are shown here. There may be other Kubernetes labels applied to the nodes in this group.
 	Labels() interface{}
 	SetLabels(val interface{})
 	// An object representing a node group's launch template specification.
-	//
-	// If specified, then do not specify `instanceTypes` , `diskSize` , or `remoteAccess` and make sure that the launch template meets the requirements in `launchTemplateSpecification` .
 	LaunchTemplate() interface{}
 	SetLaunchTemplate(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -148,8 +139,6 @@ type CfnNodegroup interface {
 	NodegroupName() *string
 	SetNodegroupName(val *string)
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
-	//
-	// The Amazon EKS worker node `kubelet` daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API calls through an IAM instance profile and associated policies. Before you can launch nodes and register them into a cluster, you must create an IAM role for those nodes to use when they are launched. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html) in the **Amazon EKS User Guide** . If you specify `launchTemplate` , then don't specify [`IamInstanceProfile`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html) in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	NodeRole() *string
 	SetNodeRole(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -158,13 +147,9 @@ type CfnNodegroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The AMI version of the Amazon EKS optimized AMI to use with your node group (for example, `1.14.7- *YYYYMMDD*` ). By default, the latest available AMI version for the node group's current Kubernetes version is used. For more information, see [Amazon EKS optimized Linux AMI Versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html) in the *Amazon EKS User Guide* .
-	//
-	// > Changing this value triggers an update of the node group if one is available. You can't update other properties at the same time as updating `Release Version` .
 	ReleaseVersion() *string
 	SetReleaseVersion(val *string)
 	// The remote access configuration to use with your node group.
-	//
-	// For Linux, the protocol is SSH. For Windows, the protocol is RDP. If you specify `launchTemplate` , then don't specify `remoteAccess` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	RemoteAccess() interface{}
 	SetRemoteAccess(val interface{})
 	// The scaling configuration details for the Auto Scaling group that is created for your node group.
@@ -175,17 +160,14 @@ type CfnNodegroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The subnets to use for the Auto Scaling group that is created for your node group.
-	//
-	// If you specify `launchTemplate` , then don't specify [`SubnetId`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html) in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	Subnets() *[]*string
 	SetSubnets(val *[]*string)
-	// The metadata applied to the node group to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value. You define both. Node group tags do not propagate to any other resources associated with the node group, such as the Amazon EC2 instances or subnets.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The metadata applied to the node group to assist with categorization and organization.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
-	//
-	// Effect is one of `No_Schedule` , `Prefer_No_Schedule` , or `No_Execute` . Kubernetes taints can be used together with tolerations to control how workloads are scheduled to your nodes. For more information, see [Node taints on managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html) .
 	Taints() interface{}
 	SetTaints(val interface{})
 	// The node group update configuration.
@@ -205,10 +187,6 @@ type CfnNodegroup interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The Kubernetes version to use for your managed nodes.
-	//
-	// By default, the Kubernetes version of the cluster is used, and this is the only accepted specified value. If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `version` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
-	//
-	// > You can't update other properties at the same time as updating `Version` .
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -342,6 +320,7 @@ type CfnNodegroup interface {
 type jsiiProxy_CfnNodegroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNodegroup) AmiType() *string {
@@ -614,6 +593,16 @@ func (j *jsiiProxy_CfnNodegroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNodegroup) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNodegroup) Taints() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -665,7 +654,6 @@ func (j *jsiiProxy_CfnNodegroup) Version() *string {
 }
 
 
-// Create a new `AWS::EKS::Nodegroup`.
 func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroupProps) CfnNodegroup {
 	_init_.Initialize()
 
@@ -683,7 +671,6 @@ func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroup
 	return &j
 }
 
-// Create a new `AWS::EKS::Nodegroup`.
 func NewCfnNodegroup_Override(c CfnNodegroup, scope constructs.Construct, id *string, props *CfnNodegroupProps) {
 	_init_.Initialize()
 
@@ -826,6 +813,14 @@ func (j *jsiiProxy_CfnNodegroup)SetSubnets(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnets",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNodegroup)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

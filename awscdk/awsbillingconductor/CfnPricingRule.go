@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::BillingConductor::PricingRule`.
-//
 // Creates a pricing rule which can be associated with a pricing plan, or a set of pricing plans.
 //
 // Example:
@@ -43,9 +41,12 @@ import (
 //   	UsageType: jsii.String("usageType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingrule.html
+//
 type CfnPricingRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) used to uniquely identify a pricing rule.
 	AttrArn() *string
 	// The pricing plans count that this pricing rule is associated with.
@@ -88,10 +89,6 @@ type CfnPricingRule interface {
 	// The tree node.
 	Node() constructs.Node
 	// Operation is the specific AWS action covered by this line item.
-	//
-	// This describes the specific usage of the line item.
-	//
-	// If the `Scope` attribute is set to `SKU` , this attribute indicates which operation the `PricingRule` is modifying. For example, a value of `RunInstances:0202` indicates the operation of running an Amazon EC2 instance.
 	Operation() *string
 	SetOperation(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -109,8 +106,11 @@ type CfnPricingRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A map that contains tag keys and tag values that are attached to a pricing rule.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A map that contains tag keys and tag values that are attached to a pricing rule.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The set of tiering configurations for the pricing rule.
 	Tiering() interface{}
 	SetTiering(val interface{})
@@ -264,6 +264,7 @@ type CfnPricingRule interface {
 type jsiiProxy_CfnPricingRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPricingRule) AttrArn() *string {
@@ -466,6 +467,16 @@ func (j *jsiiProxy_CfnPricingRule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPricingRule) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPricingRule) Tiering() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -517,7 +528,6 @@ func (j *jsiiProxy_CfnPricingRule) UsageType() *string {
 }
 
 
-// Create a new `AWS::BillingConductor::PricingRule`.
 func NewCfnPricingRule(scope constructs.Construct, id *string, props *CfnPricingRuleProps) CfnPricingRule {
 	_init_.Initialize()
 
@@ -535,7 +545,6 @@ func NewCfnPricingRule(scope constructs.Construct, id *string, props *CfnPricing
 	return &j
 }
 
-// Create a new `AWS::BillingConductor::PricingRule`.
 func NewCfnPricingRule_Override(c CfnPricingRule, scope constructs.Construct, id *string, props *CfnPricingRuleProps) {
 	_init_.Initialize()
 
@@ -604,6 +613,17 @@ func (j *jsiiProxy_CfnPricingRule)SetService(val *string) {
 	_jsii_.Set(
 		j,
 		"service",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPricingRule)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

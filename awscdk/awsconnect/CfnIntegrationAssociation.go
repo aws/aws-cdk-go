@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::IntegrationAssociation`.
-//
 // Specifies the association of an AWS resource such as Lex bot (both v1 and v2) and Lambda function with an Amazon Connect instance.
 //
 // Example:
@@ -23,6 +21,8 @@ import (
 //   	IntegrationArn: jsii.String("integrationArn"),
 //   	IntegrationType: jsii.String("integrationType"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html
 //
 type CfnIntegrationAssociation interface {
 	awscdk.CfnResource
@@ -39,22 +39,12 @@ type CfnIntegrationAssociation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) of the instance.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `100`.
 	InstanceId() *string
 	SetInstanceId(val *string)
 	// ARN of the integration being associated with the instance.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `140`.
 	IntegrationArn() *string
 	SetIntegrationArn(val *string)
 	// Specifies the integration type to be associated with the instance.
-	//
-	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`.
 	IntegrationType() *string
 	SetIntegrationType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -365,7 +355,6 @@ func (j *jsiiProxy_CfnIntegrationAssociation) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::Connect::IntegrationAssociation`.
 func NewCfnIntegrationAssociation(scope constructs.Construct, id *string, props *CfnIntegrationAssociationProps) CfnIntegrationAssociation {
 	_init_.Initialize()
 
@@ -383,7 +372,6 @@ func NewCfnIntegrationAssociation(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::Connect::IntegrationAssociation`.
 func NewCfnIntegrationAssociation_Override(c CfnIntegrationAssociation, scope constructs.Construct, id *string, props *CfnIntegrationAssociationProps) {
 	_init_.Initialize()
 

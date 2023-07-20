@@ -25,10 +25,16 @@ package awsquicksight
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldcustomtextcontent.html
+//
 type CfnAnalysis_TableFieldCustomTextContentProperty struct {
 	// The font configuration of the custom text content for the table URL link content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldcustomtextcontent.html#cfn-quicksight-analysis-tablefieldcustomtextcontent-fontconfiguration
+	//
 	FontConfiguration interface{} `field:"required" json:"fontConfiguration" yaml:"fontConfiguration"`
 	// The string value of the custom text content for the table URL link content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldcustomtextcontent.html#cfn-quicksight-analysis-tablefieldcustomtextcontent-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

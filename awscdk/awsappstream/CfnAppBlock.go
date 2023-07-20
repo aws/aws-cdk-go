@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::AppBlock`.
+// This resource creates an app block.
 //
-// This resource creates an app block. App blocks store details about the virtual hard disk that contains the files for the application in an S3 bucket. It also stores the setup script with details about how to mount the virtual hard disk. App blocks are only supported for Elastic fleets.
+// App blocks store details about the virtual hard disk that contains the files for the application in an S3 bucket. It also stores the setup script with details about how to mount the virtual hard disk. App blocks are only supported for Elastic fleets.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -65,9 +65,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html
+//
 type CfnAppBlock interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the app block.
 	AttrArn() *string
 	// The time when the app block was created.
@@ -98,8 +101,6 @@ type CfnAppBlock interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the app block.
-	//
-	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -125,8 +126,11 @@ type CfnAppBlock interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags of the app block.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags of the app block.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -271,6 +275,7 @@ type CfnAppBlock interface {
 type jsiiProxy_CfnAppBlock struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAppBlock) AttrArn() *string {
@@ -453,6 +458,16 @@ func (j *jsiiProxy_CfnAppBlock) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAppBlock) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAppBlock) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -474,7 +489,6 @@ func (j *jsiiProxy_CfnAppBlock) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppStream::AppBlock`.
 func NewCfnAppBlock(scope constructs.Construct, id *string, props *CfnAppBlockProps) CfnAppBlock {
 	_init_.Initialize()
 
@@ -492,7 +506,6 @@ func NewCfnAppBlock(scope constructs.Construct, id *string, props *CfnAppBlockPr
 	return &j
 }
 
-// Create a new `AWS::AppStream::AppBlock`.
 func NewCfnAppBlock_Override(c CfnAppBlock, scope constructs.Construct, id *string, props *CfnAppBlockProps) {
 	_init_.Initialize()
 
@@ -567,6 +580,17 @@ func (j *jsiiProxy_CfnAppBlock)SetSourceS3Location(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceS3Location",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppBlock)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

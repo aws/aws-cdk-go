@@ -25,14 +25,20 @@ package awscodebuild
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html
+//
 type CfnProject_LogsConfigProperty struct {
 	// Information about CloudWatch Logs for a build project.
 	//
 	// CloudWatch Logs are enabled by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html#cfn-codebuild-project-logsconfig-cloudwatchlogs
+	//
 	CloudWatchLogs interface{} `field:"optional" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
 	// Information about logs built to an S3 bucket for a build project.
 	//
 	// S3 logs are not enabled by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html#cfn-codebuild-project-logsconfig-s3logs
+	//
 	S3Logs interface{} `field:"optional" json:"s3Logs" yaml:"s3Logs"`
 }
 

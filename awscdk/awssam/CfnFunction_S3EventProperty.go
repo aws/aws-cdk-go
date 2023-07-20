@@ -23,12 +23,17 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3event.html
+//
 type CfnFunction_S3EventProperty struct {
-	// `CfnFunction.S3EventProperty.Bucket`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3event.html#cfn-serverless-function-s3event-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// `CfnFunction.S3EventProperty.Events`.
-	Events interface{} `field:"required" json:"events" yaml:"events"`
-	// `CfnFunction.S3EventProperty.Filter`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3event.html#cfn-serverless-function-s3event-events
+	//
+	Events *string `field:"required" json:"events" yaml:"events"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3event.html#cfn-serverless-function-s3event-filter
+	//
 	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
 }
 

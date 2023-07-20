@@ -28,12 +28,18 @@ package awselasticbeanstalk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationresourcelifecycleconfig.html
+//
 type CfnApplication_ApplicationResourceLifecycleConfigProperty struct {
 	// The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
 	//
 	// The `ServiceRole` property is required the first time that you provide a `ResourceLifecycleConfig` for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationresourcelifecycleconfig.html#cfn-elasticbeanstalk-application-applicationresourcelifecycleconfig-servicerole
+	//
 	ServiceRole *string `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// Defines lifecycle settings for application versions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationresourcelifecycleconfig.html#cfn-elasticbeanstalk-application-applicationresourcelifecycleconfig-versionlifecycleconfig
+	//
 	VersionLifecycleConfig interface{} `field:"optional" json:"versionLifecycleConfig" yaml:"versionLifecycleConfig"`
 }
 

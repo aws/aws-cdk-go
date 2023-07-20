@@ -12,8 +12,12 @@ package awslakeformation
 //   	DataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html
+//
 type CfnPermissions_DataLakePrincipalProperty struct {
 	// An identifier for the Lake Formation principal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html#cfn-lakeformation-permissions-datalakeprincipal-datalakeprincipalidentifier
+	//
 	DataLakePrincipalIdentifier *string `field:"optional" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 

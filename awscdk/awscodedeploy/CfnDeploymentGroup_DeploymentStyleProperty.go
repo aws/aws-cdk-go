@@ -13,12 +13,18 @@ package awscodedeploy
 //   	DeploymentType: jsii.String("deploymentType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html
+//
 type CfnDeploymentGroup_DeploymentStyleProperty struct {
 	// Indicates whether to route deployment traffic behind a load balancer.
 	//
 	// > An Amazon EC2 Application Load Balancer or Network Load Balancer is required for an Amazon ECS deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html#cfn-codedeploy-deploymentgroup-deploymentstyle-deploymentoption
+	//
 	DeploymentOption *string `field:"optional" json:"deploymentOption" yaml:"deploymentOption"`
 	// Indicates whether to run an in-place or blue/green deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html#cfn-codedeploy-deploymentgroup-deploymentstyle-deploymenttype
+	//
 	DeploymentType *string `field:"optional" json:"deploymentType" yaml:"deploymentType"`
 }
 

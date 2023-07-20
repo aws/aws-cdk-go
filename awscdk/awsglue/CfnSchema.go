@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::Schema`.
-//
 // The `AWS::Glue::Schema` is an AWS Glue resource type that manages schemas in the AWS Glue Schema Registry.
 //
 // Example:
@@ -42,11 +40,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
+//
 type CfnSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the schema.
 	AttrArn() *string
+	// Represents the version ID associated with the initial schema version.
 	AttrInitialSchemaVersionId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,8 +56,6 @@ type CfnSchema interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema.
-	//
-	// This is only required for updating a checkpoint.
 	CheckpointVersion() interface{}
 	SetCheckpointVersion(val interface{})
 	// The compatibility mode of the schema.
@@ -66,8 +66,6 @@ type CfnSchema interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The data format of the schema definition.
-	//
-	// Currently only `AVRO` is supported.
 	DataFormat() *string
 	SetDataFormat(val *string)
 	// A description of the schema if specified when created.
@@ -84,8 +82,6 @@ type CfnSchema interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
-	//
-	// No whitespace.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -105,8 +101,11 @@ type CfnSchema interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -251,6 +250,7 @@ type CfnSchema interface {
 type jsiiProxy_CfnSchema struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSchema) AttrArn() *string {
@@ -433,6 +433,16 @@ func (j *jsiiProxy_CfnSchema) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSchema) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSchema) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -454,7 +464,6 @@ func (j *jsiiProxy_CfnSchema) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Glue::Schema`.
 func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps) CfnSchema {
 	_init_.Initialize()
 
@@ -472,7 +481,6 @@ func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps)
 	return &j
 }
 
-// Create a new `AWS::Glue::Schema`.
 func NewCfnSchema_Override(c CfnSchema, scope constructs.Construct, id *string, props *CfnSchemaProps) {
 	_init_.Initialize()
 
@@ -553,6 +561,17 @@ func (j *jsiiProxy_CfnSchema)SetSchemaDefinition(val *string) {
 	_jsii_.Set(
 		j,
 		"schemaDefinition",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSchema)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

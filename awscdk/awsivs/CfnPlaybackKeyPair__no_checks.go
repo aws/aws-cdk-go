@@ -80,6 +80,10 @@ func validateCfnPlaybackKeyPair_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaybackKeyPair) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPlaybackKeyPairParameters(scope constructs.Construct, id *string, props *CfnPlaybackKeyPairProps) error {
 	return nil
 }

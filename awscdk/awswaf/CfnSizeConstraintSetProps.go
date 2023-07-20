@@ -25,10 +25,16 @@ package awswaf
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html
+//
 type CfnSizeConstraintSetProps struct {
 	// The name, if any, of the `SizeConstraintSet` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The size constraint and the part of the web request to check.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-sizeconstraints
+	//
 	SizeConstraints interface{} `field:"required" json:"sizeConstraints" yaml:"sizeConstraints"`
 }
 

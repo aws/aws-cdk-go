@@ -12,8 +12,12 @@ package awsauditmanager
 //   	ServiceName: jsii.String("serviceName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
+//
 type CfnAssessment_AWSServiceProperty struct {
 	// The name of the AWS service .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
+	//
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 

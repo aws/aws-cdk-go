@@ -14,6 +14,8 @@ package awsnetworkfirewall
 //   	AddressDefinition: jsii.String("addressDefinition"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-address.html
+//
 type CfnRuleGroup_AddressProperty struct {
 	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
 	//
@@ -27,6 +29,8 @@ type CfnRuleGroup_AddressProperty struct {
 	// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
 	//
 	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-address.html#cfn-networkfirewall-rulegroup-address-addressdefinition
+	//
 	AddressDefinition *string `field:"required" json:"addressDefinition" yaml:"addressDefinition"`
 }
 

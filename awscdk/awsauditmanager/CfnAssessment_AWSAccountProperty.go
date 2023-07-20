@@ -14,12 +14,20 @@ package awsauditmanager
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
+//
 type CfnAssessment_AWSAccountProperty struct {
 	// The email address that's associated with the AWS account .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
+	//
 	EmailAddress *string `field:"optional" json:"emailAddress" yaml:"emailAddress"`
 	// The identifier for the AWS account .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
+	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The name of the AWS account .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -80,14 +80,6 @@ func validateCfnPlacement_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnPlacement) validateSetAssociatedDevicesParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnPlacement) validateSetAttributesParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPlacement) validateSetProjectNameParameters(val *string) error {
 	return nil
 }

@@ -14,12 +14,16 @@ package awswafv2
 //   	ImmunityTime: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html
+//
 type CfnWebACL_ImmunityTimePropertyProperty struct {
 	// The amount of time, in seconds, that a `CAPTCHA` or challenge timestamp is considered valid by AWS WAF .
 	//
 	// The default setting is 300.
 	//
 	// For the Challenge action, the minimum setting is 300.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html#cfn-wafv2-webacl-immunitytimeproperty-immunitytime
+	//
 	ImmunityTime *float64 `field:"required" json:"immunityTime" yaml:"immunityTime"`
 }
 

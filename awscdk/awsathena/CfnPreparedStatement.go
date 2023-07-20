@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Athena::PreparedStatement`.
-//
 // Specifies a prepared statement for use with SQL queries in Athena.
 //
 // Example:
@@ -26,6 +24,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html
 //
 type CfnPreparedStatement interface {
 	awscdk.CfnResource
@@ -359,7 +359,6 @@ func (j *jsiiProxy_CfnPreparedStatement) WorkGroup() *string {
 }
 
 
-// Create a new `AWS::Athena::PreparedStatement`.
 func NewCfnPreparedStatement(scope constructs.Construct, id *string, props *CfnPreparedStatementProps) CfnPreparedStatement {
 	_init_.Initialize()
 
@@ -377,7 +376,6 @@ func NewCfnPreparedStatement(scope constructs.Construct, id *string, props *CfnP
 	return &j
 }
 
-// Create a new `AWS::Athena::PreparedStatement`.
 func NewCfnPreparedStatement_Override(c CfnPreparedStatement, scope constructs.Construct, id *string, props *CfnPreparedStatementProps) {
 	_init_.Initialize()
 

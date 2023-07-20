@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OSIS::Pipeline`.
-//
 // The AWS::OSIS::Pipeline resource creates an Amazon OpenSearch Ingestion pipeline.
 //
 // Example:
@@ -47,9 +45,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html
+//
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A list of the ingestion endpoints for the pipeline that you can send data to.
 	//
 	// Currently, only a single ingestion endpoint is supported for a pipeline. For example, `my-pipeline-123456789012.us-east-1.osis.amazonaws.com` .
@@ -103,8 +104,11 @@ type CfnPipeline interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// List of tags to add to the pipeline upon creation.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// List of tags to add to the pipeline upon creation.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -252,6 +256,7 @@ type CfnPipeline interface {
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPipeline) AttrIngestEndpointUrls() *[]*string {
@@ -424,6 +429,16 @@ func (j *jsiiProxy_CfnPipeline) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipeline) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipeline) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -455,7 +470,6 @@ func (j *jsiiProxy_CfnPipeline) VpcOptions() interface{} {
 }
 
 
-// Create a new `AWS::OSIS::Pipeline`.
 func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
@@ -473,7 +487,6 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 	return &j
 }
 
-// Create a new `AWS::OSIS::Pipeline`.
 func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
@@ -535,6 +548,17 @@ func (j *jsiiProxy_CfnPipeline)SetPipelineName(val *string) {
 	_jsii_.Set(
 		j,
 		"pipelineName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

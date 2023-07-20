@@ -14,8 +14,12 @@ package awskinesisanalytics
 //   	ResourceArn: jsii.String("resourceArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput.html
+//
 type CfnApplicationOutputV2_KinesisStreamsOutputProperty struct {
 	// The ARN of the destination Kinesis data stream to write to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput.html#cfn-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput-resourcearn
+	//
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 

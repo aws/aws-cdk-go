@@ -12,8 +12,12 @@ package awsec2
 //   	GroupId: jsii.String("groupId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html
+//
 type CfnSpotFleet_GroupIdentifierProperty struct {
 	// The ID of the security group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html#cfn-ec2-spotfleet-groupidentifier-groupid
+	//
 	GroupId *string `field:"required" json:"groupId" yaml:"groupId"`
 }
 

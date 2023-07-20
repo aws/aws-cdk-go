@@ -19,10 +19,16 @@ package awspinpoint
 //   	Version: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-sourcesegments.html
+//
 type CfnSegment_SourceSegmentsProperty struct {
 	// The unique identifier for the source segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-sourcesegments.html#cfn-pinpoint-segment-sourcesegments-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The version number of the source segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-sourcesegments.html#cfn-pinpoint-segment-sourcesegments-version
+	//
 	Version *float64 `field:"optional" json:"version" yaml:"version"`
 }
 

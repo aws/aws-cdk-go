@@ -6,7 +6,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdkbatchalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -70,7 +69,7 @@ type IEcsContainerDefinition interface {
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html
 	//
 	// Experimental.
-	Secrets() *map[string]awssecretsmanager.ISecret
+	Secrets() *map[string]Secret
 	// The user name to use inside the container.
 	// Experimental.
 	User() *string
@@ -197,8 +196,8 @@ func (j *jsiiProxy_IEcsContainerDefinition) ReadonlyRootFilesystem() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_IEcsContainerDefinition) Secrets() *map[string]awssecretsmanager.ISecret {
-	var returns *map[string]awssecretsmanager.ISecret
+func (j *jsiiProxy_IEcsContainerDefinition) Secrets() *map[string]Secret {
+	var returns *map[string]Secret
 	_jsii_.Get(
 		j,
 		"secrets",

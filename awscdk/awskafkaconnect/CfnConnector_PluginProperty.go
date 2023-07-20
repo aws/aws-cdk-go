@@ -15,8 +15,12 @@ package awskafkaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-plugin.html
+//
 type CfnConnector_PluginProperty struct {
 	// Details about a custom plugin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-plugin.html#cfn-kafkaconnect-connector-plugin-customplugin
+	//
 	CustomPlugin interface{} `field:"required" json:"customPlugin" yaml:"customPlugin"`
 }
 

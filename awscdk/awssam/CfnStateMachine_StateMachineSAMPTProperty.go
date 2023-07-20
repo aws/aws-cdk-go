@@ -10,8 +10,11 @@ package awssam
 //   	StateMachineName: jsii.String("stateMachineName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-statemachinesampt.html
+//
 type CfnStateMachine_StateMachineSAMPTProperty struct {
-	// `CfnStateMachine.StateMachineSAMPTProperty.StateMachineName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-statemachinesampt.html#cfn-serverless-statemachine-statemachinesampt-statemachinename
+	//
 	StateMachineName *string `field:"required" json:"stateMachineName" yaml:"stateMachineName"`
 }
 

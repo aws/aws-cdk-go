@@ -29,10 +29,16 @@ package awsmsk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html
+//
 type CfnCluster_ConnectivityInfoProperty struct {
 	// Access control settings for the cluster's brokers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html#cfn-msk-cluster-connectivityinfo-publicaccess
+	//
 	PublicAccess interface{} `field:"optional" json:"publicAccess" yaml:"publicAccess"`
 	// VPC connection control settings for brokers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html#cfn-msk-cluster-connectivityinfo-vpcconnectivity
+	//
 	VpcConnectivity interface{} `field:"optional" json:"vpcConnectivity" yaml:"vpcConnectivity"`
 }
 

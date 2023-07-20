@@ -132,6 +132,10 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetServiceRoleArnParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeploymentGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetTriggerConfigurationsParameters(val interface{}) error {
 	return nil
 }

@@ -17,10 +17,14 @@ package awsglue
 //   	PrecisionRecallTradeoff: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-findmatchesparameters.html
+//
 type CfnMLTransform_FindMatchesParametersProperty struct {
 	// The name of a column that uniquely identifies rows in the source table.
 	//
 	// Used to help identify matching records.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-findmatchesparameters.html#cfn-glue-mltransform-findmatchesparameters-primarykeycolumnname
+	//
 	PrimaryKeyColumnName *string `field:"required" json:"primaryKeyColumnName" yaml:"primaryKeyColumnName"`
 	// The value that is selected when tuning your transform for a balance between accuracy and cost.
 	//
@@ -29,12 +33,16 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 	// Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall.
 	//
 	// Cost measures how many compute resources, and thus money, are consumed to run the transform.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-findmatchesparameters.html#cfn-glue-mltransform-findmatchesparameters-accuracycosttradeoff
+	//
 	AccuracyCostTradeoff *float64 `field:"optional" json:"accuracyCostTradeoff" yaml:"accuracyCostTradeoff"`
 	// The value to switch on or off to force the output to match the provided labels from users.
 	//
 	// If the value is `True` , the `find matches` transform forces the output to match the provided labels. The results override the normal conflation results. If the value is `False` , the `find matches` transform does not ensure all the labels provided are respected, and the results rely on the trained model.
 	//
 	// Note that setting this value to true may increase the conflation execution time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-findmatchesparameters.html#cfn-glue-mltransform-findmatchesparameters-enforceprovidedlabels
+	//
 	EnforceProvidedLabels interface{} `field:"optional" json:"enforceProvidedLabels" yaml:"enforceProvidedLabels"`
 	// The value selected when tuning your transform for a balance between precision and recall.
 	//
@@ -43,6 +51,8 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 	// The precision metric indicates how often your model is correct when it predicts a match.
 	//
 	// The recall metric indicates that for an actual match, how often your model predicts the match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-findmatchesparameters.html#cfn-glue-mltransform-findmatchesparameters-precisionrecalltradeoff
+	//
 	PrecisionRecallTradeoff *float64 `field:"optional" json:"precisionRecallTradeoff" yaml:"precisionRecallTradeoff"`
 }
 

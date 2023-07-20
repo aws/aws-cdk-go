@@ -13,10 +13,9 @@ import (
 // serverless v2 instances.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   myCluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 //   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
 //   	}),
@@ -48,9 +47,8 @@ type jsiiProxy_ClusterInstance struct {
 // Add a provisioned instance to the cluster.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   clusterInstance_Provisioned(jsii.String("ClusterInstance"), map[string]instanceType{
-//   	"instanceType": ec2.instanceType_of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
+//   rds.ClusterInstance_Provisioned(jsii.String("ClusterInstance"), &ProvisionedClusterInstanceProps{
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
 //   })
 //
 func ClusterInstance_Provisioned(id *string, props *ProvisionedClusterInstanceProps) IClusterInstance {
@@ -74,9 +72,8 @@ func ClusterInstance_Provisioned(id *string, props *ProvisionedClusterInstancePr
 // Add a serverless v2 instance to the cluster.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   clusterInstance_ServerlessV2(jsii.String("ClusterInstance"), map[string]*bool{
-//   	"scaleWithWriter": jsii.Boolean(true),
+//   rds.ClusterInstance_ServerlessV2(jsii.String("ClusterInstance"), &ServerlessV2ClusterInstanceProps{
+//   	ScaleWithWriter: jsii.Boolean(true),
 //   })
 //
 func ClusterInstance_ServerlessV2(id *string, props *ServerlessV2ClusterInstanceProps) IClusterInstance {

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::InspectorV2::Filter`.
-//
 // Details about a filter.
 //
 // Example:
@@ -238,6 +236,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html
 //
 type CfnFilter interface {
 	awscdk.CfnResource
@@ -583,7 +583,6 @@ func (j *jsiiProxy_CfnFilter) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::InspectorV2::Filter`.
 func NewCfnFilter(scope constructs.Construct, id *string, props *CfnFilterProps) CfnFilter {
 	_init_.Initialize()
 
@@ -601,7 +600,6 @@ func NewCfnFilter(scope constructs.Construct, id *string, props *CfnFilterProps)
 	return &j
 }
 
-// Create a new `AWS::InspectorV2::Filter`.
 func NewCfnFilter_Override(c CfnFilter, scope constructs.Construct, id *string, props *CfnFilterProps) {
 	_init_.Initialize()
 

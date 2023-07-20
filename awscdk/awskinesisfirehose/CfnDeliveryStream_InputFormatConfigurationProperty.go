@@ -27,10 +27,14 @@ package awskinesisfirehose
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html
+//
 type CfnDeliveryStream_InputFormatConfigurationProperty struct {
 	// Specifies which deserializer to use.
 	//
 	// You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-inputformatconfiguration-deserializer
+	//
 	Deserializer interface{} `field:"optional" json:"deserializer" yaml:"deserializer"`
 }
 

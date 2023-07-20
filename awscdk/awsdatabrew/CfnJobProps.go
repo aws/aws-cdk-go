@@ -192,60 +192,102 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html
+//
 type CfnJobProps struct {
 	// The unique name of the job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the role to be assumed for this job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The job type of the job, which must be one of the following:.
 	//
 	// - `PROFILE` - A job to analyze a dataset, to determine its size, data types, data distribution, and more.
 	// - `RECIPE` - A job to apply one or more transformations to a dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
+	//
 	DatabaseOutputs interface{} `field:"optional" json:"databaseOutputs" yaml:"databaseOutputs"`
 	// One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
+	//
 	DataCatalogOutputs interface{} `field:"optional" json:"dataCatalogOutputs" yaml:"dataCatalogOutputs"`
 	// A dataset that the job is to process.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
+	//
 	DatasetName *string `field:"optional" json:"datasetName" yaml:"datasetName"`
 	// The Amazon Resource Name (ARN) of an encryption key that is used to protect the job output.
 	//
 	// For more information, see [Encrypting data written by DataBrew jobs](https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
+	//
 	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
 	// The encryption mode for the job, which can be one of the following:.
 	//
 	// - `SSE-KMS` - Server-side encryption with keys managed by AWS KMS .
 	// - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
+	//
 	EncryptionMode *string `field:"optional" json:"encryptionMode" yaml:"encryptionMode"`
 	// A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run.
 	//
 	// If a `JobSample` value isn't provided, the default value is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
+	//
 	JobSample interface{} `field:"optional" json:"jobSample" yaml:"jobSample"`
 	// The current status of Amazon CloudWatch logging for the job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
+	//
 	LogSubscription *string `field:"optional" json:"logSubscription" yaml:"logSubscription"`
 	// The maximum number of nodes that can be consumed when the job processes data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
+	//
 	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum number of times to retry the job after a job run fails.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
+	//
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
-	// `AWS::DataBrew::Job.OutputLocation`.
+	// Output location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
+	//
 	OutputLocation interface{} `field:"optional" json:"outputLocation" yaml:"outputLocation"`
 	// One or more artifacts that represent output from running the job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
+	//
 	Outputs interface{} `field:"optional" json:"outputs" yaml:"outputs"`
 	// Configuration for profile jobs.
 	//
 	// Configuration can be used to select columns, do evaluations, and override default parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all supported columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+	//
 	ProfileConfiguration interface{} `field:"optional" json:"profileConfiguration" yaml:"profileConfiguration"`
 	// The name of the project that the job is associated with.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
+	//
 	ProjectName *string `field:"optional" json:"projectName" yaml:"projectName"`
 	// A series of data transformation steps that the job runs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
+	//
 	Recipe interface{} `field:"optional" json:"recipe" yaml:"recipe"`
 	// Metadata tags that have been applied to the job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The job's timeout in minutes.
 	//
 	// A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
+	//
 	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 	// List of validation configurations that are applied to the profile job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-validationconfigurations
+	//
 	ValidationConfigurations interface{} `field:"optional" json:"validationConfigurations" yaml:"validationConfigurations"`
 }
 

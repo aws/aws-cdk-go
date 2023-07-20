@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnCollaboration) validateSetQueryLogStatusParameters(val *st
 	return nil
 }
 
+func (j *jsiiProxy_CfnCollaboration) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCollaborationParameters(scope constructs.Construct, id *string, props *CfnCollaborationProps) error {
 	return nil
 }

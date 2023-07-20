@@ -17,10 +17,14 @@ package awsinspector
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html
+//
 type CfnResourceGroupProps struct {
 	// The tags (key and value pairs) that will be associated with the resource group.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags
+	//
 	ResourceGroupTags interface{} `field:"required" json:"resourceGroupTags" yaml:"resourceGroupTags"`
 }
 

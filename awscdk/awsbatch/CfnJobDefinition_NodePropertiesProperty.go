@@ -139,14 +139,22 @@ package awsbatch
 //   	NumNodes: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html
+//
 type CfnJobDefinition_NodePropertiesProperty struct {
 	// Specifies the node index for the main node of a multi-node parallel job.
 	//
 	// This node index value must be fewer than the number of nodes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-mainnode
+	//
 	MainNode *float64 `field:"required" json:"mainNode" yaml:"mainNode"`
 	// A list of node ranges and their properties that are associated with a multi-node parallel job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-noderangeproperties
+	//
 	NodeRangeProperties interface{} `field:"required" json:"nodeRangeProperties" yaml:"nodeRangeProperties"`
 	// The number of nodes that are associated with a multi-node parallel job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-numnodes
+	//
 	NumNodes *float64 `field:"required" json:"numNodes" yaml:"numNodes"`
 }
 

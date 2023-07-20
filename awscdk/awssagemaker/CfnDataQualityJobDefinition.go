@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::DataQualityJobDefinition`.
+// Creates a definition for a job that monitors data quality and drift.
 //
-// Creates a definition for a job that monitors data quality and drift. For information about model monitor, see [Amazon SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html) .
+// For information about model monitor, see [Amazon SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -125,9 +125,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html
+//
 type CfnDataQualityJobDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The time when the job definition was created.
 	AttrCreationTime() *string
 	// The Amazon Resource Name (ARN) of the job definition.
@@ -148,14 +151,12 @@ type CfnDataQualityJobDefinition interface {
 	DataQualityBaselineConfig() interface{}
 	SetDataQualityBaselineConfig(val interface{})
 	// A list of inputs for the monitoring job.
-	//
-	// Currently endpoints are supported as monitoring inputs.
 	DataQualityJobInput() interface{}
 	SetDataQualityJobInput(val interface{})
 	// The output configuration for monitoring jobs.
 	DataQualityJobOutputConfig() interface{}
 	SetDataQualityJobOutputConfig(val interface{})
-	// `AWS::SageMaker::DataQualityJobDefinition.EndpointName`.
+	// The name of the endpoint used to run the monitoring job.
 	EndpointName() *string
 	SetEndpointName(val *string)
 	// The name for the monitoring job definition.
@@ -194,10 +195,11 @@ type CfnDataQualityJobDefinition interface {
 	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition() interface{}
 	SetStoppingCondition(val interface{})
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -342,6 +344,7 @@ type CfnDataQualityJobDefinition interface {
 type jsiiProxy_CfnDataQualityJobDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDataQualityJobDefinition) AttrCreationTime() *string {
@@ -554,6 +557,16 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataQualityJobDefinition) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataQualityJobDefinition) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -575,7 +588,6 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::SageMaker::DataQualityJobDefinition`.
 func NewCfnDataQualityJobDefinition(scope constructs.Construct, id *string, props *CfnDataQualityJobDefinitionProps) CfnDataQualityJobDefinition {
 	_init_.Initialize()
 
@@ -593,7 +605,6 @@ func NewCfnDataQualityJobDefinition(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::SageMaker::DataQualityJobDefinition`.
 func NewCfnDataQualityJobDefinition_Override(c CfnDataQualityJobDefinition, scope constructs.Construct, id *string, props *CfnDataQualityJobDefinitionProps) {
 	_init_.Initialize()
 
@@ -704,6 +715,17 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition)SetStoppingCondition(val interfac
 	_jsii_.Set(
 		j,
 		"stoppingCondition",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

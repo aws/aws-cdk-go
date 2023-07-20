@@ -16,12 +16,20 @@ package awsnetworkmanager
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworkedge.html
+//
 type CfnCoreNetwork_CoreNetworkEdgeProperty struct {
 	// The ASN of a core network edge.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworkedge.html#cfn-networkmanager-corenetwork-corenetworkedge-asn
+	//
 	Asn *float64 `field:"optional" json:"asn" yaml:"asn"`
 	// The Region where a core network edge is located.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworkedge.html#cfn-networkmanager-corenetwork-corenetworkedge-edgelocation
+	//
 	EdgeLocation *string `field:"optional" json:"edgeLocation" yaml:"edgeLocation"`
 	// The inside IP addresses used for core network edges.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworkedge.html#cfn-networkmanager-corenetwork-corenetworkedge-insidecidrblocks
+	//
 	InsideCidrBlocks *[]*string `field:"optional" json:"insideCidrBlocks" yaml:"insideCidrBlocks"`
 }
 

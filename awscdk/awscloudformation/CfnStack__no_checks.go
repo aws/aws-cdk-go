@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnStack) validateSetParametersParameters(val interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnStack) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStack) validateSetTemplateUrlParameters(val *string) error {
 	return nil
 }

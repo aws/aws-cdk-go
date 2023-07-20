@@ -80,6 +80,10 @@ func validateCfnSignalingChannel_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnSignalingChannel) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSignalingChannelParameters(scope constructs.Construct, id *string, props *CfnSignalingChannelProps) error {
 	return nil
 }

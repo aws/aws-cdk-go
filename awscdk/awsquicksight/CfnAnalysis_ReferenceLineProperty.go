@@ -135,17 +135,27 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referenceline.html
+//
 type CfnAnalysis_ReferenceLineProperty struct {
 	// The data configuration of the reference line.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referenceline.html#cfn-quicksight-analysis-referenceline-dataconfiguration
+	//
 	DataConfiguration interface{} `field:"required" json:"dataConfiguration" yaml:"dataConfiguration"`
 	// The label configuration of the reference line.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referenceline.html#cfn-quicksight-analysis-referenceline-labelconfiguration
+	//
 	LabelConfiguration interface{} `field:"optional" json:"labelConfiguration" yaml:"labelConfiguration"`
 	// The status of the reference line. Choose one of the following options:.
 	//
 	// - `ENABLE`
 	// - `DISABLE`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referenceline.html#cfn-quicksight-analysis-referenceline-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// The style configuration of the reference line.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referenceline.html#cfn-quicksight-analysis-referenceline-styleconfiguration
+	//
 	StyleConfiguration interface{} `field:"optional" json:"styleConfiguration" yaml:"styleConfiguration"`
 }
 

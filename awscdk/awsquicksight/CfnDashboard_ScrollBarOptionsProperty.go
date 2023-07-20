@@ -18,10 +18,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-scrollbaroptions.html
+//
 type CfnDashboard_ScrollBarOptionsProperty struct {
 	// The visibility of the data zoom scroll bar.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-scrollbaroptions.html#cfn-quicksight-dashboard-scrollbaroptions-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 	// The visibility range for the data zoom scroll bar.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-scrollbaroptions.html#cfn-quicksight-dashboard-scrollbaroptions-visiblerange
+	//
 	VisibleRange interface{} `field:"optional" json:"visibleRange" yaml:"visibleRange"`
 }
 

@@ -28,10 +28,16 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html
+//
 type CfnEndpointConfig_AsyncInferenceConfigProperty struct {
 	// Specifies the configuration for asynchronous inference invocation outputs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig-outputconfig
+	//
 	OutputConfig interface{} `field:"required" json:"outputConfig" yaml:"outputConfig"`
 	// Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig-clientconfig
+	//
 	ClientConfig interface{} `field:"optional" json:"clientConfig" yaml:"clientConfig"`
 }
 

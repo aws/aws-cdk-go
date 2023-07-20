@@ -14,8 +14,12 @@ package awss3
 //   	IsEnabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-cloudwatchmetrics.html
+//
 type CfnStorageLens_CloudWatchMetricsProperty struct {
 	// This property identifies whether the CloudWatch publishing option for S3 Storage Lens is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-cloudwatchmetrics.html#cfn-s3-storagelens-cloudwatchmetrics-isenabled
+	//
 	IsEnabled interface{} `field:"required" json:"isEnabled" yaml:"isEnabled"`
 }
 

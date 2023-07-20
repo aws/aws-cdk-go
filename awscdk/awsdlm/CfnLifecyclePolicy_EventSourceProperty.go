@@ -23,12 +23,18 @@ package awsdlm
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html
+//
 type CfnLifecyclePolicy_EventSourceProperty struct {
 	// The source of the event.
 	//
 	// Currently only managed CloudWatch Events rules are supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Information about the event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

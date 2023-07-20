@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnRegexPatternSet) validateSetScopeParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnRegexPatternSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnRegexPatternSetParameters(scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) error {
 	return nil
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPNConnection`.
-//
 // Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
 //
 // To specify a VPN connection between a transit gateway and customer gateway, use the `TransitGatewayId` and `CustomerGatewayId` properties.
@@ -46,9 +44,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html
+//
 type CfnVPNConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the VPN connection.
 	AttrVpnConnectionId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -85,17 +86,14 @@ type CfnVPNConnection interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Indicates whether the VPN connection uses static routes only.
-	//
-	// Static routes must be used for devices that don't support BGP.
-	//
-	// If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify `true` .
 	StaticRoutesOnly() interface{}
 	SetStaticRoutesOnly(val interface{})
-	// Any tags assigned to the VPN connection.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags assigned to the VPN connection.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ID of the transit gateway associated with the VPN connection.
-	//
-	// You must specify either `TransitGatewayId` or `VpnGatewayId` , but not both.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
 	// The type of VPN connection.
@@ -115,8 +113,6 @@ type CfnVPNConnection interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
-	//
-	// You must specify either `TransitGatewayId` or `VpnGatewayId` , but not both.
 	VpnGatewayId() *string
 	SetVpnGatewayId(val *string)
 	// The tunnel options for the VPN connection.
@@ -253,6 +249,7 @@ type CfnVPNConnection interface {
 type jsiiProxy_CfnVPNConnection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVPNConnection) AttrVpnConnectionId() *string {
@@ -375,6 +372,16 @@ func (j *jsiiProxy_CfnVPNConnection) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPNConnection) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPNConnection) TransitGatewayId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -436,7 +443,6 @@ func (j *jsiiProxy_CfnVPNConnection) VpnTunnelOptionsSpecifications() interface{
 }
 
 
-// Create a new `AWS::EC2::VPNConnection`.
 func NewCfnVPNConnection(scope constructs.Construct, id *string, props *CfnVPNConnectionProps) CfnVPNConnection {
 	_init_.Initialize()
 
@@ -454,7 +460,6 @@ func NewCfnVPNConnection(scope constructs.Construct, id *string, props *CfnVPNCo
 	return &j
 }
 
-// Create a new `AWS::EC2::VPNConnection`.
 func NewCfnVPNConnection_Override(c CfnVPNConnection, scope constructs.Construct, id *string, props *CfnVPNConnectionProps) {
 	_init_.Initialize()
 
@@ -483,6 +488,17 @@ func (j *jsiiProxy_CfnVPNConnection)SetStaticRoutesOnly(val interface{}) {
 	_jsii_.Set(
 		j,
 		"staticRoutesOnly",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

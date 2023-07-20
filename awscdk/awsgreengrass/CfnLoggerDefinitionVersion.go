@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::LoggerDefinitionVersion`.
+// The `AWS::Greengrass::LoggerDefinitionVersion` resource represents a logger definition version for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::LoggerDefinitionVersion` resource represents a logger definition version for AWS IoT Greengrass . A logger definition version contains a list of loggers.
+// A logger definition version contains a list of loggers.
 //
 // > To create a logger definition version, you must specify the ID of the logger definition that you want to associate with the version. For information about creating a logger definition, see [`AWS::Greengrass::LoggerDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html) .
 // >
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html
+//
 type CfnLoggerDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -50,8 +53,6 @@ type CfnLoggerDefinitionVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ID of the logger definition associated with this version.
-	//
-	// This value is a GUID.
 	LoggerDefinitionId() *string
 	SetLoggerDefinitionId(val *string)
 	// The loggers in this version.
@@ -224,6 +225,16 @@ type jsiiProxy_CfnLoggerDefinitionVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnLoggerDefinitionVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoggerDefinitionVersion) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -345,7 +356,6 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) UpdatedProperties() *map[string]i
 }
 
 
-// Create a new `AWS::Greengrass::LoggerDefinitionVersion`.
 func NewCfnLoggerDefinitionVersion(scope constructs.Construct, id *string, props *CfnLoggerDefinitionVersionProps) CfnLoggerDefinitionVersion {
 	_init_.Initialize()
 
@@ -363,7 +373,6 @@ func NewCfnLoggerDefinitionVersion(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::Greengrass::LoggerDefinitionVersion`.
 func NewCfnLoggerDefinitionVersion_Override(c CfnLoggerDefinitionVersion, scope constructs.Construct, id *string, props *CfnLoggerDefinitionVersionProps) {
 	_init_.Initialize()
 

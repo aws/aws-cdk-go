@@ -30,12 +30,19 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html
+//
 type CfnPackageProps struct {
 	// A name for the package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-packagename
+	//
 	PackageName *string `field:"required" json:"packageName" yaml:"packageName"`
-	// `AWS::Panorama::Package.StorageLocation`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-storagelocation
+	//
 	StorageLocation interface{} `field:"optional" json:"storageLocation" yaml:"storageLocation"`
 	// Tags for the package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

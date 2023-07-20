@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnFunction) validateSetSnapStartParameters(val interface{}) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetTracingConfigParameters(val interface{}) error {
 	return nil
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::Distribution`.
+// The `AWS::Lightsail::Distribution` resource specifies a content delivery network (CDN) distribution.
 //
-// The `AWS::Lightsail::Distribution` resource specifies a content delivery network (CDN) distribution. You can create distributions only in the `us-east-1` AWS Region.
+// You can create distributions only in the `us-east-1` AWS Region.
 //
 // A distribution is a globally distributed network of caching servers that improve the performance of your website or web application hosted on a Lightsail instance, static content hosted on a Lightsail bucket, or through a Lightsail load balancer.
 //
@@ -75,9 +75,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html
+//
 type CfnDistribution interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Indicates whether you can update the distribution’s current bundle to another bundle.
 	AttrAbleToUpdateBundle() awscdk.IResolvable
 	// The Amazon Resource Name (ARN) of the distribution.
@@ -112,8 +115,6 @@ type CfnDistribution interface {
 	DistributionName() *string
 	SetDistributionName(val *string)
 	// The IP address type of the distribution.
-	//
-	// The possible values are `ipv4` for IPv4 only, and `dualstack` for IPv4 and IPv6.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// A Boolean value indicating whether the distribution is enabled.
@@ -132,8 +133,6 @@ type CfnDistribution interface {
 	// The tree node.
 	Node() constructs.Node
 	// An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
-	//
-	// The distribution pulls, caches, and serves content from the origin.
 	Origin() interface{}
 	SetOrigin(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -145,12 +144,11 @@ type CfnDistribution interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
-	//
-	// > The `Value` of `Tags` is optional for Lightsail resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -295,6 +293,7 @@ type CfnDistribution interface {
 type jsiiProxy_CfnDistribution struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDistribution) AttrAbleToUpdateBundle() awscdk.IResolvable {
@@ -507,6 +506,16 @@ func (j *jsiiProxy_CfnDistribution) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDistribution) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDistribution) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -528,7 +537,6 @@ func (j *jsiiProxy_CfnDistribution) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Lightsail::Distribution`.
 func NewCfnDistribution(scope constructs.Construct, id *string, props *CfnDistributionProps) CfnDistribution {
 	_init_.Initialize()
 
@@ -546,7 +554,6 @@ func NewCfnDistribution(scope constructs.Construct, id *string, props *CfnDistri
 	return &j
 }
 
-// Create a new `AWS::Lightsail::Distribution`.
 func NewCfnDistribution_Override(c CfnDistribution, scope constructs.Construct, id *string, props *CfnDistributionProps) {
 	_init_.Initialize()
 
@@ -646,6 +653,17 @@ func (j *jsiiProxy_CfnDistribution)SetOrigin(val interface{}) {
 	_jsii_.Set(
 		j,
 		"origin",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDistribution)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

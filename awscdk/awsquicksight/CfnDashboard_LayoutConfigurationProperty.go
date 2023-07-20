@@ -271,14 +271,22 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layoutconfiguration.html
+//
 type CfnDashboard_LayoutConfigurationProperty struct {
 	// A free-form is optimized for a fixed width and has more control over the exact placement of layout elements.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layoutconfiguration.html#cfn-quicksight-dashboard-layoutconfiguration-freeformlayout
+	//
 	FreeFormLayout interface{} `field:"optional" json:"freeFormLayout" yaml:"freeFormLayout"`
 	// A type of layout that can be used on a sheet.
 	//
 	// In a grid layout, visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size. A grid layout can be configured to behave in one of two ways when the viewport is resized: `FIXED` or `RESPONSIVE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layoutconfiguration.html#cfn-quicksight-dashboard-layoutconfiguration-gridlayout
+	//
 	GridLayout interface{} `field:"optional" json:"gridLayout" yaml:"gridLayout"`
 	// A section based layout organizes visuals into multiple sections and has customized header, footer and page break.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layoutconfiguration.html#cfn-quicksight-dashboard-layoutconfiguration-sectionbasedlayout
+	//
 	SectionBasedLayout interface{} `field:"optional" json:"sectionBasedLayout" yaml:"sectionBasedLayout"`
 }
 

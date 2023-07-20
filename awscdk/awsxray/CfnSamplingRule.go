@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::XRay::SamplingRule`.
+// Use the `AWS::XRay::SamplingRule` resource to specify a sampling rule, which controls sampling behavior for instrumented applications.
 //
-// Use the `AWS::XRay::SamplingRule` resource to specify a sampling rule, which controls sampling behavior for instrumented applications. Include a `SamplingRule` entity to create or update a sampling rule.
+// Include a `SamplingRule` entity to create or update a sampling rule.
 //
 // > `SamplingRule.Version` can only be set when creating a sampling rule. Updating the version will cause the update to fail.
 //
@@ -25,6 +25,7 @@ import (
 //   var tags interface{}
 //
 //   cfnSamplingRule := awscdk.Aws_xray.NewCfnSamplingRule(this, jsii.String("MyCfnSamplingRule"), &CfnSamplingRuleProps{
+//   	RuleName: jsii.String("ruleName"),
 //   	SamplingRule: &SamplingRuleProperty{
 //   		FixedRate: jsii.Number(123),
 //   		Host: jsii.String("host"),
@@ -44,10 +45,51 @@ import (
 //   		RuleName: jsii.String("ruleName"),
 //   		Version: jsii.Number(123),
 //   	},
+//   	SamplingRuleRecord: &SamplingRuleRecordProperty{
+//   		CreatedAt: jsii.String("createdAt"),
+//   		ModifiedAt: jsii.String("modifiedAt"),
+//   		SamplingRule: &SamplingRuleProperty{
+//   			FixedRate: jsii.Number(123),
+//   			Host: jsii.String("host"),
+//   			HttpMethod: jsii.String("httpMethod"),
+//   			Priority: jsii.Number(123),
+//   			ReservoirSize: jsii.Number(123),
+//   			ResourceArn: jsii.String("resourceArn"),
+//   			ServiceName: jsii.String("serviceName"),
+//   			ServiceType: jsii.String("serviceType"),
+//   			UrlPath: jsii.String("urlPath"),
+//
+//   			// the properties below are optional
+//   			Attributes: map[string]*string{
+//   				"attributesKey": jsii.String("attributes"),
+//   			},
+//   			RuleArn: jsii.String("ruleArn"),
+//   			RuleName: jsii.String("ruleName"),
+//   			Version: jsii.Number(123),
+//   		},
+//   	},
+//   	SamplingRuleUpdate: &SamplingRuleUpdateProperty{
+//   		Attributes: map[string]*string{
+//   			"attributesKey": jsii.String("attributes"),
+//   		},
+//   		FixedRate: jsii.Number(123),
+//   		Host: jsii.String("host"),
+//   		HttpMethod: jsii.String("httpMethod"),
+//   		Priority: jsii.Number(123),
+//   		ReservoirSize: jsii.Number(123),
+//   		ResourceArn: jsii.String("resourceArn"),
+//   		RuleArn: jsii.String("ruleArn"),
+//   		RuleName: jsii.String("ruleName"),
+//   		ServiceName: jsii.String("serviceName"),
+//   		ServiceType: jsii.String("serviceType"),
+//   		UrlPath: jsii.String("urlPath"),
+//   	},
 //   	Tags: []interface{}{
 //   		tags,
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html
 //
 type CfnSamplingRule interface {
 	awscdk.CfnResource
@@ -80,9 +122,22 @@ type CfnSamplingRule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The ARN of the sampling rule.
+	// Deprecated: this property has been deprecated.
+	RuleName() *string
+	// Deprecated: this property has been deprecated.
+	SetRuleName(val *string)
 	// The sampling rule to be created or updated.
 	SamplingRule() interface{}
 	SetSamplingRule(val interface{})
+	// Deprecated: this property has been deprecated.
+	SamplingRuleRecord() interface{}
+	// Deprecated: this property has been deprecated.
+	SetSamplingRuleRecord(val interface{})
+	// Deprecated: this property has been deprecated.
+	SamplingRuleUpdate() interface{}
+	// Deprecated: this property has been deprecated.
+	SetSamplingRuleUpdate(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -316,11 +371,41 @@ func (j *jsiiProxy_CfnSamplingRule) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSamplingRule) RuleName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ruleName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSamplingRule) SamplingRule() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"samplingRule",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSamplingRule) SamplingRuleRecord() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"samplingRuleRecord",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSamplingRule) SamplingRuleUpdate() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"samplingRuleUpdate",
 		&returns,
 	)
 	return returns
@@ -367,7 +452,6 @@ func (j *jsiiProxy_CfnSamplingRule) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::XRay::SamplingRule`.
 func NewCfnSamplingRule(scope constructs.Construct, id *string, props *CfnSamplingRuleProps) CfnSamplingRule {
 	_init_.Initialize()
 
@@ -385,7 +469,6 @@ func NewCfnSamplingRule(scope constructs.Construct, id *string, props *CfnSampli
 	return &j
 }
 
-// Create a new `AWS::XRay::SamplingRule`.
 func NewCfnSamplingRule_Override(c CfnSamplingRule, scope constructs.Construct, id *string, props *CfnSamplingRuleProps) {
 	_init_.Initialize()
 
@@ -396,6 +479,14 @@ func NewCfnSamplingRule_Override(c CfnSamplingRule, scope constructs.Construct, 
 	)
 }
 
+func (j *jsiiProxy_CfnSamplingRule)SetRuleName(val *string) {
+	_jsii_.Set(
+		j,
+		"ruleName",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSamplingRule)SetSamplingRule(val interface{}) {
 	if err := j.validateSetSamplingRuleParameters(val); err != nil {
 		panic(err)
@@ -403,6 +494,28 @@ func (j *jsiiProxy_CfnSamplingRule)SetSamplingRule(val interface{}) {
 	_jsii_.Set(
 		j,
 		"samplingRule",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSamplingRule)SetSamplingRuleRecord(val interface{}) {
+	if err := j.validateSetSamplingRuleRecordParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"samplingRuleRecord",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSamplingRule)SetSamplingRuleUpdate(val interface{}) {
+	if err := j.validateSetSamplingRuleUpdateParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"samplingRuleUpdate",
 		val,
 	)
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPCGatewayAttachment`.
-//
 // Attaches an internet gateway, or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC.
 //
 // Example:
@@ -26,9 +24,12 @@ import (
 //   	VpnGatewayId: jsii.String("vpnGatewayId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html
+//
 type CfnVPCGatewayAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -39,8 +40,6 @@ type CfnVPCGatewayAttachment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ID of the internet gateway.
-	//
-	// You must specify either `InternetGatewayId` or `VpnGatewayId` , but not both.
 	InternetGatewayId() *string
 	SetInternetGatewayId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -81,8 +80,6 @@ type CfnVPCGatewayAttachment interface {
 	VpcId() *string
 	SetVpcId(val *string)
 	// The ID of the virtual private gateway.
-	//
-	// You must specify either `InternetGatewayId` or `VpnGatewayId` , but not both.
 	VpnGatewayId() *string
 	SetVpnGatewayId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -218,6 +215,16 @@ type jsiiProxy_CfnVPCGatewayAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnVPCGatewayAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCGatewayAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -349,7 +356,6 @@ func (j *jsiiProxy_CfnVPCGatewayAttachment) VpnGatewayId() *string {
 }
 
 
-// Create a new `AWS::EC2::VPCGatewayAttachment`.
 func NewCfnVPCGatewayAttachment(scope constructs.Construct, id *string, props *CfnVPCGatewayAttachmentProps) CfnVPCGatewayAttachment {
 	_init_.Initialize()
 
@@ -367,7 +373,6 @@ func NewCfnVPCGatewayAttachment(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::EC2::VPCGatewayAttachment`.
 func NewCfnVPCGatewayAttachment_Override(c CfnVPCGatewayAttachment, scope constructs.Construct, id *string, props *CfnVPCGatewayAttachmentProps) {
 	_init_.Initialize()
 

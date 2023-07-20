@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Redshift::ScheduledAction`.
+// Creates a scheduled action.
 //
-// Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the `ResizeCluster` API operation.
+// A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the `ResizeCluster` API operation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,6 +47,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html
+//
 type CfnScheduledAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -66,18 +68,12 @@ type CfnScheduledAction interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// If true, the schedule is enabled.
-	//
-	// If false, the scheduled action does not trigger. For more information about `state` of the scheduled action, see `ScheduledAction` .
 	Enable() interface{}
 	SetEnable(val interface{})
 	// The end time in UTC when the schedule is no longer active.
-	//
-	// After this time, the scheduled action does not trigger.
 	EndTime() *string
 	SetEndTime(val *string)
 	// The IAM role to assume to run the scheduled action.
-	//
-	// This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see [Using Identity-Based Policies for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html) in the *Amazon Redshift Cluster Management Guide* .
 	IamRole() *string
 	SetIamRole(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -98,12 +94,6 @@ type CfnScheduledAction interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The schedule for a one-time (at format) or recurring (cron format) scheduled action.
-	//
-	// Schedule invocations must be separated by at least one hour.
-	//
-	// Format of at expressions is " `at(yyyy-mm-ddThh:mm:ss)` ". For example, " `at(2016-03-04T17:27:00)` ".
-	//
-	// Format of cron expressions is " `cron(Minutes Hours Day-of-month Month Day-of-week Year)` ". For example, " `cron(0 10 ? * MON *)` ". For more information, see [Cron Expressions](https://docs.aws.amazon.com//AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions) in the *Amazon CloudWatch Events User Guide* .
 	Schedule() *string
 	SetSchedule(val *string)
 	// The description of the scheduled action.
@@ -117,13 +107,9 @@ type CfnScheduledAction interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The start time in UTC when the schedule is active.
-	//
-	// Before this time, the scheduled action does not trigger.
 	StartTime() *string
 	SetStartTime(val *string)
 	// A JSON format string of the Amazon Redshift API operation with input parameters.
-	//
-	// " `{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}` ".
 	TargetAction() interface{}
 	SetTargetAction(val interface{})
 	// Deprecated.
@@ -473,7 +459,6 @@ func (j *jsiiProxy_CfnScheduledAction) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::Redshift::ScheduledAction`.
 func NewCfnScheduledAction(scope constructs.Construct, id *string, props *CfnScheduledActionProps) CfnScheduledAction {
 	_init_.Initialize()
 
@@ -491,7 +476,6 @@ func NewCfnScheduledAction(scope constructs.Construct, id *string, props *CfnSch
 	return &j
 }
 
-// Create a new `AWS::Redshift::ScheduledAction`.
 func NewCfnScheduledAction_Override(c CfnScheduledAction, scope constructs.Construct, id *string, props *CfnScheduledActionProps) {
 	_init_.Initialize()
 

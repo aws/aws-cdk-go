@@ -11,10 +11,14 @@ package awssam
 //   	LogGroupName: jsii.String("logGroupName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cloudwatchlogsevent.html
+//
 type CfnFunction_CloudWatchLogsEventProperty struct {
-	// `CfnFunction.CloudWatchLogsEventProperty.FilterPattern`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cloudwatchlogsevent.html#cfn-serverless-function-cloudwatchlogsevent-filterpattern
+	//
 	FilterPattern *string `field:"required" json:"filterPattern" yaml:"filterPattern"`
-	// `CfnFunction.CloudWatchLogsEventProperty.LogGroupName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cloudwatchlogsevent.html#cfn-serverless-function-cloudwatchlogsevent-loggroupname
+	//
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 }
 

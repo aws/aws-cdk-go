@@ -13,10 +13,14 @@ package awslightsail
 //   	ObjectAccess: jsii.String("objectAccess"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-bucket-accessrules.html
+//
 type CfnBucket_AccessRulesProperty struct {
 	// A Boolean value indicating whether the access control list (ACL) permissions that are applied to individual objects override the `GetObject` option that is currently specified.
 	//
 	// When this is true, you can use the [PutObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html) Amazon S3 API operation to set individual objects to public (read-only) or private, using either the `public-read` ACL or the `private` ACL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-bucket-accessrules.html#cfn-lightsail-bucket-accessrules-allowpublicoverrides
+	//
 	AllowPublicOverrides interface{} `field:"optional" json:"allowPublicOverrides" yaml:"allowPublicOverrides"`
 	// Specifies the anonymous access to all objects in a bucket.
 	//
@@ -28,6 +32,8 @@ type CfnBucket_AccessRulesProperty struct {
 	// - `private` - Sets all objects in the bucket to private, making them readable only by you and anyone that you grant access to.
 	//
 	// If the `GetObject` value is set to `private` , and the `allowPublicOverrides` value is set to `true` , then all objects in the bucket default to private unless they are configured with a `public-read` ACL. Individual objects with a `public-read` ACL are readable by everyone on the internet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-bucket-accessrules.html#cfn-lightsail-bucket-accessrules-getobject
+	//
 	ObjectAccess *string `field:"optional" json:"objectAccess" yaml:"objectAccess"`
 }
 

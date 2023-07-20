@@ -80,6 +80,10 @@ func validateCfnAutoScalingConfiguration_IsConstructParameters(x interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingConfiguration) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAutoScalingConfigurationParameters(scope constructs.Construct, id *string, props *CfnAutoScalingConfigurationProps) error {
 	return nil
 }

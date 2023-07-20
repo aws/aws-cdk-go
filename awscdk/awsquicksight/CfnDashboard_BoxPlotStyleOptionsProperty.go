@@ -12,8 +12,12 @@ package awsquicksight
 //   	FillStyle: jsii.String("fillStyle"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-boxplotstyleoptions.html
+//
 type CfnDashboard_BoxPlotStyleOptionsProperty struct {
 	// The fill styles (solid, transparent) of the box plot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-boxplotstyleoptions.html#cfn-quicksight-dashboard-boxplotstyleoptions-fillstyle
+	//
 	FillStyle *string `field:"optional" json:"fillStyle" yaml:"fillStyle"`
 }
 

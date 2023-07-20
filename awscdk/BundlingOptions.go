@@ -47,6 +47,10 @@ type BundlingOptions struct {
 	Network *string `field:"optional" json:"network" yaml:"network"`
 	// The type of output that this bundling operation is producing.
 	OutputType BundlingOutput `field:"optional" json:"outputType" yaml:"outputType"`
+	// Platform to build for. _Requires Docker Buildx_.
+	//
+	// Specify this property to build images on a specific platform.
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
 	SecurityOpt *string `field:"optional" json:"securityOpt" yaml:"securityOpt"`
 	// The user to use when running the Docker container.

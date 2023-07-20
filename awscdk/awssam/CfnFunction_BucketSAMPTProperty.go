@@ -10,8 +10,11 @@ package awssam
 //   	BucketName: jsii.String("bucketName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-bucketsampt.html
+//
 type CfnFunction_BucketSAMPTProperty struct {
-	// `CfnFunction.BucketSAMPTProperty.BucketName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-bucketsampt.html#cfn-serverless-function-bucketsampt-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 }
 

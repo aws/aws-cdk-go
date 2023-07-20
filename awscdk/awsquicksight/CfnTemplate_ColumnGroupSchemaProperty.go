@@ -17,10 +17,16 @@ package awsquicksight
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columngroupschema.html
+//
 type CfnTemplate_ColumnGroupSchemaProperty struct {
 	// A structure containing the list of schemas for column group columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columngroupschema.html#cfn-quicksight-template-columngroupschema-columngroupcolumnschemalist
+	//
 	ColumnGroupColumnSchemaList interface{} `field:"optional" json:"columnGroupColumnSchemaList" yaml:"columnGroupColumnSchemaList"`
 	// The name of the column group schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columngroupschema.html#cfn-quicksight-template-columngroupschema-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

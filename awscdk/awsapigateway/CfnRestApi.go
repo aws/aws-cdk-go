@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::RestApi`.
+// The `AWS::ApiGateway::RestApi` resource creates a REST API.
 //
-// The `AWS::ApiGateway::RestApi` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference* .
+// For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference* .
 //
 // > On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/) , becoming the foundation of the OpenAPI Specification.
 //
@@ -62,12 +62,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
+//
 type CfnRestApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The source of the API key for metering requests according to a usage plan.
-	//
-	// Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
 	ApiKeySourceType() *string
 	SetApiKeySourceType(val *string)
 	// The string identifier of the associated RestApi.
@@ -75,13 +76,9 @@ type CfnRestApi interface {
 	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 	AttrRootResourceId() *string
 	// The list of binary media types supported by the RestApi.
-	//
-	// By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes() *[]*string
 	SetBinaryMediaTypes(val *[]*string)
 	// An OpenAPI specification that defines a set of RESTful APIs in JSON format.
-	//
-	// For YAML templates, you can also provide the specification in YAML format.
 	Body() interface{}
 	SetBody(val interface{})
 	// The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
@@ -103,18 +100,12 @@ type CfnRestApi interface {
 	Description() *string
 	SetDescription(val *string)
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint.
-	//
-	// By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint() interface{}
 	SetDisableExecuteApiEndpoint(val interface{})
 	// A list of the endpoint types of the API.
-	//
-	// Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the `Parameters` property.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
 	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered.
-	//
-	// The default value is `false` .
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -128,40 +119,20 @@ type CfnRestApi interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API.
-	//
-	// When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
 	MinimumCompressionSize() *float64
 	SetMinimumCompressionSize(val *float64)
 	// This property applies only when you use OpenAPI to define your REST API.
-	//
-	// The `Mode` determines how API Gateway handles resource updates.
-	//
-	// Valid values are `overwrite` or `merge` .
-	//
-	// For `overwrite` , the new API definition replaces the existing one. The existing API identifier remains unchanged.
-	//
-	// For `merge` , the new API definition is merged with the existing API.
-	//
-	// If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is `overwrite` . For REST APIs created after March 29, 2021, the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API.
-	//
-	// Use the default mode to define top-level `RestApi` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
 	Mode() *string
 	SetMode(val *string)
 	// The name of the RestApi.
-	//
-	// A name is required if the REST API is not based on an OpenAPI specification.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Custom header parameters as part of the request.
-	//
-	// For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// A policy document that contains the permissions for the `RestApi` resource.
-	//
-	// To set the ARN for the policy, use the `!Join` intrinsic function with `""` as delimiter and values of `"execute-api:/"` and `"*"` .
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -173,10 +144,11 @@ type CfnRestApi interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The key-value map of strings.
-	//
-	// The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key-value map of strings.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -321,6 +293,7 @@ type CfnRestApi interface {
 type jsiiProxy_CfnRestApi struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRestApi) ApiKeySourceType() *string {
@@ -573,6 +546,16 @@ func (j *jsiiProxy_CfnRestApi) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRestApi) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRestApi) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -594,7 +577,6 @@ func (j *jsiiProxy_CfnRestApi) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGateway::RestApi`.
 func NewCfnRestApi(scope constructs.Construct, id *string, props *CfnRestApiProps) CfnRestApi {
 	_init_.Initialize()
 
@@ -612,7 +594,6 @@ func NewCfnRestApi(scope constructs.Construct, id *string, props *CfnRestApiProp
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::RestApi`.
 func NewCfnRestApi_Override(c CfnRestApi, scope constructs.Construct, id *string, props *CfnRestApiProps) {
 	_init_.Initialize()
 
@@ -640,9 +621,6 @@ func (j *jsiiProxy_CfnRestApi)SetBinaryMediaTypes(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnRestApi)SetBody(val interface{}) {
-	if err := j.validateSetBodyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"body",
@@ -746,12 +724,20 @@ func (j *jsiiProxy_CfnRestApi)SetParameters(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnRestApi)SetPolicy(val interface{}) {
-	if err := j.validateSetPolicyParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"policy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRestApi)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"policy",
+		"tagsRaw",
 		val,
 	)
 }

@@ -15,8 +15,12 @@ package awsconfig
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html
+//
 type CfnRemediationConfiguration_ExecutionControlsProperty struct {
 	// A SsmControls object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols
+	//
 	SsmControls interface{} `field:"optional" json:"ssmControls" yaml:"ssmControls"`
 }
 

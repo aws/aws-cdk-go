@@ -15,10 +15,16 @@ package awsquicksight
 //   	Expression: jsii.String("expression"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetelementrenderingrule.html
+//
 type CfnDashboard_SheetElementRenderingRuleProperty struct {
 	// The override configuration of the rendering rules of a sheet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetelementrenderingrule.html#cfn-quicksight-dashboard-sheetelementrenderingrule-configurationoverrides
+	//
 	ConfigurationOverrides interface{} `field:"required" json:"configurationOverrides" yaml:"configurationOverrides"`
 	// The expression of the rendering rules of a sheet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetelementrenderingrule.html#cfn-quicksight-dashboard-sheetelementrenderingrule-expression
+	//
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 }
 

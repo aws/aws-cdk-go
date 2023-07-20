@@ -17,10 +17,14 @@ package awsiotanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html
+//
 type CfnDatastore_SchemaDefinitionProperty struct {
 	// Specifies one or more columns that store your data.
 	//
 	// Each schema can have up to 100 columns. Each column can have up to 100 nested types.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html#cfn-iotanalytics-datastore-schemadefinition-columns
+	//
 	Columns interface{} `field:"optional" json:"columns" yaml:"columns"`
 }
 

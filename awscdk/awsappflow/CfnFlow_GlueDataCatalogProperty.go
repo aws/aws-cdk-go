@@ -1,6 +1,8 @@
 package awsappflow
 
 
+// Trigger settings of the flow.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,12 +14,20 @@ package awsappflow
 //   	TablePrefix: jsii.String("tablePrefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-gluedatacatalog.html
+//
 type CfnFlow_GlueDataCatalogProperty struct {
-	// `CfnFlow.GlueDataCatalogProperty.DatabaseName`.
+	// A string containing the value for the tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-gluedatacatalog.html#cfn-appflow-flow-gluedatacatalog-databasename
+	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
-	// `CfnFlow.GlueDataCatalogProperty.RoleArn`.
+	// A string containing the value for the tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-gluedatacatalog.html#cfn-appflow-flow-gluedatacatalog-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// `CfnFlow.GlueDataCatalogProperty.TablePrefix`.
+	// A string containing the value for the tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-gluedatacatalog.html#cfn-appflow-flow-gluedatacatalog-tableprefix
+	//
 	TablePrefix *string `field:"required" json:"tablePrefix" yaml:"tablePrefix"`
 }
 

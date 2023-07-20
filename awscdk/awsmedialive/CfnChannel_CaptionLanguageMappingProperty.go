@@ -16,14 +16,22 @@ package awsmedialive
 //   	LanguageDescription: jsii.String("languageDescription"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html
+//
 type CfnChannel_CaptionLanguageMappingProperty struct {
 	// The closed caption channel being described by this CaptionLanguageMapping.
 	//
 	// Each channel mapping must have a unique channel number (maximum of 4).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-captionchannel
+	//
 	CaptionChannel *float64 `field:"optional" json:"captionChannel" yaml:"captionChannel"`
 	// A three-character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-languagecode
+	//
 	LanguageCode *string `field:"optional" json:"languageCode" yaml:"languageCode"`
 	// The textual description of language.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-languagedescription
+	//
 	LanguageDescription *string `field:"optional" json:"languageDescription" yaml:"languageDescription"`
 }
 

@@ -74,8 +74,12 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html
+//
 type CfnResourceDefinition_ResourceDefinitionVersionProperty struct {
 	// The resources in this version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html#cfn-greengrass-resourcedefinition-resourcedefinitionversion-resources
+	//
 	Resources interface{} `field:"required" json:"resources" yaml:"resources"`
 }
 

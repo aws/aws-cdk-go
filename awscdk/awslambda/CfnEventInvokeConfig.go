@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lambda::EventInvokeConfig`.
-//
 // The `AWS::Lambda::EventInvokeConfig` resource configures options for [asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html) on a version or an alias.
 //
 // By default, Lambda retries an asynchronous invocation twice if the function returns an error. It retains events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous invocation queue for too long, Lambda discards it.
@@ -37,9 +35,12 @@ import (
 //   	MaximumRetryAttempts: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html
+//
 type CfnEventInvokeConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -50,20 +51,9 @@ type CfnEventInvokeConfig interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A destination for events after they have been sent to a function for processing.
-	//
-	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
-	// - *Queue* - The ARN of a standard SQS queue.
-	// - *Topic* - The ARN of a standard SNS topic.
-	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
 	DestinationConfig() interface{}
 	SetDestinationConfig(val interface{})
 	// The name of the Lambda function.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `64`
-	//
-	// *Pattern* : `([a-zA-Z0-9-_]+)`.
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -85,10 +75,6 @@ type CfnEventInvokeConfig interface {
 	// The tree node.
 	Node() constructs.Node
 	// The identifier of a version or alias.
-	//
-	// - *Version* - A version number.
-	// - *Alias* - An alias name.
-	// - *Latest* - To specify the unpublished version, use `$LATEST` .
 	Qualifier() *string
 	SetQualifier(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -246,6 +232,16 @@ type jsiiProxy_CfnEventInvokeConfig struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnEventInvokeConfig) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventInvokeConfig) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -397,7 +393,6 @@ func (j *jsiiProxy_CfnEventInvokeConfig) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::Lambda::EventInvokeConfig`.
 func NewCfnEventInvokeConfig(scope constructs.Construct, id *string, props *CfnEventInvokeConfigProps) CfnEventInvokeConfig {
 	_init_.Initialize()
 
@@ -415,7 +410,6 @@ func NewCfnEventInvokeConfig(scope constructs.Construct, id *string, props *CfnE
 	return &j
 }
 
-// Create a new `AWS::Lambda::EventInvokeConfig`.
 func NewCfnEventInvokeConfig_Override(c CfnEventInvokeConfig, scope constructs.Construct, id *string, props *CfnEventInvokeConfigProps) {
 	_init_.Initialize()
 

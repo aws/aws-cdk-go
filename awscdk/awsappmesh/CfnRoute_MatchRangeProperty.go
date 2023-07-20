@@ -15,10 +15,16 @@ package awsappmesh
 //   	Start: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-matchrange.html
+//
 type CfnRoute_MatchRangeProperty struct {
 	// The end of the range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-matchrange.html#cfn-appmesh-route-matchrange-end
+	//
 	End *float64 `field:"required" json:"end" yaml:"end"`
 	// The start of the range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-matchrange.html#cfn-appmesh-route-matchrange-start
+	//
 	Start *float64 `field:"required" json:"start" yaml:"start"`
 }
 

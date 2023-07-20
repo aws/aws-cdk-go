@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Comprehend::DocumentClassifier`.
+// This resource creates and trains a document classifier to categorize documents.
 //
-// This resource creates and trains a document classifier to categorize documents. You provide a set of training documents that are labeled with the categories that you want to identify. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see [Document Classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html) in the Comprehend Developer Guide.
+// You provide a set of training documents that are labeled with the categories that you want to identify. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see [Document Classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html) in the Comprehend Developer Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -82,6 +82,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassifier.html
+//
 type CfnDocumentClassifier interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -106,8 +108,6 @@ type CfnDocumentClassifier interface {
 	InputDataConfig() interface{}
 	SetInputDataConfig(val interface{})
 	// The language of the input documents.
-	//
-	// You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
 	LanguageCode() *string
 	SetLanguageCode(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -121,29 +121,12 @@ type CfnDocumentClassifier interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Indicates the mode in which the classifier will be trained.
-	//
-	// The classifier can be trained in multi-class mode, which identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
 	Mode() *string
 	SetMode(val *string)
 	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models.
-	//
-	// The ModelKmsKeyId can be either of the following formats:
-	//
-	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
-	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`.
 	ModelKmsKeyId() *string
 	SetModelKmsKeyId(val *string)
 	// The resource-based policy to attach to your custom document classifier model.
-	//
-	// You can use this policy to allow another AWS account to import your custom model.
-	//
-	// Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
-	//
-	// `"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"`
-	//
-	// To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
-	//
-	// `'{"attribute": "value", "attribute": ["value"]}'`.
 	ModelPolicy() *string
 	SetModelPolicy(val *string)
 	// The tree node.
@@ -161,9 +144,8 @@ type CfnDocumentClassifier interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Tags to associate with the document classifier.
-	//
-	// A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -178,21 +160,12 @@ type CfnDocumentClassifier interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The version name given to the newly created classifier.
-	//
-	// Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
 	VersionName() *string
 	SetVersionName(val *string)
 	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job.
-	//
-	// The VolumeKmsKeyId can be either of the following formats:
-	//
-	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
-	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`.
 	VolumeKmsKeyId() *string
 	SetVolumeKmsKeyId(val *string)
 	// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier.
-	//
-	// For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -498,8 +471,8 @@ func (j *jsiiProxy_CfnDocumentClassifier) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDocumentClassifier) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnDocumentClassifier) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -559,7 +532,6 @@ func (j *jsiiProxy_CfnDocumentClassifier) VpcConfig() interface{} {
 }
 
 
-// Create a new `AWS::Comprehend::DocumentClassifier`.
 func NewCfnDocumentClassifier(scope constructs.Construct, id *string, props *CfnDocumentClassifierProps) CfnDocumentClassifier {
 	_init_.Initialize()
 
@@ -577,7 +549,6 @@ func NewCfnDocumentClassifier(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Comprehend::DocumentClassifier`.
 func NewCfnDocumentClassifier_Override(c CfnDocumentClassifier, scope constructs.Construct, id *string, props *CfnDocumentClassifierProps) {
 	_init_.Initialize()
 
@@ -663,6 +634,17 @@ func (j *jsiiProxy_CfnDocumentClassifier)SetOutputDataConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"outputDataConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDocumentClassifier)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

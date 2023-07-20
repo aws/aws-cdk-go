@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::CloudFormationProduct`.
-//
 // Specifies a product.
 //
 // Example:
@@ -63,15 +61,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html
+//
 type CfnCloudFormationProduct interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// The name of the product.
 	AttrProductName() *string
 	// The IDs of the provisioning artifacts.
@@ -123,15 +122,9 @@ type CfnCloudFormationProduct interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// This property is turned off by default.
-	//
-	// If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
-	//
-	// If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
 	ReplaceProvisioningArtifacts() interface{}
 	SetReplaceProvisioningArtifacts(val interface{})
 	// A top level `ProductViewDetail` response containing details about the product’s connection.
-	//
-	// AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
 	SourceConnection() interface{}
 	SetSourceConnection(val interface{})
 	// The stack in which this element is defined.
@@ -145,12 +138,13 @@ type CfnCloudFormationProduct interface {
 	SupportEmail() *string
 	SetSupportEmail(val *string)
 	// The contact URL for product support.
-	//
-	// `^https?:\/\//` / is the pattern used to validate SupportUrl.
 	SupportUrl() *string
 	SetSupportUrl(val *string)
-	// One or more tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -295,6 +289,7 @@ type CfnCloudFormationProduct interface {
 type jsiiProxy_CfnCloudFormationProduct struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCloudFormationProduct) AcceptLanguage() *string {
@@ -302,6 +297,16 @@ func (j *jsiiProxy_CfnCloudFormationProduct) AcceptLanguage() *string {
 	_jsii_.Get(
 		j,
 		"acceptLanguage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCloudFormationProduct) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -537,6 +542,16 @@ func (j *jsiiProxy_CfnCloudFormationProduct) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCloudFormationProduct) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCloudFormationProduct) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -558,7 +573,6 @@ func (j *jsiiProxy_CfnCloudFormationProduct) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::ServiceCatalog::CloudFormationProduct`.
 func NewCfnCloudFormationProduct(scope constructs.Construct, id *string, props *CfnCloudFormationProductProps) CfnCloudFormationProduct {
 	_init_.Initialize()
 
@@ -576,7 +590,6 @@ func NewCfnCloudFormationProduct(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::CloudFormationProduct`.
 func NewCfnCloudFormationProduct_Override(c CfnCloudFormationProduct, scope constructs.Construct, id *string, props *CfnCloudFormationProductProps) {
 	_init_.Initialize()
 
@@ -694,6 +707,17 @@ func (j *jsiiProxy_CfnCloudFormationProduct)SetSupportUrl(val *string) {
 	_jsii_.Set(
 		j,
 		"supportUrl",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCloudFormationProduct)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

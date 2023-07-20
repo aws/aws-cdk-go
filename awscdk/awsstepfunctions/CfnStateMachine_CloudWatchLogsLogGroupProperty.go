@@ -14,10 +14,14 @@ package awsstepfunctions
 //   	LogGroupArn: jsii.String("logGroupArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
+//
 type CfnStateMachine_CloudWatchLogsLogGroupProperty struct {
 	// The ARN of the the CloudWatch log group to which you want your logs emitted to.
 	//
 	// The ARN must end with `:*`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
+	//
 	LogGroupArn *string `field:"optional" json:"logGroupArn" yaml:"logGroupArn"`
 }
 

@@ -12,8 +12,12 @@ package awsconnect
 //   	FirehoseArn: jsii.String("firehoseArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisfirehoseconfig.html
+//
 type CfnInstanceStorageConfig_KinesisFirehoseConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisfirehoseconfig.html#cfn-connect-instancestorageconfig-kinesisfirehoseconfig-firehosearn
+	//
 	FirehoseArn *string `field:"required" json:"firehoseArn" yaml:"firehoseArn"`
 }
 

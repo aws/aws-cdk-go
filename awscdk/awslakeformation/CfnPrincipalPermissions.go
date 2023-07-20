@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::LakeFormation::PrincipalPermissions`.
+// The `AWS::LakeFormation::PrincipalPermissions` resource represents the permissions that a principal has on a Data Catalog resource (such as AWS Glue databases or AWS Glue tables).
 //
-// The `AWS::LakeFormation::PrincipalPermissions` resource represents the permissions that a principal has on a Data Catalog resource (such as AWS Glue databases or AWS Glue tables). When you create a `PrincipalPermissions` resource, the permissions are granted via the AWS Lake Formation `GrantPermissions` API operation. When you delete a `PrincipalPermissions` resource, the permissions on principal-resource pair are revoked via the AWS Lake Formation `RevokePermissions` API operation.
+// When you create a `PrincipalPermissions` resource, the permissions are granted via the AWS Lake Formation `GrantPermissions` API operation. When you delete a `PrincipalPermissions` resource, the permissions on principal-resource pair are revoked via the AWS Lake Formation `RevokePermissions` API operation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -95,6 +95,8 @@ import (
 //   	Catalog: jsii.String("catalog"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html
+//
 type CfnPrincipalPermissions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -107,8 +109,6 @@ type CfnPrincipalPermissions interface {
 	// For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`.
 	AttrResourceIdentifier() *string
 	// The identifier for the Data Catalog .
-	//
-	// By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	Catalog() *string
 	SetCatalog(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -470,7 +470,6 @@ func (j *jsiiProxy_CfnPrincipalPermissions) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::LakeFormation::PrincipalPermissions`.
 func NewCfnPrincipalPermissions(scope constructs.Construct, id *string, props *CfnPrincipalPermissionsProps) CfnPrincipalPermissions {
 	_init_.Initialize()
 
@@ -488,7 +487,6 @@ func NewCfnPrincipalPermissions(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::LakeFormation::PrincipalPermissions`.
 func NewCfnPrincipalPermissions_Override(c CfnPrincipalPermissions, scope constructs.Construct, id *string, props *CfnPrincipalPermissionsProps) {
 	_init_.Initialize()
 

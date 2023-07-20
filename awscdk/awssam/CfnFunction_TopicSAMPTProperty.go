@@ -10,8 +10,11 @@ package awssam
 //   	TopicName: jsii.String("topicName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-topicsampt.html
+//
 type CfnFunction_TopicSAMPTProperty struct {
-	// `CfnFunction.TopicSAMPTProperty.TopicName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-topicsampt.html#cfn-serverless-function-topicsampt-topicname
+	//
 	TopicName *string `field:"required" json:"topicName" yaml:"topicName"`
 }
 

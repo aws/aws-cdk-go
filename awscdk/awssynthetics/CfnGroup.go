@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Synthetics::Group`.
+// Creates or updates a group which you can use to associate canaries with each other, including cross-Region canaries.
 //
-// Creates or updates a group which you can use to associate canaries with each other, including cross-Region canaries. Using groups can help you with managing and automating your canaries, and you can also view aggregated run results and statistics for all canaries in a group.
+// Using groups can help you with managing and automating your canaries, and you can also view aggregated run results and statistics for all canaries in a group.
 //
 // Groups are global resources. When you create a group, it is replicated across all AWS Regions, and you can add canaries from any Region to it, and view it in any Region. Although the group ARN format reflects the Region name where it was created, a group is not constrained to any Region. This means that you can put canaries from multiple Regions into the same group, and then use that group to view and manage all of those canaries in a single view.
 //
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-group.html
+//
 type CfnGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Id of the group.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -61,9 +64,9 @@ type CfnGroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A name for the group. It can include any Unicode characters.
+	// A name for the group.
 	//
-	// The names for all groups in your account, across all Regions, must be unique.
+	// It can include any Unicode characters.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -80,8 +83,11 @@ type CfnGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The list of key-value pairs that are associated with the group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of key-value pairs that are associated with the group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +232,7 @@ type CfnGroup interface {
 type jsiiProxy_CfnGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnGroup) AttrId() *string {
@@ -348,6 +355,16 @@ func (j *jsiiProxy_CfnGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -369,7 +386,6 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Synthetics::Group`.
 func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
@@ -387,7 +403,6 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 	return &j
 }
 
-// Create a new `AWS::Synthetics::Group`.
 func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 
@@ -413,6 +428,17 @@ func (j *jsiiProxy_CfnGroup)SetResourceArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"resourceArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

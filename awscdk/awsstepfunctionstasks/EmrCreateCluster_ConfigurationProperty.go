@@ -15,15 +15,7 @@ package awsstepfunctionstasks
 //   configurationProperty := &configurationProperty{
 //   	Classification: jsii.String("classification"),
 //   	Configurations: []*configurationProperty{
-//   		&configurationProperty{
-//   			Classification: jsii.String("classification"),
-//   			Configurations: []*configurationProperty{
-//   				configurationProperty_,
-//   			},
-//   			Properties: map[string]*string{
-//   				"propertiesKey": jsii.String("properties"),
-//   			},
-//   		},
+//   		configurationProperty_,
 //   	},
 //   	Properties: map[string]*string{
 //   		"propertiesKey": jsii.String("properties"),

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayRoute`.
-//
 // Specifies a static route for a transit gateway route table.
 //
 // Example:
@@ -27,9 +25,12 @@ import (
 //   	TransitGatewayAttachmentId: jsii.String("transitGatewayAttachmentId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html
+//
 type CfnTransitGatewayRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Indicates whether to drop traffic that matches this route.
 	Blackhole() interface{}
 	SetBlackhole(val interface{})
@@ -218,6 +219,16 @@ type jsiiProxy_CfnTransitGatewayRoute struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRoute) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRoute) Blackhole() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -359,7 +370,6 @@ func (j *jsiiProxy_CfnTransitGatewayRoute) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayRoute`.
 func NewCfnTransitGatewayRoute(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteProps) CfnTransitGatewayRoute {
 	_init_.Initialize()
 
@@ -377,7 +387,6 @@ func NewCfnTransitGatewayRoute(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayRoute`.
 func NewCfnTransitGatewayRoute_Override(c CfnTransitGatewayRoute, scope constructs.Construct, id *string, props *CfnTransitGatewayRouteProps) {
 	_init_.Initialize()
 

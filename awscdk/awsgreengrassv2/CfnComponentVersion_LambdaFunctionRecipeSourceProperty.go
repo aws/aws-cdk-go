@@ -71,24 +71,38 @@ package awsgreengrassv2
 //   	LambdaArn: jsii.String("lambdaArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html
+//
 type CfnComponentVersion_LambdaFunctionRecipeSourceProperty struct {
 	// The component versions on which this Lambda function component depends.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
+	//
 	ComponentDependencies interface{} `field:"optional" json:"componentDependencies" yaml:"componentDependencies"`
 	// The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentlambdaparameters
+	//
 	ComponentLambdaParameters interface{} `field:"optional" json:"componentLambdaParameters" yaml:"componentLambdaParameters"`
 	// The name of the component.
 	//
 	// Defaults to the name of the Lambda function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentname
+	//
 	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`
 	// The platforms that the component version supports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
+	//
 	ComponentPlatforms interface{} `field:"optional" json:"componentPlatforms" yaml:"componentPlatforms"`
 	// The version of the component.
 	//
 	// Defaults to the version of the Lambda function as a semantic version. For example, if your function version is `3` , the component version becomes `3.0.0` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentversion
+	//
 	ComponentVersion *string `field:"optional" json:"componentVersion" yaml:"componentVersion"`
 	// The ARN of the Lambda function.
 	//
 	// The ARN must include the version of the function to import. You can't use version aliases like `$LATEST` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-lambdaarn
+	//
 	LambdaArn *string `field:"optional" json:"lambdaArn" yaml:"lambdaArn"`
 }
 

@@ -14,12 +14,20 @@ package awsquicksight
 //   	Port: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html
+//
 type CfnDataSource_MySqlParametersProperty struct {
 	// Database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
+	//
 	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
+	//
 	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-port
+	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 

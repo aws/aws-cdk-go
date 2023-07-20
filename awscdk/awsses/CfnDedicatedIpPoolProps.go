@@ -13,8 +13,12 @@ package awsses
 //   	ScalingMode: jsii.String("scalingMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html
+//
 type CfnDedicatedIpPoolProps struct {
 	// The name of the dedicated IP pool that the IP address is associated with.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html#cfn-ses-dedicatedippool-poolname
+	//
 	PoolName *string `field:"optional" json:"poolName" yaml:"poolName"`
 	// The type of scaling mode.
 	//
@@ -26,6 +30,8 @@ type CfnDedicatedIpPoolProps struct {
 	// The `STANDARD` option is selected by default if no value is specified.
 	//
 	// > Updating *ScalingMode* doesn't require a replacement if you're updating its value from `STANDARD` to `MANAGED` . However, updating *ScalingMode* from `MANAGED` to `STANDARD` is not supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html#cfn-ses-dedicatedippool-scalingmode
+	//
 	ScalingMode *string `field:"optional" json:"scalingMode" yaml:"scalingMode"`
 }
 

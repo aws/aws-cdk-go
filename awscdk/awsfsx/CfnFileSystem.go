@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FSx::FileSystem`.
+// The `AWS::FSx::FileSystem` resource is an Amazon FSx resource type that specifies an Amazon FSx file system.
 //
-// The `AWS::FSx::FileSystem` resource is an Amazon FSx resource type that specifies an Amazon FSx file system. You can create any of the following supported file system types:
+// You can create any of the following supported file system types:
 //
 // - Amazon FSx for Lustre
 // - Amazon FSx for NetApp ONTAP
@@ -154,13 +154,17 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
+//
 type CfnFileSystem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the FSx for Windows file system's DNSName.
 	//
 	// Example: `amznfsxp1honlek.corp.example.com`
 	AttrDnsName() *string
+	AttrId() *string
 	// Returns the Lustre file system's `LustreMountName` .
 	//
 	// Example for `SCRATCH_1` deployment types: This value is always `fsx` .
@@ -176,8 +180,6 @@ type CfnFileSystem interface {
 	// Example: `fsvol-0123456789abcdefa`.
 	AttrRootVolumeId() *string
 	// The ID of the file system backup that you are using to create a file system.
-	//
-	// For more information, see [CreateFileSystemFromBackup](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemFromBackup.html) .
 	BackupId() *string
 	SetBackupId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -193,27 +195,9 @@ type CfnFileSystem interface {
 	FileSystemType() *string
 	SetFileSystemType(val *string)
 	// (Optional) For FSx for Lustre file systems, sets the Lustre version for the file system that you're creating.
-	//
-	// Valid values are `2.10` and `2.12` :
-	//
-	// - 2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.
-	// - 2.12 is supported by all Lustre deployment types. `2.12` is required when setting FSx for Lustre `DeploymentType` to `PERSISTENT_2` .
-	//
-	// Default value = `2.10` , except when `DeploymentType` is set to `PERSISTENT_2` , then the default is `2.12` .
-	//
-	// > If you set `FileSystemTypeVersion` to `2.10` for a `PERSISTENT_2` Lustre deployment type, the `CreateFileSystem` operation fails.
 	FileSystemTypeVersion() *string
 	SetFileSystemTypeVersion(val *string)
 	// The ID of the AWS Key Management Service ( AWS KMS ) key used to encrypt Amazon FSx file system data.
-	//
-	// Used as follows with Amazon FSx file system types:
-	//
-	// - Amazon FSx for Lustre `PERSISTENT_1` and `PERSISTENT_2` deployment types only.
-	//
-	// `SCRATCH_1` and `SCRATCH_2` types are encrypted using the Amazon FSx service AWS KMS key for your account.
-	// - Amazon FSx for NetApp ONTAP
-	// - Amazon FSx for OpenZFS
-	// - Amazon FSx for Windows File Server.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -227,13 +211,6 @@ type CfnFileSystem interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The Lustre configuration for the file system being created.
-	//
-	// > The following parameters are not supported for file systems with a data repository association.
-	// >
-	// > - `AutoImportPolicy`
-	// > - `ExportPath`
-	// > - `ImportedChunkSize`
-	// > - `ImportPath`.
 	LustreConfiguration() interface{}
 	SetLustreConfiguration(val interface{})
 	// The tree node.
@@ -250,8 +227,6 @@ type CfnFileSystem interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A list of IDs specifying the security groups to apply to all network interfaces created for file system access.
-	//
-	// This list isn't returned in later requests to describe the file system.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
@@ -259,44 +234,21 @@ type CfnFileSystem interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Sets the storage capacity of the file system that you're creating.
-	//
-	// `StorageCapacity` is required if you are creating a new file system.
-	//
-	// *FSx for Lustre file systems* - The amount of storage capacity that you can configure depends on the value that you set for `StorageType` and the Lustre `DeploymentType` , as follows:
-	//
-	// - For `SCRATCH_2` , `PERSISTENT_2` and `PERSISTENT_1` deployment types using SSD storage type, the valid values are 1200 GiB, 2400 GiB, and increments of 2400 GiB.
-	// - For `PERSISTENT_1` HDD file systems, valid values are increments of 6000 GiB for 12 MB/s/TiB file systems and increments of 1800 GiB for 40 MB/s/TiB file systems.
-	// - For `SCRATCH_1` deployment type, valid values are 1200 GiB, 2400 GiB, and increments of 3600 GiB.
-	//
-	// *FSx for ONTAP file systems* - The amount of storage capacity that you can configure is from 1024 GiB up to 196,608 GiB (192 TiB).
-	//
-	// *FSx for OpenZFS file systems* - The amount of storage capacity that you can configure is from 64 GiB up to 524,288 GiB (512 TiB). If you are creating a file system from a backup, you can specify a storage capacity equal to or greater than the original file system's storage capacity.
-	//
-	// *FSx for Windows File Server file systems* - The amount of storage capacity that you can configure depends on the value that you set for `StorageType` as follows:
-	//
-	// - For SSD storage, valid values are 32 GiB-65,536 GiB (64 TiB).
-	// - For HDD storage, valid values are 2000 GiB-65,536 GiB (64 TiB).
 	StorageCapacity() *float64
 	SetStorageCapacity(val *float64)
-	// Sets the storage type for the file system that you're creating. Valid values are `SSD` and `HDD` .
+	// Sets the storage type for the file system that you're creating.
 	//
-	// - Set to `SSD` to use solid state drive storage. SSD is supported on all Windows, Lustre, ONTAP, and OpenZFS deployment types.
-	// - Set to `HDD` to use hard disk drive storage. HDD is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types, and on `PERSISTENT_1` Lustre file system deployment types.
-	//
-	// Default value is `SSD` . For more information, see [Storage type options](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options) in the *FSx for Windows File Server User Guide* and [Multiple storage options](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options) in the *FSx for Lustre User Guide* .
+	// Valid values are `SSD` and `HDD` .
 	StorageType() *string
 	SetStorageType(val *string)
 	// Specifies the IDs of the subnets that the file system will be accessible from.
-	//
-	// For Windows and ONTAP `MULTI_AZ_1` deployment types,provide exactly two subnet IDs, one for the preferred file server and one for the standby file server. You specify one of these subnets as the preferred subnet using the `WindowsConfiguration > PreferredSubnetID` or `OntapConfiguration > PreferredSubnetID` properties. For more information about Multi-AZ file system configuration, see [Availability and durability: Single-AZ and Multi-AZ file systems](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html) in the *Amazon FSx for Windows User Guide* and [Availability and durability](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html) in the *Amazon FSx for ONTAP User Guide* .
-	//
-	// For Windows `SINGLE_AZ_1` and `SINGLE_AZ_2` and all Lustre deployment types, provide exactly one subnet ID. The file server is launched in that subnet's Availability Zone.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -311,8 +263,6 @@ type CfnFileSystem interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The configuration object for the Microsoft Windows file system you are creating.
-	//
-	// This value is required if `FileSystemType` is set to `WINDOWS` .
 	WindowsConfiguration() interface{}
 	SetWindowsConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -446,6 +396,7 @@ type CfnFileSystem interface {
 type jsiiProxy_CfnFileSystem struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFileSystem) AttrDnsName() *string {
@@ -453,6 +404,16 @@ func (j *jsiiProxy_CfnFileSystem) AttrDnsName() *string {
 	_jsii_.Get(
 		j,
 		"attrDnsName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFileSystem) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -688,6 +649,16 @@ func (j *jsiiProxy_CfnFileSystem) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFileSystem) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFileSystem) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -719,7 +690,6 @@ func (j *jsiiProxy_CfnFileSystem) WindowsConfiguration() interface{} {
 }
 
 
-// Create a new `AWS::FSx::FileSystem`.
 func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSystemProps) CfnFileSystem {
 	_init_.Initialize()
 
@@ -737,7 +707,6 @@ func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSyst
 	return &j
 }
 
-// Create a new `AWS::FSx::FileSystem`.
 func NewCfnFileSystem_Override(c CfnFileSystem, scope constructs.Construct, id *string, props *CfnFileSystemProps) {
 	_init_.Initialize()
 
@@ -847,6 +816,17 @@ func (j *jsiiProxy_CfnFileSystem)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFileSystem)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

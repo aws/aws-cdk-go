@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Transfer::User`.
+// The `AWS::Transfer::User` resource creates a user and associates them with an existing server.
 //
-// The `AWS::Transfer::User` resource creates a user and associates them with an existing server. You can only create and associate users with servers that have the `IdentityProviderType` set to `SERVICE_MANAGED` . Using parameters for `CreateUser` , you can specify the user name, set the home directory, store the user's public key, and assign the user's AWS Identity and Access Management (IAM) role. You can also optionally add a session policy, and assign metadata with tags that can be used to group and search for users.
+// You can only create and associate users with servers that have the `IdentityProviderType` set to `SERVICE_MANAGED` . Using parameters for `CreateUser` , you can specify the user name, set the home directory, store the user's public key, and assign the user's AWS Identity and Access Management (IAM) role. You can also optionally add a session policy, and assign metadata with tags that can be used to group and search for users.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -53,13 +53,17 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name associated with the user, in the form `arn:aws:transfer:region: *account-id* :user/ *server-id* / *username*` .
 	//
 	// An example of a user ARN is: `arn:aws:transfer:us-east-1:123456789012:user/user1` .
 	AttrArn() *string
+	AttrId() *string
 	// The ID of the server to which the user is attached.
 	//
 	// An example `ServerId` is `s-01234567890abcdef` .
@@ -78,24 +82,12 @@ type CfnUser interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The landing directory (folder) for a user when they log in to the server using the client.
-	//
-	// A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
 	HomeDirectory() *string
 	SetHomeDirectory(val *string)
 	// Logical directory mappings that specify what Amazon S3 paths and keys should be visible to your user and how you want to make them visible.
-	//
-	// You will need to specify the " `Entry` " and " `Target` " pair, where `Entry` shows how the path is made visible and `Target` is the actual Amazon S3 path. If you only specify a target, it will be displayed as is. You will need to also make sure that your IAM role provides access to paths in `Target` . The following is an example.
-	//
-	// `'[ { "Entry": "/", "Target": "/bucket3/customized-reports/" } ]'`
-	//
-	// In most cases, you can use this value instead of the session policy to lock your user down to the designated home directory ("chroot"). To do this, you can set `Entry` to '/' and set `Target` to the HomeDirectory parameter value.
-	//
-	// > If the target of a logical directory entry does not exist in Amazon S3, the entry will be ignored. As a workaround, you can use the Amazon S3 API to create 0 byte objects as place holders for your directory. If using the CLI, use the `s3api` call instead of `s3` so you can use the put-object operation. For example, you use the following: `AWS s3api put-object --bucket bucketname --key path/to/folder/` . Make sure that the end of the key name ends in a '/' for it to be considered a folder.
 	HomeDirectoryMappings() interface{}
 	SetHomeDirectoryMappings(val interface{})
 	// The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.
-	//
-	// If you set it to `PATH` , the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it `LOGICAL` , you need to provide mappings in the `HomeDirectoryMappings` for how you want to make Amazon S3 or Amazon EFS paths visible to your users.
 	HomeDirectoryType() *string
 	SetHomeDirectoryType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -111,19 +103,9 @@ type CfnUser interface {
 	// The tree node.
 	Node() constructs.Node
 	// A session policy for your user so you can use the same IAM role across multiple users.
-	//
-	// This policy restricts user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include `${Transfer:UserName}` , `${Transfer:HomeDirectory}` , and `${Transfer:HomeBucket}` .
-	//
-	// > For session policies, AWS Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the `Policy` argument.
-	// >
-	// > For an example of a session policy, see [Example session policy](https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html) .
-	// >
-	// > For more information, see [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *AWS Security Token Service API Reference* .
 	Policy() *string
 	SetPolicy(val *string)
 	// Specifies the full POSIX identity, including user ID ( `Uid` ), group ID ( `Gid` ), and any secondary groups IDs ( `SecondaryGids` ), that controls your users' access to your Amazon Elastic File System (Amazon EFS) file systems.
-	//
-	// The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.
 	PosixProfile() interface{}
 	SetPosixProfile(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -132,13 +114,9 @@ type CfnUser interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that controls your users' access to your Amazon S3 bucket or Amazon EFS file system.
-	//
-	// The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or Amazon EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.
 	Role() *string
 	SetRole(val *string)
 	// A system-assigned unique identifier for a server instance.
-	//
-	// This is the specific server that you added your user to.
 	ServerId() *string
 	SetServerId(val *string)
 	// Specifies the public key portion of the Secure Shell (SSH) keys stored for the described user.
@@ -148,10 +126,11 @@ type CfnUser interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key-value pairs that can be used to group and search for users.
-	//
-	// Tags are metadata attached to users for any purpose.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs that can be used to group and search for users.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -166,8 +145,6 @@ type CfnUser interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A unique string that identifies a user and is associated with a `ServerId` .
-	//
-	// This user name must be a minimum of 3 and a maximum of 100 characters long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen '-', period '.', and at sign '@'. The user name can't start with a hyphen, period, or at sign.
 	UserName() *string
 	SetUserName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -301,6 +278,7 @@ type CfnUser interface {
 type jsiiProxy_CfnUser struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnUser) AttrArn() *string {
@@ -308,6 +286,16 @@ func (j *jsiiProxy_CfnUser) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUser) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -503,6 +491,16 @@ func (j *jsiiProxy_CfnUser) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUser) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUser) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -534,7 +532,6 @@ func (j *jsiiProxy_CfnUser) UserName() *string {
 }
 
 
-// Create a new `AWS::Transfer::User`.
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
@@ -552,7 +549,6 @@ func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::Transfer::User`.
 func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 
@@ -635,6 +631,17 @@ func (j *jsiiProxy_CfnUser)SetSshPublicKeys(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"sshPublicKeys",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUser)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

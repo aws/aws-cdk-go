@@ -13,10 +13,16 @@ package awskafkaconnect
 //   	WorkerConfigurationArn: jsii.String("workerConfigurationArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html
+//
 type CfnConnector_WorkerConfigurationProperty struct {
 	// The revision of the worker configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-revision
+	//
 	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 	// The Amazon Resource Name (ARN) of the worker configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-workerconfigurationarn
+	//
 	WorkerConfigurationArn *string `field:"required" json:"workerConfigurationArn" yaml:"workerConfigurationArn"`
 }
 

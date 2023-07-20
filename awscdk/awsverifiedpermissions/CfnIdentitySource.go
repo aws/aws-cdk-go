@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VerifiedPermissions::IdentitySource`.
-//
 // Creates or updates a reference to Amazon Cognito as an external identity provider.
 //
 // If you are creating a new identity source, then you must specify a `Configuration` . If you are updating an existing identity source, then you must specify an `UpdateConfiguration` .
@@ -47,9 +45,13 @@ import (
 //   	PrincipalEntityType: jsii.String("principalEntityType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html
+//
 type CfnIdentitySource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A structure that contains information about the configuration of the identity source.
+	AttrDetails() awscdk.IResolvable
 	// The application client IDs associated with the specified Amazon Cognito user pool that are enabled for this identity source.
 	AttrDetailsClientIds() *[]*string
 	// The well-known URL that points to this user pool's OIDC discovery endpoint.
@@ -72,10 +74,6 @@ type CfnIdentitySource interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Contains configuration information used when creating or updating an identity source.
-	//
-	// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-	// >
-	// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -95,8 +93,6 @@ type CfnIdentitySource interface {
 	// The tree node.
 	Node() constructs.Node
 	// Specifies the ID of the policy store in which you want to store this identity source.
-	//
-	// Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
 	PolicyStoreId() *string
 	SetPolicyStoreId(val *string)
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
@@ -255,6 +251,16 @@ type CfnIdentitySource interface {
 type jsiiProxy_CfnIdentitySource struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnIdentitySource) AttrDetails() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrDetails",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnIdentitySource) AttrDetailsClientIds() *[]*string {
@@ -438,7 +444,6 @@ func (j *jsiiProxy_CfnIdentitySource) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::VerifiedPermissions::IdentitySource`.
 func NewCfnIdentitySource(scope constructs.Construct, id *string, props *CfnIdentitySourceProps) CfnIdentitySource {
 	_init_.Initialize()
 
@@ -456,7 +461,6 @@ func NewCfnIdentitySource(scope constructs.Construct, id *string, props *CfnIden
 	return &j
 }
 
-// Create a new `AWS::VerifiedPermissions::IdentitySource`.
 func NewCfnIdentitySource_Override(c CfnIdentitySource, scope constructs.Construct, id *string, props *CfnIdentitySourceProps) {
 	_init_.Initialize()
 

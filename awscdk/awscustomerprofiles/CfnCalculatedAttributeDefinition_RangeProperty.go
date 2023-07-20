@@ -13,10 +13,16 @@ package awscustomerprofiles
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html
+//
 type CfnCalculatedAttributeDefinition_RangeProperty struct {
 	// The unit of time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html#cfn-customerprofiles-calculatedattributedefinition-range-unit
+	//
 	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// The amount of time of the specified unit.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html#cfn-customerprofiles-calculatedattributedefinition-range-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

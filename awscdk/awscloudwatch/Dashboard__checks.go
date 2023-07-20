@@ -11,6 +11,14 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (d *jsiiProxy_Dashboard) validateAddVariableParameters(variable IVariable) error {
+	if variable == nil {
+		return fmt.Errorf("parameter variable is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (d *jsiiProxy_Dashboard) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

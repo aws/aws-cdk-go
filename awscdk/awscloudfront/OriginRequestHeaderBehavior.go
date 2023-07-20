@@ -105,6 +105,27 @@ func OriginRequestHeaderBehavior_AllowList(headers ...*string) OriginRequestHead
 	return returns
 }
 
+// All headers except the provided `headers` are included in requests that CloudFront sends to the origin.
+func OriginRequestHeaderBehavior_DenyList(headers ...*string) OriginRequestHeaderBehavior {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range headers {
+		args = append(args, a)
+	}
+
+	var returns OriginRequestHeaderBehavior
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.OriginRequestHeaderBehavior",
+		"denyList",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 // HTTP headers are not included in requests that CloudFront sends to the origin.
 //
 // Any headers that are listed in a CachePolicy are still included in origin requests.

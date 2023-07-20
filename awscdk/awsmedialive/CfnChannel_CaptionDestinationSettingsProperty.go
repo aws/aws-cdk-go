@@ -87,32 +87,60 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html
+//
 type CfnChannel_CaptionDestinationSettingsProperty struct {
 	// The configuration of one ARIB captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-aribdestinationsettings
+	//
 	AribDestinationSettings interface{} `field:"optional" json:"aribDestinationSettings" yaml:"aribDestinationSettings"`
 	// The configuration of one burn-in captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-burnindestinationsettings
+	//
 	BurnInDestinationSettings interface{} `field:"optional" json:"burnInDestinationSettings" yaml:"burnInDestinationSettings"`
 	// The configuration of one DVB Sub captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-dvbsubdestinationsettings
+	//
 	DvbSubDestinationSettings interface{} `field:"optional" json:"dvbSubDestinationSettings" yaml:"dvbSubDestinationSettings"`
 	// Settings for EBU-TT captions in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-ebuttddestinationsettings
+	//
 	EbuTtDDestinationSettings interface{} `field:"optional" json:"ebuTtDDestinationSettings" yaml:"ebuTtDDestinationSettings"`
 	// The configuration of one embedded captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-embeddeddestinationsettings
+	//
 	EmbeddedDestinationSettings interface{} `field:"optional" json:"embeddedDestinationSettings" yaml:"embeddedDestinationSettings"`
 	// The configuration of one embedded plus SCTE-20 captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-embeddedplusscte20destinationsettings
+	//
 	EmbeddedPlusScte20DestinationSettings interface{} `field:"optional" json:"embeddedPlusScte20DestinationSettings" yaml:"embeddedPlusScte20DestinationSettings"`
 	// The configuration of one RTMPCaptionInfo captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-rtmpcaptioninfodestinationsettings
+	//
 	RtmpCaptionInfoDestinationSettings interface{} `field:"optional" json:"rtmpCaptionInfoDestinationSettings" yaml:"rtmpCaptionInfoDestinationSettings"`
 	// The configuration of one SCTE20 plus embedded captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-scte20plusembeddeddestinationsettings
+	//
 	Scte20PlusEmbeddedDestinationSettings interface{} `field:"optional" json:"scte20PlusEmbeddedDestinationSettings" yaml:"scte20PlusEmbeddedDestinationSettings"`
 	// The configuration of one SCTE-27 captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-scte27destinationsettings
+	//
 	Scte27DestinationSettings interface{} `field:"optional" json:"scte27DestinationSettings" yaml:"scte27DestinationSettings"`
 	// The configuration of one SMPTE-TT captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-smptettdestinationsettings
+	//
 	SmpteTtDestinationSettings interface{} `field:"optional" json:"smpteTtDestinationSettings" yaml:"smpteTtDestinationSettings"`
 	// The configuration of one Teletext captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-teletextdestinationsettings
+	//
 	TeletextDestinationSettings interface{} `field:"optional" json:"teletextDestinationSettings" yaml:"teletextDestinationSettings"`
 	// The configuration of one TTML captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-ttmldestinationsettings
+	//
 	TtmlDestinationSettings interface{} `field:"optional" json:"ttmlDestinationSettings" yaml:"ttmlDestinationSettings"`
 	// The configuration of one WebVTT captions encode in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-webvttdestinationsettings
+	//
 	WebvttDestinationSettings interface{} `field:"optional" json:"webvttDestinationSettings" yaml:"webvttDestinationSettings"`
 }
 

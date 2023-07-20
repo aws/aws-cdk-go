@@ -18,10 +18,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapathsort.html
+//
 type CfnDashboard_DataPathSortProperty struct {
 	// Determines the sort direction.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapathsort.html#cfn-quicksight-dashboard-datapathsort-direction
+	//
 	Direction *string `field:"required" json:"direction" yaml:"direction"`
 	// The list of data paths that need to be sorted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapathsort.html#cfn-quicksight-dashboard-datapathsort-sortpaths
+	//
 	SortPaths interface{} `field:"required" json:"sortPaths" yaml:"sortPaths"`
 }
 

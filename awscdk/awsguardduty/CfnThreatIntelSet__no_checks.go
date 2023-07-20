@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnThreatIntelSet) validateSetLocationParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnThreatIntelSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnThreatIntelSetParameters(scope constructs.Construct, id *string, props *CfnThreatIntelSetProps) error {
 	return nil
 }

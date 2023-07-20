@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnFargateProfile) validateSetSelectorsParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnFargateProfile) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFargateProfileParameters(scope constructs.Construct, id *string, props *CfnFargateProfileProps) error {
 	return nil
 }

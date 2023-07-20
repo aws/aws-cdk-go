@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::ClientCertificate`.
-//
 // The `AWS::ApiGateway::ClientCertificate` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
 //
 // Example:
@@ -28,9 +26,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
+//
 type CfnClientCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID for the client certificate.
 	//
 	// For example: `abc123` .
@@ -68,10 +69,11 @@ type CfnClientCertificate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The collection of tags.
-	//
-	// Each tag element is associated with a given resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The collection of tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -216,6 +218,7 @@ type CfnClientCertificate interface {
 type jsiiProxy_CfnClientCertificate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnClientCertificate) AttrClientCertificateId() *string {
@@ -328,6 +331,16 @@ func (j *jsiiProxy_CfnClientCertificate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClientCertificate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientCertificate) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -349,7 +362,6 @@ func (j *jsiiProxy_CfnClientCertificate) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::ApiGateway::ClientCertificate`.
 func NewCfnClientCertificate(scope constructs.Construct, id *string, props *CfnClientCertificateProps) CfnClientCertificate {
 	_init_.Initialize()
 
@@ -367,7 +379,6 @@ func NewCfnClientCertificate(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::ClientCertificate`.
 func NewCfnClientCertificate_Override(c CfnClientCertificate, scope constructs.Construct, id *string, props *CfnClientCertificateProps) {
 	_init_.Initialize()
 
@@ -382,6 +393,17 @@ func (j *jsiiProxy_CfnClientCertificate)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClientCertificate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

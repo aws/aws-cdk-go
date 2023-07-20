@@ -12,8 +12,12 @@ package awssdb
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdb-domain.html
+//
 type CfnDomainProps struct {
 	// Information about the SimpleDB domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdb-domain.html#cfn-sdb-domain-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

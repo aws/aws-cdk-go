@@ -28,8 +28,12 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbparametergroup.html
+//
 type CfnDBParameterGroupProps struct {
 	// Provides the customer-specified description for this DB parameter group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbparametergroup.html#cfn-rds-dbparametergroup-description
+	//
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// The DB parameter group family name.
 	//
@@ -44,6 +48,8 @@ type CfnDBParameterGroupProps struct {
 	// The output contains duplicates.
 	//
 	// For more information, see `[CreateDBParameterGroup](https://docs.aws.amazon.com//AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html)` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbparametergroup.html#cfn-rds-dbparametergroup-family
+	//
 	Family *string `field:"required" json:"family" yaml:"family"`
 	// The name of the DB parameter group.
 	//
@@ -56,6 +62,8 @@ type CfnDBParameterGroupProps struct {
 	// If you don't specify a value for `DBParameterGroupName` property, a name is automatically created for the DB parameter group.
 	//
 	// > This value is stored as a lowercase string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbparametergroup.html#cfn-rds-dbparametergroup-dbparametergroupname
+	//
 	DbParameterGroupName *string `field:"optional" json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
 	// An array of parameter names and values for the parameter update.
 	//
@@ -66,10 +74,14 @@ type CfnDBParameterGroupProps struct {
 	// For more information about DB cluster and DB instance parameters and parameter groups for Amazon Aurora DB engines, see [Working with DB Parameter Groups and DB Cluster Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide* .
 	//
 	// > AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbparametergroup.html#cfn-rds-dbparametergroup-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// An optional array of key-value pairs to apply to this DB parameter group.
 	//
 	// > Currently, this is the only property that supports drift detection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbparametergroup.html#cfn-rds-dbparametergroup-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

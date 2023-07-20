@@ -15,12 +15,18 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinitionmetric.html
+//
 type CfnTopic_NamedEntityDefinitionMetricProperty struct {
 	// The aggregation of a named entity.
 	//
 	// Valid values for this structure are `SUM` , `MIN` , `MAX` , `COUNT` , `AVERAGE` , `DISTINCT_COUNT` , `STDEV` , `STDEVP` , `VAR` , `VARP` , `PERCENTILE` , `MEDIAN` , and `CUSTOM` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinitionmetric.html#cfn-quicksight-topic-namedentitydefinitionmetric-aggregation
+	//
 	Aggregation *string `field:"optional" json:"aggregation" yaml:"aggregation"`
 	// The additional parameters for an aggregation function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinitionmetric.html#cfn-quicksight-topic-namedentitydefinitionmetric-aggregationfunctionparameters
+	//
 	AggregationFunctionParameters interface{} `field:"optional" json:"aggregationFunctionParameters" yaml:"aggregationFunctionParameters"`
 }
 

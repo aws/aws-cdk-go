@@ -13,6 +13,8 @@ package awsmedialive
 //   scte27DestinationSettingsProperty := &Scte27DestinationSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte27destinationsettings.html
+//
 type CfnChannel_Scte27DestinationSettingsProperty struct {
 }
 

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnAppBlock) validateSetSourceS3LocationParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppBlock) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAppBlockParameters(scope constructs.Construct, id *string, props *CfnAppBlockProps) error {
 	return nil
 }

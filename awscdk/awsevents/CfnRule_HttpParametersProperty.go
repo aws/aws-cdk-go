@@ -22,12 +22,20 @@ package awsevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html
+//
 type CfnRule_HttpParametersProperty struct {
 	// The headers that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-headerparameters
+	//
 	HeaderParameters interface{} `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// The path parameter values to be used to populate API Gateway API or EventBridge ApiDestination path wildcards ("*").
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-pathparametervalues
+	//
 	PathParameterValues *[]*string `field:"optional" json:"pathParameterValues" yaml:"pathParameterValues"`
 	// The query string keys/values that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-querystringparameters
+	//
 	QueryStringParameters interface{} `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 

@@ -19,10 +19,14 @@ package awsevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-routingconfig.html
+//
 type CfnEndpoint_RoutingConfigProperty struct {
 	// The failover configuration for an endpoint.
 	//
 	// This includes what triggers failover and what happens when it's triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-routingconfig.html#cfn-events-endpoint-routingconfig-failoverconfig
+	//
 	FailoverConfig interface{} `field:"required" json:"failoverConfig" yaml:"failoverConfig"`
 }
 

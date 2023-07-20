@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::StepFunctions::StateMachineAlias`.
-//
 // Represents a state machine [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) . An alias routes traffic to one or two versions of the same state machine.
 //
 // You can create up to 100 aliases for each state machine.
@@ -42,6 +40,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html
+//
 type CfnStateMachineAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -59,22 +59,6 @@ type CfnStateMachineAlias interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The settings that enable gradual state machine deployments.
-	//
-	// These settings include [Alarms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms) , [Interval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-interval) , [Percentage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-percentage) , [StateMachineVersionArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-statemachineversionarn) , and [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type) .
-	//
-	// CloudFormation automatically shifts traffic from the version an alias currently points to, to a new state machine version that you specify.
-	//
-	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
-	//
-	// Based on the type of deployment you want to perform, you can specify one of the following settings:
-	//
-	// - `LINEAR` - Shifts traffic to the new version in equal increments with an equal number of seconds between each increment.
-	//
-	// For example, if you specify the increment percent as `20` with an interval of `600` seconds, this deployment increases traffic by 20 percent every 600 seconds until the new version receives 100 percent of the traffic. This deployment immediately rolls back the new version if any Amazon CloudWatch alarms are triggered.
-	// - `ALL_AT_ONCE` - Shifts 100 percent of traffic to the new version immediately. CloudFormation monitors the new version and rolls it back automatically to the previous version if any CloudWatch alarms are triggered.
-	// - `CANARY` - Shifts traffic in two increments.
-	//
-	// In the first increment, a small percentage of traffic, for example, 10 percent is shifted to the new version. In the second increment, before a specified time interval in seconds gets over, the remaining traffic is shifted to the new version. The shift to the new version for the remaining traffic takes place only if no CloudWatch alarms are triggered during the specified time interval.
 	DeploymentPreference() interface{}
 	SetDeploymentPreference(val interface{})
 	// An optional description of the state machine alias.
@@ -91,8 +75,6 @@ type CfnStateMachineAlias interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the state machine alias.
-	//
-	// If you don't provide a name, it uses an automatically generated name based on the logical ID.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -103,12 +85,6 @@ type CfnStateMachineAlias interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The routing configuration of an alias.
-	//
-	// Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
-	//
-	// Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
-	//
-	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 	RoutingConfiguration() interface{}
 	SetRoutingConfiguration(val interface{})
 	// The stack in which this element is defined.
@@ -412,7 +388,6 @@ func (j *jsiiProxy_CfnStateMachineAlias) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::StepFunctions::StateMachineAlias`.
 func NewCfnStateMachineAlias(scope constructs.Construct, id *string, props *CfnStateMachineAliasProps) CfnStateMachineAlias {
 	_init_.Initialize()
 
@@ -430,7 +405,6 @@ func NewCfnStateMachineAlias(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
-// Create a new `AWS::StepFunctions::StateMachineAlias`.
 func NewCfnStateMachineAlias_Override(c CfnStateMachineAlias, scope constructs.Construct, id *string, props *CfnStateMachineAliasProps) {
 	_init_.Initialize()
 

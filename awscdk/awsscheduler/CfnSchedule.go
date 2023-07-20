@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Scheduler::Schedule`.
-//
 // A *schedule* is the main resource you create, configure, and manage using Amazon EventBridge Scheduler.
 //
 // Every schedule has a *schedule expression* that determines when, and with what frequency, the schedule runs. EventBridge Scheduler supports three types of schedules: rate, cron, and one-time schedules. For more information about different schedule types, see [Schedule types](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html) in the *EventBridge Scheduler User Guide* .
@@ -126,6 +124,8 @@ import (
 //   	State: jsii.String("state"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedule.html
+//
 type CfnSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -144,9 +144,6 @@ type CfnSchedule interface {
 	Description() *string
 	SetDescription(val *string)
 	// The date, in UTC, before which the schedule can invoke its target.
-	//
-	// Depending on the schedule's recurrence expression, invocations might stop on, or before, the `EndDate` you specify.
-	// EventBridge Scheduler ignores `EndDate` for one-time schedules.
 	EndDate() *string
 	SetEndDate(val *string)
 	// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
@@ -178,19 +175,9 @@ type CfnSchedule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The expression that defines when the schedule runs. The following formats are supported.
+	// The expression that defines when the schedule runs.
 	//
-	// - `at` expression - `at(yyyy-mm-ddThh:mm:ss)`
-	// - `rate` expression - `rate(value unit)`
-	// - `cron` expression - `cron(fields)`
-	//
-	// You can use `at` expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use `rate` and `cron` expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month.
-	//
-	// A `cron` expression consists of six fields separated by white spaces: `(minutes hours day_of_month month day_of_week year)` .
-	//
-	// A `rate` expression consists of a *value* as a positive integer, and a *unit* with the following options: `minute` | `minutes` | `hour` | `hours` | `day` | `days`
-	//
-	// For more information and examples, see [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html) in the *EventBridge Scheduler User Guide* .
+	// The following formats are supported.
 	ScheduleExpression() *string
 	SetScheduleExpression(val *string)
 	// The timezone in which the scheduling expression is evaluated.
@@ -201,14 +188,9 @@ type CfnSchedule interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The date, in UTC, after which the schedule can begin invoking its target.
-	//
-	// Depending on the schedule's recurrence expression, invocations might occur on, or after, the `StartDate` you specify.
-	// EventBridge Scheduler ignores `StartDate` for one-time schedules.
 	StartDate() *string
 	SetStartDate(val *string)
 	// Specifies whether the schedule is enabled or disabled.
-	//
-	// *Allowed Values* : `ENABLED` | `DISABLED`.
 	State() *string
 	SetState(val *string)
 	// The schedule's target details.
@@ -581,7 +563,6 @@ func (j *jsiiProxy_CfnSchedule) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Scheduler::Schedule`.
 func NewCfnSchedule(scope constructs.Construct, id *string, props *CfnScheduleProps) CfnSchedule {
 	_init_.Initialize()
 
@@ -599,7 +580,6 @@ func NewCfnSchedule(scope constructs.Construct, id *string, props *CfnSchedulePr
 	return &j
 }
 
-// Create a new `AWS::Scheduler::Schedule`.
 func NewCfnSchedule_Override(c CfnSchedule, scope constructs.Construct, id *string, props *CfnScheduleProps) {
 	_init_.Initialize()
 

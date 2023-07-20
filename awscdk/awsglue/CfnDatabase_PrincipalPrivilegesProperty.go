@@ -17,10 +17,16 @@ package awsglue
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html
+//
 type CfnDatabase_PrincipalPrivilegesProperty struct {
 	// The permissions that are granted to the principal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-permissions
+	//
 	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`
 	// The principal who is granted permissions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-principal
+	//
 	Principal interface{} `field:"optional" json:"principal" yaml:"principal"`
 }
 

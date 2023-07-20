@@ -11,10 +11,14 @@ package awssam
 //   	LocalMountPath: jsii.String("localMountPath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-filesystemconfig.html
+//
 type CfnFunction_FileSystemConfigProperty struct {
-	// `CfnFunction.FileSystemConfigProperty.Arn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-filesystemconfig.html#cfn-serverless-function-filesystemconfig-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
-	// `CfnFunction.FileSystemConfigProperty.LocalMountPath`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-filesystemconfig.html#cfn-serverless-function-filesystemconfig-localmountpath
+	//
 	LocalMountPath *string `field:"optional" json:"localMountPath" yaml:"localMountPath"`
 }
 

@@ -24,12 +24,17 @@ package awscodedeploy
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html
+//
 type CfnDeploymentGroup_TargetGroupPairInfoProperty struct {
-	// `CfnDeploymentGroup.TargetGroupPairInfoProperty.ProdTrafficRoute`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html#cfn-codedeploy-deploymentgroup-targetgrouppairinfo-prodtrafficroute
+	//
 	ProdTrafficRoute interface{} `field:"optional" json:"prodTrafficRoute" yaml:"prodTrafficRoute"`
-	// `CfnDeploymentGroup.TargetGroupPairInfoProperty.TargetGroups`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html#cfn-codedeploy-deploymentgroup-targetgrouppairinfo-targetgroups
+	//
 	TargetGroups interface{} `field:"optional" json:"targetGroups" yaml:"targetGroups"`
-	// `CfnDeploymentGroup.TargetGroupPairInfoProperty.TestTrafficRoute`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html#cfn-codedeploy-deploymentgroup-targetgrouppairinfo-testtrafficroute
+	//
 	TestTrafficRoute interface{} `field:"optional" json:"testTrafficRoute" yaml:"testTrafficRoute"`
 }
 

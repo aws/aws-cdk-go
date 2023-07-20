@@ -24,6 +24,8 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html
+//
 type CfnObservabilityConfigurationProps struct {
 	// A name for the observability configuration.
 	//
@@ -34,14 +36,20 @@ type CfnObservabilityConfigurationProps struct {
 	// > When you want to use your own observability configuration for your App Runner service, *create a configuration with a different name* , and then provide it when you create or update your service.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a name for your observability configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html#cfn-apprunner-observabilityconfiguration-observabilityconfigurationname
+	//
 	ObservabilityConfigurationName *string `field:"optional" json:"observabilityConfigurationName" yaml:"observabilityConfigurationName"`
 	// A list of metadata items that you can associate with your observability configuration resource.
 	//
 	// A tag is a key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html#cfn-apprunner-observabilityconfiguration-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The configuration of the tracing feature within this observability configuration.
 	//
 	// If you don't specify it, App Runner doesn't enable tracing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html#cfn-apprunner-observabilityconfiguration-traceconfiguration
+	//
 	TraceConfiguration interface{} `field:"optional" json:"traceConfiguration" yaml:"traceConfiguration"`
 }
 

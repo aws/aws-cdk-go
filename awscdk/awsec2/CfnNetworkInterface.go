@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NetworkInterface`.
-//
 // Describes a network interface in an Amazon EC2 instance for AWS CloudFormation .
 //
 // Example:
@@ -23,6 +21,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	EnablePrimaryIpv6: jsii.Boolean(false),
 //   	GroupSet: []*string{
 //   		jsii.String("groupSet"),
 //   	},
@@ -50,9 +49,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html
+//
 type CfnNetworkInterface interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the network interface.
 	AttrId() *string
 	// The primary private IP address of the network interface.
@@ -75,22 +77,19 @@ type CfnNetworkInterface interface {
 	// A description for the network interface.
 	Description() *string
 	SetDescription(val *string)
+	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address.
+	EnablePrimaryIpv6() interface{}
+	SetEnablePrimaryIpv6(val interface{})
 	// The security group IDs associated with this network interface.
 	GroupSet() *[]*string
 	SetGroupSet(val *[]*string)
 	// The type of network interface.
-	//
-	// The default is `interface` . The supported values are `efa` and `trunk` .
 	InterfaceType() *string
 	SetInterfaceType(val *string)
 	// The number of IPv6 addresses to assign to a network interface.
-	//
-	// Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the `Ipv6Addresses` property and don't specify this property.
 	Ipv6AddressCount() *float64
 	SetIpv6AddressCount(val *float64)
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface.
-	//
-	// If you're specifying a number of IPv6 addresses, use the `Ipv6AddressCount` property and don't specify this property.
 	Ipv6Addresses() interface{}
 	SetIpv6Addresses(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -106,13 +105,9 @@ type CfnNetworkInterface interface {
 	// The tree node.
 	Node() constructs.Node
 	// Assigns a single private IP address to the network interface, which is used as the primary private IP address.
-	//
-	// If you want to specify multiple private IP address, use the `PrivateIpAddresses` property.
 	PrivateIpAddress() *string
 	SetPrivateIpAddress(val *string)
 	// Assigns private IP addresses to the network interface.
-	//
-	// You can specify a primary private IP address by setting the value of the `Primary` property to `true` in the `PrivateIpAddressSpecification` property. If you want EC2 to automatically assign private IP addresses, use the `SecondaryPrivateIpAddressCount` property and do not specify this property.
 	PrivateIpAddresses() interface{}
 	SetPrivateIpAddresses(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -121,15 +116,9 @@ type CfnNetworkInterface interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The number of secondary private IPv4 addresses to assign to a network interface.
-	//
-	// When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using `privateIpAddresses` .
-	//
-	// You can't specify a count of private IPv4 addresses if you've specified one of the following: specific private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.
 	SecondaryPrivateIpAddressCount() *float64
 	SetSecondaryPrivateIpAddressCount(val *float64)
 	// Enable or disable source/destination checks, which ensure that the instance is either the source or the destination of any traffic that it receives.
-	//
-	// If the value is `true` , source/destination checks are enabled; otherwise, they are disabled. The default value is `true` . You must disable source/destination checks if the instance runs services such as network address translation, routing, or firewalls.
 	SourceDestCheck() interface{}
 	SetSourceDestCheck(val interface{})
 	// The stack in which this element is defined.
@@ -139,8 +128,11 @@ type CfnNetworkInterface interface {
 	// The ID of the subnet to associate with the network interface.
 	SubnetId() *string
 	SetSubnetId(val *string)
-	// An arbitrary set of tags (key-value pairs) for this network interface.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An arbitrary set of tags (key-value pairs) for this network interface.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -285,6 +277,7 @@ type CfnNetworkInterface interface {
 type jsiiProxy_CfnNetworkInterface struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNetworkInterface) AttrId() *string {
@@ -362,6 +355,16 @@ func (j *jsiiProxy_CfnNetworkInterface) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) EnablePrimaryIpv6() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enablePrimaryIpv6",
 		&returns,
 	)
 	return returns
@@ -507,6 +510,16 @@ func (j *jsiiProxy_CfnNetworkInterface) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInterface) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInterface) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -528,7 +541,6 @@ func (j *jsiiProxy_CfnNetworkInterface) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::EC2::NetworkInterface`.
 func NewCfnNetworkInterface(scope constructs.Construct, id *string, props *CfnNetworkInterfaceProps) CfnNetworkInterface {
 	_init_.Initialize()
 
@@ -546,7 +558,6 @@ func NewCfnNetworkInterface(scope constructs.Construct, id *string, props *CfnNe
 	return &j
 }
 
-// Create a new `AWS::EC2::NetworkInterface`.
 func NewCfnNetworkInterface_Override(c CfnNetworkInterface, scope constructs.Construct, id *string, props *CfnNetworkInterfaceProps) {
 	_init_.Initialize()
 
@@ -561,6 +572,17 @@ func (j *jsiiProxy_CfnNetworkInterface)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterface)SetEnablePrimaryIpv6(val interface{}) {
+	if err := j.validateSetEnablePrimaryIpv6Parameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enablePrimaryIpv6",
 		val,
 	)
 }
@@ -645,6 +667,17 @@ func (j *jsiiProxy_CfnNetworkInterface)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterface)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

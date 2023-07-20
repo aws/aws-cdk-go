@@ -29,22 +29,32 @@ package awsautoscaling
 //   	VirtualName: jsii.String("virtualName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html
+//
 type CfnLaunchConfiguration_BlockDeviceMappingProperty struct {
 	// The device name assigned to the volume (for example, `/dev/sdh` or `xvdh` ).
 	//
 	// For more information, see [Device naming on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	//
 	// > To define a block device mapping, set the device name and exactly one of the following properties: `Ebs` , `NoDevice` , or `VirtualName` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-devicename
+	//
 	DeviceName *string `field:"required" json:"deviceName" yaml:"deviceName"`
 	// Information to attach an EBS volume to an instance at launch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-ebs
+	//
 	Ebs interface{} `field:"optional" json:"ebs" yaml:"ebs"`
 	// Setting this value to `true` prevents a volume that is included in the block device mapping of the AMI from being mapped to the specified device name at launch.
 	//
 	// If `NoDevice` is `true` for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-nodevice
+	//
 	NoDevice interface{} `field:"optional" json:"noDevice" yaml:"noDevice"`
 	// The name of the instance store volume (virtual device) to attach to an instance at launch.
 	//
 	// The name must be in the form ephemeral *X* where *X* is a number starting from zero (0), for example, `ephemeral0` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-virtualname
+	//
 	VirtualName *string `field:"optional" json:"virtualName" yaml:"virtualName"`
 }
 

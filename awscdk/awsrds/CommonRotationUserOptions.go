@@ -23,6 +23,7 @@ import (
 //   	AutomaticallyAfter: cdk.Duration_Minutes(jsii.Number(30)),
 //   	Endpoint: interfaceVpcEndpoint,
 //   	ExcludeCharacters: jsii.String("excludeCharacters"),
+//   	RotateImmediatelyOnUpdate: jsii.Boolean(false),
 //   	SecurityGroup: securityGroup,
 //   	VpcSubnets: &SubnetSelection{
 //   		AvailabilityZones: []*string{
@@ -52,6 +53,8 @@ type CommonRotationUserOptions struct {
 	Endpoint awsec2.IInterfaceVpcEndpoint `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// Specifies characters to not include in generated passwords.
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
+	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
+	RotateImmediatelyOnUpdate *bool `field:"optional" json:"rotateImmediatelyOnUpdate" yaml:"rotateImmediatelyOnUpdate"`
 	// The security group for the Lambda rotation function.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Where to place the rotation Lambda function.

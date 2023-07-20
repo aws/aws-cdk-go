@@ -14,8 +14,12 @@ package awssagemaker
 //   	Function: jsii.String("function"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-function.html
+//
 type CfnModelCard_FunctionProperty struct {
 	// An optional description of any conditions of your objective function metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-function.html#cfn-sagemaker-modelcard-function-condition
+	//
 	Condition *string `field:"optional" json:"condition" yaml:"condition"`
 	// The metric of the model's objective function.
 	//
@@ -26,11 +30,15 @@ type CfnModelCard_FunctionProperty struct {
 	// - `LOSS`
 	// - `MAE`
 	// - `RMSE`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-function.html#cfn-sagemaker-modelcard-function-facet
+	//
 	Facet *string `field:"optional" json:"facet" yaml:"facet"`
 	// The optimization direction of the model's objective function. You must specify one of the following values:.
 	//
 	// - `Maximize`
 	// - `Minimize`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-function.html#cfn-sagemaker-modelcard-function-function
+	//
 	Function *string `field:"optional" json:"function" yaml:"function"`
 }
 

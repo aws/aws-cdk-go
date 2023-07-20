@@ -11,10 +11,14 @@ package awsgroundstation
 //   	Minimum: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html
+//
 type CfnDataflowEndpointGroup_IntegerRangeProperty struct {
-	// `CfnDataflowEndpointGroup.IntegerRangeProperty.Maximum`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html#cfn-groundstation-dataflowendpointgroup-integerrange-maximum
+	//
 	Maximum *float64 `field:"optional" json:"maximum" yaml:"maximum"`
-	// `CfnDataflowEndpointGroup.IntegerRangeProperty.Minimum`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html#cfn-groundstation-dataflowendpointgroup-integerrange-minimum
+	//
 	Minimum *float64 `field:"optional" json:"minimum" yaml:"minimum"`
 }
 

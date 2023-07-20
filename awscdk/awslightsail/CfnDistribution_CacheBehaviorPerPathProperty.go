@@ -15,6 +15,8 @@ package awslightsail
 //   	Path: jsii.String("path"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehaviorperpath.html
+//
 type CfnDistribution_CacheBehaviorPerPathProperty struct {
 	// The cache behavior for the specified path.
 	//
@@ -22,6 +24,8 @@ type CfnDistribution_CacheBehaviorPerPathProperty struct {
 	//
 	// - *`cache`* - This behavior caches the specified path.
 	// - *`dont-cache`* - This behavior doesn't cache the specified path.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehaviorperpath.html#cfn-lightsail-distribution-cachebehaviorperpath-behavior
+	//
 	Behavior *string `field:"optional" json:"behavior" yaml:"behavior"`
 	// The path to a directory or file to cache, or not cache.
 	//
@@ -49,6 +53,8 @@ type CfnDistribution_CacheBehaviorPerPathProperty struct {
 	// Specify the following to cache all files in the images subdirectory of the document root of an Apache web server.
 	//
 	// `var/www/html/images/`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehaviorperpath.html#cfn-lightsail-distribution-cachebehaviorperpath-path
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 

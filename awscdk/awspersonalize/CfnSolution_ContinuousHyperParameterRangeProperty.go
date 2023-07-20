@@ -1,6 +1,8 @@
 package awspersonalize
 
 
+// Provides the name and range of a continuous hyperparameter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,12 +14,20 @@ package awspersonalize
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-continuoushyperparameterrange.html
+//
 type CfnSolution_ContinuousHyperParameterRangeProperty struct {
-	// `CfnSolution.ContinuousHyperParameterRangeProperty.MaxValue`.
+	// The maximum allowable value for the hyperparameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-continuoushyperparameterrange.html#cfn-personalize-solution-continuoushyperparameterrange-maxvalue
+	//
 	MaxValue *float64 `field:"optional" json:"maxValue" yaml:"maxValue"`
-	// `CfnSolution.ContinuousHyperParameterRangeProperty.MinValue`.
+	// The minimum allowable value for the hyperparameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-continuoushyperparameterrange.html#cfn-personalize-solution-continuoushyperparameterrange-minvalue
+	//
 	MinValue *float64 `field:"optional" json:"minValue" yaml:"minValue"`
-	// `CfnSolution.ContinuousHyperParameterRangeProperty.Name`.
+	// The name of the hyperparameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-continuoushyperparameterrange.html#cfn-personalize-solution-continuoushyperparameterrange-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

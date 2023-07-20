@@ -12,8 +12,12 @@ package awslex
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html
+//
 type CfnBot_DialogCodeHookSettingProperty struct {
 	// Enables the dialog code hook so that it processes user requests.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html#cfn-lex-bot-dialogcodehooksetting-enabled
+	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

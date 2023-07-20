@@ -39,10 +39,14 @@ package awsautoscaling
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html
+//
 type CfnScalingPolicy_PredictiveScalingCustomizedScalingMetricProperty struct {
 	// One or more metric data queries to provide the data points for a scaling metric.
 	//
 	// Use multiple metric data queries only if you are performing a math expression on returned data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html#cfn-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric-metricdataqueries
+	//
 	MetricDataQueries interface{} `field:"required" json:"metricDataQueries" yaml:"metricDataQueries"`
 }
 

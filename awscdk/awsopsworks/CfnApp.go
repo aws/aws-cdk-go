@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpsWorks::App`.
-//
 // Creates an app for a specified stack. For more information, see [Creating Apps](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html) .
 //
 // *Required Permissions* : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html) .
@@ -66,6 +64,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html
+//
 type CfnApp interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -75,6 +75,7 @@ type CfnApp interface {
 	// One or more user-defined key/value pairs to be added to the stack attributes.
 	Attributes() interface{}
 	SetAttributes(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -91,20 +92,12 @@ type CfnApp interface {
 	Description() *string
 	SetDescription(val *string)
 	// The app virtual host settings, with multiple domains separated by commas.
-	//
-	// For example: `'www.example.com, example.com'`
 	Domains() *[]*string
 	SetDomains(val *[]*string)
 	// Whether to enable SSL for the app.
 	EnableSsl() interface{}
 	SetEnableSsl(val interface{})
 	// An array of `EnvironmentVariable` objects that specify environment variables to be associated with the app.
-	//
-	// After you deploy the app, these variables are defined on the associated app server instance. For more information, see [Environment Variables](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment) .
-	//
-	// There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20KB)."
-	//
-	// > If you have specified one or more environment variables, you cannot modify the stack's Chef version.
 	Environment() interface{}
 	SetEnvironment(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -141,8 +134,6 @@ type CfnApp interface {
 	StackId() *string
 	SetStackId(val *string)
 	// The app type.
-	//
-	// Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify `other` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -306,6 +297,16 @@ func (j *jsiiProxy_CfnApp) Attributes() interface{} {
 	_jsii_.Get(
 		j,
 		"attributes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApp) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -512,7 +513,6 @@ func (j *jsiiProxy_CfnApp) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::OpsWorks::App`.
 func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnApp {
 	_init_.Initialize()
 
@@ -530,7 +530,6 @@ func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnAp
 	return &j
 }
 
-// Create a new `AWS::OpsWorks::App`.
 func NewCfnApp_Override(c CfnApp, scope constructs.Construct, id *string, props *CfnAppProps) {
 	_init_.Initialize()
 

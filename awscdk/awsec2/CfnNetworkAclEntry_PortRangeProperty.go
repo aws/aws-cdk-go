@@ -13,14 +13,20 @@ package awsec2
 //   	To: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html
+//
 type CfnNetworkAclEntry_PortRangeProperty struct {
 	// The first port in the range.
 	//
 	// Required if you specify 6 (TCP) or 17 (UDP) for the protocol parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-from
+	//
 	From *float64 `field:"optional" json:"from" yaml:"from"`
 	// The last port in the range.
 	//
 	// Required if you specify 6 (TCP) or 17 (UDP) for the protocol parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-to
+	//
 	To *float64 `field:"optional" json:"to" yaml:"to"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::IPAMResourceDiscovery`.
-//
 // A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.
 //
 // Example:
@@ -33,9 +31,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html
+//
 type CfnIPAMResourceDiscovery interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The resource discovery ARN.
 	AttrIpamResourceDiscoveryArn() *string
 	// The resource discovery ID.
@@ -88,8 +89,6 @@ type CfnIPAMResourceDiscovery interface {
 	// The tree node.
 	Node() constructs.Node
 	// The operating Regions for the resource discovery.
-	//
-	// Operating Regions are AWS Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the AWS Regions you select as operating Regions.
 	OperatingRegions() interface{}
 	SetOperatingRegions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -101,10 +100,11 @@ type CfnIPAMResourceDiscovery interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A tag is a label that you assign to an AWS resource.
-	//
-	// Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your AWS costs.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A tag is a label that you assign to an AWS resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -249,6 +249,7 @@ type CfnIPAMResourceDiscovery interface {
 type jsiiProxy_CfnIPAMResourceDiscovery struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIPAMResourceDiscovery) AttrIpamResourceDiscoveryArn() *string {
@@ -421,6 +422,16 @@ func (j *jsiiProxy_CfnIPAMResourceDiscovery) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAMResourceDiscovery) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAMResourceDiscovery) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -442,7 +453,6 @@ func (j *jsiiProxy_CfnIPAMResourceDiscovery) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::EC2::IPAMResourceDiscovery`.
 func NewCfnIPAMResourceDiscovery(scope constructs.Construct, id *string, props *CfnIPAMResourceDiscoveryProps) CfnIPAMResourceDiscovery {
 	_init_.Initialize()
 
@@ -460,7 +470,6 @@ func NewCfnIPAMResourceDiscovery(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::EC2::IPAMResourceDiscovery`.
 func NewCfnIPAMResourceDiscovery_Override(c CfnIPAMResourceDiscovery, scope constructs.Construct, id *string, props *CfnIPAMResourceDiscoveryProps) {
 	_init_.Initialize()
 
@@ -486,6 +495,17 @@ func (j *jsiiProxy_CfnIPAMResourceDiscovery)SetOperatingRegions(val interface{})
 	_jsii_.Set(
 		j,
 		"operatingRegions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAMResourceDiscovery)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

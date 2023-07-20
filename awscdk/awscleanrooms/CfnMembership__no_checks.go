@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnMembership) validateSetQueryLogStatusParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnMembership) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMembershipParameters(scope constructs.Construct, id *string, props *CfnMembershipProps) error {
 	return nil
 }

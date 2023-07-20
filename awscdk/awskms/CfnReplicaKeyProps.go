@@ -29,6 +29,8 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html
+//
 type CfnReplicaKeyProps struct {
 	// The key policy that authorizes use of the replica key.
 	//
@@ -41,13 +43,15 @@ type CfnReplicaKeyProps struct {
 	//
 	// A key policy document can include only the following characters:
 	//
-	// - Printable ASCII characters from the space character ( `\ u0020` ) through the end of the ASCII character range.
-	// - Printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` ).
-	// - The tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ) special characters
+	// - Printable ASCII characters from the space character ( `\u0020` ) through the end of the ASCII character range.
+	// - Printable characters in the Basic Latin and Latin-1 Supplement character set (through `\u00FF` ).
+	// - The tab ( `\u0009` ), line feed ( `\u000A` ), and carriage return ( `\u000D` ) special characters
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `32768`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-keypolicy
+	//
 	KeyPolicy interface{} `field:"required" json:"keyPolicy" yaml:"keyPolicy"`
 	// Specifies the multi-Region primary key to replicate.
 	//
@@ -58,12 +62,16 @@ type CfnReplicaKeyProps struct {
 	// > However, if you inadvertently delete a replica key, you can decrypt ciphertext encrypted by that replica key by using any related multi-Region key. If necessary, you can recreate the replica in the same Region after the previous one is completely deleted. For details, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html) in the *AWS Key Management Service Developer Guide*
 	//
 	// Specify the key ARN of an existing multi-Region primary key. For example, `arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-primarykeyarn
+	//
 	PrimaryKeyArn *string `field:"required" json:"primaryKeyArn" yaml:"primaryKeyArn"`
 	// A description of the KMS key.
 	//
 	// The default value is an empty string (no description).
 	//
 	// The description is not a shared property of multi-Region keys. You can specify the same description or a different description for each key in a set of related multi-Region keys. AWS Key Management Service does not synchronize this property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations.
 	//
@@ -72,6 +80,8 @@ type CfnReplicaKeyProps struct {
 	// The actual key state of the replica might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) , [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html) , or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations. Also, while the replica key is being created, its key state is `Creating` . When the process is complete, the key state of the replica key changes to `Enabled` .
 	//
 	// For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a replica key that has been removed from a CloudFormation stack.
 	//
@@ -90,6 +100,8 @@ type CfnReplicaKeyProps struct {
 	// *Minimum* : 7
 	//
 	// *Maximum* : 30.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-pendingwindowindays
+	//
 	PendingWindowInDays *float64 `field:"optional" json:"pendingWindowInDays" yaml:"pendingWindowInDays"`
 	// Assigns one or more tags to the replica key.
 	//
@@ -100,6 +112,8 @@ type CfnReplicaKeyProps struct {
 	// Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, AWS KMS replaces the current tag value with the specified one.
 	//
 	// When you assign tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

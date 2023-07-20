@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::Template`.
+// Specifies an email template.
 //
-// Specifies an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation.
+// Email templates enable you to send personalized email to one or more destinations in a single API operation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,6 +28,8 @@ import (
 //   		TextPart: jsii.String("textPart"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html
 //
 type CfnTemplate interface {
 	awscdk.CfnResource
@@ -333,7 +335,6 @@ func (j *jsiiProxy_CfnTemplate) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SES::Template`.
 func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
 	_init_.Initialize()
 
@@ -351,7 +352,6 @@ func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplatePr
 	return &j
 }
 
-// Create a new `AWS::SES::Template`.
 func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *string, props *CfnTemplateProps) {
 	_init_.Initialize()
 

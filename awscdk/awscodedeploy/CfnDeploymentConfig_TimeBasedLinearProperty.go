@@ -15,10 +15,16 @@ package awscodedeploy
 //   	LinearPercentage: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedlinear.html
+//
 type CfnDeploymentConfig_TimeBasedLinearProperty struct {
 	// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedlinear.html#cfn-codedeploy-deploymentconfig-timebasedlinear-linearinterval
+	//
 	LinearInterval *float64 `field:"required" json:"linearInterval" yaml:"linearInterval"`
 	// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedlinear.html#cfn-codedeploy-deploymentconfig-timebasedlinear-linearpercentage
+	//
 	LinearPercentage *float64 `field:"required" json:"linearPercentage" yaml:"linearPercentage"`
 }
 

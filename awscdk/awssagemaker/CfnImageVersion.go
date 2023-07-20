@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::ImageVersion`.
+// Creates a version of the SageMaker image specified by `ImageName` .
 //
-// Creates a version of the SageMaker image specified by `ImageName` . The version represents the Amazon Container Registry (ECR) container image specified by `BaseImage` .
+// The version represents the Amazon Container Registry (ECR) container image specified by `BaseImage` .
 //
 // > You can use the `DependsOn` attribute to specify that the creation of a specific resource follows another. You can use it for the following use cases. For more information, see [`DependsOn` attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 // >
@@ -28,6 +28,8 @@ import (
 //   	BaseImage: jsii.String("baseImage"),
 //   	ImageName: jsii.String("imageName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
 //
 type CfnImageVersion interface {
 	awscdk.CfnResource
@@ -47,10 +49,6 @@ type CfnImageVersion interface {
 	// The version of the image.
 	AttrVersion() *float64
 	// The container image that the SageMaker image version is based on.
-	//
-	// *Length Constraints* : Minimum length of 1. Maximum length of 255.
-	//
-	// *Pattern* : `.*`
 	BaseImage() *string
 	SetBaseImage(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -63,10 +61,6 @@ type CfnImageVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the parent image.
-	//
-	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
-	//
-	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
 	ImageName() *string
 	SetImageName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -397,7 +391,6 @@ func (j *jsiiProxy_CfnImageVersion) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::SageMaker::ImageVersion`.
 func NewCfnImageVersion(scope constructs.Construct, id *string, props *CfnImageVersionProps) CfnImageVersion {
 	_init_.Initialize()
 
@@ -415,7 +408,6 @@ func NewCfnImageVersion(scope constructs.Construct, id *string, props *CfnImageV
 	return &j
 }
 
-// Create a new `AWS::SageMaker::ImageVersion`.
 func NewCfnImageVersion_Override(c CfnImageVersion, scope constructs.Construct, id *string, props *CfnImageVersionProps) {
 	_init_.Initialize()
 

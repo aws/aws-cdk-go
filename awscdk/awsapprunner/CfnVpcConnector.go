@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppRunner::VpcConnector`.
-//
 // Specify an AWS App Runner VPC connector by using the `AWS::AppRunner::VpcConnector` resource in an AWS CloudFormation template.
 //
 // The `AWS::AppRunner::VpcConnector` resource is an AWS App Runner resource type that specifies an App Runner VPC connector.
@@ -40,9 +38,12 @@ import (
 //   	VpcConnectorName: jsii.String("vpcConnectorName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html
+//
 type CfnVpcConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of this VPC connector.
 	AttrVpcConnectorArn() *string
 	// The revision of this VPC connector.
@@ -78,8 +79,6 @@ type CfnVpcConnector interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets.
-	//
-	// If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
 	// The stack in which this element is defined.
@@ -87,16 +86,13 @@ type CfnVpcConnector interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC.
-	//
-	// Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
-	//
-	// > App Runner currently only provides support for IPv4.
 	Subnets() *[]*string
 	SetSubnets(val *[]*string)
-	// A list of metadata items that you can associate with your VPC connector resource.
-	//
-	// A tag is a key-value pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of metadata items that you can associate with your VPC connector resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -111,8 +107,6 @@ type CfnVpcConnector interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A name for the VPC connector.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
 	VpcConnectorName() *string
 	SetVpcConnectorName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -246,6 +240,7 @@ type CfnVpcConnector interface {
 type jsiiProxy_CfnVpcConnector struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVpcConnector) AttrVpcConnectorArn() *string {
@@ -378,6 +373,16 @@ func (j *jsiiProxy_CfnVpcConnector) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVpcConnector) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVpcConnector) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -409,7 +414,6 @@ func (j *jsiiProxy_CfnVpcConnector) VpcConnectorName() *string {
 }
 
 
-// Create a new `AWS::AppRunner::VpcConnector`.
 func NewCfnVpcConnector(scope constructs.Construct, id *string, props *CfnVpcConnectorProps) CfnVpcConnector {
 	_init_.Initialize()
 
@@ -427,7 +431,6 @@ func NewCfnVpcConnector(scope constructs.Construct, id *string, props *CfnVpcCon
 	return &j
 }
 
-// Create a new `AWS::AppRunner::VpcConnector`.
 func NewCfnVpcConnector_Override(c CfnVpcConnector, scope constructs.Construct, id *string, props *CfnVpcConnectorProps) {
 	_init_.Initialize()
 
@@ -453,6 +456,17 @@ func (j *jsiiProxy_CfnVpcConnector)SetSubnets(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnets",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcConnector)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

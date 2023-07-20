@@ -17,14 +17,20 @@ package awslightsail
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-querystringobject.html
+//
 type CfnDistribution_QueryStringObjectProperty struct {
 	// Indicates whether the distribution forwards and caches based on query strings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-querystringobject.html#cfn-lightsail-distribution-querystringobject-option
+	//
 	Option interface{} `field:"optional" json:"option" yaml:"option"`
 	// The specific query strings that the distribution forwards to the origin.
 	//
 	// Your distribution caches content based on the specified query strings.
 	//
 	// If the `option` parameter is true, then your distribution forwards all query strings, regardless of what you specify using the `QueryStringsAllowList` parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-querystringobject.html#cfn-lightsail-distribution-querystringobject-querystringsallowlist
+	//
 	QueryStringsAllowList *[]*string `field:"optional" json:"queryStringsAllowList" yaml:"queryStringsAllowList"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::EndpointConfig`.
+// The `AWS::SageMaker::EndpointConfig` resource creates a configuration for an Amazon SageMaker endpoint.
 //
-// The `AWS::SageMaker::EndpointConfig` resource creates a configuration for an Amazon SageMaker endpoint. For more information, see [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html) in the *SageMaker Developer Guide* .
+// For more information, see [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html) in the *SageMaker Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -159,14 +159,18 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html
+//
 type CfnEndpointConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	AsyncInferenceConfig() interface{}
 	SetAsyncInferenceConfig(val interface{})
 	// The name of the endpoint configuration, such as `MyEndpointConfiguration` .
 	AttrEndpointConfigName() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -177,30 +181,14 @@ type CfnEndpointConfig interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specifies how to capture endpoint data for model monitor.
-	//
-	// The data capture configuration applies to all production variants hosted at the endpoint.
 	DataCaptureConfig() interface{}
 	SetDataCaptureConfig(val interface{})
 	// The name of the endpoint configuration.
 	EndpointConfigName() *string
 	SetEndpointConfigName(val *string)
-	// `AWS::SageMaker::EndpointConfig.ExplainerConfig`.
 	ExplainerConfig() interface{}
 	SetExplainerConfig(val interface{})
 	// The Amazon Resource Name (ARN) of an AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-	//
-	// - Key ID: `1234abcd-12ab-34cd-56ef-1234567890ab`
-	// - Key ARN: `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-	// - Alias name: `alias/ExampleAlias`
-	// - Alias name ARN: `arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias`
-	//
-	// The KMS key policy must grant permission to the IAM role that you specify in your `CreateEndpoint` , `UpdateEndpoint` requests. For more information, refer to the AWS Key Management Service section [Using Key Policies in AWS KMS](https://docs.aws.amazon.com//kms/latest/developerguide/key-policies.html)
-	//
-	// > Certain Nitro-based instances include local storage, dependent on the instance type. Local storage volumes are encrypted using a hardware module on the instance. You can't request a `KmsKeyId` when using an instance type with local storage. If any of the models that you specify in the `ProductionVariants` parameter use nitro-based instances with local storage, do not specify a value for the `KmsKeyId` parameter. If you specify a value for `KmsKeyId` when using any nitro-based instances with local storage, the call to `CreateEndpointConfig` fails.
-	// >
-	// > For a list of instance types that support local instance storage, see [Instance Store Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes) .
-	// >
-	// > For more information about local instance storage encryption, see [SSD Instance Store Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html) .
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -224,18 +212,17 @@ type CfnEndpointConfig interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Array of `ProductionVariant` objects.
-	//
-	// There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `ProductionVariants` . If you use this field, you can only specify one variant for `ProductionVariants` and one variant for `ShadowProductionVariants` .
 	ShadowProductionVariants() interface{}
 	SetShadowProductionVariants(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Resource Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) and [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -380,6 +367,7 @@ type CfnEndpointConfig interface {
 type jsiiProxy_CfnEndpointConfig struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEndpointConfig) AsyncInferenceConfig() interface{} {
@@ -397,6 +385,16 @@ func (j *jsiiProxy_CfnEndpointConfig) AttrEndpointConfigName() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpointConfigName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointConfig) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -552,6 +550,16 @@ func (j *jsiiProxy_CfnEndpointConfig) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpointConfig) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -573,7 +581,6 @@ func (j *jsiiProxy_CfnEndpointConfig) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::SageMaker::EndpointConfig`.
 func NewCfnEndpointConfig(scope constructs.Construct, id *string, props *CfnEndpointConfigProps) CfnEndpointConfig {
 	_init_.Initialize()
 
@@ -591,7 +598,6 @@ func NewCfnEndpointConfig(scope constructs.Construct, id *string, props *CfnEndp
 	return &j
 }
 
-// Create a new `AWS::SageMaker::EndpointConfig`.
 func NewCfnEndpointConfig_Override(c CfnEndpointConfig, scope constructs.Construct, id *string, props *CfnEndpointConfigProps) {
 	_init_.Initialize()
 
@@ -669,6 +675,17 @@ func (j *jsiiProxy_CfnEndpointConfig)SetShadowProductionVariants(val interface{}
 	_jsii_.Set(
 		j,
 		"shadowProductionVariants",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointConfig)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

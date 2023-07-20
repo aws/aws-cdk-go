@@ -22,8 +22,12 @@ package awseks
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-logging.html
+//
 type CfnCluster_LoggingProperty struct {
 	// The cluster control plane logging configuration for your cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-logging.html#cfn-eks-cluster-logging-clusterlogging
+	//
 	ClusterLogging interface{} `field:"optional" json:"clusterLogging" yaml:"clusterLogging"`
 }
 

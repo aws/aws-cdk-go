@@ -27,18 +27,26 @@ package awsdlm
 //   	IntervalUnit: jsii.String("intervalUnit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html
+//
 type CfnLifecyclePolicy_RetainRuleProperty struct {
 	// The number of snapshots to retain for each volume, up to a maximum of 1000.
 	//
 	// For example if you want to retain a maximum of three snapshots, specify `3` . When the fourth snapshot is created, the oldest retained snapshot is deleted, or it is moved to the archive tier if you have specified an `ArchiveRule` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-count
+	//
 	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// The amount of time to retain each snapshot.
 	//
 	// The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-interval
+	//
 	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
 	// The unit of time for time-based retention.
 	//
 	// For example, to retain snapshots for 3 months, specify `Interval=3` and `IntervalUnit=MONTHS` . Once the snapshot has been retained for 3 months, it is deleted, or it is moved to the archive tier if you have specified an `ArchiveRule` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-intervalunit
+	//
 	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
 }
 

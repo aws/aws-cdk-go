@@ -62,6 +62,7 @@ package awsappflow
 //   		ApplicationHostUrl: jsii.String("applicationHostUrl"),
 //   		ApplicationServicePath: jsii.String("applicationServicePath"),
 //   		ClientNumber: jsii.String("clientNumber"),
+//   		DisableSso: jsii.Boolean(false),
 //   		LogonLanguage: jsii.String("logonLanguage"),
 //   		OAuthProperties: &OAuthPropertiesProperty{
 //   			AuthCodeUrl: jsii.String("authCodeUrl"),
@@ -98,34 +99,63 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html
+//
 type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	// The properties required by the custom connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-customconnector
+	//
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The connector-specific properties required by Datadog.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
+	//
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`
 	// The connector-specific properties required by Dynatrace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
+	//
 	Dynatrace interface{} `field:"optional" json:"dynatrace" yaml:"dynatrace"`
 	// The connector-specific properties required by Infor Nexus.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
+	//
 	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific properties required by Marketo.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
+	//
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
-	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.Pardot`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-pardot
+	//
 	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`
 	// The connector-specific properties required by Amazon Redshift.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
+	//
 	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`
 	// The connector-specific properties required by Salesforce.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
+	//
 	Salesforce interface{} `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The connector-specific profile properties required when using SAPOData.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-sapodata
+	//
 	SapoData interface{} `field:"optional" json:"sapoData" yaml:"sapoData"`
 	// The connector-specific properties required by serviceNow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
+	//
 	ServiceNow interface{} `field:"optional" json:"serviceNow" yaml:"serviceNow"`
 	// The connector-specific properties required by Slack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
+	//
 	Slack interface{} `field:"optional" json:"slack" yaml:"slack"`
 	// The connector-specific properties required by Snowflake.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
+	//
 	Snowflake interface{} `field:"optional" json:"snowflake" yaml:"snowflake"`
 	// The connector-specific properties required by Veeva.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
+	//
 	Veeva interface{} `field:"optional" json:"veeva" yaml:"veeva"`
 	// The connector-specific properties required by Zendesk.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
+	//
 	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 

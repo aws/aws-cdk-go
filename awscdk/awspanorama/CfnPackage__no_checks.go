@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnPackage) validateSetStorageLocationParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnPackage) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPackageParameters(scope constructs.Construct, id *string, props *CfnPackageProps) error {
 	return nil
 }

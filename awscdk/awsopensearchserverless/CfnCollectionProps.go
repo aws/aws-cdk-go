@@ -25,6 +25,8 @@ import (
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html
+//
 type CfnCollectionProps struct {
 	// The name of the collection.
 	//
@@ -34,16 +36,24 @@ type CfnCollectionProps struct {
 	// - Unique to your account and AWS Region
 	// - Contains between 3 and 28 characters
 	// - Contains only lowercase letters a-z, the numbers 0-9, and the hyphen (-).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the collection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An arbitrary set of tags (key–value pairs) to associate with the collection.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of collection.
 	//
 	// Possible values are `SEARCH` and `TIMESERIES` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

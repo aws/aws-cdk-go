@@ -15,10 +15,16 @@ package awsgamelift
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html
+//
 type CfnMatchmakingConfiguration_GamePropertyProperty struct {
 	// The game property identifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html#cfn-gamelift-matchmakingconfiguration-gameproperty-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The game property value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html#cfn-gamelift-matchmakingconfiguration-gameproperty-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::Policy`.
+// Use the `AWS::IoT::Policy` resource to declare an AWS IoT policy.
 //
-// Use the `AWS::IoT::Policy` resource to declare an AWS IoT policy. For more information about working with AWS IoT policies, see [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html) in the *AWS IoT Developer Guide* .
+// For more information about working with AWS IoT policies, see [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html) in the *AWS IoT Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,6 +26,8 @@ import (
 //   	// the properties below are optional
 //   	PolicyName: jsii.String("policyName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
 //
 type CfnPolicy interface {
 	awscdk.CfnResource
@@ -357,7 +359,6 @@ func (j *jsiiProxy_CfnPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::Policy`.
 func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
 	_init_.Initialize()
 
@@ -375,7 +376,6 @@ func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps)
 	return &j
 }
 
-// Create a new `AWS::IoT::Policy`.
 func NewCfnPolicy_Override(c CfnPolicy, scope constructs.Construct, id *string, props *CfnPolicyProps) {
 	_init_.Initialize()
 

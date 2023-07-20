@@ -14,8 +14,12 @@ package awsappstream
 //   	PreferredProtocol: jsii.String("preferredProtocol"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-streamingexperiencesettings.html
+//
 type CfnStack_StreamingExperienceSettingsProperty struct {
 	// The preferred protocol that you want to use while streaming your application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-streamingexperiencesettings.html#cfn-appstream-stack-streamingexperiencesettings-preferredprotocol
+	//
 	PreferredProtocol *string `field:"optional" json:"preferredProtocol" yaml:"preferredProtocol"`
 }
 

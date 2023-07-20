@@ -19,8 +19,12 @@ package awsimagebuilder
 //   	UserDataOverride: jsii.String("userDataOverride"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
+//
 type CfnImageRecipe_AdditionalInstanceConfigurationProperty struct {
 	// Contains settings for the Systems Manager agent on your build instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+	//
 	SystemsManagerAgent interface{} `field:"optional" json:"systemsManagerAgent" yaml:"systemsManagerAgent"`
 	// Use this property to provide commands or a command script to run when you launch your build instance.
 	//
@@ -33,6 +37,8 @@ type CfnImageRecipe_AdditionalInstanceConfigurationProperty struct {
 	// > mkdir -p /var/bb/
 	// >
 	// > touch /var.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+	//
 	UserDataOverride *string `field:"optional" json:"userDataOverride" yaml:"userDataOverride"`
 }
 

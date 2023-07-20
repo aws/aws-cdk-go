@@ -1,6 +1,8 @@
 package awspersonalize
 
 
+// Describes the properties for hyperparameter optimization (HPO).
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -42,12 +44,20 @@ package awspersonalize
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html
+//
 type CfnSolution_HpoConfigProperty struct {
-	// `CfnSolution.HpoConfigProperty.AlgorithmHyperParameterRanges`.
+	// The hyperparameters and their allowable ranges.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html#cfn-personalize-solution-hpoconfig-algorithmhyperparameterranges
+	//
 	AlgorithmHyperParameterRanges interface{} `field:"optional" json:"algorithmHyperParameterRanges" yaml:"algorithmHyperParameterRanges"`
-	// `CfnSolution.HpoConfigProperty.HpoObjective`.
+	// The metric to optimize during HPO.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html#cfn-personalize-solution-hpoconfig-hpoobjective
+	//
 	HpoObjective interface{} `field:"optional" json:"hpoObjective" yaml:"hpoObjective"`
-	// `CfnSolution.HpoConfigProperty.HpoResourceConfig`.
+	// Describes the resource configuration for hyperparameter optimization (HPO).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html#cfn-personalize-solution-hpoconfig-hporesourceconfig
+	//
 	HpoResourceConfig interface{} `field:"optional" json:"hpoResourceConfig" yaml:"hpoResourceConfig"`
 }
 

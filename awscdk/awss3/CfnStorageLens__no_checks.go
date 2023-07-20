@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnStorageLens) validateSetStorageLensConfigurationParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnStorageLens) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnStorageLensParameters(scope constructs.Construct, id *string, props *CfnStorageLensProps) error {
 	return nil
 }

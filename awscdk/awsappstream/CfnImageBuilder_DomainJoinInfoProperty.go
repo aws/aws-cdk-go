@@ -13,10 +13,16 @@ package awsappstream
 //   	OrganizationalUnitDistinguishedName: jsii.String("organizationalUnitDistinguishedName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html
+//
 type CfnImageBuilder_DomainJoinInfoProperty struct {
 	// The fully qualified name of the directory (for example, corp.example.com).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-directoryname
+	//
 	DirectoryName *string `field:"optional" json:"directoryName" yaml:"directoryName"`
 	// The distinguished name of the organizational unit for computer accounts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-organizationalunitdistinguishedname
+	//
 	OrganizationalUnitDistinguishedName *string `field:"optional" json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
 }
 

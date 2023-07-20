@@ -53,23 +53,39 @@ package awsquicksight
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdropdowncontrol.html
+//
 type CfnAnalysis_FilterDropDownControlProperty struct {
 	// The ID of the `FilterDropDownControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdropdowncontrol.html#cfn-quicksight-analysis-filterdropdowncontrol-filtercontrolid
+	//
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
 	// The source filter ID of the `FilterDropDownControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdropdowncontrol.html#cfn-quicksight-analysis-filterdropdowncontrol-sourcefilterid
+	//
 	SourceFilterId *string `field:"required" json:"sourceFilterId" yaml:"sourceFilterId"`
 	// The title of the `FilterDropDownControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdropdowncontrol.html#cfn-quicksight-analysis-filterdropdowncontrol-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdropdowncontrol.html#cfn-quicksight-analysis-filterdropdowncontrol-cascadingcontrolconfiguration
+	//
 	CascadingControlConfiguration interface{} `field:"optional" json:"cascadingControlConfiguration" yaml:"cascadingControlConfiguration"`
 	// The display options of the `FilterDropDownControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdropdowncontrol.html#cfn-quicksight-analysis-filterdropdowncontrol-displayoptions
+	//
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 	// A list of selectable values that are used in a control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdropdowncontrol.html#cfn-quicksight-analysis-filterdropdowncontrol-selectablevalues
+	//
 	SelectableValues interface{} `field:"optional" json:"selectableValues" yaml:"selectableValues"`
 	// The type of the `FilterDropDownControl` . Choose one of the following options:.
 	//
 	// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
 	// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdropdowncontrol.html#cfn-quicksight-analysis-filterdropdowncontrol-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

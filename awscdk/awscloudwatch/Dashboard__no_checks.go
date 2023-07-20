@@ -4,6 +4,10 @@ package awscloudwatch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (d *jsiiProxy_Dashboard) validateAddVariableParameters(variable IVariable) error {
+	return nil
+}
+
 func (d *jsiiProxy_Dashboard) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

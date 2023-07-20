@@ -76,12 +76,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textconditionalformat.html
+//
 type CfnTemplate_TextConditionalFormatProperty struct {
 	// The conditional formatting for the text background color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textconditionalformat.html#cfn-quicksight-template-textconditionalformat-backgroundcolor
+	//
 	BackgroundColor interface{} `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
 	// The conditional formatting for the icon.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textconditionalformat.html#cfn-quicksight-template-textconditionalformat-icon
+	//
 	Icon interface{} `field:"optional" json:"icon" yaml:"icon"`
 	// The conditional formatting for the text color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textconditionalformat.html#cfn-quicksight-template-textconditionalformat-textcolor
+	//
 	TextColor interface{} `field:"optional" json:"textColor" yaml:"textColor"`
 }
 

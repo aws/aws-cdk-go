@@ -18,12 +18,20 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formbutton.html
+//
 type CfnForm_FormButtonProperty struct {
 	// Describes the button's properties.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formbutton.html#cfn-amplifyuibuilder-form-formbutton-children
+	//
 	Children *string `field:"optional" json:"children" yaml:"children"`
 	// Specifies whether the button is visible on the form.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formbutton.html#cfn-amplifyuibuilder-form-formbutton-excluded
+	//
 	Excluded interface{} `field:"optional" json:"excluded" yaml:"excluded"`
 	// The position of the button.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formbutton.html#cfn-amplifyuibuilder-form-formbutton-position
+	//
 	Position interface{} `field:"optional" json:"position" yaml:"position"`
 }
 

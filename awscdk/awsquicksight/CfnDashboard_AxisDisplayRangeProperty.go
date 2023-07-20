@@ -20,10 +20,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisdisplayrange.html
+//
 type CfnDashboard_AxisDisplayRangeProperty struct {
 	// The data-driven setup of an axis display range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisdisplayrange.html#cfn-quicksight-dashboard-axisdisplayrange-datadriven
+	//
 	DataDriven interface{} `field:"optional" json:"dataDriven" yaml:"dataDriven"`
 	// The minimum and maximum setup of an axis display range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisdisplayrange.html#cfn-quicksight-dashboard-axisdisplayrange-minmax
+	//
 	MinMax interface{} `field:"optional" json:"minMax" yaml:"minMax"`
 }
 

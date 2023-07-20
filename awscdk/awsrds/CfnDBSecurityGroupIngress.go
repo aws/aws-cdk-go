@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::DBSecurityGroupIngress`.
+// The `AWS::RDS::DBSecurityGroupIngress` resource enables ingress to a DB security group using one of two forms of authorization.
 //
-// The `AWS::RDS::DBSecurityGroupIngress` resource enables ingress to a DB security group using one of two forms of authorization. First, you can add EC2 or VPC security groups to the DB security group if the application using the database is running on EC2 or VPC instances. Second, IP ranges are available if the application accessing your database is running on the Internet.
+// First, you can add EC2 or VPC security groups to the DB security group if the application using the database is running on EC2 or VPC instances. Second, IP ranges are available if the application accessing your database is running on the Internet.
 //
 // This type supports updates. For more information about updating stacks, see [AWS CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html) .
 //
@@ -34,9 +34,12 @@ import (
 //   	Ec2SecurityGroupOwnerId: jsii.String("ec2SecurityGroupOwnerId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsecuritygroupingress.html
+//
 type CfnDBSecurityGroupIngress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -53,18 +56,12 @@ type CfnDBSecurityGroupIngress interface {
 	DbSecurityGroupName() *string
 	SetDbSecurityGroupName(val *string)
 	// Id of the EC2 security group to authorize.
-	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId() *string
 	SetEc2SecurityGroupId(val *string)
 	// Name of the EC2 security group to authorize.
-	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName() *string
 	SetEc2SecurityGroupName(val *string)
 	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
-	//
-	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -234,6 +231,16 @@ type jsiiProxy_CfnDBSecurityGroupIngress struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnDBSecurityGroupIngress) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBSecurityGroupIngress) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -385,7 +392,6 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::RDS::DBSecurityGroupIngress`.
 func NewCfnDBSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnDBSecurityGroupIngressProps) CfnDBSecurityGroupIngress {
 	_init_.Initialize()
 
@@ -403,7 +409,6 @@ func NewCfnDBSecurityGroupIngress(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::RDS::DBSecurityGroupIngress`.
 func NewCfnDBSecurityGroupIngress_Override(c CfnDBSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnDBSecurityGroupIngressProps) {
 	_init_.Initialize()
 

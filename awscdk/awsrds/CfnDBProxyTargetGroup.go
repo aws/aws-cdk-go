@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::DBProxyTargetGroup`.
+// The `AWS::RDS::DBProxyTargetGroup` resource represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to.
 //
-// The `AWS::RDS::DBProxyTargetGroup` resource represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group is associated with exactly one RDS DB instance or Aurora DB cluster.
+// Currently, each target group is associated with exactly one RDS DB instance or Aurora DB cluster.
 //
 // This data type is used as a response element in the `DescribeDBProxyTargetGroups` action.
 //
@@ -53,6 +53,8 @@ import (
 //   		jsii.String("dbInstanceIdentifiers"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
 //
 type CfnDBProxyTargetGroup interface {
 	awscdk.CfnResource
@@ -102,8 +104,6 @@ type CfnDBProxyTargetGroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The identifier for the target group.
-	//
-	// > Currently, this property must be set to `default` .
 	TargetGroupName() *string
 	SetTargetGroupName(val *string)
 	// Deprecated.
@@ -413,7 +413,6 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::RDS::DBProxyTargetGroup`.
 func NewCfnDBProxyTargetGroup(scope constructs.Construct, id *string, props *CfnDBProxyTargetGroupProps) CfnDBProxyTargetGroup {
 	_init_.Initialize()
 
@@ -431,7 +430,6 @@ func NewCfnDBProxyTargetGroup(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::RDS::DBProxyTargetGroup`.
 func NewCfnDBProxyTargetGroup_Override(c CfnDBProxyTargetGroup, scope constructs.Construct, id *string, props *CfnDBProxyTargetGroupProps) {
 	_init_.Initialize()
 

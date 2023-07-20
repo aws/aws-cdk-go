@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::KafkaConnect::Connector`.
-//
 // Creates a connector using the specified properties.
 //
 // Example:
@@ -103,6 +101,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html
+//
 type CfnConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -133,16 +133,12 @@ type CfnConnector interface {
 	KafkaCluster() interface{}
 	SetKafkaCluster(val interface{})
 	// The type of client authentication used to connect to the Apache Kafka cluster.
-	//
-	// The value is NONE when no client authentication is used.
 	KafkaClusterClientAuthentication() interface{}
 	SetKafkaClusterClientAuthentication(val interface{})
 	// Details of encryption in transit to the Apache Kafka cluster.
 	KafkaClusterEncryptionInTransit() interface{}
 	SetKafkaClusterEncryptionInTransit(val interface{})
 	// The version of Kafka Connect.
-	//
-	// It has to be compatible with both the Apache Kafka cluster's version and the plugins.
 	KafkaConnectVersion() *string
 	SetKafkaConnectVersion(val *string)
 	// The settings for delivering connector logs to Amazon CloudWatch Logs.
@@ -161,8 +157,6 @@ type CfnConnector interface {
 	// The tree node.
 	Node() constructs.Node
 	// Specifies which plugin to use for the connector.
-	//
-	// You must specify a single-element list. Amazon MSK Connect does not currently support specifying multiple plugins.
 	Plugins() interface{}
 	SetPlugins(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -557,7 +551,6 @@ func (j *jsiiProxy_CfnConnector) WorkerConfiguration() interface{} {
 }
 
 
-// Create a new `AWS::KafkaConnect::Connector`.
 func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnectorProps) CfnConnector {
 	_init_.Initialize()
 
@@ -575,7 +568,6 @@ func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnector
 	return &j
 }
 
-// Create a new `AWS::KafkaConnect::Connector`.
 func NewCfnConnector_Override(c CfnConnector, scope constructs.Construct, id *string, props *CfnConnectorProps) {
 	_init_.Initialize()
 

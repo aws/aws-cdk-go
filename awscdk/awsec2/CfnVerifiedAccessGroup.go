@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VerifiedAccessGroup`.
-//
 // Describes a Verified Access group.
 //
 // Example:
@@ -33,9 +31,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessgroup.html
+//
 type CfnVerifiedAccessGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The creation time.
 	AttrCreationTime() *string
 	// The last updated time.
@@ -85,8 +86,11 @@ type CfnVerifiedAccessGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +238,7 @@ type CfnVerifiedAccessGroup interface {
 type jsiiProxy_CfnVerifiedAccessGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVerifiedAccessGroup) AttrCreationTime() *string {
@@ -406,6 +411,16 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -437,7 +452,6 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup) VerifiedAccessInstanceId() *string {
 }
 
 
-// Create a new `AWS::EC2::VerifiedAccessGroup`.
 func NewCfnVerifiedAccessGroup(scope constructs.Construct, id *string, props *CfnVerifiedAccessGroupProps) CfnVerifiedAccessGroup {
 	_init_.Initialize()
 
@@ -455,7 +469,6 @@ func NewCfnVerifiedAccessGroup(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::EC2::VerifiedAccessGroup`.
 func NewCfnVerifiedAccessGroup_Override(c CfnVerifiedAccessGroup, scope constructs.Construct, id *string, props *CfnVerifiedAccessGroupProps) {
 	_init_.Initialize()
 
@@ -489,6 +502,17 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup)SetPolicyEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"policyEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

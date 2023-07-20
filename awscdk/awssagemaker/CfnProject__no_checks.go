@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnProject) validateSetServiceCatalogProvisioningDetailsParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnProject) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnProjectParameters(scope constructs.Construct, id *string, props *CfnProjectProps) error {
 	return nil
 }

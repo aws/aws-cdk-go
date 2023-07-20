@@ -39,14 +39,24 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html
+//
 type CfnForm_FormCTAProperty struct {
 	// Displays a cancel button.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html#cfn-amplifyuibuilder-form-formcta-cancel
+	//
 	Cancel interface{} `field:"optional" json:"cancel" yaml:"cancel"`
 	// Displays a clear button.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html#cfn-amplifyuibuilder-form-formcta-clear
+	//
 	Clear interface{} `field:"optional" json:"clear" yaml:"clear"`
 	// The position of the button.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html#cfn-amplifyuibuilder-form-formcta-position
+	//
 	Position *string `field:"optional" json:"position" yaml:"position"`
 	// Displays a submit button.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html#cfn-amplifyuibuilder-form-formcta-submit
+	//
 	Submit interface{} `field:"optional" json:"submit" yaml:"submit"`
 }
 

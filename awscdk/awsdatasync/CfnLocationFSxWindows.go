@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::LocationFSxWindows`.
-//
 // The `AWS::DataSync::LocationFSxWindows` resource specifies an endpoint for an Amazon FSx for Windows Server file system.
 //
 // Example:
@@ -37,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html
+//
 type CfnLocationFSxWindows interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the specified FSx for Windows Server file system location.
 	AttrLocationArn() *string
 	// The URI of the specified FSx for Windows Server file system location.
@@ -80,10 +81,6 @@ type CfnLocationFSxWindows interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Names (ARNs) of the security groups that are used to configure the FSx for Windows File Server file system.
-	//
-	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
-	//
-	// *Length constraints* : Maximum length of 128.
 	SecurityGroupArns() *[]*string
 	SetSecurityGroupArns(val *[]*string)
 	// The stack in which this element is defined.
@@ -91,14 +88,13 @@ type CfnLocationFSxWindows interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies a mount path for your file system using forward slashes.
-	//
-	// This is where DataSync reads or writes data (depending on if this is a source or destination location).
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// Specifies labels that help you categorize, filter, and search for your AWS resources.
-	//
-	// We recommend creating at least a name tag for your location.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -113,8 +109,6 @@ type CfnLocationFSxWindows interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The user who has the permissions to access files and folders in the FSx for Windows File Server file system.
-	//
-	// For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#FSxWuser) .
 	User() *string
 	SetUser(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -248,6 +242,7 @@ type CfnLocationFSxWindows interface {
 type jsiiProxy_CfnLocationFSxWindows struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocationFSxWindows) AttrLocationArn() *string {
@@ -410,6 +405,16 @@ func (j *jsiiProxy_CfnLocationFSxWindows) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationFSxWindows) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationFSxWindows) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -441,7 +446,6 @@ func (j *jsiiProxy_CfnLocationFSxWindows) User() *string {
 }
 
 
-// Create a new `AWS::DataSync::LocationFSxWindows`.
 func NewCfnLocationFSxWindows(scope constructs.Construct, id *string, props *CfnLocationFSxWindowsProps) CfnLocationFSxWindows {
 	_init_.Initialize()
 
@@ -459,7 +463,6 @@ func NewCfnLocationFSxWindows(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::DataSync::LocationFSxWindows`.
 func NewCfnLocationFSxWindows_Override(c CfnLocationFSxWindows, scope constructs.Construct, id *string, props *CfnLocationFSxWindowsProps) {
 	_init_.Initialize()
 
@@ -509,6 +512,17 @@ func (j *jsiiProxy_CfnLocationFSxWindows)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationFSxWindows)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

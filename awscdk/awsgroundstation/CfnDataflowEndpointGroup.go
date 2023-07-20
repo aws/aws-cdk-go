@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GroundStation::DataflowEndpointGroup`.
-//
 // Creates a Dataflow Endpoint Group request.
 //
 // Dataflow endpoint groups contain a list of endpoints. When the name of a dataflow endpoint group is specified in a mission profile, the Ground Station service will connect to the endpoints and flow data during a contact.
@@ -78,9 +76,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
+//
 type CfnDataflowEndpointGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	AttrArn() *string
 	// UUID of a dataflow endpoint group.
@@ -91,13 +92,9 @@ type CfnDataflowEndpointGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a `POSTPASS` state.
-	//
-	// A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the `POSTPASS` state.
 	ContactPostPassDurationSeconds() *float64
 	SetContactPostPassDurationSeconds(val *float64)
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a `PREPASS` state.
-	//
-	// A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the `PREPASS` state.
 	ContactPrePassDurationSeconds() *float64
 	SetContactPrePassDurationSeconds(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -128,8 +125,11 @@ type CfnDataflowEndpointGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags assigned to a resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags assigned to a resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -274,6 +274,7 @@ type CfnDataflowEndpointGroup interface {
 type jsiiProxy_CfnDataflowEndpointGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDataflowEndpointGroup) AttrArn() *string {
@@ -416,6 +417,16 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataflowEndpointGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataflowEndpointGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -437,7 +448,6 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::GroundStation::DataflowEndpointGroup`.
 func NewCfnDataflowEndpointGroup(scope constructs.Construct, id *string, props *CfnDataflowEndpointGroupProps) CfnDataflowEndpointGroup {
 	_init_.Initialize()
 
@@ -455,7 +465,6 @@ func NewCfnDataflowEndpointGroup(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::GroundStation::DataflowEndpointGroup`.
 func NewCfnDataflowEndpointGroup_Override(c CfnDataflowEndpointGroup, scope constructs.Construct, id *string, props *CfnDataflowEndpointGroupProps) {
 	_init_.Initialize()
 
@@ -489,6 +498,17 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup)SetEndpointDetails(val interface{}) 
 	_jsii_.Set(
 		j,
 		"endpointDetails",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataflowEndpointGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

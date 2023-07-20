@@ -271,6 +271,16 @@ func (j *jsiiProxy_CfnIntegration) validateSetObjectTypeNamesParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnIntegration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnIntegrationParameters(scope constructs.Construct, id *string, props *CfnIntegrationProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

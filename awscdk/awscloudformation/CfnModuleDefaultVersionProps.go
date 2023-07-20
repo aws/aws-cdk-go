@@ -14,18 +14,26 @@ package awscloudformation
 //   	VersionId: jsii.String("versionId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+//
 type CfnModuleDefaultVersionProps struct {
 	// The Amazon Resource Name (ARN) of the module version to set as the default version.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The name of the module.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+	//
 	ModuleName *string `field:"optional" json:"moduleName" yaml:"moduleName"`
 	// The ID for the specific version of the module.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+	//
 	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
 }
 

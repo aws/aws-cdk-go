@@ -14,10 +14,14 @@ package awsmedialive
 //   	CannedAcl: jsii.String("cannedAcl"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archives3settings.html
+//
 type CfnChannel_ArchiveS3SettingsProperty struct {
 	// Specify the canned ACL to apply to each S3 request.
 	//
 	// Defaults to none.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archives3settings.html#cfn-medialive-channel-archives3settings-cannedacl
+	//
 	CannedAcl *string `field:"optional" json:"cannedAcl" yaml:"cannedAcl"`
 }
 

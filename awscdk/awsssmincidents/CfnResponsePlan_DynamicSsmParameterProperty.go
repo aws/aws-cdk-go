@@ -29,10 +29,16 @@ package awsssmincidents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html
+//
 type CfnResponsePlan_DynamicSsmParameterProperty struct {
 	// The key parameter to use when running the Systems Manager Automation runbook.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html#cfn-ssmincidents-responseplan-dynamicssmparameter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The dynamic parameter value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html#cfn-ssmincidents-responseplan-dynamicssmparameter-value
+	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 }
 

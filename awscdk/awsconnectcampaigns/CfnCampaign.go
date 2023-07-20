@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ConnectCampaigns::Campaign`.
-//
 // Contains information about an outbound campaign.
 //
 // Example:
@@ -49,9 +47,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html
+//
 type CfnCampaign interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the high-volume outbound campaign.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -96,10 +97,11 @@ type CfnCampaign interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -244,6 +246,7 @@ type CfnCampaign interface {
 type jsiiProxy_CfnCampaign struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCampaign) AttrArn() *string {
@@ -386,6 +389,16 @@ func (j *jsiiProxy_CfnCampaign) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCampaign) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCampaign) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -407,7 +420,6 @@ func (j *jsiiProxy_CfnCampaign) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ConnectCampaigns::Campaign`.
 func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignProps) CfnCampaign {
 	_init_.Initialize()
 
@@ -425,7 +437,6 @@ func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignPr
 	return &j
 }
 
-// Create a new `AWS::ConnectCampaigns::Campaign`.
 func NewCfnCampaign_Override(c CfnCampaign, scope constructs.Construct, id *string, props *CfnCampaignProps) {
 	_init_.Initialize()
 
@@ -476,6 +487,17 @@ func (j *jsiiProxy_CfnCampaign)SetOutboundCallConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"outboundCallConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCampaign)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

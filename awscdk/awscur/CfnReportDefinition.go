@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CUR::ReportDefinition`.
+// The definition of AWS Cost and Usage Report.
 //
-// The definition of AWS Cost and Usage Report. You can specify the report name, time unit, report format, compression format, S3 bucket, additional artifacts, and schema elements in the definition.
+// You can specify the report name, time unit, report format, compression format, S3 bucket, additional artifacts, and schema elements in the definition.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,6 +39,8 @@ import (
 //   	BillingViewArn: jsii.String("billingViewArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html
+//
 type CfnReportDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -49,8 +51,6 @@ type CfnReportDefinition interface {
 	AdditionalSchemaElements() *[]*string
 	SetAdditionalSchemaElements(val *[]*string)
 	// The Amazon Resource Name (ARN) of the billing view.
-	//
-	// You can get this value by using the billing view service public APIs.
 	BillingViewArn() *string
 	SetBillingViewArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -86,13 +86,9 @@ type CfnReportDefinition interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Whether you want AWS to update your reports after they have been finalized if AWS detects charges related to previous months.
-	//
-	// These charges can include refunds, credits, or support fees.
 	RefreshClosedReports() interface{}
 	SetRefreshClosedReports(val interface{})
 	// The name of the report that you want to create.
-	//
-	// The name must be unique, is case sensitive, and can't include spaces.
 	ReportName() *string
 	SetReportName(val *string)
 	// Whether you want AWS to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
@@ -102,8 +98,6 @@ type CfnReportDefinition interface {
 	S3Bucket() *string
 	SetS3Bucket(val *string)
 	// The prefix that Amazon Web Services adds to the report name when Amazon Web Services delivers the report.
-	//
-	// Your prefix can't include spaces.
 	S3Prefix() *string
 	SetS3Prefix(val *string)
 	// The Region of the S3 bucket that Amazon Web Services delivers the report into.
@@ -483,7 +477,6 @@ func (j *jsiiProxy_CfnReportDefinition) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::CUR::ReportDefinition`.
 func NewCfnReportDefinition(scope constructs.Construct, id *string, props *CfnReportDefinitionProps) CfnReportDefinition {
 	_init_.Initialize()
 
@@ -501,7 +494,6 @@ func NewCfnReportDefinition(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
-// Create a new `AWS::CUR::ReportDefinition`.
 func NewCfnReportDefinition_Override(c CfnReportDefinition, scope constructs.Construct, id *string, props *CfnReportDefinitionProps) {
 	_init_.Initialize()
 

@@ -14,8 +14,12 @@ package awsmedialive
 //   	Pid: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorpid.html
+//
 type CfnChannel_VideoSelectorPidProperty struct {
 	// Selects a specific PID from within a video source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorpid.html#cfn-medialive-channel-videoselectorpid-pid
+	//
 	Pid *float64 `field:"optional" json:"pid" yaml:"pid"`
 }
 

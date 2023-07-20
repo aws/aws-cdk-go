@@ -18,6 +18,8 @@ package awsfsx
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html
+//
 type CfnDataRepositoryAssociation_AutoExportPolicyProperty struct {
 	// The `AutoExportPolicy` can have the following event values:.
 	//
@@ -26,6 +28,8 @@ type CfnDataRepositoryAssociation_AutoExportPolicyProperty struct {
 	// - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
 	//
 	// You can define any combination of event types for your `AutoExportPolicy` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html#cfn-fsx-datarepositoryassociation-autoexportpolicy-events
+	//
 	Events *[]*string `field:"required" json:"events" yaml:"events"`
 }
 

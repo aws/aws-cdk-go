@@ -187,14 +187,6 @@ func (j *jsiiProxy_CfnSink) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnSink) validateSetPolicyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnSinkParameters(scope constructs.Construct, id *string, props *CfnSinkProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

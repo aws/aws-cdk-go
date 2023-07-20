@@ -13,10 +13,16 @@ package awsquicksight
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html
+//
 type CfnDataSource_DataSourceErrorInfoProperty struct {
 	// Error message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-message
+	//
 	Message *string `field:"optional" json:"message" yaml:"message"`
 	// Error type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

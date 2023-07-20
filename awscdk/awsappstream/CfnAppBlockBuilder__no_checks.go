@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnAppBlockBuilder) validateSetPlatformParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppBlockBuilder) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAppBlockBuilder) validateSetVpcConfigParameters(val interface{}) error {
 	return nil
 }

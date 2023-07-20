@@ -22,14 +22,24 @@ package awsappstream
 //   	ExecutableParameters: jsii.String("executableParameters"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html
+//
 type CfnAppBlock_ScriptDetailsProperty struct {
 	// The run path for the script.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executablepath
+	//
 	ExecutablePath *string `field:"required" json:"executablePath" yaml:"executablePath"`
 	// The S3 object location of the script.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-scripts3location
+	//
 	ScriptS3Location interface{} `field:"required" json:"scriptS3Location" yaml:"scriptS3Location"`
 	// The run timeout, in seconds, for the script.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-timeoutinseconds
+	//
 	TimeoutInSeconds *float64 `field:"required" json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 	// The parameters used in the run path for the script.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executableparameters
+	//
 	ExecutableParameters *string `field:"optional" json:"executableParameters" yaml:"executableParameters"`
 }
 

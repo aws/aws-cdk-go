@@ -467,30 +467,46 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
+//
 type CfnRuleGroup_RuleProperty struct {
 	// The name of the rule.
 	//
 	// You can't change the name of a `Rule` after you create it.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` .
 	//
 	// AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
+	//
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
+	//
 	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
+	//
 	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
 	// The action that AWS WAF should take on a web request when it matches the rule statement.
 	//
 	// Settings at the web ACL level can override the rule action setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
+	//
 	Action interface{} `field:"optional" json:"action" yaml:"action"`
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations.
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-captchaconfig
+	//
 	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
 	// Specifies how AWS WAF should handle `Challenge` evaluations.
 	//
 	// If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-challengeconfig
+	//
 	ChallengeConfig interface{} `field:"optional" json:"challengeConfig" yaml:"challengeConfig"`
 	// Labels to apply to web requests that match the rule match statement.
 	//
@@ -506,6 +522,8 @@ type CfnRuleGroup_RuleProperty struct {
 	// - Don't use the following reserved words in your label specification: `aws` , `waf` , `managed` , `rulegroup` , `webacl` , `regexpatternset` , or `ipset` .
 	//
 	// For example, `myLabelName` or `nameSpace1:nameSpace2:myLabelName` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
+	//
 	RuleLabels interface{} `field:"optional" json:"ruleLabels" yaml:"ruleLabels"`
 }
 

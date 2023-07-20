@@ -25,14 +25,22 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html
+//
 type CfnRoute_GrpcRouteMetadataProperty struct {
 	// The name of the route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specify `True` to match anything except the match criteria.
 	//
 	// The default value is `False` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-invert
+	//
 	Invert interface{} `field:"optional" json:"invert" yaml:"invert"`
 	// An object that represents the data to match from the request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-match
+	//
 	Match interface{} `field:"optional" json:"match" yaml:"match"`
 }
 

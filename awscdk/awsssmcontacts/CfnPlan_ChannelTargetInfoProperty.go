@@ -13,10 +13,16 @@ package awsssmcontacts
 //   	RetryIntervalInMinutes: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-channeltargetinfo.html
+//
 type CfnPlan_ChannelTargetInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the contact channel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-channeltargetinfo.html#cfn-ssmcontacts-plan-channeltargetinfo-channelid
+	//
 	ChannelId *string `field:"required" json:"channelId" yaml:"channelId"`
 	// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-channeltargetinfo.html#cfn-ssmcontacts-plan-channeltargetinfo-retryintervalinminutes
+	//
 	RetryIntervalInMinutes *float64 `field:"required" json:"retryIntervalInMinutes" yaml:"retryIntervalInMinutes"`
 }
 

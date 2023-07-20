@@ -25,16 +25,26 @@ package awsemr
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html
+//
 type CfnCluster_ApplicationProperty struct {
 	// This option is for advanced users only.
 	//
 	// This is meta information about clusters and applications that are used for testing and troubleshooting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-additionalinfo
+	//
 	AdditionalInfo interface{} `field:"optional" json:"additionalInfo" yaml:"additionalInfo"`
 	// Arguments for Amazon EMR to pass to the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-args
+	//
 	Args *[]*string `field:"optional" json:"args" yaml:"args"`
 	// The name of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The version of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-version
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

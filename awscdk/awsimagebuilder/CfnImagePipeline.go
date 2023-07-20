@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ImageBuilder::ImagePipeline`.
+// An image pipeline is the automation configuration for building secure OS images on AWS .
 //
-// An image pipeline is the automation configuration for building secure OS images on AWS . The Image Builder image pipeline is associated with an image recipe that defines the build, validation, and test phases for an image build lifecycle. An image pipeline can be associated with an infrastructure configuration that defines where your image is built. You can define attributes, such as instance type, subnets, security groups, logging, and other infrastructure-related configurations. You can also associate your image pipeline with a distribution configuration to define how you would like to deploy your image.
+// The Image Builder image pipeline is associated with an image recipe that defines the build, validation, and test phases for an image build lifecycle. An image pipeline can be associated with an infrastructure configuration that defines where your image is built. You can define attributes, such as instance type, subnets, security groups, logging, and other infrastructure-related configurations. You can also associate your image pipeline with a distribution configuration to define how you would like to deploy your image.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -51,9 +51,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html
+//
 type CfnImagePipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the image pipeline.
 	//
 	// For example, `arn:aws:imagebuilder:us-west-2:123456789012:image-pipeline/mywindows2016pipeline` .
@@ -79,14 +82,12 @@ type CfnImagePipeline interface {
 	DistributionConfigurationArn() *string
 	SetDistributionConfigurationArn(val *string)
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
-	//
-	// This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
-	// `AWS::ImageBuilder::ImagePipeline.ImageScanningConfiguration`.
+	// Determines if tests should run after building the image.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
 	// The configuration of the image tests that run after image creation to ensure the quality of the image that was created.
@@ -116,8 +117,6 @@ type CfnImagePipeline interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The schedule of the image pipeline.
-	//
-	// A schedule configures how often and when a pipeline automatically creates a new image.
 	Schedule() interface{}
 	SetSchedule(val interface{})
 	// The stack in which this element is defined.
@@ -127,8 +126,11 @@ type CfnImagePipeline interface {
 	// The status of the image pipeline.
 	Status() *string
 	SetStatus(val *string)
-	// The tags of this image pipeline.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags of this image pipeline.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -273,6 +275,7 @@ type CfnImagePipeline interface {
 type jsiiProxy_CfnImagePipeline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnImagePipeline) AttrArn() *string {
@@ -495,6 +498,16 @@ func (j *jsiiProxy_CfnImagePipeline) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImagePipeline) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImagePipeline) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -516,7 +529,6 @@ func (j *jsiiProxy_CfnImagePipeline) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::ImageBuilder::ImagePipeline`.
 func NewCfnImagePipeline(scope constructs.Construct, id *string, props *CfnImagePipelineProps) CfnImagePipeline {
 	_init_.Initialize()
 
@@ -534,7 +546,6 @@ func NewCfnImagePipeline(scope constructs.Construct, id *string, props *CfnImage
 	return &j
 }
 
-// Create a new `AWS::ImageBuilder::ImagePipeline`.
 func NewCfnImagePipeline_Override(c CfnImagePipeline, scope constructs.Construct, id *string, props *CfnImagePipelineProps) {
 	_init_.Initialize()
 
@@ -647,6 +658,14 @@ func (j *jsiiProxy_CfnImagePipeline)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImagePipeline)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

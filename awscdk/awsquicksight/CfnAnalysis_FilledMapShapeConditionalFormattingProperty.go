@@ -38,10 +38,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filledmapshapeconditionalformatting.html
+//
 type CfnAnalysis_FilledMapShapeConditionalFormattingProperty struct {
 	// The field ID of the filled map shape.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filledmapshapeconditionalformatting.html#cfn-quicksight-analysis-filledmapshapeconditionalformatting-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The conditional formatting that determines the background color of a filled map's shape.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filledmapshapeconditionalformatting.html#cfn-quicksight-analysis-filledmapshapeconditionalformatting-format
+	//
 	Format interface{} `field:"optional" json:"format" yaml:"format"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::DomainName`.
-//
 // The `AWS::ApiGateway::DomainName` resource specifies a custom domain name for your API in API Gateway.
 //
 // You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide* .
@@ -43,9 +41,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
+//
 type CfnDomainName interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon CloudFront distribution domain name that's mapped to the custom domain name.
 	//
 	// This is only applicable for endpoints whose type is `EDGE` .
@@ -63,8 +64,6 @@ type CfnDomainName interface {
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 	AttrRegionalHostedZoneId() *string
 	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name.
-	//
-	// AWS Certificate Manager is the only supported source.
 	CertificateArn() *string
 	SetCertificateArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -93,15 +92,11 @@ type CfnDomainName interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The mutual TLS authentication configuration for a custom domain name.
-	//
-	// If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 	MutualTlsAuthentication() interface{}
 	SetMutualTlsAuthentication(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain.
-	//
-	// Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
 	OwnershipVerificationCertificateArn() *string
 	SetOwnershipVerificationCertificateArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -110,23 +105,20 @@ type CfnDomainName interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The reference to an AWS -managed certificate that will be used for validating the regional domain name.
-	//
-	// AWS Certificate Manager is the only supported source.
 	RegionalCertificateArn() *string
 	SetRegionalCertificateArn(val *string)
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
-	//
-	// The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy() *string
 	SetSecurityPolicy(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The collection of tags.
-	//
-	// Each tag element is associated with a given resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The collection of tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -271,6 +263,7 @@ type CfnDomainName interface {
 type jsiiProxy_CfnDomainName struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDomainName) AttrDistributionDomainName() *string {
@@ -473,6 +466,16 @@ func (j *jsiiProxy_CfnDomainName) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomainName) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomainName) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -494,7 +497,6 @@ func (j *jsiiProxy_CfnDomainName) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGateway::DomainName`.
 func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNameProps) CfnDomainName {
 	_init_.Initialize()
 
@@ -512,7 +514,6 @@ func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNa
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::DomainName`.
 func NewCfnDomainName_Override(c CfnDomainName, scope constructs.Construct, id *string, props *CfnDomainNameProps) {
 	_init_.Initialize()
 
@@ -581,6 +582,17 @@ func (j *jsiiProxy_CfnDomainName)SetSecurityPolicy(val *string) {
 	_jsii_.Set(
 		j,
 		"securityPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainName)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

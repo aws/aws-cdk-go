@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SNS::Subscription`.
+// The `AWS::SNS::Subscription` resource subscribes an endpoint to an Amazon SNS topic.
 //
-// The `AWS::SNS::Subscription` resource subscribes an endpoint to an Amazon SNS topic. For a subscription to be created, the owner of the endpoint must confirm the subscription.
+// For a subscription to be created, the owner of the endpoint must confirm the subscription.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,9 +37,12 @@ import (
 //   	SubscriptionRoleArn: jsii.String("subscriptionRoleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html
+//
 type CfnSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -50,24 +53,15 @@ type CfnSubscription interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The delivery policy JSON assigned to the subscription.
-	//
-	// Enables the subscriber to define the message delivery retry strategy in the case of an HTTP/S endpoint subscribed to the topic. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* and [Message delivery retries](https://docs.aws.amazon.com/sns/latest/dg/sns-message-delivery-retries.html) in the *Amazon SNS Developer Guide* .
 	DeliveryPolicy() interface{}
 	SetDeliveryPolicy(val interface{})
 	// The subscription's endpoint.
-	//
-	// The endpoint value depends on the protocol that you specify. For more information, see the `Endpoint` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
 	Endpoint() *string
 	SetEndpoint(val *string)
 	// The filter policy JSON assigned to the subscription.
-	//
-	// Enables the subscriber to filter out unwanted messages. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* and [Message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html) in the *Amazon SNS Developer Guide* .
 	FilterPolicy() interface{}
 	SetFilterPolicy(val interface{})
 	// This attribute lets you choose the filtering scope by using one of the following string value types:.
-	//
-	// - `MessageAttributes` (default) - The filter is applied on the message attributes.
-	// - `MessageBody` - The filter is applied on the message body.
 	FilterPolicyScope() *string
 	SetFilterPolicyScope(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -83,20 +77,12 @@ type CfnSubscription interface {
 	// The tree node.
 	Node() constructs.Node
 	// The subscription's protocol.
-	//
-	// For more information, see the `Protocol` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
 	Protocol() *string
 	SetProtocol(val *string)
 	// When set to `true` , enables raw message delivery.
-	//
-	// Raw messages don't contain any JSON formatting and can be sent to Amazon SQS and HTTP/S endpoints. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* .
 	RawMessageDelivery() interface{}
 	SetRawMessageDelivery(val interface{})
 	// When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
-	//
-	// Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.
-	//
-	// For more information about the redrive policy and dead-letter queues, see [Amazon SQS dead-letter queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html) in the *Amazon SQS Developer Guide* .
 	RedrivePolicy() interface{}
 	SetRedrivePolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -105,13 +91,6 @@ type CfnSubscription interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// For cross-region subscriptions, the region in which the topic resides.
-	//
-	// If no region is specified, AWS CloudFormation uses the region of the caller as the default.
-	//
-	// If you perform an update operation that only updates the `Region` property of a `AWS::SNS::Subscription` resource, that operation will fail unless you are either:
-	//
-	// - Updating the `Region` from `NULL` to the caller region.
-	// - Updating the `Region` from the caller region to `NULL` .
 	Region() *string
 	SetRegion(val *string)
 	// The stack in which this element is defined.
@@ -119,13 +98,6 @@ type CfnSubscription interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// This property applies only to Amazon Kinesis Data Firehose delivery stream subscriptions.
-	//
-	// Specify the ARN of the IAM role that has the following:
-	//
-	// - Permission to write to the Amazon Kinesis Data Firehose delivery stream
-	// - Amazon SNS listed as a trusted entity
-	//
-	// Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions. For more information, see [Fanout to Amazon Kinesis Data Firehose delivery streams](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html) in the *Amazon SNS Developer Guide.*
 	SubscriptionRoleArn() *string
 	SetSubscriptionRoleArn(val *string)
 	// The ARN of the topic to subscribe to.
@@ -275,6 +247,16 @@ type CfnSubscription interface {
 type jsiiProxy_CfnSubscription struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnSubscription) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnSubscription) CfnOptions() awscdk.ICfnResourceOptions {
@@ -478,7 +460,6 @@ func (j *jsiiProxy_CfnSubscription) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::SNS::Subscription`.
 func NewCfnSubscription(scope constructs.Construct, id *string, props *CfnSubscriptionProps) CfnSubscription {
 	_init_.Initialize()
 
@@ -496,7 +477,6 @@ func NewCfnSubscription(scope constructs.Construct, id *string, props *CfnSubscr
 	return &j
 }
 
-// Create a new `AWS::SNS::Subscription`.
 func NewCfnSubscription_Override(c CfnSubscription, scope constructs.Construct, id *string, props *CfnSubscriptionProps) {
 	_init_.Initialize()
 
@@ -508,9 +488,6 @@ func NewCfnSubscription_Override(c CfnSubscription, scope constructs.Construct, 
 }
 
 func (j *jsiiProxy_CfnSubscription)SetDeliveryPolicy(val interface{}) {
-	if err := j.validateSetDeliveryPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"deliveryPolicy",
@@ -527,9 +504,6 @@ func (j *jsiiProxy_CfnSubscription)SetEndpoint(val *string) {
 }
 
 func (j *jsiiProxy_CfnSubscription)SetFilterPolicy(val interface{}) {
-	if err := j.validateSetFilterPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"filterPolicy",
@@ -568,9 +542,6 @@ func (j *jsiiProxy_CfnSubscription)SetRawMessageDelivery(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnSubscription)SetRedrivePolicy(val interface{}) {
-	if err := j.validateSetRedrivePolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"redrivePolicy",

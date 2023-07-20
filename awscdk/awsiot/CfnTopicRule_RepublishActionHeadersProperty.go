@@ -22,12 +22,16 @@ package awsiot
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html
+//
 type CfnTopicRule_RepublishActionHeadersProperty struct {
 	// A UTF-8 encoded string that describes the content of the publishing message.
 	//
 	// For more information, see [Content Type](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118) in the MQTT Version 5.0 specification.
 	//
 	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html#cfn-iot-topicrule-republishactionheaders-contenttype
+	//
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
 	//
@@ -36,12 +40,16 @@ type CfnTopicRule_RepublishActionHeadersProperty struct {
 	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 	//
 	// > This binary data must be base64-encoded.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html#cfn-iot-topicrule-republishactionheaders-correlationdata
+	//
 	CorrelationData *string `field:"optional" json:"correlationData" yaml:"correlationData"`
 	// A user-defined integer value that represents the message expiry interval at the broker.
 	//
 	// If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
 	//
 	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html#cfn-iot-topicrule-republishactionheaders-messageexpiry
+	//
 	MessageExpiry *string `field:"optional" json:"messageExpiry" yaml:"messageExpiry"`
 	// An `Enum` string value that indicates whether the payload is formatted as UTF-8.
 	//
@@ -50,6 +58,8 @@ type CfnTopicRule_RepublishActionHeadersProperty struct {
 	// For more information, see [Payload Format Indicator](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111) from the MQTT Version 5.0 specification.
 	//
 	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html#cfn-iot-topicrule-republishactionheaders-payloadformatindicator
+	//
 	PayloadFormatIndicator *string `field:"optional" json:"payloadFormatIndicator" yaml:"payloadFormatIndicator"`
 	// A UTF-8 encoded string that's used as the topic name for a response message.
 	//
@@ -58,8 +68,12 @@ type CfnTopicRule_RepublishActionHeadersProperty struct {
 	// For more information, see [Response Topic](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114) in the MQTT Version 5.0 specification.
 	//
 	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html#cfn-iot-topicrule-republishactionheaders-responsetopic
+	//
 	ResponseTopic *string `field:"optional" json:"responseTopic" yaml:"responseTopic"`
 	// An array of key-value pairs that you define in the MQTT5 header.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html#cfn-iot-topicrule-republishactionheaders-userproperties
+	//
 	UserProperties interface{} `field:"optional" json:"userProperties" yaml:"userProperties"`
 }
 

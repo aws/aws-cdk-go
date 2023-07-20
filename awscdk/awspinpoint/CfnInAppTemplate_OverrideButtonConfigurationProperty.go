@@ -13,6 +13,8 @@ package awspinpoint
 //   	Link: jsii.String("link"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-overridebuttonconfiguration.html
+//
 type CfnInAppTemplate_OverrideButtonConfigurationProperty struct {
 	// The action that occurs when a recipient chooses a button in an in-app message.
 	//
@@ -21,8 +23,12 @@ type CfnInAppTemplate_OverrideButtonConfigurationProperty struct {
 	// - `LINK` – A link to a web destination.
 	// - `DEEP_LINK` – A link to a specific page in an application.
 	// - `CLOSE` – Dismisses the message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-overridebuttonconfiguration.html#cfn-pinpoint-inapptemplate-overridebuttonconfiguration-buttonaction
+	//
 	ButtonAction *string `field:"optional" json:"buttonAction" yaml:"buttonAction"`
 	// The destination (such as a URL) for a button.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-overridebuttonconfiguration.html#cfn-pinpoint-inapptemplate-overridebuttonconfiguration-link
+	//
 	Link *string `field:"optional" json:"link" yaml:"link"`
 }
 

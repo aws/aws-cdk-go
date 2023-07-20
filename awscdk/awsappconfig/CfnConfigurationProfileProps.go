@@ -31,8 +31,12 @@ package awsappconfig
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html
+//
 type CfnConfigurationProfileProps struct {
 	// The application ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-applicationid
+	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// A URI to locate the configuration. You can specify the following:.
 	//
@@ -42,18 +46,28 @@ type CfnConfigurationProfileProps struct {
 	// - For an AWS Secrets Manager secret, specify the URI in the following format: `secretsmanager` ://<secret name>.
 	// - For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>` . Here is an example: `s3://my-bucket/my-app/us-east-1/my-config.json`
 	// - For an SSM document, specify either the document name in the format `ssm-document://<document name>` or the Amazon Resource Name (ARN).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-locationuri
+	//
 	LocationUri *string `field:"required" json:"locationUri" yaml:"locationUri"`
 	// A name for the configuration profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the configuration profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The ARN of an IAM role with permission to access the configuration at the specified `LocationUri` .
 	//
 	// > A retrieval role ARN is not required for configurations stored in the AWS AppConfig hosted configuration store. It is required for all other sources that store your configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-retrievalrolearn
+	//
 	RetrievalRoleArn *string `field:"optional" json:"retrievalRoleArn" yaml:"retrievalRoleArn"`
 	// Metadata to assign to the configuration profile.
 	//
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-tags
+	//
 	Tags *[]*CfnConfigurationProfile_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
 	// The type of configurations contained in the profile.
 	//
@@ -62,8 +76,12 @@ type CfnConfigurationProfileProps struct {
 	// `AWS.AppConfig.FeatureFlags`
 	//
 	// `AWS.Freeform`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// A list of methods for validating the configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-validators
+	//
 	Validators interface{} `field:"optional" json:"validators" yaml:"validators"`
 }
 

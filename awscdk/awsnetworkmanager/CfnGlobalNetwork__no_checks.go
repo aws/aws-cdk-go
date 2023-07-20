@@ -80,6 +80,10 @@ func validateCfnGlobalNetwork_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGlobalNetwork) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnGlobalNetworkParameters(scope constructs.Construct, id *string, props *CfnGlobalNetworkProps) error {
 	return nil
 }

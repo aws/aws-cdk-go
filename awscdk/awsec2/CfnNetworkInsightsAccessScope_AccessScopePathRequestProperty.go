@@ -89,12 +89,20 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html
+//
 type CfnNetworkInsightsAccessScope_AccessScopePathRequestProperty struct {
 	// The destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-destination
+	//
 	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
 	// The source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-source
+	//
 	Source interface{} `field:"optional" json:"source" yaml:"source"`
 	// The through resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-throughresources
+	//
 	ThroughResources interface{} `field:"optional" json:"throughResources" yaml:"throughResources"`
 }
 

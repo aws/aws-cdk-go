@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::PortfolioPrincipalAssociation`.
-//
 // Associates the specified principal ARN with the specified portfolio.
 //
 // Example:
@@ -27,15 +25,15 @@ import (
 //   	AcceptLanguage: jsii.String("acceptLanguage"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioprincipalassociation.html
+//
 type CfnPortfolioPrincipalAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -63,9 +61,9 @@ type CfnPortfolioPrincipalAssociation interface {
 	// The ARN of the principal ( IAM user, role, or group).
 	PrincipalArn() *string
 	SetPrincipalArn(val *string)
-	// The principal type. The supported value is `IAM` .
+	// The principal type.
 	//
-	// *Allowed Values* : `IAM`.
+	// The supported value is `IAM` .
 	PrincipalType() *string
 	SetPrincipalType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -233,6 +231,16 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) AcceptLanguage() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -364,7 +372,6 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) UpdatedProperties() *map[st
 }
 
 
-// Create a new `AWS::ServiceCatalog::PortfolioPrincipalAssociation`.
 func NewCfnPortfolioPrincipalAssociation(scope constructs.Construct, id *string, props *CfnPortfolioPrincipalAssociationProps) CfnPortfolioPrincipalAssociation {
 	_init_.Initialize()
 
@@ -382,7 +389,6 @@ func NewCfnPortfolioPrincipalAssociation(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::PortfolioPrincipalAssociation`.
 func NewCfnPortfolioPrincipalAssociation_Override(c CfnPortfolioPrincipalAssociation, scope constructs.Construct, id *string, props *CfnPortfolioPrincipalAssociationProps) {
 	_init_.Initialize()
 

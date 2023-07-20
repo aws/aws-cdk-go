@@ -31,16 +31,28 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datalabeltype.html
+//
 type CfnAnalysis_DataLabelTypeProperty struct {
 	// The option that specifies individual data values for labels.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datalabeltype.html#cfn-quicksight-analysis-datalabeltype-datapathlabeltype
+	//
 	DataPathLabelType interface{} `field:"optional" json:"dataPathLabelType" yaml:"dataPathLabelType"`
 	// Determines the label configuration for the entire field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datalabeltype.html#cfn-quicksight-analysis-datalabeltype-fieldlabeltype
+	//
 	FieldLabelType interface{} `field:"optional" json:"fieldLabelType" yaml:"fieldLabelType"`
 	// Determines the label configuration for the maximum value in a visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datalabeltype.html#cfn-quicksight-analysis-datalabeltype-maximumlabeltype
+	//
 	MaximumLabelType interface{} `field:"optional" json:"maximumLabelType" yaml:"maximumLabelType"`
 	// Determines the label configuration for the minimum value in a visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datalabeltype.html#cfn-quicksight-analysis-datalabeltype-minimumlabeltype
+	//
 	MinimumLabelType interface{} `field:"optional" json:"minimumLabelType" yaml:"minimumLabelType"`
 	// Determines the label configuration for range end value in a visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datalabeltype.html#cfn-quicksight-analysis-datalabeltype-rangeendslabeltype
+	//
 	RangeEndsLabelType interface{} `field:"optional" json:"rangeEndsLabelType" yaml:"rangeEndsLabelType"`
 }
 

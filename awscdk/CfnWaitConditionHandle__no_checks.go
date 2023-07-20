@@ -80,7 +80,7 @@ func validateCfnWaitConditionHandle_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnWaitConditionHandleParameters(scope constructs.Construct, id *string) error {
+func validateNewCfnWaitConditionHandleParameters(scope constructs.Construct, id *string, props *CfnWaitConditionHandleProps) error {
 	return nil
 }
 

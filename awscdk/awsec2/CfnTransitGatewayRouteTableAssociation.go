@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayRouteTableAssociation`.
+// Associates the specified attachment with the specified transit gateway route table.
 //
-// Associates the specified attachment with the specified transit gateway route table. You can associate one route table with an attachment.
+// You can associate one route table with an attachment.
 //
 // Before you can update the route table associated with an attachment, you must disassociate the transit gateway route table that is currently associated with the attachment. First update the stack to remove the associated transit gateway route table, and then update the stack with the ID of the new transit gateway route table to associate.
 //
@@ -25,9 +25,12 @@ import (
 //   	TransitGatewayRouteTableId: jsii.String("transitGatewayRouteTableId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html
+//
 type CfnTransitGatewayRouteTableAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -210,6 +213,16 @@ type jsiiProxy_CfnTransitGatewayRouteTableAssociation struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRouteTableAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -331,7 +344,6 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAssociation) UpdatedProperties() *
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayRouteTableAssociation`.
 func NewCfnTransitGatewayRouteTableAssociation(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTableAssociationProps) CfnTransitGatewayRouteTableAssociation {
 	_init_.Initialize()
 
@@ -349,7 +361,6 @@ func NewCfnTransitGatewayRouteTableAssociation(scope constructs.Construct, id *s
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayRouteTableAssociation`.
 func NewCfnTransitGatewayRouteTableAssociation_Override(c CfnTransitGatewayRouteTableAssociation, scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTableAssociationProps) {
 	_init_.Initialize()
 

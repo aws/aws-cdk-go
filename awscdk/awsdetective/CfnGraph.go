@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Detective::Graph`.
+// The `AWS::Detective::Graph` resource is an Amazon Detective resource type that creates a Detective behavior graph.
 //
-// The `AWS::Detective::Graph` resource is an Amazon Detective resource type that creates a Detective behavior graph. The requesting account becomes the administrator account for the behavior graph.
+// The requesting account becomes the administrator account for the behavior graph.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,14 +28,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html
+//
 type CfnGraph interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the new behavior graph.
 	AttrArn() *string
 	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
-	//
-	// By default, this property is set to `false` . If you want to change the value of this property, you must be the Detective administrator for the organization. For more information on setting a Detective administrator account, see [AWS::Detective::OrganizationAdmin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html)
 	AutoEnableMembers() interface{}
 	SetAutoEnableMembers(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -68,8 +69,11 @@ type CfnGraph interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tag values to assign to the new behavior graph.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tag values to assign to the new behavior graph.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -214,6 +218,7 @@ type CfnGraph interface {
 type jsiiProxy_CfnGraph struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnGraph) AttrArn() *string {
@@ -326,6 +331,16 @@ func (j *jsiiProxy_CfnGraph) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraph) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraph) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -347,7 +362,6 @@ func (j *jsiiProxy_CfnGraph) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Detective::Graph`.
 func NewCfnGraph(scope constructs.Construct, id *string, props *CfnGraphProps) CfnGraph {
 	_init_.Initialize()
 
@@ -365,7 +379,6 @@ func NewCfnGraph(scope constructs.Construct, id *string, props *CfnGraphProps) C
 	return &j
 }
 
-// Create a new `AWS::Detective::Graph`.
 func NewCfnGraph_Override(c CfnGraph, scope constructs.Construct, id *string, props *CfnGraphProps) {
 	_init_.Initialize()
 
@@ -383,6 +396,17 @@ func (j *jsiiProxy_CfnGraph)SetAutoEnableMembers(val interface{}) {
 	_jsii_.Set(
 		j,
 		"autoEnableMembers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGraph)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

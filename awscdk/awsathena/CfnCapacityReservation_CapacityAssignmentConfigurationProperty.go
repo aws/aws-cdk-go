@@ -20,8 +20,12 @@ package awsathena
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignmentconfiguration.html
+//
 type CfnCapacityReservation_CapacityAssignmentConfigurationProperty struct {
 	// The list of assignments that make up the capacity assignment configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignmentconfiguration.html#cfn-athena-capacityreservation-capacityassignmentconfiguration-capacityassignments
+	//
 	CapacityAssignments interface{} `field:"required" json:"capacityAssignments" yaml:"capacityAssignments"`
 }
 

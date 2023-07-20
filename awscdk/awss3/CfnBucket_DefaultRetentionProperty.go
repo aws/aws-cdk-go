@@ -17,18 +17,26 @@ package awss3
 //   	Years: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html
+//
 type CfnBucket_DefaultRetentionProperty struct {
 	// The number of days that you want to specify for the default retention period.
 	//
 	// If Object Lock is turned on, you must specify `Mode` and specify either `Days` or `Years` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-days
+	//
 	Days *float64 `field:"optional" json:"days" yaml:"days"`
 	// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
 	//
 	// If Object Lock is turned on, you must specify `Mode` and specify either `Days` or `Years` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-mode
+	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// The number of years that you want to specify for the default retention period.
 	//
 	// If Object Lock is turned on, you must specify `Mode` and specify either `Days` or `Years` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-years
+	//
 	Years *float64 `field:"optional" json:"years" yaml:"years"`
 }
 

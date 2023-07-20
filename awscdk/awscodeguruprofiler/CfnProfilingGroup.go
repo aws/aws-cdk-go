@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeGuruProfiler::ProfilingGroup`.
-//
 // Creates a profiling group.
 //
 // Example:
@@ -42,16 +40,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html
+//
 type CfnProfilingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The agent permissions attached to this profiling group.
-	//
-	// This action group grants `ConfigureAgent` and `PostAgentProfile` permissions to perform actions required by the profiling agent. The Json consists of key `Principals` .
-	//
-	// *Principals* : A list of string ARNs for the roles and users you want to grant access to the profiling group. Wildcards are not supported in the ARNs. You are allowed to provide up to 50 ARNs. An empty list is not permitted. This is a required key.
-	//
-	// For more information, see [Resource-based policies in CodeGuru Profiler](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html) in the *Amazon CodeGuru Profiler user guide* , [ConfigureAgent](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html) , and [PostAgentProfile](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html) .
 	AgentPermissions() interface{}
 	SetAgentPermissions(val interface{})
 	// Adds anomaly notifications for a profiling group.
@@ -65,8 +60,6 @@ type CfnProfilingGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The compute platform of the profiling group.
-	//
-	// Use `AWSLambda` if your application runs on AWS Lambda. Use `Default` if your application runs on a compute platform that is not AWS Lambda , such an Amazon EC2 instance, an on-premises server, or a different platform. If not specified, `Default` is used. This property is immutable.
 	ComputePlatform() *string
 	SetComputePlatform(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -97,8 +90,11 @@ type CfnProfilingGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to add to the created profiling group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags to add to the created profiling group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -243,6 +239,7 @@ type CfnProfilingGroup interface {
 type jsiiProxy_CfnProfilingGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnProfilingGroup) AgentPermissions() interface{} {
@@ -385,6 +382,16 @@ func (j *jsiiProxy_CfnProfilingGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProfilingGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProfilingGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -406,7 +413,6 @@ func (j *jsiiProxy_CfnProfilingGroup) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::CodeGuruProfiler::ProfilingGroup`.
 func NewCfnProfilingGroup(scope constructs.Construct, id *string, props *CfnProfilingGroupProps) CfnProfilingGroup {
 	_init_.Initialize()
 
@@ -424,7 +430,6 @@ func NewCfnProfilingGroup(scope constructs.Construct, id *string, props *CfnProf
 	return &j
 }
 
-// Create a new `AWS::CodeGuruProfiler::ProfilingGroup`.
 func NewCfnProfilingGroup_Override(c CfnProfilingGroup, scope constructs.Construct, id *string, props *CfnProfilingGroupProps) {
 	_init_.Initialize()
 
@@ -436,9 +441,6 @@ func NewCfnProfilingGroup_Override(c CfnProfilingGroup, scope constructs.Constru
 }
 
 func (j *jsiiProxy_CfnProfilingGroup)SetAgentPermissions(val interface{}) {
-	if err := j.validateSetAgentPermissionsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"agentPermissions",
@@ -472,6 +474,17 @@ func (j *jsiiProxy_CfnProfilingGroup)SetProfilingGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"profilingGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProfilingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

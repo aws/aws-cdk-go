@@ -219,20 +219,34 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametercontrol.html
+//
 type CfnTemplate_ParameterControlProperty struct {
 	// A control from a date parameter that specifies date and time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametercontrol.html#cfn-quicksight-template-parametercontrol-datetimepicker
+	//
 	DateTimePicker interface{} `field:"optional" json:"dateTimePicker" yaml:"dateTimePicker"`
 	// A control to display a dropdown list with buttons that are used to select a single value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametercontrol.html#cfn-quicksight-template-parametercontrol-dropdown
+	//
 	Dropdown interface{} `field:"optional" json:"dropdown" yaml:"dropdown"`
 	// A control to display a list with buttons or boxes that are used to select either a single value or multiple values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametercontrol.html#cfn-quicksight-template-parametercontrol-list
+	//
 	List interface{} `field:"optional" json:"list" yaml:"list"`
 	// A control to display a horizontal toggle bar.
 	//
 	// This is used to change a value by sliding the toggle.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametercontrol.html#cfn-quicksight-template-parametercontrol-slider
+	//
 	Slider interface{} `field:"optional" json:"slider" yaml:"slider"`
 	// A control to display a text box that is used to enter multiple entries.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametercontrol.html#cfn-quicksight-template-parametercontrol-textarea
+	//
 	TextArea interface{} `field:"optional" json:"textArea" yaml:"textArea"`
 	// A control to display a text box that is used to enter a single entry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametercontrol.html#cfn-quicksight-template-parametercontrol-textfield
+	//
 	TextField interface{} `field:"optional" json:"textField" yaml:"textField"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ACMPCA::CertificateAuthority`.
+// Use the `AWS::ACMPCA::CertificateAuthority` resource to create a private CA.
 //
-// Use the `AWS::ACMPCA::CertificateAuthority` resource to create a private CA. Once the CA exists, you can use the `AWS::ACMPCA::Certificate` resource to issue a new CA certificate. Alternatively, you can issue a CA certificate using an on-premises CA, and then use the `AWS::ACMPCA::CertificateAuthorityActivation` resource to import the new CA certificate and activate the CA.
+// Once the CA exists, you can use the `AWS::ACMPCA::Certificate` resource to issue a new CA certificate. Alternatively, you can issue a CA certificate using an on-premises CA, and then use the `AWS::ACMPCA::CertificateAuthorityActivation` resource to import the new CA certificate and activate the CA.
 //
 // > Before removing a `AWS::ACMPCA::CertificateAuthority` resource from the CloudFormation stack, disable the affected CA. Otherwise, the action will fail. You can disable the CA by removing its associated `AWS::ACMPCA::CertificateAuthorityActivation` resource from CloudFormation.
 //
@@ -38,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html
+//
 type CfnCertificateAuthority interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) for the private CA that issued the certificate.
 	AttrArn() *string
 	// The Base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
@@ -58,17 +61,9 @@ type CfnCertificateAuthority interface {
 	CsrExtensions() interface{}
 	SetCsrExtensions(val interface{})
 	// Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
-	//
-	// When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
 	KeyAlgorithm() *string
 	SetKeyAlgorithm(val *string)
 	// Specifies a cryptographic key management compliance standard used for handling CA keys.
-	//
-	// Default: FIPS_140_2_LEVEL_3_OR_HIGHER
-	//
-	// > Some AWS Regions do not support the default. When creating a CA in these Regions, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard` . Failure to do this results in an `InvalidArgsException` with the message, "A certificate authority cannot be created in this region with the specified security standard."
-	// >
-	// > For information about security standard support in various Regions, see [Storage and security compliance of AWS Private CA private keys](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys) .
 	KeyStorageSecurityStandard() *string
 	SetKeyStorageSecurityStandard(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -89,18 +84,9 @@ type CfnCertificateAuthority interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Certificate revocation information used by the [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html) and [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) actions. Your private certificate authority (CA) can configure Online Certificate Status Protocol (OCSP) support and/or maintain a certificate revocation list (CRL). OCSP returns validation information about certificates as requested by clients, and a CRL contains an updated list of certificates revoked by your CA. For more information, see [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html) in the *AWS Private CA API Reference* and [Setting up a certificate revocation method](https://docs.aws.amazon.com/privateca/latest/userguide/revocation-setup.html) in the *AWS Private CA User Guide* .
-	//
-	// > The following requirements apply to revocation configurations.
-	// >
-	// > - A configuration disabling CRLs or OCSP must contain only the `Enabled=False` parameter, and will fail if other parameters such as `CustomCname` or `ExpirationInDays` are included.
-	// > - In a CRL configuration, the `S3BucketName` parameter must conform to the [Amazon S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
-	// > - A configuration containing a custom Canonical Name (CNAME) parameter for CRLs or OCSP must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in a CNAME.
-	// > - In a CRL or OCSP configuration, the value of a CNAME parameter must not include a protocol prefix such as "http://" or "https://".
 	RevocationConfiguration() interface{}
 	SetRevocationConfiguration(val interface{})
 	// Name of the algorithm your private CA uses to sign certificate requests.
-	//
-	// This parameter should not be confused with the `SigningAlgorithm` parameter used to sign certificates when they are issued.
 	SigningAlgorithm() *string
 	SetSigningAlgorithm(val *string)
 	// The stack in which this element is defined.
@@ -110,10 +96,11 @@ type CfnCertificateAuthority interface {
 	// Structure that contains X.500 distinguished name information for your private CA.
 	Subject() interface{}
 	SetSubject(val interface{})
-	// Key-value pairs that will be attached to the new private CA.
-	//
-	// You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs that will be attached to the new private CA.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Type of your private CA.
 	Type() *string
 	SetType(val *string)
@@ -131,10 +118,6 @@ type CfnCertificateAuthority interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
-	//
-	// Short-lived certificate validity is limited to seven days.
-	//
-	// The default value is GENERAL_PURPOSE.
 	UsageMode() *string
 	SetUsageMode(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -268,6 +251,7 @@ type CfnCertificateAuthority interface {
 type jsiiProxy_CfnCertificateAuthority struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCertificateAuthority) AttrArn() *string {
@@ -440,6 +424,16 @@ func (j *jsiiProxy_CfnCertificateAuthority) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCertificateAuthority) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCertificateAuthority) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -481,7 +475,6 @@ func (j *jsiiProxy_CfnCertificateAuthority) UsageMode() *string {
 }
 
 
-// Create a new `AWS::ACMPCA::CertificateAuthority`.
 func NewCfnCertificateAuthority(scope constructs.Construct, id *string, props *CfnCertificateAuthorityProps) CfnCertificateAuthority {
 	_init_.Initialize()
 
@@ -499,7 +492,6 @@ func NewCfnCertificateAuthority(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::ACMPCA::CertificateAuthority`.
 func NewCfnCertificateAuthority_Override(c CfnCertificateAuthority, scope constructs.Construct, id *string, props *CfnCertificateAuthorityProps) {
 	_init_.Initialize()
 
@@ -569,6 +561,17 @@ func (j *jsiiProxy_CfnCertificateAuthority)SetSubject(val interface{}) {
 	_jsii_.Set(
 		j,
 		"subject",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCertificateAuthority)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

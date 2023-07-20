@@ -18,16 +18,24 @@ package awscodebuild
 //   	VpcId: jsii.String("vpcId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html
+//
 type CfnProject_VpcConfigProperty struct {
 	// A list of one or more security groups IDs in your Amazon VPC.
 	//
 	// The maximum count is 5.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-securitygroupids
+	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of one or more subnet IDs in your Amazon VPC.
 	//
 	// The maximum count is 16.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-subnets
+	//
 	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
 	// The ID of the Amazon VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-vpcid
+	//
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

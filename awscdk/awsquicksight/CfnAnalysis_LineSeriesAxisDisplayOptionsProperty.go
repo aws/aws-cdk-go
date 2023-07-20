@@ -73,10 +73,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-lineseriesaxisdisplayoptions.html
+//
 type CfnAnalysis_LineSeriesAxisDisplayOptionsProperty struct {
 	// The options that determine the presentation of the line series axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-lineseriesaxisdisplayoptions.html#cfn-quicksight-analysis-lineseriesaxisdisplayoptions-axisoptions
+	//
 	AxisOptions interface{} `field:"optional" json:"axisOptions" yaml:"axisOptions"`
 	// The configuration options that determine how missing data is treated during the rendering of a line chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-lineseriesaxisdisplayoptions.html#cfn-quicksight-analysis-lineseriesaxisdisplayoptions-missingdataconfigurations
+	//
 	MissingDataConfigurations interface{} `field:"optional" json:"missingDataConfigurations" yaml:"missingDataConfigurations"`
 }
 

@@ -39,18 +39,26 @@ package awsapplicationinsights
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
+//
 type CfnApplication_SubComponentConfigurationDetailsProperty struct {
 	// A list of metrics to monitor for the component.
 	//
 	// All component types can use `AlarmMetrics` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
+	//
 	AlarmMetrics interface{} `field:"optional" json:"alarmMetrics" yaml:"alarmMetrics"`
 	// A list of logs to monitor for the component.
 	//
 	// Only Amazon EC2 instances can use `Logs` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
+	//
 	Logs interface{} `field:"optional" json:"logs" yaml:"logs"`
 	// A list of Windows Events to monitor for the component.
 	//
 	// Only Amazon EC2 instances running on Windows can use `WindowsEvents` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
+	//
 	WindowsEvents interface{} `field:"optional" json:"windowsEvents" yaml:"windowsEvents"`
 }
 

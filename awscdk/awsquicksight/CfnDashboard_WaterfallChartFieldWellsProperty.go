@@ -6,8 +6,12 @@ package awsquicksight
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-waterfallchartfieldwells.html
+//
 type CfnDashboard_WaterfallChartFieldWellsProperty struct {
 	// The field well configuration of a waterfall visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-waterfallchartfieldwells.html#cfn-quicksight-dashboard-waterfallchartfieldwells-waterfallchartaggregatedfieldwells
+	//
 	WaterfallChartAggregatedFieldWells interface{} `field:"optional" json:"waterfallChartAggregatedFieldWells" yaml:"waterfallChartAggregatedFieldWells"`
 }
 

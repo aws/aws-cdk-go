@@ -17,10 +17,16 @@ package awsguardduty
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html
+//
 type CfnDetector_FeatureAdditionalConfigurationProperty struct {
 	// Name of the additional configuration of a feature.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Status of the additional configuration of a feature.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

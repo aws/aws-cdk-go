@@ -15,10 +15,16 @@ package awsdatabrew
 //   	Key: jsii.String("key"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html
+//
 type CfnRecipe_S3LocationProperty struct {
 	// The Amazon S3 bucket name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The unique name of the object in the bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 

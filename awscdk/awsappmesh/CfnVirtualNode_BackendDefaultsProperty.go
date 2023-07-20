@@ -54,8 +54,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backenddefaults.html
+//
 type CfnVirtualNode_BackendDefaultsProperty struct {
 	// A reference to an object that represents a client policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backenddefaults.html#cfn-appmesh-virtualnode-backenddefaults-clientpolicy
+	//
 	ClientPolicy interface{} `field:"optional" json:"clientPolicy" yaml:"clientPolicy"`
 }
 

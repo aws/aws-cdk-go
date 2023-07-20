@@ -12,8 +12,12 @@ package awsquicksight
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-bincountoptions.html
+//
 type CfnAnalysis_BinCountOptionsProperty struct {
 	// The options that determine the bin count value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-bincountoptions.html#cfn-quicksight-analysis-bincountoptions-value
+	//
 	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 

@@ -32,6 +32,8 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html
+//
 type CfnRuleGroup_StatefulRuleProperty struct {
 	// Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria.
 	//
@@ -48,10 +50,16 @@ type CfnRuleGroup_StatefulRuleProperty struct {
 	// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
 	//
 	// `REJECT` isn't currently available for use with IMAP and FTP protocols.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-action
+	//
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// The stateful inspection criteria for this rule, used to inspect traffic flows.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-header
+	//
 	Header interface{} `field:"required" json:"header" yaml:"header"`
 	// Additional settings for a stateful rule, provided as keywords and settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
+	//
 	RuleOptions interface{} `field:"required" json:"ruleOptions" yaml:"ruleOptions"`
 }
 

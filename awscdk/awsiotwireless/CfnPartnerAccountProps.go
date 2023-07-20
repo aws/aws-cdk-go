@@ -34,22 +34,36 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html
+//
 type CfnPartnerAccountProps struct {
-	// `AWS::IoTWireless::PartnerAccount.AccountLinked`.
+	// Whether the partner account is linked to the AWS account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-accountlinked
+	//
 	AccountLinked interface{} `field:"optional" json:"accountLinked" yaml:"accountLinked"`
 	// The ID of the partner account to update.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partneraccountid
+	//
 	PartnerAccountId *string `field:"optional" json:"partnerAccountId" yaml:"partnerAccountId"`
-	// `AWS::IoTWireless::PartnerAccount.PartnerType`.
+	// The partner type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partnertype
+	//
 	PartnerType *string `field:"optional" json:"partnerType" yaml:"partnerType"`
 	// The Sidewalk account credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalk
+	//
 	Sidewalk interface{} `field:"optional" json:"sidewalk" yaml:"sidewalk"`
-	// `AWS::IoTWireless::PartnerAccount.SidewalkResponse`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalkresponse
+	//
 	SidewalkResponse interface{} `field:"optional" json:"sidewalkResponse" yaml:"sidewalkResponse"`
-	// `AWS::IoTWireless::PartnerAccount.SidewalkUpdate`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalkupdate
+	//
 	SidewalkUpdate interface{} `field:"optional" json:"sidewalkUpdate" yaml:"sidewalkUpdate"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

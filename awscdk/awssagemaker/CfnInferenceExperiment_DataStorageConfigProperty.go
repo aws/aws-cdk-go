@@ -25,14 +25,22 @@ package awssagemaker
 //   	KmsKey: jsii.String("kmsKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html
+//
 type CfnInferenceExperiment_DataStorageConfigProperty struct {
 	// The Amazon S3 bucket where the inference request and response data is stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html#cfn-sagemaker-inferenceexperiment-datastorageconfig-destination
+	//
 	Destination *string `field:"required" json:"destination" yaml:"destination"`
 	// Configuration specifying how to treat different headers.
 	//
 	// If no headers are specified SageMaker will by default base64 encode when capturing the data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html#cfn-sagemaker-inferenceexperiment-datastorageconfig-contenttype
+	//
 	ContentType interface{} `field:"optional" json:"contentType" yaml:"contentType"`
 	// The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html#cfn-sagemaker-inferenceexperiment-datastorageconfig-kmskey
+	//
 	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

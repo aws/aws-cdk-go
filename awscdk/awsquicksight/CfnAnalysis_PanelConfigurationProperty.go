@@ -34,24 +34,44 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html
+//
 type CfnAnalysis_PanelConfigurationProperty struct {
 	// Sets the background color for each panel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html#cfn-quicksight-analysis-panelconfiguration-backgroundcolor
+	//
 	BackgroundColor *string `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
 	// Determines whether or not a background for each small multiples panel is rendered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html#cfn-quicksight-analysis-panelconfiguration-backgroundvisibility
+	//
 	BackgroundVisibility *string `field:"optional" json:"backgroundVisibility" yaml:"backgroundVisibility"`
 	// Sets the line color of panel borders.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html#cfn-quicksight-analysis-panelconfiguration-bordercolor
+	//
 	BorderColor *string `field:"optional" json:"borderColor" yaml:"borderColor"`
 	// Sets the line style of panel borders.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html#cfn-quicksight-analysis-panelconfiguration-borderstyle
+	//
 	BorderStyle *string `field:"optional" json:"borderStyle" yaml:"borderStyle"`
 	// Sets the line thickness of panel borders.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html#cfn-quicksight-analysis-panelconfiguration-borderthickness
+	//
 	BorderThickness *string `field:"optional" json:"borderThickness" yaml:"borderThickness"`
 	// Determines whether or not each panel displays a border.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html#cfn-quicksight-analysis-panelconfiguration-bordervisibility
+	//
 	BorderVisibility *string `field:"optional" json:"borderVisibility" yaml:"borderVisibility"`
 	// Sets the total amount of negative space to display between sibling panels.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html#cfn-quicksight-analysis-panelconfiguration-gutterspacing
+	//
 	GutterSpacing *string `field:"optional" json:"gutterSpacing" yaml:"gutterSpacing"`
 	// Determines whether or not negative space between sibling panels is rendered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html#cfn-quicksight-analysis-panelconfiguration-guttervisibility
+	//
 	GutterVisibility *string `field:"optional" json:"gutterVisibility" yaml:"gutterVisibility"`
 	// Configures the title display within each small multiples panel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-panelconfiguration.html#cfn-quicksight-analysis-panelconfiguration-title
+	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 }
 

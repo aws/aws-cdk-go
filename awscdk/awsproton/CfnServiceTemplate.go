@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Proton::ServiceTemplate`.
+// Create a service template.
 //
-// Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline. Developers, in turn, select the service template from AWS Proton . If the selected service template includes a service pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by the selected service template. For more information, see [AWS Proton templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide* .
+// The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline. Developers, in turn, select the service template from AWS Proton . If the selected service template includes a service pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by the selected service template. For more information, see [AWS Proton templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-servicetemplate.html
+//
 type CfnServiceTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the service template ARN.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -71,8 +74,6 @@ type CfnServiceTemplate interface {
 	// The tree node.
 	Node() constructs.Node
 	// If `pipelineProvisioning` is `true` , a service pipeline is included in the service template.
-	//
-	// Otherwise, a service pipeline *isn't* included in the service template.
 	PipelineProvisioning() *string
 	SetPipelineProvisioning(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -84,8 +85,11 @@ type CfnServiceTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An object that includes the template bundle S3 bucket path and name for the new version of a service template.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An object that includes the template bundle S3 bucket path and name for the new version of a service template.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +234,7 @@ type CfnServiceTemplate interface {
 type jsiiProxy_CfnServiceTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnServiceTemplate) AttrArn() *string {
@@ -382,6 +387,16 @@ func (j *jsiiProxy_CfnServiceTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServiceTemplate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServiceTemplate) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -403,7 +418,6 @@ func (j *jsiiProxy_CfnServiceTemplate) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::Proton::ServiceTemplate`.
 func NewCfnServiceTemplate(scope constructs.Construct, id *string, props *CfnServiceTemplateProps) CfnServiceTemplate {
 	_init_.Initialize()
 
@@ -421,7 +435,6 @@ func NewCfnServiceTemplate(scope constructs.Construct, id *string, props *CfnSer
 	return &j
 }
 
-// Create a new `AWS::Proton::ServiceTemplate`.
 func NewCfnServiceTemplate_Override(c CfnServiceTemplate, scope constructs.Construct, id *string, props *CfnServiceTemplateProps) {
 	_init_.Initialize()
 
@@ -468,6 +481,17 @@ func (j *jsiiProxy_CfnServiceTemplate)SetPipelineProvisioning(val *string) {
 	_jsii_.Set(
 		j,
 		"pipelineProvisioning",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServiceTemplate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

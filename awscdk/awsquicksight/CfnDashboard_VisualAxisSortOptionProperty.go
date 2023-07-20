@@ -12,8 +12,12 @@ package awsquicksight
 //   	AvailabilityStatus: jsii.String("availabilityStatus"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualaxissortoption.html
+//
 type CfnDashboard_VisualAxisSortOptionProperty struct {
 	// The availaiblity status of a visual's axis sort options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualaxissortoption.html#cfn-quicksight-dashboard-visualaxissortoption-availabilitystatus
+	//
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 

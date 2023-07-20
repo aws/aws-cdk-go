@@ -19,18 +19,24 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionstatuscode.html
+//
 type CfnWebACL_ResponseInspectionStatusCodeProperty struct {
 	// Status codes in the response that indicate a failed login attempt.
 	//
 	// To be counted as a failed login, the response status code must match one of these. Each code must be unique among the success and failure status codes.
 	//
 	// JSON example: `"FailureCodes": [ 400, 404 ]`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionstatuscode.html#cfn-wafv2-webacl-responseinspectionstatuscode-failurecodes
+	//
 	FailureCodes interface{} `field:"required" json:"failureCodes" yaml:"failureCodes"`
 	// Status codes in the response that indicate a successful login attempt.
 	//
 	// To be counted as a successful login, the response status code must match one of these. Each code must be unique among the success and failure status codes.
 	//
 	// JSON example: `"SuccessCodes": [ 200, 201 ]`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionstatuscode.html#cfn-wafv2-webacl-responseinspectionstatuscode-successcodes
+	//
 	SuccessCodes interface{} `field:"required" json:"successCodes" yaml:"successCodes"`
 }
 

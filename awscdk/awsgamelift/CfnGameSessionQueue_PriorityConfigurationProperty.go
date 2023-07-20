@@ -24,10 +24,14 @@ package awsgamelift
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html
+//
 type CfnGameSessionQueue_PriorityConfigurationProperty struct {
 	// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` .
 	//
 	// Locations are identified by AWS Region codes such as `us-west-2` . Each location can only be listed once.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html#cfn-gamelift-gamesessionqueue-priorityconfiguration-locationorder
+	//
 	LocationOrder *[]*string `field:"optional" json:"locationOrder" yaml:"locationOrder"`
 	// The recommended sequence to use when prioritizing where to place new game sessions.
 	//
@@ -37,6 +41,8 @@ type CfnGameSessionQueue_PriorityConfigurationProperty struct {
 	// - `COST` -- FleetIQ prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) for each destination in the queue.
 	// - `DESTINATION` -- FleetIQ prioritizes based on the order that destinations are listed in the queue configuration.
 	// - `LOCATION` -- FleetIQ prioritizes based on the provided order of locations, as defined in `LocationOrder` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html#cfn-gamelift-gamesessionqueue-priorityconfiguration-priorityorder
+	//
 	PriorityOrder *[]*string `field:"optional" json:"priorityOrder" yaml:"priorityOrder"`
 }
 

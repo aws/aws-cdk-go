@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnWirelessDevice) validateSetLoRaWanParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnWirelessDevice) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWirelessDevice) validateSetTypeParameters(val *string) error {
 	return nil
 }

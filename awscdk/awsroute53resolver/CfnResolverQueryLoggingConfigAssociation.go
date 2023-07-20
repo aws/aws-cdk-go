@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`.
+// The AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation resource is a configuration for DNS query logging.
 //
-// The AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation resource is a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.
+// After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	ResolverQueryLogConfigId: jsii.String("resolverQueryLogConfigId"),
 //   	ResourceId: jsii.String("resourceId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
 //
 type CfnResolverQueryLoggingConfigAssociation interface {
 	awscdk.CfnResource
@@ -401,7 +403,6 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) UpdatedProperties()
 }
 
 
-// Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`.
 func NewCfnResolverQueryLoggingConfigAssociation(scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) CfnResolverQueryLoggingConfigAssociation {
 	_init_.Initialize()
 
@@ -419,7 +420,6 @@ func NewCfnResolverQueryLoggingConfigAssociation(scope constructs.Construct, id 
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`.
 func NewCfnResolverQueryLoggingConfigAssociation_Override(c CfnResolverQueryLoggingConfigAssociation, scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) {
 	_init_.Initialize()
 

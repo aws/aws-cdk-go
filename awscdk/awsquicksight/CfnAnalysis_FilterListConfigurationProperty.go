@@ -18,14 +18,22 @@ package awsquicksight
 //   	SelectAllOptions: jsii.String("selectAllOptions"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterlistconfiguration.html
+//
 type CfnAnalysis_FilterListConfigurationProperty struct {
 	// The match operator that is used to determine if a filter should be applied.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterlistconfiguration.html#cfn-quicksight-analysis-filterlistconfiguration-matchoperator
+	//
 	MatchOperator *string `field:"required" json:"matchOperator" yaml:"matchOperator"`
 	// The list of category values for the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterlistconfiguration.html#cfn-quicksight-analysis-filterlistconfiguration-categoryvalues
+	//
 	CategoryValues *[]*string `field:"optional" json:"categoryValues" yaml:"categoryValues"`
 	// Select all of the values. Null is not the assigned value of select all.
 	//
 	// - `FILTER_ALL_VALUES`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterlistconfiguration.html#cfn-quicksight-analysis-filterlistconfiguration-selectalloptions
+	//
 	SelectAllOptions *string `field:"optional" json:"selectAllOptions" yaml:"selectAllOptions"`
 }
 

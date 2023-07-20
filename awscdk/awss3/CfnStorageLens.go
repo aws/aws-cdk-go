@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3::StorageLens`.
-//
 // The AWS::S3::StorageLens resource creates an Amazon S3 Storage Lens configuration.
 //
 // Example:
@@ -117,9 +115,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
+//
 type CfnStorageLens interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// This property contains the details of the ARN of the S3 Storage Lens configuration.
 	//
 	// This property is read-only.
@@ -157,8 +158,11 @@ type CfnStorageLens interface {
 	// This resource contains the details Amazon S3 Storage Lens configuration.
 	StorageLensConfiguration() interface{}
 	SetStorageLensConfiguration(val interface{})
-	// A set of tags (key–value pairs) to associate with the Storage Lens configuration.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A set of tags (key–value pairs) to associate with the Storage Lens configuration.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -303,6 +307,7 @@ type CfnStorageLens interface {
 type jsiiProxy_CfnStorageLens struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStorageLens) AttrStorageLensConfigurationStorageLensArn() *string {
@@ -415,6 +420,16 @@ func (j *jsiiProxy_CfnStorageLens) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStorageLens) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStorageLens) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -436,7 +451,6 @@ func (j *jsiiProxy_CfnStorageLens) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::S3::StorageLens`.
 func NewCfnStorageLens(scope constructs.Construct, id *string, props *CfnStorageLensProps) CfnStorageLens {
 	_init_.Initialize()
 
@@ -454,7 +468,6 @@ func NewCfnStorageLens(scope constructs.Construct, id *string, props *CfnStorage
 	return &j
 }
 
-// Create a new `AWS::S3::StorageLens`.
 func NewCfnStorageLens_Override(c CfnStorageLens, scope constructs.Construct, id *string, props *CfnStorageLensProps) {
 	_init_.Initialize()
 
@@ -472,6 +485,17 @@ func (j *jsiiProxy_CfnStorageLens)SetStorageLensConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"storageLensConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStorageLens)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

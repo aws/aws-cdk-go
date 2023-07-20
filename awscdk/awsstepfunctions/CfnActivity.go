@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::StepFunctions::Activity`.
+// An activity is a task that you write in any programming language and host on any machine that has access to AWS Step Functions .
 //
-// An activity is a task that you write in any programming language and host on any machine that has access to AWS Step Functions . Activities must poll Step Functions using the `GetActivityTask` API action and respond using `SendTask*` API actions. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
+// Activities must poll Step Functions using the `GetActivityTask` API action and respond using `SendTask*` API actions. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
 //
 // For information about creating an activity, see [Creating an Activity State Machine](https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-creating-activity-state-machine.html) in the *AWS Step Functions Developer Guide* and [CreateActivity](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateActivity.html) in the *AWS Step Functions API Reference* .
 //
@@ -32,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html
+//
 type CfnActivity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the ARN of the resource.
 	AttrArn() *string
 	// Returns the name of the activity. For example:.
@@ -67,16 +70,6 @@ type CfnActivity interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the activity.
-	//
-	// A name must *not* contain:
-	//
-	// - white space
-	// - brackets `< > { } [ ]`
-	// - wildcard characters `? *`
-	// - special characters `" # % \ ^ | ~ ` $ & , ; : /`
-	// - control characters ( `U+0000-001F` , `U+007F-009F` )
-	//
-	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -90,10 +83,11 @@ type CfnActivity interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The list of tags to add to a resource.
-	//
-	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of tags to add to a resource.
+	TagsRaw() *[]*CfnActivity_TagsEntryProperty
+	SetTagsRaw(val *[]*CfnActivity_TagsEntryProperty)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,6 +232,7 @@ type CfnActivity interface {
 type jsiiProxy_CfnActivity struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnActivity) AttrArn() *string {
@@ -360,6 +355,16 @@ func (j *jsiiProxy_CfnActivity) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnActivity) TagsRaw() *[]*CfnActivity_TagsEntryProperty {
+	var returns *[]*CfnActivity_TagsEntryProperty
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnActivity) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -381,7 +386,6 @@ func (j *jsiiProxy_CfnActivity) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::StepFunctions::Activity`.
 func NewCfnActivity(scope constructs.Construct, id *string, props *CfnActivityProps) CfnActivity {
 	_init_.Initialize()
 
@@ -399,7 +403,6 @@ func NewCfnActivity(scope constructs.Construct, id *string, props *CfnActivityPr
 	return &j
 }
 
-// Create a new `AWS::StepFunctions::Activity`.
 func NewCfnActivity_Override(c CfnActivity, scope constructs.Construct, id *string, props *CfnActivityProps) {
 	_init_.Initialize()
 
@@ -417,6 +420,17 @@ func (j *jsiiProxy_CfnActivity)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnActivity)SetTagsRaw(val *[]*CfnActivity_TagsEntryProperty) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

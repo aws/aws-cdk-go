@@ -75,14 +75,24 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html
+//
 type CfnModelPackage_ModelMetricsProperty struct {
 	// Metrics that measure bais in a model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-bias
+	//
 	Bias interface{} `field:"optional" json:"bias" yaml:"bias"`
 	// Metrics that help explain a model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-explainability
+	//
 	Explainability interface{} `field:"optional" json:"explainability" yaml:"explainability"`
 	// Metrics that measure the quality of the input data for a model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-modeldataquality
+	//
 	ModelDataQuality interface{} `field:"optional" json:"modelDataQuality" yaml:"modelDataQuality"`
 	// Metrics that measure the quality of a model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-modelquality
+	//
 	ModelQuality interface{} `field:"optional" json:"modelQuality" yaml:"modelQuality"`
 }
 

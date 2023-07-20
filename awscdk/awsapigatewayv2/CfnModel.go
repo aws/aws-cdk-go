@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGatewayV2::Model`.
+// The `AWS::ApiGatewayV2::Model` resource updates data model for a WebSocket API.
 //
-// The `AWS::ApiGatewayV2::Model` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide* .
+// For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,6 +29,8 @@ import (
 //   	ContentType: jsii.String("contentType"),
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html
 //
 type CfnModel interface {
 	awscdk.CfnResource
@@ -74,8 +76,6 @@ type CfnModel interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The schema for the model.
-	//
-	// For application/json models, this should be JSON schema draft 4 model.
 	Schema() interface{}
 	SetSchema(val interface{})
 	// The stack in which this element is defined.
@@ -389,7 +389,6 @@ func (j *jsiiProxy_CfnModel) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGatewayV2::Model`.
 func NewCfnModel(scope constructs.Construct, id *string, props *CfnModelProps) CfnModel {
 	_init_.Initialize()
 
@@ -407,7 +406,6 @@ func NewCfnModel(scope constructs.Construct, id *string, props *CfnModelProps) C
 	return &j
 }
 
-// Create a new `AWS::ApiGatewayV2::Model`.
 func NewCfnModel_Override(c CfnModel, scope constructs.Construct, id *string, props *CfnModelProps) {
 	_init_.Initialize()
 

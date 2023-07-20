@@ -26,18 +26,26 @@ package awslightsail
 //   	RamSizeInGb: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html
+//
 type CfnInstance_HardwareProperty struct {
 	// The number of vCPUs the instance has.
 	//
 	// > The `CpuCount` property is read-only and should not be specified in a create instance or update instance request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html#cfn-lightsail-instance-hardware-cpucount
+	//
 	CpuCount *float64 `field:"optional" json:"cpuCount" yaml:"cpuCount"`
 	// The disks attached to the instance.
 	//
 	// The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html#cfn-lightsail-instance-hardware-disks
+	//
 	Disks interface{} `field:"optional" json:"disks" yaml:"disks"`
 	// The amount of RAM in GB on the instance (for example, `1.0` ).
 	//
 	// > The `RamSizeInGb` property is read-only and should not be specified in a create instance or update instance request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html#cfn-lightsail-instance-hardware-ramsizeingb
+	//
 	RamSizeInGb *float64 `field:"optional" json:"ramSizeInGb" yaml:"ramSizeInGb"`
 }
 

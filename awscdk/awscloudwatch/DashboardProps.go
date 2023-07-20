@@ -7,11 +7,22 @@ import (
 // Properties for defining a CloudWatch Dashboard.
 //
 // Example:
-//   import cw "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
 //   	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
+//   	Variables: []iVariable{
+//   		cw.NewDashboardVariable(&DashboardVariableOptions{
+//   			Id: jsii.String("region2"),
+//   			Type: cw.VariableType_PATTERN,
+//   			Label: jsii.String("RegionPattern"),
+//   			InputType: cw.VariableInputType_INPUT,
+//   			Value: jsii.String("us-east-1"),
+//   			DefaultValue: cw.DefaultValue_Value(jsii.String("us-east-1")),
+//   			Visible: jsii.Boolean(true),
+//   		}),
+//   	},
 //   })
 //
 type DashboardProps struct {
@@ -41,6 +52,10 @@ type DashboardProps struct {
 	// You can also use start along with an end field, to specify an absolute time range.
 	// When specifying an absolute time range, use the ISO 8601 format. For example, 2018-12-17T06:00:00.000Z.
 	Start *string `field:"optional" json:"start" yaml:"start"`
+	// A list of dashboard variables.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_dashboard_variables.html#cloudwatch_dashboard_variables_types
+	//
+	Variables *[]IVariable `field:"optional" json:"variables" yaml:"variables"`
 	// Initial set of widgets on the dashboard.
 	//
 	// One array represents a row of widgets.

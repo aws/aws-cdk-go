@@ -14,14 +14,22 @@ package awspinpoint
 //   	TextColor: jsii.String("textColor"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html
+//
 type CfnCampaign_InAppMessageHeaderConfigProperty struct {
 	// The text alignment of the title of the message.
 	//
 	// Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html#cfn-pinpoint-campaign-inappmessageheaderconfig-alignment
+	//
 	Alignment *string `field:"optional" json:"alignment" yaml:"alignment"`
 	// The header or title text of the in-app message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html#cfn-pinpoint-campaign-inappmessageheaderconfig-header
+	//
 	Header *string `field:"optional" json:"header" yaml:"header"`
 	// The color of the body text, expressed as a string consisting of a hex color code (such as "#000000" for black).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html#cfn-pinpoint-campaign-inappmessageheaderconfig-textcolor
+	//
 	TextColor *string `field:"optional" json:"textColor" yaml:"textColor"`
 }
 

@@ -14,10 +14,14 @@ package awss3
 //   	Owner: jsii.String("owner"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html
+//
 type CfnBucket_AccessControlTranslationProperty struct {
 	// Specifies the replica ownership.
 	//
 	// For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the *Amazon S3 API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html#cfn-s3-bucket-accesscontroltranslation-owner
+	//
 	Owner *string `field:"required" json:"owner" yaml:"owner"`
 }
 

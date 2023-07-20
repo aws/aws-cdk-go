@@ -13,12 +13,18 @@ package awslogs
 //   	PolicyName: jsii.String("policyName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html
+//
 type CfnResourcePolicyProps struct {
 	// The details of the policy.
 	//
 	// It must be formatted in JSON, and you must use backslashes to escape characters that need to be escaped in JSON strings, such as double quote marks.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
+	//
 	PolicyDocument *string `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The name of the resource policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
+	//
 	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 }
 

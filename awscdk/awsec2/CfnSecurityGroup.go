@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::SecurityGroup`.
+// Specifies a security group.
 //
-// Specifies a security group. To create a security group, use the [VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-vpcid) property to specify the VPC for which to create the security group.
+// To create a security group, use the [VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-vpcid) property to specify the VPC for which to create the security group.
 //
 // If you do not specify an egress rule, we add egress rules that allow IPv4 and IPv6 traffic on all ports and protocols to any destination. We do not add these rules if you specify your own egress rules. If you later remove your egress rules, we restore the default egress rules.
 //
@@ -68,11 +68,15 @@ import (
 //   	VpcId: jsii.String("vpcId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html
+//
 type CfnSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The group ID of the specified security group, such as `sg-94b3a1f6` .
 	AttrGroupId() *string
+	AttrId() *string
 	// The physical ID of the VPC.
 	//
 	// You can obtain the physical ID by using a reference to an [AWS::EC2::VPC](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html) , such as: `{ "Ref" : "myVPC" }` .
@@ -87,17 +91,9 @@ type CfnSecurityGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A description for the security group.
-	//
-	// Constraints: Up to 255 characters in length
-	//
-	// Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 	GroupDescription() *string
 	SetGroupDescription(val *string)
 	// The name of the security group.
-	//
-	// Constraints: Up to 255 characters in length. Cannot start with `sg-` .
-	//
-	// Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 	GroupName() *string
 	SetGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -118,21 +114,20 @@ type CfnSecurityGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The outbound rules associated with the security group.
-	//
-	// There is a short interruption during which you cannot connect to the security group.
 	SecurityGroupEgress() interface{}
 	SetSecurityGroupEgress(val interface{})
 	// The inbound rules associated with the security group.
-	//
-	// There is a short interruption during which you cannot connect to the security group.
 	SecurityGroupIngress() interface{}
 	SetSecurityGroupIngress(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Any tags assigned to the security group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags assigned to the security group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -280,6 +275,7 @@ type CfnSecurityGroup interface {
 type jsiiProxy_CfnSecurityGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSecurityGroup) AttrGroupId() *string {
@@ -287,6 +283,16 @@ func (j *jsiiProxy_CfnSecurityGroup) AttrGroupId() *string {
 	_jsii_.Get(
 		j,
 		"attrGroupId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -432,6 +438,16 @@ func (j *jsiiProxy_CfnSecurityGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSecurityGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecurityGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -463,7 +479,6 @@ func (j *jsiiProxy_CfnSecurityGroup) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::SecurityGroup`.
 func NewCfnSecurityGroup(scope constructs.Construct, id *string, props *CfnSecurityGroupProps) CfnSecurityGroup {
 	_init_.Initialize()
 
@@ -481,7 +496,6 @@ func NewCfnSecurityGroup(scope constructs.Construct, id *string, props *CfnSecur
 	return &j
 }
 
-// Create a new `AWS::EC2::SecurityGroup`.
 func NewCfnSecurityGroup_Override(c CfnSecurityGroup, scope constructs.Construct, id *string, props *CfnSecurityGroupProps) {
 	_init_.Initialize()
 
@@ -529,6 +543,17 @@ func (j *jsiiProxy_CfnSecurityGroup)SetSecurityGroupIngress(val interface{}) {
 	_jsii_.Set(
 		j,
 		"securityGroupIngress",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecurityGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

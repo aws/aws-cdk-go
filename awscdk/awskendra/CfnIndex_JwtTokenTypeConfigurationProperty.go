@@ -20,20 +20,36 @@ package awskendra
 //   	UserNameAttributeField: jsii.String("userNameAttributeField"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html
+//
 type CfnIndex_JwtTokenTypeConfigurationProperty struct {
 	// The location of the key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-keylocation
+	//
 	KeyLocation *string `field:"required" json:"keyLocation" yaml:"keyLocation"`
 	// The regular expression that identifies the claim.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-claimregex
+	//
 	ClaimRegex *string `field:"optional" json:"claimRegex" yaml:"claimRegex"`
 	// The group attribute field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-groupattributefield
+	//
 	GroupAttributeField *string `field:"optional" json:"groupAttributeField" yaml:"groupAttributeField"`
 	// The issuer of the token.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-issuer
+	//
 	Issuer *string `field:"optional" json:"issuer" yaml:"issuer"`
 	// The Amazon Resource Name (arn) of the secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-secretmanagerarn
+	//
 	SecretManagerArn *string `field:"optional" json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The signing key URL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-url
+	//
 	Url *string `field:"optional" json:"url" yaml:"url"`
 	// The user name attribute field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-usernameattributefield
+	//
 	UserNameAttributeField *string `field:"optional" json:"userNameAttributeField" yaml:"userNameAttributeField"`
 }
 

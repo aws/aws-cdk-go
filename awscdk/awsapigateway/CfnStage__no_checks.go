@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnStage) validateSetRestApiIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnStage) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStage) validateSetTracingEnabledParameters(val interface{}) error {
 	return nil
 }

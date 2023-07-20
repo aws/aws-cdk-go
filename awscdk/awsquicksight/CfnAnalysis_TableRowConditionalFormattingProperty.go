@@ -55,10 +55,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablerowconditionalformatting.html
+//
 type CfnAnalysis_TableRowConditionalFormattingProperty struct {
 	// The conditional formatting color (solid, gradient) of the background for a table row.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablerowconditionalformatting.html#cfn-quicksight-analysis-tablerowconditionalformatting-backgroundcolor
+	//
 	BackgroundColor interface{} `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
 	// The conditional formatting color (solid, gradient) of the text for a table row.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablerowconditionalformatting.html#cfn-quicksight-analysis-tablerowconditionalformatting-textcolor
+	//
 	TextColor interface{} `field:"optional" json:"textColor" yaml:"textColor"`
 }
 

@@ -18,10 +18,14 @@ package awskendra
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html
+//
 type CfnDataSource_WebCrawlerAuthenticationConfigurationProperty struct {
 	// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
 	//
 	// The list includes the name and port number of the website host.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html#cfn-kendra-datasource-webcrawlerauthenticationconfiguration-basicauthentication
+	//
 	BasicAuthentication interface{} `field:"optional" json:"basicAuthentication" yaml:"basicAuthentication"`
 }
 

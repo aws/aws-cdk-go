@@ -218,18 +218,26 @@ package awslex
 //   	IsActive: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html
+//
 type CfnBot_ConditionalSpecificationProperty struct {
 	// A list of conditional branches.
 	//
 	// A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html#cfn-lex-bot-conditionalspecification-conditionalbranches
+	//
 	ConditionalBranches interface{} `field:"required" json:"conditionalBranches" yaml:"conditionalBranches"`
 	// The conditional branch that should be followed when the conditions for other branches are not satisfied.
 	//
 	// A conditional branch is made up of a condition, a response and a next step.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html#cfn-lex-bot-conditionalspecification-defaultbranch
+	//
 	DefaultBranch interface{} `field:"required" json:"defaultBranch" yaml:"defaultBranch"`
 	// Determines whether a conditional branch is active.
 	//
 	// When `IsActive` is false, the conditions are not evaluated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html#cfn-lex-bot-conditionalspecification-isactive
+	//
 	IsActive interface{} `field:"required" json:"isActive" yaml:"isActive"`
 }
 

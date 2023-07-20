@@ -48,20 +48,27 @@ package awscodedeploy
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html
+//
 type CfnDeploymentGroup_LoadBalancerInfoProperty struct {
 	// An array that contains information about the load balancer to use for load balancing in a deployment.
 	//
 	// In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
 	//
 	// > Adding more than one load balancer to the array is not supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-elbinfolist
+	//
 	ElbInfoList interface{} `field:"optional" json:"elbInfoList" yaml:"elbInfoList"`
 	// An array that contains information about the target group to use for load balancing in a deployment.
 	//
 	// In Elastic Load Balancing , target groups are used with Application Load Balancers .
 	//
 	// > Adding more than one target group to the array is not supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-targetgroupinfolist
+	//
 	TargetGroupInfoList interface{} `field:"optional" json:"targetGroupInfoList" yaml:"targetGroupInfoList"`
-	// `CfnDeploymentGroup.LoadBalancerInfoProperty.TargetGroupPairInfoList`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-targetgrouppairinfolist
+	//
 	TargetGroupPairInfoList interface{} `field:"optional" json:"targetGroupPairInfoList" yaml:"targetGroupPairInfoList"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Logs::ResourcePolicy`.
+// Creates or updates a resource policy that allows other AWS services to put log events to this account.
 //
-// Creates or updates a resource policy that allows other AWS services to put log events to this account. An account can have up to 10 resource policies per AWS Region.
+// An account can have up to 10 resource policies per AWS Region.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	PolicyDocument: jsii.String("policyDocument"),
 //   	PolicyName: jsii.String("policyName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html
 //
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
@@ -48,8 +50,6 @@ type CfnResourcePolicy interface {
 	// The tree node.
 	Node() constructs.Node
 	// The details of the policy.
-	//
-	// It must be formatted in JSON, and you must use backslashes to escape characters that need to be escaped in JSON strings, such as double quote marks.
 	PolicyDocument() *string
 	SetPolicyDocument(val *string)
 	// The name of the resource policy.
@@ -331,7 +331,6 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Logs::ResourcePolicy`.
 func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
@@ -349,7 +348,6 @@ func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
-// Create a new `AWS::Logs::ResourcePolicy`.
 func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 

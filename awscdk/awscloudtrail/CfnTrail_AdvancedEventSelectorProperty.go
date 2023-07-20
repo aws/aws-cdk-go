@@ -50,10 +50,16 @@ package awscloudtrail
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedeventselector.html
+//
 type CfnTrail_AdvancedEventSelectorProperty struct {
 	// Contains all selector statements in an advanced event selector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedeventselector.html#cfn-cloudtrail-trail-advancedeventselector-fieldselectors
+	//
 	FieldSelectors interface{} `field:"required" json:"fieldSelectors" yaml:"fieldSelectors"`
 	// An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedeventselector.html#cfn-cloudtrail-trail-advancedeventselector-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

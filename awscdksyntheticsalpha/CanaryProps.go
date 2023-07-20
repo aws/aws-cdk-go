@@ -4,6 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
 // Properties for a canary.
@@ -33,6 +34,14 @@ type CanaryProps struct {
 	// Use `Test.custom()` to specify the test to run.
 	// Experimental.
 	Test Test `field:"required" json:"test" yaml:"test"`
+	// Lifecycle rules for the generated canary artifact bucket.
+	//
+	// Has no effect
+	// if a bucket is passed to `artifactsBucketLocation`. If you pass a bucket
+	// to `artifactsBucketLocation`, you can add lifecycle rules to the bucket
+	// itself.
+	// Experimental.
+	ArtifactsBucketLifecycleRules *[]*awss3.LifecycleRule `field:"optional" json:"artifactsBucketLifecycleRules" yaml:"artifactsBucketLifecycleRules"`
 	// The s3 location that stores the data of the canary runs.
 	// Experimental.
 	ArtifactsBucketLocation *ArtifactsBucketLocation `field:"optional" json:"artifactsBucketLocation" yaml:"artifactsBucketLocation"`

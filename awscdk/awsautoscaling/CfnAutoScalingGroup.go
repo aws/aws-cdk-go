@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AutoScaling::AutoScalingGroup`.
-//
 // The `AWS::AutoScaling::AutoScalingGroup` resource defines an Amazon EC2 Auto Scaling group, which is a collection of Amazon EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management.
 //
 // For more information about Amazon EC2 Auto Scaling, see the [Amazon EC2 Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) .
@@ -210,24 +208,22 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html
+//
 type CfnAutoScalingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The name of the Auto Scaling group. This name must be unique per Region per account.
+	awscdk.ITaggable
+	AttrId() *string
+	// The name of the Auto Scaling group.
 	//
-	// The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
-	//
-	// > You cannot use a colon (:) in the name.
+	// This name must be unique per Region per account.
 	AutoScalingGroupName() *string
 	SetAutoScalingGroupName(val *string)
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
-	//
-	// Used for launching into the default VPC subnet in each Availability Zone when not using the `VPCZoneIdentifier` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
 	// Indicates whether Capacity Rebalancing is enabled.
-	//
-	// Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide* .
 	CapacityRebalance() interface{}
 	SetCapacityRebalance(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -239,10 +235,6 @@ type CfnAutoScalingGroup interface {
 	Context() *string
 	SetContext(val *string)
 	// *Only needed if you use simple scaling policies.*.
-	//
-	// The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// Default: `300` seconds.
 	Cooldown() *string
 	SetCooldown(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -250,71 +242,33 @@ type CfnAutoScalingGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the `InService` state.
-	//
-	// During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// > To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, *even if it is set to 0 seconds* . To remove a value that you previously set, include the property but specify `-1` for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of `0` or other nominal value.
-	//
-	// Default: None.
 	DefaultInstanceWarmup() *float64
 	SetDefaultInstanceWarmup(val *float64)
 	// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain.
-	//
-	// It can scale beyond this capacity if you configure automatic scaling.
-	//
-	// The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group.
-	//
-	// CloudFormation marks the Auto Scaling group as successful (by setting its status to CREATE_COMPLETE) when the desired capacity is reached. However, if a maximum Spot price is set in the launch template or launch configuration that you specified, then desired capacity is not used as a criteria for success. Whether your request is fulfilled depends on Spot Instance capacity and your maximum price.
 	DesiredCapacity() *string
 	SetDesiredCapacity(val *string)
 	// The unit of measurement for the value specified for desired capacity.
-	//
-	// Amazon EC2 Auto Scaling supports `DesiredCapacityType` for attribute-based instance type selection only. For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// By default, Amazon EC2 Auto Scaling specifies `units` , which translates into number of instances.
-	//
-	// Valid values: `units` | `vcpu` | `memory-mib`.
 	DesiredCapacityType() *string
 	SetDesiredCapacityType(val *string)
 	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check.
-	//
-	// This is useful if your instances do not immediately pass their health checks after they enter the `InService` state. For more information, see [Set the health check grace period for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// Default: `0` seconds.
 	HealthCheckGracePeriod() *float64
 	SetHealthCheckGracePeriod(val *float64)
 	// A comma-separated value string of one or more health check types.
-	//
-	// The valid values are `EC2` , `ELB` , and `VPC_LATTICE` . `EC2` is the default health check and cannot be disabled. For more information, see [Health checks for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// Only specify `EC2` if you must clear a value that was previously set.
 	HealthCheckType() *string
 	SetHealthCheckType(val *string)
 	// The ID of the instance used to base the launch configuration on.
-	//
-	// For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// If you specify `LaunchTemplate` , `MixedInstancesPolicy` , or `LaunchConfigurationName` , don't specify `InstanceId` .
 	InstanceId() *string
 	SetInstanceId(val *string)
 	// The name of the launch configuration to use to launch instances.
-	//
-	// Required only if you don't specify `LaunchTemplate` , `MixedInstancesPolicy` , or `InstanceId` .
 	LaunchConfigurationName() *string
 	SetLaunchConfigurationName(val *string)
 	// Information used to specify the launch template and version to use to launch instances.
-	//
-	// You can alternatively associate a launch template to the Auto Scaling group by specifying a `MixedInstancesPolicy` . For more information about creating launch templates, see [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// If you omit this property, you must specify `MixedInstancesPolicy` , `LaunchConfigurationName` , or `InstanceId` .
 	LaunchTemplate() interface{}
 	SetLaunchTemplate(val interface{})
 	// One or more lifecycle hooks to add to the Auto Scaling group before instances are launched.
 	LifecycleHookSpecificationList() interface{}
 	SetLifecycleHookSpecificationList(val interface{})
 	// A list of Classic Load Balancers associated with this Auto Scaling group.
-	//
-	// For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the `TargetGroupARNs` property instead.
 	LoadBalancerNames() *[]*string
 	SetLoadBalancerNames(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -328,33 +282,21 @@ type CfnAutoScalingGroup interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum amount of time, in seconds, that an instance can be in service.
-	//
-	// The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see [Replacing Auto Scaling instances based on maximum instance lifetime](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	MaxInstanceLifetime() *float64
 	SetMaxInstanceLifetime(val *float64)
 	// The maximum size of the group.
-	//
-	// > With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above `MaxSize` to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above `MaxSize` by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).
 	MaxSize() *string
 	SetMaxSize(val *string)
 	// Enables the monitoring of group metrics of an Auto Scaling group.
-	//
-	// By default, these metrics are disabled.
 	MetricsCollection() interface{}
 	SetMetricsCollection(val interface{})
 	// The minimum size of the group.
 	MinSize() *string
 	SetMinSize(val *string)
 	// An embedded object that specifies a mixed instances policy.
-	//
-	// The policy includes properties that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances (optional), and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the properties that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types.
-	//
-	// For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	MixedInstancesPolicy() interface{}
 	SetMixedInstancesPolicy(val interface{})
 	// Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
-	//
-	// For more information about preventing instances from terminating on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	NewInstancesProtectedFromScaleIn() interface{}
 	SetNewInstancesProtectedFromScaleIn(val interface{})
 	// The tree node.
@@ -363,10 +305,6 @@ type CfnAutoScalingGroup interface {
 	NotificationConfigurations() interface{}
 	SetNotificationConfigurations(val interface{})
 	// The name of the placement group into which to launch your instances.
-	//
-	// For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	//
-	// > A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
 	PlacementGroup() *string
 	SetPlacementGroup(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -375,28 +313,21 @@ type CfnAutoScalingGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf.
-	//
-	// By default, Amazon EC2 Auto Scaling uses a service-linked role named `AWSServiceRoleForAutoScaling` , which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	ServiceLinkedRoleArn() *string
 	SetServiceLinkedRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// One or more tags.
-	//
-	// You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more tags.
+	TagsRaw() *[]*CfnAutoScalingGroup_TagPropertyProperty
+	SetTagsRaw(val *[]*CfnAutoScalingGroup_TagPropertyProperty)
 	// The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group.
-	//
-	// Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	TargetGroupArns() *[]*string
 	SetTargetGroupArns(val *[]*string)
 	// A policy or a list of policies that are used to select the instance to terminate.
-	//
-	// These policies are executed in the order that you list them. For more information, see [Work with Amazon EC2 Auto Scaling termination policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// Valid values: `Default` | `AllocationStrategy` | `ClosestToNextInstanceHour` | `NewestInstance` | `OldestInstance` | `OldestLaunchConfiguration` | `OldestLaunchTemplate` | `arn:aws:lambda:region:account-id:function:my-function:my-alias`.
 	TerminationPolicies() *[]*string
 	SetTerminationPolicies(val *[]*string)
 	// Deprecated.
@@ -413,12 +344,6 @@ type CfnAutoScalingGroup interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
-	//
-	// If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html) .
-	//
-	// > When you update `VPCZoneIdentifier` , this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html) .
-	//
-	// Required to launch instances into a nondefault VPC. If you specify `VPCZoneIdentifier` with `AvailabilityZones` , the subnets that you specify for this property must reside in those Availability Zones.
 	VpcZoneIdentifier() *[]*string
 	SetVpcZoneIdentifier(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -552,6 +477,17 @@ type CfnAutoScalingGroup interface {
 type jsiiProxy_CfnAutoScalingGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAutoScalingGroup) AutoScalingGroupName() *string {
@@ -884,6 +820,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) TagsRaw() *[]*CfnAutoScalingGroup_TagPropertyProperty {
+	var returns *[]*CfnAutoScalingGroup_TagPropertyProperty
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) TargetGroupArns() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -935,7 +881,6 @@ func (j *jsiiProxy_CfnAutoScalingGroup) VpcZoneIdentifier() *[]*string {
 }
 
 
-// Create a new `AWS::AutoScaling::AutoScalingGroup`.
 func NewCfnAutoScalingGroup(scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) CfnAutoScalingGroup {
 	_init_.Initialize()
 
@@ -953,7 +898,6 @@ func NewCfnAutoScalingGroup(scope constructs.Construct, id *string, props *CfnAu
 	return &j
 }
 
-// Create a new `AWS::AutoScaling::AutoScalingGroup`.
 func NewCfnAutoScalingGroup_Override(c CfnAutoScalingGroup, scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) {
 	_init_.Initialize()
 
@@ -1179,6 +1123,17 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetServiceLinkedRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceLinkedRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetTagsRaw(val *[]*CfnAutoScalingGroup_TagPropertyProperty) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

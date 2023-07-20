@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::AppBlockBuilder`.
-//
 // Creates an app block builder.
 //
 // Example:
@@ -53,6 +51,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html
+//
 type CfnAppBlockBuilder interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -60,8 +60,6 @@ type CfnAppBlockBuilder interface {
 	AccessEndpoints() interface{}
 	SetAccessEndpoints(val interface{})
 	// The ARN of the app block.
-	//
-	// *Maximum* : `1`.
 	AppBlockArns() *[]*string
 	SetAppBlockArns(val *[]*string)
 	// The ARN of the app block builder.
@@ -108,8 +106,6 @@ type CfnAppBlockBuilder interface {
 	// The tree node.
 	Node() constructs.Node
 	// The platform of the app block builder.
-	//
-	// *Allowed values* : `WINDOWS_SERVER_2019`.
 	Platform() *string
 	SetPlatform(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -122,7 +118,8 @@ type CfnAppBlockBuilder interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The tags of the app block builder.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -462,8 +459,8 @@ func (j *jsiiProxy_CfnAppBlockBuilder) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppBlockBuilder) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnAppBlockBuilder) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -503,7 +500,6 @@ func (j *jsiiProxy_CfnAppBlockBuilder) VpcConfig() interface{} {
 }
 
 
-// Create a new `AWS::AppStream::AppBlockBuilder`.
 func NewCfnAppBlockBuilder(scope constructs.Construct, id *string, props *CfnAppBlockBuilderProps) CfnAppBlockBuilder {
 	_init_.Initialize()
 
@@ -521,7 +517,6 @@ func NewCfnAppBlockBuilder(scope constructs.Construct, id *string, props *CfnApp
 	return &j
 }
 
-// Create a new `AWS::AppStream::AppBlockBuilder`.
 func NewCfnAppBlockBuilder_Override(c CfnAppBlockBuilder, scope constructs.Construct, id *string, props *CfnAppBlockBuilderProps) {
 	_init_.Initialize()
 
@@ -615,6 +610,17 @@ func (j *jsiiProxy_CfnAppBlockBuilder)SetPlatform(val *string) {
 	_jsii_.Set(
 		j,
 		"platform",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppBlockBuilder)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

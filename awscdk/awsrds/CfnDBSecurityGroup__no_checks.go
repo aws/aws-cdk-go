@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDBSecurityGroup) validateSetGroupDescriptionParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBSecurityGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDBSecurityGroupParameters(scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) error {
 	return nil
 }

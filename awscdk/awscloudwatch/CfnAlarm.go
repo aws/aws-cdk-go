@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudWatch::Alarm`.
-//
 // The `AWS::CloudWatch::Alarm` type specifies an alarm and associates it with the specified metric or metric math expression.
 //
 // When this operation creates an alarm, the alarm state is immediately set to `INSUFFICIENT_DATA` . The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
@@ -87,41 +85,32 @@ import (
 //   	Unit: jsii.String("unit"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html
+//
 type CfnAlarm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Indicates whether actions should be executed during any changes to the alarm state.
-	//
-	// The default is TRUE.
 	ActionsEnabled() interface{}
 	SetActionsEnabled(val interface{})
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state.
-	//
-	// Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *Amazon CloudWatch API Reference* .
 	AlarmActions() *[]*string
 	SetAlarmActions(val *[]*string)
 	// The description of the alarm.
 	AlarmDescription() *string
 	SetAlarmDescription(val *string)
 	// The name of the alarm.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the alarm name.
-	//
-	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	AlarmName() *string
 	SetAlarmName(val *string)
 	// The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
 	AttrArn() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// The arithmetic operation to use when comparing the specified statistic and threshold.
-	//
-	// The specified statistic value is used as the first operand.
-	//
-	// You can specify the following values: `GreaterThanThreshold` , `GreaterThanOrEqualToThreshold` , `LessThanThreshold` , or `LessThanOrEqualToThreshold` .
 	ComparisonOperator() *string
 	SetComparisonOperator(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -129,39 +118,23 @@ type CfnAlarm interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The number of datapoints that must be breaching to trigger the alarm.
-	//
-	// This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for `EvaluationPeriods` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide* .
-	//
-	// If you omit this parameter, CloudWatch uses the same value here that you set for `EvaluationPeriods` , and the alarm goes to alarm state if that many consecutive periods are breaching.
 	DatapointsToAlarm() *float64
 	SetDatapointsToAlarm(val *float64)
 	// The dimensions for the metric associated with the alarm.
-	//
-	// For an alarm based on a math expression, you can't specify `Dimensions` . Instead, you use `Metrics` .
 	Dimensions() interface{}
 	SetDimensions(val interface{})
 	// Used only for alarms based on percentiles.
-	//
-	// If `ignore` , the alarm state does not change during periods with too few data points to be statistically significant. If `evaluate` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 	EvaluateLowSampleCountPercentile() *string
 	SetEvaluateLowSampleCountPercentile(val *string)
 	// The number of periods over which data is compared to the specified threshold.
-	//
-	// If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and `DatapointsToAlarm` is the M.
-	//
-	// For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide* .
 	EvaluationPeriods() *float64
 	SetEvaluationPeriods(val *float64)
-	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+	// The percentile statistic for the metric associated with the alarm.
 	//
-	// For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.
-	//
-	// For an alarm based on a math expression, you can't specify `ExtendedStatistic` . Instead, you use `Metrics` .
+	// Specify a value between p0.0 and p100.
 	ExtendedStatistic() *string
 	SetExtendedStatistic(val *string)
 	// The actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state.
-	//
-	// Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions() *[]*string
 	SetInsufficientDataActions(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -175,38 +148,20 @@ type CfnAlarm interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the metric associated with the alarm.
-	//
-	// This is required for an alarm based on a metric. For an alarm based on a math expression, you use `Metrics` instead and you can't specify `MetricName` .
 	MetricName() *string
 	SetMetricName(val *string)
 	// An array that enables you to create an alarm based on the result of a metric math expression.
-	//
-	// Each item in the array either retrieves a metric or performs a math expression.
-	//
-	// If you specify the `Metrics` parameter, you cannot specify `MetricName` , `Dimensions` , `Period` , `Namespace` , `Statistic` , `ExtendedStatistic` , or `Unit` .
 	Metrics() interface{}
 	SetMetrics(val interface{})
 	// The namespace of the metric associated with the alarm.
-	//
-	// This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify `Namespace` and you use `Metrics` instead.
-	//
-	// For a list of namespaces for metrics from AWS services, see [AWS Services That Publish CloudWatch Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
 	Namespace() *string
 	SetNamespace(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The actions to execute when this alarm transitions to the `OK` state from any other state.
-	//
-	// Each action is specified as an Amazon Resource Name (ARN).
 	OkActions() *[]*string
 	SetOkActions(val *[]*string)
 	// The period, in seconds, over which the statistic is applied.
-	//
-	// This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
-	//
-	// For an alarm based on a math expression, you can't specify `Period` , and instead you use the `Metrics` parameter.
-	//
-	// *Minimum:* 10.
 	Period() *float64
 	SetPeriod(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -218,11 +173,9 @@ type CfnAlarm interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use `ExtendedStatistic` .
+	// The statistic for the metric associated with the alarm, other than percentile.
 	//
-	// For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.
-	//
-	// For an alarm based on a math expression, you can't specify `Statistic` . Instead, you use `Metrics` .
+	// For percentile statistics, use `ExtendedStatistic` .
 	Statistic() *string
 	SetStatistic(val *string)
 	// The value to compare with the specified statistic.
@@ -232,17 +185,9 @@ type CfnAlarm interface {
 	ThresholdMetricId() *string
 	SetThresholdMetricId(val *string)
 	// Sets how this alarm is to handle missing data points.
-	//
-	// Valid values are `breaching` , `notBreaching` , `ignore` , and `missing` . For more information, see [Configuring How CloudWatch Alarms Treat Missing Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon CloudWatch User Guide* .
-	//
-	// If you omit this parameter, the default behavior of `missing` is used.
 	TreatMissingData() *string
 	SetTreatMissingData(val *string)
 	// The unit of the metric associated with the alarm.
-	//
-	// Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a `Metrics` array.
-	//
-	// You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
 	Unit() *string
 	SetUnit(val *string)
 	// Deprecated.
@@ -436,6 +381,16 @@ func (j *jsiiProxy_CfnAlarm) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAlarm) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -712,7 +667,6 @@ func (j *jsiiProxy_CfnAlarm) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudWatch::Alarm`.
 func NewCfnAlarm(scope constructs.Construct, id *string, props *CfnAlarmProps) CfnAlarm {
 	_init_.Initialize()
 
@@ -730,7 +684,6 @@ func NewCfnAlarm(scope constructs.Construct, id *string, props *CfnAlarmProps) C
 	return &j
 }
 
-// Create a new `AWS::CloudWatch::Alarm`.
 func NewCfnAlarm_Override(c CfnAlarm, scope constructs.Construct, id *string, props *CfnAlarmProps) {
 	_init_.Initialize()
 

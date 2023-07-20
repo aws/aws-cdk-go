@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MWAA::Environment`.
-//
 // The `AWS::MWAA::Environment` resource creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 //
 // Example:
@@ -81,19 +79,16 @@ import (
 //   	WeeklyMaintenanceWindowStart: jsii.String("weeklyMaintenanceWindowStart"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
+//
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A list of key-value pairs containing the Airflow configuration options for your environment.
-	//
-	// For example, `core.default_timezone: utc` . To learn more, see [Apache Airflow configuration options](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html) .
 	AirflowConfigurationOptions() interface{}
 	SetAirflowConfigurationOptions(val interface{})
 	// The version of Apache Airflow to use for the environment.
-	//
-	// If no value is specified, defaults to the latest version.
-	//
-	// *Allowed Values* : `2.0.2` | `1.10.12` | `2.2.2` | `2.4.3` | `2.5.1` (latest)
 	AirflowVersion() *string
 	SetAirflowVersion(val *string)
 	// The ARN for the Amazon MWAA environment.
@@ -120,23 +115,15 @@ type CfnEnvironment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The relative path to the DAGs folder on your Amazon S3 bucket.
-	//
-	// For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
 	DagS3Path() *string
 	SetDagS3Path(val *string)
 	// The environment class type.
-	//
-	// Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
 	EnvironmentClass() *string
 	SetEnvironmentClass(val *string)
 	// The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment.
-	//
-	// For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment.
-	//
-	// You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
 	KmsKey() *string
 	SetKmsKey(val *string)
 	// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
@@ -153,21 +140,15 @@ type CfnEnvironment interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum number of workers that you want to run in your environment.
-	//
-	// MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
 	MaxWorkers() *float64
 	SetMaxWorkers(val *float64)
 	// The minimum number of workers that you want to run in your environment.
-	//
-	// MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
 	MinWorkers() *float64
 	SetMinWorkers(val *float64)
 	// The name of your Amazon MWAA environment.
 	Name() *string
 	SetName(val *string)
 	// The VPC networking components used to secure and enable network traffic between the AWS resources for your environment.
-	//
-	// To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
 	NetworkConfiguration() interface{}
 	SetNetworkConfiguration(val interface{})
 	// The tree node.
@@ -189,15 +170,12 @@ type CfnEnvironment interface {
 	// The relative path to the `requirements.txt` file on your Amazon S3 bucket. For example, `requirements.txt` . To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
 	RequirementsS3Path() *string
 	SetRequirementsS3Path(val *string)
-	// The number of schedulers that you want to run in your environment. Valid values:.
+	// The number of schedulers that you want to run in your environment.
 	//
-	// - *v2* - Accepts between 2 to 5. Defaults to 2.
-	// - *v1* - Accepts 1.
+	// Valid values:.
 	Schedulers() *float64
 	SetSchedulers(val *float64)
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored.
-	//
-	// For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
 	SourceBucketArn() *string
 	SetSourceBucketArn(val *string)
 	// The stack in which this element is defined.
@@ -205,25 +183,18 @@ type CfnEnvironment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The version of the startup shell script in your Amazon S3 bucket.
-	//
-	// You must specify the [version ID](https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html) that Amazon S3 assigns to the file every time you update the script.
-	//
-	// Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long. The following is an example:
-	//
-	// `3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo`
-	//
-	// For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
 	StartupScriptS3ObjectVersion() *string
 	SetStartupScriptS3ObjectVersion(val *string)
-	// The relative path to the startup shell script in your Amazon S3 bucket. For example, `s3://mwaa-environment/startup.sh` .
+	// The relative path to the startup shell script in your Amazon S3 bucket.
 	//
-	// Amazon MWAA runs the script as your environment starts, and before running the Apache Airflow process. You can use this script to install dependencies, modify Apache Airflow configuration options, and set environment variables. For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
+	// For example, `s3://mwaa-environment/startup.sh` .
 	StartupScriptS3Path() *string
 	SetStartupScriptS3Path(val *string)
-	// The key-value tag pairs associated to your environment.
-	//
-	// For example, `"Environment": "Staging"` . To learn more, see [Tagging](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key-value tag pairs associated to your environment.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,15 +209,9 @@ type CfnEnvironment interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The Apache Airflow *Web server* access mode.
-	//
-	// To learn more, see [Apache Airflow access modes](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html) . Valid values: `PRIVATE_ONLY` or `PUBLIC_ONLY` .
 	WebserverAccessMode() *string
 	SetWebserverAccessMode(val *string)
 	// The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` .
-	//
-	// For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
-	//
-	// - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30).
 	WeeklyMaintenanceWindowStart() *string
 	SetWeeklyMaintenanceWindowStart(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -380,6 +345,7 @@ type CfnEnvironment interface {
 type jsiiProxy_CfnEnvironment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEnvironment) AirflowConfigurationOptions() interface{} {
@@ -732,6 +698,16 @@ func (j *jsiiProxy_CfnEnvironment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -773,7 +749,6 @@ func (j *jsiiProxy_CfnEnvironment) WeeklyMaintenanceWindowStart() *string {
 }
 
 
-// Create a new `AWS::MWAA::Environment`.
 func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
@@ -791,7 +766,6 @@ func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnviron
 	return &j
 }
 
-// Create a new `AWS::MWAA::Environment`.
 func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 
@@ -803,9 +777,6 @@ func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnEnvironment)SetAirflowConfigurationOptions(val interface{}) {
-	if err := j.validateSetAirflowConfigurationOptionsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"airflowConfigurationOptions",
@@ -962,6 +933,14 @@ func (j *jsiiProxy_CfnEnvironment)SetStartupScriptS3Path(val *string) {
 	_jsii_.Set(
 		j,
 		"startupScriptS3Path",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

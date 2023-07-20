@@ -21,12 +21,16 @@ package awsvpclattice
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-forward.html
+//
 type CfnListener_ForwardProperty struct {
 	// The target groups.
 	//
 	// Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
 	//
 	// The default value is 1. This means that if only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-forward.html#cfn-vpclattice-listener-forward-targetgroups
+	//
 	TargetGroups interface{} `field:"required" json:"targetGroups" yaml:"targetGroups"`
 }
 

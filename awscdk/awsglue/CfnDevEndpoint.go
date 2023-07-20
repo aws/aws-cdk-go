@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::DevEndpoint`.
+// The `AWS::Glue::DevEndpoint` resource specifies a development endpoint where a developer can remotely debug ETL scripts for AWS Glue .
 //
-// The `AWS::Glue::DevEndpoint` resource specifies a development endpoint where a developer can remotely debug ETL scripts for AWS Glue . For more information, see [DevEndpoint Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-dev-endpoint.html#aws-glue-api-jobs-dev-endpoint-DevEndpoint) in the AWS Glue Developer Guide.
+// For more information, see [DevEndpoint Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-dev-endpoint.html#aws-glue-api-jobs-dev-endpoint-DevEndpoint) in the AWS Glue Developer Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,20 +45,16 @@ import (
 //   	WorkerType: jsii.String("workerType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html
+//
 type CfnDevEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A map of arguments used to configure the `DevEndpoint` .
-	//
-	// Valid arguments are:
-	//
-	// - `"--enable-glue-datacatalog": ""`
-	// - `"GLUE_PYTHON_VERSION": "3"`
-	// - `"GLUE_PYTHON_VERSION": "2"`
-	//
-	// You can specify a version of Python support for development endpoints by using the `Arguments` parameter in the `CreateDevEndpoint` or `UpdateDevEndpoint` APIs. If no arguments are provided, the version defaults to Python 2.
 	Arguments() interface{}
 	SetArguments(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -72,26 +68,12 @@ type CfnDevEndpoint interface {
 	EndpointName() *string
 	SetEndpointName(val *string)
 	// The path to one or more Java `.jar` files in an S3 bucket that should be loaded in your `DevEndpoint` .
-	//
-	// > You can only use pure Java/Scala libraries with a `DevEndpoint` .
 	ExtraJarsS3Path() *string
 	SetExtraJarsS3Path(val *string)
 	// The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your `DevEndpoint` .
-	//
-	// Multiple values must be complete paths separated by a comma.
-	//
-	// > You can only use pure Python libraries with a `DevEndpoint` . Libraries that rely on C extensions, such as the [pandas](https://docs.aws.amazon.com/http://pandas.pydata.org/) Python data analysis library, are not currently supported.
 	ExtraPythonLibsS3Path() *string
 	SetExtraPythonLibsS3Path(val *string)
 	// The AWS Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
-	//
-	// The Python version indicates the version supported for running your ETL scripts on development endpoints.
-	//
-	// For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
-	//
-	// Development endpoints that are created without specifying a Glue version default to Glue 0.9.
-	//
-	// You can specify a version of Python support for development endpoints by using the `Arguments` parameter in the `CreateDevEndpoint` or `UpdateDevEndpoint` APIs. If no arguments are provided, the version defaults to Python 2.
 	GlueVersion() *string
 	SetGlueVersion(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -110,20 +92,12 @@ type CfnDevEndpoint interface {
 	NumberOfNodes() *float64
 	SetNumberOfNodes(val *float64)
 	// The number of workers of a defined `workerType` that are allocated to the development endpoint.
-	//
-	// The maximum number of workers you can define are 299 for `G.1X` , and 149 for `G.2X` .
 	NumberOfWorkers() *float64
 	SetNumberOfWorkers(val *float64)
 	// The public key to be used by this `DevEndpoint` for authentication.
-	//
-	// This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
 	PublicKey() *string
 	SetPublicKey(val *string)
 	// A list of public keys to be used by the `DevEndpoints` for authentication.
-	//
-	// Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
-	//
-	// > If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys. Call the `UpdateDevEndpoint` API operation with the public key content in the `deletePublicKeys` attribute, and the list of new keys in the `addPublicKeys` attribute.
 	PublicKeys() *[]*string
 	SetPublicKeys(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -147,8 +121,11 @@ type CfnDevEndpoint interface {
 	// The subnet ID for this `DevEndpoint` .
 	SubnetId() *string
 	SetSubnetId(val *string)
-	// The tags to use with this DevEndpoint.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to use with this DevEndpoint.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -163,14 +140,6 @@ type CfnDevEndpoint interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The type of predefined worker that is allocated to the development endpoint.
-	//
-	// Accepts a value of Standard, G.1X, or G.2X.
-	//
-	// - For the `Standard` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
-	// - For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
-	// - For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
-	//
-	// Known issue: when a development endpoint is created with the `G.2X` `WorkerType` configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
 	WorkerType() *string
 	SetWorkerType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -304,6 +273,7 @@ type CfnDevEndpoint interface {
 type jsiiProxy_CfnDevEndpoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDevEndpoint) Arguments() interface{} {
@@ -311,6 +281,16 @@ func (j *jsiiProxy_CfnDevEndpoint) Arguments() interface{} {
 	_jsii_.Get(
 		j,
 		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDevEndpoint) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -526,6 +506,16 @@ func (j *jsiiProxy_CfnDevEndpoint) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDevEndpoint) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDevEndpoint) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -557,7 +547,6 @@ func (j *jsiiProxy_CfnDevEndpoint) WorkerType() *string {
 }
 
 
-// Create a new `AWS::Glue::DevEndpoint`.
 func NewCfnDevEndpoint(scope constructs.Construct, id *string, props *CfnDevEndpointProps) CfnDevEndpoint {
 	_init_.Initialize()
 
@@ -575,7 +564,6 @@ func NewCfnDevEndpoint(scope constructs.Construct, id *string, props *CfnDevEndp
 	return &j
 }
 
-// Create a new `AWS::Glue::DevEndpoint`.
 func NewCfnDevEndpoint_Override(c CfnDevEndpoint, scope constructs.Construct, id *string, props *CfnDevEndpointProps) {
 	_init_.Initialize()
 
@@ -587,9 +575,6 @@ func NewCfnDevEndpoint_Override(c CfnDevEndpoint, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnDevEndpoint)SetArguments(val interface{}) {
-	if err := j.validateSetArgumentsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"arguments",
@@ -692,6 +677,14 @@ func (j *jsiiProxy_CfnDevEndpoint)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDevEndpoint)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

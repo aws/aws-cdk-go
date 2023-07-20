@@ -19,10 +19,16 @@ package awsgrafana
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-rolevalues.html
+//
 type CfnWorkspace_RoleValuesProperty struct {
 	// A list of groups from the SAML assertion attribute to grant the Grafana `Admin` role to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-rolevalues.html#cfn-grafana-workspace-rolevalues-admin
+	//
 	Admin *[]*string `field:"optional" json:"admin" yaml:"admin"`
 	// A list of groups from the SAML assertion attribute to grant the Grafana `Editor` role to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-rolevalues.html#cfn-grafana-workspace-rolevalues-editor
+	//
 	Editor *[]*string `field:"optional" json:"editor" yaml:"editor"`
 }
 

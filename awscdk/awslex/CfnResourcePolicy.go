@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lex::ResourcePolicy`.
-//
 // > Amazon Lex V2 is the only supported version in AWS CloudFormation .
 //
 // Specifies a new resource policy with the specified policy statements.
@@ -26,6 +24,8 @@ import (
 //   	Policy: policy,
 //   	ResourceArn: jsii.String("resourceArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-resourcepolicy.html
 //
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
@@ -56,8 +56,6 @@ type CfnResourcePolicy interface {
 	// The tree node.
 	Node() constructs.Node
 	// A resource policy to add to the resource.
-	//
-	// The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -359,7 +357,6 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Lex::ResourcePolicy`.
 func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
@@ -377,7 +374,6 @@ func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
-// Create a new `AWS::Lex::ResourcePolicy`.
 func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 

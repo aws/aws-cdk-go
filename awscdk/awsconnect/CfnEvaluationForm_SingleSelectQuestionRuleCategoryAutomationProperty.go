@@ -16,12 +16,16 @@ package awsconnect
 //   	OptionRefId: jsii.String("optionRefId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-singleselectquestionrulecategoryautomation.html
+//
 type CfnEvaluationForm_SingleSelectQuestionRuleCategoryAutomationProperty struct {
 	// The category name, as defined in Rules.
 	//
 	// *Minimum* : 1
 	//
 	// *Maximum* : 50.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-singleselectquestionrulecategoryautomation.html#cfn-connect-evaluationform-singleselectquestionrulecategoryautomation-category
+	//
 	Category *string `field:"required" json:"category" yaml:"category"`
 	// The condition to apply for the automation option.
 	//
@@ -30,10 +34,14 @@ type CfnEvaluationForm_SingleSelectQuestionRuleCategoryAutomationProperty struct
 	// *Allowed values* : `PRESENT` | `NOT_PRESENT`
 	//
 	// *Maximum* : 50.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-singleselectquestionrulecategoryautomation.html#cfn-connect-evaluationform-singleselectquestionrulecategoryautomation-condition
+	//
 	Condition *string `field:"required" json:"condition" yaml:"condition"`
 	// The identifier of the answer option. An identifier must be unique within the question.
 	//
 	// *Length Constraints* : Minimum length of 1. Maximum length of 40.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-singleselectquestionrulecategoryautomation.html#cfn-connect-evaluationform-singleselectquestionrulecategoryautomation-optionrefid
+	//
 	OptionRefId *string `field:"required" json:"optionRefId" yaml:"optionRefId"`
 }
 

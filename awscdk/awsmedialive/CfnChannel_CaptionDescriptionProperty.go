@@ -94,24 +94,37 @@ package awsmedialive
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html
+//
 type CfnChannel_CaptionDescriptionProperty struct {
-	// `CfnChannel.CaptionDescriptionProperty.Accessibility`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-accessibility
+	//
 	Accessibility *string `field:"optional" json:"accessibility" yaml:"accessibility"`
 	// Specifies which input captions selector to use as a captions source when generating output captions.
 	//
 	// This field should match a captionSelector name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-captionselectorname
+	//
 	CaptionSelectorName *string `field:"optional" json:"captionSelectorName" yaml:"captionSelectorName"`
 	// Additional settings for a captions destination that depend on the destination type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-destinationsettings
+	//
 	DestinationSettings interface{} `field:"optional" json:"destinationSettings" yaml:"destinationSettings"`
 	// An ISO 639-2 three-digit code.
 	//
 	// For more information, see http://www.loc.gov/standards/iso639-2/.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-languagecode
+	//
 	LanguageCode *string `field:"optional" json:"languageCode" yaml:"languageCode"`
 	// Human-readable information to indicate the captions that are available for players (for example, English or Spanish).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-languagedescription
+	//
 	LanguageDescription *string `field:"optional" json:"languageDescription" yaml:"languageDescription"`
 	// The name of the captions description.
 	//
 	// The name is used to associate a captions description with an output. Names must be unique within a channel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

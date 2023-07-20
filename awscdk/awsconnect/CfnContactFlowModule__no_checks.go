@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnContactFlowModule) validateSetNameParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnContactFlowModule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnContactFlowModuleParameters(scope constructs.Construct, id *string, props *CfnContactFlowModuleProps) error {
 	return nil
 }

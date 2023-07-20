@@ -14,6 +14,8 @@ package awsdynamodb
 //   	StreamViewType: jsii.String("streamViewType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html
+//
 type CfnGlobalTable_StreamSpecificationProperty struct {
 	// When an item in the table is modified, `StreamViewType` determines what information is written to the stream for this table.
 	//
@@ -23,6 +25,8 @@ type CfnGlobalTable_StreamSpecificationProperty struct {
 	// - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
 	// - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
 	// - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html#cfn-dynamodb-globaltable-streamspecification-streamviewtype
+	//
 	StreamViewType *string `field:"required" json:"streamViewType" yaml:"streamViewType"`
 }
 

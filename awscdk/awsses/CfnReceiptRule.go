@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::ReceiptRule`.
-//
 // Specifies a receipt rule.
 //
 // Example:
@@ -82,14 +80,15 @@ import (
 //   	After: jsii.String("after"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html
+//
 type CfnReceiptRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The name of an existing rule after which the new rule is placed.
-	//
-	// If this parameter is null, the new rule is inserted at the beginning of the rule list.
 	After() *string
 	SetAfter(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -282,6 +281,16 @@ func (j *jsiiProxy_CfnReceiptRule) After() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReceiptRule) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReceiptRule) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -403,7 +412,6 @@ func (j *jsiiProxy_CfnReceiptRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SES::ReceiptRule`.
 func NewCfnReceiptRule(scope constructs.Construct, id *string, props *CfnReceiptRuleProps) CfnReceiptRule {
 	_init_.Initialize()
 
@@ -421,7 +429,6 @@ func NewCfnReceiptRule(scope constructs.Construct, id *string, props *CfnReceipt
 	return &j
 }
 
-// Create a new `AWS::SES::ReceiptRule`.
 func NewCfnReceiptRule_Override(c CfnReceiptRule, scope constructs.Construct, id *string, props *CfnReceiptRuleProps) {
 	_init_.Initialize()
 

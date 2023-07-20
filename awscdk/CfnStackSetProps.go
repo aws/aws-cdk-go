@@ -77,11 +77,15 @@ package awscdk
 //   	TemplateUrl: jsii.String("templateUrl"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
+//
 type CfnStackSetProps struct {
 	// Describes how the IAM roles required for stack set operations are created.
 	//
 	// - With `SELF_MANAGED` permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see [Grant Self-Managed Stack Set Permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html) .
 	// - With `SERVICE_MANAGED` permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations . For more information, see [Grant Service-Managed Stack Set Permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+	//
 	PermissionModel *string `field:"required" json:"permissionModel" yaml:"permissionModel"`
 	// The name to associate with the stack set.
 	//
@@ -92,6 +96,8 @@ type CfnStackSetProps struct {
 	// *Pattern* : `^[a-zA-Z][a-zA-Z0-9-]{0,127}$`
 	//
 	// > The `StackSetName` property is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+	//
 	StackSetName *string `field:"required" json:"stackSetName" yaml:"stackSetName"`
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set.
 	//
@@ -102,8 +108,12 @@ type CfnStackSetProps struct {
 	// *Minimum* : `20`
 	//
 	// *Maximum* : `2048`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+	//
 	AdministrationRoleArn *string `field:"optional" json:"administrationRoleArn" yaml:"administrationRoleArn"`
 	// [ `Service-managed` permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+	//
 	AutoDeployment interface{} `field:"optional" json:"autoDeployment" yaml:"autoDeployment"`
 	// [Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.
 	//
@@ -117,16 +127,22 @@ type CfnStackSetProps struct {
 	// Stack sets with service-managed permissions are created in the management account, including stack sets that are created by delegated administrators.
 	//
 	// *Valid Values* : `SELF` | `DELEGATED_ADMIN`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+	//
 	CallAs *string `field:"optional" json:"callAs" yaml:"callAs"`
 	// The capabilities that are allowed in the stack set.
 	//
 	// Some stack set templates might include resources that can affect permissions in your AWS account —for example, by creating new AWS Identity and Access Management ( IAM ) users. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+	//
 	Capabilities *[]*string `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// A description of the stack set.
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1024`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the IAM execution role to use to create the stack set.
 	//
@@ -137,6 +153,8 @@ type CfnStackSetProps struct {
 	// *Maximum* : `64`
 	//
 	// *Pattern* : `[a-zA-Z_0-9+=,.@-]+`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+	//
 	ExecutionRoleName *string `field:"optional" json:"executionRoleName" yaml:"executionRoleName"`
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	//
@@ -147,16 +165,26 @@ type CfnStackSetProps struct {
 	// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
 	//
 	// When inactive (default), StackSets performs one operation at a time in request order.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-managedexecution
+	//
 	ManagedExecution interface{} `field:"optional" json:"managedExecution" yaml:"managedExecution"`
 	// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
+	//
 	OperationPreferences interface{} `field:"optional" json:"operationPreferences" yaml:"operationPreferences"`
 	// The input parameters for the stack set template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// A group of stack instances with parameters in some specific accounts and Regions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+	//
 	StackInstancesGroup interface{} `field:"optional" json:"stackInstancesGroup" yaml:"stackInstancesGroup"`
 	// The key-value pairs to associate with this stack set and the stacks created from it.
 	//
 	// AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+	//
 	Tags *[]*CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	//
@@ -165,6 +193,8 @@ type CfnStackSetProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `51200`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+	//
 	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`
 	// Location of file containing the template body.
 	//
@@ -175,6 +205,8 @@ type CfnStackSetProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1024`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+	//
 	TemplateUrl *string `field:"optional" json:"templateUrl" yaml:"templateUrl"`
 }
 

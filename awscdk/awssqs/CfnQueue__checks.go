@@ -213,22 +213,6 @@ func (j *jsiiProxy_CfnQueue) validateSetFifoQueueParameters(val interface{}) err
 	return nil
 }
 
-func (j *jsiiProxy_CfnQueue) validateSetRedriveAllowPolicyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnQueue) validateSetRedrivePolicyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnQueue) validateSetSqsManagedSseEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -240,6 +224,16 @@ func (j *jsiiProxy_CfnQueue) validateSetSqsManagedSseEnabledParameters(val inter
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnQueue) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
 		}
 	}
 

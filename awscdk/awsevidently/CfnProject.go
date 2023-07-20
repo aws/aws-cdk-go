@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Evidently::Project`.
+// Creates a project, which is the logical object in Evidently that can contain features, launches, and experiments.
 //
-// Creates a project, which is the logical object in Evidently that can contain features, launches, and experiments. Use projects to group similar features together.
+// Use projects to group similar features together.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,16 +44,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html
+//
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* .
-	//
-	// Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
-	//
-	// This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
-	//
-	// To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
 	AppConfigResource() interface{}
 	SetAppConfigResource(val interface{})
 	// The ARN of the project.
@@ -70,10 +67,6 @@ type CfnProject interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so.
-	//
-	// If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
-	//
-	// You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
 	DataDelivery() interface{}
 	SetDataDelivery(val interface{})
 	// An optional description of the project.
@@ -90,8 +83,6 @@ type CfnProject interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name for the project.
-	//
-	// It can include up to 127 characters.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -105,16 +96,11 @@ type CfnProject interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Assigns one or more tags (key-value pairs) to the project.
-	//
-	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-	//
-	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-	//
-	// You can associate as many as 50 tags with a project.
-	//
-	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Assigns one or more tags (key-value pairs) to the project.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -259,6 +245,7 @@ type CfnProject interface {
 type jsiiProxy_CfnProject struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnProject) AppConfigResource() interface{} {
@@ -401,6 +388,16 @@ func (j *jsiiProxy_CfnProject) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -422,7 +419,6 @@ func (j *jsiiProxy_CfnProject) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Evidently::Project`.
 func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
 	_init_.Initialize()
 
@@ -440,7 +436,6 @@ func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProp
 	return &j
 }
 
-// Create a new `AWS::Evidently::Project`.
 func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string, props *CfnProjectProps) {
 	_init_.Initialize()
 
@@ -488,6 +483,17 @@ func (j *jsiiProxy_CfnProject)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

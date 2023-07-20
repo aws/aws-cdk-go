@@ -22,10 +22,16 @@ package awsemr
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig.html
+//
 type CfnCluster_BootstrapActionConfigProperty struct {
 	// The name of the bootstrap action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig.html#cfn-emr-cluster-bootstrapactionconfig-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The script run by the bootstrap action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig.html#cfn-emr-cluster-bootstrapactionconfig-scriptbootstrapaction
+	//
 	ScriptBootstrapAction interface{} `field:"required" json:"scriptBootstrapAction" yaml:"scriptBootstrapAction"`
 }
 

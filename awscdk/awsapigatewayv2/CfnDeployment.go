@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGatewayV2::Deployment`.
-//
 // The `AWS::ApiGatewayV2::Deployment` resource creates a deployment for an API.
 //
 // Example:
@@ -25,6 +23,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	StageName: jsii.String("stageName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html
 //
 type CfnDeployment interface {
 	awscdk.CfnResource
@@ -357,7 +357,6 @@ func (j *jsiiProxy_CfnDeployment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGatewayV2::Deployment`.
 func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeploymentProps) CfnDeployment {
 	_init_.Initialize()
 
@@ -375,7 +374,6 @@ func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeployme
 	return &j
 }
 
-// Create a new `AWS::ApiGatewayV2::Deployment`.
 func NewCfnDeployment_Override(c CfnDeployment, scope constructs.Construct, id *string, props *CfnDeploymentProps) {
 	_init_.Initialize()
 

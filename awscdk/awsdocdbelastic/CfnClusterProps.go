@@ -36,6 +36,8 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html
+//
 type CfnClusterProps struct {
 	// The name of the Amazon DocumentDB elastic clusters administrator.
 	//
@@ -44,10 +46,14 @@ type CfnClusterProps struct {
 	// - Must be from 1 to 63 letters or numbers.
 	// - The first character must be a letter.
 	// - Cannot be a reserved word.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-adminusername
+	//
 	AdminUserName *string `field:"required" json:"adminUserName" yaml:"adminUserName"`
 	// The authentication type used to determine where to fetch the password used for accessing the elastic cluster.
 	//
 	// Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-authtype
+	//
 	AuthType *string `field:"required" json:"authType" yaml:"authType"`
 	// The name of the new elastic cluster. This parameter is stored as a lowercase string.
 	//
@@ -58,14 +64,20 @@ type CfnClusterProps struct {
 	// - Cannot end with a hyphen or contain two consecutive hyphens.
 	//
 	// *Example* : `my-cluster`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-clustername
+	//
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The number of vCPUs assigned to each elastic cluster shard.
 	//
 	// Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-shardcapacity
+	//
 	ShardCapacity *float64 `field:"required" json:"shardCapacity" yaml:"shardCapacity"`
 	// The number of shards assigned to the elastic cluster.
 	//
 	// Maximum is 32.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-shardcount
+	//
 	ShardCount *float64 `field:"required" json:"shardCount" yaml:"shardCount"`
 	// The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
 	//
@@ -74,12 +86,16 @@ type CfnClusterProps struct {
 	// - Must contain from 8 to 100 characters.
 	// - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
 	// - A valid `AdminUserName` entry is also required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-adminuserpassword
+	//
 	AdminUserPassword *string `field:"optional" json:"adminUserPassword" yaml:"adminUserPassword"`
 	// The KMS key identifier to use to encrypt the new elastic cluster.
 	//
 	// The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
 	//
 	// If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
@@ -90,12 +106,20 @@ type CfnClusterProps struct {
 	// *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
 	//
 	// *Constraints* : Minimum 30-minute window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-preferredmaintenancewindow
+	//
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The Amazon EC2 subnet IDs for the new elastic cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-subnetids
+	//
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// The tags to be assigned to the new elastic cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A list of EC2 VPC security groups to associate with the new elastic cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html#cfn-docdbelastic-cluster-vpcsecuritygroupids
+	//
 	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 

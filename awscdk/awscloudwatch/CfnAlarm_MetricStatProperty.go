@@ -28,8 +28,12 @@ package awscloudwatch
 //   	Unit: jsii.String("unit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html
+//
 type CfnAlarm_MetricStatProperty struct {
 	// The metric to return, including the metric name, namespace, and dimensions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-metric
+	//
 	Metric interface{} `field:"required" json:"metric" yaml:"metric"`
 	// The granularity, in seconds, of the returned data points.
 	//
@@ -40,14 +44,20 @@ type CfnAlarm_MetricStatProperty struct {
 	// - Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
 	// - Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
 	// - Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-period
+	//
 	Period *float64 `field:"required" json:"period" yaml:"period"`
 	// The statistic to return.
 	//
 	// It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-stat
+	//
 	Stat *string `field:"required" json:"stat" yaml:"stat"`
 	// The unit to use for the returned data points.
 	//
 	// Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-unit
+	//
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

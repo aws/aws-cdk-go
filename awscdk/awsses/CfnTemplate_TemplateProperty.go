@@ -17,14 +17,24 @@ package awsses
 //   	TextPart: jsii.String("textPart"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html
+//
 type CfnTemplate_TemplateProperty struct {
 	// The subject line of the email.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-subjectpart
+	//
 	SubjectPart *string `field:"required" json:"subjectPart" yaml:"subjectPart"`
 	// The HTML body of the email.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-htmlpart
+	//
 	HtmlPart *string `field:"optional" json:"htmlPart" yaml:"htmlPart"`
 	// The name of the template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-templatename
+	//
 	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`
 	// The email body that is visible to recipients whose email clients do not display HTML content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-textpart
+	//
 	TextPart *string `field:"optional" json:"textPart" yaml:"textPart"`
 }
 

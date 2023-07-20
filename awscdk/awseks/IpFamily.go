@@ -4,9 +4,14 @@ package awseks
 // EKS cluster IP family.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
+//
+//   func associateSubnetWithV6Cidr(vpc *vpc, count *f64, subnet iSubnet) {
+//   	cfnSubnet := *subnet.Node.defaultChild.(cfnSubnet)
+//   	cfnSubnet.Ipv6CidrBlock = awscdk.Fn_Select(count, awscdk.Fn_Cidr(awscdk.Fn_Select(jsii.Number(0), vpc.VpcIpv6CidrBlocks), jsii.Number(256), (jsii.Number(128 - 64)).toString()))
+//   	cfnSubnet.AssignIpv6AddressOnCreation = true
+//   }
 //
 //   // make an ipv6 cidr
 //   ipv6cidr := ec2.NewCfnVPCCidrBlock(this, jsii.String("CIDR6"), &CfnVPCCidrBlockProps{
@@ -16,28 +21,21 @@ package awseks
 //
 //   // connect the ipv6 cidr to all vpc subnets
 //   subnetcount := 0
-//   subnets := []iSubnet{
-//   	(SpreadElement ...vpc.publicSubnets
-//   			vpc.PublicSubnets),
-//   	(SpreadElement ...vpc.privateSubnets
-//   			vpc.PrivateSubnets),
-//   }
+//   subnets := vpc.PublicSubnets.concat(vpc.PrivateSubnets)
 //   for _, subnet := range subnets {
 //   	// Wait for the ipv6 cidr to complete
 //   	subnet.Node.AddDependency(ipv6cidr)
-//   	this._associate_subnet_with_v6_cidr(subnetcount, subnet)
-//   	subnetcount++
+//   	associateSubnetWithV6Cidr(vpc, subnetcount, subnet)
+//   	subnetcount = subnetcount + 1
 //   }
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+//   	Version: eks.KubernetesVersion_V1_27(),
 //   	Vpc: vpc,
 //   	IpFamily: eks.IpFamily_IP_V6,
 //   	VpcSubnets: []subnetSelection{
 //   		&subnetSelection{
-//   			Subnets: []*iSubnet{
-//   				(SpreadElement ...vpc.publicSubnets
-//   						vpc.*PublicSubnets),
-//   			},
+//   			Subnets: vpc.*PublicSubnets,
 //   		},
 //   	},
 //   })

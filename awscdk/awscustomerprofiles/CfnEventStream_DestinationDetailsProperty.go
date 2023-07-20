@@ -13,12 +13,18 @@ package awscustomerprofiles
 //   	Uri: jsii.String("uri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventstream-destinationdetails.html
+//
 type CfnEventStream_DestinationDetailsProperty struct {
 	// The status of enabling the Kinesis stream as a destination for export.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventstream-destinationdetails.html#cfn-customerprofiles-eventstream-destinationdetails-status
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 	// The StreamARN of the destination to deliver profile events to.
 	//
 	// For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventstream-destinationdetails.html#cfn-customerprofiles-eventstream-destinationdetails-uri
+	//
 	Uri *string `field:"required" json:"uri" yaml:"uri"`
 }
 

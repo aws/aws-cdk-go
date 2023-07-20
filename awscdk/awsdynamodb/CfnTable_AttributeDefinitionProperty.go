@@ -13,14 +13,20 @@ package awsdynamodb
 //   	AttributeType: jsii.String("attributeType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html
+//
 type CfnTable_AttributeDefinitionProperty struct {
 	// A name for the attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html#cfn-dynamodb-table-attributedefinition-attributename
+	//
 	AttributeName *string `field:"required" json:"attributeName" yaml:"attributeName"`
 	// The data type for the attribute, where:.
 	//
 	// - `S` - the attribute is of type String
 	// - `N` - the attribute is of type Number
 	// - `B` - the attribute is of type Binary.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html#cfn-dynamodb-table-attributedefinition-attributetype
+	//
 	AttributeType *string `field:"required" json:"attributeType" yaml:"attributeType"`
 }
 

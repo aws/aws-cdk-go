@@ -11,10 +11,14 @@ package awsdlm
 //   	IntervalUnit: jsii.String("intervalUnit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html
+//
 type CfnLifecyclePolicy_CrossRegionCopyDeprecateRuleProperty struct {
-	// `CfnLifecyclePolicy.CrossRegionCopyDeprecateRuleProperty.Interval`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html#cfn-dlm-lifecyclepolicy-crossregioncopydeprecaterule-interval
+	//
 	Interval *float64 `field:"required" json:"interval" yaml:"interval"`
-	// `CfnLifecyclePolicy.CrossRegionCopyDeprecateRuleProperty.IntervalUnit`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html#cfn-dlm-lifecyclepolicy-crossregioncopydeprecaterule-intervalunit
+	//
 	IntervalUnit *string `field:"required" json:"intervalUnit" yaml:"intervalUnit"`
 }
 

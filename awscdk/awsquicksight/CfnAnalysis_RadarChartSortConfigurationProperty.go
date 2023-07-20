@@ -73,14 +73,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-radarchartsortconfiguration.html
+//
 type CfnAnalysis_RadarChartSortConfigurationProperty struct {
 	// The category items limit for a radar chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-radarchartsortconfiguration.html#cfn-quicksight-analysis-radarchartsortconfiguration-categoryitemslimit
+	//
 	CategoryItemsLimit interface{} `field:"optional" json:"categoryItemsLimit" yaml:"categoryItemsLimit"`
 	// The category sort options of a radar chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-radarchartsortconfiguration.html#cfn-quicksight-analysis-radarchartsortconfiguration-categorysort
+	//
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
 	// The color items limit of a radar chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-radarchartsortconfiguration.html#cfn-quicksight-analysis-radarchartsortconfiguration-coloritemslimit
+	//
 	ColorItemsLimit interface{} `field:"optional" json:"colorItemsLimit" yaml:"colorItemsLimit"`
 	// The color sort configuration of a radar chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-radarchartsortconfiguration.html#cfn-quicksight-analysis-radarchartsortconfiguration-colorsort
+	//
 	ColorSort interface{} `field:"optional" json:"colorSort" yaml:"colorSort"`
 }
 

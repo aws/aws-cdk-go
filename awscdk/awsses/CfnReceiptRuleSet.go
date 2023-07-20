@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::ReceiptRuleSet`.
-//
 // Creates an empty receipt rule set.
 //
 // For information about setting up receipt rule sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules) .
@@ -26,9 +24,12 @@ import (
 //   	RuleSetName: jsii.String("ruleSetName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptruleset.html
+//
 type CfnReceiptRuleSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -208,6 +209,16 @@ type jsiiProxy_CfnReceiptRuleSet struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnReceiptRuleSet) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReceiptRuleSet) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -319,7 +330,6 @@ func (j *jsiiProxy_CfnReceiptRuleSet) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::SES::ReceiptRuleSet`.
 func NewCfnReceiptRuleSet(scope constructs.Construct, id *string, props *CfnReceiptRuleSetProps) CfnReceiptRuleSet {
 	_init_.Initialize()
 
@@ -337,7 +347,6 @@ func NewCfnReceiptRuleSet(scope constructs.Construct, id *string, props *CfnRece
 	return &j
 }
 
-// Create a new `AWS::SES::ReceiptRuleSet`.
 func NewCfnReceiptRuleSet_Override(c CfnReceiptRuleSet, scope constructs.Construct, id *string, props *CfnReceiptRuleSetProps) {
 	_init_.Initialize()
 

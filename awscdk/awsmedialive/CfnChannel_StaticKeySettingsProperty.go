@@ -19,10 +19,16 @@ package awsmedialive
 //   	StaticKeyValue: jsii.String("staticKeyValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html
+//
 type CfnChannel_StaticKeySettingsProperty struct {
 	// The URL of the license server that is used for protecting content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html#cfn-medialive-channel-statickeysettings-keyproviderserver
+	//
 	KeyProviderServer interface{} `field:"optional" json:"keyProviderServer" yaml:"keyProviderServer"`
 	// The static key value as a 32 character hexadecimal string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html#cfn-medialive-channel-statickeysettings-statickeyvalue
+	//
 	StaticKeyValue *string `field:"optional" json:"staticKeyValue" yaml:"staticKeyValue"`
 }
 

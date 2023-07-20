@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EventSchemas::Discoverer`.
+// Use the `AWS::EventSchemas::Discoverer` resource to specify a *discoverer* that is associated with an event bus.
 //
-// Use the `AWS::EventSchemas::Discoverer` resource to specify a *discoverer* that is associated with an event bus. A discoverer allows the Amazon EventBridge Schema Registry to automatically generate schemas based on events on an event bus.
+// A discoverer allows the Amazon EventBridge Schema Registry to automatically generate schemas based on events on an event bus.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html
+//
 type CfnDiscoverer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Defines whether event schemas from other accounts are discovered.
 	//
 	// Default is True.
@@ -82,8 +85,11 @@ type CfnDiscoverer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags associated with the resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags associated with the resource.
+	TagsRaw() *[]*CfnDiscoverer_TagsEntryProperty
+	SetTagsRaw(val *[]*CfnDiscoverer_TagsEntryProperty)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +234,7 @@ type CfnDiscoverer interface {
 type jsiiProxy_CfnDiscoverer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDiscoverer) AttrCrossAccount() awscdk.IResolvable {
@@ -380,6 +387,16 @@ func (j *jsiiProxy_CfnDiscoverer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDiscoverer) TagsRaw() *[]*CfnDiscoverer_TagsEntryProperty {
+	var returns *[]*CfnDiscoverer_TagsEntryProperty
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDiscoverer) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -401,7 +418,6 @@ func (j *jsiiProxy_CfnDiscoverer) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EventSchemas::Discoverer`.
 func NewCfnDiscoverer(scope constructs.Construct, id *string, props *CfnDiscovererProps) CfnDiscoverer {
 	_init_.Initialize()
 
@@ -419,7 +435,6 @@ func NewCfnDiscoverer(scope constructs.Construct, id *string, props *CfnDiscover
 	return &j
 }
 
-// Create a new `AWS::EventSchemas::Discoverer`.
 func NewCfnDiscoverer_Override(c CfnDiscoverer, scope constructs.Construct, id *string, props *CfnDiscovererProps) {
 	_init_.Initialize()
 
@@ -456,6 +471,17 @@ func (j *jsiiProxy_CfnDiscoverer)SetSourceArn(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDiscoverer)SetTagsRaw(val *[]*CfnDiscoverer_TagsEntryProperty) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

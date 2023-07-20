@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConnect::FlowEntitlement`.
+// The AWS::MediaConnect::FlowEntitlement resource defines the permission that an AWS account grants to another AWS account to allow access to the content in a specific AWS Elemental MediaConnect flow.
 //
-// The AWS::MediaConnect::FlowEntitlement resource defines the permission that an AWS account grants to another AWS account to allow access to the content in a specific AWS Elemental MediaConnect flow. The content originator grants an entitlement to a specific AWS account (the subscriber). When an entitlement is granted, the subscriber can create a flow using the originator's flow as the source. Each flow can have up to 50 entitlements.
+// The content originator grants an entitlement to a specific AWS account (the subscriber). When an entitlement is granted, the subscriber can create a flow using the originator's flow as the source. Each flow can have up to 50 entitlements.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,6 +44,8 @@ import (
 //   	EntitlementStatus: jsii.String("entitlementStatus"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html
+//
 type CfnFlowEntitlement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -62,16 +64,12 @@ type CfnFlowEntitlement interface {
 	DataTransferSubscriberFeePercent() *float64
 	SetDataTransferSubscriberFeePercent(val *float64)
 	// A description of the entitlement.
-	//
-	// This description appears only on the MediaConnect console and is not visible outside of the current AWS account.
 	Description() *string
 	SetDescription(val *string)
 	// The type of encryption that MediaConnect will use on the output that is associated with the entitlement.
 	Encryption() interface{}
 	SetEncryption(val interface{})
 	// An indication of whether the new entitlement should be enabled or disabled as soon as it is created.
-	//
-	// If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.
 	EntitlementStatus() *string
 	SetEntitlementStatus(val *string)
 	// The Amazon Resource Name (ARN) of the flow.
@@ -88,8 +86,6 @@ type CfnFlowEntitlement interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the entitlement.
-	//
-	// This value must be unique within the current flow.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -104,8 +100,6 @@ type CfnFlowEntitlement interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The AWS account IDs that you want to share your content with.
-	//
-	// The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.
 	Subscribers() *[]*string
 	SetSubscribers(val *[]*string)
 	// Deprecated.
@@ -435,7 +429,6 @@ func (j *jsiiProxy_CfnFlowEntitlement) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::MediaConnect::FlowEntitlement`.
 func NewCfnFlowEntitlement(scope constructs.Construct, id *string, props *CfnFlowEntitlementProps) CfnFlowEntitlement {
 	_init_.Initialize()
 
@@ -453,7 +446,6 @@ func NewCfnFlowEntitlement(scope constructs.Construct, id *string, props *CfnFlo
 	return &j
 }
 
-// Create a new `AWS::MediaConnect::FlowEntitlement`.
 func NewCfnFlowEntitlement_Override(c CfnFlowEntitlement, scope constructs.Construct, id *string, props *CfnFlowEntitlementProps) {
 	_init_.Initialize()
 

@@ -15,12 +15,18 @@ package awsiottwinmaker
 //   	State: jsii.String("state"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-status.html
+//
 type CfnEntity_StatusProperty struct {
 	// The error message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-status.html#cfn-iottwinmaker-entity-status-error
+	//
 	Error interface{} `field:"optional" json:"error" yaml:"error"`
 	// The current state of the entity, component, component type, or workspace.
 	//
 	// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-status.html#cfn-iottwinmaker-entity-status-state
+	//
 	State *string `field:"optional" json:"state" yaml:"state"`
 }
 

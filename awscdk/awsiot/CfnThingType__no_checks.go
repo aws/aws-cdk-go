@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnThingType) validateSetDeprecateThingTypeParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnThingType) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnThingType) validateSetThingTypePropertiesParameters(val interface{}) error {
 	return nil
 }

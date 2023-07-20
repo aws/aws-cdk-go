@@ -43,20 +43,28 @@ package awsecs
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html
+//
 type CfnTaskDefinition_LinuxParametersProperty struct {
 	// The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
 	//
 	// > For tasks that use the Fargate launch type, `capabilities` is supported for all platform versions but the `add` parameter is only supported if using platform version 1.4.0 or later.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
+	//
 	Capabilities interface{} `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// Any host devices to expose to the container.
 	//
 	// This parameter maps to `Devices` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--device` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > If you're using tasks that use the Fargate launch type, the `devices` parameter isn't supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
+	//
 	Devices interface{} `field:"optional" json:"devices" yaml:"devices"`
 	// Run an `init` process inside the container that forwards signals and reaps processes.
 	//
 	// This parameter maps to the `--init` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version --format '{{.Server.APIVersion}}'`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
+	//
 	InitProcessEnabled interface{} `field:"optional" json:"initProcessEnabled" yaml:"initProcessEnabled"`
 	// The total amount of swap memory (in MiB) a container can use.
 	//
@@ -67,12 +75,16 @@ type CfnTaskDefinition_LinuxParametersProperty struct {
 	// > If you're using tasks that use the Fargate launch type, the `maxSwap` parameter isn't supported.
 	// >
 	// > If you're using tasks on Amazon Linux 2023 the `swappiness` parameter isn't supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
+	//
 	MaxSwap *float64 `field:"optional" json:"maxSwap" yaml:"maxSwap"`
 	// The value for the size (in MiB) of the `/dev/shm` volume.
 	//
 	// This parameter maps to the `--shm-size` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > If you are using tasks that use the Fargate launch type, the `sharedMemorySize` parameter is not supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
+	//
 	SharedMemorySize *float64 `field:"optional" json:"sharedMemorySize" yaml:"sharedMemorySize"`
 	// This allows you to tune a container's memory swappiness behavior.
 	//
@@ -81,12 +93,16 @@ type CfnTaskDefinition_LinuxParametersProperty struct {
 	// > If you're using tasks that use the Fargate launch type, the `swappiness` parameter isn't supported.
 	// >
 	// > If you're using tasks on Amazon Linux 2023 the `swappiness` parameter isn't supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
+	//
 	Swappiness *float64 `field:"optional" json:"swappiness" yaml:"swappiness"`
 	// The container path, mount options, and size (in MiB) of the tmpfs mount.
 	//
 	// This parameter maps to the `--tmpfs` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > If you're using tasks that use the Fargate launch type, the `tmpfs` parameter isn't supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
+	//
 	Tmpfs interface{} `field:"optional" json:"tmpfs" yaml:"tmpfs"`
 }
 

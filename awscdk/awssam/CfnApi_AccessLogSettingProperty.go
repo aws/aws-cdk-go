@@ -11,10 +11,14 @@ package awssam
 //   	Format: jsii.String("format"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-accesslogsetting.html
+//
 type CfnApi_AccessLogSettingProperty struct {
-	// `CfnApi.AccessLogSettingProperty.DestinationArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-accesslogsetting.html#cfn-serverless-api-accesslogsetting-destinationarn
+	//
 	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
-	// `CfnApi.AccessLogSettingProperty.Format`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-accesslogsetting.html#cfn-serverless-api-accesslogsetting-format
+	//
 	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 

@@ -25,20 +25,34 @@ package awsapigatewayv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html
+//
 type CfnRouteResponseProps struct {
 	// The API identifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-apiid
+	//
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The route ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeid
+	//
 	RouteId *string `field:"required" json:"routeId" yaml:"routeId"`
 	// The route response key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeresponsekey
+	//
 	RouteResponseKey *string `field:"required" json:"routeResponseKey" yaml:"routeResponseKey"`
 	// The model selection expression for the route response.
 	//
 	// Supported only for WebSocket APIs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-modelselectionexpression
+	//
 	ModelSelectionExpression *string `field:"optional" json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
 	// The response models for the route response.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-responsemodels
+	//
 	ResponseModels interface{} `field:"optional" json:"responseModels" yaml:"responseModels"`
 	// The route response parameters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-responseparameters
+	//
 	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 }
 

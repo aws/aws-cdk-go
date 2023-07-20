@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnConfigurationAggregator) validateSetOrganizationAggregatio
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfigurationAggregator) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnConfigurationAggregatorParameters(scope constructs.Construct, id *string, props *CfnConfigurationAggregatorProps) error {
 	return nil
 }

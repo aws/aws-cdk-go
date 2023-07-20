@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpsWorks::Volume`.
-//
 // Describes an instance's Amazon EBS volume.
 //
 // Example:
@@ -27,9 +25,12 @@ import (
 //   	Name: jsii.String("name"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html
+//
 type CfnVolume interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -53,13 +54,9 @@ type CfnVolume interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The volume mount point.
-	//
-	// For example, "/mnt/disk1".
 	MountPoint() *string
 	SetMountPoint(val *string)
 	// The volume name.
-	//
-	// Volume names are a maximum of 128 characters.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -222,6 +219,16 @@ type jsiiProxy_CfnVolume struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnVolume) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVolume) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -363,7 +370,6 @@ func (j *jsiiProxy_CfnVolume) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::OpsWorks::Volume`.
 func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps) CfnVolume {
 	_init_.Initialize()
 
@@ -381,7 +387,6 @@ func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps)
 	return &j
 }
 
-// Create a new `AWS::OpsWorks::Volume`.
 func NewCfnVolume_Override(c CfnVolume, scope constructs.Construct, id *string, props *CfnVolumeProps) {
 	_init_.Initialize()
 

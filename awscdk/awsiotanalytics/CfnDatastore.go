@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTAnalytics::Datastore`.
+// AWS::IoTAnalytics::Datastore resource is a repository for messages.
 //
-// AWS::IoTAnalytics::Datastore resource is a repository for messages. For more information, see [How to Use AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how) in the *AWS IoT Analytics User Guide* .
+// For more information, see [How to Use AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how) in the *AWS IoT Analytics User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -81,9 +81,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html
+//
 type CfnDatastore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -103,11 +106,9 @@ type CfnDatastore interface {
 	// Where data store data is stored.
 	DatastoreStorage() interface{}
 	SetDatastoreStorage(val interface{})
-	// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+	// Contains the configuration information of file formats.
 	//
-	// The default file format is JSON. You can specify only one format.
-	//
-	// You can't change the file format after you create the data store.
+	// AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 	FileFormatConfiguration() interface{}
 	SetFileFormatConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -128,18 +129,17 @@ type CfnDatastore interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// How long, in days, message data is kept for the data store.
-	//
-	// When `customerManagedS3` storage is selected, this parameter is ignored.
 	RetentionPeriod() interface{}
 	SetRetentionPeriod(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata which can be used to manage the data store.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata which can be used to manage the data store.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -284,6 +284,7 @@ type CfnDatastore interface {
 type jsiiProxy_CfnDatastore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDatastore) AttrId() *string {
@@ -436,6 +437,16 @@ func (j *jsiiProxy_CfnDatastore) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDatastore) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDatastore) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -457,7 +468,6 @@ func (j *jsiiProxy_CfnDatastore) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTAnalytics::Datastore`.
 func NewCfnDatastore(scope constructs.Construct, id *string, props *CfnDatastoreProps) CfnDatastore {
 	_init_.Initialize()
 
@@ -475,7 +485,6 @@ func NewCfnDatastore(scope constructs.Construct, id *string, props *CfnDatastore
 	return &j
 }
 
-// Create a new `AWS::IoTAnalytics::Datastore`.
 func NewCfnDatastore_Override(c CfnDatastore, scope constructs.Construct, id *string, props *CfnDatastoreProps) {
 	_init_.Initialize()
 
@@ -534,6 +543,17 @@ func (j *jsiiProxy_CfnDatastore)SetRetentionPeriod(val interface{}) {
 	_jsii_.Set(
 		j,
 		"retentionPeriod",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDatastore)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

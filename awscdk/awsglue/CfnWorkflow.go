@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::Workflow`.
+// The `AWS::Glue::Workflow` is an AWS Glue resource type that manages AWS Glue workflows.
 //
-// The `AWS::Glue::Workflow` is an AWS Glue resource type that manages AWS Glue workflows. A workflow is a container for a set of related jobs, crawlers, and triggers in AWS Glue . Using a workflow, you can design a complex multi-job extract, transform, and load (ETL) activity that AWS Glue can execute and track as single entity.
+// A workflow is a container for a set of related jobs, crawlers, and triggers in AWS Glue . Using a workflow, you can design a complex multi-job extract, transform, and load (ETL) activity that AWS Glue can execute and track as single entity.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,9 +29,13 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html
+//
 type CfnWorkflow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -58,8 +62,6 @@ type CfnWorkflow interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs.
-	//
-	// If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
 	MaxConcurrentRuns() *float64
 	SetMaxConcurrentRuns(val *float64)
 	// The name of the workflow representing the flow.
@@ -76,8 +78,11 @@ type CfnWorkflow interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to use with this workflow.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to use with this workflow.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -222,6 +227,17 @@ type CfnWorkflow interface {
 type jsiiProxy_CfnWorkflow struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnWorkflow) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnWorkflow) CfnOptions() awscdk.ICfnResourceOptions {
@@ -354,6 +370,16 @@ func (j *jsiiProxy_CfnWorkflow) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -375,7 +401,6 @@ func (j *jsiiProxy_CfnWorkflow) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Glue::Workflow`.
 func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowProps) CfnWorkflow {
 	_init_.Initialize()
 
@@ -393,7 +418,6 @@ func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowPr
 	return &j
 }
 
-// Create a new `AWS::Glue::Workflow`.
 func NewCfnWorkflow_Override(c CfnWorkflow, scope constructs.Construct, id *string, props *CfnWorkflowProps) {
 	_init_.Initialize()
 
@@ -405,9 +429,6 @@ func NewCfnWorkflow_Override(c CfnWorkflow, scope constructs.Construct, id *stri
 }
 
 func (j *jsiiProxy_CfnWorkflow)SetDefaultRunProperties(val interface{}) {
-	if err := j.validateSetDefaultRunPropertiesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"defaultRunProperties",
@@ -435,6 +456,14 @@ func (j *jsiiProxy_CfnWorkflow)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

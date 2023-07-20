@@ -16,10 +16,14 @@ package awsiot
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html
+//
 type CfnTopicRule_HttpAuthorizationProperty struct {
 	// Use Sig V4 authorization.
 	//
 	// For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
+	//
 	Sigv4 interface{} `field:"optional" json:"sigv4" yaml:"sigv4"`
 }
 

@@ -15,10 +15,16 @@ package awsimagebuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
+//
 type CfnImageRecipe_ComponentParameterProperty struct {
 	// The name of the component parameter to set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Sets the value for the named component parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+	//
 	Value *[]*string `field:"required" json:"value" yaml:"value"`
 }
 

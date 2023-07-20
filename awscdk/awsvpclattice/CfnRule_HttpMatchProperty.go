@@ -34,14 +34,22 @@ package awsvpclattice
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html
+//
 type CfnRule_HttpMatchProperty struct {
 	// The header matches.
 	//
 	// Matches incoming requests with rule based on request header value before applying rule action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html#cfn-vpclattice-rule-httpmatch-headermatches
+	//
 	HeaderMatches interface{} `field:"optional" json:"headerMatches" yaml:"headerMatches"`
 	// The HTTP method type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html#cfn-vpclattice-rule-httpmatch-method
+	//
 	Method *string `field:"optional" json:"method" yaml:"method"`
 	// The path match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html#cfn-vpclattice-rule-httpmatch-pathmatch
+	//
 	PathMatch interface{} `field:"optional" json:"pathMatch" yaml:"pathMatch"`
 }
 

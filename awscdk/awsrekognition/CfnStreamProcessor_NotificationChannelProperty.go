@@ -14,8 +14,12 @@ package awsrekognition
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-notificationchannel.html
+//
 type CfnStreamProcessor_NotificationChannelProperty struct {
 	// The ARN of the SNS topic that receives notifications.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-notificationchannel.html#cfn-rekognition-streamprocessor-notificationchannel-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 

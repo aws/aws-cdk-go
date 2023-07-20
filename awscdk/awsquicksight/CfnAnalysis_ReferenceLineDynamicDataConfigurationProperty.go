@@ -33,12 +33,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedynamicdataconfiguration.html
+//
 type CfnAnalysis_ReferenceLineDynamicDataConfigurationProperty struct {
 	// The calculation that is used in the dynamic data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedynamicdataconfiguration.html#cfn-quicksight-analysis-referencelinedynamicdataconfiguration-calculation
+	//
 	Calculation interface{} `field:"required" json:"calculation" yaml:"calculation"`
 	// The column that the dynamic data targets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedynamicdataconfiguration.html#cfn-quicksight-analysis-referencelinedynamicdataconfiguration-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// The aggregation function that is used in the dynamic data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedynamicdataconfiguration.html#cfn-quicksight-analysis-referencelinedynamicdataconfiguration-measureaggregationfunction
+	//
 	MeasureAggregationFunction interface{} `field:"optional" json:"measureAggregationFunction" yaml:"measureAggregationFunction"`
 }
 

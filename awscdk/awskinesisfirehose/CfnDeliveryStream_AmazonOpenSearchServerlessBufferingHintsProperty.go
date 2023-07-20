@@ -11,10 +11,14 @@ package awskinesisfirehose
 //   	SizeInMBs: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessbufferinghints.html
+//
 type CfnDeliveryStream_AmazonOpenSearchServerlessBufferingHintsProperty struct {
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessBufferingHintsProperty.IntervalInSeconds`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessbufferinghints.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessbufferinghints-intervalinseconds
+	//
 	IntervalInSeconds *float64 `field:"optional" json:"intervalInSeconds" yaml:"intervalInSeconds"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessBufferingHintsProperty.SizeInMBs`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessbufferinghints.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessbufferinghints-sizeinmbs
+	//
 	SizeInMBs *float64 `field:"optional" json:"sizeInMBs" yaml:"sizeInMBs"`
 }
 

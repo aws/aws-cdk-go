@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SupportApp::SlackWorkspaceConfiguration`.
+// You can use the `AWS::SupportApp::SlackWorkspaceConfiguration` resource to specify your Slack workspace configuration.
 //
-// You can use the `AWS::SupportApp::SlackWorkspaceConfiguration` resource to specify your Slack workspace configuration. This resource configures your AWS account so that you can use the specified Slack workspace in the AWS Support App . This resource includes the following information:
+// This resource configures your AWS account so that you can use the specified Slack workspace in the AWS Support App . This resource includes the following information:
 //
 // - The team ID for the Slack workspace
 // - The version ID of the resource to use with AWS CloudFormation
@@ -32,6 +32,8 @@ import (
 //   	// the properties below are optional
 //   	VersionId: jsii.String("versionId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackworkspaceconfiguration.html
 //
 type CfnSlackWorkspaceConfiguration interface {
 	awscdk.CfnResource
@@ -67,8 +69,6 @@ type CfnSlackWorkspaceConfiguration interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The team ID in Slack.
-	//
-	// This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG` .
 	TeamId() *string
 	SetTeamId(val *string)
 	// Deprecated.
@@ -341,7 +341,6 @@ func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) VersionId() *string {
 }
 
 
-// Create a new `AWS::SupportApp::SlackWorkspaceConfiguration`.
 func NewCfnSlackWorkspaceConfiguration(scope constructs.Construct, id *string, props *CfnSlackWorkspaceConfigurationProps) CfnSlackWorkspaceConfiguration {
 	_init_.Initialize()
 
@@ -359,7 +358,6 @@ func NewCfnSlackWorkspaceConfiguration(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Create a new `AWS::SupportApp::SlackWorkspaceConfiguration`.
 func NewCfnSlackWorkspaceConfiguration_Override(c CfnSlackWorkspaceConfiguration, scope constructs.Construct, id *string, props *CfnSlackWorkspaceConfigurationProps) {
 	_init_.Initialize()
 

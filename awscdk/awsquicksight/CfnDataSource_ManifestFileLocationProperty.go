@@ -13,10 +13,16 @@ package awsquicksight
 //   	Key: jsii.String("key"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html
+//
 type CfnDataSource_ManifestFileLocationProperty struct {
 	// Amazon S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// Amazon S3 key that identifies an object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 }
 

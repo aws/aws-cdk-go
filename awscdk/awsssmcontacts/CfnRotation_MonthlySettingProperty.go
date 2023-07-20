@@ -13,10 +13,16 @@ package awsssmcontacts
 //   	HandOffTime: jsii.String("handOffTime"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-monthlysetting.html
+//
 type CfnRotation_MonthlySettingProperty struct {
 	// The day of the month when monthly recurring on-call rotations begin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-monthlysetting.html#cfn-ssmcontacts-rotation-monthlysetting-dayofmonth
+	//
 	DayOfMonth *float64 `field:"required" json:"dayOfMonth" yaml:"dayOfMonth"`
 	// The time of day when a monthly recurring on-call shift rotation begins.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-monthlysetting.html#cfn-ssmcontacts-rotation-monthlysetting-handofftime
+	//
 	HandOffTime *string `field:"required" json:"handOffTime" yaml:"handOffTime"`
 }
 

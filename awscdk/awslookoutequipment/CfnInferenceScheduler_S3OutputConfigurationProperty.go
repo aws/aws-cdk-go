@@ -1,6 +1,8 @@
 package awslookoutequipment
 
 
+// Specifies configuration information for the output results from the inference, including output S3 location.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,10 +15,14 @@ package awslookoutequipment
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-s3outputconfiguration.html
+//
 type CfnInferenceScheduler_S3OutputConfigurationProperty struct {
-	// `CfnInferenceScheduler.S3OutputConfigurationProperty.Bucket`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-s3outputconfiguration.html#cfn-lookoutequipment-inferencescheduler-s3outputconfiguration-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// `CfnInferenceScheduler.S3OutputConfigurationProperty.Prefix`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-s3outputconfiguration.html#cfn-lookoutequipment-inferencescheduler-s3outputconfiguration-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

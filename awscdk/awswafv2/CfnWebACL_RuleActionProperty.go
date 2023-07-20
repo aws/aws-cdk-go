@@ -67,10 +67,16 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
+//
 type CfnWebACL_RuleActionProperty struct {
 	// Instructs AWS WAF to allow the web request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
+	//
 	Allow interface{} `field:"optional" json:"allow" yaml:"allow"`
 	// Instructs AWS WAF to block the web request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
+	//
 	Block interface{} `field:"optional" json:"block" yaml:"block"`
 	// Specifies that AWS WAF should run a `CAPTCHA` check against the request:.
 	//
@@ -86,10 +92,16 @@ type CfnWebACL_RuleActionProperty struct {
 	// You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-captcha
+	//
 	Captcha interface{} `field:"optional" json:"captcha" yaml:"captcha"`
 	// Instructs AWS WAF to run a `Challenge` check against the web request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-challenge
+	//
 	Challenge interface{} `field:"optional" json:"challenge" yaml:"challenge"`
 	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
+	//
 	Count interface{} `field:"optional" json:"count" yaml:"count"`
 }
 

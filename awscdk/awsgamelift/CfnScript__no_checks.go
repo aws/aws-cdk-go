@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnScript) validateSetStorageLocationParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnScript) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnScriptParameters(scope constructs.Construct, id *string, props *CfnScriptProps) error {
 	return nil
 }

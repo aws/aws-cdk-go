@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTWireless::PartnerAccount`.
+// A partner account.
 //
-// A partner account. If `PartnerAccountId` and `PartnerType` are `null` , returns all partner accounts.
+// If `PartnerAccountId` and `PartnerType` are `null` , returns all partner accounts.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,14 +41,18 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html
+//
 type CfnPartnerAccount interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::IoTWireless::PartnerAccount.AccountLinked`.
+	awscdk.ITaggable
+	// Whether the partner account is linked to the AWS account.
 	AccountLinked() interface{}
 	SetAccountLinked(val interface{})
 	// The Amazon Resource Name (ARN) of the resource.
 	AttrArn() *string
+	// The fingerprint of the Sidewalk application server private key.
 	AttrFingerprint() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -74,7 +78,7 @@ type CfnPartnerAccount interface {
 	// The ID of the partner account to update.
 	PartnerAccountId() *string
 	SetPartnerAccountId(val *string)
-	// `AWS::IoTWireless::PartnerAccount.PartnerType`.
+	// The partner type.
 	PartnerType() *string
 	SetPartnerType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -85,20 +89,19 @@ type CfnPartnerAccount interface {
 	// The Sidewalk account credentials.
 	Sidewalk() interface{}
 	SetSidewalk(val interface{})
-	// `AWS::IoTWireless::PartnerAccount.SidewalkResponse`.
 	SidewalkResponse() interface{}
 	SetSidewalkResponse(val interface{})
-	// `AWS::IoTWireless::PartnerAccount.SidewalkUpdate`.
 	SidewalkUpdate() interface{}
 	SetSidewalkUpdate(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags are an array of key-value pairs to attach to the specified resource.
-	//
-	// Tags can have a minimum of 0 and a maximum of 50 items.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -243,6 +246,7 @@ type CfnPartnerAccount interface {
 type jsiiProxy_CfnPartnerAccount struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPartnerAccount) AccountLinked() interface{} {
@@ -415,6 +419,16 @@ func (j *jsiiProxy_CfnPartnerAccount) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPartnerAccount) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPartnerAccount) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -436,7 +450,6 @@ func (j *jsiiProxy_CfnPartnerAccount) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::IoTWireless::PartnerAccount`.
 func NewCfnPartnerAccount(scope constructs.Construct, id *string, props *CfnPartnerAccountProps) CfnPartnerAccount {
 	_init_.Initialize()
 
@@ -454,7 +467,6 @@ func NewCfnPartnerAccount(scope constructs.Construct, id *string, props *CfnPart
 	return &j
 }
 
-// Create a new `AWS::IoTWireless::PartnerAccount`.
 func NewCfnPartnerAccount_Override(c CfnPartnerAccount, scope constructs.Construct, id *string, props *CfnPartnerAccountProps) {
 	_init_.Initialize()
 
@@ -521,6 +533,17 @@ func (j *jsiiProxy_CfnPartnerAccount)SetSidewalkUpdate(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sidewalkUpdate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPartnerAccount)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

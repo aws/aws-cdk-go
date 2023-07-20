@@ -19,14 +19,20 @@ package awskinesisanalytics
 //   	RecordRowDelimiter: jsii.String("recordRowDelimiter"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-csvmappingparameters.html
+//
 type CfnApplicationReferenceDataSource_CSVMappingParametersProperty struct {
 	// Column delimiter.
 	//
 	// For example, in a CSV format, a comma (",") is the typical column delimiter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-csvmappingparameters.html#cfn-kinesisanalytics-applicationreferencedatasource-csvmappingparameters-recordcolumndelimiter
+	//
 	RecordColumnDelimiter *string `field:"required" json:"recordColumnDelimiter" yaml:"recordColumnDelimiter"`
 	// Row delimiter.
 	//
 	// For example, in a CSV format, *'\n'* is the typical row delimiter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-csvmappingparameters.html#cfn-kinesisanalytics-applicationreferencedatasource-csvmappingparameters-recordrowdelimiter
+	//
 	RecordRowDelimiter *string `field:"required" json:"recordRowDelimiter" yaml:"recordRowDelimiter"`
 }
 

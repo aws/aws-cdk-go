@@ -18,10 +18,16 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-lambda.html
+//
 type CfnAlarmModel_LambdaProperty struct {
 	// The ARN of the Lambda function that is executed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-lambda.html#cfn-iotevents-alarmmodel-lambda-functionarn
+	//
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// You can configure the action payload when you send a message to a Lambda function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-lambda.html#cfn-iotevents-alarmmodel-lambda-payload
+	//
 	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 

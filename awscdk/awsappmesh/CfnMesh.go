@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppMesh::Mesh`.
-//
 // Creates a service mesh.
 //
 // A service mesh is a logical boundary for network traffic between services that are represented by resources within the mesh. After you create your service mesh, you can create virtual services, virtual nodes, virtual routers, and routes to distribute traffic between the applications in your mesh.
@@ -40,11 +38,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html
+//
 type CfnMesh interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the mesh.
 	AttrArn() *string
+	AttrId() *string
 	// The name of the service mesh.
 	AttrMeshName() *string
 	// The IAM account ID of the service mesh owner.
@@ -93,10 +95,11 @@ type CfnMesh interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Optional metadata that you can apply to the service mesh to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Optional metadata that you can apply to the service mesh to assist with categorization and organization.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -241,6 +244,7 @@ type CfnMesh interface {
 type jsiiProxy_CfnMesh struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMesh) AttrArn() *string {
@@ -248,6 +252,16 @@ func (j *jsiiProxy_CfnMesh) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMesh) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -403,6 +417,16 @@ func (j *jsiiProxy_CfnMesh) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMesh) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMesh) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -424,7 +448,6 @@ func (j *jsiiProxy_CfnMesh) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppMesh::Mesh`.
 func NewCfnMesh(scope constructs.Construct, id *string, props *CfnMeshProps) CfnMesh {
 	_init_.Initialize()
 
@@ -442,7 +465,6 @@ func NewCfnMesh(scope constructs.Construct, id *string, props *CfnMeshProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::AppMesh::Mesh`.
 func NewCfnMesh_Override(c CfnMesh, scope constructs.Construct, id *string, props *CfnMeshProps) {
 	_init_.Initialize()
 
@@ -468,6 +490,17 @@ func (j *jsiiProxy_CfnMesh)SetSpec(val interface{}) {
 	_jsii_.Set(
 		j,
 		"spec",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMesh)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

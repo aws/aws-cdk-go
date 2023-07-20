@@ -14,12 +14,17 @@ package awssam
 //   	RestApiId: jsii.String("restApiId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-apievent.html
+//
 type CfnStateMachine_ApiEventProperty struct {
-	// `CfnStateMachine.ApiEventProperty.Method`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-apievent.html#cfn-serverless-statemachine-apievent-method
+	//
 	Method *string `field:"required" json:"method" yaml:"method"`
-	// `CfnStateMachine.ApiEventProperty.Path`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-apievent.html#cfn-serverless-statemachine-apievent-path
+	//
 	Path *string `field:"required" json:"path" yaml:"path"`
-	// `CfnStateMachine.ApiEventProperty.RestApiId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-apievent.html#cfn-serverless-statemachine-apievent-restapiid
+	//
 	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
 }
 

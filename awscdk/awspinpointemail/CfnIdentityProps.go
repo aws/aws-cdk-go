@@ -26,12 +26,18 @@ package awspinpointemail
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html
+//
 type CfnIdentityProps struct {
 	// The address or domain of the identity, such as *sender@example.com* or *example.co.uk* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// For domain identities, this attribute is used to enable or disable DomainKeys Identified Mail (DKIM) signing for the domain.
 	//
 	// If the value is `true` , then the messages that you send from the domain are signed using both the DKIM keys for your domain, as well as the keys for the `amazonses.com` domain. If the value is `false` , then the messages that you send are only signed using the DKIM keys for the `amazonses.com` domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-dkimsigningenabled
+	//
 	DkimSigningEnabled interface{} `field:"optional" json:"dkimSigningEnabled" yaml:"dkimSigningEnabled"`
 	// Used to enable or disable feedback forwarding for an identity.
 	//
@@ -40,10 +46,16 @@ type CfnIdentityProps struct {
 	// When you enable feedback forwarding, Amazon Pinpoint sends you email notifications when bounce or complaint events occur. Amazon Pinpoint sends this notification to the address that you specified in the Return-Path header of the original email.
 	//
 	// When you disable feedback forwarding, Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic. You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-feedbackforwardingenabled
+	//
 	FeedbackForwardingEnabled interface{} `field:"optional" json:"feedbackForwardingEnabled" yaml:"feedbackForwardingEnabled"`
 	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-mailfromattributes
+	//
 	MailFromAttributes interface{} `field:"optional" json:"mailFromAttributes" yaml:"mailFromAttributes"`
 	// An object that defines the tags (keys and values) that you want to associate with the email identity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-tags
+	//
 	Tags *[]*CfnIdentity_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

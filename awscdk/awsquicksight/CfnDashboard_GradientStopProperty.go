@@ -16,12 +16,20 @@ package awsquicksight
 //   	DataValue: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gradientstop.html
+//
 type CfnDashboard_GradientStopProperty struct {
 	// Determines gradient offset value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gradientstop.html#cfn-quicksight-dashboard-gradientstop-gradientoffset
+	//
 	GradientOffset *float64 `field:"required" json:"gradientOffset" yaml:"gradientOffset"`
 	// Determines the color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gradientstop.html#cfn-quicksight-dashboard-gradientstop-color
+	//
 	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Determines the data value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gradientstop.html#cfn-quicksight-dashboard-gradientstop-datavalue
+	//
 	DataValue *float64 `field:"optional" json:"dataValue" yaml:"dataValue"`
 }
 

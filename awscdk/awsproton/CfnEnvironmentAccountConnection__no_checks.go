@@ -80,6 +80,10 @@ func validateCfnEnvironmentAccountConnection_IsConstructParameters(x interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnvironmentAccountConnection) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEnvironmentAccountConnectionParameters(scope constructs.Construct, id *string, props *CfnEnvironmentAccountConnectionProps) error {
 	return nil
 }

@@ -20,10 +20,16 @@ package awssagemaker
 //   	SourceModelVariantName: jsii.String("sourceModelVariantName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html
+//
 type CfnInferenceExperiment_ShadowModeConfigProperty struct {
 	// List of shadow variant configurations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html#cfn-sagemaker-inferenceexperiment-shadowmodeconfig-shadowmodelvariants
+	//
 	ShadowModelVariants interface{} `field:"required" json:"shadowModelVariants" yaml:"shadowModelVariants"`
 	// The name of the production variant, which takes all the inference requests.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html#cfn-sagemaker-inferenceexperiment-shadowmodeconfig-sourcemodelvariantname
+	//
 	SourceModelVariantName *string `field:"required" json:"sourceModelVariantName" yaml:"sourceModelVariantName"`
 }
 

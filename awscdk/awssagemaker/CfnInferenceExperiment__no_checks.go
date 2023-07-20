@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetShadowModeConfigParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnInferenceExperiment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnInferenceExperiment) validateSetTypeParameters(val *string) error {
 	return nil
 }

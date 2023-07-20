@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup) validateSetEndpointDetailsParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataflowEndpointGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDataflowEndpointGroupParameters(scope constructs.Construct, id *string, props *CfnDataflowEndpointGroupProps) error {
 	return nil
 }

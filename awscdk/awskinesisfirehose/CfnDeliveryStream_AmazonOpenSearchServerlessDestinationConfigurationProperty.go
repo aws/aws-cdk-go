@@ -76,26 +76,38 @@ package awskinesisfirehose
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html
+//
 type CfnDeliveryStream_AmazonOpenSearchServerlessDestinationConfigurationProperty struct {
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.IndexName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-indexname
+	//
 	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.RoleARN`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.S3Configuration`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-s3configuration
+	//
 	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.BufferingHints`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-bufferinghints
+	//
 	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.CloudWatchLoggingOptions`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-cloudwatchloggingoptions
+	//
 	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.CollectionEndpoint`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-collectionendpoint
+	//
 	CollectionEndpoint *string `field:"optional" json:"collectionEndpoint" yaml:"collectionEndpoint"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.ProcessingConfiguration`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-processingconfiguration
+	//
 	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.RetryOptions`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-retryoptions
+	//
 	RetryOptions interface{} `field:"optional" json:"retryOptions" yaml:"retryOptions"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.S3BackupMode`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-s3backupmode
+	//
 	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
-	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.VpcConfiguration`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-vpcconfiguration
+	//
 	VpcConfiguration interface{} `field:"optional" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 

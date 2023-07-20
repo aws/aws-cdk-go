@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnLoggingConfiguration) validateSetDestinationConfigurationP
 	return nil
 }
 
+func (j *jsiiProxy_CfnLoggingConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLoggingConfigurationParameters(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) error {
 	return nil
 }

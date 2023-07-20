@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MSK::VpcConnection`.
-//
 // Create remote VPC connection.
 //
 // Example:
@@ -35,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html
+//
 type CfnVpcConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the VPC connection.
 	AttrArn() *string
 	// The type of private link authentication.
@@ -79,8 +80,11 @@ type CfnVpcConnection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Create tags when creating the VPC connection.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Create tags when creating the VPC connection.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn() *string
 	SetTargetClusterArn(val *string)
@@ -231,6 +235,7 @@ type CfnVpcConnection interface {
 type jsiiProxy_CfnVpcConnection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVpcConnection) AttrArn() *string {
@@ -363,6 +368,16 @@ func (j *jsiiProxy_CfnVpcConnection) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVpcConnection) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVpcConnection) TargetClusterArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -404,7 +419,6 @@ func (j *jsiiProxy_CfnVpcConnection) VpcId() *string {
 }
 
 
-// Create a new `AWS::MSK::VpcConnection`.
 func NewCfnVpcConnection(scope constructs.Construct, id *string, props *CfnVpcConnectionProps) CfnVpcConnection {
 	_init_.Initialize()
 
@@ -422,7 +436,6 @@ func NewCfnVpcConnection(scope constructs.Construct, id *string, props *CfnVpcCo
 	return &j
 }
 
-// Create a new `AWS::MSK::VpcConnection`.
 func NewCfnVpcConnection_Override(c CfnVpcConnection, scope constructs.Construct, id *string, props *CfnVpcConnectionProps) {
 	_init_.Initialize()
 
@@ -462,6 +475,14 @@ func (j *jsiiProxy_CfnVpcConnection)SetSecurityGroups(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroups",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcConnection)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

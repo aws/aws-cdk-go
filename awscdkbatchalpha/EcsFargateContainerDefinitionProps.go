@@ -4,7 +4,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 )
 
 // Props to configure an EcsFargateContainerDefinition.
@@ -14,7 +13,6 @@ import (
 //   // The values are placeholders you should change.
 //   import batch_alpha "github.com/aws/aws-cdk-go/awscdkbatchalpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
@@ -46,7 +44,7 @@ import (
 //   	LinuxParameters: linuxParameters,
 //   	Logging: logDriver,
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
-//   	Secrets: map[string]iSecret{
+//   	Secrets: map[string]*secret{
 //   		"secretsKey": secret,
 //   	},
 //   	User: jsii.String("user"),
@@ -109,7 +107,7 @@ type EcsFargateContainerDefinitionProps struct {
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html
 	//
 	// Experimental.
-	Secrets *map[string]awssecretsmanager.ISecret `field:"optional" json:"secrets" yaml:"secrets"`
+	Secrets *map[string]Secret `field:"optional" json:"secrets" yaml:"secrets"`
 	// The user name to use inside the container.
 	// Experimental.
 	User *string `field:"optional" json:"user" yaml:"user"`

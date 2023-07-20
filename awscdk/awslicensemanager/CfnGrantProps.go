@@ -21,14 +21,24 @@ package awslicensemanager
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html
+//
 type CfnGrantProps struct {
 	// Allowed operations for the grant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
+	//
 	AllowedOperations *[]*string `field:"optional" json:"allowedOperations" yaml:"allowedOperations"`
 	// Grant name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+	//
 	GrantName *string `field:"optional" json:"grantName" yaml:"grantName"`
 	// Home Region of the grant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+	//
 	HomeRegion *string `field:"optional" json:"homeRegion" yaml:"homeRegion"`
 	// License ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+	//
 	LicenseArn *string `field:"optional" json:"licenseArn" yaml:"licenseArn"`
 	// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):.
 	//
@@ -37,8 +47,12 @@ type CfnGrantProps struct {
 	// - An organizational unit (OU), which includes all accounts in the OU.
 	//
 	// - An organization, which will include all accounts across your organization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
+	//
 	Principals *[]*string `field:"optional" json:"principals" yaml:"principals"`
 	// Granted license status.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

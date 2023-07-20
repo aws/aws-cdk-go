@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VerifiedPermissions::Policy`.
+// Creates or updates a Cedar policy and saves it in the specified policy store.
 //
-// Creates or updates a Cedar policy and saves it in the specified policy store. You can create either a static policy or a policy linked to a policy template.
+// You can create either a static policy or a policy linked to a policy template.
 //
 // You can directly update only static policies. To update a template-linked policy, you must update it's linked policy template instead.
 //
@@ -52,6 +52,8 @@ import (
 //   	PolicyStoreId: jsii.String("policyStoreId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html
+//
 type CfnPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -72,8 +74,6 @@ type CfnPolicy interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specifies the policy type and content to use for the new or updated policy.
-	//
-	// The definition structure must include either a `Static` or a `TemplateLinked` element.
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -387,7 +387,6 @@ func (j *jsiiProxy_CfnPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::VerifiedPermissions::Policy`.
 func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
 	_init_.Initialize()
 
@@ -405,7 +404,6 @@ func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps)
 	return &j
 }
 
-// Create a new `AWS::VerifiedPermissions::Policy`.
 func NewCfnPolicy_Override(c CfnPolicy, scope constructs.Construct, id *string, props *CfnPolicyProps) {
 	_init_.Initialize()
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayMulticastGroupMember`.
+// Registers members (network interfaces) with the transit gateway multicast group.
 //
-// Registers members (network interfaces) with the transit gateway multicast group. A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For information about supported instances, see [Multicast Consideration](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits) in *Amazon VPC Transit Gateways* .
+// A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For information about supported instances, see [Multicast Consideration](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits) in *Amazon VPC Transit Gateways* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,6 +23,8 @@ import (
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
 //   	TransitGatewayMulticastDomainId: jsii.String("transitGatewayMulticastDomainId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html
 //
 type CfnTransitGatewayMulticastGroupMember interface {
 	awscdk.CfnResource
@@ -439,7 +441,6 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastGroupMember) UpdatedProperties() *m
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayMulticastGroupMember`.
 func NewCfnTransitGatewayMulticastGroupMember(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastGroupMemberProps) CfnTransitGatewayMulticastGroupMember {
 	_init_.Initialize()
 
@@ -457,7 +458,6 @@ func NewCfnTransitGatewayMulticastGroupMember(scope constructs.Construct, id *st
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayMulticastGroupMember`.
 func NewCfnTransitGatewayMulticastGroupMember_Override(c CfnTransitGatewayMulticastGroupMember, scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastGroupMemberProps) {
 	_init_.Initialize()
 

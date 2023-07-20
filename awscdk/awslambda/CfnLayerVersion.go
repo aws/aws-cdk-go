@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lambda::LayerVersion`.
-//
 // The `AWS::Lambda::LayerVersion` resource creates a [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) from a ZIP archive.
 //
 // Example:
@@ -38,6 +36,8 @@ import (
 //   	LayerName: jsii.String("layerName"),
 //   	LicenseInfo: jsii.String("licenseInfo"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html
 //
 type CfnLayerVersion interface {
 	awscdk.CfnResource
@@ -67,11 +67,9 @@ type CfnLayerVersion interface {
 	// The name or Amazon Resource Name (ARN) of the layer.
 	LayerName() *string
 	SetLayerName(val *string)
-	// The layer's software license. It can be any of the following:.
+	// The layer's software license.
 	//
-	// - An [SPDX license identifier](https://docs.aws.amazon.com/https://spdx.org/licenses/) . For example, `MIT` .
-	// - The URL of a license hosted on the internet. For example, `https://opensource.org/licenses/MIT` .
-	// - The full text of the license.
+	// It can be any of the following:.
 	LicenseInfo() *string
 	SetLicenseInfo(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -412,7 +410,6 @@ func (j *jsiiProxy_CfnLayerVersion) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Lambda::LayerVersion`.
 func NewCfnLayerVersion(scope constructs.Construct, id *string, props *CfnLayerVersionProps) CfnLayerVersion {
 	_init_.Initialize()
 
@@ -430,7 +427,6 @@ func NewCfnLayerVersion(scope constructs.Construct, id *string, props *CfnLayerV
 	return &j
 }
 
-// Create a new `AWS::Lambda::LayerVersion`.
 func NewCfnLayerVersion_Override(c CfnLayerVersion, scope constructs.Construct, id *string, props *CfnLayerVersionProps) {
 	_init_.Initialize()
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IAM::ServiceLinkedRole`.
+// Creates an IAM role that is linked to a specific AWS service.
 //
-// Creates an IAM role that is linked to a specific AWS service. The service controls the attached policies and when the role can be deleted. This helps ensure that the service is not broken by an unexpectedly changed or deleted role, which could put your AWS resources into an unknown state. Allowing the service to control the role helps improve service stability and proper cleanup when a service and its role are no longer needed. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) in the *IAM User Guide* .
+// The service controls the attached policies and when the role can be deleted. This helps ensure that the service is not broken by an unexpectedly changed or deleted role, which could put your AWS resources into an unknown state. Allowing the service to control the role helps improve service stability and proper cleanup when a service and its role are no longer needed. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) in the *IAM User Guide* .
 //
 // To attach a policy to this service-linked role, you must make the request using the AWS service that depends on this role.
 //
@@ -19,6 +19,8 @@ import (
 //   slr := iam.NewCfnServiceLinkedRole(this, jsii.String("ElasticSLR"), &CfnServiceLinkedRoleProps{
 //   	AwsServiceName: jsii.String("es.amazonaws.com"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servicelinkedrole.html
 //
 type CfnServiceLinkedRole interface {
 	awscdk.CfnResource
@@ -28,10 +30,6 @@ type CfnServiceLinkedRole interface {
 	// For example, `AWSServiceRoleForAutoScaling` or `AWSServiceRoleForAutoScaling_TestSuffix` if a `CustomSuffix` is specified.
 	AttrRoleName() *string
 	// The service principal for the AWS service to which this role is attached.
-	//
-	// You use a string similar to a URL but without the http:// in front. For example: `elasticbeanstalk.amazonaws.com` .
-	//
-	// Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide* . Look for the services that have *Yes* in the *Service-Linked Role* column. Choose the *Yes* link to view the service-linked role documentation for that service.
 	AwsServiceName() *string
 	SetAwsServiceName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -44,10 +42,6 @@ type CfnServiceLinkedRole interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
-	//
-	// If you make multiple requests for the same service, then you must supply a different `CustomSuffix` for each request. Otherwise the request fails with a duplicate role name error. For example, you could add `-1` or `-debug` to the suffix.
-	//
-	// Some services do not support the `CustomSuffix` parameter. If you provide an optional suffix and the operation fails, try the operation again without the suffix.
 	CustomSuffix() *string
 	SetCustomSuffix(val *string)
 	// The description of the role.
@@ -361,7 +355,6 @@ func (j *jsiiProxy_CfnServiceLinkedRole) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::IAM::ServiceLinkedRole`.
 func NewCfnServiceLinkedRole(scope constructs.Construct, id *string, props *CfnServiceLinkedRoleProps) CfnServiceLinkedRole {
 	_init_.Initialize()
 
@@ -379,7 +372,6 @@ func NewCfnServiceLinkedRole(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
-// Create a new `AWS::IAM::ServiceLinkedRole`.
 func NewCfnServiceLinkedRole_Override(c CfnServiceLinkedRole, scope constructs.Construct, id *string, props *CfnServiceLinkedRoleProps) {
 	_init_.Initialize()
 

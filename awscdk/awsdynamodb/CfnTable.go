@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DynamoDB::Table`.
-//
 // The `AWS::DynamoDB::Table` resource creates a DynamoDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *Amazon DynamoDB API Reference* .
 //
 // You should be aware of the following behaviors when working with DynamoDB tables:
@@ -144,16 +142,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
+//
 type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
 	AttrArn() *string
 	// A list of attributes that describe the key schema for the table and indexes.
-	//
-	// This property is required to create a DynamoDB table.
-	//
-	// Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) . Replacement if you edit an existing AttributeDefinition.
 	AttributeDefinitions() interface{}
 	SetAttributeDefinitions(val interface{})
 	// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` .
@@ -161,13 +158,6 @@ type CfnTable interface {
 	// > You must specify the `StreamSpecification` property to use this attribute.
 	AttrStreamArn() *string
 	// Specify how you are charged for read and write throughput and how you manage capacity.
-	//
-	// Valid values include:
-	//
-	// - `PROVISIONED` - We recommend using `PROVISIONED` for predictable workloads. `PROVISIONED` sets the billing mode to [Provisioned Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual) .
-	// - `PAY_PER_REQUEST` - We recommend using `PAY_PER_REQUEST` for unpredictable workloads. `PAY_PER_REQUEST` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand) .
-	//
-	// If not specified, the default is `PROVISIONED` .
 	BillingMode() *string
 	SetBillingMode(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -183,38 +173,23 @@ type CfnTable interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Determines if a table is protected from deletion.
-	//
-	// When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
-	// Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
+	// Global secondary indexes to be created on the table.
 	//
-	// > If you update a table to include a new global secondary index, AWS CloudFormation initiates the index creation and then proceeds with the stack update. AWS CloudFormation doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is `ACTIVE` . You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
-	// >
-	// > If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index.
-	// >
-	// > Updates are not supported. The following are exceptions:
-	// >
-	// > - If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
-	// > - You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
+	// You can create up to 20 global secondary indexes.
 	GlobalSecondaryIndexes() interface{}
 	SetGlobalSecondaryIndexes(val interface{})
 	// Specifies the properties of data being imported from the S3 bucket source to the table.
-	//
-	// > If you specify the `ImportSourceSpecification` property, and also specify either the `StreamSpecification` , the `TableClass` property, or the `DeletionProtectionEnabled` property, the IAM entity creating/updating stack must have `UpdateTable` permission.
 	ImportSourceSpecification() interface{}
 	SetImportSourceSpecification(val interface{})
 	// Specifies the attributes that make up the primary key for the table.
-	//
-	// The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema() interface{}
 	SetKeySchema(val interface{})
 	// The Kinesis Data Streams configuration for the specified table.
 	KinesisStreamSpecification() interface{}
 	SetKinesisStreamSpecification(val interface{})
 	// Local secondary indexes to be created on the table.
-	//
-	// You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
 	LocalSecondaryIndexes() interface{}
 	SetLocalSecondaryIndexes(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -233,10 +208,6 @@ type CfnTable interface {
 	PointInTimeRecoverySpecification() interface{}
 	SetPointInTimeRecoverySpecification(val interface{})
 	// Throughput for the specified table, which consists of values for `ReadCapacityUnits` and `WriteCapacityUnits` .
-	//
-	// For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html) .
-	//
-	// If you set `BillingMode` as `PROVISIONED` , you must specify this property. If you set `BillingMode` as `PAY_PER_REQUEST` , you cannot specify this property.
 	ProvisionedThroughput() interface{}
 	SetProvisionedThroughput(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -255,24 +226,17 @@ type CfnTable interface {
 	StreamSpecification() interface{}
 	SetStreamSpecification(val interface{})
 	// The table class of the new table.
-	//
-	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
 	TableClass() *string
 	SetTableClass(val *string)
 	// A name for the table.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TableName() *string
 	SetTableName(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Specifies the Time to Live (TTL) settings for the table.
-	//
-	// > For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification() interface{}
 	SetTimeToLiveSpecification(val interface{})
 	// Deprecated.
@@ -419,6 +383,7 @@ type CfnTable interface {
 type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTable) AttrArn() *string {
@@ -681,6 +646,16 @@ func (j *jsiiProxy_CfnTable) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) TimeToLiveSpecification() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -712,7 +687,6 @@ func (j *jsiiProxy_CfnTable) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DynamoDB::Table`.
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
@@ -730,7 +704,6 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 	return &j
 }
 
-// Create a new `AWS::DynamoDB::Table`.
 func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 
@@ -893,6 +866,17 @@ func (j *jsiiProxy_CfnTable)SetTableName(val *string) {
 	_jsii_.Set(
 		j,
 		"tableName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

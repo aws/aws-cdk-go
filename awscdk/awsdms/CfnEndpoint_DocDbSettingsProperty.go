@@ -18,20 +18,28 @@ package awsdms
 //   	SecretsManagerSecretId: jsii.String("secretsManagerSecretId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html
+//
 type CfnEndpoint_DocDbSettingsProperty struct {
 	// Indicates the number of documents to preview to determine the document organization.
 	//
 	// Use this setting when `NestingLevel` is set to `"one"` .
 	//
 	// Must be a positive value greater than `0` . Default value is `1000` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-docstoinvestigate
+	//
 	DocsToInvestigate *float64 `field:"optional" json:"docsToInvestigate" yaml:"docsToInvestigate"`
 	// Specifies the document ID. Use this setting when `NestingLevel` is set to `"none"` .
 	//
 	// Default value is `"false"` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-extractdocid
+	//
 	ExtractDocId interface{} `field:"optional" json:"extractDocId" yaml:"extractDocId"`
 	// Specifies either document or table mode.
 	//
 	// Default value is `"none"` . Specify `"none"` to use document mode. Specify `"one"` to use table mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-nestinglevel
+	//
 	NestingLevel *string `field:"optional" json:"nestingLevel" yaml:"nestingLevel"`
 	// The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret` .
 	//
@@ -40,8 +48,12 @@ type CfnEndpoint_DocDbSettingsProperty struct {
 	// > You can specify one of two sets of values for these permissions. You can specify the values for this setting and `SecretsManagerSecretId` . Or you can specify clear-text values for `UserName` , `Password` , `ServerName` , and `Port` . You can't specify both.
 	// >
 	// > For more information on creating this `SecretsManagerSecret` , the corresponding `SecretsManagerAccessRoleArn` , and the `SecretsManagerSecretId` that is required to access it, see [Using secrets to access AWS Database Migration Service resources](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager) in the *AWS Database Migration Service User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-secretsmanageraccessrolearn
+	//
 	SecretsManagerAccessRoleArn *string `field:"optional" json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// The full ARN, partial ARN, or display name of the `SecretsManagerSecret` that contains the DocumentDB endpoint connection details.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-secretsmanagersecretid
+	//
 	SecretsManagerSecretId *string `field:"optional" json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 }
 

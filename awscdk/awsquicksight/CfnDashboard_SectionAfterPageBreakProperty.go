@@ -12,8 +12,12 @@ package awsquicksight
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sectionafterpagebreak.html
+//
 type CfnDashboard_SectionAfterPageBreakProperty struct {
 	// The option that enables or disables a page break at the end of a section.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sectionafterpagebreak.html#cfn-quicksight-dashboard-sectionafterpagebreak-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

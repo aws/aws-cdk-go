@@ -96,7 +96,7 @@ func (j *jsiiProxy_CfnSubnet) validateSetMapPublicIpOnLaunchParameters(val inter
 	return nil
 }
 
-func (j *jsiiProxy_CfnSubnet) validateSetPrivateDnsNameOptionsOnLaunchParameters(val interface{}) error {
+func (j *jsiiProxy_CfnSubnet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

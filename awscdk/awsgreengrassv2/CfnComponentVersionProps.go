@@ -77,16 +77,22 @@ package awsgreengrassv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
+//
 type CfnComponentVersionProps struct {
 	// The recipe to use to create the component.
 	//
 	// The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
 	//
 	// You must specify either `InlineRecipe` or `LambdaFunction` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
+	//
 	InlineRecipe *string `field:"optional" json:"inlineRecipe" yaml:"inlineRecipe"`
 	// The parameters to create a component from a Lambda function.
 	//
 	// You must specify either `InlineRecipe` or `LambdaFunction` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
+	//
 	LambdaFunction interface{} `field:"optional" json:"lambdaFunction" yaml:"lambdaFunction"`
 	// Application-specific metadata to attach to the component version.
 	//
@@ -98,6 +104,8 @@ type CfnComponentVersionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

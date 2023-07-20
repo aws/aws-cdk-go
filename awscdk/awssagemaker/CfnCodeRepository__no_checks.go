@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnCodeRepository) validateSetGitConfigParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnCodeRepository) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCodeRepositoryParameters(scope constructs.Construct, id *string, props *CfnCodeRepositoryProps) error {
 	return nil
 }

@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetShadowProductionVariantsParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEndpointConfigParameters(scope constructs.Construct, id *string, props *CfnEndpointConfigProps) error {
 	return nil
 }

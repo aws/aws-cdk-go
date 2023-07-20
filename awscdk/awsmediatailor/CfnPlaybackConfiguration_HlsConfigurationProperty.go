@@ -12,10 +12,14 @@ package awsmediatailor
 //   	ManifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-hlsconfiguration.html
+//
 type CfnPlaybackConfiguration_HlsConfigurationProperty struct {
 	// The URL that is used to initiate a playback session for devices that support Apple HLS.
 	//
 	// The session uses server-side reporting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-hlsconfiguration.html#cfn-mediatailor-playbackconfiguration-hlsconfiguration-manifestendpointprefix
+	//
 	ManifestEndpointPrefix *string `field:"optional" json:"manifestEndpointPrefix" yaml:"manifestEndpointPrefix"`
 }
 

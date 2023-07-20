@@ -431,6 +431,16 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetRuntimePlatformParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) validateSetVolumesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

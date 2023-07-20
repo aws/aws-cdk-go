@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::ContinuousDeploymentPolicy`.
-//
 // Creates a continuous deployment policy that routes a subset of production traffic from a primary distribution to a staging distribution.
 //
 // After you create and update a staging distribution, you can use a continuous deployment policy to incrementally move traffic to the staging distribution. This enables you to test changes to a distribution's configuration before moving all of your production traffic to the new configuration.
@@ -50,6 +48,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-continuousdeploymentpolicy.html
 //
 type CfnContinuousDeploymentPolicy interface {
 	awscdk.CfnResource
@@ -368,7 +368,6 @@ func (j *jsiiProxy_CfnContinuousDeploymentPolicy) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::CloudFront::ContinuousDeploymentPolicy`.
 func NewCfnContinuousDeploymentPolicy(scope constructs.Construct, id *string, props *CfnContinuousDeploymentPolicyProps) CfnContinuousDeploymentPolicy {
 	_init_.Initialize()
 
@@ -386,7 +385,6 @@ func NewCfnContinuousDeploymentPolicy(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::CloudFront::ContinuousDeploymentPolicy`.
 func NewCfnContinuousDeploymentPolicy_Override(c CfnContinuousDeploymentPolicy, scope constructs.Construct, id *string, props *CfnContinuousDeploymentPolicyProps) {
 	_init_.Initialize()
 

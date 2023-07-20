@@ -26,18 +26,30 @@ package awsbackup
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html
+//
 type CfnReportPlan_ReportSettingProperty struct {
 	// Identifies the report template for the report. Reports are built using a report template. The report templates are:.
 	//
 	// `RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-reporttemplate
+	//
 	ReportTemplate *string `field:"required" json:"reportTemplate" yaml:"reportTemplate"`
 	// These are the accounts to be included in the report.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-accounts
+	//
 	Accounts *[]*string `field:"optional" json:"accounts" yaml:"accounts"`
 	// The Amazon Resource Names (ARNs) of the frameworks a report covers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-frameworkarns
+	//
 	FrameworkArns *[]*string `field:"optional" json:"frameworkArns" yaml:"frameworkArns"`
 	// These are the Organizational Units to be included in the report.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-organizationunits
+	//
 	OrganizationUnits *[]*string `field:"optional" json:"organizationUnits" yaml:"organizationUnits"`
 	// These are the Regions to be included in the report.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-regions
+	//
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 }
 

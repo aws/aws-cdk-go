@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFRegional::WebACLAssociation`.
+// > This is *AWS WAF Classic* documentation.
 //
-// > This is *AWS WAF Classic* documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+// For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
 // >
 // > *For the latest version of AWS WAF* , use the AWS WAF V2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) . With the latest version, AWS WAF has a single set of endpoints for regional and global use.
 //
@@ -27,9 +27,12 @@ import (
 //   	WebAclId: jsii.String("webAclId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html
+//
 type CfnWebACLAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -212,6 +215,16 @@ type jsiiProxy_CfnWebACLAssociation struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnWebACLAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebACLAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -333,7 +346,6 @@ func (j *jsiiProxy_CfnWebACLAssociation) WebAclId() *string {
 }
 
 
-// Create a new `AWS::WAFRegional::WebACLAssociation`.
 func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) CfnWebACLAssociation {
 	_init_.Initialize()
 
@@ -351,7 +363,6 @@ func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnW
 	return &j
 }
 
-// Create a new `AWS::WAFRegional::WebACLAssociation`.
 func NewCfnWebACLAssociation_Override(c CfnWebACLAssociation, scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) {
 	_init_.Initialize()
 

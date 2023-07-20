@@ -24,8 +24,12 @@ package awscustomerprofiles
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html
+//
 type CfnIntegration_TriggerPropertiesProperty struct {
 	// Specifies the configuration details of a schedule-triggered flow that you define.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled
+	//
 	Scheduled interface{} `field:"optional" json:"scheduled" yaml:"scheduled"`
 }
 

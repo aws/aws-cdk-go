@@ -40,8 +40,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filledmapconditionalformattingoption.html
+//
 type CfnDashboard_FilledMapConditionalFormattingOptionProperty struct {
 	// The conditional formatting that determines the shape of the filled map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filledmapconditionalformattingoption.html#cfn-quicksight-dashboard-filledmapconditionalformattingoption-shape
+	//
 	Shape interface{} `field:"required" json:"shape" yaml:"shape"`
 }
 

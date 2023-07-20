@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::LakeFormation::Tag`.
+// The `AWS::LakeFormation::Tag` resource represents an LF-tag, which consists of a key and one or more possible values for the key.
 //
-// The `AWS::LakeFormation::Tag` resource represents an LF-tag, which consists of a key and one or more possible values for the key. During a stack operation, AWS CloudFormation calls the AWS Lake Formation `CreateLFTag` API to create a tag, and `UpdateLFTag` API to update a tag resource, and a `DeleteLFTag` to delete it.
+// During a stack operation, AWS CloudFormation calls the AWS Lake Formation `CreateLFTag` API to create a tag, and `UpdateLFTag` API to update a tag resource, and a `DeleteLFTag` to delete it.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,12 +28,12 @@ import (
 //   	CatalogId: jsii.String("catalogId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tag.html
+//
 type CfnTag interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Catalog id string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html) .
-	//
-	// The identifier for the Data Catalog . By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
 	CatalogId() *string
 	SetCatalogId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -67,13 +67,9 @@ type CfnTag interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// UTF-8 string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html) .
-	//
-	// The key-name for the LF-tag.
 	TagKey() *string
 	SetTagKey(val *string)
 	// An array of UTF-8 strings, not less than 1 or more than 50 strings.
-	//
-	// A list of possible values of the corresponding `TagKey` of an LF-tag key-value pair.
 	TagValues() *[]*string
 	SetTagValues(val *[]*string)
 	// Deprecated.
@@ -353,7 +349,6 @@ func (j *jsiiProxy_CfnTag) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::LakeFormation::Tag`.
 func NewCfnTag(scope constructs.Construct, id *string, props *CfnTagProps) CfnTag {
 	_init_.Initialize()
 
@@ -371,7 +366,6 @@ func NewCfnTag(scope constructs.Construct, id *string, props *CfnTagProps) CfnTa
 	return &j
 }
 
-// Create a new `AWS::LakeFormation::Tag`.
 func NewCfnTag_Override(c CfnTag, scope constructs.Construct, id *string, props *CfnTagProps) {
 	_init_.Initialize()
 

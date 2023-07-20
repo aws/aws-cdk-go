@@ -19,8 +19,12 @@ package awsevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html
+//
 type CfnRule_RunCommandParametersProperty struct {
 	// Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html#cfn-events-rule-runcommandparameters-runcommandtargets
+	//
 	RunCommandTargets interface{} `field:"required" json:"runCommandTargets" yaml:"runCommandTargets"`
 }
 

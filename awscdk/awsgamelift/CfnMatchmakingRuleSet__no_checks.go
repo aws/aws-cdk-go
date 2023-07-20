@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) validateSetRuleSetBodyParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnMatchmakingRuleSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMatchmakingRuleSetParameters(scope constructs.Construct, id *string, props *CfnMatchmakingRuleSetProps) error {
 	return nil
 }

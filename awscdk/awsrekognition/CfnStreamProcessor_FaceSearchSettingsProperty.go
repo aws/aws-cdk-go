@@ -17,12 +17,18 @@ package awsrekognition
 //   	FaceMatchThreshold: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-facesearchsettings.html
+//
 type CfnStreamProcessor_FaceSearchSettingsProperty struct {
 	// The ID of a collection that contains faces that you want to search for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-facesearchsettings.html#cfn-rekognition-streamprocessor-facesearchsettings-collectionid
+	//
 	CollectionId *string `field:"required" json:"collectionId" yaml:"collectionId"`
 	// Minimum face match confidence score that must be met to return a result for a recognized face.
 	//
 	// The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted, and values lower than 80 are set to 80.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-facesearchsettings.html#cfn-rekognition-streamprocessor-facesearchsettings-facematchthreshold
+	//
 	FaceMatchThreshold *float64 `field:"optional" json:"faceMatchThreshold" yaml:"faceMatchThreshold"`
 }
 

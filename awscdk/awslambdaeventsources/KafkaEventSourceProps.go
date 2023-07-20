@@ -16,6 +16,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var filters interface{}
 //   var secret secret
 //
 //   kafkaEventSourceProps := &KafkaEventSourceProps{
@@ -26,6 +27,11 @@ import (
 //   	BatchSize: jsii.Number(123),
 //   	ConsumerGroupId: jsii.String("consumerGroupId"),
 //   	Enabled: jsii.Boolean(false),
+//   	Filters: []map[string]interface{}{
+//   		map[string]interface{}{
+//   			"filtersKey": filters,
+//   		},
+//   	},
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
 //   	Secret: secret,
 //   }
@@ -60,6 +66,10 @@ type KafkaEventSourceProps struct {
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id
 	//
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
+	// Add filter criteria to Event Source.
+	// See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html
+	//
+	Filters *[]*map[string]interface{} `field:"optional" json:"filters" yaml:"filters"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
 	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 }

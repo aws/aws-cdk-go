@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetRuntimePlatformParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) validateSetVolumesParameters(val interface{}) error {
 	return nil
 }

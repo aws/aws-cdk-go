@@ -15,10 +15,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html
+//
 type CfnAnalysis_StringParameterProperty struct {
 	// A display name for a string parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values of a string parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-values
+	//
 	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 

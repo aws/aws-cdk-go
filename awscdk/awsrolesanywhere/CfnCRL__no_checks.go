@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnCRL) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCRL) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCRLParameters(scope constructs.Construct, id *string, props *CfnCRLProps) error {
 	return nil
 }

@@ -15,6 +15,8 @@ package awsgreengrassv2
 //   	TimeoutInSeconds: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentcomponentupdatepolicy.html
+//
 type CfnDeployment_DeploymentComponentUpdatePolicyProperty struct {
 	// Whether or not to notify components and wait for components to become safe to update.
 	//
@@ -24,12 +26,16 @@ type CfnDeployment_DeploymentComponentUpdatePolicyProperty struct {
 	// - `SKIP_NOTIFY_COMPONENTS` – The deployment doesn't notify components or wait for them to be safe to update.
 	//
 	// Default: `NOTIFY_COMPONENTS`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentcomponentupdatepolicy.html#cfn-greengrassv2-deployment-deploymentcomponentupdatepolicy-action
+	//
 	Action *string `field:"optional" json:"action" yaml:"action"`
 	// The amount of time in seconds that each component on a device has to report that it's safe to update.
 	//
 	// If the component waits for longer than this timeout, then the deployment proceeds on the device.
 	//
 	// Default: `60`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentcomponentupdatepolicy.html#cfn-greengrassv2-deployment-deploymentcomponentupdatepolicy-timeoutinseconds
+	//
 	TimeoutInSeconds *float64 `field:"optional" json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::IPAM`.
+// IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts throughout your AWS Organization.
 //
-// IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts throughout your AWS Organization. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
+// For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
 //
 // There are AWS Identity and Access Management (IAM) permissions required to fully manage an IPAM in CloudFormation. For more information, see [Example policy](https://docs.aws.amazon.com//vpc/latest/ipam/iam-ipam-policy-examples.html) in the *Amazon VPC IPAM User Guide* .
 //
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html
+//
 type CfnIPAM interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the IPAM.
 	AttrArn() *string
 	// The ID of the IPAM.
@@ -83,10 +86,6 @@ type CfnIPAM interface {
 	// The tree node.
 	Node() constructs.Node
 	// The operating Regions for an IPAM.
-	//
-	// Operating Regions are AWS Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the AWS Regions you select as operating Regions.
-	//
-	// For more information about operating Regions, see [Create an IPAM](https://docs.aws.amazon.com//vpc/latest/ipam/create-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	OperatingRegions() interface{}
 	SetOperatingRegions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -98,10 +97,11 @@ type CfnIPAM interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The key/value combination of a tag assigned to the resource.
-	//
-	// Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key `Owner` and the value `TeamA` , specify `tag:Owner` for the filter name and `TeamA` for the filter value.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key/value combination of a tag assigned to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,6 +246,7 @@ type CfnIPAM interface {
 type jsiiProxy_CfnIPAM struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIPAM) AttrArn() *string {
@@ -438,6 +439,16 @@ func (j *jsiiProxy_CfnIPAM) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAM) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAM) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -459,7 +470,6 @@ func (j *jsiiProxy_CfnIPAM) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::IPAM`.
 func NewCfnIPAM(scope constructs.Construct, id *string, props *CfnIPAMProps) CfnIPAM {
 	_init_.Initialize()
 
@@ -477,7 +487,6 @@ func NewCfnIPAM(scope constructs.Construct, id *string, props *CfnIPAMProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::EC2::IPAM`.
 func NewCfnIPAM_Override(c CfnIPAM, scope constructs.Construct, id *string, props *CfnIPAMProps) {
 	_init_.Initialize()
 
@@ -519,6 +528,17 @@ func (j *jsiiProxy_CfnIPAM)SetOperatingRegions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"operatingRegions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAM)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

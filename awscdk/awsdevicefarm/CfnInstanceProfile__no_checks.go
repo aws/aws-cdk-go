@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnInstanceProfile) validateSetRebootAfterUseParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnInstanceProfile) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnInstanceProfileParameters(scope constructs.Construct, id *string, props *CfnInstanceProfileProps) error {
 	return nil
 }

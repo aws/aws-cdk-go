@@ -19,17 +19,25 @@ package awsappsync
 //   	TransitEncryptionEnabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html
+//
 type CfnApiCacheProps struct {
 	// Caching behavior.
 	//
 	// - *FULL_REQUEST_CACHING* : All requests are fully cached.
 	// - *PER_RESOLVER_CACHING* : Individual resolvers that you specify are cached.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-apicachingbehavior
+	//
 	ApiCachingBehavior *string `field:"required" json:"apiCachingBehavior" yaml:"apiCachingBehavior"`
 	// The GraphQL API ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-apiid
+	//
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// TTL in seconds for cache entries.
 	//
 	// Valid values are 1–3,600 seconds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-ttl
+	//
 	Ttl *float64 `field:"required" json:"ttl" yaml:"ttl"`
 	// The cache instance type. Valid values are.
 	//
@@ -53,14 +61,20 @@ type CfnApiCacheProps struct {
 	// - *R4_2XLARGE* : A r4.2xlarge instance type.
 	// - *R4_4XLARGE* : A r4.4xlarge instance type.
 	// - *R4_8XLARGE* : A r4.8xlarge instance type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// At-rest encryption flag for cache.
 	//
 	// You cannot update this setting after creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-atrestencryptionenabled
+	//
 	AtRestEncryptionEnabled interface{} `field:"optional" json:"atRestEncryptionEnabled" yaml:"atRestEncryptionEnabled"`
 	// Transit encryption flag when connecting to cache.
 	//
 	// You cannot update this setting after creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-transitencryptionenabled
+	//
 	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
 }
 

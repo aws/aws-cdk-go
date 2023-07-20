@@ -23,16 +23,24 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html
+//
 type CfnResourceDefinitionVersion_S3MachineLearningModelResourceDataProperty struct {
 	// The absolute local path of the resource inside the Lambda environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-destinationpath
+	//
 	DestinationPath *string `field:"required" json:"destinationPath" yaml:"destinationPath"`
 	// The URI of the source model in an Amazon S3 bucket.
 	//
 	// The model package must be in `tar.gz` or `.zip` format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-s3uri
+	//
 	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// The owner setting for the downloaded machine learning resource.
 	//
 	// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-ownersetting
+	//
 	OwnerSetting interface{} `field:"optional" json:"ownerSetting" yaml:"ownerSetting"`
 }
 

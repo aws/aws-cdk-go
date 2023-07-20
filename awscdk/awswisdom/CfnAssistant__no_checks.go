@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnAssistant) validateSetServerSideEncryptionConfigurationPar
 	return nil
 }
 
+func (j *jsiiProxy_CfnAssistant) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAssistant) validateSetTypeParameters(val *string) error {
 	return nil
 }

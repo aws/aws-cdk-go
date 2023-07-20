@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MemoryDB::ACL`.
+// Specifies an Access Control List.
 //
-// Specifies an Access Control List. For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html) .
+// For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html
+//
 type CfnACL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the Access Control List.
 	AclName() *string
 	SetAclName(val *string)
@@ -75,10 +78,11 @@ type CfnACL interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +230,7 @@ type CfnACL interface {
 type jsiiProxy_CfnACL struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnACL) AclName() *string {
@@ -348,6 +353,16 @@ func (j *jsiiProxy_CfnACL) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnACL) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnACL) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -379,7 +394,6 @@ func (j *jsiiProxy_CfnACL) UserNames() *[]*string {
 }
 
 
-// Create a new `AWS::MemoryDB::ACL`.
 func NewCfnACL(scope constructs.Construct, id *string, props *CfnACLProps) CfnACL {
 	_init_.Initialize()
 
@@ -397,7 +411,6 @@ func NewCfnACL(scope constructs.Construct, id *string, props *CfnACLProps) CfnAC
 	return &j
 }
 
-// Create a new `AWS::MemoryDB::ACL`.
 func NewCfnACL_Override(c CfnACL, scope constructs.Construct, id *string, props *CfnACLProps) {
 	_init_.Initialize()
 
@@ -415,6 +428,17 @@ func (j *jsiiProxy_CfnACL)SetAclName(val *string) {
 	_jsii_.Set(
 		j,
 		"aclName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnACL)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

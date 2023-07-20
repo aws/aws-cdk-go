@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SecretsManager::ResourcePolicy`.
+// Attaches a resource-based permission policy to a secret.
 //
-// Attaches a resource-based permission policy to a secret. A resource-based policy is optional. For more information, see [Authentication and access control for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html)
+// A resource-based policy is optional. For more information, see [Authentication and access control for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html)
 //
 // For information about attaching a policy in the console, see [Attach a permissions policy to a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html) .
 //
@@ -32,12 +32,13 @@ import (
 //   	BlockPublicPolicy: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html
+//
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Specifies whether to block resource-based policies that allow broad access to the secret.
-	//
-	// By default, Secrets Manager blocks policies that allow broad access, for example those that use a wildcard for the principal.
 	BlockPublicPolicy() interface{}
 	SetBlockPublicPolicy(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -67,13 +68,9 @@ type CfnResourcePolicy interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A JSON-formatted string for an AWS resource-based policy.
-	//
-	// For example policies, see [Permissions policy examples](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html) .
 	ResourcePolicy() interface{}
 	SetResourcePolicy(val interface{})
 	// The ARN or name of the secret to attach the resource-based policy.
-	//
-	// For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.
 	SecretId() *string
 	SetSecretId(val *string)
 	// The stack in which this element is defined.
@@ -226,6 +223,16 @@ type jsiiProxy_CfnResourcePolicy struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnResourcePolicy) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourcePolicy) BlockPublicPolicy() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -357,7 +364,6 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::SecretsManager::ResourcePolicy`.
 func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
@@ -375,7 +381,6 @@ func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
-// Create a new `AWS::SecretsManager::ResourcePolicy`.
 func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 

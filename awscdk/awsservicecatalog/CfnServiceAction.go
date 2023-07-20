@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::ServiceAction`.
-//
 // Creates a self-service action.
 //
 // Example:
@@ -33,14 +31,12 @@ import (
 //   	Description: jsii.String("description"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html
+//
 type CfnServiceAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `en` - English (default)
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
 	// The self-service action identifier.
@@ -60,8 +56,6 @@ type CfnServiceAction interface {
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The self-service action definition type.
-	//
-	// For example, `SSM_AUTOMATION` .
 	DefinitionType() *string
 	SetDefinitionType(val *string)
 	// The self-service action description.
@@ -398,7 +392,6 @@ func (j *jsiiProxy_CfnServiceAction) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::ServiceCatalog::ServiceAction`.
 func NewCfnServiceAction(scope constructs.Construct, id *string, props *CfnServiceActionProps) CfnServiceAction {
 	_init_.Initialize()
 
@@ -416,7 +409,6 @@ func NewCfnServiceAction(scope constructs.Construct, id *string, props *CfnServi
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::ServiceAction`.
 func NewCfnServiceAction_Override(c CfnServiceAction, scope constructs.Construct, id *string, props *CfnServiceActionProps) {
 	_init_.Initialize()
 

@@ -30,10 +30,16 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-loggingfilter.html
+//
 type CfnLoggingConfiguration_LoggingFilterProperty struct {
 	// Default handling for logs that don't match any of the specified filtering conditions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-loggingfilter.html#cfn-wafv2-loggingconfiguration-loggingfilter-defaultbehavior
+	//
 	DefaultBehavior *string `field:"required" json:"defaultBehavior" yaml:"defaultBehavior"`
 	// The filters that you want to apply to the logs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-loggingfilter.html#cfn-wafv2-loggingconfiguration-loggingfilter-filters
+	//
 	Filters interface{} `field:"required" json:"filters" yaml:"filters"`
 }
 

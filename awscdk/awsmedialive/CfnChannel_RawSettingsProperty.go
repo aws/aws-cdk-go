@@ -13,6 +13,8 @@ package awsmedialive
 //   rawSettingsProperty := &RawSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rawsettings.html
+//
 type CfnChannel_RawSettingsProperty struct {
 }
 

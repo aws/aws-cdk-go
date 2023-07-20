@@ -14,10 +14,14 @@ package awsdms
 //   	ServiceAccessRoleArn: jsii.String("serviceAccessRoleArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html
+//
 type CfnEndpoint_DynamoDbSettingsProperty struct {
 	// The Amazon Resource Name (ARN) used by the service to access the IAM role.
 	//
 	// The role must allow the `iam:PassRole` action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html#cfn-dms-endpoint-dynamodbsettings-serviceaccessrolearn
+	//
 	ServiceAccessRoleArn *string `field:"optional" json:"serviceAccessRoleArn" yaml:"serviceAccessRoleArn"`
 }
 

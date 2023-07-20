@@ -27,14 +27,20 @@ package awsiotevents
 //   	OffsetInNanos: jsii.String("offsetInNanos"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html
+//
 type CfnDetectorModel_AssetPropertyTimestampProperty struct {
 	// The timestamp, in seconds, in the Unix epoch format.
 	//
 	// The valid range is between 1-31556889864403199.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
+	//
 	TimeInSeconds *string `field:"required" json:"timeInSeconds" yaml:"timeInSeconds"`
 	// The nanosecond offset converted from `timeInSeconds` .
 	//
 	// The valid range is between 0-999999999.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-offsetinnanos
+	//
 	OffsetInNanos *string `field:"optional" json:"offsetInNanos" yaml:"offsetInNanos"`
 }
 

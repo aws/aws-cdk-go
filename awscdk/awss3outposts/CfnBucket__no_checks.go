@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnBucket) validateSetOutpostIdParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnBucket) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnBucketParameters(scope constructs.Construct, id *string, props *CfnBucketProps) error {
 	return nil
 }

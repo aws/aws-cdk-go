@@ -14,8 +14,12 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingenvironment.html
+//
 type CfnModelCard_TrainingEnvironmentProperty struct {
 	// SageMaker inference image URI.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingenvironment.html#cfn-sagemaker-modelcard-trainingenvironment-containerimage
+	//
 	ContainerImage *[]*string `field:"optional" json:"containerImage" yaml:"containerImage"`
 }
 

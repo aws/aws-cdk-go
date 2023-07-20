@@ -33,20 +33,32 @@ package awsautoscalingplans
 //   	Unit: jsii.String("unit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html
+//
 type CfnScalingPlan_CustomizedLoadMetricSpecificationProperty struct {
 	// The name of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-metricname
+	//
 	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-namespace
+	//
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The statistic of the metric.
 	//
 	// *Allowed Values* : `Sum`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-statistic
+	//
 	Statistic *string `field:"required" json:"statistic" yaml:"statistic"`
 	// The dimensions of the metric.
 	//
 	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized load metric specification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-dimensions
+	//
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The unit of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-unit
+	//
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

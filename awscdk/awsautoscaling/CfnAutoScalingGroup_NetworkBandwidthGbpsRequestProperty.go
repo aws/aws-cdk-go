@@ -15,10 +15,16 @@ package awsautoscaling
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest.html
+//
 type CfnAutoScalingGroup_NetworkBandwidthGbpsRequestProperty struct {
 	// The maximum amount of network bandwidth, in gigabits per second (Gbps).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest.html#cfn-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of network bandwidth, in gigabits per second (Gbps).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest.html#cfn-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

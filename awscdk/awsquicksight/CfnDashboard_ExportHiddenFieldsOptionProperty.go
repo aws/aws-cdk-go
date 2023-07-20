@@ -12,8 +12,12 @@ package awsquicksight
 //   	AvailabilityStatus: jsii.String("availabilityStatus"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporthiddenfieldsoption.html
+//
 type CfnDashboard_ExportHiddenFieldsOptionProperty struct {
 	// The status of the export hidden fields options of a dashbaord.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporthiddenfieldsoption.html#cfn-quicksight-dashboard-exporthiddenfieldsoption-availabilitystatus
+	//
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 

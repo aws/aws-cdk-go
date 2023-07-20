@@ -12,8 +12,12 @@ package awsquicksight
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columngroupcolumnschema.html
+//
 type CfnTemplate_ColumnGroupColumnSchemaProperty struct {
 	// The name of the column group's column schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columngroupcolumnschema.html#cfn-quicksight-template-columngroupcolumnschema-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnWorkflow) validateSetStepsParameters(val interface{}) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkflow) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnWorkflowParameters(scope constructs.Construct, id *string, props *CfnWorkflowProps) error {
 	return nil
 }

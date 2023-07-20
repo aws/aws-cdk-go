@@ -34,6 +34,10 @@ type HttpApiCall interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// Experimental.
+	OutputPaths() *[]*string
+	// Experimental.
+	SetOutputPaths(val *[]*string)
 	// access the AssertionsProvider.
 	//
 	// This can be used to add additional IAM policies
@@ -130,6 +134,16 @@ func (j *jsiiProxy_HttpApiCall) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_HttpApiCall) OutputPaths() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"outputPaths",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_HttpApiCall) Provider() AssertionsProvider {
 	var returns AssertionsProvider
 	_jsii_.Get(
@@ -195,6 +209,14 @@ func (j *jsiiProxy_HttpApiCall)SetFlattenResponse(val *string) {
 	_jsii_.Set(
 		j,
 		"flattenResponse",
+		val,
+	)
+}
+
+func (j *jsiiProxy_HttpApiCall)SetOutputPaths(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"outputPaths",
 		val,
 	)
 }

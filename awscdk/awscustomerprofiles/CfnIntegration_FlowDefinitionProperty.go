@@ -93,20 +93,34 @@ package awscustomerprofiles
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html
+//
 type CfnIntegration_FlowDefinitionProperty struct {
 	// The specified name of the flow.
 	//
 	// Use underscores (_) or hyphens (-) only. Spaces are not allowed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-flowname
+	//
 	FlowName *string `field:"required" json:"flowName" yaml:"flowName"`
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-kmsarn
+	//
 	KmsArn *string `field:"required" json:"kmsArn" yaml:"kmsArn"`
 	// The configuration that controls how Customer Profiles retrieves data from the source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-sourceflowconfig
+	//
 	SourceFlowConfig interface{} `field:"required" json:"sourceFlowConfig" yaml:"sourceFlowConfig"`
 	// A list of tasks that Customer Profiles performs while transferring the data in the flow run.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-tasks
+	//
 	Tasks interface{} `field:"required" json:"tasks" yaml:"tasks"`
 	// The trigger settings that determine how and when the flow runs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-triggerconfig
+	//
 	TriggerConfig interface{} `field:"required" json:"triggerConfig" yaml:"triggerConfig"`
 	// A description of the flow you want to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

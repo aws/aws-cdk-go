@@ -14,10 +14,14 @@ package awspinpointemail
 //   	TopicArn: jsii.String("topicArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-snsdestination.html
+//
 type CfnConfigurationSetEventDestination_SnsDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-snsdestination.html#cfn-pinpointemail-configurationseteventdestination-snsdestination-topicarn
+	//
 	TopicArn *string `field:"required" json:"topicArn" yaml:"topicArn"`
 }
 

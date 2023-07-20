@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
+// Enables the attribute-based access control (ABAC) feature for the specified IAM Identity Center instance.
 //
-// Enables the attribute-based access control (ABAC) feature for the specified IAM Identity Center instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see [Attribute-Based Access Control](https://docs.aws.amazon.com//singlesignon/latest/userguide/abac.html) in the *IAM Identity Center User Guide* .
+// You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see [Attribute-Based Access Control](https://docs.aws.amazon.com//singlesignon/latest/userguide/abac.html) in the *IAM Identity Center User Guide* .
 //
 // > The `InstanceAccessControlAttributeConfiguration` property has been deprecated but is still supported for backwards compatibility purposes. We recommend that you use the `AccessControlAttributes` property instead.
 //
@@ -34,7 +34,21 @@ import (
 //   			},
 //   		},
 //   	},
+//   	InstanceAccessControlAttributeConfiguration: &InstanceAccessControlAttributeConfigurationProperty{
+//   		AccessControlAttributes: []interface{}{
+//   			&AccessControlAttributeProperty{
+//   				Key: jsii.String("key"),
+//   				Value: &AccessControlAttributeValueProperty{
+//   					Source: []*string{
+//   						jsii.String("source"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
 //
 type CfnInstanceAccessControlAttributeConfiguration interface {
 	awscdk.CfnResource
@@ -51,6 +65,11 @@ type CfnInstanceAccessControlAttributeConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes.
+	// Deprecated: this property has been deprecated.
+	InstanceAccessControlAttributeConfiguration() interface{}
+	// Deprecated: this property has been deprecated.
+	SetInstanceAccessControlAttributeConfiguration(val interface{})
 	// The ARN of the IAM Identity Center instance under which the operation will be executed.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -271,6 +290,16 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) CreationStack
 	return returns
 }
 
+func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) InstanceAccessControlAttributeConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"instanceAccessControlAttributeConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) InstanceArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -342,7 +371,6 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) UpdatedProper
 }
 
 
-// Create a new `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
 func NewCfnInstanceAccessControlAttributeConfiguration(scope constructs.Construct, id *string, props *CfnInstanceAccessControlAttributeConfigurationProps) CfnInstanceAccessControlAttributeConfiguration {
 	_init_.Initialize()
 
@@ -360,7 +388,6 @@ func NewCfnInstanceAccessControlAttributeConfiguration(scope constructs.Construc
 	return &j
 }
 
-// Create a new `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
 func NewCfnInstanceAccessControlAttributeConfiguration_Override(c CfnInstanceAccessControlAttributeConfiguration, scope constructs.Construct, id *string, props *CfnInstanceAccessControlAttributeConfigurationProps) {
 	_init_.Initialize()
 
@@ -378,6 +405,17 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration)SetAccessContr
 	_jsii_.Set(
 		j,
 		"accessControlAttributes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration)SetInstanceAccessControlAttributeConfiguration(val interface{}) {
+	if err := j.validateSetInstanceAccessControlAttributeConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"instanceAccessControlAttributeConfiguration",
 		val,
 	)
 }

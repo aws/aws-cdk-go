@@ -29,12 +29,18 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html
+//
 type CfnSiteProps struct {
 	// The ID of the global network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
+	//
 	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// A description of your site.
 	//
 	// Constraints: Maximum length of 256 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The site location.
 	//
@@ -43,8 +49,12 @@ type CfnSiteProps struct {
 	// - `Address` : The physical address of the site.
 	// - `Latitude` : The latitude of the site.
 	// - `Longitude` : The longitude of the site.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
+	//
 	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// The tags for the site.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

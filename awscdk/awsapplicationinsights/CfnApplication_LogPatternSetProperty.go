@@ -19,12 +19,18 @@ package awsapplicationinsights
 //   	PatternSetName: jsii.String("patternSetName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
+//
 type CfnApplication_LogPatternSetProperty struct {
 	// A list of objects that define the log patterns that belong to `LogPatternSet` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
+	//
 	LogPatterns interface{} `field:"required" json:"logPatterns" yaml:"logPatterns"`
 	// The name of the log pattern.
 	//
 	// A log pattern name can contain up to 30 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
+	//
 	PatternSetName *string `field:"required" json:"patternSetName" yaml:"patternSetName"`
 }
 

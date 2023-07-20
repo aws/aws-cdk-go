@@ -164,40 +164,60 @@ package awspinpoint
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html
+//
 type CfnCampaign_MessageConfigurationProperty struct {
 	// The message that the campaign sends through the ADM (Amazon Device Messaging) channel.
 	//
 	// If specified, this message overrides the default message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-admmessage
+	//
 	AdmMessage interface{} `field:"optional" json:"admMessage" yaml:"admMessage"`
 	// The message that the campaign sends through the APNs (Apple Push Notification service) channel.
 	//
 	// If specified, this message overrides the default message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-apnsmessage
+	//
 	ApnsMessage interface{} `field:"optional" json:"apnsMessage" yaml:"apnsMessage"`
 	// The message that the campaign sends through the Baidu (Baidu Cloud Push) channel.
 	//
 	// If specified, this message overrides the default message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-baidumessage
+	//
 	BaiduMessage interface{} `field:"optional" json:"baiduMessage" yaml:"baiduMessage"`
 	// The message that the campaign sends through a custom channel, as specified by the delivery configuration ( `CustomDeliveryConfiguration` ) settings for the campaign.
 	//
 	// If specified, this message overrides the default message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-custommessage
+	//
 	CustomMessage interface{} `field:"optional" json:"customMessage" yaml:"customMessage"`
 	// The default message that the campaign sends through all the channels that are configured for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-defaultmessage
+	//
 	DefaultMessage interface{} `field:"optional" json:"defaultMessage" yaml:"defaultMessage"`
 	// The message that the campaign sends through the email channel.
 	//
 	// If specified, this message overrides the default message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-emailmessage
+	//
 	EmailMessage interface{} `field:"optional" json:"emailMessage" yaml:"emailMessage"`
 	// The message that the campaign sends through the GCM channel, which enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
 	//
 	// If specified, this message overrides the default message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-gcmmessage
+	//
 	GcmMessage interface{} `field:"optional" json:"gcmMessage" yaml:"gcmMessage"`
 	// The default message for the in-app messaging channel.
 	//
 	// This message overrides the default message ( `DefaultMessage` ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-inappmessage
+	//
 	InAppMessage interface{} `field:"optional" json:"inAppMessage" yaml:"inAppMessage"`
 	// The message that the campaign sends through the SMS channel.
 	//
 	// If specified, this message overrides the default message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-smsmessage
+	//
 	SmsMessage interface{} `field:"optional" json:"smsMessage" yaml:"smsMessage"`
 }
 

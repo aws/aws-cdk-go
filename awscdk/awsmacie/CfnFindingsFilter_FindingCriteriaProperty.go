@@ -27,8 +27,12 @@ package awsmacie
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html
+//
 type CfnFindingsFilter_FindingCriteriaProperty struct {
 	// Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
+	//
 	Criterion interface{} `field:"optional" json:"criterion" yaml:"criterion"`
 }
 

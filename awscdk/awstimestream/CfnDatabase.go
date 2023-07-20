@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Timestream::Database`.
+// Creates a new Timestream database.
 //
-// Creates a new Timestream database. If the AWS KMS key is not specified, the database will be encrypted with a Timestream managed AWS KMS key located in your account. Refer to [AWS managed AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html) . See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html) for details.
+// If the AWS KMS key is not specified, the database will be encrypted with a Timestream managed AWS KMS key located in your account. Refer to [AWS managed AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html) . See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html) for details.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,9 +29,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html
+//
 type CfnDatabase interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The `arn` of the database.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -44,8 +47,6 @@ type CfnDatabase interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the Timestream database.
-	//
-	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
 	DatabaseName() *string
 	SetDatabaseName(val *string)
 	// The identifier of the AWS KMS key used to encrypt the data stored in the database.
@@ -72,8 +73,11 @@ type CfnDatabase interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to add to the database.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to add to the database.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -218,6 +222,7 @@ type CfnDatabase interface {
 type jsiiProxy_CfnDatabase struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDatabase) AttrArn() *string {
@@ -340,6 +345,16 @@ func (j *jsiiProxy_CfnDatabase) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDatabase) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDatabase) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -361,7 +376,6 @@ func (j *jsiiProxy_CfnDatabase) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Timestream::Database`.
 func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabaseProps) CfnDatabase {
 	_init_.Initialize()
 
@@ -379,7 +393,6 @@ func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabasePr
 	return &j
 }
 
-// Create a new `AWS::Timestream::Database`.
 func NewCfnDatabase_Override(c CfnDatabase, scope constructs.Construct, id *string, props *CfnDatabaseProps) {
 	_init_.Initialize()
 
@@ -402,6 +415,17 @@ func (j *jsiiProxy_CfnDatabase)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDatabase)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

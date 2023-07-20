@@ -13,10 +13,16 @@ package awsnimblestudio
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html
+//
 type CfnStudioComponent_ScriptParameterKeyValueProperty struct {
 	// A script parameter key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// A script parameter value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

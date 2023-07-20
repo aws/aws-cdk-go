@@ -37,14 +37,22 @@ package awskinesisanalytics
 //   	RecordEncoding: jsii.String("recordEncoding"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html
+//
 type CfnApplicationReferenceDataSource_ReferenceSchemaProperty struct {
 	// A list of RecordColumn objects.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalytics-applicationreferencedatasource-referenceschema-recordcolumns
+	//
 	RecordColumns interface{} `field:"required" json:"recordColumns" yaml:"recordColumns"`
 	// Specifies the format of the records on the reference source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalytics-applicationreferencedatasource-referenceschema-recordformat
+	//
 	RecordFormat interface{} `field:"required" json:"recordFormat" yaml:"recordFormat"`
 	// Specifies the encoding of the records in the reference source.
 	//
 	// For example, UTF-8.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalytics-applicationreferencedatasource-referenceschema-recordencoding
+	//
 	RecordEncoding *string `field:"optional" json:"recordEncoding" yaml:"recordEncoding"`
 }
 

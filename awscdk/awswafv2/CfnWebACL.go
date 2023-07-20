@@ -9,23 +9,22 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFv2::WebACL`.
+// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019.
 //
-// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+// For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
 // Use an `WebACL` to define a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you specify a default action to take (allow, block) for any request that doesn't match any of the rules. The rules in a web ACL can contain rule statements that you define explicitly and rule statements that reference rule groups and managed rule groups. You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer , an AWS AppSync GraphQL API , an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance.
 //
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
+//
 type CfnWebACL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Specifies custom configurations for the associations between the web ACL and protected resources.
-	//
-	// Use this to customize the maximum size of the request body that your protected CloudFront distributions forward to AWS WAF for inspection. The default is 16 KB (16,384 kilobytes).
-	//
-	// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
 	AssociationConfig() interface{}
 	SetAssociationConfig(val interface{})
 	// The Amazon Resource Name (ARN) of the web ACL.
@@ -45,8 +44,6 @@ type CfnWebACL interface {
 	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 	AttrLabelNamespace() *string
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings.
-	//
-	// If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
 	CaptchaConfig() interface{}
 	SetCaptchaConfig(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -55,8 +52,6 @@ type CfnWebACL interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings.
-	//
-	// If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
 	ChallengeConfig() interface{}
 	SetChallengeConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -64,12 +59,6 @@ type CfnWebACL interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A map of custom response keys and content bodies.
-	//
-	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
-	//
-	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-	//
-	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies() interface{}
 	SetCustomResponseBodies(val interface{})
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
@@ -89,8 +78,6 @@ type CfnWebACL interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the web ACL.
-	//
-	// You cannot change the name of a web ACL after you create it.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -101,32 +88,21 @@ type CfnWebACL interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
-	//
-	// Each rule includes one top-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
 	Rules() interface{}
 	SetRules(val interface{})
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
-	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
-	//
-	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
-	//
-	// For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
 	Scope() *string
 	SetScope(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key:value pairs associated with an AWS resource.
-	//
-	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	//
-	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key:value pairs associated with an AWS resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Specifies the domains that AWS WAF should accept in a web request token.
-	//
-	// This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
 	TokenDomains() *[]*string
 	SetTokenDomains(val *[]*string)
 	// Deprecated.
@@ -276,6 +252,7 @@ type CfnWebACL interface {
 type jsiiProxy_CfnWebACL struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnWebACL) AssociationConfig() interface{} {
@@ -498,6 +475,16 @@ func (j *jsiiProxy_CfnWebACL) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebACL) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebACL) TokenDomains() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -539,7 +526,6 @@ func (j *jsiiProxy_CfnWebACL) VisibilityConfig() interface{} {
 }
 
 
-// Create a new `AWS::WAFv2::WebACL`.
 func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
 	_init_.Initialize()
 
@@ -557,7 +543,6 @@ func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps)
 	return &j
 }
 
-// Create a new `AWS::WAFv2::WebACL`.
 func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, props *CfnWebACLProps) {
 	_init_.Initialize()
 
@@ -657,6 +642,17 @@ func (j *jsiiProxy_CfnWebACL)SetScope(val *string) {
 	_jsii_.Set(
 		j,
 		"scope",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWebACL)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

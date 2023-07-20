@@ -16,8 +16,12 @@ package awsservicediscovery
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-properties.html
+//
 type CfnPrivateDnsNamespace_PropertiesProperty struct {
 	// DNS properties for the private DNS namespace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-properties.html#cfn-servicediscovery-privatednsnamespace-properties-dnsproperties
+	//
 	DnsProperties interface{} `field:"optional" json:"dnsProperties" yaml:"dnsProperties"`
 }
 

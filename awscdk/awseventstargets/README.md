@@ -383,6 +383,7 @@ to set tags on the triggered task.
 
 ```go
 import ecs "github.com/aws/aws-cdk-go/awscdk"
+
 var cluster iCluster
 var taskDefinition taskDefinition
 
@@ -412,11 +413,11 @@ If you want to detach the public IP address from the task, you have to set the f
 You can specify the flag `true` only when the launch type is set to FARGATE.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import ecs "github.com/aws/aws-cdk-go/awscdk"
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+
 var cluster iCluster
 var taskDefinition taskDefinition
-var rule rule
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
@@ -429,7 +430,7 @@ targets.NewEcsTask(&EcsTaskProps{
 	TaskDefinition: TaskDefinition,
 	AssignPublicIp: jsii.Boolean(true),
 	SubnetSelection: &SubnetSelection{
-		SubnetType: ec2.subnetType_PUBLIC,
+		SubnetType: ec2.SubnetType_PUBLIC,
 	},
 }))
 ```
@@ -440,6 +441,7 @@ If you use Amazon ECS Exec, you can run commands in or get a shell to a containe
 
 ```go
 import ecs "github.com/aws/aws-cdk-go/awscdk"
+
 var cluster iCluster
 var taskDefinition taskDefinition
 

@@ -84,11 +84,19 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetDatastoreTypeVersionParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore) validateSetIdentityProviderConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore) validateSetPreloadDataConfigParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnFHIRDatastore) validateSetSseConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFHIRDatastore) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

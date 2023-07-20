@@ -20,8 +20,12 @@ package awswafv2
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-singleheader.html
+//
 type CfnLoggingConfiguration_SingleHeaderProperty struct {
 	// The name of the query header to inspect.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-singleheader.html#cfn-wafv2-loggingconfiguration-singleheader-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

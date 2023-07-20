@@ -81,16 +81,28 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html
+//
 type CfnSignalCatalogProps struct {
 	// (Optional) A brief description of the signal catalog.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// (Optional) The name of the signal catalog.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// (Optional) Information about the number of nodes and node types in a vehicle network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-nodecounts
+	//
 	NodeCounts interface{} `field:"optional" json:"nodeCounts" yaml:"nodeCounts"`
 	// (Optional) A list of information about nodes, which are a general abstraction of signals.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-nodes
+	//
 	Nodes interface{} `field:"optional" json:"nodes" yaml:"nodes"`
 	// (Optional) Metadata that can be used to manage the signal catalog.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

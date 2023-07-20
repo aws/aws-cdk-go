@@ -18,12 +18,18 @@ package awsmediapackage
 //
 //   		// the properties below are optional
 //   		EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   			PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   			PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   		},
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
+//
 type CfnPackagingConfiguration_CmafEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
+	//
 	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 }
 

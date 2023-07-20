@@ -12,6 +12,8 @@ package awsdatasync
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html
+//
 type CfnLocationNFS_MountOptionsProperty struct {
 	// Specifies the NFS version that you want DataSync to use when mounting your NFS share.
 	//
@@ -25,6 +27,8 @@ type CfnLocationNFS_MountOptionsProperty struct {
 	// - `NFSv4_1` : Stateful protocol version that supports sessions, directory delegations, and parallel data processing. NFS version 4.1 also includes all features available in version 4.0.
 	//
 	// > DataSync currently only supports NFS version 3 with Amazon FSx for NetApp ONTAP locations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html#cfn-datasync-locationnfs-mountoptions-version
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

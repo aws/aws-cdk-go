@@ -54,10 +54,16 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html
+//
 type CfnGatewayRoute_GrpcGatewayRouteProperty struct {
 	// An object that represents the action to take if a match is determined.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-action
+	//
 	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An object that represents the criteria for determining a request match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-match
+	//
 	Match interface{} `field:"required" json:"match" yaml:"match"`
 }
 

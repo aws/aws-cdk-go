@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnStoredQuery) validateSetQueryNameParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnStoredQuery) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnStoredQueryParameters(scope constructs.Construct, id *string, props *CfnStoredQueryProps) error {
 	return nil
 }

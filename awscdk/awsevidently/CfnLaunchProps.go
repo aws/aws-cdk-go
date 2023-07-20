@@ -79,30 +79,48 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html
+//
 type CfnLaunchProps struct {
 	// An array of structures that contains the feature and variations that are to be used for the launch.
 	//
 	// You can up to five launch groups in a launch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-groups
+	//
 	Groups interface{} `field:"required" json:"groups" yaml:"groups"`
 	// The name for the launch.
 	//
 	// It can include up to 127 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The name or ARN of the project that you want to create the launch in.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-project
+	//
 	Project *string `field:"required" json:"project" yaml:"project"`
 	// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-scheduledsplitsconfig
+	//
 	ScheduledSplitsConfig interface{} `field:"required" json:"scheduledSplitsConfig" yaml:"scheduledSplitsConfig"`
 	// An optional description for the launch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A structure that you can use to start and stop the launch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-executionstatus
+	//
 	ExecutionStatus interface{} `field:"optional" json:"executionStatus" yaml:"executionStatus"`
 	// An array of structures that define the metrics that will be used to monitor the launch performance.
 	//
 	// You can have up to three metric monitors in the array.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-metricmonitors
+	//
 	MetricMonitors interface{} `field:"optional" json:"metricMonitors" yaml:"metricMonitors"`
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served.
 	//
 	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-randomizationsalt
+	//
 	RandomizationSalt *string `field:"optional" json:"randomizationSalt" yaml:"randomizationSalt"`
 	// Assigns one or more tags (key-value pairs) to the launch.
 	//
@@ -113,6 +131,8 @@ type CfnLaunchProps struct {
 	// You can associate as many as 50 tags with a launch.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

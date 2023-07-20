@@ -13,6 +13,8 @@ package awsmedialive
 //   mediaPackageOutputSettingsProperty := &MediaPackageOutputSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputsettings.html
+//
 type CfnChannel_MediaPackageOutputSettingsProperty struct {
 }
 

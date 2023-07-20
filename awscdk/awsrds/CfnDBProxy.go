@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::DBProxy`.
-//
 // The `AWS::RDS::DBProxy` resource creates or updates a DB proxy.
 //
 // For information about RDS Proxy for Amazon RDS, see [Managing Connections with Amazon RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html) in the *Amazon RDS User Guide* .
@@ -60,6 +58,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
+//
 type CfnDBProxy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -82,25 +82,15 @@ type CfnDBProxy interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The identifier for the proxy.
-	//
-	// This name must be unique for all proxies owned by your AWS account in the specified AWS Region . An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyName() *string
 	SetDbProxyName(val *string)
 	// Whether the proxy includes detailed information about SQL statements in its logs.
-	//
-	// This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
 	DebugLogging() interface{}
 	SetDebugLogging(val interface{})
 	// The kinds of databases that the proxy can connect to.
-	//
-	// This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL` . For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL` . For RDS for Microsoft SQL Server, specify `SQLSERVER` .
-	//
-	// *Valid values* : `MYSQL` | `POSTGRESQL` | `SQLSERVER`.
 	EngineFamily() *string
 	SetEngineFamily(val *string)
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
-	//
-	// You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout() *float64
 	SetIdleClientTimeout(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -121,8 +111,6 @@ type CfnDBProxy interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-	//
-	// By enabling this setting, you can enforce encrypted TLS connections to the proxy.
 	RequireTls() interface{}
 	SetRequireTls(val interface{})
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
@@ -149,8 +137,6 @@ type CfnDBProxy interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// One or more VPC security group IDs to associate with the new proxy.
-	//
-	// If you plan to update the resource, don't specify VPC security groups in a shared VPC.
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
 	// One or more VPC subnet IDs to associate with the new proxy.
@@ -520,7 +506,6 @@ func (j *jsiiProxy_CfnDBProxy) VpcSubnetIds() *[]*string {
 }
 
 
-// Create a new `AWS::RDS::DBProxy`.
 func NewCfnDBProxy(scope constructs.Construct, id *string, props *CfnDBProxyProps) CfnDBProxy {
 	_init_.Initialize()
 
@@ -538,7 +523,6 @@ func NewCfnDBProxy(scope constructs.Construct, id *string, props *CfnDBProxyProp
 	return &j
 }
 
-// Create a new `AWS::RDS::DBProxy`.
 func NewCfnDBProxy_Override(c CfnDBProxy, scope constructs.Construct, id *string, props *CfnDBProxyProps) {
 	_init_.Initialize()
 

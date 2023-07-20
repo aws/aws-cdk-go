@@ -31,10 +31,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-conditionalformattingcolor.html
+//
 type CfnDashboard_ConditionalFormattingColorProperty struct {
 	// Formatting configuration for gradient color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-conditionalformattingcolor.html#cfn-quicksight-dashboard-conditionalformattingcolor-gradient
+	//
 	Gradient interface{} `field:"optional" json:"gradient" yaml:"gradient"`
 	// Formatting configuration for solid color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-conditionalformattingcolor.html#cfn-quicksight-dashboard-conditionalformattingcolor-solid
+	//
 	Solid interface{} `field:"optional" json:"solid" yaml:"solid"`
 }
 

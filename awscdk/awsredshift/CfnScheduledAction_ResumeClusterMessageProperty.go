@@ -14,8 +14,12 @@ package awsredshift
 //   	ClusterIdentifier: jsii.String("clusterIdentifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html
+//
 type CfnScheduledAction_ResumeClusterMessageProperty struct {
 	// The identifier of the cluster to be resumed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html#cfn-redshift-scheduledaction-resumeclustermessage-clusteridentifier
+	//
 	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 }
 

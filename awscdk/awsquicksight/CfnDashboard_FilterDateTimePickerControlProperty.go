@@ -35,19 +35,31 @@ package awsquicksight
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterdatetimepickercontrol.html
+//
 type CfnDashboard_FilterDateTimePickerControlProperty struct {
 	// The ID of the `FilterDateTimePickerControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterdatetimepickercontrol.html#cfn-quicksight-dashboard-filterdatetimepickercontrol-filtercontrolid
+	//
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
 	// The source filter ID of the `FilterDateTimePickerControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterdatetimepickercontrol.html#cfn-quicksight-dashboard-filterdatetimepickercontrol-sourcefilterid
+	//
 	SourceFilterId *string `field:"required" json:"sourceFilterId" yaml:"sourceFilterId"`
 	// The title of the `FilterDateTimePickerControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterdatetimepickercontrol.html#cfn-quicksight-dashboard-filterdatetimepickercontrol-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// The display options of a control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterdatetimepickercontrol.html#cfn-quicksight-dashboard-filterdatetimepickercontrol-displayoptions
+	//
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 	// The date time picker type of a `FilterDateTimePickerControl` . Choose one of the following options:.
 	//
 	// - `SINGLE_VALUED` : The filter condition is a fixed date.
 	// - `DATE_RANGE` : The filter condition is a date time range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterdatetimepickercontrol.html#cfn-quicksight-dashboard-filterdatetimepickercontrol-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

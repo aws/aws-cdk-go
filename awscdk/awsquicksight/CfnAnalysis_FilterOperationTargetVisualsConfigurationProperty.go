@@ -19,8 +19,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filteroperationtargetvisualsconfiguration.html
+//
 type CfnAnalysis_FilterOperationTargetVisualsConfigurationProperty struct {
 	// The configuration of the same-sheet target visuals that you want to be filtered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filteroperationtargetvisualsconfiguration.html#cfn-quicksight-analysis-filteroperationtargetvisualsconfiguration-samesheettargetvisualconfiguration
+	//
 	SameSheetTargetVisualConfiguration interface{} `field:"optional" json:"sameSheetTargetVisualConfiguration" yaml:"sameSheetTargetVisualConfiguration"`
 }
 

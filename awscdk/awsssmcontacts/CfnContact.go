@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSMContacts::Contact`.
+// The `AWS::SSMContacts::Contact` resource specifies a contact or escalation plan.
 //
-// The `AWS::SSMContacts::Contact` resource specifies a contact or escalation plan. Incident Manager contacts are a subset of actions and data types that you can use for managing responder engagement and interaction.
+// Incident Manager contacts are a subset of actions and data types that you can use for managing responder engagement and interaction.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,6 +46,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html
+//
 type CfnContact interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -79,8 +81,6 @@ type CfnContact interface {
 	// The tree node.
 	Node() constructs.Node
 	// A list of stages.
-	//
-	// A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
 	Plan() interface{}
 	SetPlan(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -93,10 +93,6 @@ type CfnContact interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Refers to the type of contact:.
-	//
-	// - `PERSONAL` : A single, individual contact.
-	// - `ESCALATION` : An escalation plan.
-	// - `ONCALL_SCHEDULE` : An on-call schedule.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -396,7 +392,6 @@ func (j *jsiiProxy_CfnContact) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SSMContacts::Contact`.
 func NewCfnContact(scope constructs.Construct, id *string, props *CfnContactProps) CfnContact {
 	_init_.Initialize()
 
@@ -414,7 +409,6 @@ func NewCfnContact(scope constructs.Construct, id *string, props *CfnContactProp
 	return &j
 }
 
-// Create a new `AWS::SSMContacts::Contact`.
 func NewCfnContact_Override(c CfnContact, scope constructs.Construct, id *string, props *CfnContactProps) {
 	_init_.Initialize()
 

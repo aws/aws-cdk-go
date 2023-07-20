@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTable) validateSetLocalGatewayIdParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocalGatewayRouteTable) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLocalGatewayRouteTableParameters(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableProps) error {
 	return nil
 }

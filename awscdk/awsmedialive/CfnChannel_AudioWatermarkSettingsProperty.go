@@ -26,8 +26,12 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiowatermarksettings.html
+//
 type CfnChannel_AudioWatermarkSettingsProperty struct {
 	// Settings to configure Nielsen Watermarks in the audio encode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiowatermarksettings.html#cfn-medialive-channel-audiowatermarksettings-nielsenwatermarkssettings
+	//
 	NielsenWatermarksSettings interface{} `field:"optional" json:"nielsenWatermarksSettings" yaml:"nielsenWatermarksSettings"`
 }
 

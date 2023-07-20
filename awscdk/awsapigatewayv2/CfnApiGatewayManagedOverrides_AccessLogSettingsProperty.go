@@ -13,12 +13,18 @@ package awsapigatewayv2
 //   	Format: jsii.String("format"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings.html
+//
 type CfnApiGatewayManagedOverrides_AccessLogSettingsProperty struct {
 	// The ARN of the CloudWatch Logs log group to receive access logs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings-destinationarn
+	//
 	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// A single line format of the access logs of data, as specified by selected $context variables.
 	//
 	// The format must include at least $context.requestId.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings-format
+	//
 	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 

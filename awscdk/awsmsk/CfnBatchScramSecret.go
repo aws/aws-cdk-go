@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MSK::BatchScramSecret`.
+// Resource Type definition for AWS::MSK::BatchScramSecret.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,6 +25,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html
+//
 type CfnBatchScramSecret interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -33,7 +35,6 @@ type CfnBatchScramSecret interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::MSK::BatchScramSecret.ClusterArn`.
 	ClusterArn() *string
 	SetClusterArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -57,7 +58,6 @@ type CfnBatchScramSecret interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::MSK::BatchScramSecret.SecretArnList`.
 	SecretArnList() *[]*string
 	SetSecretArnList(val *[]*string)
 	// The stack in which this element is defined.
@@ -331,7 +331,6 @@ func (j *jsiiProxy_CfnBatchScramSecret) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::MSK::BatchScramSecret`.
 func NewCfnBatchScramSecret(scope constructs.Construct, id *string, props *CfnBatchScramSecretProps) CfnBatchScramSecret {
 	_init_.Initialize()
 
@@ -349,7 +348,6 @@ func NewCfnBatchScramSecret(scope constructs.Construct, id *string, props *CfnBa
 	return &j
 }
 
-// Create a new `AWS::MSK::BatchScramSecret`.
 func NewCfnBatchScramSecret_Override(c CfnBatchScramSecret, scope constructs.Construct, id *string, props *CfnBatchScramSecretProps) {
 	_init_.Initialize()
 

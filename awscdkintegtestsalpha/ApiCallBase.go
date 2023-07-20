@@ -27,6 +27,10 @@ type ApiCallBase interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// Experimental.
+	OutputPaths() *[]*string
+	// Experimental.
+	SetOutputPaths(val *[]*string)
 	// access the AssertionsProvider.
 	//
 	// This can be used to add additional IAM policies
@@ -124,6 +128,16 @@ func (j *jsiiProxy_ApiCallBase) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_ApiCallBase) OutputPaths() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"outputPaths",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ApiCallBase) Provider() AssertionsProvider {
 	var returns AssertionsProvider
 	_jsii_.Get(
@@ -171,6 +185,14 @@ func (j *jsiiProxy_ApiCallBase)SetFlattenResponse(val *string) {
 	_jsii_.Set(
 		j,
 		"flattenResponse",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ApiCallBase)SetOutputPaths(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"outputPaths",
 		val,
 	)
 }

@@ -16,8 +16,12 @@ package awsses
 //   	CustomRedirectDomain: jsii.String("customRedirectDomain"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html
+//
 type CfnConfigurationSet_TrackingOptionsProperty struct {
 	// The custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html#cfn-ses-configurationset-trackingoptions-customredirectdomain
+	//
 	CustomRedirectDomain *string `field:"optional" json:"customRedirectDomain" yaml:"customRedirectDomain"`
 }
 

@@ -23,14 +23,22 @@ package awswafregional
 //   	RuleId: jsii.String("ruleId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html
+//
 type CfnWebACL_RuleProperty struct {
 	// The action that AWS WAF takes when a web request matches all conditions in the rule, such as allow, block, or count the request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-action
+	//
 	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// The order in which AWS WAF evaluates the rules in a web ACL.
 	//
 	// AWS WAF evaluates rules with a lower value before rules with a higher value. The value must be a unique integer. If you have multiple rules in a web ACL, the priority numbers do not need to be consecutive.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-priority
+	//
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The ID of an AWS WAF Regional rule to associate with a web ACL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-ruleid
+	//
 	RuleId *string `field:"required" json:"ruleId" yaml:"ruleId"`
 }
 

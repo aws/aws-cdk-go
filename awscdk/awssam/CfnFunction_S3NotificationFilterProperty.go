@@ -17,8 +17,11 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3notificationfilter.html
+//
 type CfnFunction_S3NotificationFilterProperty struct {
-	// `CfnFunction.S3NotificationFilterProperty.S3Key`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3notificationfilter.html#cfn-serverless-function-s3notificationfilter-s3key
+	//
 	S3Key interface{} `field:"required" json:"s3Key" yaml:"s3Key"`
 }
 

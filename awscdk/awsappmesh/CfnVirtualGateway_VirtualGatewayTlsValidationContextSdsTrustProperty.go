@@ -14,8 +14,12 @@ package awsappmesh
 //   	SecretName: jsii.String("secretName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust.html
+//
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextSdsTrustProperty struct {
 	// A reference to an object that represents the name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust-secretname
+	//
 	SecretName *string `field:"required" json:"secretName" yaml:"secretName"`
 }
 

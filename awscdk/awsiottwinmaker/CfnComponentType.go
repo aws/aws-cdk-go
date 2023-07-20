@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTTwinMaker::ComponentType`.
-//
 // Use the `AWS::IoTTwinMaker::ComponentType` resource to declare a component type.
 //
 // Example:
@@ -113,9 +111,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html
+//
 type CfnComponentType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the component type.
 	AttrArn() *string
 	// The date and time when the component type was created.
@@ -124,6 +125,10 @@ type CfnComponentType interface {
 	AttrIsAbstract() awscdk.IResolvable
 	// A boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run.
 	AttrIsSchemaInitialized() awscdk.IResolvable
+	// The component type status.
+	AttrStatus() awscdk.IResolvable
+	// The component type error.
+	AttrStatusError() awscdk.IResolvable
 	// component type error code.
 	AttrStatusErrorCode() *string
 	// The component type error message.
@@ -151,10 +156,6 @@ type CfnComponentType interface {
 	ExtendsFrom() *[]*string
 	SetExtendsFrom(val *[]*string)
 	// An object that maps strings to the functions in the component type.
-	//
-	// Each string in the mapping must be unique to this object.
-	//
-	// For information on the FunctionResponse object see the [FunctionResponse](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_FunctionResponse.html) API reference.
 	Functions() interface{}
 	SetFunctions(val interface{})
 	// A boolean value that specifies whether an entity can have more than one component of this type.
@@ -173,15 +174,9 @@ type CfnComponentType interface {
 	// The tree node.
 	Node() constructs.Node
 	// An object that maps strings to the property definitions in the component type.
-	//
-	// Each string in the mapping must be unique to this object.
-	//
-	// For information about the PropertyDefinitionResponse object, see the [PropertyDefinitionResponse](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_PropertyDefinitionResponse.html) API reference.
 	PropertyDefinitions() interface{}
 	SetPropertyDefinitions(val interface{})
 	// An object that maps strings to the property groups in the component type.
-	//
-	// Each string in the mapping must be unique to this object.
 	PropertyGroups() interface{}
 	SetPropertyGroups(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -193,8 +188,11 @@ type CfnComponentType interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The ComponentType tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The ComponentType tags.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -342,6 +340,7 @@ type CfnComponentType interface {
 type jsiiProxy_CfnComponentType struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnComponentType) AttrArn() *string {
@@ -379,6 +378,26 @@ func (j *jsiiProxy_CfnComponentType) AttrIsSchemaInitialized() awscdk.IResolvabl
 	_jsii_.Get(
 		j,
 		"attrIsSchemaInitialized",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponentType) AttrStatus() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponentType) AttrStatusError() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrStatusError",
 		&returns,
 	)
 	return returns
@@ -584,6 +603,16 @@ func (j *jsiiProxy_CfnComponentType) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComponentType) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComponentType) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -615,7 +644,6 @@ func (j *jsiiProxy_CfnComponentType) WorkspaceId() *string {
 }
 
 
-// Create a new `AWS::IoTTwinMaker::ComponentType`.
 func NewCfnComponentType(scope constructs.Construct, id *string, props *CfnComponentTypeProps) CfnComponentType {
 	_init_.Initialize()
 
@@ -633,7 +661,6 @@ func NewCfnComponentType(scope constructs.Construct, id *string, props *CfnCompo
 	return &j
 }
 
-// Create a new `AWS::IoTTwinMaker::ComponentType`.
 func NewCfnComponentType_Override(c CfnComponentType, scope constructs.Construct, id *string, props *CfnComponentTypeProps) {
 	_init_.Initialize()
 
@@ -711,6 +738,14 @@ func (j *jsiiProxy_CfnComponentType)SetPropertyGroups(val interface{}) {
 	_jsii_.Set(
 		j,
 		"propertyGroups",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComponentType)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

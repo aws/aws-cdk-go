@@ -37,6 +37,18 @@ func validateLinuxArmBuildImage_FromCodeBuildImageIdParameters(id *string) error
 	return nil
 }
 
+func validateLinuxArmBuildImage_FromDockerRegistryParameters(name *string, options *DockerImageOptions) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateLinuxArmBuildImage_FromEcrRepositoryParameters(repository awsecr.IRepository) error {
 	if repository == nil {
 		return fmt.Errorf("parameter repository is required, but nil was provided")

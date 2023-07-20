@@ -57,12 +57,18 @@ package awsemr
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-autoscalingpolicy.html
+//
 type CfnInstanceGroupConfig_AutoScalingPolicyProperty struct {
 	// The upper and lower Amazon EC2 instance limits for an automatic scaling policy.
 	//
 	// Automatic scaling activity will not cause an instance group to grow above or below these limits.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-autoscalingpolicy.html#cfn-emr-instancegroupconfig-autoscalingpolicy-constraints
+	//
 	Constraints interface{} `field:"required" json:"constraints" yaml:"constraints"`
 	// The scale-in and scale-out rules that comprise the automatic scaling policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-autoscalingpolicy.html#cfn-emr-instancegroupconfig-autoscalingpolicy-rules
+	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 

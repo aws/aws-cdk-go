@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElasticLoadBalancingV2::TargetGroup`.
-//
 // Specifies a target group for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 //
 // Before you register a Lambda function as a target, you must create a `AWS::Lambda::Permission` resource that grants the Elastic Load Balancing service principal permission to invoke the Lambda function.
@@ -63,9 +61,12 @@ import (
 //   	VpcId: jsii.String("vpcId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html
+//
 type CfnTargetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the load balancer that routes traffic to this target group.
 	AttrLoadBalancerArns() *[]*string
 	// The Amazon Resource Name (ARN) of the target group.
@@ -88,45 +89,27 @@ type CfnTargetGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether health checks are enabled.
-	//
-	// If the target type is `lambda` , health checks are disabled by default but can be enabled. If the target type is `instance` , `ip` , or `alb` , health checks are always enabled and cannot be disabled.
 	HealthCheckEnabled() interface{}
 	SetHealthCheckEnabled(val interface{})
 	// The approximate amount of time, in seconds, between health checks of an individual target.
-	//
-	// The range is 5-300. If the target group protocol is TCP, TLS, UDP, TCP_UDP, HTTP or HTTPS, the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is `lambda` , the default is 35 seconds.
 	HealthCheckIntervalSeconds() *float64
 	SetHealthCheckIntervalSeconds(val *float64)
 	// [HTTP/HTTPS health checks] The destination for health checks on the targets.
-	//
-	// [HTTP1 or HTTP2 protocol version] The ping path. The default is /.
-	//
-	// [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is / AWS .ALB/healthcheck.
 	HealthCheckPath() *string
 	SetHealthCheckPath(val *string)
 	// The port the load balancer uses when performing health checks on targets.
-	//
-	// If the protocol is HTTP, HTTPS, TCP, TLS, UDP, or TCP_UDP, the default is `traffic-port` , which is the port on which each target receives traffic from the load balancer. If the protocol is GENEVE, the default is port 80.
 	HealthCheckPort() *string
 	SetHealthCheckPort(val *string)
 	// The protocol the load balancer uses when performing health checks on targets.
-	//
-	// For Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load Balancers, the default is TCP. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
 	HealthCheckProtocol() *string
 	SetHealthCheckProtocol(val *string)
 	// The amount of time, in seconds, during which no response from a target means a failed health check.
-	//
-	// The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is `lambda` , the default is 30 seconds.
 	HealthCheckTimeoutSeconds() *float64
 	SetHealthCheckTimeoutSeconds(val *float64)
 	// The number of consecutive health check successes required before considering a target healthy.
-	//
-	// The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups with a protocol of GENEVE, the default is 5. If the target type is `lambda` , the default is 5.
 	HealthyThresholdCount() *float64
 	SetHealthyThresholdCount(val *float64)
 	// The type of IP address used for this target group.
-	//
-	// The possible values are `ipv4` and `ipv6` . This is an optional parameter. If not specified, the IP address type defaults to `ipv4` .
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -140,30 +123,20 @@ type CfnTargetGroup interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
-	//
-	// For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target groups with a protocol of GENEVE, the range is 200-399.
 	Matcher() interface{}
 	SetMatcher(val interface{})
 	// The name of the target group.
-	//
-	// This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The port on which the targets receive traffic.
-	//
-	// This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
 	Port() *float64
 	SetPort(val *float64)
 	// The protocol to use for routing traffic to the targets.
-	//
-	// For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP. For Gateway Load Balancers, the supported protocol is GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a Lambda function, this parameter does not apply.
 	Protocol() *string
 	SetProtocol(val *string)
 	// [HTTP/HTTPS protocol] The protocol version.
-	//
-	// The possible values are `GRPC` , `HTTP1` , and `HTTP2` .
 	ProtocolVersion() *string
 	SetProtocolVersion(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -175,8 +148,11 @@ type CfnTargetGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The attributes.
 	TargetGroupAttributes() interface{}
 	SetTargetGroupAttributes(val interface{})
@@ -184,18 +160,9 @@ type CfnTargetGroup interface {
 	Targets() interface{}
 	SetTargets(val interface{})
 	// The type of target that you must specify when registering targets with this target group.
-	//
-	// You can't specify targets for a target group using more than one target type.
-	//
-	// - `instance` - Register targets by instance ID. This is the default value.
-	// - `ip` - Register targets by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
-	// - `lambda` - Register a single Lambda function as a target.
-	// - `alb` - Register a single Application Load Balancer as a target.
 	TargetType() *string
 	SetTargetType(val *string)
 	// The number of consecutive health check failures required before considering a target unhealthy.
-	//
-	// The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups with a protocol of GENEVE, the default is 2. If the target type is `lambda` , the default is 5.
 	UnhealthyThresholdCount() *float64
 	SetUnhealthyThresholdCount(val *float64)
 	// Deprecated.
@@ -212,8 +179,6 @@ type CfnTargetGroup interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The identifier of the virtual private cloud (VPC).
-	//
-	// If the target is a Lambda function, this parameter does not apply. Otherwise, this parameter is required.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -347,6 +312,7 @@ type CfnTargetGroup interface {
 type jsiiProxy_CfnTargetGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTargetGroup) AttrLoadBalancerArns() *[]*string {
@@ -609,6 +575,16 @@ func (j *jsiiProxy_CfnTargetGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTargetGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTargetGroup) TargetGroupAttributes() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -680,7 +656,6 @@ func (j *jsiiProxy_CfnTargetGroup) VpcId() *string {
 }
 
 
-// Create a new `AWS::ElasticLoadBalancingV2::TargetGroup`.
 func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetGroupProps) CfnTargetGroup {
 	_init_.Initialize()
 
@@ -698,7 +673,6 @@ func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetG
 	return &j
 }
 
-// Create a new `AWS::ElasticLoadBalancingV2::TargetGroup`.
 func NewCfnTargetGroup_Override(c CfnTargetGroup, scope constructs.Construct, id *string, props *CfnTargetGroupProps) {
 	_init_.Initialize()
 
@@ -815,6 +789,17 @@ func (j *jsiiProxy_CfnTargetGroup)SetProtocolVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"protocolVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTargetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

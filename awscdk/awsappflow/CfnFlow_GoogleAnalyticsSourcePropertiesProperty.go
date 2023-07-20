@@ -12,8 +12,12 @@ package awsappflow
 //   	Object: jsii.String("object"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html
+//
 type CfnFlow_GoogleAnalyticsSourcePropertiesProperty struct {
 	// The object specified in the Google Analytics flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 }
 

@@ -13,10 +13,16 @@ package awsiot
 //   	RoleArn: jsii.String("roleArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html
+//
 type CfnSecurityProfile_AlertTargetProperty struct {
 	// The Amazon Resource Name (ARN) of the notification target to which alerts are sent.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-alerttargetarn
+	//
 	AlertTargetArn *string `field:"required" json:"alertTargetArn" yaml:"alertTargetArn"`
 	// The ARN of the role that grants permission to send alerts to the notification target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 

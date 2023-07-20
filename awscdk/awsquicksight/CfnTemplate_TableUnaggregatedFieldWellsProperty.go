@@ -232,10 +232,14 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableunaggregatedfieldwells.html
+//
 type CfnTemplate_TableUnaggregatedFieldWellsProperty struct {
 	// The values field well for a pivot table.
 	//
 	// Values are unaggregated for an unaggregated table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableunaggregatedfieldwells.html#cfn-quicksight-template-tableunaggregatedfieldwells-values
+	//
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

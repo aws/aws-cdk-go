@@ -13,10 +13,16 @@ package awslookoutmetrics
 //   	RoleArn: jsii.String("roleArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html
+//
 type CfnAlert_LambdaConfigurationProperty struct {
 	// The ARN of the Lambda function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn
+	//
 	LambdaArn *string `field:"required" json:"lambdaArn" yaml:"lambdaArn"`
 	// The ARN of an IAM role that has permission to invoke the Lambda function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 

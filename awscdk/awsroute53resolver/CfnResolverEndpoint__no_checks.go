@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnResolverEndpoint) validateSetSecurityGroupIdsParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnResolverEndpointParameters(scope constructs.Construct, id *string, props *CfnResolverEndpointProps) error {
 	return nil
 }

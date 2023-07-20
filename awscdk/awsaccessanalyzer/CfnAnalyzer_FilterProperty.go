@@ -26,16 +26,28 @@ package awsaccessanalyzer
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
+//
 type CfnAnalyzer_FilterProperty struct {
 	// The property used to define the criteria in the filter for the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
+	//
 	Property *string `field:"required" json:"property" yaml:"property"`
 	// A "contains" condition to match for the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
+	//
 	Contains *[]*string `field:"optional" json:"contains" yaml:"contains"`
 	// An "equals" condition to match for the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
+	//
 	Eq *[]*string `field:"optional" json:"eq" yaml:"eq"`
 	// An "exists" condition to match for the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
+	//
 	Exists interface{} `field:"optional" json:"exists" yaml:"exists"`
 	// A "not equal" condition to match for the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
+	//
 	Neq *[]*string `field:"optional" json:"neq" yaml:"neq"`
 }
 

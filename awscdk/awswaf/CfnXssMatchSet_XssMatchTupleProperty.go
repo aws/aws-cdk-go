@@ -24,8 +24,12 @@ package awswaf
 //   	TextTransformation: jsii.String("textTransformation"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple.html
+//
 type CfnXssMatchSet_XssMatchTupleProperty struct {
 	// The part of a web request that you want to inspect, such as a specified header or a query string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple.html#cfn-waf-xssmatchset-xssmatchtuple-fieldtomatch
+	//
 	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF .
 	//
@@ -78,6 +82,8 @@ type CfnXssMatchSet_XssMatchTupleProperty struct {
 	// *NONE*
 	//
 	// Specify `NONE` if you don't want to perform any text transformations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple.html#cfn-waf-xssmatchset-xssmatchtuple-texttransformation
+	//
 	TextTransformation *string `field:"required" json:"textTransformation" yaml:"textTransformation"`
 }
 

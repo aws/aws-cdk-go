@@ -83,6 +83,8 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html
+//
 type CfnClusterProps struct {
 	// The type of the cluster. When cluster type is specified as.
 	//
@@ -92,6 +94,8 @@ type CfnClusterProps struct {
 	// Valid Values: `multi-node` | `single-node`
 	//
 	// Default: `multi-node`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustertype
+	//
 	ClusterType *string `field:"required" json:"clusterType" yaml:"clusterType"`
 	// The name of the first database to be created when the cluster is created.
 	//
@@ -104,6 +108,8 @@ type CfnClusterProps struct {
 	// - Must contain 1 to 64 alphanumeric characters.
 	// - Must contain only lowercase letters.
 	// - Cannot be a word that is reserved by the service. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
+	//
 	DbName *string `field:"required" json:"dbName" yaml:"dbName"`
 	// The user name associated with the admin user account for the cluster that is being created.
 	//
@@ -114,6 +120,8 @@ type CfnClusterProps struct {
 	// - The first character must be a letter.
 	// - Must not contain a colon (:) or a slash (/).
 	// - Cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
+	//
 	MasterUsername *string `field:"required" json:"masterUsername" yaml:"masterUsername"`
 	// The password associated with the admin user account for the cluster that is being created.
 	//
@@ -124,22 +132,30 @@ type CfnClusterProps struct {
 	// - Must contain at least one lowercase letter.
 	// - Must contain one number.
 	// - Can be any printable ASCII character (ASCII code 33-126) except `'` (single quote), `"` (double quote), `\` , `/` , or `@` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
+	//
 	MasterUserPassword *string `field:"required" json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The node type to be provisioned for the cluster.
 	//
 	// For information about node types, go to [Working with Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes) in the *Amazon Redshift Cluster Management Guide* .
 	//
 	// Valid Values: `ds2.xlarge` | `ds2.8xlarge` | `dc1.large` | `dc1.8xlarge` | `dc2.large` | `dc2.8xlarge` | `ra3.xlplus` | `ra3.4xlarge` | `ra3.16xlarge`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+	//
 	NodeType *string `field:"required" json:"nodeType" yaml:"nodeType"`
 	// If `true` , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.
 	//
 	// When a new major version of the Amazon Redshift engine is released, you can request that the service automatically apply upgrades during the maintenance window to the Amazon Redshift engine that is running on your cluster.
 	//
 	// Default: `true`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
+	//
 	AllowVersionUpgrade interface{} `field:"optional" json:"allowVersionUpgrade" yaml:"allowVersionUpgrade"`
 	// This parameter is retired.
 	//
 	// It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+	//
 	AquaConfigurationStatus *string `field:"optional" json:"aquaConfigurationStatus" yaml:"aquaConfigurationStatus"`
 	// The number of days that automated snapshots are retained.
 	//
@@ -148,6 +164,8 @@ type CfnClusterProps struct {
 	// Default: `1`
 	//
 	// Constraints: Must be a value from 0 to 35.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
+	//
 	AutomatedSnapshotRetentionPeriod *float64 `field:"optional" json:"automatedSnapshotRetentionPeriod" yaml:"automatedSnapshotRetentionPeriod"`
 	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster.
 	//
@@ -158,14 +176,22 @@ type CfnClusterProps struct {
 	// Example: `us-east-2d`
 	//
 	// Constraint: The specified Availability Zone must be in the same region as the current endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
+	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+	//
 	AvailabilityZoneRelocation interface{} `field:"optional" json:"availabilityZoneRelocation" yaml:"availabilityZoneRelocation"`
 	// Describes the status of the Availability Zone relocation operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+	//
 	AvailabilityZoneRelocationStatus *string `field:"optional" json:"availabilityZoneRelocationStatus" yaml:"availabilityZoneRelocationStatus"`
 	// A boolean value indicating whether the resize operation is using the classic resize process.
 	//
 	// If you don't provide this parameter or set the value to `false` , the resize type is elastic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+	//
 	Classic interface{} `field:"optional" json:"classic" yaml:"classic"`
 	// A unique identifier for the cluster.
 	//
@@ -180,6 +206,8 @@ type CfnClusterProps struct {
 	// - Must be unique for all clusters within an AWS account .
 	//
 	// Example: `myexamplecluster`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
+	//
 	ClusterIdentifier *string `field:"optional" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// The name of the parameter group to be associated with this cluster.
 	//
@@ -190,14 +218,20 @@ type CfnClusterProps struct {
 	// - Must be 1 to 255 alphanumeric characters or hyphens.
 	// - First character must be a letter.
 	// - Cannot end with a hyphen or contain two consecutive hyphens.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
+	//
 	ClusterParameterGroupName *string `field:"optional" json:"clusterParameterGroupName" yaml:"clusterParameterGroupName"`
 	// A list of security groups to be associated with this cluster.
 	//
 	// Default: The default cluster security group for Amazon Redshift.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
+	//
 	ClusterSecurityGroups *[]*string `field:"optional" json:"clusterSecurityGroups" yaml:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster.
 	//
 	// If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersubnetgroupname
+	//
 	ClusterSubnetGroupName *string `field:"optional" json:"clusterSubnetGroupName" yaml:"clusterSubnetGroupName"`
 	// The version of the Amazon Redshift engine software that you want to deploy on the cluster.
 	//
@@ -206,28 +240,46 @@ type CfnClusterProps struct {
 	// Constraints: Only version 1.0 is currently available.
 	//
 	// Example: `1.0`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterversion
+	//
 	ClusterVersion *string `field:"optional" json:"clusterVersion" yaml:"clusterVersion"`
 	// A Boolean indicating whether to enable the deferred maintenance window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+	//
 	DeferMaintenance interface{} `field:"optional" json:"deferMaintenance" yaml:"deferMaintenance"`
 	// An integer indicating the duration of the maintenance window in days.
 	//
 	// If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+	//
 	DeferMaintenanceDuration *float64 `field:"optional" json:"deferMaintenanceDuration" yaml:"deferMaintenanceDuration"`
 	// A timestamp for the end of the time period when we defer maintenance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+	//
 	DeferMaintenanceEndTime *string `field:"optional" json:"deferMaintenanceEndTime" yaml:"deferMaintenanceEndTime"`
 	// A timestamp indicating the start time for the deferred maintenance window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+	//
 	DeferMaintenanceStartTime *string `field:"optional" json:"deferMaintenanceStartTime" yaml:"deferMaintenanceStartTime"`
 	// The destination region that snapshots are automatically copied to when cross-region snapshot copy is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+	//
 	DestinationRegion *string `field:"optional" json:"destinationRegion" yaml:"destinationRegion"`
 	// The Elastic IP (EIP) address for the cluster.
 	//
 	// Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. Don't specify the Elastic IP address for a publicly accessible cluster with availability zone relocation turned on. For more information about provisioning clusters in EC2-VPC, go to [Supported Platforms to Launch Your Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms) in the Amazon Redshift Cluster Management Guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
+	//
 	ElasticIp *string `field:"optional" json:"elasticIp" yaml:"elasticIp"`
 	// If `true` , the data in the cluster is encrypted at rest.
 	//
 	// Default: false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
+	//
 	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The connection endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+	//
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled.
 	//
@@ -236,30 +288,46 @@ type CfnClusterProps struct {
 	// If this option is `true` , enhanced VPC routing is enabled.
 	//
 	// Default: false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+	//
 	EnhancedVpcRouting interface{} `field:"optional" json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
 	// Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
+	//
 	HsmClientCertificateIdentifier *string `field:"optional" json:"hsmClientCertificateIdentifier" yaml:"hsmClientCertificateIdentifier"`
 	// Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
+	//
 	HsmConfigurationIdentifier *string `field:"optional" json:"hsmConfigurationIdentifier" yaml:"hsmConfigurationIdentifier"`
 	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 	//
 	// You must supply the IAM roles in their Amazon Resource Name (ARN) format.
 	//
 	// The maximum number of IAM roles that you can associate is subject to a quota. For more information, go to [Quotas and limits](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
+	//
 	IamRoles *[]*string `field:"optional" json:"iamRoles" yaml:"iamRoles"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
+	//
 	LoggingProperties interface{} `field:"optional" json:"loggingProperties" yaml:"loggingProperties"`
 	// An optional parameter for the name of the maintenance track for the cluster.
 	//
 	// If you don't provide a maintenance track name, the cluster is assigned to the `current` track.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+	//
 	MaintenanceTrackName *string `field:"optional" json:"maintenanceTrackName" yaml:"maintenanceTrackName"`
 	// The default number of days to retain a manual snapshot.
 	//
 	// If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+	//
 	ManualSnapshotRetentionPeriod *float64 `field:"optional" json:"manualSnapshotRetentionPeriod" yaml:"manualSnapshotRetentionPeriod"`
 	// The number of compute nodes in the cluster.
 	//
@@ -272,10 +340,14 @@ type CfnClusterProps struct {
 	// Default: `1`
 	//
 	// Constraints: Value must be at least 1 and no more than 100.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
+	//
 	NumberOfNodes *float64 `field:"optional" json:"numberOfNodes" yaml:"numberOfNodes"`
 	// The AWS account used to create or copy the snapshot.
 	//
 	// Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-owneraccount
+	//
 	OwnerAccount *string `field:"optional" json:"ownerAccount" yaml:"ownerAccount"`
 	// The port number on which the cluster accepts incoming connections.
 	//
@@ -284,6 +356,8 @@ type CfnClusterProps struct {
 	// Default: `5439`
 	//
 	// Valid Values: `1150-65535`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	//
@@ -294,24 +368,40 @@ type CfnClusterProps struct {
 	// Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 	//
 	// Constraints: Minimum 30-minute window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
+	//
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// If `true` , the cluster can be accessed from a public network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
+	//
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The Amazon Redshift operation to be performed.
 	//
 	// Supported operations are `pause-cluster` and `resume-cluster` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+	//
 	ResourceAction *string `field:"optional" json:"resourceAction" yaml:"resourceAction"`
 	// Describes a `RevisionTarget` object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+	//
 	RevisionTarget *string `field:"optional" json:"revisionTarget" yaml:"revisionTarget"`
 	// Rotates the encryption keys for a cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+	//
 	RotateEncryptionKey interface{} `field:"optional" json:"rotateEncryptionKey" yaml:"rotateEncryptionKey"`
 	// The name of the cluster the source snapshot was created from.
 	//
 	// This parameter is required if your user or role has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
+	//
 	SnapshotClusterIdentifier *string `field:"optional" json:"snapshotClusterIdentifier" yaml:"snapshotClusterIdentifier"`
 	// The name of the snapshot copy grant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+	//
 	SnapshotCopyGrantName *string `field:"optional" json:"snapshotCopyGrantName" yaml:"snapshotCopyGrantName"`
 	// Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+	//
 	SnapshotCopyManual interface{} `field:"optional" json:"snapshotCopyManual" yaml:"snapshotCopyManual"`
 	// The number of days to retain automated snapshots in the destination AWS Region after they are copied from the source AWS Region .
 	//
@@ -326,18 +416,26 @@ type CfnClusterProps struct {
 	// If you specify the value of -1 newly copied manual snapshots are retained indefinitely.
 	//
 	// Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+	//
 	SnapshotCopyRetentionPeriod *float64 `field:"optional" json:"snapshotCopyRetentionPeriod" yaml:"snapshotCopyRetentionPeriod"`
 	// The name of the snapshot from which to create the new cluster.
 	//
 	// This parameter isn't case sensitive. You must specify this parameter or `snapshotArn` , but not both.
 	//
 	// Example: `my-snapshot-id`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
+	//
 	SnapshotIdentifier *string `field:"optional" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// A list of tag instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	//
 	// Default: The default VPC security group is associated with the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
+	//
 	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 

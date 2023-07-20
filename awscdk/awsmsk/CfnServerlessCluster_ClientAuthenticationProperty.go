@@ -16,10 +16,14 @@ package awsmsk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-clientauthentication.html
+//
 type CfnServerlessCluster_ClientAuthenticationProperty struct {
 	// Details for client authentication using SASL.
 	//
 	// To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-clientauthentication.html#cfn-msk-serverlesscluster-clientauthentication-sasl
+	//
 	Sasl interface{} `field:"required" json:"sasl" yaml:"sasl"`
 }
 

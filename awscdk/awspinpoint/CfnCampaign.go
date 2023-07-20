@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::Campaign`.
+// Specifies the settings for a campaign.
 //
-// Specifies the settings for a campaign. A *campaign* is a messaging initiative that engages a specific segment of users for an Amazon Pinpoint application.
+// A *campaign* is a messaging initiative that engages a specific segment of users for an Amazon Pinpoint application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -460,9 +460,12 @@ import (
 //   	TreatmentName: jsii.String("treatmentName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html
+//
 type CfnCampaign interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
 	AdditionalTreatments() interface{}
 	SetAdditionalTreatments(val interface{})
@@ -486,8 +489,6 @@ type CfnCampaign interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The delivery configuration settings for sending the treatment through a custom channel.
-	//
-	// This object is required if the `MessageConfiguration` object for the treatment specifies a `CustomMessage` object.
 	CustomDeliveryConfiguration() interface{}
 	SetCustomDeliveryConfiguration(val interface{})
 	// A custom description of the campaign.
@@ -497,8 +498,6 @@ type CfnCampaign interface {
 	HoldoutPercent() *float64
 	SetHoldoutPercent(val *float64)
 	// Specifies whether to pause the campaign.
-	//
-	// A paused campaign doesn't run unless you resume it by changing this value to `false` . If you restart a campaign, the campaign restarts from the beginning and not at the point you paused it. If a campaign is running it will complete and then pause. Pause only pauses or skips the next run for a recurring future scheduled campaign. A campaign scheduled for immediate can't be paused.
 	IsPaused() interface{}
 	SetIsPaused(val interface{})
 	// The messaging limits for the campaign.
@@ -523,8 +522,6 @@ type CfnCampaign interface {
 	// The tree node.
 	Node() constructs.Node
 	// An integer between 1 and 5, inclusive, that represents the priority of the in-app message campaign, where 1 is the highest priority and 5 is the lowest.
-	//
-	// If there are multiple messages scheduled to be displayed at the same time, the priority determines the order in which those messages are displayed.
 	Priority() *float64
 	SetPriority(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -545,10 +542,11 @@ type CfnCampaign interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// The message template to use for the treatment.
 	TemplateConfiguration() interface{}
 	SetTemplateConfiguration(val interface{})
@@ -556,8 +554,6 @@ type CfnCampaign interface {
 	TreatmentDescription() *string
 	SetTreatmentDescription(val *string)
 	// A custom name of the default treatment for the campaign, if the campaign has multiple treatments.
-	//
-	// A *treatment* is a variation of a campaign that's used for A/B testing.
 	TreatmentName() *string
 	SetTreatmentName(val *string)
 	// Deprecated.
@@ -704,6 +700,7 @@ type CfnCampaign interface {
 type jsiiProxy_CfnCampaign struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCampaign) AdditionalTreatments() interface{} {
@@ -956,6 +953,16 @@ func (j *jsiiProxy_CfnCampaign) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCampaign) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCampaign) TemplateConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1007,7 +1014,6 @@ func (j *jsiiProxy_CfnCampaign) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Pinpoint::Campaign`.
 func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignProps) CfnCampaign {
 	_init_.Initialize()
 
@@ -1025,7 +1031,6 @@ func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignPr
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::Campaign`.
 func NewCfnCampaign_Override(c CfnCampaign, scope constructs.Construct, id *string, props *CfnCampaignProps) {
 	_init_.Initialize()
 
@@ -1174,6 +1179,14 @@ func (j *jsiiProxy_CfnCampaign)SetSegmentVersion(val *float64) {
 	_jsii_.Set(
 		j,
 		"segmentVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCampaign)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

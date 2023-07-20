@@ -20,8 +20,12 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html
+//
 type CfnModelPackage_ModelPackageStatusDetailsProperty struct {
 	// The validation status of the model package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html#cfn-sagemaker-modelpackage-modelpackagestatusdetails-validationstatuses
+	//
 	ValidationStatuses interface{} `field:"optional" json:"validationStatuses" yaml:"validationStatuses"`
 }
 

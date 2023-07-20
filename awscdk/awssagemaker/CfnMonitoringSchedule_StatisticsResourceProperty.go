@@ -12,8 +12,12 @@ package awssagemaker
 //   	S3Uri: jsii.String("s3Uri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
+//
 type CfnMonitoringSchedule_StatisticsResourceProperty struct {
 	// The S3 URI for the statistics resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
+	//
 	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 }
 

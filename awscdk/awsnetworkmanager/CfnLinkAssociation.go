@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::LinkAssociation`.
-//
 // Describes the association between a device and a link.
 //
 // Example:
@@ -23,6 +21,8 @@ import (
 //   	GlobalNetworkId: jsii.String("globalNetworkId"),
 //   	LinkId: jsii.String("linkId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html
 //
 type CfnLinkAssociation interface {
 	awscdk.CfnResource
@@ -343,7 +343,6 @@ func (j *jsiiProxy_CfnLinkAssociation) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::NetworkManager::LinkAssociation`.
 func NewCfnLinkAssociation(scope constructs.Construct, id *string, props *CfnLinkAssociationProps) CfnLinkAssociation {
 	_init_.Initialize()
 
@@ -361,7 +360,6 @@ func NewCfnLinkAssociation(scope constructs.Construct, id *string, props *CfnLin
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::LinkAssociation`.
 func NewCfnLinkAssociation_Override(c CfnLinkAssociation, scope constructs.Construct, id *string, props *CfnLinkAssociationProps) {
 	_init_.Initialize()
 

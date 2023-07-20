@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnAgreement) validateSetServerIdParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnAgreement) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAgreementParameters(scope constructs.Construct, id *string, props *CfnAgreementProps) error {
 	return nil
 }

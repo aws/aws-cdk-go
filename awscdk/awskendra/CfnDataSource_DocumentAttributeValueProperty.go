@@ -19,18 +19,28 @@ package awskendra
 //   	StringValue: jsii.String("stringValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html
+//
 type CfnDataSource_DocumentAttributeValueProperty struct {
 	// A date expressed as an ISO 8601 string.
 	//
 	// It is important for the time zone to be included in the ISO 8601 date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html#cfn-kendra-datasource-documentattributevalue-datevalue
+	//
 	DateValue *string `field:"optional" json:"dateValue" yaml:"dateValue"`
 	// A long integer value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html#cfn-kendra-datasource-documentattributevalue-longvalue
+	//
 	LongValue *float64 `field:"optional" json:"longValue" yaml:"longValue"`
 	// A list of strings.
 	//
 	// The default maximum length or number of strings is 10.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html#cfn-kendra-datasource-documentattributevalue-stringlistvalue
+	//
 	StringListValue *[]*string `field:"optional" json:"stringListValue" yaml:"stringListValue"`
 	// A string, such as "department".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html#cfn-kendra-datasource-documentattributevalue-stringvalue
+	//
 	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 

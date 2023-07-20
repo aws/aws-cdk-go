@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::Agent`.
+// The `AWS::DataSync::Agent` resource activates an AWS DataSync agent that you've deployed for storage discovery or data transfers.
 //
-// The `AWS::DataSync::Agent` resource activates an AWS DataSync agent that you've deployed for storage discovery or data transfers. The activation process associates the agent with your AWS account .
+// The activation process associates the agent with your AWS account .
 //
 // For more information, see the following topics in the *AWS DataSync User Guide* :
 //
@@ -42,17 +42,16 @@ import (
 //   	VpcEndpointId: jsii.String("vpcEndpointId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html
+//
 type CfnAgent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Specifies your DataSync agent's activation key.
-	//
-	// If you don't have an activation key, see [Activate your agent](https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html) .
 	ActivationKey() *string
 	SetActivationKey(val *string)
 	// Specifies a name for your agent.
-	//
-	// You can see this name in the DataSync console.
 	AgentName() *string
 	SetAgentName(val *string)
 	// The Amazon Resource Name (ARN) of the agent.
@@ -90,10 +89,6 @@ type CfnAgent interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Names (ARNs) of the security groups used to protect your data transfer task subnets.
-	//
-	// See [SecurityGroupArns](https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns) .
-	//
-	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
 	SecurityGroupArns() *[]*string
 	SetSecurityGroupArns(val *[]*string)
 	// The stack in which this element is defined.
@@ -101,14 +96,13 @@ type CfnAgent interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies the ARN of the subnet where you want to run your DataSync task when using a VPC endpoint.
-	//
-	// This is the subnet where DataSync creates and manages the [network interfaces](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces) for your transfer.
 	SubnetArns() *[]*string
 	SetSubnetArns(val *[]*string)
-	// Specifies labels that help you categorize, filter, and search for your AWS resources.
-	//
-	// We recommend creating at least one tag for your agent.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -123,12 +117,6 @@ type CfnAgent interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of the virtual private cloud (VPC) endpoint that the agent has access to.
-	//
-	// This is the client-side VPC endpoint, powered by AWS PrivateLink . If you don't have an AWS PrivateLink VPC endpoint, see [AWS PrivateLink and VPC endpoints](https://docs.aws.amazon.com//vpc/latest/userguide/endpoint-services-overview.html) in the *Amazon VPC User Guide* .
-	//
-	// For more information about activating your agent in a private network based on a VPC, see [Using AWS DataSync in a Virtual Private Cloud](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-in-vpc.html) in the *AWS DataSync User Guide.*
-	//
-	// A VPC endpoint ID looks like this: `vpce-01234d5aff67890e1` .
 	VpcEndpointId() *string
 	SetVpcEndpointId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -262,6 +250,7 @@ type CfnAgent interface {
 type jsiiProxy_CfnAgent struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAgent) ActivationKey() *string {
@@ -414,6 +403,16 @@ func (j *jsiiProxy_CfnAgent) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAgent) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAgent) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -445,7 +444,6 @@ func (j *jsiiProxy_CfnAgent) VpcEndpointId() *string {
 }
 
 
-// Create a new `AWS::DataSync::Agent`.
 func NewCfnAgent(scope constructs.Construct, id *string, props *CfnAgentProps) CfnAgent {
 	_init_.Initialize()
 
@@ -463,7 +461,6 @@ func NewCfnAgent(scope constructs.Construct, id *string, props *CfnAgentProps) C
 	return &j
 }
 
-// Create a new `AWS::DataSync::Agent`.
 func NewCfnAgent_Override(c CfnAgent, scope constructs.Construct, id *string, props *CfnAgentProps) {
 	_init_.Initialize()
 
@@ -502,6 +499,17 @@ func (j *jsiiProxy_CfnAgent)SetSubnetArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAgent)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

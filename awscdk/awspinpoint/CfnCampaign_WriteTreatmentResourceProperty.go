@@ -221,22 +221,38 @@ package awspinpoint
 //   	TreatmentName: jsii.String("treatmentName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html
+//
 type CfnCampaign_WriteTreatmentResourceProperty struct {
 	// The delivery configuration settings for sending the treatment through a custom channel.
 	//
 	// This object is required if the `MessageConfiguration` object for the treatment specifies a `CustomMessage` object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-customdeliveryconfiguration
+	//
 	CustomDeliveryConfiguration interface{} `field:"optional" json:"customDeliveryConfiguration" yaml:"customDeliveryConfiguration"`
 	// The message configuration settings for the treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-messageconfiguration
+	//
 	MessageConfiguration interface{} `field:"optional" json:"messageConfiguration" yaml:"messageConfiguration"`
 	// The schedule settings for the treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-schedule
+	//
 	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
 	// The allocated percentage of users (segment members) to send the treatment to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-sizepercent
+	//
 	SizePercent *float64 `field:"optional" json:"sizePercent" yaml:"sizePercent"`
 	// The message template to use for the treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-templateconfiguration
+	//
 	TemplateConfiguration interface{} `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 	// A custom description of the treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-treatmentdescription
+	//
 	TreatmentDescription *string `field:"optional" json:"treatmentDescription" yaml:"treatmentDescription"`
 	// A custom name for the treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-treatmentname
+	//
 	TreatmentName *string `field:"optional" json:"treatmentName" yaml:"treatmentName"`
 }
 

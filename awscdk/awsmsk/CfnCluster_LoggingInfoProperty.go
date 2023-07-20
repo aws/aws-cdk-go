@@ -34,10 +34,14 @@ package awsmsk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html
+//
 type CfnCluster_LoggingInfoProperty struct {
 	// You can configure your MSK cluster to send broker logs to different destination types.
 	//
 	// This configuration specifies the details of these destinations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-brokerlogs
+	//
 	BrokerLogs interface{} `field:"required" json:"brokerLogs" yaml:"brokerLogs"`
 }
 

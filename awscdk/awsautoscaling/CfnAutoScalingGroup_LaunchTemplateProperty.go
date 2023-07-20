@@ -103,10 +103,16 @@ package awsautoscaling
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html
+//
 type CfnAutoScalingGroup_LaunchTemplateProperty struct {
 	// The launch template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html#cfn-autoscaling-autoscalinggroup-launchtemplate-launchtemplatespecification
+	//
 	LaunchTemplateSpecification interface{} `field:"required" json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
 	// Any properties that you specify override the same properties in the launch template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html#cfn-autoscaling-autoscalinggroup-launchtemplate-overrides
+	//
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 }
 

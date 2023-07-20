@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RedshiftServerless::Namespace`.
-//
 // A collection of database objects and users.
 //
 // Example:
@@ -43,15 +41,20 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html
+//
 type CfnNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The username of the administrator for the primary database created in the namespace.
 	AdminUsername() *string
 	SetAdminUsername(val *string)
 	// The password of the administrator for the primary database created in the namespace.
 	AdminUserPassword() *string
 	SetAdminUserPassword(val *string)
+	// The collection of computing resources from which an endpoint is created.
+	AttrNamespace() awscdk.IResolvable
 	// The username of the administrator for the first database created in the namespace.
 	AttrNamespaceAdminUsername() *string
 	// The date of when the namespace was created.
@@ -106,8 +109,6 @@ type CfnNamespace interface {
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The types of logs the namespace can export.
-	//
-	// Available export types are `userlog` , `connectionlog` , and `useractivitylog` .
 	LogExports() *[]*string
 	SetLogExports(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -121,8 +122,6 @@ type CfnNamespace interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the namespace.
-	//
-	// Must be between 3-64 alphanumeric characters in lowercase, and it cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com//redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
 	NamespaceName() *string
 	SetNamespaceName(val *string)
 	// The tree node.
@@ -136,8 +135,11 @@ type CfnNamespace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The map of the key-value pairs used to tag the namespace.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The map of the key-value pairs used to tag the namespace.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -282,6 +284,7 @@ type CfnNamespace interface {
 type jsiiProxy_CfnNamespace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNamespace) AdminUsername() *string {
@@ -299,6 +302,16 @@ func (j *jsiiProxy_CfnNamespace) AdminUserPassword() *string {
 	_jsii_.Get(
 		j,
 		"adminUserPassword",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNamespace) AttrNamespace() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrNamespace",
 		&returns,
 	)
 	return returns
@@ -584,6 +597,16 @@ func (j *jsiiProxy_CfnNamespace) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNamespace) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNamespace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -605,7 +628,6 @@ func (j *jsiiProxy_CfnNamespace) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::RedshiftServerless::Namespace`.
 func NewCfnNamespace(scope constructs.Construct, id *string, props *CfnNamespaceProps) CfnNamespace {
 	_init_.Initialize()
 
@@ -623,7 +645,6 @@ func NewCfnNamespace(scope constructs.Construct, id *string, props *CfnNamespace
 	return &j
 }
 
-// Create a new `AWS::RedshiftServerless::Namespace`.
 func NewCfnNamespace_Override(c CfnNamespace, scope constructs.Construct, id *string, props *CfnNamespaceProps) {
 	_init_.Initialize()
 
@@ -713,6 +734,17 @@ func (j *jsiiProxy_CfnNamespace)SetNamespaceName(val *string) {
 	_jsii_.Set(
 		j,
 		"namespaceName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNamespace)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

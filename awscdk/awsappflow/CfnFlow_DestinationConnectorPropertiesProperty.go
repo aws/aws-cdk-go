@@ -165,28 +165,52 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
+//
 type CfnFlow_DestinationConnectorPropertiesProperty struct {
 	// The properties that are required to query the custom Connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-customconnector
+	//
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The properties required to query Amazon EventBridge.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
+	//
 	EventBridge interface{} `field:"optional" json:"eventBridge" yaml:"eventBridge"`
 	// The properties required to query Amazon Lookout for Metrics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+	//
 	LookoutMetrics interface{} `field:"optional" json:"lookoutMetrics" yaml:"lookoutMetrics"`
 	// The properties required to query Marketo.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-marketo
+	//
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
 	// The properties required to query Amazon Redshift.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
+	//
 	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`
 	// The properties required to query Amazon S3.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
+	//
 	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 	// The properties required to query Salesforce.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
+	//
 	Salesforce interface{} `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The properties required to query SAPOData.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-sapodata
+	//
 	SapoData interface{} `field:"optional" json:"sapoData" yaml:"sapoData"`
 	// The properties required to query Snowflake.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
+	//
 	Snowflake interface{} `field:"optional" json:"snowflake" yaml:"snowflake"`
 	// The properties required to query Upsolver.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
+	//
 	Upsolver interface{} `field:"optional" json:"upsolver" yaml:"upsolver"`
 	// The properties required to query Zendesk.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
+	//
 	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 

@@ -19,8 +19,12 @@ package awsiotanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-parquetconfiguration.html
+//
 type CfnDatastore_ParquetConfigurationProperty struct {
 	// Information needed to define a schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-parquetconfiguration.html#cfn-iotanalytics-datastore-parquetconfiguration-schemadefinition
+	//
 	SchemaDefinition interface{} `field:"optional" json:"schemaDefinition" yaml:"schemaDefinition"`
 }
 

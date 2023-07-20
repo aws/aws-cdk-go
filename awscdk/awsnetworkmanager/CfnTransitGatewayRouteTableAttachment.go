@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::TransitGatewayRouteTableAttachment`.
-//
 // Creates a transit gateway route table attachment.
 //
 // Example:
@@ -41,9 +39,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html
+//
 type CfnTransitGatewayRouteTableAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the transit gateway route table attachment.
 	AttrAttachmentId() *string
 	// The policy rule number associated with the attachment.
@@ -97,8 +98,6 @@ type CfnTransitGatewayRouteTableAttachment interface {
 	PeeringId() *string
 	SetPeeringId(val *string)
 	// This property is read-only.
-	//
-	// Values can't be assigned to it.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -110,11 +109,12 @@ type CfnTransitGatewayRouteTableAttachment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The list of key-value pairs associated with the transit gateway route table attachment.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of key-value pairs associated with the transit gateway route table attachment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN of the transit gateway attachment route table.
-	//
-	// For example, `"TransitGatewayRouteTableArn": "arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456"` .
 	TransitGatewayRouteTableArn() *string
 	SetTransitGatewayRouteTableArn(val *string)
 	// Deprecated.
@@ -261,6 +261,7 @@ type CfnTransitGatewayRouteTableAttachment interface {
 type jsiiProxy_CfnTransitGatewayRouteTableAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) AttrAttachmentId() *string {
@@ -493,6 +494,16 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) Tags() awscdk.TagManag
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) TransitGatewayRouteTableArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -524,7 +535,6 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) UpdatedProperties() *m
 }
 
 
-// Create a new `AWS::NetworkManager::TransitGatewayRouteTableAttachment`.
 func NewCfnTransitGatewayRouteTableAttachment(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTableAttachmentProps) CfnTransitGatewayRouteTableAttachment {
 	_init_.Initialize()
 
@@ -542,7 +552,6 @@ func NewCfnTransitGatewayRouteTableAttachment(scope constructs.Construct, id *st
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::TransitGatewayRouteTableAttachment`.
 func NewCfnTransitGatewayRouteTableAttachment_Override(c CfnTransitGatewayRouteTableAttachment, scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTableAttachmentProps) {
 	_init_.Initialize()
 
@@ -571,6 +580,17 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment)SetProposedSegmentChang
 	_jsii_.Set(
 		j,
 		"proposedSegmentChange",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

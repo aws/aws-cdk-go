@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::CoreDefinition`.
+// The `AWS::Greengrass::CoreDefinition` resource represents a core definition for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::CoreDefinition` resource represents a core definition for AWS IoT Greengrass . Core definitions are used to organize your core definition versions.
+// Core definitions are used to organize your core definition versions.
 //
 // Core definitions can reference multiple core definition versions. All core definition versions must be associated with a core definition. Each core definition version can contain one Greengrass core.
 //
@@ -45,9 +45,12 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html
+//
 type CfnCoreDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `CoreDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/cores/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
 	// The ID of the `CoreDefinition` , such as `1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
@@ -66,10 +69,6 @@ type CfnCoreDefinition interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The core definition version to include when the core definition is created.
-	//
-	// Currently, a core definition version can contain only one [`core`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html) .
-	//
-	// > To associate a core definition version after the core definition is created, create an [`AWS::Greengrass::CoreDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html) resource and specify the ID of this core definition.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -96,17 +95,11 @@ type CfnCoreDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Application-specific metadata to attach to the core definition.
-	//
-	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
-	//
-	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
-	//
-	// ```json
-	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
-	// }
-	// ```.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Application-specific metadata to attach to the core definition.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -251,6 +244,7 @@ type CfnCoreDefinition interface {
 type jsiiProxy_CfnCoreDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCoreDefinition) AttrArn() *string {
@@ -403,6 +397,16 @@ func (j *jsiiProxy_CfnCoreDefinition) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCoreDefinition) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCoreDefinition) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -424,7 +428,6 @@ func (j *jsiiProxy_CfnCoreDefinition) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Greengrass::CoreDefinition`.
 func NewCfnCoreDefinition(scope constructs.Construct, id *string, props *CfnCoreDefinitionProps) CfnCoreDefinition {
 	_init_.Initialize()
 
@@ -442,7 +445,6 @@ func NewCfnCoreDefinition(scope constructs.Construct, id *string, props *CfnCore
 	return &j
 }
 
-// Create a new `AWS::Greengrass::CoreDefinition`.
 func NewCfnCoreDefinition_Override(c CfnCoreDefinition, scope constructs.Construct, id *string, props *CfnCoreDefinitionProps) {
 	_init_.Initialize()
 
@@ -471,6 +473,14 @@ func (j *jsiiProxy_CfnCoreDefinition)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCoreDefinition)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

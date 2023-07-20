@@ -18,10 +18,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categorydrilldownfilter.html
+//
 type CfnTemplate_CategoryDrillDownFilterProperty struct {
 	// A list of the string inputs that are the values of the category drill down filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categorydrilldownfilter.html#cfn-quicksight-template-categorydrilldownfilter-categoryvalues
+	//
 	CategoryValues *[]*string `field:"required" json:"categoryValues" yaml:"categoryValues"`
 	// The column that the filter is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categorydrilldownfilter.html#cfn-quicksight-template-categorydrilldownfilter-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 }
 

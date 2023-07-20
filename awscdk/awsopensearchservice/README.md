@@ -393,3 +393,26 @@ domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 	},
 })
 ```
+
+## Enable support for Multi-AZ with Standby deployment
+
+The domain can be configured to use [multi-AZ with standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby).
+
+```go
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
+	Ebs: &EbsOptions{
+		VolumeSize: jsii.Number(10),
+		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD_GP3,
+	},
+	ZoneAwareness: &ZoneAwarenessConfig{
+		Enabled: jsii.Boolean(true),
+		AvailabilityZoneCount: jsii.Number(3),
+	},
+	Capacity: &CapacityConfig{
+		MultiAzWithStandbyEnabled: jsii.Boolean(true),
+		MasterNodes: jsii.Number(3),
+		DataNodes: jsii.Number(3),
+	},
+})
+```

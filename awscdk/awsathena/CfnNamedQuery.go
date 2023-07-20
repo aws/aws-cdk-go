@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Athena::NamedQuery`.
-//
 // The `AWS::Athena::NamedQuery` resource specifies an Amazon Athena saved query, where `QueryString` contains the SQL query statements that make up the query.
 //
 // Example:
@@ -27,6 +25,8 @@ import (
 //   	Name: jsii.String("name"),
 //   	WorkGroup: jsii.String("workGroup"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
 //
 type CfnNamedQuery interface {
 	awscdk.CfnResource
@@ -385,7 +385,6 @@ func (j *jsiiProxy_CfnNamedQuery) WorkGroup() *string {
 }
 
 
-// Create a new `AWS::Athena::NamedQuery`.
 func NewCfnNamedQuery(scope constructs.Construct, id *string, props *CfnNamedQueryProps) CfnNamedQuery {
 	_init_.Initialize()
 
@@ -403,7 +402,6 @@ func NewCfnNamedQuery(scope constructs.Construct, id *string, props *CfnNamedQue
 	return &j
 }
 
-// Create a new `AWS::Athena::NamedQuery`.
 func NewCfnNamedQuery_Override(c CfnNamedQuery, scope constructs.Construct, id *string, props *CfnNamedQueryProps) {
 	_init_.Initialize()
 

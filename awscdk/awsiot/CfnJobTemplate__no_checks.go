@@ -80,19 +80,11 @@ func validateCfnJobTemplate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnJobTemplate) validateSetAbortConfigParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnJobTemplate) validateSetDescriptionParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnJobTemplate) validateSetJobExecutionsRetryConfigParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnJobTemplate) validateSetJobExecutionsRolloutConfigParameters(val interface{}) error {
 	return nil
 }
 
@@ -104,11 +96,7 @@ func (j *jsiiProxy_CfnJobTemplate) validateSetMaintenanceWindowsParameters(val i
 	return nil
 }
 
-func (j *jsiiProxy_CfnJobTemplate) validateSetPresignedUrlConfigParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnJobTemplate) validateSetTimeoutConfigParameters(val interface{}) error {
+func (j *jsiiProxy_CfnJobTemplate) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

@@ -12,8 +12,12 @@ package awsivschat
 //   	BucketName: jsii.String("bucketName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-s3destinationconfiguration.html
+//
 type CfnLoggingConfiguration_S3DestinationConfigurationProperty struct {
 	// Name of the Amazon S3 bucket where chat activity will be logged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-s3destinationconfiguration.html#cfn-ivschat-loggingconfiguration-s3destinationconfiguration-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 }
 

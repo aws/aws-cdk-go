@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NimbleStudio::Studio`.
-//
 // The `AWS::NimbleStudio::Studio` resource creates a new studio resource. In  , all other resources are contained in a studio.
 //
 // When creating a studio, two IAM roles must be provided: the admin role and the user role. These roles are assumed by your users when they log in to the  portal. The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for the portal to function properly. The Admin Role must have the AmazonNimbleStudio-StudioAdmin managed policy attached for the portal to function properly.
@@ -40,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html
+//
 type CfnStudio interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
 	AdminRoleArn() *string
 	SetAdminRoleArn(val *string)
@@ -95,10 +96,11 @@ type CfnStudio interface {
 	// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
 	StudioName() *string
 	SetStudioName(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,6 +248,7 @@ type CfnStudio interface {
 type jsiiProxy_CfnStudio struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStudio) AdminRoleArn() *string {
@@ -418,6 +421,16 @@ func (j *jsiiProxy_CfnStudio) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStudio) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStudio) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -449,7 +462,6 @@ func (j *jsiiProxy_CfnStudio) UserRoleArn() *string {
 }
 
 
-// Create a new `AWS::NimbleStudio::Studio`.
 func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps) CfnStudio {
 	_init_.Initialize()
 
@@ -467,7 +479,6 @@ func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps)
 	return &j
 }
 
-// Create a new `AWS::NimbleStudio::Studio`.
 func NewCfnStudio_Override(c CfnStudio, scope constructs.Construct, id *string, props *CfnStudioProps) {
 	_init_.Initialize()
 
@@ -518,6 +529,14 @@ func (j *jsiiProxy_CfnStudio)SetStudioName(val *string) {
 	_jsii_.Set(
 		j,
 		"studioName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStudio)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

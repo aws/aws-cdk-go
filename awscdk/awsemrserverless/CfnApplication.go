@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EMRServerless::Application`.
+// The `AWS::EMRServerless::Application` resource specifies an EMR Serverless application.
 //
-// The `AWS::EMRServerless::Application` resource specifies an EMR Serverless application. An application uses open source analytics frameworks to run jobs that process data. To create an application, you must specify the release version for the open source framework version you want to use and the type of application you want, such as Apache Spark or Apache Hive. After you create an application, you can submit data processing jobs or interactive requests to it.
+// An application uses open source analytics frameworks to run jobs that process data. To create an application, you must specify the release version for the open source framework version you want to use and the type of application you want, such as Apache Spark or Apache Hive. After you create an application, you can submit data processing jobs or interactive requests to it.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -80,12 +80,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The CPU architecture type of the application.
-	//
-	// Allowed values: `X86_64` or `ARM64`.
 	Architecture() *string
 	SetArchitecture(val *string)
 	// The ID of the application, such as `ab4rp1abcs8xz47n3x0example` .
@@ -107,7 +108,7 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::EMRServerless::Application.ImageConfiguration`.
+	// The image configuration.
 	ImageConfiguration() interface{}
 	SetImageConfiguration(val interface{})
 	// The initial capacity of the application.
@@ -124,17 +125,9 @@ type CfnApplication interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum capacity of the application.
-	//
-	// This is cumulative across all workers at any given point in time during the lifespan of the application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity() interface{}
 	SetMaximumCapacity(val interface{})
 	// The name of the application.
-	//
-	// *Minimum* : 1
-	//
-	// *Maximum* : 64
-	//
-	// *Pattern* : `^[A-Za-z0-9._\\/#-]+$`
 	Name() *string
 	SetName(val *string)
 	// The network configuration for customer VPC connectivity for the application.
@@ -148,20 +141,17 @@ type CfnApplication interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The EMR release version associated with the application.
-	//
-	// *Minimum* : 1
-	//
-	// *Maximum* : 64
-	//
-	// *Pattern* : `^[A-Za-z0-9._/-]+$`
 	ReleaseLabel() *string
 	SetReleaseLabel(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags assigned to the application.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags assigned to the application.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of application, such as Spark or Hive.
 	Type() *string
 	SetType(val *string)
@@ -178,7 +168,6 @@ type CfnApplication interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::EMRServerless::Application.WorkerTypeSpecifications`.
 	WorkerTypeSpecifications() interface{}
 	SetWorkerTypeSpecifications(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -312,6 +301,7 @@ type CfnApplication interface {
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnApplication) Architecture() *string {
@@ -514,6 +504,16 @@ func (j *jsiiProxy_CfnApplication) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -555,7 +555,6 @@ func (j *jsiiProxy_CfnApplication) WorkerTypeSpecifications() interface{} {
 }
 
 
-// Create a new `AWS::EMRServerless::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -573,7 +572,6 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
-// Create a new `AWS::EMRServerless::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
@@ -673,6 +671,17 @@ func (j *jsiiProxy_CfnApplication)SetReleaseLabel(val *string) {
 	_jsii_.Set(
 		j,
 		"releaseLabel",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

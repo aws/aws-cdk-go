@@ -13,10 +13,16 @@ package awsiot
 //   	Principal: jsii.String("principal"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html
+//
 type CfnPolicyPrincipalAttachmentProps struct {
 	// The name of the AWS IoT policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-policyname
+	//
 	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 	// The principal, which can be a certificate ARN (as returned from the `CreateCertificate` operation) or an Amazon Cognito ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-principal
+	//
 	Principal *string `field:"required" json:"principal" yaml:"principal"`
 }
 

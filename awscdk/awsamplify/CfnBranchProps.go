@@ -45,40 +45,56 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html
+//
 type CfnBranchProps struct {
 	// The unique ID for an Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 20.
 	//
 	// *Pattern:* d[a-z0-9]+.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
+	//
 	AppId *string `field:"required" json:"appId" yaml:"appId"`
 	// The name for the branch.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern:* (?s).+
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
+	//
 	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
 	// The basic authorization credentials for a branch of an Amplify app.
 	//
 	// You must base64-encode the authorization credentials and provide them in the format `user:password` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
+	//
 	BasicAuthConfig interface{} `field:"optional" json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for the branch.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
 	//
 	// *Pattern:* (?s).+
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
+	//
 	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// The description for the branch that is part of an Amplify app.
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Enables auto building for the branch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
+	//
 	EnableAutoBuild interface{} `field:"optional" json:"enableAutoBuild" yaml:"enableAutoBuild"`
 	// Enables performance mode for the branch.
 	//
 	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
+	//
 	EnablePerformanceMode interface{} `field:"optional" json:"enablePerformanceMode" yaml:"enablePerformanceMode"`
 	// Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch.
 	//
@@ -87,10 +103,16 @@ type CfnBranchProps struct {
 	// To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
+	//
 	EnablePullRequestPreview interface{} `field:"optional" json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// The environment variables for the branch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
+	//
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The framework for the branch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-framework
+	//
 	Framework *string `field:"optional" json:"framework" yaml:"framework"`
 	// If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews.
 	//
@@ -105,12 +127,18 @@ type CfnBranchProps struct {
 	// *Length Constraints:* Maximum length of 20.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
+	//
 	PullRequestEnvironmentName *string `field:"optional" json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Describes the current stage for the branch.
 	//
 	// *Valid Values:* PRODUCTION | BETA | DEVELOPMENT | EXPERIMENTAL | PULL_REQUEST.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
+	//
 	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 	// The tag for the branch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnMitigationAction) validateSetRoleArnParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnMitigationAction) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMitigationActionParameters(scope constructs.Construct, id *string, props *CfnMitigationActionProps) error {
 	return nil
 }

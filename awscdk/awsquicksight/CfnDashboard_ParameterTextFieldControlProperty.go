@@ -36,14 +36,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextfieldcontrol.html
+//
 type CfnDashboard_ParameterTextFieldControlProperty struct {
 	// The ID of the `ParameterTextFieldControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextfieldcontrol.html#cfn-quicksight-dashboard-parametertextfieldcontrol-parametercontrolid
+	//
 	ParameterControlId *string `field:"required" json:"parameterControlId" yaml:"parameterControlId"`
 	// The source parameter name of the `ParameterTextFieldControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextfieldcontrol.html#cfn-quicksight-dashboard-parametertextfieldcontrol-sourceparametername
+	//
 	SourceParameterName *string `field:"required" json:"sourceParameterName" yaml:"sourceParameterName"`
 	// The title of the `ParameterTextFieldControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextfieldcontrol.html#cfn-quicksight-dashboard-parametertextfieldcontrol-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// The display options of a control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parametertextfieldcontrol.html#cfn-quicksight-dashboard-parametertextfieldcontrol-displayoptions
+	//
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

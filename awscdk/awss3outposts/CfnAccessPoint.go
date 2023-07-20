@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3Outposts::AccessPoint`.
+// The AWS::S3Outposts::AccessPoint resource specifies an access point and associates it with the specified Amazon S3 on Outposts bucket.
 //
-// The AWS::S3Outposts::AccessPoint resource specifies an access point and associates it with the specified Amazon S3 on Outposts bucket. For more information, see [Managing data access with Amazon S3 access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html) .
+// For more information, see [Managing data access with Amazon S3 access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html) .
 //
 // > S3 on Outposts supports only VPC-style access points.
 //
@@ -32,6 +32,8 @@ import (
 //   	// the properties below are optional
 //   	Policy: policy,
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html
 //
 type CfnAccessPoint interface {
 	awscdk.CfnResource
@@ -379,7 +381,6 @@ func (j *jsiiProxy_CfnAccessPoint) VpcConfiguration() interface{} {
 }
 
 
-// Create a new `AWS::S3Outposts::AccessPoint`.
 func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
@@ -397,7 +398,6 @@ func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessP
 	return &j
 }
 
-// Create a new `AWS::S3Outposts::AccessPoint`.
 func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 
@@ -431,9 +431,6 @@ func (j *jsiiProxy_CfnAccessPoint)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnAccessPoint)SetPolicy(val interface{}) {
-	if err := j.validateSetPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"policy",

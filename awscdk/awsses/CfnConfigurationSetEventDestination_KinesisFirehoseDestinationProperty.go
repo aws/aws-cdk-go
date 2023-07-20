@@ -15,10 +15,16 @@ package awsses
 //   	IamRoleArn: jsii.String("iamRoleArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html
+//
 type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty struct {
 	// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-deliverystreamarn
+	//
 	DeliveryStreamArn *string `field:"required" json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
 	// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-iamrolearn
+	//
 	IamRoleArn *string `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
 }
 

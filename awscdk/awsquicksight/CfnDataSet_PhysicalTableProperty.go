@@ -56,12 +56,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html
+//
 type CfnDataSet_PhysicalTableProperty struct {
 	// A physical table type built from the results of the custom SQL query.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-customsql
+	//
 	CustomSql interface{} `field:"optional" json:"customSql" yaml:"customSql"`
 	// A physical table type for relational data sources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-relationaltable
+	//
 	RelationalTable interface{} `field:"optional" json:"relationalTable" yaml:"relationalTable"`
 	// A physical table type for as S3 data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-s3source
+	//
 	S3Source interface{} `field:"optional" json:"s3Source" yaml:"s3Source"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VolumeAttachment`.
-//
 // Attaches an Amazon EBS volume to a running instance and exposes it to the instance with the specified device name.
 //
 // Before this resource can be deleted (and therefore the volume detached), you must first unmount the volume in the instance. Failure to do so results in the volume being stuck in the busy state while it is trying to detach, which could possibly damage the file system or the data it contains.
@@ -32,6 +30,8 @@ import (
 //   	Device: jsii.String("device"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html
+//
 type CfnVolumeAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -48,8 +48,6 @@ type CfnVolumeAttachment interface {
 	Device() *string
 	SetDevice(val *string)
 	// The ID of the instance to which the volume attaches.
-	//
-	// This value can be a reference to an [`AWS::EC2::Instance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -87,8 +85,6 @@ type CfnVolumeAttachment interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of the Amazon EBS volume.
-	//
-	// The volume and instance must be within the same Availability Zone. This value can be a reference to an [`AWS::EC2::Volume`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
 	VolumeId() *string
 	SetVolumeId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -355,7 +351,6 @@ func (j *jsiiProxy_CfnVolumeAttachment) VolumeId() *string {
 }
 
 
-// Create a new `AWS::EC2::VolumeAttachment`.
 func NewCfnVolumeAttachment(scope constructs.Construct, id *string, props *CfnVolumeAttachmentProps) CfnVolumeAttachment {
 	_init_.Initialize()
 
@@ -373,7 +368,6 @@ func NewCfnVolumeAttachment(scope constructs.Construct, id *string, props *CfnVo
 	return &j
 }
 
-// Create a new `AWS::EC2::VolumeAttachment`.
 func NewCfnVolumeAttachment_Override(c CfnVolumeAttachment, scope constructs.Construct, id *string, props *CfnVolumeAttachmentProps) {
 	_init_.Initialize()
 

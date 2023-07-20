@@ -14,10 +14,14 @@ package awskendra
 //   	S3Prefix: jsii.String("s3Prefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html
+//
 type CfnDataSource_DocumentsMetadataConfigurationProperty struct {
 	// A prefix used to filter metadata configuration files in the AWS S3 bucket.
 	//
 	// The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html#cfn-kendra-datasource-documentsmetadataconfiguration-s3prefix
+	//
 	S3Prefix *string `field:"optional" json:"s3Prefix" yaml:"s3Prefix"`
 }
 

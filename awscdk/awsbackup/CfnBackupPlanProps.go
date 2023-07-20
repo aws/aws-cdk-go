@@ -59,12 +59,18 @@ package awsbackup
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
+//
 type CfnBackupPlanProps struct {
 	// Uniquely identifies the backup plan to be associated with the selection of resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
+	//
 	BackupPlan interface{} `field:"required" json:"backupPlan" yaml:"backupPlan"`
 	// To help organize your resources, you can assign your own metadata to the resources that you create.
 	//
 	// Each tag is a key-value pair. The specified tags are assigned to all backups created with this plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
+	//
 	BackupPlanTags interface{} `field:"optional" json:"backupPlanTags" yaml:"backupPlanTags"`
 }
 

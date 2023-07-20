@@ -10,8 +10,12 @@ package awssagemaker
 //   	UserProfileName: jsii.String("userProfileName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modelpackagecreator.html
+//
 type CfnModelCard_ModelPackageCreatorProperty struct {
-	// `CfnModelCard.ModelPackageCreatorProperty.UserProfileName`.
+	// The name of the user's profile in Studio.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modelpackagecreator.html#cfn-sagemaker-modelcard-modelpackagecreator-userprofilename
+	//
 	UserProfileName *string `field:"optional" json:"userProfileName" yaml:"userProfileName"`
 }
 

@@ -187,14 +187,6 @@ func (j *jsiiProxy_CfnRouteResponse) validateSetApiIdParameters(val *string) err
 	return nil
 }
 
-func (j *jsiiProxy_CfnRouteResponse) validateSetResponseModelsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnRouteResponse) validateSetResponseParametersParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

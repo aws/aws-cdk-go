@@ -13,10 +13,16 @@ package awsappmesh
 //   	Suffix: jsii.String("suffix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html
+//
 type CfnGatewayRoute_GatewayRouteHostnameMatchProperty struct {
 	// The exact host name to match on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html#cfn-appmesh-gatewayroute-gatewayroutehostnamematch-exact
+	//
 	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// The specified ending characters of the host name to match on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html#cfn-appmesh-gatewayroute-gatewayroutehostnamematch-suffix
+	//
 	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 

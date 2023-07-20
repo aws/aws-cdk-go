@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnAddon) validateSetPreserveOnDeleteParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnAddon) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAddonParameters(scope constructs.Construct, id *string, props *CfnAddonProps) error {
 	return nil
 }

@@ -18,16 +18,28 @@ package awsomics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html
+//
 type CfnRunGroupProps struct {
 	// The group's maximum CPU count setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxcpus
+	//
 	MaxCpus *float64 `field:"optional" json:"maxCpus" yaml:"maxCpus"`
 	// The group's maximum duration setting in minutes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxduration
+	//
 	MaxDuration *float64 `field:"optional" json:"maxDuration" yaml:"maxDuration"`
 	// The group's maximum concurrent run setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxruns
+	//
 	MaxRuns *float64 `field:"optional" json:"maxRuns" yaml:"maxRuns"`
 	// The group's name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Tags for the group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

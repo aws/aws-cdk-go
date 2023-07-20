@@ -16,8 +16,12 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecdnsettings.html
+//
 type CfnChannel_ArchiveCdnSettingsProperty struct {
 	// Sets up Amazon S3 as the destination for this Archive output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecdnsettings.html#cfn-medialive-channel-archivecdnsettings-archives3settings
+	//
 	ArchiveS3Settings interface{} `field:"optional" json:"archiveS3Settings" yaml:"archiveS3Settings"`
 }
 

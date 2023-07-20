@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnCACertificate) validateSetStatusParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnCACertificate) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCACertificateParameters(scope constructs.Construct, id *string, props *CfnCACertificateProps) error {
 	return nil
 }

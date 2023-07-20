@@ -12,8 +12,12 @@ package awssupportapp
 //   	AccountAlias: jsii.String("accountAlias"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-accountalias.html
+//
 type CfnAccountAliasProps struct {
 	// An alias or short name for an AWS account .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-accountalias.html#cfn-supportapp-accountalias-accountalias
+	//
 	AccountAlias *string `field:"required" json:"accountAlias" yaml:"accountAlias"`
 }
 

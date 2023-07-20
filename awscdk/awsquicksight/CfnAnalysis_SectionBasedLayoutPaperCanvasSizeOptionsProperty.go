@@ -19,15 +19,23 @@ package awsquicksight
 //   	PaperSize: jsii.String("paperSize"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sectionbasedlayoutpapercanvassizeoptions.html
+//
 type CfnAnalysis_SectionBasedLayoutPaperCanvasSizeOptionsProperty struct {
 	// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sectionbasedlayoutpapercanvassizeoptions.html#cfn-quicksight-analysis-sectionbasedlayoutpapercanvassizeoptions-papermargin
+	//
 	PaperMargin interface{} `field:"optional" json:"paperMargin" yaml:"paperMargin"`
 	// The paper orientation that is used to define canvas dimensions. Choose one of the following options:.
 	//
 	// - PORTRAIT
 	// - LANDSCAPE.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sectionbasedlayoutpapercanvassizeoptions.html#cfn-quicksight-analysis-sectionbasedlayoutpapercanvassizeoptions-paperorientation
+	//
 	PaperOrientation *string `field:"optional" json:"paperOrientation" yaml:"paperOrientation"`
 	// The paper size that is used to define canvas dimensions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sectionbasedlayoutpapercanvassizeoptions.html#cfn-quicksight-analysis-sectionbasedlayoutpapercanvassizeoptions-papersize
+	//
 	PaperSize *string `field:"optional" json:"paperSize" yaml:"paperSize"`
 }
 

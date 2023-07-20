@@ -21,10 +21,14 @@ package awskinesis
 //   	KeyId: jsii.String("keyId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html
+//
 type CfnStream_StreamEncryptionProperty struct {
 	// The encryption type to use.
 	//
 	// The only valid value is `KMS` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-encryptiontype
+	//
 	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
 	// The GUID for the customer-managed AWS KMS key to use for encryption.
 	//
@@ -35,6 +39,8 @@ type CfnStream_StreamEncryptionProperty struct {
 	// - Globally unique key ID example: `12345678-1234-1234-1234-123456789012`
 	// - Alias name example: `alias/MyAliasName`
 	// - Master key owned by Kinesis Data Streams: `alias/aws/kinesis`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
+	//
 	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 }
 

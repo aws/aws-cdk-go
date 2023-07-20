@@ -16,12 +16,20 @@ package awssagemaker
 //   	IotThingName: jsii.String("iotThingName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html
+//
 type CfnDevice_DeviceProperty struct {
 	// The name of the device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-devicename
+	//
 	DeviceName *string `field:"required" json:"deviceName" yaml:"deviceName"`
 	// Description of the device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// AWS Internet of Things (IoT) object name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-iotthingname
+	//
 	IotThingName *string `field:"optional" json:"iotThingName" yaml:"iotThingName"`
 }
 

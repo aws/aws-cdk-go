@@ -37,10 +37,16 @@ package awsdatabrew
 //   	PathParameterName: jsii.String("pathParameterName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
+//
 type CfnDataset_PathParameterProperty struct {
 	// The path parameter definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
+	//
 	DatasetParameter interface{} `field:"required" json:"datasetParameter" yaml:"datasetParameter"`
 	// The name of the path parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
+	//
 	PathParameterName *string `field:"required" json:"pathParameterName" yaml:"pathParameterName"`
 }
 

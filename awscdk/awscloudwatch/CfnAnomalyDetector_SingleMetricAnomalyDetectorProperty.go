@@ -20,14 +20,24 @@ package awscloudwatch
 //   	Stat: jsii.String("stat"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html
+//
 type CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty struct {
 	// The metric dimensions to create the anomaly detection model for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-dimensions
+	//
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The name of the metric to create the anomaly detection model for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-metricname
+	//
 	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric to create the anomaly detection model for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-namespace
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The statistic to use for the metric and anomaly detection model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-stat
+	//
 	Stat *string `field:"optional" json:"stat" yaml:"stat"`
 }
 

@@ -14,8 +14,12 @@ package awss3
 //   	EventBridgeEnabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-eventbridgeconfiguration.html
+//
 type CfnBucket_EventBridgeConfigurationProperty struct {
 	// Enables delivery of events to Amazon EventBridge.
-	EventBridgeEnabled interface{} `field:"optional" json:"eventBridgeEnabled" yaml:"eventBridgeEnabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-eventbridgeconfiguration.html#cfn-s3-bucket-eventbridgeconfiguration-eventbridgeenabled
+	//
+	EventBridgeEnabled interface{} `field:"required" json:"eventBridgeEnabled" yaml:"eventBridgeEnabled"`
 }
 

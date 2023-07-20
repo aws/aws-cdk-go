@@ -18,8 +18,12 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
+//
 type CfnModelQualityJobDefinition_MonitoringOutputProperty struct {
 	// The Amazon S3 storage location where the results of a monitoring job are saved.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
+	//
 	S3Output interface{} `field:"required" json:"s3Output" yaml:"s3Output"`
 }
 

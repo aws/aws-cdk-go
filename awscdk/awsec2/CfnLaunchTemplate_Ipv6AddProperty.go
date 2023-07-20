@@ -14,10 +14,14 @@ package awsec2
 //   	Ipv6Address: jsii.String("ipv6Address"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html
+//
 type CfnLaunchTemplate_Ipv6AddProperty struct {
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
 	//
 	// You can't use this option if you're specifying a number of IPv6 addresses.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html#cfn-ec2-launchtemplate-ipv6add-ipv6address
+	//
 	Ipv6Address *string `field:"optional" json:"ipv6Address" yaml:"ipv6Address"`
 }
 

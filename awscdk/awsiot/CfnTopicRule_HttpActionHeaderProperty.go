@@ -13,12 +13,18 @@ package awsiot
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html
+//
 type CfnTopicRule_HttpActionHeaderProperty struct {
 	// The HTTP header key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The HTTP header value.
 	//
 	// Substitution templates are supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

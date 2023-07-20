@@ -70,30 +70,42 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html
+//
 type CfnAppMonitorProps struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	//
 	// This parameter is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-domain
+	//
 	Domain *string `field:"required" json:"domain" yaml:"domain"`
 	// A name for the app monitor.
 	//
 	// This parameter is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A structure that contains much of the configuration data for the app monitor.
 	//
 	// If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
 	//
 	// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-appmonitorconfiguration
+	//
 	AppMonitorConfiguration interface{} `field:"optional" json:"appMonitorConfiguration" yaml:"appMonitorConfiguration"`
 	// Specifies whether this app monitor allows the web client to define and send custom events.
 	//
 	// If you omit this parameter, custom events are `DISABLED` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-customevents
+	//
 	CustomEvents interface{} `field:"optional" json:"customEvents" yaml:"customEvents"`
 	// Data collected by CloudWatch RUM is kept by RUM for 30 days and then deleted.
 	//
 	// This parameter specifies whether CloudWatch RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.
 	//
 	// If you omit this parameter, the default is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-cwlogenabled
+	//
 	CwLogEnabled interface{} `field:"optional" json:"cwLogEnabled" yaml:"cwLogEnabled"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
@@ -104,6 +116,8 @@ type CfnAppMonitorProps struct {
 	// You can associate as many as 50 tags with an app monitor.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

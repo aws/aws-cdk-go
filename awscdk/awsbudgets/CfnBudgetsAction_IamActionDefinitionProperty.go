@@ -23,20 +23,30 @@ package awsbudgets
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html
+//
 type CfnBudgetsAction_IamActionDefinitionProperty struct {
 	// The Amazon Resource Name (ARN) of the policy to be attached.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-policyarn
+	//
 	PolicyArn *string `field:"required" json:"policyArn" yaml:"policyArn"`
 	// A list of groups to be attached.
 	//
 	// There must be at least one group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-groups
+	//
 	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// A list of roles to be attached.
 	//
 	// There must be at least one role.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles
+	//
 	Roles *[]*string `field:"optional" json:"roles" yaml:"roles"`
 	// A list of users to be attached.
 	//
 	// There must be at least one user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-users
+	//
 	Users *[]*string `field:"optional" json:"users" yaml:"users"`
 }
 

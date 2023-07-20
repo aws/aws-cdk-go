@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::MonitoringSchedule`.
-//
 // The `AWS::SageMaker::MonitoringSchedule` resource is an Amazon SageMaker resource type that regularly starts SageMaker processing Jobs to monitor the data captured for a SageMaker endpoint.
 //
 // Example:
@@ -151,9 +149,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
+//
 type CfnMonitoringSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The time when the monitoring schedule was created.
 	AttrCreationTime() *string
 	// The last time that the monitoring schedule was modified.
@@ -208,10 +209,11 @@ type CfnMonitoringSchedule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -356,6 +358,7 @@ type CfnMonitoringSchedule interface {
 type jsiiProxy_CfnMonitoringSchedule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMonitoringSchedule) AttrCreationTime() *string {
@@ -538,6 +541,16 @@ func (j *jsiiProxy_CfnMonitoringSchedule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMonitoringSchedule) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMonitoringSchedule) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -559,7 +572,6 @@ func (j *jsiiProxy_CfnMonitoringSchedule) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::SageMaker::MonitoringSchedule`.
 func NewCfnMonitoringSchedule(scope constructs.Construct, id *string, props *CfnMonitoringScheduleProps) CfnMonitoringSchedule {
 	_init_.Initialize()
 
@@ -577,7 +589,6 @@ func NewCfnMonitoringSchedule(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::SageMaker::MonitoringSchedule`.
 func NewCfnMonitoringSchedule_Override(c CfnMonitoringSchedule, scope constructs.Construct, id *string, props *CfnMonitoringScheduleProps) {
 	_init_.Initialize()
 
@@ -641,6 +652,17 @@ func (j *jsiiProxy_CfnMonitoringSchedule)SetMonitoringScheduleStatus(val *string
 	_jsii_.Set(
 		j,
 		"monitoringScheduleStatus",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMonitoringSchedule)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -12,8 +12,12 @@ package awsiot
 //   	BillingGroupDescription: jsii.String("billingGroupDescription"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-billinggroup-billinggroupproperties.html
+//
 type CfnBillingGroup_BillingGroupPropertiesProperty struct {
 	// The description of the billing group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-billinggroup-billinggroupproperties.html#cfn-iot-billinggroup-billinggroupproperties-billinggroupdescription
+	//
 	BillingGroupDescription *string `field:"optional" json:"billingGroupDescription" yaml:"billingGroupDescription"`
 }
 

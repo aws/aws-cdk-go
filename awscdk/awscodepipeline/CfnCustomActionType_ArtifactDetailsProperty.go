@@ -13,10 +13,16 @@ package awscodepipeline
 //   	MinimumCount: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html
+//
 type CfnCustomActionType_ArtifactDetailsProperty struct {
 	// The maximum number of artifacts allowed for the action type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-maximumcount
+	//
 	MaximumCount *float64 `field:"required" json:"maximumCount" yaml:"maximumCount"`
 	// The minimum number of artifacts allowed for the action type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-minimumcount
+	//
 	MinimumCount *float64 `field:"required" json:"minimumCount" yaml:"minimumCount"`
 }
 

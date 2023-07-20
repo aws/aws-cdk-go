@@ -32,18 +32,26 @@ package awsec2
 //   	VirtualName: jsii.String("virtualName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html
+//
 type CfnInstance_BlockDeviceMappingProperty struct {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
 	//
 	// > After the instance is running, this parameter is used to specify the device name of the block device mapping to update.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html#cfn-ec2-instance-blockdevicemapping-devicename
+	//
 	DeviceName *string `field:"required" json:"deviceName" yaml:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
 	//
 	// > After the instance is running, you can modify only the `DeleteOnTermination` parameter for the attached volumes without interrupting the instance. Modifying any other parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html#cfn-ec2-instance-blockdevicemapping-ebs
+	//
 	Ebs interface{} `field:"optional" json:"ebs" yaml:"ebs"`
 	// To omit the device from the block device mapping, specify an empty string.
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html#cfn-ec2-instance-blockdevicemapping-nodevice
+	//
 	NoDevice interface{} `field:"optional" json:"noDevice" yaml:"noDevice"`
 	// The virtual device name ( `ephemeral` N).
 	//
@@ -54,6 +62,8 @@ type CfnInstance_BlockDeviceMappingProperty struct {
 	// *Constraints* : For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html#cfn-ec2-instance-blockdevicemapping-virtualname
+	//
 	VirtualName *string `field:"optional" json:"virtualName" yaml:"virtualName"`
 }
 

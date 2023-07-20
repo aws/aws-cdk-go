@@ -14,8 +14,12 @@ package awsmediaconnect
 //   	PrimarySource: jsii.String("primarySource"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-sourcepriority.html
+//
 type CfnFlow_SourcePriorityProperty struct {
 	// The name of the source you choose as the primary source for this flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-sourcepriority.html#cfn-mediaconnect-flow-sourcepriority-primarysource
+	//
 	PrimarySource *string `field:"required" json:"primarySource" yaml:"primarySource"`
 }
 

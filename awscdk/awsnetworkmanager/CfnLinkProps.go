@@ -31,26 +31,42 @@ import (
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html
+//
 type CfnLinkProps struct {
 	// The bandwidth for the link.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
+	//
 	Bandwidth interface{} `field:"required" json:"bandwidth" yaml:"bandwidth"`
 	// The ID of the global network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
+	//
 	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The ID of the site.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
+	//
 	SiteId *string `field:"required" json:"siteId" yaml:"siteId"`
 	// A description of the link.
 	//
 	// Constraints: Maximum length of 256 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The provider of the link.
 	//
 	// Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
+	//
 	Provider *string `field:"optional" json:"provider" yaml:"provider"`
 	// The tags for the link.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of the link.
 	//
 	// Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

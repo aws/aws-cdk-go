@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConvert::JobTemplate`.
-//
 // The AWS::MediaConvert::JobTemplate resource is an AWS Elemental MediaConvert resource type that you can use to generate transcoding jobs.
 //
 // When you declare this entity in your AWS CloudFormation template, you pass in your transcoding job settings in JSON or YAML format. This settings specification must be formed in a particular way that conforms to AWS Elemental MediaConvert job validation. For more information about creating a job template model for the `SettingsJson` property, see the Remarks section later in this topic.
@@ -48,21 +46,21 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html
+//
 type CfnJobTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Accelerated transcoding can significantly speed up jobs with long, visually complex content.
-	//
-	// Outputs that use this feature incur pro-tier pricing. For information about feature limitations, For more information, see [Job Limitations for Accelerated Transcoding in AWS Elemental MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/job-requirements.html) in the *AWS Elemental MediaConvert User Guide* .
 	AccelerationSettings() interface{}
 	SetAccelerationSettings(val interface{})
 	// The Amazon Resource Name (ARN) of the job template, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
 	AttrArn() *string
+	AttrId() *string
 	// The name of the job template, such as `Streaming stack DASH` .
 	AttrName() *string
 	// Optional.
-	//
-	// A category for the job template you are creating.
 	Category() *string
 	SetCategory(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -75,13 +73,9 @@ type CfnJobTemplate interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Optional.
-	//
-	// A description of the job template you are creating.
 	Description() *string
 	SetDescription(val *string)
 	// Optional.
-	//
-	// Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed. For more information, see [Setting Up Queue Hopping to Avoid Long Waits](https://docs.aws.amazon.com/mediaconvert/latest/ug/setting-up-queue-hopping-to-avoid-long-waits.html) in the *AWS Elemental MediaConvert User Guide* .
 	HopDestinations() interface{}
 	SetHopDestinations(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -100,13 +94,9 @@ type CfnJobTemplate interface {
 	// The tree node.
 	Node() constructs.Node
 	// Specify the relative priority for this job.
-	//
-	// In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0. Minimum: -50 Maximum: 50
 	Priority() *float64
 	SetPriority(val *float64)
 	// Optional.
-	//
-	// The queue that jobs created from this template are assigned to. Specify the Amazon Resource Name (ARN) of the queue. For example, arn:aws:mediaconvert:us-west-2:505474453218:queues/Default. If you don't specify this, jobs will go to the default queue.
 	Queue() *string
 	SetQueue(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -115,10 +105,6 @@ type CfnJobTemplate interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Specify, in JSON format, the transcoding job settings for this job template.
-	//
-	// This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-	//
-	// For more information about MediaConvert job templates, see [Working with AWS Elemental MediaConvert Job Templates](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-job-templates.html) in the ** .
 	SettingsJson() interface{}
 	SetSettingsJson(val interface{})
 	// The stack in which this element is defined.
@@ -126,46 +112,13 @@ type CfnJobTemplate interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events.
-	//
-	// Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
-	//
-	// Specify one of the following enums:
-	//
-	// SECONDS_10
-	//
-	// SECONDS_12
-	//
-	// SECONDS_15
-	//
-	// SECONDS_20
-	//
-	// SECONDS_30
-	//
-	// SECONDS_60
-	//
-	// SECONDS_120
-	//
-	// SECONDS_180
-	//
-	// SECONDS_240
-	//
-	// SECONDS_300
-	//
-	// SECONDS_360
-	//
-	// SECONDS_420
-	//
-	// SECONDS_480
-	//
-	// SECONDS_540
-	//
-	// SECONDS_600.
 	StatusUpdateInterval() *string
 	SetStatusUpdateInterval(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -310,6 +263,7 @@ type CfnJobTemplate interface {
 type jsiiProxy_CfnJobTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnJobTemplate) AccelerationSettings() interface{} {
@@ -327,6 +281,16 @@ func (j *jsiiProxy_CfnJobTemplate) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJobTemplate) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -512,6 +476,16 @@ func (j *jsiiProxy_CfnJobTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobTemplate) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobTemplate) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -533,7 +507,6 @@ func (j *jsiiProxy_CfnJobTemplate) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MediaConvert::JobTemplate`.
 func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemplateProps) CfnJobTemplate {
 	_init_.Initialize()
 
@@ -551,7 +524,6 @@ func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemp
 	return &j
 }
 
-// Create a new `AWS::MediaConvert::JobTemplate`.
 func NewCfnJobTemplate_Override(c CfnJobTemplate, scope constructs.Construct, id *string, props *CfnJobTemplateProps) {
 	_init_.Initialize()
 
@@ -639,6 +611,14 @@ func (j *jsiiProxy_CfnJobTemplate)SetStatusUpdateInterval(val *string) {
 	_jsii_.Set(
 		j,
 		"statusUpdateInterval",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobTemplate)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

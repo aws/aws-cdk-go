@@ -12,8 +12,12 @@ package awsiot
 //   	FunctionArn: jsii.String("functionArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html
+//
 type CfnTopicRule_LambdaActionProperty struct {
 	// The ARN of the Lambda function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn
+	//
 	FunctionArn *string `field:"optional" json:"functionArn" yaml:"functionArn"`
 }
 

@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnApiKey) validateSetStageKeysParameters(val interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnApiKey) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnApiKeyParameters(scope constructs.Construct, id *string, props *CfnApiKeyProps) error {
 	return nil
 }

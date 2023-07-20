@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IVS::PlaybackKeyPair`.
+// The `AWS::IVS::PlaybackKeyPair` resource specifies an  playback key pair.
 //
-// The `AWS::IVS::PlaybackKeyPair` resource specifies an  playback key pair.  uses a public playback key to validate playback tokens that have been signed with the corresponding private key. For more information, see [Setting Up Private Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html) in the *Amazon Interactive Video Service User Guide* .
+// uses a public playback key to validate playback tokens that have been signed with the corresponding private key. For more information, see [Setting Up Private Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html) in the *Amazon Interactive Video Service User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,9 +29,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html
+//
 type CfnPlaybackKeyPair interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Key-pair ARN.
 	//
 	// For example: `arn:aws:ivs:us-west-2:693991300569:playback-key/f99cde61-c2b0-4df3-8941-ca7d38acca1a`.
@@ -60,8 +63,6 @@ type CfnPlaybackKeyPair interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Playback-key-pair name.
-	//
-	// The value does not need to be unique.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -78,10 +79,11 @@ type CfnPlaybackKeyPair interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +228,7 @@ type CfnPlaybackKeyPair interface {
 type jsiiProxy_CfnPlaybackKeyPair struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPlaybackKeyPair) AttrArn() *string {
@@ -358,6 +361,16 @@ func (j *jsiiProxy_CfnPlaybackKeyPair) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlaybackKeyPair) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlaybackKeyPair) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -379,7 +392,6 @@ func (j *jsiiProxy_CfnPlaybackKeyPair) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::IVS::PlaybackKeyPair`.
 func NewCfnPlaybackKeyPair(scope constructs.Construct, id *string, props *CfnPlaybackKeyPairProps) CfnPlaybackKeyPair {
 	_init_.Initialize()
 
@@ -397,7 +409,6 @@ func NewCfnPlaybackKeyPair(scope constructs.Construct, id *string, props *CfnPla
 	return &j
 }
 
-// Create a new `AWS::IVS::PlaybackKeyPair`.
 func NewCfnPlaybackKeyPair_Override(c CfnPlaybackKeyPair, scope constructs.Construct, id *string, props *CfnPlaybackKeyPairProps) {
 	_init_.Initialize()
 
@@ -420,6 +431,17 @@ func (j *jsiiProxy_CfnPlaybackKeyPair)SetPublicKeyMaterial(val *string) {
 	_jsii_.Set(
 		j,
 		"publicKeyMaterial",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPlaybackKeyPair)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

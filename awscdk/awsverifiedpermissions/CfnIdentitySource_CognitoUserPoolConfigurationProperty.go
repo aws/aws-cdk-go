@@ -17,12 +17,18 @@ package awsverifiedpermissions
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html
+//
 type CfnIdentitySource_CognitoUserPoolConfigurationProperty struct {
 	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html#cfn-verifiedpermissions-identitysource-cognitouserpoolconfiguration-userpoolarn
+	//
 	UserPoolArn *string `field:"required" json:"userPoolArn" yaml:"userPoolArn"`
 	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
 	//
 	// Example: `"ClientIds": ["&ExampleCogClientId;"]`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html#cfn-verifiedpermissions-identitysource-cognitouserpoolconfiguration-clientids
+	//
 	ClientIds *[]*string `field:"optional" json:"clientIds" yaml:"clientIds"`
 }
 

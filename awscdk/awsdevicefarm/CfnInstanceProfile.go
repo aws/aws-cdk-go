@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DeviceFarm::InstanceProfile`.
-//
 // Creates a profile that can be applied to one or more private fleet device instances.
 //
 // Example:
@@ -36,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-instanceprofile.html
+//
 type CfnInstanceProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the instance profile.
 	//
 	// See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -56,8 +57,6 @@ type CfnInstanceProfile interface {
 	Description() *string
 	SetDescription(val *string)
 	// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
-	//
-	// The list of packages is considered only if you set `packageCleanup` to `true` .
 	ExcludeAppPackagesFromCleanup() *[]*string
 	SetExcludeAppPackagesFromCleanup(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -76,13 +75,9 @@ type CfnInstanceProfile interface {
 	// The tree node.
 	Node() constructs.Node
 	// When set to `true` , Device Farm removes app packages after a test run.
-	//
-	// The default value is `false` for private devices.
 	PackageCleanup() interface{}
 	SetPackageCleanup(val interface{})
 	// When set to `true` , Device Farm reboots the instance after a test run.
-	//
-	// The default value is `true` .
 	RebootAfterUse() interface{}
 	SetRebootAfterUse(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -94,10 +89,11 @@ type CfnInstanceProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -242,6 +238,7 @@ type CfnInstanceProfile interface {
 type jsiiProxy_CfnInstanceProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInstanceProfile) AttrArn() *string {
@@ -394,6 +391,16 @@ func (j *jsiiProxy_CfnInstanceProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInstanceProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInstanceProfile) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -415,7 +422,6 @@ func (j *jsiiProxy_CfnInstanceProfile) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::DeviceFarm::InstanceProfile`.
 func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnInstanceProfileProps) CfnInstanceProfile {
 	_init_.Initialize()
 
@@ -433,7 +439,6 @@ func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnIns
 	return &j
 }
 
-// Create a new `AWS::DeviceFarm::InstanceProfile`.
 func NewCfnInstanceProfile_Override(c CfnInstanceProfile, scope constructs.Construct, id *string, props *CfnInstanceProfileProps) {
 	_init_.Initialize()
 
@@ -489,6 +494,17 @@ func (j *jsiiProxy_CfnInstanceProfile)SetRebootAfterUse(val interface{}) {
 	_jsii_.Set(
 		j,
 		"rebootAfterUse",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInstanceProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

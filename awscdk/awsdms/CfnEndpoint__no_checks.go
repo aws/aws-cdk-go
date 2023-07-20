@@ -156,6 +156,10 @@ func (j *jsiiProxy_CfnEndpoint) validateSetSybaseSettingsParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnEndpoint) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEndpointParameters(scope constructs.Construct, id *string, props *CfnEndpointProps) error {
 	return nil
 }

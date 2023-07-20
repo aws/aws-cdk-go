@@ -29,12 +29,20 @@ package awscomprehend
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-taskconfig.html
+//
 type CfnFlywheel_TaskConfigProperty struct {
 	// Language code for the language that the model supports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-taskconfig.html#cfn-comprehend-flywheel-taskconfig-languagecode
+	//
 	LanguageCode *string `field:"required" json:"languageCode" yaml:"languageCode"`
 	// Configuration required for a document classification model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-taskconfig.html#cfn-comprehend-flywheel-taskconfig-documentclassificationconfig
+	//
 	DocumentClassificationConfig interface{} `field:"optional" json:"documentClassificationConfig" yaml:"documentClassificationConfig"`
 	// Configuration required for an entity recognition model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-taskconfig.html#cfn-comprehend-flywheel-taskconfig-entityrecognitionconfig
+	//
 	EntityRecognitionConfig interface{} `field:"optional" json:"entityRecognitionConfig" yaml:"entityRecognitionConfig"`
 }
 

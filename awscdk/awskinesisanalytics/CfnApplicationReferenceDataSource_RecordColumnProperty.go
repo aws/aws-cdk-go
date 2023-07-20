@@ -18,14 +18,22 @@ package awskinesisanalytics
 //   	Mapping: jsii.String("mapping"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordcolumn.html
+//
 type CfnApplicationReferenceDataSource_RecordColumnProperty struct {
 	// Name of the column created in the in-application input stream or reference table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordcolumn.html#cfn-kinesisanalytics-applicationreferencedatasource-recordcolumn-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Type of column created in the in-application input stream or reference table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordcolumn.html#cfn-kinesisanalytics-applicationreferencedatasource-recordcolumn-sqltype
+	//
 	SqlType *string `field:"required" json:"sqlType" yaml:"sqlType"`
 	// Reference to the data element in the streaming input or the reference data source.
 	//
 	// This element is required if the [RecordFormatType](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel) is `JSON` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordcolumn.html#cfn-kinesisanalytics-applicationreferencedatasource-recordcolumn-mapping
+	//
 	Mapping *string `field:"optional" json:"mapping" yaml:"mapping"`
 }
 

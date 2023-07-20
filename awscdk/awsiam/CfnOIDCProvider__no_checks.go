@@ -80,6 +80,10 @@ func validateCfnOIDCProvider_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnOIDCProvider) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnOIDCProvider) validateSetThumbprintListParameters(val *[]*string) error {
 	return nil
 }

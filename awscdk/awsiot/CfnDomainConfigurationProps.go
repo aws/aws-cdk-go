@@ -35,26 +35,40 @@ import (
 //   	ValidationCertificateArn: jsii.String("validationCertificateArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html
+//
 type CfnDomainConfigurationProps struct {
 	// An object that specifies the authorization service for a domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
+	//
 	AuthorizerConfig interface{} `field:"optional" json:"authorizerConfig" yaml:"authorizerConfig"`
 	// The name of the domain configuration.
 	//
 	// This value must be unique to a region.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
+	//
 	DomainConfigurationName *string `field:"optional" json:"domainConfigurationName" yaml:"domainConfigurationName"`
 	// The status to which the domain configuration should be updated.
 	//
 	// Valid values: `ENABLED` | `DISABLED`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
+	//
 	DomainConfigurationStatus *string `field:"optional" json:"domainConfigurationStatus" yaml:"domainConfigurationStatus"`
 	// The name of the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainname
+	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake.
 	//
 	// Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
+	//
 	ServerCertificateArns *[]*string `field:"optional" json:"serverCertificateArns" yaml:"serverCertificateArns"`
 	// The type of service delivered by the endpoint.
 	//
 	// > AWS IoT Core currently supports only the `DATA` service type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
+	//
 	ServiceType *string `field:"optional" json:"serviceType" yaml:"serviceType"`
 	// Metadata which can be used to manage the domain configuration.
 	//
@@ -63,12 +77,18 @@ type CfnDomainConfigurationProps struct {
 	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
 	// >
 	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// An object that specifies the TLS configuration for a domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tlsconfig
+	//
 	TlsConfig interface{} `field:"optional" json:"tlsConfig" yaml:"tlsConfig"`
 	// The certificate used to validate the server certificate and prove domain name ownership.
 	//
 	// This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
+	//
 	ValidationCertificateArn *string `field:"optional" json:"validationCertificateArn" yaml:"validationCertificateArn"`
 }
 

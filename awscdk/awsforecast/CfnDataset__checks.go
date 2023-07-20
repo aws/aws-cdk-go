@@ -203,14 +203,6 @@ func (j *jsiiProxy_CfnDataset) validateSetDomainParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnDataset) validateSetEncryptionConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnDataset) validateSetSchemaParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

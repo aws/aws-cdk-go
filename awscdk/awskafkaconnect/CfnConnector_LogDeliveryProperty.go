@@ -32,10 +32,14 @@ package awskafkaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html
+//
 type CfnConnector_LogDeliveryProperty struct {
 	// The workers can send worker logs to different destination types.
 	//
 	// This configuration specifies the details of these destinations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html#cfn-kafkaconnect-connector-logdelivery-workerlogdelivery
+	//
 	WorkerLogDelivery interface{} `field:"required" json:"workerLogDelivery" yaml:"workerLogDelivery"`
 }
 

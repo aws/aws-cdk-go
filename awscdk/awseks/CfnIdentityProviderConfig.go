@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EKS::IdentityProviderConfig`.
-//
 // Associate an identity provider configuration to a cluster.
 //
 // If you want to authenticate identities using an identity provider, you can create an identity provider configuration and associate it to your cluster. After configuring authentication to your cluster you can create Kubernetes `roles` and `clusterroles` to assign permissions to the roles, and then bind the roles to the identities using Kubernetes `rolebindings` and `clusterrolebindings` . For more information see [Using RBAC Authorization](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in the Kubernetes documentation.
@@ -50,9 +48,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html
+//
 type CfnIdentityProviderConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) associated with the identity provider config.
 	AttrIdentityProviderConfigArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -94,13 +95,12 @@ type CfnIdentityProviderConfig interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The metadata to apply to the provider configuration to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value. You define both.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The metadata to apply to the provider configuration to assist with categorization and organization.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of the identity provider configuration.
-	//
-	// The only type available is `oidc` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -247,6 +247,7 @@ type CfnIdentityProviderConfig interface {
 type jsiiProxy_CfnIdentityProviderConfig struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIdentityProviderConfig) AttrIdentityProviderConfigArn() *string {
@@ -379,6 +380,16 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIdentityProviderConfig) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIdentityProviderConfig) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -410,7 +421,6 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::EKS::IdentityProviderConfig`.
 func NewCfnIdentityProviderConfig(scope constructs.Construct, id *string, props *CfnIdentityProviderConfigProps) CfnIdentityProviderConfig {
 	_init_.Initialize()
 
@@ -428,7 +438,6 @@ func NewCfnIdentityProviderConfig(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::EKS::IdentityProviderConfig`.
 func NewCfnIdentityProviderConfig_Override(c CfnIdentityProviderConfig, scope constructs.Construct, id *string, props *CfnIdentityProviderConfigProps) {
 	_init_.Initialize()
 
@@ -465,6 +474,17 @@ func (j *jsiiProxy_CfnIdentityProviderConfig)SetOidc(val interface{}) {
 	_jsii_.Set(
 		j,
 		"oidc",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIdentityProviderConfig)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

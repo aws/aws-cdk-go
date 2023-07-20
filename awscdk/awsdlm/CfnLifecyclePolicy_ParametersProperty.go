@@ -23,16 +23,23 @@ package awsdlm
 //   	NoReboot: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html
+//
 type CfnLifecyclePolicy_ParametersProperty struct {
 	// *[Snapshot policies that target instances only]* Indicates whether to exclude the root volume from multi-volume snapshot sets.
 	//
 	// The default is `false` . If you specify `true` , then the root volumes attached to targeted instances will be excluded from the multi-volume snapshot sets created by the policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
+	//
 	ExcludeBootVolume interface{} `field:"optional" json:"excludeBootVolume" yaml:"excludeBootVolume"`
-	// `CfnLifecyclePolicy.ParametersProperty.ExcludeDataVolumeTags`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludedatavolumetags
+	//
 	ExcludeDataVolumeTags interface{} `field:"optional" json:"excludeDataVolumeTags" yaml:"excludeDataVolumeTags"`
 	// *[AMI policies only]* Indicates whether targeted instances are rebooted when the lifecycle policy runs.
 	//
 	// `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
+	//
 	NoReboot interface{} `field:"optional" json:"noReboot" yaml:"noReboot"`
 }
 

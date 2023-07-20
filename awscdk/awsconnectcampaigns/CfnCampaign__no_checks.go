@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnCampaign) validateSetOutboundCallConfigParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnCampaign) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCampaignParameters(scope constructs.Construct, id *string, props *CfnCampaignProps) error {
 	return nil
 }

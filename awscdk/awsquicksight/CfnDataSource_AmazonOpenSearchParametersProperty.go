@@ -12,8 +12,12 @@ package awsquicksight
 //   	Domain: jsii.String("domain"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonopensearchparameters.html
+//
 type CfnDataSource_AmazonOpenSearchParametersProperty struct {
 	// The OpenSearch domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonopensearchparameters.html#cfn-quicksight-datasource-amazonopensearchparameters-domain
+	//
 	Domain *string `field:"required" json:"domain" yaml:"domain"`
 }
 

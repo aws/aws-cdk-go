@@ -1071,6 +1071,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-batch-alpha.Secret",
+		reflect.TypeOf((*Secret)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "hasField", GoGetter: "HasField"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Secret{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-batch-alpha.SecretPathVolume",
 		reflect.TypeOf((*SecretPathVolume)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1089,6 +1101,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-batch-alpha.SecretPathVolumeOptions",
 		reflect.TypeOf((*SecretPathVolumeOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-batch-alpha.SecretVersionInfo",
+		reflect.TypeOf((*SecretVersionInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-batch-alpha.Share",

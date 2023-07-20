@@ -16,12 +16,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotoptions.html
+//
 type CfnTemplate_BoxPlotOptionsProperty struct {
 	// Determines the visibility of all data points of the box plot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotoptions.html#cfn-quicksight-template-boxplotoptions-alldatapointsvisibility
+	//
 	AllDataPointsVisibility *string `field:"optional" json:"allDataPointsVisibility" yaml:"allDataPointsVisibility"`
 	// Determines the visibility of the outlier in a box plot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotoptions.html#cfn-quicksight-template-boxplotoptions-outliervisibility
+	//
 	OutlierVisibility *string `field:"optional" json:"outlierVisibility" yaml:"outlierVisibility"`
 	// The style options of the box plot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotoptions.html#cfn-quicksight-template-boxplotoptions-styleoptions
+	//
 	StyleOptions interface{} `field:"optional" json:"styleOptions" yaml:"styleOptions"`
 }
 

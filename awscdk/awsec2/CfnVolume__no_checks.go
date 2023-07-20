@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnVolume) validateSetMultiAttachEnabledParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnVolume) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnVolumeParameters(scope constructs.Construct, id *string, props *CfnVolumeProps) error {
 	return nil
 }

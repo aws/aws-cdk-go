@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Config::ConformancePack`.
+// A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed in an account and a region.
 //
-// A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed in an account and a region. ConformancePack creates a service linked role in your account. The service linked role is created only when the role does not exist in your account.
+// ConformancePack creates a service linked role in your account. The service linked role is created only when the role does not exist in your account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,6 +36,8 @@ import (
 //   	TemplateS3Uri: jsii.String("templateS3Uri"),
 //   	TemplateSsmDocumentDetails: templateSsmDocumentDetails,
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html
 //
 type CfnConformancePack interface {
 	awscdk.CfnResource
@@ -83,20 +85,12 @@ type CfnConformancePack interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A string containing full conformance pack template body.
-	//
-	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
-	//
-	// > You can only use a YAML template with two resource types: config rule ( `AWS::Config::ConfigRule` ) and a remediation action ( `AWS::Config::RemediationConfiguration` ).
 	TemplateBody() *string
 	SetTemplateBody(val *string)
 	// Location of file containing the template body (s3://bucketname/prefix).
-	//
-	// The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket.
-	//
-	// > You must have access to read Amazon S3 bucket.
 	TemplateS3Uri() *string
 	SetTemplateS3Uri(val *string)
-	// `AWS::Config::ConformancePack.TemplateSSMDocumentDetails`.
+	// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
 	TemplateSsmDocumentDetails() interface{}
 	SetTemplateSsmDocumentDetails(val interface{})
 	// Deprecated.
@@ -416,7 +410,6 @@ func (j *jsiiProxy_CfnConformancePack) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::Config::ConformancePack`.
 func NewCfnConformancePack(scope constructs.Construct, id *string, props *CfnConformancePackProps) CfnConformancePack {
 	_init_.Initialize()
 
@@ -434,7 +427,6 @@ func NewCfnConformancePack(scope constructs.Construct, id *string, props *CfnCon
 	return &j
 }
 
-// Create a new `AWS::Config::ConformancePack`.
 func NewCfnConformancePack_Override(c CfnConformancePack, scope constructs.Construct, id *string, props *CfnConformancePackProps) {
 	_init_.Initialize()
 
@@ -500,9 +492,6 @@ func (j *jsiiProxy_CfnConformancePack)SetTemplateS3Uri(val *string) {
 }
 
 func (j *jsiiProxy_CfnConformancePack)SetTemplateSsmDocumentDetails(val interface{}) {
-	if err := j.validateSetTemplateSsmDocumentDetailsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"templateSsmDocumentDetails",

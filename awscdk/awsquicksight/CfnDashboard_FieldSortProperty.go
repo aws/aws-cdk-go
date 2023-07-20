@@ -13,13 +13,19 @@ package awsquicksight
 //   	FieldId: jsii.String("fieldId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldsort.html
+//
 type CfnDashboard_FieldSortProperty struct {
 	// The sort direction. Choose one of the following options:.
 	//
 	// - `ASC` : Ascending
 	// - `DESC` : Descending.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldsort.html#cfn-quicksight-dashboard-fieldsort-direction
+	//
 	Direction *string `field:"required" json:"direction" yaml:"direction"`
 	// The sort configuration target field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldsort.html#cfn-quicksight-dashboard-fieldsort-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 }
 

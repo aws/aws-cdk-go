@@ -87,24 +87,40 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html
+//
 type CfnSecurityProfileProps struct {
 	// A list of metrics whose data is retained (stored).
 	//
 	// By default, data is retained for any metric used in the profile's `behaviors` , but it's also retained for any metric specified here. Can be used with custom metrics; can't be used with dimensions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
+	//
 	AdditionalMetricsToRetainV2 interface{} `field:"optional" json:"additionalMetricsToRetainV2" yaml:"additionalMetricsToRetainV2"`
 	// Specifies the destinations to which alerts are sent.
 	//
 	// (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
+	//
 	AlertTargets interface{} `field:"optional" json:"alertTargets" yaml:"alertTargets"`
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
+	//
 	Behaviors interface{} `field:"optional" json:"behaviors" yaml:"behaviors"`
 	// A description of the security profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
+	//
 	SecurityProfileDescription *string `field:"optional" json:"securityProfileDescription" yaml:"securityProfileDescription"`
 	// The name you gave to the security profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename
+	//
 	SecurityProfileName *string `field:"optional" json:"securityProfileName" yaml:"securityProfileName"`
 	// Metadata that can be used to manage the security profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN of the target (thing group) to which the security profile is attached.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns
+	//
 	TargetArns *[]*string `field:"optional" json:"targetArns" yaml:"targetArns"`
 }
 

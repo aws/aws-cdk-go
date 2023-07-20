@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DeviceFarm::VPCEConfiguration`.
-//
 // Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud (VPC) endpoint service.
 //
 // Example:
@@ -33,9 +31,12 @@ import (
 //   	VpceConfigurationDescription: jsii.String("vpceConfigurationDescription"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html
+//
 type CfnVPCEConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the VPC endpoint.
 	//
 	// See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -73,10 +74,11 @@ type CfnVPCEConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -97,8 +99,6 @@ type CfnVPCEConfiguration interface {
 	VpceConfigurationName() *string
 	SetVpceConfigurationName(val *string)
 	// The name of the VPC endpoint service that you want to access from Device Farm.
-	//
-	// The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
 	VpceServiceName() *string
 	SetVpceServiceName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -232,6 +232,7 @@ type CfnVPCEConfiguration interface {
 type jsiiProxy_CfnVPCEConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVPCEConfiguration) AttrArn() *string {
@@ -344,6 +345,16 @@ func (j *jsiiProxy_CfnVPCEConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCEConfiguration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEConfiguration) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -395,7 +406,6 @@ func (j *jsiiProxy_CfnVPCEConfiguration) VpceServiceName() *string {
 }
 
 
-// Create a new `AWS::DeviceFarm::VPCEConfiguration`.
 func NewCfnVPCEConfiguration(scope constructs.Construct, id *string, props *CfnVPCEConfigurationProps) CfnVPCEConfiguration {
 	_init_.Initialize()
 
@@ -413,7 +423,6 @@ func NewCfnVPCEConfiguration(scope constructs.Construct, id *string, props *CfnV
 	return &j
 }
 
-// Create a new `AWS::DeviceFarm::VPCEConfiguration`.
 func NewCfnVPCEConfiguration_Override(c CfnVPCEConfiguration, scope constructs.Construct, id *string, props *CfnVPCEConfigurationProps) {
 	_init_.Initialize()
 
@@ -431,6 +440,17 @@ func (j *jsiiProxy_CfnVPCEConfiguration)SetServiceDnsName(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceDnsName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

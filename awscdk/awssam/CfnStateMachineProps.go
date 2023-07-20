@@ -18,7 +18,7 @@ package awssam
 //   	DefinitionUri: jsii.String("definitionUri"),
 //   	Events: map[string]interface{}{
 //   		"eventsKey": &EventSourceProperty{
-//   			"properties": &CloudWatchEventEventProperty{
+//   			"properties": &ApiEventProperty{
 //   				"method": jsii.String("method"),
 //   				"path": jsii.String("path"),
 //
@@ -52,30 +52,44 @@ package awssam
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html
+//
 type CfnStateMachineProps struct {
-	// `AWS::Serverless::StateMachine.Definition`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-definition
+	//
 	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
-	// `AWS::Serverless::StateMachine.DefinitionSubstitutions`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-definitionsubstitutions
+	//
 	DefinitionSubstitutions interface{} `field:"optional" json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
-	// `AWS::Serverless::StateMachine.DefinitionUri`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-definitionuri
+	//
 	DefinitionUri interface{} `field:"optional" json:"definitionUri" yaml:"definitionUri"`
-	// `AWS::Serverless::StateMachine.Events`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-events
+	//
 	Events interface{} `field:"optional" json:"events" yaml:"events"`
-	// `AWS::Serverless::StateMachine.Logging`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-logging
+	//
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
-	// `AWS::Serverless::StateMachine.Name`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::Serverless::StateMachine.PermissionsBoundaries`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-permissionsboundaries
+	//
 	PermissionsBoundaries *string `field:"optional" json:"permissionsBoundaries" yaml:"permissionsBoundaries"`
-	// `AWS::Serverless::StateMachine.Policies`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-policies
+	//
 	Policies interface{} `field:"optional" json:"policies" yaml:"policies"`
-	// `AWS::Serverless::StateMachine.Role`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-role
+	//
 	Role *string `field:"optional" json:"role" yaml:"role"`
-	// `AWS::Serverless::StateMachine.Tags`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::Serverless::StateMachine.Tracing`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-tracing
+	//
 	Tracing interface{} `field:"optional" json:"tracing" yaml:"tracing"`
-	// `AWS::Serverless::StateMachine.Type`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-statemachine.html#cfn-serverless-statemachine-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

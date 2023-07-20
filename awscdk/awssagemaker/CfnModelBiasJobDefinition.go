@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::ModelBiasJobDefinition`.
-//
 // Creates the definition for a model bias job.
 //
 // Example:
@@ -132,9 +130,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
+//
 type CfnModelBiasJobDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The time when the job definition was created.
 	AttrCreationTime() *string
 	// The Amazon Resource Name (ARN) of the job definition.
@@ -148,12 +149,10 @@ type CfnModelBiasJobDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::SageMaker::ModelBiasJobDefinition.EndpointName`.
+	// The name of the endpoint used to run the monitoring job.
 	EndpointName() *string
 	SetEndpointName(val *string)
 	// The name of the bias job definition.
-	//
-	// The name must be unique within an AWS Region in the AWS account.
 	JobDefinitionName() *string
 	SetJobDefinitionName(val *string)
 	// Identifies the resources to deploy for a monitoring job.
@@ -201,10 +200,11 @@ type CfnModelBiasJobDefinition interface {
 	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition() interface{}
 	SetStoppingCondition(val interface{})
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -349,6 +349,7 @@ type CfnModelBiasJobDefinition interface {
 type jsiiProxy_CfnModelBiasJobDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnModelBiasJobDefinition) AttrCreationTime() *string {
@@ -561,6 +562,16 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnModelBiasJobDefinition) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnModelBiasJobDefinition) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -582,7 +593,6 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::SageMaker::ModelBiasJobDefinition`.
 func NewCfnModelBiasJobDefinition(scope constructs.Construct, id *string, props *CfnModelBiasJobDefinitionProps) CfnModelBiasJobDefinition {
 	_init_.Initialize()
 
@@ -600,7 +610,6 @@ func NewCfnModelBiasJobDefinition(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::SageMaker::ModelBiasJobDefinition`.
 func NewCfnModelBiasJobDefinition_Override(c CfnModelBiasJobDefinition, scope constructs.Construct, id *string, props *CfnModelBiasJobDefinitionProps) {
 	_init_.Initialize()
 
@@ -711,6 +720,17 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition)SetStoppingCondition(val interface{
 	_jsii_.Set(
 		j,
 		"stoppingCondition",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnModelBiasJobDefinition)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

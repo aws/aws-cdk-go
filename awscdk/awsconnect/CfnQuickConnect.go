@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::QuickConnect`.
-//
 // Specifies a quick connect for an Amazon Connect instance.
 //
 // Example:
@@ -48,9 +46,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html
+//
 type CfnQuickConnect interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the quick connect.
 	AttrQuickConnectArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -95,10 +96,11 @@ type CfnQuickConnect interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -243,6 +245,7 @@ type CfnQuickConnect interface {
 type jsiiProxy_CfnQuickConnect struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnQuickConnect) AttrQuickConnectArn() *string {
@@ -385,6 +388,16 @@ func (j *jsiiProxy_CfnQuickConnect) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQuickConnect) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQuickConnect) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -406,7 +419,6 @@ func (j *jsiiProxy_CfnQuickConnect) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Connect::QuickConnect`.
 func NewCfnQuickConnect(scope constructs.Construct, id *string, props *CfnQuickConnectProps) CfnQuickConnect {
 	_init_.Initialize()
 
@@ -424,7 +436,6 @@ func NewCfnQuickConnect(scope constructs.Construct, id *string, props *CfnQuickC
 	return &j
 }
 
-// Create a new `AWS::Connect::QuickConnect`.
 func NewCfnQuickConnect_Override(c CfnQuickConnect, scope constructs.Construct, id *string, props *CfnQuickConnectProps) {
 	_init_.Initialize()
 
@@ -472,6 +483,17 @@ func (j *jsiiProxy_CfnQuickConnect)SetQuickConnectConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"quickConnectConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQuickConnect)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

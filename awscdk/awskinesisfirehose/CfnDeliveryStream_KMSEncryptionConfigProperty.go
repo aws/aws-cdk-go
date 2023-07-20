@@ -12,10 +12,14 @@ package awskinesisfirehose
 //   	AwskmsKeyArn: jsii.String("awskmsKeyArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html
+//
 type CfnDeliveryStream_KMSEncryptionConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the AWS KMS encryption key that Amazon S3 uses to encrypt data delivered by the Kinesis Data Firehose stream.
 	//
 	// The key must belong to the same region as the destination S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
+	//
 	AwskmsKeyArn *string `field:"required" json:"awskmsKeyArn" yaml:"awskmsKeyArn"`
 }
 

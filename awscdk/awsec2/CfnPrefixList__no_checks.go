@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnPrefixList) validateSetPrefixListNameParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnPrefixList) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPrefixListParameters(scope constructs.Construct, id *string, props *CfnPrefixListProps) error {
 	return nil
 }

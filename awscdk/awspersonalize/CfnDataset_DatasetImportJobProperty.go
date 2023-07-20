@@ -24,16 +24,28 @@ package awspersonalize
 //   	RoleArn: jsii.String("roleArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html
+//
 type CfnDataset_DatasetImportJobProperty struct {
 	// The Amazon Resource Name (ARN) of the dataset that receives the imported data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasetarn
+	//
 	DatasetArn *string `field:"optional" json:"datasetArn" yaml:"datasetArn"`
 	// The ARN of the dataset import job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasetimportjobarn
+	//
 	DatasetImportJobArn *string `field:"optional" json:"datasetImportJobArn" yaml:"datasetImportJobArn"`
 	// The Amazon S3 bucket that contains the training data to import.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasource
+	//
 	DataSource interface{} `field:"optional" json:"dataSource" yaml:"dataSource"`
 	// The name of the import job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-jobname
+	//
 	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`
 	// The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

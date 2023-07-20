@@ -633,20 +633,19 @@ lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
 Lambda functions can be configured to use the Parameters and Secrets Extension. The Parameters and Secrets Extension can be used to retrieve and cache [secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets_lambda.html) from Secrets Manager or [parameters](https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-integration-lambda-extensions.html) from Parameter Store in Lambda functions without using an SDK.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import sm "github.com/aws/aws-cdk-go/awscdk"
 import ssm "github.com/aws/aws-cdk-go/awscdk"
 
 
-secret := sm.NewSecret(stack, jsii.String("Secret"))
-parameter := ssm.NewStringParameter(stack, jsii.String("Parameter"), &StringParameterProps{
+secret := sm.NewSecret(this, jsii.String("Secret"))
+parameter := ssm.NewStringParameter(this, jsii.String("Parameter"), &StringParameterProps{
 	ParameterName: jsii.String("mySsmParameterName"),
 	StringValue: jsii.String("mySsmParameterValue"),
 })
 
 paramsAndSecrets := lambda.ParamsAndSecretsLayerVersion_FromVersion(lambda.ParamsAndSecretsVersions_V1_0_103, &ParamsAndSecretsOptions{
 	CacheSize: jsii.Number(500),
-	LogLevel: lamabda.paramsAndSecretsLogLevel_DEBUG,
+	LogLevel: lambda.ParamsAndSecretsLogLevel_DEBUG,
 })
 
 lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
@@ -664,13 +663,12 @@ parameter.grantRead(lambdaFunction)
 If the version of Parameters and Secrets Extension is not yet available in the CDK, you can also provide the ARN directly as so:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import sm "github.com/aws/aws-cdk-go/awscdk"
 import ssm "github.com/aws/aws-cdk-go/awscdk"
 
 
-secret := sm.NewSecret(stack, jsii.String("Secret"))
-parameter := ssm.NewStringParameter(stack, jsii.String("Parameter"), &StringParameterProps{
+secret := sm.NewSecret(this, jsii.String("Secret"))
+parameter := ssm.NewStringParameter(this, jsii.String("Parameter"), &StringParameterProps{
 	ParameterName: jsii.String("mySsmParameterName"),
 	StringValue: jsii.String("mySsmParameterValue"),
 })
@@ -689,7 +687,7 @@ lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionP
 })
 
 secret.grantRead(lambdaFunction)
-parameters.grantRead(lambdaFunction)
+parameter.grantRead(lambdaFunction)
 ```
 
 ## Event Rule Target
@@ -927,6 +925,8 @@ var fn function
 
 layerArn := lambda.AdotLambdaLayerJavaSdkVersion_V1_19_0().layerArn(fn.Stack, fn.Architecture)
 ```
+
+When using the `AdotLambdaLayerPythonSdkVersion` the `AdotLambdaExecWrapper` needs to be `AdotLambdaExecWrapper.INSTRUMENT_HANDLER` as per [AWS Distro for OpenTelemetry Lambda Support For Python](https://aws-otel.github.io/docs/getting-started/lambda/lambda-python)
 
 ## Lambda with Profiling
 

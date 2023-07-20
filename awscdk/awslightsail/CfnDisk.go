@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::Disk`.
-//
 // The `AWS::Lightsail::Disk` resource specifies a disk that can be attached to an Amazon Lightsail instance that is in the same AWS Region and Availability Zone.
 //
 // Example:
@@ -47,12 +45,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-disk.html
+//
 type CfnDisk interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// An array of add-ons for the disk.
-	//
-	// > If the disk has an add-on enabled when performing a delete disk request, the add-on is automatically disabled before the disk is deleted.
 	AddOns() interface{}
 	SetAddOns(val interface{})
 	// The instance to which the disk is attached.
@@ -67,7 +66,11 @@ type CfnDisk interface {
 	AttrIops() *float64
 	// A Boolean value indicating whether the disk is attached to an instance.
 	AttrIsAttached() awscdk.IResolvable
+	// The Availability Zone in which to create your disk.
+	//
+	// Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 	AttrLocationAvailabilityZone() *string
+	// The Region Name in which to create your disk.
 	AttrLocationRegionName() *string
 	// The path of the disk.
 	AttrPath() *string
@@ -94,7 +97,7 @@ type CfnDisk interface {
 	// The name of the disk.
 	DiskName() *string
 	SetDiskName(val *string)
-	// `AWS::Lightsail::Disk.Location`.
+	// Location of a resource.
 	Location() interface{}
 	SetLocation(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -121,12 +124,11 @@ type CfnDisk interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
-	//
-	// > The `Value` of `Tags` is optional for Lightsail resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -271,6 +273,7 @@ type CfnDisk interface {
 type jsiiProxy_CfnDisk struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDisk) AddOns() interface{} {
@@ -523,6 +526,16 @@ func (j *jsiiProxy_CfnDisk) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDisk) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDisk) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -544,7 +557,6 @@ func (j *jsiiProxy_CfnDisk) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lightsail::Disk`.
 func NewCfnDisk(scope constructs.Construct, id *string, props *CfnDiskProps) CfnDisk {
 	_init_.Initialize()
 
@@ -562,7 +574,6 @@ func NewCfnDisk(scope constructs.Construct, id *string, props *CfnDiskProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::Lightsail::Disk`.
 func NewCfnDisk_Override(c CfnDisk, scope constructs.Construct, id *string, props *CfnDiskProps) {
 	_init_.Initialize()
 
@@ -621,6 +632,17 @@ func (j *jsiiProxy_CfnDisk)SetSizeInGb(val *float64) {
 	_jsii_.Set(
 		j,
 		"sizeInGb",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDisk)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -14,8 +14,12 @@ package awsiotevents
 //   	TimerName: jsii.String("timerName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html
+//
 type CfnDetectorModel_ResetTimerProperty struct {
 	// The name of the timer to reset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername
+	//
 	TimerName *string `field:"required" json:"timerName" yaml:"timerName"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3Outposts::Endpoint`.
-//
 // This AWS::S3Outposts::Endpoint resource specifies an endpoint and associates it with the specified Outpost.
 //
 // Amazon S3 on Outposts access points simplify managing data access at scale for shared datasets in S3 on Outposts. S3 on Outposts uses endpoints to connect to S3 on Outposts buckets so that you can perform actions within your virtual private cloud (VPC). For more information, see [Accessing S3 on Outposts using VPC-only access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html) .
@@ -30,16 +28,18 @@ import (
 //   	// the properties below are optional
 //   	AccessType: jsii.String("accessType"),
 //   	CustomerOwnedIpv4Pool: jsii.String("customerOwnedIpv4Pool"),
+//   	FailedReason: &FailedReasonProperty{
+//   		ErrorCode: jsii.String("errorCode"),
+//   		Message: jsii.String("message"),
+//   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html
 //
 type CfnEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The container for the type of connectivity used to access the Amazon S3 on Outposts endpoint.
-	//
-	// To use the Amazon VPC , choose `Private` . To use the endpoint with an on-premises network, choose `CustomerOwnedIp` . If you choose `CustomerOwnedIp` , you must also provide the customer-owned IP address pool (CoIP pool).
-	//
-	// > `Private` is the default access type value.
 	AccessType() *string
 	SetAccessType(val *string)
 	// The ARN of the endpoint.
@@ -64,10 +64,10 @@ type CfnEndpoint interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint.
-	//
-	// IP addresses are allocated from this pool for the endpoint.
 	CustomerOwnedIpv4Pool() *string
 	SetCustomerOwnedIpv4Pool(val *string)
+	FailedReason() interface{}
+	SetFailedReason(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -364,6 +364,16 @@ func (j *jsiiProxy_CfnEndpoint) CustomerOwnedIpv4Pool() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpoint) FailedReason() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"failedReason",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpoint) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -455,7 +465,6 @@ func (j *jsiiProxy_CfnEndpoint) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::S3Outposts::Endpoint`.
 func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
@@ -473,7 +482,6 @@ func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointPr
 	return &j
 }
 
-// Create a new `AWS::S3Outposts::Endpoint`.
 func NewCfnEndpoint_Override(c CfnEndpoint, scope constructs.Construct, id *string, props *CfnEndpointProps) {
 	_init_.Initialize()
 
@@ -496,6 +504,17 @@ func (j *jsiiProxy_CfnEndpoint)SetCustomerOwnedIpv4Pool(val *string) {
 	_jsii_.Set(
 		j,
 		"customerOwnedIpv4Pool",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpoint)SetFailedReason(val interface{}) {
+	if err := j.validateSetFailedReasonParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"failedReason",
 		val,
 	)
 }

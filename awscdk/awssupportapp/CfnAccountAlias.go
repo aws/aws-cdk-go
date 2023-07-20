@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SupportApp::AccountAlias`.
+// You can use the `AWS::SupportApp::AccountAlias` resource to specify your AWS account when you configure the AWS Support App in Slack.
 //
-// You can use the `AWS::SupportApp::AccountAlias` resource to specify your AWS account when you configure the AWS Support App in Slack. Your alias name appears on the AWS Support App page in the Support Center Console and in messages from the AWS Support App. You can use this alias to identify the account you've configured with the AWS Support App .
+// Your alias name appears on the AWS Support App page in the Support Center Console and in messages from the AWS Support App. You can use this alias to identify the account you've configured with the AWS Support App .
 //
 // For more information, see [AWS Support App in Slack](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-app-for-slack.html) in the *AWS Support User Guide* .
 //
@@ -23,6 +23,8 @@ import (
 //   cfnAccountAlias := awscdk.Aws_supportapp.NewCfnAccountAlias(this, jsii.String("MyCfnAccountAlias"), &CfnAccountAliasProps{
 //   	AccountAlias: jsii.String("accountAlias"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-accountalias.html
 //
 type CfnAccountAlias interface {
 	awscdk.CfnResource
@@ -331,7 +333,6 @@ func (j *jsiiProxy_CfnAccountAlias) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::SupportApp::AccountAlias`.
 func NewCfnAccountAlias(scope constructs.Construct, id *string, props *CfnAccountAliasProps) CfnAccountAlias {
 	_init_.Initialize()
 
@@ -349,7 +350,6 @@ func NewCfnAccountAlias(scope constructs.Construct, id *string, props *CfnAccoun
 	return &j
 }
 
-// Create a new `AWS::SupportApp::AccountAlias`.
 func NewCfnAccountAlias_Override(c CfnAccountAlias, scope constructs.Construct, id *string, props *CfnAccountAliasProps) {
 	_init_.Initialize()
 

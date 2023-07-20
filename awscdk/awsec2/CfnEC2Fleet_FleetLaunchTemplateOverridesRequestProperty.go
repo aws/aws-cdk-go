@@ -97,28 +97,40 @@ package awsec2
 //   	WeightedCapacity: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html
+//
 type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	// The Availability Zone in which to launch the instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone
+	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The attributes for the instance types.
 	//
 	// When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancerequirements
+	//
 	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type.
 	//
 	// `mac1.metal` is not supported as a launch template override.
 	//
 	// > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancetype
+	//
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	//
 	// We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 	//
 	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-maxprice
+	//
 	MaxPrice *string `field:"optional" json:"maxPrice" yaml:"maxPrice"`
 	// The location where the instance launched, if applicable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-placement
+	//
 	Placement interface{} `field:"optional" json:"placement" yaml:"placement"`
 	// The priority for the launch template override. The highest priority is launched first.
 	//
@@ -127,12 +139,18 @@ type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	// If the Spot `AllocationStrategy` is set to `capacity-optimized-prioritized` , EC2 Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
 	//
 	// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-priority
+	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The IDs of the subnets in which to launch the instances.
 	//
 	// Separate multiple subnet IDs using commas (for example, `subnet-1234abcdeexample1, subnet-0987cdef6example2` ). A request of type `instant` can have only one subnet ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-subnetid
+	//
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The number of units provided by the specified instance type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-weightedcapacity
+	//
 	WeightedCapacity *float64 `field:"optional" json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 

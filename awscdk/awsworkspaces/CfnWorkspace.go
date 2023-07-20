@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WorkSpaces::Workspace`.
-//
 // The `AWS::WorkSpaces::Workspace` resource specifies a WorkSpace.
 //
 // Updates are not supported for the `BundleId` , `RootVolumeEncryptionEnabled` , `UserVolumeEncryptionEnabled` , or `VolumeEncryptionKey` properties. To update these properties, you must also update a property that triggers a replacement, such as the `UserName` property.
@@ -44,9 +42,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
+//
 type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// The identifier of the bundle for the WorkSpace.
 	BundleId() *string
 	SetBundleId(val *string)
@@ -86,8 +88,11 @@ type CfnWorkspace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the WorkSpace.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the WorkSpace.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -102,16 +107,12 @@ type CfnWorkspace interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The user name of the user for the WorkSpace.
-	//
-	// This user name must exist in the AWS Directory Service directory for the WorkSpace.
 	UserName() *string
 	SetUserName(val *string)
 	// Indicates whether the data stored on the user volume is encrypted.
 	UserVolumeEncryptionEnabled() interface{}
 	SetUserVolumeEncryptionEnabled(val interface{})
 	// The symmetric AWS KMS key used to encrypt data stored on your WorkSpace.
-	//
-	// Amazon WorkSpaces does not support asymmetric KMS keys.
 	VolumeEncryptionKey() *string
 	SetVolumeEncryptionKey(val *string)
 	// The WorkSpace properties.
@@ -248,6 +249,17 @@ type CfnWorkspace interface {
 type jsiiProxy_CfnWorkspace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnWorkspace) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnWorkspace) BundleId() *string {
@@ -370,6 +382,16 @@ func (j *jsiiProxy_CfnWorkspace) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkspace) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkspace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -431,7 +453,6 @@ func (j *jsiiProxy_CfnWorkspace) WorkspaceProperties() interface{} {
 }
 
 
-// Create a new `AWS::WorkSpaces::Workspace`.
 func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
@@ -449,7 +470,6 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 	return &j
 }
 
-// Create a new `AWS::WorkSpaces::Workspace`.
 func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 
@@ -489,6 +509,17 @@ func (j *jsiiProxy_CfnWorkspace)SetRootVolumeEncryptionEnabled(val interface{}) 
 	_jsii_.Set(
 		j,
 		"rootVolumeEncryptionEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkspace)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

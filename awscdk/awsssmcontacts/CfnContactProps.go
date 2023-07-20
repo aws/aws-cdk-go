@@ -36,20 +36,30 @@ package awsssmcontacts
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html
+//
 type CfnContactProps struct {
 	// The unique and identifiable alias of the contact or escalation plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-alias
+	//
 	Alias *string `field:"required" json:"alias" yaml:"alias"`
 	// The full name of the contact or escalation plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-displayname
+	//
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
 	// Refers to the type of contact:.
 	//
 	// - `PERSONAL` : A single, individual contact.
 	// - `ESCALATION` : An escalation plan.
 	// - `ONCALL_SCHEDULE` : An on-call schedule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// A list of stages.
 	//
 	// A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
+	//
 	Plan interface{} `field:"optional" json:"plan" yaml:"plan"`
 }
 

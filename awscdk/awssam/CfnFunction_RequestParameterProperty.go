@@ -11,10 +11,14 @@ package awssam
 //   	Required: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-requestparameter.html
+//
 type CfnFunction_RequestParameterProperty struct {
-	// `CfnFunction.RequestParameterProperty.Caching`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-requestparameter.html#cfn-serverless-function-requestparameter-caching
+	//
 	Caching interface{} `field:"optional" json:"caching" yaml:"caching"`
-	// `CfnFunction.RequestParameterProperty.Required`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-requestparameter.html#cfn-serverless-function-requestparameter-required
+	//
 	Required interface{} `field:"optional" json:"required" yaml:"required"`
 }
 

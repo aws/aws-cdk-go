@@ -24,12 +24,20 @@ package awsguardduty
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html
+//
 type CfnDetector_CFNDataSourceConfigurationsProperty struct {
 	// Describes which Kubernetes data sources are enabled for a detector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-kubernetes
+	//
 	Kubernetes interface{} `field:"optional" json:"kubernetes" yaml:"kubernetes"`
 	// Describes whether Malware Protection will be enabled as a data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-malwareprotection
+	//
 	MalwareProtection interface{} `field:"optional" json:"malwareProtection" yaml:"malwareProtection"`
 	// Describes whether S3 data event logs are enabled as a data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-s3logs
+	//
 	S3Logs interface{} `field:"optional" json:"s3Logs" yaml:"s3Logs"`
 }
 

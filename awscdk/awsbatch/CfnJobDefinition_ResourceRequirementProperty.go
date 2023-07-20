@@ -15,10 +15,14 @@ package awsbatch
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html
+//
 type CfnJobDefinition_ResourceRequirementProperty struct {
 	// The type of resource to assign to a container.
 	//
 	// The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html#cfn-batch-jobdefinition-resourcerequirement-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The quantity of the specified resource to reserve for the container. The values vary based on the `type` specified.
 	//
@@ -58,6 +62,8 @@ type CfnJobDefinition_ResourceRequirementProperty struct {
 	// - **value = 4** - `MEMORY` = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, 16384, 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720
 	// - **value = 8** - `MEMORY` = 16384, 20480, 24576, 28672, 32768, 36864, 40960, 45056, 49152, 53248, 57344, or 61440
 	// - **value = 16** - `MEMORY` = 32768, 40960, 49152, 57344, 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html#cfn-batch-jobdefinition-resourcerequirement-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

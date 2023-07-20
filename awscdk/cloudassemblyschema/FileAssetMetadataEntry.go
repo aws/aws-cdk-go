@@ -4,19 +4,11 @@ package cloudassemblyschema
 // Metadata Entry spec for files.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   fileAssetMetadataEntry := &FileAssetMetadataEntry{
-//   	ArtifactHashParameter: jsii.String("artifactHashParameter"),
-//   	Id: jsii.String("id"),
-//   	Packaging: jsii.String("packaging"),
-//   	Path: jsii.String("path"),
-//   	S3BucketParameter: jsii.String("s3BucketParameter"),
-//   	S3KeyParameter: jsii.String("s3KeyParameter"),
-//   	SourceHash: jsii.String("sourceHash"),
+//   entry := map[string]*string{
+//   	"packaging": jsii.String("file"),
+//   	"s3BucketParameter": jsii.String("bucket-parameter"),
+//   	"s3KeyParamenter": jsii.String("key-parameter"),
+//   	"artifactHashParameter": jsii.String("hash-parameter"),
 //   }
 //
 type FileAssetMetadataEntry struct {

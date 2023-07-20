@@ -71,6 +71,10 @@ type SelfManagedKafkaEventSourceProps struct {
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id
 	//
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
+	// Add filter criteria to Event Source.
+	// See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html
+	//
+	Filters *[]*map[string]interface{} `field:"optional" json:"filters" yaml:"filters"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
 	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 	// The list of host and port pairs that are the addresses of the Kafka brokers in a "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.

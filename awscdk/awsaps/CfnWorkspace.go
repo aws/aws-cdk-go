@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::APS::Workspace`.
+// The `AWS::APS::Workspace` type specifies an Amazon Managed Service for Prometheus ( Amazon Managed Service for Prometheus ) workspace.
 //
-// The `AWS::APS::Workspace` type specifies an Amazon Managed Service for Prometheus ( Amazon Managed Service for Prometheus ) workspace. A *workspace* is a logical and isolated Prometheus server dedicated to Prometheus resources such as metrics. You can have one or more workspaces in each Region in your account.
+// A *workspace* is a logical and isolated Prometheus server dedicated to Prometheus resources such as metrics. You can have one or more workspaces in each Region in your account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,19 +32,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html
+//
 type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The alert manager definition for the workspace, as a string.
-	//
-	// For more information, see [Alert manager and templating](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html) .
 	AlertManagerDefinition() *string
 	SetAlertManagerDefinition(val *string)
 	// An alias that you assign to this workspace to help you identify it.
-	//
-	// It does not need to be unique.
-	//
-	// The alias can be as many as 100 characters and can include any type of characters. Amazon Managed Service for Prometheus automatically strips any blank spaces from the beginning and end of the alias that you specify.
 	Alias() *string
 	SetAlias(val *string)
 	// The ARN of the workspace.
@@ -92,8 +89,11 @@ type CfnWorkspace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tag keys and values to associate with the workspace.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tag keys and values to associate with the workspace.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,6 +238,7 @@ type CfnWorkspace interface {
 type jsiiProxy_CfnWorkspace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnWorkspace) AlertManagerDefinition() *string {
@@ -390,6 +391,16 @@ func (j *jsiiProxy_CfnWorkspace) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkspace) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkspace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -411,7 +422,6 @@ func (j *jsiiProxy_CfnWorkspace) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::APS::Workspace`.
 func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
@@ -429,7 +439,6 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 	return &j
 }
 
-// Create a new `AWS::APS::Workspace`.
 func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 
@@ -463,6 +472,17 @@ func (j *jsiiProxy_CfnWorkspace)SetLoggingConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"loggingConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkspace)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

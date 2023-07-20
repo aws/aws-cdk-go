@@ -14,8 +14,12 @@ package awss3
 //   	DaysAfterInitiation: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html
+//
 type CfnBucket_AbortIncompleteMultipartUploadProperty struct {
 	// Specifies the number of days after which Amazon S3 stops an incomplete multipart upload.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html#cfn-s3-bucket-abortincompletemultipartupload-daysafterinitiation
+	//
 	DaysAfterInitiation *float64 `field:"required" json:"daysAfterInitiation" yaml:"daysAfterInitiation"`
 }
 

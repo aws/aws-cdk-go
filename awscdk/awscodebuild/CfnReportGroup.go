@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeBuild::ReportGroup`.
+// Represents a report group.
 //
-// Represents a report group. A report group contains a collection of reports.
+// A report group contains a collection of reports.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,11 +47,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html
+//
 type CfnReportGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
 	AttrArn() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -62,9 +66,6 @@ type CfnReportGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// When deleting a report group, specifies if reports within the report group should be deleted.
-	//
-	// - **true** - Deletes any reports that belong to the report group before deleting the report group.
-	// - **false** - You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown.
 	DeleteReports() interface{}
 	SetDeleteReports(val interface{})
 	// Information about the destination where the raw data of this `ReportGroup` is exported.
@@ -94,14 +95,14 @@ type CfnReportGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tag key and value pairs associated with this report group.
-	//
-	// These tags are available for use by AWS services that support AWS CodeBuild report group tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The type of the `ReportGroup` . This can be one of the following values:.
+	// A list of tag key and value pairs associated with this report group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The type of the `ReportGroup` .
 	//
-	// - **CODE_COVERAGE** - The report group contains code coverage reports.
-	// - **TEST** - The report group contains test reports.
+	// This can be one of the following values:.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -248,6 +249,7 @@ type CfnReportGroup interface {
 type jsiiProxy_CfnReportGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnReportGroup) AttrArn() *string {
@@ -255,6 +257,16 @@ func (j *jsiiProxy_CfnReportGroup) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReportGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -380,6 +392,16 @@ func (j *jsiiProxy_CfnReportGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReportGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReportGroup) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -411,7 +433,6 @@ func (j *jsiiProxy_CfnReportGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CodeBuild::ReportGroup`.
 func NewCfnReportGroup(scope constructs.Construct, id *string, props *CfnReportGroupProps) CfnReportGroup {
 	_init_.Initialize()
 
@@ -429,7 +450,6 @@ func NewCfnReportGroup(scope constructs.Construct, id *string, props *CfnReportG
 	return &j
 }
 
-// Create a new `AWS::CodeBuild::ReportGroup`.
 func NewCfnReportGroup_Override(c CfnReportGroup, scope constructs.Construct, id *string, props *CfnReportGroupProps) {
 	_init_.Initialize()
 
@@ -466,6 +486,17 @@ func (j *jsiiProxy_CfnReportGroup)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnReportGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -12,8 +12,12 @@ package awsappmesh
 //   	VirtualServiceName: jsii.String("virtualServiceName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html
+//
 type CfnGatewayRoute_GatewayRouteVirtualServiceProperty struct {
 	// The name of the virtual service that traffic is routed to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html#cfn-appmesh-gatewayroute-gatewayroutevirtualservice-virtualservicename
+	//
 	VirtualServiceName *string `field:"required" json:"virtualServiceName" yaml:"virtualServiceName"`
 }
 

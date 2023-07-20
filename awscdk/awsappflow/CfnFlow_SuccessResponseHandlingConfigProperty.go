@@ -15,10 +15,16 @@ package awsappflow
 //   	BucketPrefix: jsii.String("bucketPrefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-successresponsehandlingconfig.html
+//
 type CfnFlow_SuccessResponseHandlingConfigProperty struct {
 	// The name of the Amazon S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-successresponsehandlingconfig.html#cfn-appflow-flow-successresponsehandlingconfig-bucketname
+	//
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The Amazon S3 bucket prefix.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-successresponsehandlingconfig.html#cfn-appflow-flow-successresponsehandlingconfig-bucketprefix
+	//
 	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 

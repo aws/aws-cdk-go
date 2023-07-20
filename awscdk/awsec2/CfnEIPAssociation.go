@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::EIPAssociation`.
+// Associates an Elastic IP address with an instance or a network interface.
 //
-// Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview) .
+// Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview) .
 //
 // You must specify `AllocationId` and either `InstanceId` , `NetworkInterfaceId` , or `PrivateIpAddress` .
 //
@@ -28,14 +28,15 @@ import (
 //   	PrivateIpAddress: jsii.String("privateIpAddress"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html
+//
 type CfnEIPAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The allocation ID.
-	//
-	// This is required.
 	AllocationId() *string
 	SetAllocationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -49,8 +50,6 @@ type CfnEIPAssociation interface {
 	Eip() *string
 	SetEip(val *string)
 	// The ID of the instance.
-	//
-	// The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
 	InstanceId() *string
 	SetInstanceId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -64,17 +63,11 @@ type CfnEIPAssociation interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The ID of the network interface.
-	//
-	// If the instance has more than one network interface, you must specify a network interface ID.
-	//
-	// You can specify either the instance ID or the network interface ID, but not both.
 	NetworkInterfaceId() *string
 	SetNetworkInterfaceId(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The primary or secondary private IP address to associate with the Elastic IP address.
-	//
-	// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 	PrivateIpAddress() *string
 	SetPrivateIpAddress(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -242,6 +235,16 @@ func (j *jsiiProxy_CfnEIPAssociation) AllocationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEIPAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEIPAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -383,7 +386,6 @@ func (j *jsiiProxy_CfnEIPAssociation) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::EC2::EIPAssociation`.
 func NewCfnEIPAssociation(scope constructs.Construct, id *string, props *CfnEIPAssociationProps) CfnEIPAssociation {
 	_init_.Initialize()
 
@@ -401,7 +403,6 @@ func NewCfnEIPAssociation(scope constructs.Construct, id *string, props *CfnEIPA
 	return &j
 }
 
-// Create a new `AWS::EC2::EIPAssociation`.
 func NewCfnEIPAssociation_Override(c CfnEIPAssociation, scope constructs.Construct, id *string, props *CfnEIPAssociationProps) {
 	_init_.Initialize()
 

@@ -275,8 +275,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-layout.html
+//
 type CfnAnalysis_LayoutProperty struct {
 	// The configuration that determines what the type of layout for a sheet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-layout.html#cfn-quicksight-analysis-layout-configuration
+	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
 }
 

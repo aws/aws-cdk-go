@@ -12,8 +12,12 @@ package awsquicksight
 //   	Path: jsii.String("path"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-entity.html
+//
 type CfnDashboard_EntityProperty struct {
 	// The hierarchical path of the entity within the analysis, template, or dashboard definition tree.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-entity.html#cfn-quicksight-dashboard-entity-path
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 

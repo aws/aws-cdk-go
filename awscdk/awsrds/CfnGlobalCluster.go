@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::GlobalCluster`.
-//
 // The `AWS::RDS::GlobalCluster` resource creates or updates an Amazon Aurora global database spread across multiple AWS Regions.
 //
 // The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
@@ -33,6 +31,8 @@ import (
 //   	StorageEncrypted: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
+//
 type CfnGlobalCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -45,22 +45,16 @@ type CfnGlobalCluster interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The deletion protection setting for the new global database.
-	//
-	// The global database can't be deleted when deletion protection is enabled.
+	// Specifies whether to enable deletion protection for the new global database cluster.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
-	// The name of the database engine to be used for this DB cluster.
-	//
-	// If this property isn't specified, the database engine is derived from the source DB cluster specified by the `SourceDBClusterIdentifier` property.
-	//
-	// > If the `SourceDBClusterIdentifier` property isn't specified, this property is required. If the `SourceDBClusterIdentifier` property is specified, make sure this property isn't specified.
+	// The database engine to use for this global database cluster.
 	Engine() *string
 	SetEngine(val *string)
-	// The engine version of the Aurora global database.
+	// The engine version to use for this global database cluster.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	// The cluster identifier of the global database cluster.
+	// The cluster identifier for this global database cluster.
 	GlobalClusterIdentifier() *string
 	SetGlobalClusterIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,16 +74,14 @@ type CfnGlobalCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The DB cluster identifier or Amazon Resource Name (ARN) to use as the primary cluster of the global database.
-	//
-	// > If the `Engine` property isn't specified, this property is required. If the `Engine` property is specified, make sure this property isn't specified.
+	// The Amazon Resource Name (ARN) to use as the primary cluster of the global database.
 	SourceDbClusterIdentifier() *string
 	SetSourceDbClusterIdentifier(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The storage encryption setting for the global database cluster.
+	// Specifies whether to enable storage encryption for the new global database cluster.
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
 	// Deprecated.
@@ -399,7 +391,6 @@ func (j *jsiiProxy_CfnGlobalCluster) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::RDS::GlobalCluster`.
 func NewCfnGlobalCluster(scope constructs.Construct, id *string, props *CfnGlobalClusterProps) CfnGlobalCluster {
 	_init_.Initialize()
 
@@ -417,7 +408,6 @@ func NewCfnGlobalCluster(scope constructs.Construct, id *string, props *CfnGloba
 	return &j
 }
 
-// Create a new `AWS::RDS::GlobalCluster`.
 func NewCfnGlobalCluster_Override(c CfnGlobalCluster, scope constructs.Construct, id *string, props *CfnGlobalClusterProps) {
 	_init_.Initialize()
 

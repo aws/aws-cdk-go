@@ -19,8 +19,12 @@ package awsgreengrassv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortconfig.html
+//
 type CfnDeployment_IoTJobAbortConfigProperty struct {
 	// The list of criteria that define when and how to cancel the configuration deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortconfig.html#cfn-greengrassv2-deployment-iotjobabortconfig-criterialist
+	//
 	CriteriaList interface{} `field:"required" json:"criteriaList" yaml:"criteriaList"`
 }
 

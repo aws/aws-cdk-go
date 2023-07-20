@@ -238,24 +238,40 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filtercontrol.html
+//
 type CfnAnalysis_FilterControlProperty struct {
 	// A control from a date filter that is used to specify date and time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filtercontrol.html#cfn-quicksight-analysis-filtercontrol-datetimepicker
+	//
 	DateTimePicker interface{} `field:"optional" json:"dateTimePicker" yaml:"dateTimePicker"`
 	// A control to display a dropdown list with buttons that are used to select a single value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filtercontrol.html#cfn-quicksight-analysis-filtercontrol-dropdown
+	//
 	Dropdown interface{} `field:"optional" json:"dropdown" yaml:"dropdown"`
 	// A control to display a list of buttons or boxes.
 	//
 	// This is used to select either a single value or multiple values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filtercontrol.html#cfn-quicksight-analysis-filtercontrol-list
+	//
 	List interface{} `field:"optional" json:"list" yaml:"list"`
 	// A control from a date filter that is used to specify the relative date.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filtercontrol.html#cfn-quicksight-analysis-filtercontrol-relativedatetime
+	//
 	RelativeDateTime interface{} `field:"optional" json:"relativeDateTime" yaml:"relativeDateTime"`
 	// A control to display a horizontal toggle bar.
 	//
 	// This is used to change a value by sliding the toggle.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filtercontrol.html#cfn-quicksight-analysis-filtercontrol-slider
+	//
 	Slider interface{} `field:"optional" json:"slider" yaml:"slider"`
 	// A control to display a text box that is used to enter multiple entries.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filtercontrol.html#cfn-quicksight-analysis-filtercontrol-textarea
+	//
 	TextArea interface{} `field:"optional" json:"textArea" yaml:"textArea"`
 	// A control to display a text box that is used to enter a single entry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filtercontrol.html#cfn-quicksight-analysis-filtercontrol-textfield
+	//
 	TextField interface{} `field:"optional" json:"textField" yaml:"textField"`
 }
 

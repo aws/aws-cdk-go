@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnACL) validateSetAclNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnACL) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnACLParameters(scope constructs.Construct, id *string, props *CfnACLProps) error {
 	return nil
 }

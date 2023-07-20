@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayRouteTablePropagation`.
-//
 // Enables the specified attachment to propagate routes to the specified propagation route table.
 //
 // For more information about enabling transit gateway route propagation, see [EnableTransitGatewayRouteTablePropagation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableTransitGatewayRouteTablePropagation.html) in the *Amazon EC2 API Reference* .
@@ -25,9 +23,12 @@ import (
 //   	TransitGatewayRouteTableId: jsii.String("transitGatewayRouteTableId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html
+//
 type CfnTransitGatewayRouteTablePropagation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -210,6 +211,16 @@ type jsiiProxy_CfnTransitGatewayRouteTablePropagation struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -331,7 +342,6 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) UpdatedProperties() *
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayRouteTablePropagation`.
 func NewCfnTransitGatewayRouteTablePropagation(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTablePropagationProps) CfnTransitGatewayRouteTablePropagation {
 	_init_.Initialize()
 
@@ -349,7 +359,6 @@ func NewCfnTransitGatewayRouteTablePropagation(scope constructs.Construct, id *s
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayRouteTablePropagation`.
 func NewCfnTransitGatewayRouteTablePropagation_Override(c CfnTransitGatewayRouteTablePropagation, scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTablePropagationProps) {
 	_init_.Initialize()
 

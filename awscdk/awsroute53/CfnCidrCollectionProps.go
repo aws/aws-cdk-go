@@ -22,10 +22,16 @@ package awsroute53
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html
+//
 type CfnCidrCollectionProps struct {
 	// The name of a CIDR collection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html#cfn-route53-cidrcollection-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A complex type that contains information about the list of CIDR locations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html#cfn-route53-cidrcollection-locations
+	//
 	Locations interface{} `field:"optional" json:"locations" yaml:"locations"`
 }
 

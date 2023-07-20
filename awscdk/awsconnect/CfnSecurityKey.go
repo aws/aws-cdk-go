@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::SecurityKey`.
-//
 // The security key for the instance.
 //
 // > Only two security keys are allowed per Amazon Connect instance.
@@ -24,6 +22,8 @@ import (
 //   	InstanceId: jsii.String("instanceId"),
 //   	Key: jsii.String("key"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html
 //
 type CfnSecurityKey interface {
 	awscdk.CfnResource
@@ -40,19 +40,11 @@ type CfnSecurityKey interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) of the instance.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `100`.
 	InstanceId() *string
 	SetInstanceId(val *string)
-	// A valid security key in PEM format. For example:.
+	// A valid security key in PEM format.
 	//
-	// `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `1024`.
+	// For example:.
 	Key() *string
 	SetKey(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -353,7 +345,6 @@ func (j *jsiiProxy_CfnSecurityKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Connect::SecurityKey`.
 func NewCfnSecurityKey(scope constructs.Construct, id *string, props *CfnSecurityKeyProps) CfnSecurityKey {
 	_init_.Initialize()
 
@@ -371,7 +362,6 @@ func NewCfnSecurityKey(scope constructs.Construct, id *string, props *CfnSecurit
 	return &j
 }
 
-// Create a new `AWS::Connect::SecurityKey`.
 func NewCfnSecurityKey_Override(c CfnSecurityKey, scope constructs.Construct, id *string, props *CfnSecurityKeyProps) {
 	_init_.Initialize()
 

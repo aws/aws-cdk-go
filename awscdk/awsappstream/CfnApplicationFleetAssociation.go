@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::ApplicationFleetAssociation`.
+// This resource associates the specified application with the specified fleet.
 //
-// This resource associates the specified application with the specified fleet. This is only supported for Elastic fleets.
+// This is only supported for Elastic fleets.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	ApplicationArn: jsii.String("applicationArn"),
 //   	FleetName: jsii.String("fleetName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationfleetassociation.html
 //
 type CfnApplicationFleetAssociation interface {
 	awscdk.CfnResource
@@ -329,7 +331,6 @@ func (j *jsiiProxy_CfnApplicationFleetAssociation) UpdatedProperties() *map[stri
 }
 
 
-// Create a new `AWS::AppStream::ApplicationFleetAssociation`.
 func NewCfnApplicationFleetAssociation(scope constructs.Construct, id *string, props *CfnApplicationFleetAssociationProps) CfnApplicationFleetAssociation {
 	_init_.Initialize()
 
@@ -347,7 +348,6 @@ func NewCfnApplicationFleetAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Create a new `AWS::AppStream::ApplicationFleetAssociation`.
 func NewCfnApplicationFleetAssociation_Override(c CfnApplicationFleetAssociation, scope constructs.Construct, id *string, props *CfnApplicationFleetAssociationProps) {
 	_init_.Initialize()
 

@@ -25,12 +25,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dynamicdefaultvalue.html
+//
 type CfnDashboard_DynamicDefaultValueProperty struct {
 	// The column that contains the default value of each user or group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dynamicdefaultvalue.html#cfn-quicksight-dashboard-dynamicdefaultvalue-defaultvaluecolumn
+	//
 	DefaultValueColumn interface{} `field:"required" json:"defaultValueColumn" yaml:"defaultValueColumn"`
 	// The column that contains the group name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dynamicdefaultvalue.html#cfn-quicksight-dashboard-dynamicdefaultvalue-groupnamecolumn
+	//
 	GroupNameColumn interface{} `field:"optional" json:"groupNameColumn" yaml:"groupNameColumn"`
 	// The column that contains the username.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dynamicdefaultvalue.html#cfn-quicksight-dashboard-dynamicdefaultvalue-usernamecolumn
+	//
 	UserNameColumn interface{} `field:"optional" json:"userNameColumn" yaml:"userNameColumn"`
 }
 

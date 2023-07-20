@@ -80,7 +80,7 @@ func validateCfnUser_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnUser) validateSetAuthenticationModeParameters(val interface{}) error {
+func (j *jsiiProxy_CfnUser) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnIPAMResourceDiscovery) validateSetOperatingRegionsParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnIPAMResourceDiscovery) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnIPAMResourceDiscoveryParameters(scope constructs.Construct, id *string, props *CfnIPAMResourceDiscoveryProps) error {
 	return nil
 }

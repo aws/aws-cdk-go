@@ -13,10 +13,16 @@ package awsiottwinmaker
 //   	Message: jsii.String("message"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-error.html
+//
 type CfnEntity_ErrorProperty struct {
 	// The entity error code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-error.html#cfn-iottwinmaker-entity-error-code
+	//
 	Code *string `field:"optional" json:"code" yaml:"code"`
 	// The entity error message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-error.html#cfn-iottwinmaker-entity-error-message
+	//
 	Message *string `field:"optional" json:"message" yaml:"message"`
 }
 

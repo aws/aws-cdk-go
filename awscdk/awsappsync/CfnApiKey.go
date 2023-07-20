@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppSync::ApiKey`.
-//
 // The `AWS::AppSync::ApiKey` resource creates a unique key that you can distribute to clients who are executing GraphQL operations with AWS AppSync that require an API key.
 //
 // Example:
@@ -27,6 +25,8 @@ import (
 //   	Expires: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html
+//
 type CfnApiKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -38,6 +38,7 @@ type CfnApiKey interface {
 	SetApiKeyId(val *string)
 	// The API key.
 	AttrApiKey() *string
+	AttrApiKeyId() *string
 	// The Amazon Resource Name (ARN) of the API key, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/apikey/apikeya1bzhi` .
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -53,8 +54,6 @@ type CfnApiKey interface {
 	Description() *string
 	SetDescription(val *string)
 	// The time after which the API key expires.
-	//
-	// The date is represented as seconds since the epoch, rounded down to the nearest hour.
 	Expires() *float64
 	SetExpires(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -254,6 +253,16 @@ func (j *jsiiProxy_CfnApiKey) AttrApiKey() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApiKey) AttrApiKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApiKeyId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApiKey) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -385,7 +394,6 @@ func (j *jsiiProxy_CfnApiKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppSync::ApiKey`.
 func NewCfnApiKey(scope constructs.Construct, id *string, props *CfnApiKeyProps) CfnApiKey {
 	_init_.Initialize()
 
@@ -403,7 +411,6 @@ func NewCfnApiKey(scope constructs.Construct, id *string, props *CfnApiKeyProps)
 	return &j
 }
 
-// Create a new `AWS::AppSync::ApiKey`.
 func NewCfnApiKey_Override(c CfnApiKey, scope constructs.Construct, id *string, props *CfnApiKeyProps) {
 	_init_.Initialize()
 

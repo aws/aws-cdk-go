@@ -4,20 +4,21 @@ package awsecs
 // Configuration for deployment alarms.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import cw "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var elbAlarm cloudwatch.Alarm
+//   var elbAlarm alarm
+//
 //
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	DeploymentAlarms: &DeploymentAlarmConfig{
-//   		Alarms: []interface{}{
-//   			elbAlarm.alarmName,
+//   		AlarmNames: []*string{
+//   			elbAlarm.AlarmName,
 //   		},
-//   		Behavior: alarmBehavior_ROLLBACK_ON_ALARM,
+//   		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
 //   	},
 //   })
 //
@@ -31,7 +32,9 @@ package awsecs
 //   })
 //   service.EnableDeploymentAlarms([]*string{
 //   	cpuAlarmName,
-//   }, alarmBehavior_FAIL_ON_ALARM)
+//   }, &DeploymentAlarmOptions{
+//   	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
+//   })
 //
 type DeploymentAlarmConfig struct {
 	// Default rollback on alarm.

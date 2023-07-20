@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NatGateway`.
+// Specifies a network address translation (NAT) gateway in the specified subnet.
 //
-// Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
+// You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
 //
 // With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on-premises network using the IP address of the NAT gateway.
 //
@@ -47,12 +47,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
+//
 type CfnNatGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
-	//
-	// This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
 	AllocationId() *string
 	SetAllocationId(val *string)
 	// The ID of the NAT gateway.
@@ -63,8 +64,6 @@ type CfnNatGateway interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Indicates whether the NAT gateway supports public or private connectivity.
-	//
-	// The default is public connectivity.
 	ConnectivityType() *string
 	SetConnectivityType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -82,15 +81,11 @@ type CfnNatGateway interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress.
-	//
-	// Default value is 350 seconds.
 	MaxDrainDurationSeconds() *float64
 	SetMaxDrainDurationSeconds(val *float64)
 	// The tree node.
 	Node() constructs.Node
 	// The private IPv4 address to assign to the NAT gateway.
-	//
-	// If you don't provide an address, a private IPv4 address will be automatically assigned.
 	PrivateIpAddress() *string
 	SetPrivateIpAddress(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -99,22 +94,12 @@ type CfnNatGateway interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Secondary EIP allocation IDs.
-	//
-	// For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide* .
 	SecondaryAllocationIds() *[]*string
 	SetSecondaryAllocationIds(val *[]*string)
 	// [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway.
-	//
-	// For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide* .
-	//
-	// > `SecondaryPrivateIpAddressCount` and `SecondaryPrivateIpAddresses` cannot be set at the same time.
 	SecondaryPrivateIpAddressCount() *float64
 	SetSecondaryPrivateIpAddressCount(val *float64)
 	// Secondary private IPv4 addresses.
-	//
-	// For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide* .
-	//
-	// > `SecondaryPrivateIpAddressCount` and `SecondaryPrivateIpAddresses` cannot be set at the same time.
 	SecondaryPrivateIpAddresses() *[]*string
 	SetSecondaryPrivateIpAddresses(val *[]*string)
 	// The stack in which this element is defined.
@@ -124,8 +109,11 @@ type CfnNatGateway interface {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId() *string
 	SetSubnetId(val *string)
-	// The tags for the NAT gateway.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the NAT gateway.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -270,6 +258,7 @@ type CfnNatGateway interface {
 type jsiiProxy_CfnNatGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNatGateway) AllocationId() *string {
@@ -452,6 +441,16 @@ func (j *jsiiProxy_CfnNatGateway) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNatGateway) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNatGateway) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -473,7 +472,6 @@ func (j *jsiiProxy_CfnNatGateway) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::NatGateway`.
 func NewCfnNatGateway(scope constructs.Construct, id *string, props *CfnNatGatewayProps) CfnNatGateway {
 	_init_.Initialize()
 
@@ -491,7 +489,6 @@ func NewCfnNatGateway(scope constructs.Construct, id *string, props *CfnNatGatew
 	return &j
 }
 
-// Create a new `AWS::EC2::NatGateway`.
 func NewCfnNatGateway_Override(c CfnNatGateway, scope constructs.Construct, id *string, props *CfnNatGatewayProps) {
 	_init_.Initialize()
 
@@ -565,6 +562,17 @@ func (j *jsiiProxy_CfnNatGateway)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNatGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

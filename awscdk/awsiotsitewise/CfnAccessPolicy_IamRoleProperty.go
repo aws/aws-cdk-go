@@ -14,10 +14,14 @@ package awsiotsitewise
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html
+//
 type CfnAccessPolicy_IamRoleProperty struct {
 	// The ARN of the IAM role.
 	//
 	// For more information, see [IAM ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnMesh) validateSetSpecParameters(val interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnMesh) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMeshParameters(scope constructs.Construct, id *string, props *CfnMeshProps) error {
 	return nil
 }

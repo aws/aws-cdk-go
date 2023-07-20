@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSO::Assignment`.
-//
 // Assigns access to a Principal for a specified AWS account using a specified permission set.
 //
 // > The term *principal* here refers to a user or group that is defined in IAM Identity Center .
@@ -29,6 +27,8 @@ import (
 //   	TargetType: jsii.String("targetType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
+//
 type CfnAssignment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -42,8 +42,6 @@ type CfnAssignment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ARN of the IAM Identity Center instance under which the operation will be executed.
-	//
-	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -62,8 +60,6 @@ type CfnAssignment interface {
 	PermissionSetArn() *string
 	SetPermissionSetArn(val *string)
 	// An identifier for an object in IAM Identity Center, such as a user or group.
-	//
-	// PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the [IAM Identity Center Identity Store API Reference](https://docs.aws.amazon.com//singlesignon/latest/IdentityStoreAPIReference/welcome.html) .
 	PrincipalId() *string
 	SetPrincipalId(val *string)
 	// The entity type for which the assignment will be created.
@@ -391,7 +387,6 @@ func (j *jsiiProxy_CfnAssignment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SSO::Assignment`.
 func NewCfnAssignment(scope constructs.Construct, id *string, props *CfnAssignmentProps) CfnAssignment {
 	_init_.Initialize()
 
@@ -409,7 +404,6 @@ func NewCfnAssignment(scope constructs.Construct, id *string, props *CfnAssignme
 	return &j
 }
 
-// Create a new `AWS::SSO::Assignment`.
 func NewCfnAssignment_Override(c CfnAssignment, scope constructs.Construct, id *string, props *CfnAssignmentProps) {
 	_init_.Initialize()
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::M2::Environment`.
-//
 // Specifies a runtime environment for a given runtime engine.
 //
 // Example:
@@ -55,9 +53,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html
+//
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the runtime environment.
 	AttrEnvironmentArn() *string
 	// The unique identifier of the runtime environment.
@@ -105,8 +106,6 @@ type CfnEnvironment interface {
 	// The tree node.
 	Node() constructs.Node
 	// Configures the maintenance window you want for the runtime environment.
-	//
-	// If you do not provide a value, a random system-generated value will be assigned.
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	// Specifies whether the runtime environment is publicly accessible.
@@ -130,10 +129,11 @@ type CfnEnvironment interface {
 	// The list of subnets associated with the VPC for this runtime environment.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -278,6 +278,7 @@ type CfnEnvironment interface {
 type jsiiProxy_CfnEnvironment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEnvironment) AttrEnvironmentArn() *string {
@@ -510,6 +511,16 @@ func (j *jsiiProxy_CfnEnvironment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -531,7 +542,6 @@ func (j *jsiiProxy_CfnEnvironment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::M2::Environment`.
 func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
@@ -549,7 +559,6 @@ func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnviron
 	return &j
 }
 
-// Create a new `AWS::M2::Environment`.
 func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 
@@ -670,6 +679,14 @@ func (j *jsiiProxy_CfnEnvironment)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

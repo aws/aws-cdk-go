@@ -14,8 +14,12 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+//
 type CfnJob_OutputFormatOptionsProperty struct {
 	// Represents a set of options that define the structure of comma-separated value (CSV) job output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
+	//
 	Csv interface{} `field:"optional" json:"csv" yaml:"csv"`
 }
 

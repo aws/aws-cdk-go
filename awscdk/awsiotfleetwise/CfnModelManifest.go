@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTFleetWise::ModelManifest`.
-//
 // Creates a vehicle model (model manifest) that specifies signals (attributes, branches, sensors, and actuators).
 //
 // For more information, see [Vehicle models](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html) in the *AWS IoT FleetWise Developer Guide* .
@@ -38,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-modelmanifest.html
+//
 type CfnModelManifest interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the vehicle model.
 	AttrArn() *string
 	// The time the vehicle model was created, in seconds since epoch (January 1, 1970 at midnight UTC time).
@@ -90,12 +91,13 @@ type CfnModelManifest interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// (Optional) The state of the vehicle model.
-	//
-	// If the status is `ACTIVE` , the vehicle model can't be edited. If the status is `DRAFT` , you can edit the vehicle model.
 	Status() *string
 	SetStatus(val *string)
-	// (Optional) Metadata that can be used to manage the vehicle model.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// (Optional) Metadata that can be used to manage the vehicle model.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -240,6 +242,7 @@ type CfnModelManifest interface {
 type jsiiProxy_CfnModelManifest struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnModelManifest) AttrArn() *string {
@@ -412,6 +415,16 @@ func (j *jsiiProxy_CfnModelManifest) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnModelManifest) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnModelManifest) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -433,7 +446,6 @@ func (j *jsiiProxy_CfnModelManifest) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::IoTFleetWise::ModelManifest`.
 func NewCfnModelManifest(scope constructs.Construct, id *string, props *CfnModelManifestProps) CfnModelManifest {
 	_init_.Initialize()
 
@@ -451,7 +463,6 @@ func NewCfnModelManifest(scope constructs.Construct, id *string, props *CfnModel
 	return &j
 }
 
-// Create a new `AWS::IoTFleetWise::ModelManifest`.
 func NewCfnModelManifest_Override(c CfnModelManifest, scope constructs.Construct, id *string, props *CfnModelManifestProps) {
 	_init_.Initialize()
 
@@ -504,6 +515,17 @@ func (j *jsiiProxy_CfnModelManifest)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnModelManifest)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

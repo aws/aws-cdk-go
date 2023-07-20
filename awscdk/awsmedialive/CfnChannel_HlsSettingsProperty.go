@@ -52,14 +52,24 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html
+//
 type CfnChannel_HlsSettingsProperty struct {
 	// The settings for an audio-only output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-audioonlyhlssettings
+	//
 	AudioOnlyHlsSettings interface{} `field:"optional" json:"audioOnlyHlsSettings" yaml:"audioOnlyHlsSettings"`
 	// The settings for an fMP4 container.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-fmp4hlssettings
+	//
 	Fmp4HlsSettings interface{} `field:"optional" json:"fmp4HlsSettings" yaml:"fmp4HlsSettings"`
 	// Settings for a frame capture output in an HLS output group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-framecapturehlssettings
+	//
 	FrameCaptureHlsSettings interface{} `field:"optional" json:"frameCaptureHlsSettings" yaml:"frameCaptureHlsSettings"`
 	// The settings for a standard output (an output that is not audio-only).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-standardhlssettings
+	//
 	StandardHlsSettings interface{} `field:"optional" json:"standardHlsSettings" yaml:"standardHlsSettings"`
 }
 

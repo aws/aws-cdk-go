@@ -187,14 +187,6 @@ func (j *jsiiProxy_CfnLoggingConfiguration) validateSetLogDestinationConfigsPara
 	return nil
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) validateSetLoggingFilterParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnLoggingConfiguration) validateSetRedactedFieldsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

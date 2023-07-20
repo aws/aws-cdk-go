@@ -14,8 +14,12 @@ package awskinesisanalytics
 //   	RecordFormatType: jsii.String("recordFormatType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html
+//
 type CfnApplicationOutput_DestinationSchemaProperty struct {
 	// Specifies the format of the records on the output stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html#cfn-kinesisanalytics-applicationoutput-destinationschema-recordformattype
+	//
 	RecordFormatType *string `field:"optional" json:"recordFormatType" yaml:"recordFormatType"`
 }
 

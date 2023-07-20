@@ -11,10 +11,14 @@ package awssam
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-deadletterqueue.html
+//
 type CfnFunction_DeadLetterQueueProperty struct {
-	// `CfnFunction.DeadLetterQueueProperty.TargetArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-deadletterqueue.html#cfn-serverless-function-deadletterqueue-targetarn
+	//
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
-	// `CfnFunction.DeadLetterQueueProperty.Type`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-deadletterqueue.html#cfn-serverless-function-deadletterqueue-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::ScheduledAudit`.
+// Use the `AWS::IoT::ScheduledAudit` resource to create a scheduled audit that is run at a specified time interval.
 //
-// Use the `AWS::IoT::ScheduledAudit` resource to create a scheduled audit that is run at a specified time interval. For API reference, see [CreateScheduleAudit](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateScheduledAudit.html) and for general information, see [Audit](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit.html) .
+// For API reference, see [CreateScheduleAudit](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateScheduledAudit.html) and for general information, see [Audit](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html
+//
 type CfnScheduledAudit interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the scheduled audit.
 	AttrScheduledAuditArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -51,8 +54,6 @@ type CfnScheduledAudit interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The day of the month on which the scheduled audit is run (if the `frequency` is "MONTHLY").
-	//
-	// If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
 	DayOfMonth() *string
 	SetDayOfMonth(val *string)
 	// The day of the week on which the scheduled audit is run (if the `frequency` is "WEEKLY" or "BIWEEKLY").
@@ -85,28 +86,12 @@ type CfnScheduledAudit interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that can be used to manage the scheduled audit.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that can be used to manage the scheduled audit.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Which checks are performed during the scheduled audit.
-	//
-	// Checks must be enabled for your account. (Use `DescribeAccountAuditConfiguration` to see the list of all checks, including those that are enabled or use `UpdateAccountAuditConfiguration` to select which checks are enabled.)
-	//
-	// The following checks are currently aviable:
-	//
-	// - `AUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK`
-	// - `CA_CERTIFICATE_EXPIRING_CHECK`
-	// - `CA_CERTIFICATE_KEY_QUALITY_CHECK`
-	// - `CONFLICTING_CLIENT_IDS_CHECK`
-	// - `DEVICE_CERTIFICATE_EXPIRING_CHECK`
-	// - `DEVICE_CERTIFICATE_KEY_QUALITY_CHECK`
-	// - `DEVICE_CERTIFICATE_SHARED_CHECK`
-	// - `IOT_POLICY_OVERLY_PERMISSIVE_CHECK`
-	// - `IOT_ROLE_ALIAS_ALLOWS_ACCESS_TO_UNUSED_SERVICES_CHECK`
-	// - `IOT_ROLE_ALIAS_OVERLY_PERMISSIVE_CHECK`
-	// - `LOGGING_DISABLED_CHECK`
-	// - `REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK`
-	// - `REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK`
-	// - `UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK`.
 	TargetCheckNames() *[]*string
 	SetTargetCheckNames(val *[]*string)
 	// Deprecated.
@@ -253,6 +238,7 @@ type CfnScheduledAudit interface {
 type jsiiProxy_CfnScheduledAudit struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnScheduledAudit) AttrScheduledAuditArn() *string {
@@ -395,6 +381,16 @@ func (j *jsiiProxy_CfnScheduledAudit) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScheduledAudit) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScheduledAudit) TargetCheckNames() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -426,7 +422,6 @@ func (j *jsiiProxy_CfnScheduledAudit) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::IoT::ScheduledAudit`.
 func NewCfnScheduledAudit(scope constructs.Construct, id *string, props *CfnScheduledAuditProps) CfnScheduledAudit {
 	_init_.Initialize()
 
@@ -444,7 +439,6 @@ func NewCfnScheduledAudit(scope constructs.Construct, id *string, props *CfnSche
 	return &j
 }
 
-// Create a new `AWS::IoT::ScheduledAudit`.
 func NewCfnScheduledAudit_Override(c CfnScheduledAudit, scope constructs.Construct, id *string, props *CfnScheduledAuditProps) {
 	_init_.Initialize()
 
@@ -486,6 +480,17 @@ func (j *jsiiProxy_CfnScheduledAudit)SetScheduledAuditName(val *string) {
 	_jsii_.Set(
 		j,
 		"scheduledAuditName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledAudit)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

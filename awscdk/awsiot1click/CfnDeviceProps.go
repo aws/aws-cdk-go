@@ -13,10 +13,16 @@ package awsiot1click
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html
+//
 type CfnDeviceProps struct {
 	// The ID of the device, such as `G030PX0312744DWM` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html#cfn-iot1click-device-deviceid
+	//
 	DeviceId *string `field:"required" json:"deviceId" yaml:"deviceId"`
 	// A Boolean value indicating whether the device is enabled ( `true` ) or not ( `false` ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html#cfn-iot1click-device-enabled
+	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

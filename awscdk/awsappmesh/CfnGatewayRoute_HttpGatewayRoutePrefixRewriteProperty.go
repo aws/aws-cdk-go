@@ -13,10 +13,16 @@ package awsappmesh
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html
+//
 type CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty struct {
 	// The default prefix used to replace the incoming route prefix when rewritten.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouteprefixrewrite-defaultprefix
+	//
 	DefaultPrefix *string `field:"optional" json:"defaultPrefix" yaml:"defaultPrefix"`
 	// The value used to replace the incoming route prefix when rewritten.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouteprefixrewrite-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

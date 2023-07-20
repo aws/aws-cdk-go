@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FSx::Volume`.
-//
 // Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.
 //
 // Example:
@@ -85,9 +83,12 @@ import (
 //   	VolumeType: jsii.String("volumeType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-volume.html
+//
 type CfnVolume interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the volume's Amazon Resource Name (ARN).
 	//
 	// Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`.
@@ -142,10 +143,11 @@ type CfnVolume interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -293,6 +295,7 @@ type CfnVolume interface {
 type jsiiProxy_CfnVolume struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVolume) AttrResourceArn() *string {
@@ -455,6 +458,16 @@ func (j *jsiiProxy_CfnVolume) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVolume) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVolume) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -486,7 +499,6 @@ func (j *jsiiProxy_CfnVolume) VolumeType() *string {
 }
 
 
-// Create a new `AWS::FSx::Volume`.
 func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps) CfnVolume {
 	_init_.Initialize()
 
@@ -504,7 +516,6 @@ func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps)
 	return &j
 }
 
-// Create a new `AWS::FSx::Volume`.
 func NewCfnVolume_Override(c CfnVolume, scope constructs.Construct, id *string, props *CfnVolumeProps) {
 	_init_.Initialize()
 
@@ -552,6 +563,17 @@ func (j *jsiiProxy_CfnVolume)SetOpenZfsConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"openZfsConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVolume)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

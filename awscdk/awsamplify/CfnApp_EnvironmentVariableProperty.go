@@ -15,18 +15,24 @@ package awsamplify
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html
+//
 type CfnApp_EnvironmentVariableProperty struct {
 	// The environment variable name.
 	//
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The environment variable value.
 	//
 	// *Length Constraints:* Maximum length of 5500.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

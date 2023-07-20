@@ -19,12 +19,18 @@ package awswafregional
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-geomatchset-geomatchconstraint.html
+//
 type CfnGeoMatchSet_GeoMatchConstraintProperty struct {
 	// The type of geographical area you want AWS WAF to search for.
 	//
 	// Currently `Country` is the only valid value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-geomatchset-geomatchconstraint.html#cfn-wafregional-geomatchset-geomatchconstraint-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The country that you want AWS WAF to search for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-geomatchset-geomatchconstraint.html#cfn-wafregional-geomatchset-geomatchconstraint-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

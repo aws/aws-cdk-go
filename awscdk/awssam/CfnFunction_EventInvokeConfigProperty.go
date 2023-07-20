@@ -25,12 +25,17 @@ package awssam
 //   	MaximumRetryAttempts: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventinvokeconfig.html
+//
 type CfnFunction_EventInvokeConfigProperty struct {
-	// `CfnFunction.EventInvokeConfigProperty.DestinationConfig`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventinvokeconfig.html#cfn-serverless-function-eventinvokeconfig-destinationconfig
+	//
 	DestinationConfig interface{} `field:"optional" json:"destinationConfig" yaml:"destinationConfig"`
-	// `CfnFunction.EventInvokeConfigProperty.MaximumEventAgeInSeconds`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventinvokeconfig.html#cfn-serverless-function-eventinvokeconfig-maximumeventageinseconds
+	//
 	MaximumEventAgeInSeconds *float64 `field:"optional" json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
-	// `CfnFunction.EventInvokeConfigProperty.MaximumRetryAttempts`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventinvokeconfig.html#cfn-serverless-function-eventinvokeconfig-maximumretryattempts
+	//
 	MaximumRetryAttempts *float64 `field:"optional" json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 }
 

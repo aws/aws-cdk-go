@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnModelManifest) validateSetSignalCatalogArnParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnModelManifest) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnModelManifestParameters(scope constructs.Construct, id *string, props *CfnModelManifestProps) error {
 	return nil
 }

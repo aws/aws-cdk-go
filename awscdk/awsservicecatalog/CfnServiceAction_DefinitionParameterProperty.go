@@ -15,10 +15,16 @@ package awsservicecatalog
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html
+//
 type CfnServiceAction_DefinitionParameterProperty struct {
 	// The parameter key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of the parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::LocationFSxOpenZFS`.
-//
 // The `AWS::DataSync::LocationFSxOpenZFS` resource specifies an endpoint for an Amazon FSx for OpenZFS file system.
 //
 // Example:
@@ -41,9 +39,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html
+//
 type CfnLocationFSxOpenZFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the specified FSx for OpenZFS file system location.
 	AttrLocationArn() *string
 	// The URI of the specified FSx for OpenZFS file system location.
@@ -81,10 +82,6 @@ type CfnLocationFSxOpenZFS interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARNs of the security groups that are used to configure the FSx for OpenZFS file system.
-	//
-	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
-	//
-	// *Length constraints* : Maximum length of 128.
 	SecurityGroupArns() *[]*string
 	SetSecurityGroupArns(val *[]*string)
 	// The stack in which this element is defined.
@@ -92,14 +89,13 @@ type CfnLocationFSxOpenZFS interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A subdirectory in the location's path that must begin with `/fsx` .
-	//
-	// DataSync uses this subdirectory to read or write data (depending on whether the file system is a source or destination location).
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// The key-value pair that represents a tag that you want to add to the resource.
-	//
-	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key-value pair that represents a tag that you want to add to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -244,6 +240,7 @@ type CfnLocationFSxOpenZFS interface {
 type jsiiProxy_CfnLocationFSxOpenZFS struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocationFSxOpenZFS) AttrLocationArn() *string {
@@ -396,6 +393,16 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationFSxOpenZFS) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationFSxOpenZFS) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -417,7 +424,6 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::DataSync::LocationFSxOpenZFS`.
 func NewCfnLocationFSxOpenZFS(scope constructs.Construct, id *string, props *CfnLocationFSxOpenZFSProps) CfnLocationFSxOpenZFS {
 	_init_.Initialize()
 
@@ -435,7 +441,6 @@ func NewCfnLocationFSxOpenZFS(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::DataSync::LocationFSxOpenZFS`.
 func NewCfnLocationFSxOpenZFS_Override(c CfnLocationFSxOpenZFS, scope constructs.Construct, id *string, props *CfnLocationFSxOpenZFSProps) {
 	_init_.Initialize()
 
@@ -480,6 +485,17 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationFSxOpenZFS)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

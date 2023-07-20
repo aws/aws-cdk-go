@@ -24,12 +24,18 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html
+//
 type CfnJob_StatisticsConfigurationProperty struct {
 	// List of included evaluations.
 	//
 	// When the list is undefined, all supported evaluations will be included.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
+	//
 	IncludedStatistics *[]*string `field:"optional" json:"includedStatistics" yaml:"includedStatistics"`
 	// List of overrides for evaluations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
+	//
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 }
 

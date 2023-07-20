@@ -20,12 +20,20 @@ package awssagemaker
 //   	VariantName: jsii.String("variantName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html
+//
 type CfnInferenceExperiment_ModelVariantConfigProperty struct {
 	// The configuration for the infrastructure that the model will be deployed to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html#cfn-sagemaker-inferenceexperiment-modelvariantconfig-infrastructureconfig
+	//
 	InfrastructureConfig interface{} `field:"required" json:"infrastructureConfig" yaml:"infrastructureConfig"`
 	// The name of the Amazon SageMaker Model entity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html#cfn-sagemaker-inferenceexperiment-modelvariantconfig-modelname
+	//
 	ModelName *string `field:"required" json:"modelName" yaml:"modelName"`
 	// The name of the variant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html#cfn-sagemaker-inferenceexperiment-modelvariantconfig-variantname
+	//
 	VariantName *string `field:"required" json:"variantName" yaml:"variantName"`
 }
 

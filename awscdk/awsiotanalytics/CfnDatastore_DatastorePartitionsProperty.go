@@ -24,8 +24,12 @@ package awsiotanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartitions.html
+//
 type CfnDatastore_DatastorePartitionsProperty struct {
 	// A list of partition dimensions in a data store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartitions.html#cfn-iotanalytics-datastore-datastorepartitions-partitions
+	//
 	Partitions interface{} `field:"optional" json:"partitions" yaml:"partitions"`
 }
 

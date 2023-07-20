@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SecretsManager::Secret`.
+// Creates a new secret.
 //
-// Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.
+// A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.
 //
 // For Amazon RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html) .
 //
@@ -61,9 +61,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
+//
 type CfnSecret interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the secret.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -79,21 +82,9 @@ type CfnSecret interface {
 	Description() *string
 	SetDescription(val *string)
 	// A structure that specifies how to generate a password to encrypt and store in the secret.
-	//
-	// To include a specific string in the secret, use `SecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret. When you make a change to this property, a new secret version is created.
-	//
-	// We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 	GenerateSecretString() interface{}
 	SetGenerateSecretString(val interface{})
 	// The ARN, key ID, or alias of the AWS KMS key that Secrets Manager uses to encrypt the secret value in the secret.
-	//
-	// An alias is always prefixed by `alias/` , for example `alias/aws/secretsmanager` . For more information, see [About aliases](https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html) .
-	//
-	// To use a AWS KMS key in a different account, use the key ARN or the alias ARN.
-	//
-	// If you don't specify this value, then Secrets Manager uses the key `aws/secretsmanager` . If that key doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
-	//
-	// If the secret is in a different AWS account from the credentials calling the API, then you can't use `aws/secretsmanager` to encrypt the secret, and you must create and use a customer managed AWS KMS key.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -107,10 +98,6 @@ type CfnSecret interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the new secret.
-	//
-	// The secret name can contain ASCII letters, numbers, and the following characters: /_+=.@-
-	//
-	// Do not end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager automatically adds a hyphen and six random characters after the secret name at the end of the ARN.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -124,35 +111,17 @@ type CfnSecret interface {
 	ReplicaRegions() interface{}
 	SetReplicaRegions(val interface{})
 	// The text to encrypt and store in the secret.
-	//
-	// We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use `GenerateSecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret. When you make a change to this property, a new secret version is created.
 	SecretString() *string
 	SetSecretString(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to attach to the secret.
-	//
-	// Each tag is a key and value pair of strings in a JSON text string, for example:
-	//
-	// `[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]`
-	//
-	// Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
-	//
-	// If you check tags in permissions policies as part of your security strategy, then adding or removing a tag can change permissions. If the completion of this operation would result in you losing your permissions for this secret, then Secrets Manager blocks the operation and returns an `Access Denied` error. For more information, see [Control access to secrets using tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#tag-secrets-abac) and [Limit access to identities with tags that match secrets' tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#auth-and-access_tags2) .
-	//
-	// For information about how to format a JSON parameter for the various command line tool environments, see [Using JSON for Parameters](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json) . If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
-	//
-	// The following restrictions apply to tags:
-	//
-	// - Maximum number of tags per secret: 50
-	// - Maximum key length: 127 Unicode characters in UTF-8
-	// - Maximum value length: 255 Unicode characters in UTF-8
-	// - Tag keys and values are case sensitive.
-	// - Do not use the `aws:` prefix in your tag names or values because AWS reserves it for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit.
-	// - If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags to attach to the secret.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -297,6 +266,7 @@ type CfnSecret interface {
 type jsiiProxy_CfnSecret struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSecret) AttrId() *string {
@@ -459,6 +429,16 @@ func (j *jsiiProxy_CfnSecret) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSecret) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecret) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -480,7 +460,6 @@ func (j *jsiiProxy_CfnSecret) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SecretsManager::Secret`.
 func NewCfnSecret(scope constructs.Construct, id *string, props *CfnSecretProps) CfnSecret {
 	_init_.Initialize()
 
@@ -498,7 +477,6 @@ func NewCfnSecret(scope constructs.Construct, id *string, props *CfnSecretProps)
 	return &j
 }
 
-// Create a new `AWS::SecretsManager::Secret`.
 func NewCfnSecret_Override(c CfnSecret, scope constructs.Construct, id *string, props *CfnSecretProps) {
 	_init_.Initialize()
 
@@ -559,6 +537,17 @@ func (j *jsiiProxy_CfnSecret)SetSecretString(val *string) {
 	_jsii_.Set(
 		j,
 		"secretString",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecret)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Evidently::Launch`.
+// Creates or updates a *launch* of a given feature.
 //
-// Creates or updates a *launch* of a given feature. Before you create a launch, you must create the feature to use for the launch.
+// Before you create a launch, you must create the feature to use for the launch.
 //
 // You can use a launch to safely validate new features by serving them to a specified percentage of your users while you roll out the feature. You can monitor the performance of the new feature to help you decide when to ramp up traffic to more users. This helps you reduce risk and identify unintended consequences before you fully launch the feature.
 //
@@ -88,9 +88,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html
+//
 type CfnLaunch interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the launch.
 	//
 	// For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`.
@@ -111,8 +114,6 @@ type CfnLaunch interface {
 	ExecutionStatus() interface{}
 	SetExecutionStatus(val interface{})
 	// An array of structures that contains the feature and variations that are to be used for the launch.
-	//
-	// You can up to five launch groups in a launch.
 	Groups() interface{}
 	SetGroups(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -126,13 +127,9 @@ type CfnLaunch interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// An array of structures that define the metrics that will be used to monitor the launch performance.
-	//
-	// You can have up to three metric monitors in the array.
 	MetricMonitors() interface{}
 	SetMetricMonitors(val interface{})
 	// The name for the launch.
-	//
-	// It can include up to 127 characters.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -141,8 +138,6 @@ type CfnLaunch interface {
 	Project() *string
 	SetProject(val *string)
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served.
-	//
-	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
 	RandomizationSalt() *string
 	SetRandomizationSalt(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -157,16 +152,11 @@ type CfnLaunch interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Assigns one or more tags (key-value pairs) to the launch.
-	//
-	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-	//
-	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-	//
-	// You can associate as many as 50 tags with a launch.
-	//
-	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Assigns one or more tags (key-value pairs) to the launch.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -311,6 +301,7 @@ type CfnLaunch interface {
 type jsiiProxy_CfnLaunch struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLaunch) AttrArn() *string {
@@ -493,6 +484,16 @@ func (j *jsiiProxy_CfnLaunch) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLaunch) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLaunch) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -514,7 +515,6 @@ func (j *jsiiProxy_CfnLaunch) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Evidently::Launch`.
 func NewCfnLaunch(scope constructs.Construct, id *string, props *CfnLaunchProps) CfnLaunch {
 	_init_.Initialize()
 
@@ -532,7 +532,6 @@ func NewCfnLaunch(scope constructs.Construct, id *string, props *CfnLaunchProps)
 	return &j
 }
 
-// Create a new `AWS::Evidently::Launch`.
 func NewCfnLaunch_Override(c CfnLaunch, scope constructs.Construct, id *string, props *CfnLaunchProps) {
 	_init_.Initialize()
 
@@ -621,6 +620,17 @@ func (j *jsiiProxy_CfnLaunch)SetScheduledSplitsConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"scheduledSplitsConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLaunch)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

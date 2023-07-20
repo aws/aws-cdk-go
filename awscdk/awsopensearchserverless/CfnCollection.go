@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpenSearchServerless::Collection`.
+// Specifies an OpenSearch Serverless collection.
 //
-// Specifies an OpenSearch Serverless collection. For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html) in the *Amazon OpenSearch Service Developer Guide* .
+// For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // > You must create a matching [encryption policy](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html) in order for a collection to be created successfully. You can specify the policy resource within the same CloudFormation template as the collection resource if you use the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute. See [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#aws-resource-opensearchserverless-collection--examples) for a sample template. Otherwise the encryption policy must already exist before you create the collection.
 //
@@ -34,9 +34,12 @@ import (
 //   	Type: jsii.String("type"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html
+//
 type CfnCollection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the collection.
 	//
 	// For example, `arn:aws:aoss:us-east-1:123456789012:collection/07tjusf2h91cunochc` .
@@ -76,13 +79,6 @@ type CfnCollection interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the collection.
-	//
-	// Collection names must meet the following criteria:
-	//
-	// - Starts with a lowercase letter
-	// - Unique to your account and AWS Region
-	// - Contains between 3 and 28 characters
-	// - Contains only lowercase letters a-z, the numbers 0-9, and the hyphen (-).
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -96,13 +92,12 @@ type CfnCollection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An arbitrary set of tags (key–value pairs) to associate with the collection.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An arbitrary set of tags (key–value pairs) to associate with the collection.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of collection.
-	//
-	// Possible values are `SEARCH` and `TIMESERIES` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -249,6 +244,7 @@ type CfnCollection interface {
 type jsiiProxy_CfnCollection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCollection) AttrArn() *string {
@@ -401,6 +397,16 @@ func (j *jsiiProxy_CfnCollection) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollection) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCollection) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -432,7 +438,6 @@ func (j *jsiiProxy_CfnCollection) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::OpenSearchServerless::Collection`.
 func NewCfnCollection(scope constructs.Construct, id *string, props *CfnCollectionProps) CfnCollection {
 	_init_.Initialize()
 
@@ -450,7 +455,6 @@ func NewCfnCollection(scope constructs.Construct, id *string, props *CfnCollecti
 	return &j
 }
 
-// Create a new `AWS::OpenSearchServerless::Collection`.
 func NewCfnCollection_Override(c CfnCollection, scope constructs.Construct, id *string, props *CfnCollectionProps) {
 	_init_.Initialize()
 
@@ -476,6 +480,17 @@ func (j *jsiiProxy_CfnCollection)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollection)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

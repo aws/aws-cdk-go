@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkFirewall::RuleGroup`.
+// Use the `RuleGroup` to define a reusable collection of stateless or stateful network traffic filtering rules.
 //
-// Use the `RuleGroup` to define a reusable collection of stateless or stateful network traffic filtering rules. You use rule groups in an `FirewallPolicy` to specify the filtering behavior of an `Firewall` .
+// You use rule groups in an `FirewallPolicy` to specify the filtering behavior of an `Firewall` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -165,16 +165,17 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html
+//
 type CfnRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `RuleGroup` .
 	AttrRuleGroupArn() *string
 	// The unique ID of the `RuleGroup` resource.
 	AttrRuleGroupId() *string
 	// The maximum operating resources that this rule group can use.
-	//
-	// You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
 	Capacity() *float64
 	SetCapacity(val *float64)
 	// Options for this resource, such as condition, update policy etc.
@@ -210,22 +211,18 @@ type CfnRuleGroup interface {
 	RuleGroup() interface{}
 	SetRuleGroup(val interface{})
 	// The descriptive name of the rule group.
-	//
-	// You can't change the name of a rule group after you create it.
 	RuleGroupName() *string
 	SetRuleGroupName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Indicates whether the rule group is stateless or stateful.
-	//
-	// If the rule group is stateless, it contains
-	// stateless rules. If it is stateful, it contains stateful rules.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -372,6 +369,7 @@ type CfnRuleGroup interface {
 type jsiiProxy_CfnRuleGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRuleGroup) AttrRuleGroupArn() *string {
@@ -524,6 +522,16 @@ func (j *jsiiProxy_CfnRuleGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuleGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuleGroup) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -555,7 +563,6 @@ func (j *jsiiProxy_CfnRuleGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::NetworkFirewall::RuleGroup`.
 func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
 	_init_.Initialize()
 
@@ -573,7 +580,6 @@ func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroup
 	return &j
 }
 
-// Create a new `AWS::NetworkFirewall::RuleGroup`.
 func NewCfnRuleGroup_Override(c CfnRuleGroup, scope constructs.Construct, id *string, props *CfnRuleGroupProps) {
 	_init_.Initialize()
 
@@ -621,6 +627,17 @@ func (j *jsiiProxy_CfnRuleGroup)SetRuleGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuleGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

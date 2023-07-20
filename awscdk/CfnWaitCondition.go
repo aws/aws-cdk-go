@@ -7,9 +7,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::WaitCondition`.
+// > For Amazon EC2 and Auto Scaling resources, we recommend that you use a `CreationPolicy` attribute instead of wait conditions.
 //
-// > For Amazon EC2 and Auto Scaling resources, we recommend that you use a `CreationPolicy` attribute instead of wait conditions. Add a CreationPolicy attribute to those resources, and use the cfn-signal helper script to signal when an instance creation process has completed successfully.
+// Add a CreationPolicy attribute to those resources, and use the cfn-signal helper script to signal when an instance creation process has completed successfully.
 //
 // You can use a wait condition for situations like the following:
 //
@@ -31,6 +31,8 @@ import (
 //   	Timeout: jsii.String("timeout"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-waitcondition.html
+//
 type CfnWaitCondition interface {
 	CfnResource
 	IInspectable
@@ -42,16 +44,13 @@ type CfnWaitCondition interface {
 	//
 	// `{ "Signal1" : "Step 1 complete." , "Signal2" : "Step 2 complete." }`
 	AttrData() IResolvable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// The number of success signals that CloudFormation must receive before it continues the stack creation process.
-	//
-	// When the wait condition receives the requisite number of success signals, CloudFormation resumes the creation of the stack. If the wait condition doesn't receive the specified number of success signals before the Timeout period expires, CloudFormation assumes that the wait condition has failed and rolls the stack back.
-	//
-	// Updates aren't supported.
 	Count() *float64
 	SetCount(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -59,12 +58,6 @@ type CfnWaitCondition interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to the wait condition handle used to signal this wait condition.
-	//
-	// Use the `Ref` intrinsic function to specify an [`AWS::CloudFormation::WaitConditionHandle`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html) resource.
-	//
-	// Anytime you add a `WaitCondition` resource during a stack update, you must associate the wait condition with a new WaitConditionHandle resource. Don't reuse an old wait condition handle that has already been defined in the template. If you reuse a wait condition handle, the wait condition might evaluate old signals from a previous create or update stack command.
-	//
-	// Updates aren't supported.
 	Handle() *string
 	SetHandle(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -89,10 +82,6 @@ type CfnWaitCondition interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() Stack
 	// The length of time (in seconds) to wait for the number of signals that the `Count` property specifies.
-	//
-	// `Timeout` is a minimum-bound property, meaning the timeout occurs no sooner than the time you specify, but can occur shortly thereafter. The maximum time that can be specified for this property is 12 hours (43200 seconds).
-	//
-	// Updates aren't supported.
 	Timeout() *string
 	SetTimeout(val *string)
 	// Deprecated.
@@ -251,6 +240,16 @@ func (j *jsiiProxy_CfnWaitCondition) AttrData() IResolvable {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWaitCondition) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWaitCondition) CfnOptions() ICfnResourceOptions {
 	var returns ICfnResourceOptions
 	_jsii_.Get(
@@ -382,7 +381,6 @@ func (j *jsiiProxy_CfnWaitCondition) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::CloudFormation::WaitCondition`.
 func NewCfnWaitCondition(scope constructs.Construct, id *string, props *CfnWaitConditionProps) CfnWaitCondition {
 	_init_.Initialize()
 
@@ -400,7 +398,6 @@ func NewCfnWaitCondition(scope constructs.Construct, id *string, props *CfnWaitC
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::WaitCondition`.
 func NewCfnWaitCondition_Override(c CfnWaitCondition, scope constructs.Construct, id *string, props *CfnWaitConditionProps) {
 	_init_.Initialize()
 

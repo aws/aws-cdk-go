@@ -17,8 +17,12 @@ package awslightsail
 //   	Option: jsii.String("option"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-headerobject.html
+//
 type CfnDistribution_HeaderObjectProperty struct {
 	// The specific headers to forward to your distribution's origin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-headerobject.html#cfn-lightsail-distribution-headerobject-headersallowlist
+	//
 	HeadersAllowList *[]*string `field:"optional" json:"headersAllowList" yaml:"headersAllowList"`
 	// The headers that you want your distribution to forward to your origin.
 	//
@@ -29,6 +33,8 @@ type CfnDistribution_HeaderObjectProperty struct {
 	// - *`all`* - Forwards all headers to your origin..
 	// - *`none`* - Forwards only the default headers.
 	// - *`allow-list`* - Forwards only the headers that you specify using the `HeadersAllowList` parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-headerobject.html#cfn-lightsail-distribution-headerobject-option
+	//
 	Option *string `field:"optional" json:"option" yaml:"option"`
 }
 

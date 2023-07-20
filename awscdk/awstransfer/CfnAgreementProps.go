@@ -29,28 +29,46 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html
+//
 type CfnAgreementProps struct {
 	// With AS2, you can send files by calling `StartFileTransfer` and specifying the file paths in the request parameter, `SendFilePaths` .
 	//
 	// We use the file’s parent directory (for example, for `--send-file-paths /bucket/dir/file.txt` , parent directory is `/bucket/dir/` ) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the `AccessRole` needs to provide read and write access to the parent directory of the file location used in the `StartFileTransfer` request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with `StartFileTransfer` .
 	//
 	// If you are using Basic authentication for your AS2 connector, the access role requires the `secretsmanager:GetSecretValue` permission for the secret. If the secret is encrypted using a customer-managed key instead of the AWS managed key in Secrets Manager, then the role also needs the `kms:Decrypt` permission for that key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html#cfn-transfer-agreement-accessrole
+	//
 	AccessRole *string `field:"required" json:"accessRole" yaml:"accessRole"`
 	// The landing directory (folder) for files that are transferred by using the AS2 protocol.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html#cfn-transfer-agreement-basedirectory
+	//
 	BaseDirectory *string `field:"required" json:"baseDirectory" yaml:"baseDirectory"`
 	// A unique identifier for the AS2 local profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html#cfn-transfer-agreement-localprofileid
+	//
 	LocalProfileId *string `field:"required" json:"localProfileId" yaml:"localProfileId"`
 	// A unique identifier for the partner profile used in the agreement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html#cfn-transfer-agreement-partnerprofileid
+	//
 	PartnerProfileId *string `field:"required" json:"partnerProfileId" yaml:"partnerProfileId"`
 	// A system-assigned unique identifier for a server instance.
 	//
 	// This identifier indicates the specific server that the agreement uses.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html#cfn-transfer-agreement-serverid
+	//
 	ServerId *string `field:"required" json:"serverId" yaml:"serverId"`
 	// The name or short description that's used to identify the agreement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html#cfn-transfer-agreement-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The current status of the agreement, either `ACTIVE` or `INACTIVE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html#cfn-transfer-agreement-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// Key-value pairs that can be used to group and search for agreements.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html#cfn-transfer-agreement-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -13,6 +13,8 @@ package awssecurityhub
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-stringfilter.html
+//
 type CfnAutomationRule_StringFilterProperty struct {
 	// The condition to apply to a string value when querying for findings.
 	//
@@ -48,10 +50,14 @@ type CfnAutomationRule_StringFilterProperty struct {
 	// - `ResourceType PREFIX AwsEc2`
 	// - `ResourceType NOT_EQUALS AwsIamPolicy`
 	// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-stringfilter.html#cfn-securityhub-automationrule-stringfilter-comparison
+	//
 	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`
 	// The string filter value.
 	//
 	// Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter text, then there is no match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-stringfilter.html#cfn-securityhub-automationrule-stringfilter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

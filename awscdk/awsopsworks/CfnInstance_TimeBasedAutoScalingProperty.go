@@ -32,20 +32,36 @@ package awsopsworks
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html
+//
 type CfnInstance_TimeBasedAutoScalingProperty struct {
 	// The schedule for Friday.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-friday
+	//
 	Friday interface{} `field:"optional" json:"friday" yaml:"friday"`
 	// The schedule for Monday.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-monday
+	//
 	Monday interface{} `field:"optional" json:"monday" yaml:"monday"`
 	// The schedule for Saturday.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-saturday
+	//
 	Saturday interface{} `field:"optional" json:"saturday" yaml:"saturday"`
 	// The schedule for Sunday.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-sunday
+	//
 	Sunday interface{} `field:"optional" json:"sunday" yaml:"sunday"`
 	// The schedule for Thursday.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-thursday
+	//
 	Thursday interface{} `field:"optional" json:"thursday" yaml:"thursday"`
 	// The schedule for Tuesday.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-tuesday
+	//
 	Tuesday interface{} `field:"optional" json:"tuesday" yaml:"tuesday"`
 	// The schedule for Wednesday.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-wednesday
+	//
 	Wednesday interface{} `field:"optional" json:"wednesday" yaml:"wednesday"`
 }
 

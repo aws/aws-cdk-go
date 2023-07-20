@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VpcLattice::TargetGroup`.
+// Creates a target group.
 //
-// Creates a target group. A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
+// A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
 //
 // For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
 //
@@ -64,9 +64,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html
+//
 type CfnTargetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the target group.
 	AttrArn() *string
 	// The date and time that the target group was created, specified in ISO-8601 format.
@@ -85,8 +88,6 @@ type CfnTargetGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The target group configuration.
-	//
-	// If `type` is set to `LAMBDA` , this parameter doesn't apply.
 	Config() interface{}
 	SetConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -104,10 +105,6 @@ type CfnTargetGroup interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the target group.
-	//
-	// The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-	//
-	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -121,8 +118,11 @@ type CfnTargetGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the target group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the target group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Describes a target.
 	Targets() interface{}
 	SetTargets(val interface{})
@@ -273,6 +273,7 @@ type CfnTargetGroup interface {
 type jsiiProxy_CfnTargetGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTargetGroup) AttrArn() *string {
@@ -435,6 +436,16 @@ func (j *jsiiProxy_CfnTargetGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTargetGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTargetGroup) Targets() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -476,7 +487,6 @@ func (j *jsiiProxy_CfnTargetGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::VpcLattice::TargetGroup`.
 func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetGroupProps) CfnTargetGroup {
 	_init_.Initialize()
 
@@ -494,7 +504,6 @@ func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetG
 	return &j
 }
 
-// Create a new `AWS::VpcLattice::TargetGroup`.
 func NewCfnTargetGroup_Override(c CfnTargetGroup, scope constructs.Construct, id *string, props *CfnTargetGroupProps) {
 	_init_.Initialize()
 
@@ -520,6 +529,17 @@ func (j *jsiiProxy_CfnTargetGroup)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTargetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

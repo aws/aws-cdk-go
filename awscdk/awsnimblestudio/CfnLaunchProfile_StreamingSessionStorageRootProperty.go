@@ -13,10 +13,16 @@ package awsnimblestudio
 //   	Windows: jsii.String("windows"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamingsessionstorageroot.html
+//
 type CfnLaunchProfile_StreamingSessionStorageRootProperty struct {
 	// The folder path in Linux workstations where files are uploaded.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamingsessionstorageroot.html#cfn-nimblestudio-launchprofile-streamingsessionstorageroot-linux
+	//
 	Linux *string `field:"optional" json:"linux" yaml:"linux"`
 	// The folder path in Windows workstations where files are uploaded.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamingsessionstorageroot.html#cfn-nimblestudio-launchprofile-streamingsessionstorageroot-windows
+	//
 	Windows *string `field:"optional" json:"windows" yaml:"windows"`
 }
 

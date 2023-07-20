@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GreengrassV2::Deployment`.
+// Creates a continuous deployment for a target, which is a AWS IoT Greengrass core device or group of core devices.
 //
-// Creates a continuous deployment for a target, which is a AWS IoT Greengrass core device or group of core devices. When you add a new core device to a group of core devices that has a deployment, AWS IoT Greengrass deploys that group's deployment to the new device.
+// When you add a new core device to a group of core devices that has a deployment, AWS IoT Greengrass deploys that group's deployment to the new device.
 //
 // You can define one deployment for each target. When you create a new deployment for a target that has an existing deployment, you replace the previous deployment. AWS IoT Greengrass applies the new deployment to the target devices.
 //
@@ -95,9 +95,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html
+//
 type CfnDeployment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the deployment.
 	AttrDeploymentId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -106,8 +109,6 @@ type CfnDeployment interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The components to deploy.
-	//
-	// This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
 	Components() interface{}
 	SetComponents(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -118,13 +119,9 @@ type CfnDeployment interface {
 	DeploymentName() *string
 	SetDeploymentName(val *string)
 	// The deployment policies for the deployment.
-	//
-	// These policies define how the deployment updates components and handles failure.
 	DeploymentPolicies() interface{}
 	SetDeploymentPolicies(val interface{})
 	// The job configuration for the deployment configuration.
-	//
-	// The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
 	IotJobConfiguration() interface{}
 	SetIotJobConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -151,17 +148,11 @@ type CfnDeployment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Application-specific metadata to attach to the deployment.
-	//
-	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
-	//
-	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
-	//
-	// ```json
-	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
-	// }
-	// ```.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Application-specific metadata to attach to the deployment.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The ARN of the target AWS IoT thing or thing group.
 	TargetArn() *string
 	SetTargetArn(val *string)
@@ -309,6 +300,7 @@ type CfnDeployment interface {
 type jsiiProxy_CfnDeployment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDeployment) AttrDeploymentId() *string {
@@ -461,6 +453,16 @@ func (j *jsiiProxy_CfnDeployment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeployment) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeployment) TargetArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -492,7 +494,6 @@ func (j *jsiiProxy_CfnDeployment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GreengrassV2::Deployment`.
 func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeploymentProps) CfnDeployment {
 	_init_.Initialize()
 
@@ -510,7 +511,6 @@ func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeployme
 	return &j
 }
 
-// Create a new `AWS::GreengrassV2::Deployment`.
 func NewCfnDeployment_Override(c CfnDeployment, scope constructs.Construct, id *string, props *CfnDeploymentProps) {
 	_init_.Initialize()
 
@@ -566,6 +566,14 @@ func (j *jsiiProxy_CfnDeployment)SetParentTargetArn(val *string) {
 	_jsii_.Set(
 		j,
 		"parentTargetArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeployment)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

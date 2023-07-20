@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::BackupGateway::Hypervisor`.
-//
 // Represents the hypervisor's permissions to which the gateway will connect.
 //
 // A hypervisor is hardware, software, or firmware that creates and manages virtual machines, and allocates resources to them.
@@ -35,9 +33,12 @@ import (
 //   	Username: jsii.String("username"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html
+//
 type CfnHypervisor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor.
 	//
 	// For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`.
@@ -52,8 +53,6 @@ type CfnHypervisor interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The server host of the hypervisor.
-	//
-	// This can be either an IP address or a fully-qualified domain name (FQDN).
 	Host() *string
 	SetHost(val *string)
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
@@ -89,8 +88,11 @@ type CfnHypervisor interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags of the hypervisor configuration to import.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags of the hypervisor configuration to import.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,6 +240,7 @@ type CfnHypervisor interface {
 type jsiiProxy_CfnHypervisor struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnHypervisor) AttrHypervisorArn() *string {
@@ -390,6 +393,16 @@ func (j *jsiiProxy_CfnHypervisor) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHypervisor) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHypervisor) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -421,7 +434,6 @@ func (j *jsiiProxy_CfnHypervisor) Username() *string {
 }
 
 
-// Create a new `AWS::BackupGateway::Hypervisor`.
 func NewCfnHypervisor(scope constructs.Construct, id *string, props *CfnHypervisorProps) CfnHypervisor {
 	_init_.Initialize()
 
@@ -439,7 +451,6 @@ func NewCfnHypervisor(scope constructs.Construct, id *string, props *CfnHypervis
 	return &j
 }
 
-// Create a new `AWS::BackupGateway::Hypervisor`.
 func NewCfnHypervisor_Override(c CfnHypervisor, scope constructs.Construct, id *string, props *CfnHypervisorProps) {
 	_init_.Initialize()
 
@@ -486,6 +497,17 @@ func (j *jsiiProxy_CfnHypervisor)SetPassword(val *string) {
 	_jsii_.Set(
 		j,
 		"password",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHypervisor)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

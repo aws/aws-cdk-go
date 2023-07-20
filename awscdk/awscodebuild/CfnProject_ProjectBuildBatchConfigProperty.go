@@ -21,6 +21,8 @@ package awscodebuild
 //   	TimeoutInMins: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html
+//
 type CfnProject_ProjectBuildBatchConfigProperty struct {
 	// Specifies how build status reports are sent to the source provider for the batch build.
 	//
@@ -28,14 +30,24 @@ type CfnProject_ProjectBuildBatchConfigProperty struct {
 	//
 	// - **REPORT_AGGREGATED_BATCH** - (Default) Aggregate all of the build statuses into a single status report.
 	// - **REPORT_INDIVIDUAL_BUILDS** - Send a separate status report for each individual build.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-batchreportmode
+	//
 	BatchReportMode *string `field:"optional" json:"batchReportMode" yaml:"batchReportMode"`
 	// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-combineartifacts
+	//
 	CombineArtifacts interface{} `field:"optional" json:"combineArtifacts" yaml:"combineArtifacts"`
 	// A `BatchRestrictions` object that specifies the restrictions for the batch build.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-restrictions
+	//
 	Restrictions interface{} `field:"optional" json:"restrictions" yaml:"restrictions"`
 	// Specifies the service role ARN for the batch build project.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-servicerole
+	//
 	ServiceRole *string `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-timeoutinmins
+	//
 	TimeoutInMins *float64 `field:"optional" json:"timeoutInMins" yaml:"timeoutInMins"`
 }
 

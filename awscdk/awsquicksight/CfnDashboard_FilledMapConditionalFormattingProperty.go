@@ -44,8 +44,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filledmapconditionalformatting.html
+//
 type CfnDashboard_FilledMapConditionalFormattingProperty struct {
 	// Conditional formatting options of a `FilledMapVisual` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filledmapconditionalformatting.html#cfn-quicksight-dashboard-filledmapconditionalformatting-conditionalformattingoptions
+	//
 	ConditionalFormattingOptions interface{} `field:"required" json:"conditionalFormattingOptions" yaml:"conditionalFormattingOptions"`
 }
 

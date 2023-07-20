@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FraudDetector::Variable`.
-//
 // Manages a variable.
 //
 // Example:
@@ -35,9 +33,12 @@ import (
 //   	VariableType: jsii.String("variableType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html
+//
 type CfnVariable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the variable.
 	AttrArn() *string
 	// Timestamp of when variable was created.
@@ -54,15 +55,9 @@ type CfnVariable interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The data source of the variable.
-	//
-	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
-	//
-	// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
 	DataSource() *string
 	SetDataSource(val *string)
 	// The data type of the variable.
-	//
-	// Valid data types: `STRING | INTEGER | BOOLEAN | FLOAT`.
 	DataType() *string
 	SetDataType(val *string)
 	// The default value of the variable.
@@ -82,8 +77,6 @@ type CfnVariable interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the variable.
-	//
-	// Pattern: `^[0-9a-z_-]+$`.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -97,10 +90,11 @@ type CfnVariable interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -114,9 +108,9 @@ type CfnVariable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The type of the variable. For more information see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
+	// The type of the variable.
 	//
-	// Valid Values: `AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT`.
+	// For more information see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
 	VariableType() *string
 	SetVariableType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -250,6 +244,7 @@ type CfnVariable interface {
 type jsiiProxy_CfnVariable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVariable) AttrArn() *string {
@@ -422,6 +417,16 @@ func (j *jsiiProxy_CfnVariable) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVariable) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVariable) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -453,7 +458,6 @@ func (j *jsiiProxy_CfnVariable) VariableType() *string {
 }
 
 
-// Create a new `AWS::FraudDetector::Variable`.
 func NewCfnVariable(scope constructs.Construct, id *string, props *CfnVariableProps) CfnVariable {
 	_init_.Initialize()
 
@@ -471,7 +475,6 @@ func NewCfnVariable(scope constructs.Construct, id *string, props *CfnVariablePr
 	return &j
 }
 
-// Create a new `AWS::FraudDetector::Variable`.
 func NewCfnVariable_Override(c CfnVariable, scope constructs.Construct, id *string, props *CfnVariableProps) {
 	_init_.Initialize()
 
@@ -530,6 +533,17 @@ func (j *jsiiProxy_CfnVariable)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVariable)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

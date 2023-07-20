@@ -17,10 +17,16 @@ package awssagemaker
 //   	Notes: jsii.String("notes"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html
+//
 type CfnModelCard_ObjectiveFunctionProperty struct {
 	// A function object that details optimization direction, metric, and additional descriptions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html#cfn-sagemaker-modelcard-objectivefunction-function
+	//
 	Function interface{} `field:"optional" json:"function" yaml:"function"`
 	// Notes about the object function, including other considerations for possible objective functions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html#cfn-sagemaker-modelcard-objectivefunction-notes
+	//
 	Notes *string `field:"optional" json:"notes" yaml:"notes"`
 }
 

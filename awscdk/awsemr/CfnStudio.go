@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EMR::Studio`.
+// The `AWS::EMR::Studio` resource specifies an Amazon EMR Studio.
 //
-// The `AWS::EMR::Studio` resource specifies an Amazon EMR Studio. An EMR Studio is a web-based, integrated development environment for fully managed Jupyter notebooks that run on Amazon EMR clusters. For more information, see the [*Amazon EMR Management Guide*](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio.html) .
+// An EMR Studio is a web-based, integrated development environment for fully managed Jupyter notebooks that run on Amazon EMR clusters. For more information, see the [*Amazon EMR Management Guide*](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,9 +43,12 @@ import (
 //   	UserRole: jsii.String("userRole"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html
+//
 type CfnStudio interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the Amazon EMR Studio.
 	//
 	// For example: `arn:aws:elasticmapreduce:us-east-1:653XXXXXXXXX:studio/es-EXAMPLE12345678XXXXXXXXXXX` .
@@ -77,13 +80,9 @@ type CfnStudio interface {
 	Description() *string
 	SetDescription(val *string)
 	// The ID of the Amazon EMR Studio Engine security group.
-	//
-	// The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `VpcId` .
 	EngineSecurityGroupId() *string
 	SetEngineSecurityGroupId(val *string)
 	// Your identity provider's authentication endpoint.
-	//
-	// Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
 	IdpAuthUrl() *string
 	SetIdpAuthUrl(val *string)
 	// The name of your identity provider's `RelayState` parameter.
@@ -110,8 +109,6 @@ type CfnStudio interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the IAM role that will be assumed by the Amazon EMR Studio.
-	//
-	// The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
 	ServiceRole() *string
 	SetServiceRole(val *string)
 	// The stack in which this element is defined.
@@ -119,14 +116,13 @@ type CfnStudio interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A list of subnet IDs to associate with the Amazon EMR Studio.
-	//
-	// A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `VpcId` . Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -141,16 +137,12 @@ type CfnStudio interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The Amazon Resource Name (ARN) of the IAM user role that will be assumed by users and groups logged in to a Studio.
-	//
-	// The permissions attached to this IAM role can be scoped down for each user or group using session policies. You only need to specify `UserRole` when you set `AuthMode` to `SSO` .
 	UserRole() *string
 	SetUserRole(val *string)
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId() *string
 	SetVpcId(val *string)
 	// The ID of the Workspace security group associated with the Amazon EMR Studio.
-	//
-	// The Workspace security group allows outbound network traffic to resources in the Engine security group and to the internet.
 	WorkspaceSecurityGroupId() *string
 	SetWorkspaceSecurityGroupId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -284,6 +276,7 @@ type CfnStudio interface {
 type jsiiProxy_CfnStudio struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStudio) AttrArn() *string {
@@ -496,6 +489,16 @@ func (j *jsiiProxy_CfnStudio) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStudio) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStudio) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -547,7 +550,6 @@ func (j *jsiiProxy_CfnStudio) WorkspaceSecurityGroupId() *string {
 }
 
 
-// Create a new `AWS::EMR::Studio`.
 func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps) CfnStudio {
 	_init_.Initialize()
 
@@ -565,7 +567,6 @@ func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps)
 	return &j
 }
 
-// Create a new `AWS::EMR::Studio`.
 func NewCfnStudio_Override(c CfnStudio, scope constructs.Construct, id *string, props *CfnStudioProps) {
 	_init_.Initialize()
 
@@ -662,6 +663,17 @@ func (j *jsiiProxy_CfnStudio)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStudio)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

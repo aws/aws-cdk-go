@@ -80,6 +80,10 @@ func validateCfnEIP_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnEIP) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEIPParameters(scope constructs.Construct, id *string, props *CfnEIPProps) error {
 	return nil
 }

@@ -15,10 +15,16 @@ package awslightsail
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicdomainname.html
+//
 type CfnContainer_PublicDomainNameProperty struct {
 	// The name of the certificate for the public domains.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicdomainname.html#cfn-lightsail-container-publicdomainname-certificatename
+	//
 	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// The public domain names to use with the container service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicdomainname.html#cfn-lightsail-container-publicdomainname-domainnames
+	//
 	DomainNames *[]*string `field:"optional" json:"domainNames" yaml:"domainNames"`
 }
 

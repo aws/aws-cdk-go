@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::Crawler`.
+// The `AWS::Glue::Crawler` resource specifies an AWS Glue crawler.
 //
-// The `AWS::Glue::Crawler` resource specifies an AWS Glue crawler. For more information, see [Cataloging Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) and [Crawler Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-Crawler) in the *AWS Glue Developer Guide* .
+// For more information, see [Cataloging Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) and [Crawler Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-Crawler) in the *AWS Glue Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -101,9 +101,13 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html
+//
 type CfnCrawler interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -113,8 +117,6 @@ type CfnCrawler interface {
 	Classifiers() *[]*string
 	SetClassifiers(val *[]*string)
 	// Crawler configuration information.
-	//
-	// This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
 	Configuration() *string
 	SetConfiguration(val *string)
 	// The name of the `SecurityConfiguration` structure to be used by this crawler.
@@ -160,10 +162,6 @@ type CfnCrawler interface {
 	Schedule() interface{}
 	SetSchedule(val interface{})
 	// The policy that specifies update and delete behaviors for the crawler.
-	//
-	// The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The `SchemaChangePolicy` does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the `SchemaChangePolicy` on a crawler.
-	//
-	// The SchemaChangePolicy consists of two components, `UpdateBehavior` and `DeleteBehavior` .
 	SchemaChangePolicy() interface{}
 	SetSchemaChangePolicy(val interface{})
 	// The stack in which this element is defined.
@@ -173,8 +171,11 @@ type CfnCrawler interface {
 	// The prefix added to the names of tables that are created.
 	TablePrefix() *string
 	SetTablePrefix(val *string)
-	// The tags to use with this crawler.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to use with this crawler.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// A collection of targets to crawl.
 	Targets() interface{}
 	SetTargets(val interface{})
@@ -322,6 +323,17 @@ type CfnCrawler interface {
 type jsiiProxy_CfnCrawler struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnCrawler) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCrawler) CfnOptions() awscdk.ICfnResourceOptions {
@@ -524,6 +536,16 @@ func (j *jsiiProxy_CfnCrawler) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCrawler) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCrawler) Targets() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -555,7 +577,6 @@ func (j *jsiiProxy_CfnCrawler) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Glue::Crawler`.
 func NewCfnCrawler(scope constructs.Construct, id *string, props *CfnCrawlerProps) CfnCrawler {
 	_init_.Initialize()
 
@@ -573,7 +594,6 @@ func NewCfnCrawler(scope constructs.Construct, id *string, props *CfnCrawlerProp
 	return &j
 }
 
-// Create a new `AWS::Glue::Crawler`.
 func NewCfnCrawler_Override(c CfnCrawler, scope constructs.Construct, id *string, props *CfnCrawlerProps) {
 	_init_.Initialize()
 
@@ -680,6 +700,14 @@ func (j *jsiiProxy_CfnCrawler)SetTablePrefix(val *string) {
 	_jsii_.Set(
 		j,
 		"tablePrefix",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCrawler)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

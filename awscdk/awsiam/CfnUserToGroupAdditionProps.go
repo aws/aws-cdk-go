@@ -15,12 +15,18 @@ package awsiam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html
+//
 type CfnUserToGroupAdditionProps struct {
 	// The name of the group to update.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html#cfn-iam-usertogroupaddition-groupname
+	//
 	GroupName *string `field:"required" json:"groupName" yaml:"groupName"`
 	// A list of the names of the users that you want to add to the group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html#cfn-iam-usertogroupaddition-users
+	//
 	Users *[]*string `field:"required" json:"users" yaml:"users"`
 }
 

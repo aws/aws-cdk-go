@@ -13,10 +13,16 @@ package awseks
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
+//
 type CfnFargateProfile_LabelProperty struct {
 	// Enter a key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// Enter a value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

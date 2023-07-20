@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppRunner::Service`.
-//
 // Specify an AWS App Runner service by using the `AWS::AppRunner::Service` resource in an AWS CloudFormation template.
 //
 // The `AWS::AppRunner::Service` resource is an AWS App Runner resource type that specifies an App Runner service.
@@ -129,9 +127,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html
+//
 type CfnService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of this service.
 	AttrServiceArn() *string
 	// An ID that App Runner generated for this service.
@@ -150,12 +151,6 @@ type CfnService interface {
 	// - `DELETE_FAILED` – The service failed to delete and can't be successfully recovered. Retry the service deletion call to ensure that all related resources are removed.
 	AttrStatus() *string
 	// The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with your service.
-	//
-	// If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-	//
-	// Specify an ARN with a name and a revision number to associate that revision. For example: `arn:aws:apprunner:us-east-1:123456789012:autoscalingconfiguration/high-availability/3`
-	//
-	// Specify just the name to associate the latest revision. For example: `arn:aws:apprunner:us-east-1:123456789012:autoscalingconfiguration/high-availability`
 	AutoScalingConfigurationArn() *string
 	SetAutoScalingConfigurationArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -168,8 +163,6 @@ type CfnService interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs.
-	//
-	// By default, App Runner uses an AWS managed key .
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
 	// The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
@@ -202,25 +195,20 @@ type CfnService interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A name for the App Runner service.
-	//
-	// It must be unique across all the running App Runner services in your AWS account in the AWS Region .
-	//
-	// If you don't specify a name, AWS CloudFormation generates a name for your service.
 	ServiceName() *string
 	SetServiceName(val *string)
 	// The source to deploy to the App Runner service.
-	//
-	// It can be a code or an image repository.
 	SourceConfiguration() interface{}
 	SetSourceConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An optional list of metadata items that you can associate with the App Runner service resource.
-	//
-	// A tag is a key-value pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An optional list of metadata items that you can associate with the App Runner service resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -365,6 +353,7 @@ type CfnService interface {
 type jsiiProxy_CfnService struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnService) AttrServiceArn() *string {
@@ -577,6 +566,16 @@ func (j *jsiiProxy_CfnService) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -598,7 +597,6 @@ func (j *jsiiProxy_CfnService) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppRunner::Service`.
 func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
 
@@ -616,7 +614,6 @@ func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProp
 	return &j
 }
 
-// Create a new `AWS::AppRunner::Service`.
 func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string, props *CfnServiceProps) {
 	_init_.Initialize()
 
@@ -705,6 +702,17 @@ func (j *jsiiProxy_CfnService)SetSourceConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

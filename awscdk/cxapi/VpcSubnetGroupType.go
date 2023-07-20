@@ -3,8 +3,7 @@ package cxapi
 
 // The type of subnet group.
 //
-// Same as SubnetType in the @aws-cdk/aws-ec2 package,
-// but we can't use that because of cyclical dependencies.
+// Same as SubnetType in the.
 type VpcSubnetGroupType string
 
 const (

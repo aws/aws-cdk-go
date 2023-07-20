@@ -17,12 +17,18 @@ package awsconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html
+//
 type CfnRule_NotificationRecipientTypeProperty struct {
 	// The Amazon Resource Name (ARN) of the user account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html#cfn-connect-rule-notificationrecipienttype-userarns
+	//
 	UserArns *[]*string `field:"optional" json:"userArns" yaml:"userArns"`
 	// The tags used to organize, track, or control access for this resource.
 	//
 	// For example, { "tags": {"key1":"value1", "key2":"value2"} }. Amazon Connect users with the specified tags will be notified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html#cfn-connect-rule-notificationrecipienttype-usertags
+	//
 	UserTags interface{} `field:"optional" json:"userTags" yaml:"userTags"`
 }
 

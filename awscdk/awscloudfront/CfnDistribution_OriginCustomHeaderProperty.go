@@ -13,12 +13,18 @@ package awscloudfront
 //   	HeaderValue: jsii.String("headerValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html
+//
 type CfnDistribution_OriginCustomHeaderProperty struct {
 	// The name of a header that you want CloudFront to send to your origin.
 	//
 	// For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html) in the *Amazon CloudFront Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
+	//
 	HeaderName *string `field:"required" json:"headerName" yaml:"headerName"`
 	// The value for the header that you specified in the `HeaderName` field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
+	//
 	HeaderValue *string `field:"required" json:"headerValue" yaml:"headerValue"`
 }
 

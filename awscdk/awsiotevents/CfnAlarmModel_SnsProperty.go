@@ -18,10 +18,16 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html
+//
 type CfnAlarmModel_SnsProperty struct {
 	// The ARN of the Amazon SNS target where the message is sent.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html#cfn-iotevents-alarmmodel-sns-targetarn
+	//
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// You can configure the action payload when you send a message as an Amazon SNS push notification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html#cfn-iotevents-alarmmodel-sns-payload
+	//
 	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 

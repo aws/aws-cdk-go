@@ -88,10 +88,6 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetNameParameters(val *string) error 
 	return nil
 }
 
-func (j *jsiiProxy_CfnAccessPoint) validateSetPolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnAccessPoint) validateSetVpcConfigurationParameters(val interface{}) error {
 	return nil
 }

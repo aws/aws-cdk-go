@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelPropertiesParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnAssetModel) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAssetModelParameters(scope constructs.Construct, id *string, props *CfnAssetModelProps) error {
 	return nil
 }

@@ -12,8 +12,12 @@ package awslex
 //   	DetectSentiment: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sentimentanalysissettings.html
+//
 type CfnBot_SentimentAnalysisSettingsProperty struct {
 	// Sets whether Amazon Lex uses Amazon Comprehend to detect the sentiment of user utterances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sentimentanalysissettings.html#cfn-lex-bot-sentimentanalysissettings-detectsentiment
+	//
 	DetectSentiment interface{} `field:"required" json:"detectSentiment" yaml:"detectSentiment"`
 }
 

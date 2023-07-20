@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EFS::AccessPoint`.
+// The `AWS::EFS::AccessPoint` resource creates an EFS access point.
 //
-// The `AWS::EFS::AccessPoint` resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see [Mounting a file system using EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) .
+// An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see [Mounting a file system using EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) .
 //
 // This operation requires permissions for the `elasticfilesystem:CreateAccessPoint` action.
 //
@@ -50,9 +50,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
+//
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// An array of key-value pairs to apply to this resource.
+	AccessPointTagsRaw() *[]*CfnAccessPoint_AccessPointTagProperty
+	SetAccessPointTagsRaw(val *[]*CfnAccessPoint_AccessPointTagProperty)
 	// The ID of the EFS access point.
 	AttrAccessPointId() *string
 	// The Amazon Resource Name (ARN) of the access point.
@@ -70,8 +76,6 @@ type CfnAccessPoint interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ID of the EFS file system that the access point applies to.
-	//
-	// Accepts only the ID format for input when specifying a file system, for example `fs-0123456789abcedf2` .
 	FileSystemId() *string
 	SetFileSystemId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -101,9 +105,7 @@ type CfnAccessPoint interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -249,6 +251,17 @@ type CfnAccessPoint interface {
 type jsiiProxy_CfnAccessPoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnAccessPoint) AccessPointTagsRaw() *[]*CfnAccessPoint_AccessPointTagProperty {
+	var returns *[]*CfnAccessPoint_AccessPointTagProperty
+	_jsii_.Get(
+		j,
+		"accessPointTagsRaw",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAccessPoint) AttrAccessPointId() *string {
@@ -422,7 +435,6 @@ func (j *jsiiProxy_CfnAccessPoint) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EFS::AccessPoint`.
 func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
@@ -440,7 +452,6 @@ func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessP
 	return &j
 }
 
-// Create a new `AWS::EFS::AccessPoint`.
 func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 
@@ -448,6 +459,17 @@ func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id
 		"aws-cdk-lib.aws_efs.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnAccessPoint)SetAccessPointTagsRaw(val *[]*CfnAccessPoint_AccessPointTagProperty) {
+	if err := j.validateSetAccessPointTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"accessPointTagsRaw",
+		val,
 	)
 }
 

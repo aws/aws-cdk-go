@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EventSchemas::Registry`.
+// Use the `AWS::EventSchemas::Registry` to specify a schema registry.
 //
-// Use the `AWS::EventSchemas::Registry` to specify a schema registry. Schema registries are containers for Schemas. Registries collect and organize schemas so that your schemas are in logical groups.
+// Schema registries are containers for Schemas. Registries collect and organize schemas so that your schemas are in logical groups.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,9 +29,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html
+//
 type CfnRegistry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// The ARN of the registry.
 	AttrRegistryArn() *string
 	// The name of the registry.
@@ -72,8 +76,11 @@ type CfnRegistry interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags to associate with the registry.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags to associate with the registry.
+	TagsRaw() *[]*CfnRegistry_TagsEntryProperty
+	SetTagsRaw(val *[]*CfnRegistry_TagsEntryProperty)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -218,6 +225,17 @@ type CfnRegistry interface {
 type jsiiProxy_CfnRegistry struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnRegistry) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnRegistry) AttrRegistryArn() *string {
@@ -350,6 +368,16 @@ func (j *jsiiProxy_CfnRegistry) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRegistry) TagsRaw() *[]*CfnRegistry_TagsEntryProperty {
+	var returns *[]*CfnRegistry_TagsEntryProperty
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRegistry) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -371,7 +399,6 @@ func (j *jsiiProxy_CfnRegistry) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EventSchemas::Registry`.
 func NewCfnRegistry(scope constructs.Construct, id *string, props *CfnRegistryProps) CfnRegistry {
 	_init_.Initialize()
 
@@ -389,7 +416,6 @@ func NewCfnRegistry(scope constructs.Construct, id *string, props *CfnRegistryPr
 	return &j
 }
 
-// Create a new `AWS::EventSchemas::Registry`.
 func NewCfnRegistry_Override(c CfnRegistry, scope constructs.Construct, id *string, props *CfnRegistryProps) {
 	_init_.Initialize()
 
@@ -412,6 +438,17 @@ func (j *jsiiProxy_CfnRegistry)SetRegistryName(val *string) {
 	_jsii_.Set(
 		j,
 		"registryName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRegistry)SetTagsRaw(val *[]*CfnRegistry_TagsEntryProperty) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -18,10 +18,16 @@ package awsquicksight
 //   	MapZoomMode: jsii.String("mapZoomMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialwindowoptions.html
+//
 type CfnAnalysis_GeospatialWindowOptionsProperty struct {
 	// The bounds options (north, south, west, east) of the geospatial window options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialwindowoptions.html#cfn-quicksight-analysis-geospatialwindowoptions-bounds
+	//
 	Bounds interface{} `field:"optional" json:"bounds" yaml:"bounds"`
 	// The map zoom modes (manual, auto) of the geospatial window options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialwindowoptions.html#cfn-quicksight-analysis-geospatialwindowoptions-mapzoommode
+	//
 	MapZoomMode *string `field:"optional" json:"mapZoomMode" yaml:"mapZoomMode"`
 }
 

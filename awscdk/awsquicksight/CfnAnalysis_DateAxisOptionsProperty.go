@@ -12,8 +12,12 @@ package awsquicksight
 //   	MissingDateVisibility: jsii.String("missingDateVisibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-dateaxisoptions.html
+//
 type CfnAnalysis_DateAxisOptionsProperty struct {
 	// Determines whether or not missing dates are displayed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-dateaxisoptions.html#cfn-quicksight-analysis-dateaxisoptions-missingdatevisibility
+	//
 	MissingDateVisibility *string `field:"optional" json:"missingDateVisibility" yaml:"missingDateVisibility"`
 }
 

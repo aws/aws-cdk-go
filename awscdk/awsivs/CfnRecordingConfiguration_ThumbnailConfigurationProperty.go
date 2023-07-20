@@ -15,6 +15,8 @@ package awsivs
 //   	TargetIntervalSeconds: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html
+//
 type CfnRecordingConfiguration_ThumbnailConfigurationProperty struct {
 	// Thumbnail recording mode. Valid values:.
 	//
@@ -22,6 +24,8 @@ type CfnRecordingConfiguration_ThumbnailConfigurationProperty struct {
 	// - `INTERVAL` : Use INTERVAL to enable the generation of thumbnails for recorded video at a time interval controlled by the [TargetIntervalSeconds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration-targetintervalseconds) property.
 	//
 	// *Default* : `INTERVAL`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration-recordingmode
+	//
 	RecordingMode *string `field:"required" json:"recordingMode" yaml:"recordingMode"`
 	// The targeted thumbnail-generation interval in seconds. This is configurable (and required) only if [RecordingMode](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration-recordingmode) is `INTERVAL` .
 	//
@@ -30,6 +34,8 @@ type CfnRecordingConfiguration_ThumbnailConfigurationProperty struct {
 	// *Default* : 60
 	//
 	// *Valid Range* : Minumum value of 5. Maximum value of 60.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration-targetintervalseconds
+	//
 	TargetIntervalSeconds *float64 `field:"optional" json:"targetIntervalSeconds" yaml:"targetIntervalSeconds"`
 }
 

@@ -16,16 +16,24 @@ package awsbatch
 //   	ReadOnly: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html
+//
 type CfnJobDefinition_EksContainerVolumeMountProperty struct {
 	// The path on the container where the volume is mounted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html#cfn-batch-jobdefinition-ekscontainervolumemount-mountpath
+	//
 	MountPath *string `field:"optional" json:"mountPath" yaml:"mountPath"`
 	// The name the volume mount.
 	//
 	// This must match the name of one of the volumes in the pod.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html#cfn-batch-jobdefinition-ekscontainervolumemount-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// If this value is `true` , the container has read-only access to the volume.
 	//
 	// Otherwise, the container can write to the volume. The default value is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html#cfn-batch-jobdefinition-ekscontainervolumemount-readonly
+	//
 	ReadOnly interface{} `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 

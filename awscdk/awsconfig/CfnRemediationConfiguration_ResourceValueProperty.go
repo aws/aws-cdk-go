@@ -12,8 +12,12 @@ package awsconfig
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html
+//
 type CfnRemediationConfiguration_ResourceValueProperty struct {
 	// The value is a resource ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html#cfn-config-remediationconfiguration-resourcevalue-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

@@ -12,8 +12,12 @@ package awsivs
 //   	BucketName: jsii.String("bucketName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html
+//
 type CfnRecordingConfiguration_S3DestinationConfigurationProperty struct {
 	// Location (S3 bucket name) where recorded videos will be stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 }
 

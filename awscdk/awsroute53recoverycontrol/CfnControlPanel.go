@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53RecoveryControl::ControlPanel`.
+// Creates a new control panel in Amazon Route 53 Application Recovery Controller.
 //
-// Creates a new control panel in Amazon Route 53 Application Recovery Controller. A control panel represents a group of routing controls that can be changed together in a single transaction. You can use a control panel to centrally view the operational status of applications across your organization, and trigger multi-app failovers in a single transaction, for example, to fail over from one AWS Region (cell) to another.
+// A control panel represents a group of routing controls that can be changed together in a single transaction. You can use a control panel to centrally view the operational status of applications across your organization, and trigger multi-app failovers in a single transaction, for example, to fail over from one AWS Region (cell) to another.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,9 +31,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html
+//
 type CfnControlPanel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the control panel.
 	AttrControlPanelArn() *string
 	// The boolean flag that is set to true for the default control panel in the cluster.
@@ -67,8 +70,6 @@ type CfnControlPanel interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the control panel.
-	//
-	// You can use any non-white space character in the name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -82,8 +83,11 @@ type CfnControlPanel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The value for a tag.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The value for a tag.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +232,7 @@ type CfnControlPanel interface {
 type jsiiProxy_CfnControlPanel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnControlPanel) AttrControlPanelArn() *string {
@@ -380,6 +385,16 @@ func (j *jsiiProxy_CfnControlPanel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnControlPanel) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnControlPanel) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -401,7 +416,6 @@ func (j *jsiiProxy_CfnControlPanel) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Route53RecoveryControl::ControlPanel`.
 func NewCfnControlPanel(scope constructs.Construct, id *string, props *CfnControlPanelProps) CfnControlPanel {
 	_init_.Initialize()
 
@@ -419,7 +433,6 @@ func NewCfnControlPanel(scope constructs.Construct, id *string, props *CfnContro
 	return &j
 }
 
-// Create a new `AWS::Route53RecoveryControl::ControlPanel`.
 func NewCfnControlPanel_Override(c CfnControlPanel, scope constructs.Construct, id *string, props *CfnControlPanelProps) {
 	_init_.Initialize()
 
@@ -445,6 +458,17 @@ func (j *jsiiProxy_CfnControlPanel)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnControlPanel)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -23,12 +23,18 @@ package awsmacie
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-criteria.html
+//
 type CfnAllowList_CriteriaProperty struct {
 	// The regular expression ( *regex* ) that defines the text pattern to ignore.
 	//
 	// The expression can contain 1-512 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-criteria.html#cfn-macie-allowlist-criteria-regex
+	//
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 	// The location and name of an Amazon S3 object that lists specific text to ignore.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-criteria.html#cfn-macie-allowlist-criteria-s3wordslist
+	//
 	S3WordsList interface{} `field:"optional" json:"s3WordsList" yaml:"s3WordsList"`
 }
 

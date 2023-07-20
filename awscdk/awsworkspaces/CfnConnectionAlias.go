@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WorkSpaces::ConnectionAlias`.
+// The `AWS::WorkSpaces::ConnectionAlias` resource specifies a connection alias.
 //
-// The `AWS::WorkSpaces::ConnectionAlias` resource specifies a connection alias. Connection aliases are used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+// Connection aliases are used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,9 +30,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
+//
 type CfnConnectionAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The identifier of the connection alias, returned as a string.
 	AttrAliasId() *string
 	AttrAssociations() awscdk.IResolvable
@@ -44,8 +47,6 @@ type CfnConnectionAlias interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The connection string specified for the connection alias.
-	//
-	// The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
 	ConnectionString() *string
 	SetConnectionString(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -73,8 +74,11 @@ type CfnConnectionAlias interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to associate with the connection alias.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to associate with the connection alias.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -219,6 +223,7 @@ type CfnConnectionAlias interface {
 type jsiiProxy_CfnConnectionAlias struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnConnectionAlias) AttrAliasId() *string {
@@ -351,6 +356,16 @@ func (j *jsiiProxy_CfnConnectionAlias) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnectionAlias) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnectionAlias) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -372,7 +387,6 @@ func (j *jsiiProxy_CfnConnectionAlias) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::WorkSpaces::ConnectionAlias`.
 func NewCfnConnectionAlias(scope constructs.Construct, id *string, props *CfnConnectionAliasProps) CfnConnectionAlias {
 	_init_.Initialize()
 
@@ -390,7 +404,6 @@ func NewCfnConnectionAlias(scope constructs.Construct, id *string, props *CfnCon
 	return &j
 }
 
-// Create a new `AWS::WorkSpaces::ConnectionAlias`.
 func NewCfnConnectionAlias_Override(c CfnConnectionAlias, scope constructs.Construct, id *string, props *CfnConnectionAliasProps) {
 	_init_.Initialize()
 
@@ -408,6 +421,17 @@ func (j *jsiiProxy_CfnConnectionAlias)SetConnectionString(val *string) {
 	_jsii_.Set(
 		j,
 		"connectionString",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnectionAlias)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

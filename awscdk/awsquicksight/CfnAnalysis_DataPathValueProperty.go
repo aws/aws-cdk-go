@@ -13,10 +13,16 @@ package awsquicksight
 //   	FieldValue: jsii.String("fieldValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html
+//
 type CfnAnalysis_DataPathValueProperty struct {
 	// The field ID of the field that needs to be sorted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html#cfn-quicksight-analysis-datapathvalue-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The actual value of the field that needs to be sorted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html#cfn-quicksight-analysis-datapathvalue-fieldvalue
+	//
 	FieldValue *string `field:"required" json:"fieldValue" yaml:"fieldValue"`
 }
 

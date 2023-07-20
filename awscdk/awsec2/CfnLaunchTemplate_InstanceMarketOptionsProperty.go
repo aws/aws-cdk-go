@@ -21,10 +21,16 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html
+//
 type CfnLaunchTemplate_InstanceMarketOptionsProperty struct {
 	// The market type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html#cfn-ec2-launchtemplate-instancemarketoptions-markettype
+	//
 	MarketType *string `field:"optional" json:"marketType" yaml:"marketType"`
 	// The options for Spot Instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html#cfn-ec2-launchtemplate-instancemarketoptions-spotoptions
+	//
 	SpotOptions interface{} `field:"optional" json:"spotOptions" yaml:"spotOptions"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkFirewall::LoggingConfiguration`.
-//
 // Use the `LoggingConfiguration` to define the destinations and logging options for an `Firewall` .
 //
 // You must change the logging configuration by changing one `LogDestinationConfig` setting at a time in your `LogDestinationConfigs` .
@@ -46,6 +44,8 @@ import (
 //   	FirewallName: jsii.String("firewallName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html
+//
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -59,13 +59,9 @@ type CfnLoggingConfiguration interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with.
-	//
-	// You can't change the firewall specification after you create the logging configuration.
 	FirewallArn() *string
 	SetFirewallArn(val *string)
 	// The name of the firewall that the logging configuration is associated with.
-	//
-	// You can't change the firewall specification after you create the logging configuration.
 	FirewallName() *string
 	SetFirewallName(val *string)
 	// Defines how AWS Network Firewall performs logging for a `Firewall` .
@@ -369,7 +365,6 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::NetworkFirewall::LoggingConfiguration`.
 func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
@@ -387,7 +382,6 @@ func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::NetworkFirewall::LoggingConfiguration`.
 func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 

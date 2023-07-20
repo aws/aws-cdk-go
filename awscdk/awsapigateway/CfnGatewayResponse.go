@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::GatewayResponse`.
+// The `AWS::ApiGateway::GatewayResponse` resource creates a gateway response for your API.
 //
-// The `AWS::ApiGateway::GatewayResponse` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide* .
+// For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,12 @@ import (
 //   	StatusCode: jsii.String("statusCode"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html
+//
 type CfnGatewayResponse interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -226,6 +229,16 @@ type jsiiProxy_CfnGatewayResponse struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnGatewayResponse) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGatewayResponse) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -377,7 +390,6 @@ func (j *jsiiProxy_CfnGatewayResponse) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::ApiGateway::GatewayResponse`.
 func NewCfnGatewayResponse(scope constructs.Construct, id *string, props *CfnGatewayResponseProps) CfnGatewayResponse {
 	_init_.Initialize()
 
@@ -395,7 +407,6 @@ func NewCfnGatewayResponse(scope constructs.Construct, id *string, props *CfnGat
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::GatewayResponse`.
 func NewCfnGatewayResponse_Override(c CfnGatewayResponse, scope constructs.Construct, id *string, props *CfnGatewayResponseProps) {
 	_init_.Initialize()
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AutoScaling::ScalingPolicy`.
-//
 // The `AWS::AutoScaling::ScalingPolicy` resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
 //
 // For more information about using scaling policies to scale your Auto Scaling group automatically, see [Dynamic scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html) and [Predictive scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -191,16 +189,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html
+//
 type CfnScalingPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage).
-	//
-	// The valid values are `ChangeInCapacity` , `ExactCapacity` , and `PercentChangeInCapacity` .
-	//
-	// Required if the policy type is `StepScaling` or `SimpleScaling` . For more information, see [Scaling adjustment types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment) in the *Amazon EC2 Auto Scaling User Guide* .
 	AdjustmentType() *string
 	SetAdjustmentType(val *string)
+	// The ARN of the AutoScaling scaling policy.
 	AttrArn() *string
 	// Returns the name of a scaling policy.
 	AttrPolicyName() *string
@@ -213,12 +210,6 @@ type CfnScalingPolicy interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A cooldown period, in seconds, that applies to a specific simple scaling policy.
-	//
-	// When a cooldown period is specified here, it overrides the default cooldown.
-	//
-	// Valid only if the policy type is `SimpleScaling` . For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// Default: None.
 	Cooldown() *string
 	SetCooldown(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -226,12 +217,6 @@ type CfnScalingPolicy interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// *Not needed if the default instance warmup is defined for the group.*.
-	//
-	// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This warm-up period applies to instances launched due to a specific target tracking or step scaling policy. When a warm-up period is specified here, it overrides the default instance warmup.
-	//
-	// Valid only if the policy type is `TargetTrackingScaling` or `StepScaling` .
-	//
-	// > The default is to use the value for the default instance warmup defined for the group. If default instance warmup is null, then `EstimatedInstanceWarmup` falls back to the value of default cooldown.
 	EstimatedInstanceWarmup() *float64
 	SetEstimatedInstanceWarmup(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -245,36 +230,19 @@ type CfnScalingPolicy interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The aggregation type for the CloudWatch metrics.
-	//
-	// The valid values are `Minimum` , `Maximum` , and `Average` . If the aggregation type is null, the value is treated as `Average` .
-	//
-	// Valid only if the policy type is `StepScaling` .
 	MetricAggregationType() *string
 	SetMetricAggregationType(val *string)
 	// The minimum value to scale by when the adjustment type is `PercentChangeInCapacity` .
-	//
-	// For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a `MinAdjustmentMagnitude` of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a `MinAdjustmentMagnitude` of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
-	//
-	// Valid only if the policy type is `StepScaling` or `SimpleScaling` . For more information, see [Scaling adjustment types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// > Some Auto Scaling groups use instance weights. In this case, set the `MinAdjustmentMagnitude` to a value that is at least as large as your largest instance weight.
 	MinAdjustmentMagnitude() *float64
 	SetMinAdjustmentMagnitude(val *float64)
 	// The tree node.
 	Node() constructs.Node
 	// One of the following policy types:.
-	//
-	// - `TargetTrackingScaling`
-	// - `StepScaling`
-	// - `SimpleScaling` (default)
-	// - `PredictiveScaling`.
 	PolicyType() *string
 	SetPolicyType(val *string)
-	// A predictive scaling policy. Provides support for predefined and custom metrics.
+	// A predictive scaling policy.
 	//
-	// Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.
-	//
-	// Required if the policy type is `PredictiveScaling` .
+	// Provides support for predefined and custom metrics.
 	PredictiveScalingConfiguration() interface{}
 	SetPredictiveScalingConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -283,10 +251,6 @@ type CfnScalingPolicy interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The amount by which to scale, based on the specified adjustment type.
-	//
-	// A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a non-negative value.
-	//
-	// Required if the policy type is `SimpleScaling` . (Not used with any other policy type.)
 	ScalingAdjustment() *float64
 	SetScalingAdjustment(val *float64)
 	// The stack in which this element is defined.
@@ -294,22 +258,11 @@ type CfnScalingPolicy interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A set of adjustments that enable you to scale based on the size of the alarm breach.
-	//
-	// Required if the policy type is `StepScaling` . (Not used with any other policy type.)
 	StepAdjustments() interface{}
 	SetStepAdjustments(val interface{})
-	// A target tracking scaling policy. Provides support for predefined or custom metrics.
+	// A target tracking scaling policy.
 	//
-	// The following predefined metrics are available:
-	//
-	// - `ASGAverageCPUUtilization`
-	// - `ASGAverageNetworkIn`
-	// - `ASGAverageNetworkOut`
-	// - `ALBRequestCountPerTarget`
-	//
-	// If you specify `ALBRequestCountPerTarget` for the metric, you must specify the `ResourceLabel` property with the `PredefinedMetricSpecification` .
-	//
-	// Required if the policy type is `TargetTrackingScaling` .
+	// Provides support for predefined or custom metrics.
 	TargetTrackingConfiguration() interface{}
 	SetTargetTrackingConfiguration(val interface{})
 	// Deprecated.
@@ -689,7 +642,6 @@ func (j *jsiiProxy_CfnScalingPolicy) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::AutoScaling::ScalingPolicy`.
 func NewCfnScalingPolicy(scope constructs.Construct, id *string, props *CfnScalingPolicyProps) CfnScalingPolicy {
 	_init_.Initialize()
 
@@ -707,7 +659,6 @@ func NewCfnScalingPolicy(scope constructs.Construct, id *string, props *CfnScali
 	return &j
 }
 
-// Create a new `AWS::AutoScaling::ScalingPolicy`.
 func NewCfnScalingPolicy_Override(c CfnScalingPolicy, scope constructs.Construct, id *string, props *CfnScalingPolicyProps) {
 	_init_.Initialize()
 

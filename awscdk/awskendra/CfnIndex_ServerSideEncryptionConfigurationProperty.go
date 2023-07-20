@@ -14,10 +14,14 @@ package awskendra
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html
+//
 type CfnIndex_ServerSideEncryptionConfigurationProperty struct {
 	// The identifier of the AWS KMS key .
 	//
 	// Amazon Kendra doesn't support asymmetric keys.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html#cfn-kendra-index-serversideencryptionconfiguration-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 

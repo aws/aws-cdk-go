@@ -179,14 +179,6 @@ func validateCfnVPCEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnVPCEndpoint) validateSetPolicyDocumentParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnVPCEndpoint) validateSetPrivateDnsEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

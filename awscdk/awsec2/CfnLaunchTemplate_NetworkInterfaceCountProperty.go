@@ -13,14 +13,20 @@ package awsec2
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterfacecount.html
+//
 type CfnLaunchTemplate_NetworkInterfaceCountProperty struct {
 	// The maximum number of network interfaces.
 	//
 	// To specify no maximum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterfacecount.html#cfn-ec2-launchtemplate-networkinterfacecount-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of network interfaces.
 	//
 	// To specify no minimum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterfacecount.html#cfn-ec2-launchtemplate-networkinterfacecount-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

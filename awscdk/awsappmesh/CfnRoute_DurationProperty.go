@@ -13,10 +13,16 @@ package awsappmesh
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-duration.html
+//
 type CfnRoute_DurationProperty struct {
 	// A unit of time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-duration.html#cfn-appmesh-route-duration-unit
+	//
 	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// A number of time units.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-duration.html#cfn-appmesh-route-duration-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

@@ -60,6 +60,61 @@ func AdotLambdaLayerPythonSdkVersion_V1_13_0() AdotLambdaLayerPythonSdkVersion {
 	return returns
 }
 
+func AdotLambdaLayerPythonSdkVersion_V1_14_0() AdotLambdaLayerPythonSdkVersion {
+	_init_.Initialize()
+	var returns AdotLambdaLayerPythonSdkVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.AdotLambdaLayerPythonSdkVersion",
+		"V1_14_0",
+		&returns,
+	)
+	return returns
+}
+
+func AdotLambdaLayerPythonSdkVersion_V1_15_0() AdotLambdaLayerPythonSdkVersion {
+	_init_.Initialize()
+	var returns AdotLambdaLayerPythonSdkVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.AdotLambdaLayerPythonSdkVersion",
+		"V1_15_0",
+		&returns,
+	)
+	return returns
+}
+
+func AdotLambdaLayerPythonSdkVersion_V1_16_0() AdotLambdaLayerPythonSdkVersion {
+	_init_.Initialize()
+	var returns AdotLambdaLayerPythonSdkVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.AdotLambdaLayerPythonSdkVersion",
+		"V1_16_0",
+		&returns,
+	)
+	return returns
+}
+
+func AdotLambdaLayerPythonSdkVersion_V1_17_0() AdotLambdaLayerPythonSdkVersion {
+	_init_.Initialize()
+	var returns AdotLambdaLayerPythonSdkVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.AdotLambdaLayerPythonSdkVersion",
+		"V1_17_0",
+		&returns,
+	)
+	return returns
+}
+
+func AdotLambdaLayerPythonSdkVersion_V1_18_0() AdotLambdaLayerPythonSdkVersion {
+	_init_.Initialize()
+	var returns AdotLambdaLayerPythonSdkVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.AdotLambdaLayerPythonSdkVersion",
+		"V1_18_0",
+		&returns,
+	)
+	return returns
+}
+
 func (a *jsiiProxy_AdotLambdaLayerPythonSdkVersion) LayerArn(scope constructs.IConstruct, architecture Architecture) *string {
 	if err := a.validateLayerArnParameters(scope, architecture); err != nil {
 		panic(err)

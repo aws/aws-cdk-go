@@ -90,8 +90,12 @@ package awsconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformbaseitem.html
+//
 type CfnEvaluationForm_EvaluationFormBaseItemProperty struct {
 	// A subsection or inner section of an item.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformbaseitem.html#cfn-connect-evaluationform-evaluationformbaseitem-section
+	//
 	Section interface{} `field:"required" json:"section" yaml:"section"`
 }
 

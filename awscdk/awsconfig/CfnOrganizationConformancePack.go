@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Config::OrganizationConformancePack`.
+// OrganizationConformancePack deploys conformance packs across member accounts in an AWS Organizations .
 //
-// OrganizationConformancePack deploys conformance packs across member accounts in an AWS Organizations . OrganizationConformancePack enables organization service access for `config-multiaccountsetup.amazonaws.com` through the `EnableAWSServiceAccess` action and creates a service linked role in the master account of your organization. The service linked role is created only when the role does not exist in the master account.
+// OrganizationConformancePack enables organization service access for `config-multiaccountsetup.amazonaws.com` through the `EnableAWSServiceAccess` action and creates a service linked role in the master account of your organization. The service linked role is created only when the role does not exist in the master account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,6 +37,8 @@ import (
 //   	TemplateS3Uri: jsii.String("templateS3Uri"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
+//
 type CfnOrganizationConformancePack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -53,13 +55,9 @@ type CfnOrganizationConformancePack interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the Amazon S3 bucket where AWS Config stores conformance pack templates.
-	//
-	// > This field is optional.
 	DeliveryS3Bucket() *string
 	SetDeliveryS3Bucket(val *string)
 	// Any folder structure you want to add to an Amazon S3 bucket.
-	//
-	// > This field is optional.
 	DeliveryS3KeyPrefix() *string
 	SetDeliveryS3KeyPrefix(val *string)
 	// A comma-separated list of accounts excluded from organization conformance pack.
@@ -90,13 +88,9 @@ type CfnOrganizationConformancePack interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A string containing full conformance pack template body.
-	//
-	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	TemplateBody() *string
 	SetTemplateBody(val *string)
 	// Location of file containing the template body.
-	//
-	// The uri must point to the conformance pack template (max size: 300 KB).
 	TemplateS3Uri() *string
 	SetTemplateS3Uri(val *string)
 	// Deprecated.
@@ -416,7 +410,6 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) UpdatedProperties() *map[stri
 }
 
 
-// Create a new `AWS::Config::OrganizationConformancePack`.
 func NewCfnOrganizationConformancePack(scope constructs.Construct, id *string, props *CfnOrganizationConformancePackProps) CfnOrganizationConformancePack {
 	_init_.Initialize()
 
@@ -434,7 +427,6 @@ func NewCfnOrganizationConformancePack(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Create a new `AWS::Config::OrganizationConformancePack`.
 func NewCfnOrganizationConformancePack_Override(c CfnOrganizationConformancePack, scope constructs.Construct, id *string, props *CfnOrganizationConformancePackProps) {
 	_init_.Initialize()
 

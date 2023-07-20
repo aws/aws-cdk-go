@@ -147,14 +147,22 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html
+//
 type CfnVirtualGateway_VirtualGatewaySpecProperty struct {
 	// The listeners that the mesh endpoint is expected to receive inbound traffic from.
 	//
 	// You can specify one listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-listeners
+	//
 	Listeners interface{} `field:"required" json:"listeners" yaml:"listeners"`
 	// A reference to an object that represents the defaults for backends.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-backenddefaults
+	//
 	BackendDefaults interface{} `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// An object that represents logging information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-logging
+	//
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
 }
 

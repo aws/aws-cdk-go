@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::UserHierarchyGroup`.
-//
 // Specifies a new user hierarchy group.
 //
 // Example:
@@ -25,6 +23,8 @@ import (
 //   	// the properties below are optional
 //   	ParentGroupArn: jsii.String("parentGroupArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html
 //
 type CfnUserHierarchyGroup interface {
 	awscdk.CfnResource
@@ -357,7 +357,6 @@ func (j *jsiiProxy_CfnUserHierarchyGroup) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::Connect::UserHierarchyGroup`.
 func NewCfnUserHierarchyGroup(scope constructs.Construct, id *string, props *CfnUserHierarchyGroupProps) CfnUserHierarchyGroup {
 	_init_.Initialize()
 
@@ -375,7 +374,6 @@ func NewCfnUserHierarchyGroup(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Connect::UserHierarchyGroup`.
 func NewCfnUserHierarchyGroup_Override(c CfnUserHierarchyGroup, scope constructs.Construct, id *string, props *CfnUserHierarchyGroupProps) {
 	_init_.Initialize()
 

@@ -63,12 +63,18 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html
+//
 type CfnBot_MessageGroupProperty struct {
 	// The primary message that Amazon Lex should send to the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html#cfn-lex-bot-messagegroup-message
+	//
 	Message interface{} `field:"required" json:"message" yaml:"message"`
 	// Message variations to send to the user.
 	//
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html#cfn-lex-bot-messagegroup-variations
+	//
 	Variations interface{} `field:"optional" json:"variations" yaml:"variations"`
 }
 

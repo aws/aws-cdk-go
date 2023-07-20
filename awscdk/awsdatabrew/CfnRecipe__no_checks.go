@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnRecipe) validateSetStepsParameters(val interface{}) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnRecipe) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnRecipeParameters(scope constructs.Construct, id *string, props *CfnRecipeProps) error {
 	return nil
 }

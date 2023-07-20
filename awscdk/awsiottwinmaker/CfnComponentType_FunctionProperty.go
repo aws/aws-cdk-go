@@ -21,12 +21,20 @@ package awsiottwinmaker
 //   	Scope: jsii.String("scope"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html
+//
 type CfnComponentType_FunctionProperty struct {
 	// The data connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-implementedby
+	//
 	ImplementedBy interface{} `field:"optional" json:"implementedBy" yaml:"implementedBy"`
 	// The required properties of the function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-requiredproperties
+	//
 	RequiredProperties *[]*string `field:"optional" json:"requiredProperties" yaml:"requiredProperties"`
 	// The scope of the function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-scope
+	//
 	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 }
 

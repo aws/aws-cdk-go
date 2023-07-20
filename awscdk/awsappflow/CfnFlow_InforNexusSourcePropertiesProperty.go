@@ -12,8 +12,12 @@ package awsappflow
 //   	Object: jsii.String("object"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html
+//
 type CfnFlow_InforNexusSourcePropertiesProperty struct {
 	// The object specified in the Infor Nexus flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html#cfn-appflow-flow-infornexussourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 }
 

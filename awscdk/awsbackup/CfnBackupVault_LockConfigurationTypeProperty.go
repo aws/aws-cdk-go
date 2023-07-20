@@ -16,6 +16,8 @@ package awsbackup
 //   	MaxRetentionDays: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html
+//
 type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// The AWS Backup Vault Lock configuration that specifies the minimum retention period that the vault retains its recovery points.
 	//
@@ -24,6 +26,8 @@ type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// If this parameter is not specified, Vault Lock will not enforce a minimum retention period.
 	//
 	// If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or longer than the minimum retention period. If the job's retention period is shorter than that minimum retention period, then the vault fails that backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-minretentiondays
+	//
 	MinRetentionDays *float64 `field:"required" json:"minRetentionDays" yaml:"minRetentionDays"`
 	// The AWS Backup Vault Lock configuration that specifies the number of days before the lock date.
 	//
@@ -34,6 +38,8 @@ type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// Before the lock date, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` . On and after the lock date, the Vault Lock becomes immutable and cannot be changed or deleted.
 	//
 	// If this parameter is not specified, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` at any time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-changeablefordays
+	//
 	ChangeableForDays *float64 `field:"optional" json:"changeableForDays" yaml:"changeableForDays"`
 	// The AWS Backup Vault Lock configuration that specifies the maximum retention period that the vault retains its recovery points.
 	//
@@ -42,6 +48,8 @@ type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// If this parameter is not included, Vault Lock does not enforce a maximum retention period on the recovery points in the vault. If this parameter is included without a value, Vault Lock will not enforce a maximum retention period.
 	//
 	// If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or shorter than the maximum retention period. If the job's retention period is longer than that maximum retention period, then the vault fails the backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-maxretentiondays
+	//
 	MaxRetentionDays *float64 `field:"optional" json:"maxRetentionDays" yaml:"maxRetentionDays"`
 }
 

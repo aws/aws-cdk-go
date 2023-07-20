@@ -80,6 +80,10 @@ func validateCfnThingGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnThingGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnThingGroup) validateSetThingGroupPropertiesParameters(val interface{}) error {
 	return nil
 }

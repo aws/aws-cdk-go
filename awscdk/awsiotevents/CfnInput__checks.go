@@ -206,6 +206,16 @@ func (j *jsiiProxy_CfnInput) validateSetInputDefinitionParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnInput) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnInputParameters(scope constructs.Construct, id *string, props *CfnInputProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

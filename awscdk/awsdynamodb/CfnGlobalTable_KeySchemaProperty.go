@@ -19,8 +19,12 @@ package awsdynamodb
 //   	KeyType: jsii.String("keyType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html
+//
 type CfnGlobalTable_KeySchemaProperty struct {
 	// The name of a key attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-attributename
+	//
 	AttributeName *string `field:"required" json:"attributeName" yaml:"attributeName"`
 	// The role that this key attribute will assume:.
 	//
@@ -30,6 +34,8 @@ type CfnGlobalTable_KeySchemaProperty struct {
 	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	// >
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-keytype
+	//
 	KeyType *string `field:"required" json:"keyType" yaml:"keyType"`
 }
 

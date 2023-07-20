@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VpcLattice::ResourcePolicy`.
+// Retrieves information about the resource policy.
 //
-// Retrieves information about the resource policy. The resource policy is an IAM policy created on behalf of the resource owner when they share a resource.
+// The resource policy is an IAM policy created on behalf of the resource owner when they share a resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,6 +24,8 @@ import (
 //   	Policy: policy,
 //   	ResourceArn: jsii.String("resourceArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcepolicy.html
 //
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
@@ -331,7 +333,6 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::VpcLattice::ResourcePolicy`.
 func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
@@ -349,7 +350,6 @@ func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
-// Create a new `AWS::VpcLattice::ResourcePolicy`.
 func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 

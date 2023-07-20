@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Events::ApiDestination`.
-//
 // Creates an API destination, which is an HTTP invocation endpoint configured as a target for events.
 //
 // When using ApiDesinations with OAuth authentication we recommend these best practices:
@@ -40,6 +38,8 @@ import (
 //   	Name: jsii.String("name"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html
+//
 type CfnApiDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -51,8 +51,6 @@ type CfnApiDestination interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The ARN of the connection to use for the API destination.
-	//
-	// The destination endpoint must support the authorization type specified for the connection.
 	ConnectionArn() *string
 	SetConnectionArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -412,7 +410,6 @@ func (j *jsiiProxy_CfnApiDestination) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Events::ApiDestination`.
 func NewCfnApiDestination(scope constructs.Construct, id *string, props *CfnApiDestinationProps) CfnApiDestination {
 	_init_.Initialize()
 
@@ -430,7 +427,6 @@ func NewCfnApiDestination(scope constructs.Construct, id *string, props *CfnApiD
 	return &j
 }
 
-// Create a new `AWS::Events::ApiDestination`.
 func NewCfnApiDestination_Override(c CfnApiDestination, scope constructs.Construct, id *string, props *CfnApiDestinationProps) {
 	_init_.Initialize()
 

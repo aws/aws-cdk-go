@@ -20,8 +20,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gradientcolor.html
+//
 type CfnAnalysis_GradientColorProperty struct {
 	// The list of gradient color stops.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gradientcolor.html#cfn-quicksight-analysis-gradientcolor-stops
+	//
 	Stops interface{} `field:"optional" json:"stops" yaml:"stops"`
 }
 

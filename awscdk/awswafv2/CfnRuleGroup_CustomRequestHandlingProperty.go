@@ -21,10 +21,14 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customrequesthandling.html
+//
 type CfnRuleGroup_CustomRequestHandlingProperty struct {
 	// The HTTP headers to insert into the request. Duplicate header names are not allowed.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customrequesthandling.html#cfn-wafv2-rulegroup-customrequesthandling-insertheaders
+	//
 	InsertHeaders interface{} `field:"required" json:"insertHeaders" yaml:"insertHeaders"`
 }
 

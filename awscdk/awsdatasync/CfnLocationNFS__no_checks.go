@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnLocationNFS) validateSetOnPremConfigParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationNFS) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLocationNFSParameters(scope constructs.Construct, id *string, props *CfnLocationNFSProps) error {
 	return nil
 }

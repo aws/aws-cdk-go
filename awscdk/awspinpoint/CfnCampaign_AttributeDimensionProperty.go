@@ -15,6 +15,8 @@ package awspinpoint
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-attributedimension.html
+//
 type CfnCampaign_AttributeDimensionProperty struct {
 	// The type of segment dimension to use. Valid values are:.
 	//
@@ -25,10 +27,14 @@ type CfnCampaign_AttributeDimensionProperty struct {
 	// - `AFTER` – endpoints with attributes read as ISO_INSTANT datetimes after the value are included in the segment.
 	// - `BETWEEN` – endpoints with attributes read as ISO_INSTANT datetimes between the values are included in the segment.
 	// - `ON` – endpoints with attributes read as ISO_INSTANT dates on the value are included in the segment. Time is ignored in this comparison.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-attributedimension.html#cfn-pinpoint-campaign-attributedimension-attributetype
+	//
 	AttributeType *string `field:"optional" json:"attributeType" yaml:"attributeType"`
 	// The criteria values to use for the segment dimension.
 	//
 	// Depending on the value of the `AttributeType` property, endpoints are included or excluded from the segment if their attribute values match the criteria values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-attributedimension.html#cfn-pinpoint-campaign-attributedimension-values
+	//
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

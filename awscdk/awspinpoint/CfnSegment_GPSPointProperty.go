@@ -16,10 +16,16 @@ package awspinpoint
 //   	RangeInKilometers: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-gpspoint.html
+//
 type CfnSegment_GPSPointProperty struct {
 	// The GPS coordinates to measure distance from.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-gpspoint.html#cfn-pinpoint-segment-gpspoint-coordinates
+	//
 	Coordinates interface{} `field:"required" json:"coordinates" yaml:"coordinates"`
 	// The range, in kilometers, from the GPS coordinates.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-gpspoint.html#cfn-pinpoint-segment-gpspoint-rangeinkilometers
+	//
 	RangeInKilometers *float64 `field:"required" json:"rangeInKilometers" yaml:"rangeInKilometers"`
 }
 

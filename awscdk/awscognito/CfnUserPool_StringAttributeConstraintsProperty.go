@@ -15,10 +15,16 @@ package awscognito
 //   	MinLength: jsii.String("minLength"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html
+//
 type CfnUserPool_StringAttributeConstraintsProperty struct {
 	// The maximum length.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html#cfn-cognito-userpool-stringattributeconstraints-maxlength
+	//
 	MaxLength *string `field:"optional" json:"maxLength" yaml:"maxLength"`
 	// The minimum length.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html#cfn-cognito-userpool-stringattributeconstraints-minlength
+	//
 	MinLength *string `field:"optional" json:"minLength" yaml:"minLength"`
 }
 

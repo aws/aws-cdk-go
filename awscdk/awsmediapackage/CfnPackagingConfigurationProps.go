@@ -43,6 +43,8 @@ import (
 //
 //   				// the properties below are optional
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //   		},
@@ -76,6 +78,8 @@ import (
 //
 //   				// the properties below are optional
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //   		},
@@ -114,6 +118,8 @@ import (
 //
 //   				// the properties below are optional
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //
@@ -148,6 +154,8 @@ import (
 //
 //   				// the properties below are optional
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //   		},
@@ -161,20 +169,36 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html
+//
 type CfnPackagingConfigurationProps struct {
 	// Unique identifier that you assign to the packaging configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The ID of the packaging group associated with this packaging configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+	//
 	PackagingGroupId *string `field:"required" json:"packagingGroupId" yaml:"packagingGroupId"`
 	// Parameters for CMAF packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
+	//
 	CmafPackage interface{} `field:"optional" json:"cmafPackage" yaml:"cmafPackage"`
 	// Parameters for DASH-ISO packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
+	//
 	DashPackage interface{} `field:"optional" json:"dashPackage" yaml:"dashPackage"`
 	// Parameters for Apple HLS packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
+	//
 	HlsPackage interface{} `field:"optional" json:"hlsPackage" yaml:"hlsPackage"`
 	// Parameters for Microsoft Smooth Streaming packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
+	//
 	MssPackage interface{} `field:"optional" json:"mssPackage" yaml:"mssPackage"`
 	// The tags to assign to the packaging configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -15,10 +15,16 @@ package awselasticbeanstalk
 //   	S3Key: jsii.String("s3Key"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html
+//
 type CfnApplicationVersion_SourceBundleProperty struct {
 	// The Amazon S3 bucket where the data is located.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html#cfn-elasticbeanstalk-applicationversion-sourcebundle-s3bucket
+	//
 	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key where the data is located.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html#cfn-elasticbeanstalk-applicationversion-sourcebundle-s3key
+	//
 	S3Key *string `field:"required" json:"s3Key" yaml:"s3Key"`
 }
 

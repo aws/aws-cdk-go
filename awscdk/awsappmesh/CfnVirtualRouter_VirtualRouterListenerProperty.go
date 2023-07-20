@@ -15,8 +15,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html
+//
 type CfnVirtualRouter_VirtualRouterListenerProperty struct {
 	// The port mapping information for the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html#cfn-appmesh-virtualrouter-virtualrouterlistener-portmapping
+	//
 	PortMapping interface{} `field:"required" json:"portMapping" yaml:"portMapping"`
 }
 

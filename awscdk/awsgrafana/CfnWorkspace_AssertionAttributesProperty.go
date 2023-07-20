@@ -17,18 +17,32 @@ package awsgrafana
 //   	Role: jsii.String("role"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html
+//
 type CfnWorkspace_AssertionAttributesProperty struct {
 	// The name of the attribute within the SAML assertion to use as the email names for SAML users.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-email
+	//
 	Email *string `field:"optional" json:"email" yaml:"email"`
 	// The name of the attribute within the SAML assertion to use as the user full "friendly" names for user groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-groups
+	//
 	Groups *string `field:"optional" json:"groups" yaml:"groups"`
 	// The name of the attribute within the SAML assertion to use as the login names for SAML users.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-login
+	//
 	Login *string `field:"optional" json:"login" yaml:"login"`
 	// The name of the attribute within the SAML assertion to use as the user full "friendly" names for SAML users.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The name of the attribute within the SAML assertion to use as the user full "friendly" names for the users' organizations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-org
+	//
 	Org *string `field:"optional" json:"org" yaml:"org"`
 	// The name of the attribute within the SAML assertion to use as the user roles.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-role
+	//
 	Role *string `field:"optional" json:"role" yaml:"role"`
 }
 

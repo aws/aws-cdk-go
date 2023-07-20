@@ -12,10 +12,14 @@ package awslambda
 //   	Pattern: jsii.String("pattern"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filter.html
+//
 type CfnEventSourceMapping_FilterProperty struct {
 	// A filter pattern.
 	//
 	// For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filter.html#cfn-lambda-eventsourcemapping-filter-pattern
+	//
 	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
 }
 

@@ -17,14 +17,20 @@ package awspipes
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchenvironmentvariable.html
+//
 type CfnPipe_BatchEnvironmentVariableProperty struct {
 	// The name of the key-value pair.
 	//
 	// For environment variables, this is the name of the environment variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchenvironmentvariable.html#cfn-pipes-pipe-batchenvironmentvariable-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value of the key-value pair.
 	//
 	// For environment variables, this is the value of the environment variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchenvironmentvariable.html#cfn-pipes-pipe-batchenvironmentvariable-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

@@ -25,16 +25,28 @@ package awsomics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html
+//
 type CfnSequenceStoreProps struct {
 	// A name for the store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html#cfn-omics-sequencestore-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description for the store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html#cfn-omics-sequencestore-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Omics::SequenceStore.FallbackLocation`.
+	// An S3 URI representing the bucket and folder to store failed read set uploads.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html#cfn-omics-sequencestore-fallbacklocation
+	//
 	FallbackLocation *string `field:"optional" json:"fallbackLocation" yaml:"fallbackLocation"`
 	// Server-side encryption (SSE) settings for the store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html#cfn-omics-sequencestore-sseconfig
+	//
 	SseConfig interface{} `field:"optional" json:"sseConfig" yaml:"sseConfig"`
 	// Tags for the store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html#cfn-omics-sequencestore-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

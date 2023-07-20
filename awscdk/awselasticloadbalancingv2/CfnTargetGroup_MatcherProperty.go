@@ -13,10 +13,14 @@ package awselasticloadbalancingv2
 //   	HttpCode: jsii.String("httpCode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html
+//
 type CfnTargetGroup_MatcherProperty struct {
 	// You can specify values between 0 and 99.
 	//
 	// You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-grpccode
+	//
 	GrpcCode *string `field:"optional" json:"grpcCode" yaml:"grpcCode"`
 	// For Application Load Balancers, you can specify values between 200 and 499, with the default value being 200.
 	//
@@ -27,6 +31,8 @@ type CfnTargetGroup_MatcherProperty struct {
 	// For Gateway Load Balancers, this must be "200–399".
 	//
 	// Note that when using shorthand syntax, some values such as commas need to be escaped.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
+	//
 	HttpCode *string `field:"optional" json:"httpCode" yaml:"httpCode"`
 }
 

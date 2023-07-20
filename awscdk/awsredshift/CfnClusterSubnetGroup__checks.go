@@ -195,6 +195,16 @@ func (j *jsiiProxy_CfnClusterSubnetGroup) validateSetSubnetIdsParameters(val *[]
 	return nil
 }
 
+func (j *jsiiProxy_CfnClusterSubnetGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnClusterSubnetGroupParameters(scope constructs.Construct, id *string, props *CfnClusterSubnetGroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

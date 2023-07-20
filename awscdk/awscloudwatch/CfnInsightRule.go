@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudWatch::InsightRule`.
+// Creates or updates a Contributor Insights rule.
 //
-// Creates or updates a Contributor Insights rule. Rules evaluate log events in a CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information, see [Using Contributor Insights to Analyze High-Cardinality Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html) in the *Amazon CloudWatch User Guide* .
+// Rules evaluate log events in a CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information, see [Using Contributor Insights to Analyze High-Cardinality Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html) in the *Amazon CloudWatch User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,19 +24,23 @@ import (
 //   	RuleState: jsii.String("ruleState"),
 //
 //   	// the properties below are optional
-//   	Tags: []interface{}{
-//   		&CfnTag{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html
+//
 type CfnInsightRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the Contributor Insights rule, such as `arn:aws:cloudwatch:us-west-2:123456789012:insight-rule/MyInsightRuleName` .
 	AttrArn() *string
+	AttrId() *string
 	// The name of the Contributor Insights rule.
 	AttrRuleName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -66,30 +70,23 @@ type CfnInsightRule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The definition of the rule, as a JSON object.
-	//
-	// For details about the syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html) in the *Amazon CloudWatch User Guide* .
 	RuleBody() *string
 	SetRuleBody(val *string)
 	// The name of the rule.
 	RuleName() *string
 	SetRuleName(val *string)
 	// The current state of the rule.
-	//
-	// Valid values are `ENABLED` and `DISABLED` .
 	RuleState() *string
 	SetRuleState(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs to associate with the Contributor Insights rule.
-	//
-	// You can associate as many as 50 tags with a rule.
-	//
-	// Tags can help you organize and categorize your resources. For more information, see [Tagging Your Amazon CloudWatch Resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Tagging.html) .
-	//
-	// To be able to associate tags with a rule, you must have the `cloudwatch:TagResource` permission in addition to the `cloudwatch:PutInsightRule` permission.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs to associate with the Contributor Insights rule.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +231,7 @@ type CfnInsightRule interface {
 type jsiiProxy_CfnInsightRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInsightRule) AttrArn() *string {
@@ -241,6 +239,16 @@ func (j *jsiiProxy_CfnInsightRule) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInsightRule) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -376,6 +384,16 @@ func (j *jsiiProxy_CfnInsightRule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInsightRule) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInsightRule) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -397,7 +415,6 @@ func (j *jsiiProxy_CfnInsightRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudWatch::InsightRule`.
 func NewCfnInsightRule(scope constructs.Construct, id *string, props *CfnInsightRuleProps) CfnInsightRule {
 	_init_.Initialize()
 
@@ -415,7 +432,6 @@ func NewCfnInsightRule(scope constructs.Construct, id *string, props *CfnInsight
 	return &j
 }
 
-// Create a new `AWS::CloudWatch::InsightRule`.
 func NewCfnInsightRule_Override(c CfnInsightRule, scope constructs.Construct, id *string, props *CfnInsightRuleProps) {
 	_init_.Initialize()
 
@@ -455,6 +471,17 @@ func (j *jsiiProxy_CfnInsightRule)SetRuleState(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleState",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInsightRule)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

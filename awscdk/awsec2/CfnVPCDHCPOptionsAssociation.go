@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPCDHCPOptionsAssociation`.
-//
 // Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
 //
 // After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
@@ -24,6 +22,8 @@ import (
 //   	DhcpOptionsId: jsii.String("dhcpOptionsId"),
 //   	VpcId: jsii.String("vpcId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcdhcpoptionsassociation.html
 //
 type CfnVPCDHCPOptionsAssociation interface {
 	awscdk.CfnResource
@@ -331,7 +331,6 @@ func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::VPCDHCPOptionsAssociation`.
 func NewCfnVPCDHCPOptionsAssociation(scope constructs.Construct, id *string, props *CfnVPCDHCPOptionsAssociationProps) CfnVPCDHCPOptionsAssociation {
 	_init_.Initialize()
 
@@ -349,7 +348,6 @@ func NewCfnVPCDHCPOptionsAssociation(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Create a new `AWS::EC2::VPCDHCPOptionsAssociation`.
 func NewCfnVPCDHCPOptionsAssociation_Override(c CfnVPCDHCPOptionsAssociation, scope constructs.Construct, id *string, props *CfnVPCDHCPOptionsAssociationProps) {
 	_init_.Initialize()
 

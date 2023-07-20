@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSM::ResourceDataSync`.
+// The `AWS::SSM::ResourceDataSync` resource creates, updates, or deletes a resource data sync for AWS Systems Manager .
 //
-// The `AWS::SSM::ResourceDataSync` resource creates, updates, or deletes a resource data sync for AWS Systems Manager . A resource data sync helps you view data from multiple sources in a single location. Systems Manager offers two types of resource data sync: `SyncToDestination` and `SyncFromSource` .
+// A resource data sync helps you view data from multiple sources in a single location. Systems Manager offers two types of resource data sync: `SyncToDestination` and `SyncFromSource` .
 //
 // You can configure Systems Manager Inventory to use the `SyncToDestination` type to synchronize Inventory data from multiple AWS Regions to a single Amazon S3 bucket.
 //
@@ -68,6 +68,8 @@ import (
 //   	SyncType: jsii.String("syncType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
+//
 type CfnResourceDataSync interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -92,8 +94,6 @@ type CfnResourceDataSync interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ARN of an encryption key for a destination in Amazon S3 .
-	//
-	// You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same region as the destination Amazon S3 bucket.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -121,8 +121,6 @@ type CfnResourceDataSync interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A supported sync format.
-	//
-	// The following format is currently supported: JsonSerDe.
 	SyncFormat() *string
 	SetSyncFormat(val *string)
 	// A name for the resource data sync.
@@ -132,8 +130,6 @@ type CfnResourceDataSync interface {
 	SyncSource() interface{}
 	SetSyncSource(val interface{})
 	// The type of resource data sync.
-	//
-	// If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
 	SyncType() *string
 	SetSyncType(val *string)
 	// Deprecated.
@@ -483,7 +479,6 @@ func (j *jsiiProxy_CfnResourceDataSync) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::SSM::ResourceDataSync`.
 func NewCfnResourceDataSync(scope constructs.Construct, id *string, props *CfnResourceDataSyncProps) CfnResourceDataSync {
 	_init_.Initialize()
 
@@ -501,7 +496,6 @@ func NewCfnResourceDataSync(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
-// Create a new `AWS::SSM::ResourceDataSync`.
 func NewCfnResourceDataSync_Override(c CfnResourceDataSync, scope constructs.Construct, id *string, props *CfnResourceDataSyncProps) {
 	_init_.Initialize()
 

@@ -272,22 +272,34 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html
+//
 type CfnVirtualNode_VirtualNodeSpecProperty struct {
 	// A reference to an object that represents the defaults for backends.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backenddefaults
+	//
 	BackendDefaults interface{} `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// The backends that the virtual node is expected to send outbound traffic to.
 	//
 	// > App Mesh doesn't validate the existence of those virtual services specified in backends. This is to prevent a cyclic dependency between virtual nodes and virtual services creation. Make sure the virtual service name is correct. The virtual service can be created afterwards if it doesn't already exist.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backends
+	//
 	Backends interface{} `field:"optional" json:"backends" yaml:"backends"`
 	// The listener that the virtual node is expected to receive inbound traffic from.
 	//
 	// You can specify one listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-listeners
+	//
 	Listeners interface{} `field:"optional" json:"listeners" yaml:"listeners"`
 	// The inbound and outbound access logging information for the virtual node.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-logging
+	//
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
 	// The service discovery information for the virtual node.
 	//
 	// If your virtual node does not expect ingress traffic, you can omit this parameter. If you specify a `listener` , then you must specify service discovery information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-servicediscovery
+	//
 	ServiceDiscovery interface{} `field:"optional" json:"serviceDiscovery" yaml:"serviceDiscovery"`
 }
 

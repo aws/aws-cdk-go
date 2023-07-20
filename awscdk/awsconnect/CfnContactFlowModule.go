@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::ContactFlowModule`.
-//
 // Specifies a flow module for an Amazon Connect instance.
 //
 // Example:
@@ -34,13 +32,17 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html
+//
 type CfnContactFlowModule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// `Ref` returns the Amazon Resource Name (ARN) of the flow module. For example:.
 	//
 	// `{ "Ref": "myFlowModuleArn" }`.
 	AttrContactFlowModuleArn() *string
+	// The status of the contact flow module.
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -87,10 +89,11 @@ type CfnContactFlowModule interface {
 	// The state of the flow module.
 	State() *string
 	SetState(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -235,6 +238,7 @@ type CfnContactFlowModule interface {
 type jsiiProxy_CfnContactFlowModule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnContactFlowModule) AttrContactFlowModuleArn() *string {
@@ -397,6 +401,16 @@ func (j *jsiiProxy_CfnContactFlowModule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContactFlowModule) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContactFlowModule) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -418,7 +432,6 @@ func (j *jsiiProxy_CfnContactFlowModule) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::Connect::ContactFlowModule`.
 func NewCfnContactFlowModule(scope constructs.Construct, id *string, props *CfnContactFlowModuleProps) CfnContactFlowModule {
 	_init_.Initialize()
 
@@ -436,7 +449,6 @@ func NewCfnContactFlowModule(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
-// Create a new `AWS::Connect::ContactFlowModule`.
 func NewCfnContactFlowModule_Override(c CfnContactFlowModule, scope constructs.Construct, id *string, props *CfnContactFlowModuleProps) {
 	_init_.Initialize()
 
@@ -492,6 +504,17 @@ func (j *jsiiProxy_CfnContactFlowModule)SetState(val *string) {
 	_jsii_.Set(
 		j,
 		"state",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContactFlowModule)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

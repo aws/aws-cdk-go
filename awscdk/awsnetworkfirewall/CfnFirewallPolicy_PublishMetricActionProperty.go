@@ -18,8 +18,11 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html
+//
 type CfnFirewallPolicy_PublishMetricActionProperty struct {
-	// `CfnFirewallPolicy.PublishMetricActionProperty.Dimensions`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
+	//
 	Dimensions interface{} `field:"required" json:"dimensions" yaml:"dimensions"`
 }
 

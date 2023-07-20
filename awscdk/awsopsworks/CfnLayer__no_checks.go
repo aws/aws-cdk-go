@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnLayer) validateSetAutoAssignPublicIpsParameters(val interf
 	return nil
 }
 
-func (j *jsiiProxy_CfnLayer) validateSetCustomJsonParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnLayer) validateSetCustomRecipesParameters(val interface{}) error {
 	return nil
 }
@@ -125,6 +121,10 @@ func (j *jsiiProxy_CfnLayer) validateSetShortnameParameters(val *string) error {
 }
 
 func (j *jsiiProxy_CfnLayer) validateSetStackIdParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnLayer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

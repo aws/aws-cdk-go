@@ -33,12 +33,20 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html
+//
 type CfnRoute_TcpRouteProperty struct {
 	// The action to take if a match is determined.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-action
+	//
 	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An object that represents the criteria for determining a request match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-match
+	//
 	Match interface{} `field:"optional" json:"match" yaml:"match"`
 	// An object that represents types of timeouts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-timeout
+	//
 	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::ClientVpnEndpoint`.
+// Specifies a Client VPN endpoint.
 //
-// Specifies a Client VPN endpoint. A Client VPN endpoint is the resource you create and configure to enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions are terminated.
+// A Client VPN endpoint is the resource you create and configure to enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions are terminated.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -87,9 +87,12 @@ import (
 //   	VpnPort: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html
+//
 type CfnClientVpnEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions() interface{}
 	SetAuthenticationOptions(val interface{})
@@ -99,8 +102,6 @@ type CfnClientVpnEndpoint interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses.
-	//
-	// The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.
 	ClientCidrBlock() *string
 	SetClientCidrBlock(val *string)
 	// The options for managing connection authorization for new client connections.
@@ -110,13 +111,6 @@ type CfnClientVpnEndpoint interface {
 	ClientLoginBannerOptions() interface{}
 	SetClientLoginBannerOptions(val interface{})
 	// Information about the client connection logging options.
-	//
-	// If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:
-	//
-	// - Client connection requests
-	// - Client connection results (successful and unsuccessful)
-	// - Reasons for unsuccessful client connection requests
-	// - Client connection termination time.
 	ConnectionLogOptions() interface{}
 	SetConnectionLogOptions(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -127,8 +121,6 @@ type CfnClientVpnEndpoint interface {
 	Description() *string
 	SetDescription(val *string)
 	// Information about the DNS servers to be used for DNS resolution.
-	//
-	// A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.
 	DnsServers() *[]*string
 	SetDnsServers(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -149,32 +141,18 @@ type CfnClientVpnEndpoint interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The IDs of one or more security groups to apply to the target network.
-	//
-	// You must also specify the ID of the VPC that contains the security groups.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// Specify whether to enable the self-service portal for the Client VPN endpoint.
-	//
-	// Default Value: `enabled`.
 	SelfServicePortal() *string
 	SetSelfServicePortal(val *string)
 	// The ARN of the server certificate.
-	//
-	// For more information, see the [AWS Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/) .
 	ServerCertificateArn() *string
 	SetServerCertificateArn(val *string)
 	// The maximum VPN session duration time in hours.
-	//
-	// Valid values: `8 | 10 | 12 | 24`
-	//
-	// Default value: `24`.
 	SessionTimeoutHours() *float64
 	SetSessionTimeoutHours(val *float64)
 	// Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
-	//
-	// By default, split-tunnel on a VPN endpoint is disabled.
-	//
-	// For information about split-tunnel VPN endpoints, see [Split-tunnel AWS Client VPN endpoint](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html) in the *AWS Client VPN Administrator Guide* .
 	SplitTunnel() interface{}
 	SetSplitTunnel(val interface{})
 	// The stack in which this element is defined.
@@ -185,8 +163,6 @@ type CfnClientVpnEndpoint interface {
 	TagSpecifications() interface{}
 	SetTagSpecifications(val interface{})
 	// The transport protocol to be used by the VPN session.
-	//
-	// Default value: `udp`.
 	TransportProtocol() *string
 	SetTransportProtocol(val *string)
 	// Deprecated.
@@ -203,15 +179,9 @@ type CfnClientVpnEndpoint interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of the VPC to associate with the Client VPN endpoint.
-	//
-	// If no security group IDs are specified in the request, the default security group for the VPC is applied.
 	VpcId() *string
 	SetVpcId(val *string)
 	// The port number to assign to the Client VPN endpoint for TCP and UDP traffic.
-	//
-	// Valid Values: `443` | `1194`
-	//
-	// Default Value: `443`.
 	VpnPort() *float64
 	SetVpnPort(val *float64)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -345,6 +315,16 @@ type CfnClientVpnEndpoint interface {
 type jsiiProxy_CfnClientVpnEndpoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnClientVpnEndpoint) AuthenticationOptions() interface{} {
@@ -608,7 +588,6 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) VpnPort() *float64 {
 }
 
 
-// Create a new `AWS::EC2::ClientVpnEndpoint`.
 func NewCfnClientVpnEndpoint(scope constructs.Construct, id *string, props *CfnClientVpnEndpointProps) CfnClientVpnEndpoint {
 	_init_.Initialize()
 
@@ -626,7 +605,6 @@ func NewCfnClientVpnEndpoint(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
-// Create a new `AWS::EC2::ClientVpnEndpoint`.
 func NewCfnClientVpnEndpoint_Override(c CfnClientVpnEndpoint, scope constructs.Construct, id *string, props *CfnClientVpnEndpointProps) {
 	_init_.Initialize()
 

@@ -15,14 +15,24 @@ package awsquicksight
 //   	Top: jsii.String("top"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-spacing.html
+//
 type CfnDashboard_SpacingProperty struct {
 	// Define the bottom spacing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-spacing.html#cfn-quicksight-dashboard-spacing-bottom
+	//
 	Bottom *string `field:"optional" json:"bottom" yaml:"bottom"`
 	// Define the left spacing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-spacing.html#cfn-quicksight-dashboard-spacing-left
+	//
 	Left *string `field:"optional" json:"left" yaml:"left"`
 	// Define the right spacing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-spacing.html#cfn-quicksight-dashboard-spacing-right
+	//
 	Right *string `field:"optional" json:"right" yaml:"right"`
 	// Define the top spacing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-spacing.html#cfn-quicksight-dashboard-spacing-top
+	//
 	Top *string `field:"optional" json:"top" yaml:"top"`
 }
 

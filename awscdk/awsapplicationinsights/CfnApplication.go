@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApplicationInsights::Application`.
-//
 // The `AWS::ApplicationInsights::Application` resource adds an application that is created from a resource group.
 //
 // Example:
@@ -249,9 +247,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the application, such as `arn:aws:applicationinsights:us-east-1:123456789012:application/resource-group/my_resource_group` .
 	AttrApplicationArn() *string
 	// If set to `true` , the application components will be configured with the monitoring configuration recommended by Application Insights.
@@ -276,8 +277,6 @@ type CfnApplication interface {
 	CweMonitorEnabled() interface{}
 	SetCweMonitorEnabled(val interface{})
 	// Application Insights can create applications based on a resource group or on an account.
-	//
-	// To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED` .
 	GroupingType() *string
 	SetGroupingType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -313,8 +312,11 @@ type CfnApplication interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of `Tags` .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of `Tags` .
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -459,6 +461,7 @@ type CfnApplication interface {
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnApplication) AttrApplicationArn() *string {
@@ -651,6 +654,16 @@ func (j *jsiiProxy_CfnApplication) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -672,7 +685,6 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApplicationInsights::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -690,7 +702,6 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
-// Create a new `AWS::ApplicationInsights::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
@@ -790,6 +801,17 @@ func (j *jsiiProxy_CfnApplication)SetResourceGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

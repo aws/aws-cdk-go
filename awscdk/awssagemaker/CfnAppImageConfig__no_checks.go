@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnAppImageConfig) validateSetKernelGatewayImageConfigParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppImageConfig) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAppImageConfigParameters(scope constructs.Construct, id *string, props *CfnAppImageConfigProps) error {
 	return nil
 }

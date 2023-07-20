@@ -24,16 +24,25 @@ package awsappflow
 //   	PreserveSourceDataTyping: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html
+//
 type CfnFlow_S3OutputFormatConfigProperty struct {
 	// The aggregation settings that you can use to customize the output format of your flow data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
+	//
 	AggregationConfig interface{} `field:"optional" json:"aggregationConfig" yaml:"aggregationConfig"`
 	// Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
+	//
 	FileType *string `field:"optional" json:"fileType" yaml:"fileType"`
 	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket.
 	//
 	// You can name folders according to the flow frequency and date.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
+	//
 	PrefixConfig interface{} `field:"optional" json:"prefixConfig" yaml:"prefixConfig"`
-	// `CfnFlow.S3OutputFormatConfigProperty.PreserveSourceDataTyping`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-preservesourcedatatyping
+	//
 	PreserveSourceDataTyping interface{} `field:"optional" json:"preserveSourceDataTyping" yaml:"preserveSourceDataTyping"`
 }
 

@@ -13,10 +13,14 @@ package awssam
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-simpletable-primarykey.html
+//
 type CfnSimpleTable_PrimaryKeyProperty struct {
-	// `CfnSimpleTable.PrimaryKeyProperty.Type`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-simpletable-primarykey.html#cfn-serverless-simpletable-primarykey-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnSimpleTable.PrimaryKeyProperty.Name`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-simpletable-primarykey.html#cfn-serverless-simpletable-primarykey-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

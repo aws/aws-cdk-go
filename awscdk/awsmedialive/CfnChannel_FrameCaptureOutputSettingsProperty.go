@@ -14,10 +14,14 @@ package awsmedialive
 //   	NameModifier: jsii.String("nameModifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptureoutputsettings.html
+//
 type CfnChannel_FrameCaptureOutputSettingsProperty struct {
 	// Required if the output group contains more than one output.
 	//
 	// This modifier forms part of the output file name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptureoutputsettings.html#cfn-medialive-channel-framecaptureoutputsettings-namemodifier
+	//
 	NameModifier *string `field:"optional" json:"nameModifier" yaml:"nameModifier"`
 }
 

@@ -260,18 +260,30 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html
+//
 type CfnRoute_RouteSpecProperty struct {
 	// An object that represents the specification of a gRPC route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-grpcroute
+	//
 	GrpcRoute interface{} `field:"optional" json:"grpcRoute" yaml:"grpcRoute"`
 	// An object that represents the specification of an HTTP/2 route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-http2route
+	//
 	Http2Route interface{} `field:"optional" json:"http2Route" yaml:"http2Route"`
 	// An object that represents the specification of an HTTP route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-httproute
+	//
 	HttpRoute interface{} `field:"optional" json:"httpRoute" yaml:"httpRoute"`
 	// The priority for the route.
 	//
 	// Routes are matched based on the specified value, where 0 is the highest priority.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-priority
+	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// An object that represents the specification of a TCP route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-tcproute
+	//
 	TcpRoute interface{} `field:"optional" json:"tcpRoute" yaml:"tcpRoute"`
 }
 

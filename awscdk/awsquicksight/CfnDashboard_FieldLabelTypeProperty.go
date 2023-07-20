@@ -13,10 +13,16 @@ package awsquicksight
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldlabeltype.html
+//
 type CfnDashboard_FieldLabelTypeProperty struct {
 	// Indicates the field that is targeted by the field label.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldlabeltype.html#cfn-quicksight-dashboard-fieldlabeltype-fieldid
+	//
 	FieldId *string `field:"optional" json:"fieldId" yaml:"fieldId"`
 	// The visibility of the field label.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldlabeltype.html#cfn-quicksight-dashboard-fieldlabeltype-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

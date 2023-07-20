@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Logs::LogStream`.
+// The `AWS::Logs::LogStream` resource specifies an Amazon CloudWatch Logs log stream in a specific log group.
 //
-// The `AWS::Logs::LogStream` resource specifies an Amazon CloudWatch Logs log stream in a specific log group. A log stream represents the sequence of events coming from an application instance or resource that you are monitoring.
+// A log stream represents the sequence of events coming from an application instance or resource that you are monitoring.
 //
 // There is no limit on the number of log streams that you can create for a log group.
 //
@@ -32,6 +32,8 @@ import (
 //   	// the properties below are optional
 //   	LogStreamName: jsii.String("logStreamName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html
 //
 type CfnLogStream interface {
 	awscdk.CfnResource
@@ -59,8 +61,6 @@ type CfnLogStream interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the log stream.
-	//
-	// The name must be unique within the log group.
 	LogStreamName() *string
 	SetLogStreamName(val *string)
 	// The tree node.
@@ -341,7 +341,6 @@ func (j *jsiiProxy_CfnLogStream) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Logs::LogStream`.
 func NewCfnLogStream(scope constructs.Construct, id *string, props *CfnLogStreamProps) CfnLogStream {
 	_init_.Initialize()
 
@@ -359,7 +358,6 @@ func NewCfnLogStream(scope constructs.Construct, id *string, props *CfnLogStream
 	return &j
 }
 
-// Create a new `AWS::Logs::LogStream`.
 func NewCfnLogStream_Override(c CfnLogStream, scope constructs.Construct, id *string, props *CfnLogStreamProps) {
 	_init_.Initialize()
 

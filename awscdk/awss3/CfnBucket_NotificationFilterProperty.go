@@ -21,8 +21,12 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationfilter.html
+//
 type CfnBucket_NotificationFilterProperty struct {
 	// A container for object key name prefix and suffix filtering rules.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationfilter.html#cfn-s3-bucket-notificationfilter-s3key
+	//
 	S3Key interface{} `field:"required" json:"s3Key" yaml:"s3Key"`
 }
 

@@ -18,14 +18,22 @@ package awssagemaker
 //   	ImageVersionNumber: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customimage.html
+//
 type CfnSpace_CustomImageProperty struct {
 	// The name of the AppImageConfig.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customimage.html#cfn-sagemaker-space-customimage-appimageconfigname
+	//
 	AppImageConfigName *string `field:"required" json:"appImageConfigName" yaml:"appImageConfigName"`
 	// The name of the CustomImage.
 	//
 	// Must be unique to your account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customimage.html#cfn-sagemaker-space-customimage-imagename
+	//
 	ImageName *string `field:"required" json:"imageName" yaml:"imageName"`
 	// The version number of the CustomImage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customimage.html#cfn-sagemaker-space-customimage-imageversionnumber
+	//
 	ImageVersionNumber *float64 `field:"optional" json:"imageVersionNumber" yaml:"imageVersionNumber"`
 }
 

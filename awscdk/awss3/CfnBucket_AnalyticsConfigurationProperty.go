@@ -34,16 +34,26 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html
+//
 type CfnBucket_AnalyticsConfigurationProperty struct {
 	// The ID that identifies the analytics configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-storageclassanalysis
+	//
 	StorageClassAnalysis interface{} `field:"required" json:"storageClassAnalysis" yaml:"storageClassAnalysis"`
 	// The prefix that an object must have to be included in the analytics results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The tags to use when evaluating an analytics filter.
 	//
 	// The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-tagfilters
+	//
 	TagFilters interface{} `field:"optional" json:"tagFilters" yaml:"tagFilters"`
 }
 

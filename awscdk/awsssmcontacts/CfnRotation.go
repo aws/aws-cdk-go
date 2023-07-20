@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSMContacts::Rotation`.
-//
 // Specifies a rotation in an on-call schedule.
 //
 // Example:
@@ -67,9 +65,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html
+//
 type CfnRotation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `Rotation` resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -78,8 +79,6 @@ type CfnRotation interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The Amazon Resource Names (ARNs) of the contacts to add to the rotation.
-	//
-	// The order in which you list the contacts is their shift order in the rotation schedule.
 	ContactIds() *[]*string
 	SetContactIds(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -116,13 +115,12 @@ type CfnRotation interface {
 	// The date and time the rotation goes into effect.
 	StartTime() *string
 	SetStartTime(val *string)
-	// Optional metadata to assign to the rotation.
-	//
-	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Optional metadata to assign to the rotation.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The time zone to base the rotation’s activity on, in Internet Assigned Numbers Authority (IANA) format.
-	//
-	// For example: "America/Los_Angeles", "UTC", or "Asia/Seoul". For more information, see the [Time Zone Database](https://docs.aws.amazon.com/https://www.iana.org/time-zones) on the IANA website.
 	TimeZoneId() *string
 	SetTimeZoneId(val *string)
 	// Deprecated.
@@ -269,6 +267,7 @@ type CfnRotation interface {
 type jsiiProxy_CfnRotation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRotation) AttrArn() *string {
@@ -411,6 +410,16 @@ func (j *jsiiProxy_CfnRotation) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRotation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRotation) TimeZoneId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -442,7 +451,6 @@ func (j *jsiiProxy_CfnRotation) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SSMContacts::Rotation`.
 func NewCfnRotation(scope constructs.Construct, id *string, props *CfnRotationProps) CfnRotation {
 	_init_.Initialize()
 
@@ -460,7 +468,6 @@ func NewCfnRotation(scope constructs.Construct, id *string, props *CfnRotationPr
 	return &j
 }
 
-// Create a new `AWS::SSMContacts::Rotation`.
 func NewCfnRotation_Override(c CfnRotation, scope constructs.Construct, id *string, props *CfnRotationProps) {
 	_init_.Initialize()
 
@@ -511,6 +518,17 @@ func (j *jsiiProxy_CfnRotation)SetStartTime(val *string) {
 	_jsii_.Set(
 		j,
 		"startTime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRotation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

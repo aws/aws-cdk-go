@@ -14,8 +14,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldimageconfiguration.html
+//
 type CfnAnalysis_TableFieldImageConfigurationProperty struct {
 	// The sizing options for the table image configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldimageconfiguration.html#cfn-quicksight-analysis-tablefieldimageconfiguration-sizingoptions
+	//
 	SizingOptions interface{} `field:"optional" json:"sizingOptions" yaml:"sizingOptions"`
 }
 

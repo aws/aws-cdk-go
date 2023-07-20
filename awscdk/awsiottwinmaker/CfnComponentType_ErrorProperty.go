@@ -13,10 +13,16 @@ package awsiottwinmaker
 //   	Message: jsii.String("message"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-error.html
+//
 type CfnComponentType_ErrorProperty struct {
 	// The component type error code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-error.html#cfn-iottwinmaker-componenttype-error-code
+	//
 	Code *string `field:"optional" json:"code" yaml:"code"`
 	// The component type error message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-error.html#cfn-iottwinmaker-componenttype-error-message
+	//
 	Message *string `field:"optional" json:"message" yaml:"message"`
 }
 

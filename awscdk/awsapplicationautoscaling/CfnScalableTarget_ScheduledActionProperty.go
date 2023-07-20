@@ -24,6 +24,8 @@ package awsapplicationautoscaling
 //   	Timezone: jsii.String("timezone"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html
+//
 type CfnScalableTarget_ScheduledActionProperty struct {
 	// The schedule for this action. The following formats are supported:.
 	//
@@ -38,20 +40,32 @@ type CfnScalableTarget_ScheduledActionProperty struct {
 	// The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
 	//
 	// For rate expressions, *value* is a positive integer and *unit* is `minute` | `minutes` | `hour` | `hours` | `day` | `days` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-schedule
+	//
 	Schedule *string `field:"required" json:"schedule" yaml:"schedule"`
 	// The name of the scheduled action.
 	//
 	// This name must be unique among all other scheduled actions on the specified scalable target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scheduledactionname
+	//
 	ScheduledActionName *string `field:"required" json:"scheduledActionName" yaml:"scheduledActionName"`
 	// The date and time that the action is scheduled to end, in UTC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-endtime
+	//
 	EndTime interface{} `field:"optional" json:"endTime" yaml:"endTime"`
 	// The new minimum and maximum capacity.
 	//
 	// You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scalabletargetaction
+	//
 	ScalableTargetAction interface{} `field:"optional" json:"scalableTargetAction" yaml:"scalableTargetAction"`
 	// The date and time that the action is scheduled to begin, in UTC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-starttime
+	//
 	StartTime interface{} `field:"optional" json:"startTime" yaml:"startTime"`
 	// The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-timezone
+	//
 	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
 }
 

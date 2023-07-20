@@ -13,10 +13,16 @@ package awsroute53resolver
 //   	ResourceId: jsii.String("resourceId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
+//
 type CfnResolverQueryLoggingConfigAssociationProps struct {
 	// The ID of the query logging configuration that a VPC is associated with.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+	//
 	ResolverQueryLogConfigId *string `field:"optional" json:"resolverQueryLogConfigId" yaml:"resolverQueryLogConfigId"`
 	// The ID of the Amazon VPC that is associated with the query logging configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+	//
 	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
 }
 

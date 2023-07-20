@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudWatch::Dashboard`.
+// The `AWS::CloudWatch::Dashboard` resource specifies an Amazon CloudWatch dashboard.
 //
-// The `AWS::CloudWatch::Dashboard` resource specifies an Amazon CloudWatch dashboard. A dashboard is a customizable home page in the CloudWatch console that you can use to monitor your AWS resources in a single view.
+// A dashboard is a customizable home page in the CloudWatch console that you can use to monitor your AWS resources in a single view.
 //
 // All dashboards in your account are global, not region-specific.
 //
@@ -27,9 +27,12 @@ import (
 //   	DashboardName: jsii.String("dashboardName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html
+//
 type CfnDashboard interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -40,15 +43,9 @@ type CfnDashboard interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard.
-	//
-	// This parameter is required.
-	//
-	// For more information about the syntax, see [Dashboard Body Structure and Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html) .
 	DashboardBody() *string
 	SetDashboardBody(val *string)
 	// The name of the dashboard.
-	//
-	// The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
 	DashboardName() *string
 	SetDashboardName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -218,6 +215,16 @@ type jsiiProxy_CfnDashboard struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnDashboard) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDashboard) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -339,7 +346,6 @@ func (j *jsiiProxy_CfnDashboard) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudWatch::Dashboard`.
 func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
 	_init_.Initialize()
 
@@ -357,7 +363,6 @@ func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboard
 	return &j
 }
 
-// Create a new `AWS::CloudWatch::Dashboard`.
 func NewCfnDashboard_Override(c CfnDashboard, scope constructs.Construct, id *string, props *CfnDashboardProps) {
 	_init_.Initialize()
 

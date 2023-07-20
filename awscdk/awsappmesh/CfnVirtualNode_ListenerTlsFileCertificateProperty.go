@@ -15,10 +15,16 @@ package awsappmesh
 //   	PrivateKey: jsii.String("privateKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsfilecertificate.html
+//
 type CfnVirtualNode_ListenerTlsFileCertificateProperty struct {
 	// The certificate chain for the certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsfilecertificate.html#cfn-appmesh-virtualnode-listenertlsfilecertificate-certificatechain
+	//
 	CertificateChain *string `field:"required" json:"certificateChain" yaml:"certificateChain"`
 	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsfilecertificate.html#cfn-appmesh-virtualnode-listenertlsfilecertificate-privatekey
+	//
 	PrivateKey *string `field:"required" json:"privateKey" yaml:"privateKey"`
 }
 

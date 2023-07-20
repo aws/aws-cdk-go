@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ManagedBlockchain::Member`.
-//
 // Creates a member within a Managed Blockchain network.
 //
 // Applies only to Hyperledger Fabric.
@@ -58,6 +56,8 @@ import (
 //   	},
 //   	NetworkId: jsii.String("networkId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html
 //
 type CfnMember interface {
 	awscdk.CfnResource
@@ -415,7 +415,6 @@ func (j *jsiiProxy_CfnMember) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ManagedBlockchain::Member`.
 func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps) CfnMember {
 	_init_.Initialize()
 
@@ -433,7 +432,6 @@ func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps)
 	return &j
 }
 
-// Create a new `AWS::ManagedBlockchain::Member`.
 func NewCfnMember_Override(c CfnMember, scope constructs.Construct, id *string, props *CfnMemberProps) {
 	_init_.Initialize()
 

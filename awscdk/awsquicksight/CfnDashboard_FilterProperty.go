@@ -216,22 +216,38 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html
+//
 type CfnDashboard_FilterProperty struct {
 	// A `CategoryFilter` filters text values.
 	//
 	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html#cfn-quicksight-dashboard-filter-categoryfilter
+	//
 	CategoryFilter interface{} `field:"optional" json:"categoryFilter" yaml:"categoryFilter"`
 	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html#cfn-quicksight-dashboard-filter-numericequalityfilter
+	//
 	NumericEqualityFilter interface{} `field:"optional" json:"numericEqualityFilter" yaml:"numericEqualityFilter"`
 	// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html#cfn-quicksight-dashboard-filter-numericrangefilter
+	//
 	NumericRangeFilter interface{} `field:"optional" json:"numericRangeFilter" yaml:"numericRangeFilter"`
 	// A `RelativeDatesFilter` filters date values that are relative to a given date.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html#cfn-quicksight-dashboard-filter-relativedatesfilter
+	//
 	RelativeDatesFilter interface{} `field:"optional" json:"relativeDatesFilter" yaml:"relativeDatesFilter"`
 	// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html#cfn-quicksight-dashboard-filter-timeequalityfilter
+	//
 	TimeEqualityFilter interface{} `field:"optional" json:"timeEqualityFilter" yaml:"timeEqualityFilter"`
 	// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html#cfn-quicksight-dashboard-filter-timerangefilter
+	//
 	TimeRangeFilter interface{} `field:"optional" json:"timeRangeFilter" yaml:"timeRangeFilter"`
 	// A `TopBottomFilter` filters data to the top or bottom values for a given column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html#cfn-quicksight-dashboard-filter-topbottomfilter
+	//
 	TopBottomFilter interface{} `field:"optional" json:"topBottomFilter" yaml:"topBottomFilter"`
 }
 

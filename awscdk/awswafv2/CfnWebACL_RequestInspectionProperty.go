@@ -22,6 +22,8 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html
+//
 type CfnWebACL_RequestInspectionProperty struct {
 	// The name of the field in the request payload that contains your customer's password.
 	//
@@ -33,8 +35,12 @@ type CfnWebACL_RequestInspectionProperty struct {
 	// - For form encoded payload types, use the HTML form names.
 	//
 	// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html#cfn-wafv2-webacl-requestinspection-passwordfield
+	//
 	PasswordField interface{} `field:"required" json:"passwordField" yaml:"passwordField"`
 	// The payload type for your login endpoint, either JSON or form encoded.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html#cfn-wafv2-webacl-requestinspection-payloadtype
+	//
 	PayloadType *string `field:"required" json:"payloadType" yaml:"payloadType"`
 	// The name of the field in the request payload that contains your customer's username.
 	//
@@ -46,6 +52,8 @@ type CfnWebACL_RequestInspectionProperty struct {
 	// - For form encoded payload types, use the HTML form names.
 	//
 	// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html#cfn-wafv2-webacl-requestinspection-usernamefield
+	//
 	UsernameField interface{} `field:"required" json:"usernameField" yaml:"usernameField"`
 }
 

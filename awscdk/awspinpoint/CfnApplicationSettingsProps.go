@@ -30,18 +30,28 @@ package awspinpoint
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html
+//
 type CfnApplicationSettingsProps struct {
 	// The unique identifier for the Amazon Pinpoint application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-applicationid
+	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The settings for the Lambda function to use by default as a code hook for campaigns in the application.
 	//
 	// To override these settings for a specific campaign, use the Campaign resource to define custom Lambda function settings for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-campaignhook
+	//
 	CampaignHook interface{} `field:"optional" json:"campaignHook" yaml:"campaignHook"`
 	// Specifies whether to enable application-related alarms in Amazon CloudWatch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-cloudwatchmetricsenabled
+	//
 	CloudWatchMetricsEnabled interface{} `field:"optional" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
 	// The default sending limits for campaigns in the application.
 	//
 	// To override these limits for a specific campaign, use the Campaign resource to define custom limits for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-limits
+	//
 	Limits interface{} `field:"optional" json:"limits" yaml:"limits"`
 	// The default quiet time for campaigns in the application.
 	//
@@ -56,6 +66,8 @@ type CfnApplicationSettingsProps struct {
 	// If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign, even if quiet time is enabled.
 	//
 	// To override the default quiet time settings for a specific campaign, use the Campaign resource to define a custom quiet time for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-quiettime
+	//
 	QuietTime interface{} `field:"optional" json:"quietTime" yaml:"quietTime"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Omics::ReferenceStore`.
-//
 // Creates a reference store.
 //
 // Example:
@@ -34,9 +32,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html
+//
 type CfnReferenceStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// The store's ARN.
 	AttrArn() *string
 	// When the store was created.
 	AttrCreationTime() *string
@@ -81,8 +83,11 @@ type CfnReferenceStore interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags for the store.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags for the store.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -227,6 +232,7 @@ type CfnReferenceStore interface {
 type jsiiProxy_CfnReferenceStore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnReferenceStore) AttrArn() *string {
@@ -379,6 +385,16 @@ func (j *jsiiProxy_CfnReferenceStore) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReferenceStore) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReferenceStore) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -400,7 +416,6 @@ func (j *jsiiProxy_CfnReferenceStore) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Omics::ReferenceStore`.
 func NewCfnReferenceStore(scope constructs.Construct, id *string, props *CfnReferenceStoreProps) CfnReferenceStore {
 	_init_.Initialize()
 
@@ -418,7 +433,6 @@ func NewCfnReferenceStore(scope constructs.Construct, id *string, props *CfnRefe
 	return &j
 }
 
-// Create a new `AWS::Omics::ReferenceStore`.
 func NewCfnReferenceStore_Override(c CfnReferenceStore, scope constructs.Construct, id *string, props *CfnReferenceStoreProps) {
 	_init_.Initialize()
 
@@ -455,6 +469,14 @@ func (j *jsiiProxy_CfnReferenceStore)SetSseConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sseConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnReferenceStore)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

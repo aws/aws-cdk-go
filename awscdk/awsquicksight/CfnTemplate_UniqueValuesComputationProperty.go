@@ -256,12 +256,20 @@ package awsquicksight
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-uniquevaluescomputation.html
+//
 type CfnTemplate_UniqueValuesComputationProperty struct {
 	// The category field that is used in a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-uniquevaluescomputation.html#cfn-quicksight-template-uniquevaluescomputation-category
+	//
 	Category interface{} `field:"required" json:"category" yaml:"category"`
 	// The ID for a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-uniquevaluescomputation.html#cfn-quicksight-template-uniquevaluescomputation-computationid
+	//
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
 	// The name of a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-uniquevaluescomputation.html#cfn-quicksight-template-uniquevaluescomputation-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

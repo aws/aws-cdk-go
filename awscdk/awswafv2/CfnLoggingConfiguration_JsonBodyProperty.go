@@ -29,14 +29,20 @@ package awswafv2
 //   	InvalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-jsonbody.html
+//
 type CfnLoggingConfiguration_JsonBodyProperty struct {
 	// The patterns to look for in the JSON body.
 	//
 	// AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-jsonbody.html#cfn-wafv2-loggingconfiguration-jsonbody-matchpattern
+	//
 	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
 	// The parts of the JSON to match against using the `MatchPattern` .
 	//
 	// If you specify `All` , AWS WAF matches against keys and values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-jsonbody.html#cfn-wafv2-loggingconfiguration-jsonbody-matchscope
+	//
 	MatchScope *string `field:"required" json:"matchScope" yaml:"matchScope"`
 	// What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:.
 	//
@@ -53,6 +59,8 @@ type CfnLoggingConfiguration_JsonBodyProperty struct {
 	// - Missing comma: `{"key1":"value1""key2":"value2"}`
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-jsonbody.html#cfn-wafv2-loggingconfiguration-jsonbody-invalidfallbackbehavior
+	//
 	InvalidFallbackBehavior *string `field:"optional" json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Rekognition::Project`.
+// The `AWS::Rekognition::Project` type creates an Amazon Rekognition Custom Labels project.
 //
-// The `AWS::Rekognition::Project` type creates an Amazon Rekognition Custom Labels project. A project is a group of resources needed to create and manage versions of an Amazon Rekognition Custom Labels model.
+// A project is a group of resources needed to create and manage versions of an Amazon Rekognition Custom Labels model.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,6 +21,8 @@ import (
 //   cfnProject := awscdk.Aws_rekognition.NewCfnProject(this, jsii.String("MyCfnProject"), &CfnProjectProps{
 //   	ProjectName: jsii.String("projectName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-project.html
 //
 type CfnProject interface {
 	awscdk.CfnResource
@@ -327,7 +329,6 @@ func (j *jsiiProxy_CfnProject) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Rekognition::Project`.
 func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
 	_init_.Initialize()
 
@@ -345,7 +346,6 @@ func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProp
 	return &j
 }
 
-// Create a new `AWS::Rekognition::Project`.
 func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string, props *CfnProjectProps) {
 	_init_.Initialize()
 

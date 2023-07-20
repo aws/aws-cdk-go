@@ -20,8 +20,12 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
+//
 type CfnKeyGroupProps struct {
 	// The key group configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
+	//
 	KeyGroupConfig interface{} `field:"required" json:"keyGroupConfig" yaml:"keyGroupConfig"`
 }
 

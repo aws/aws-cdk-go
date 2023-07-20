@@ -24,14 +24,20 @@ package awsbatch
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html
+//
 type CfnJobDefinition_RetryStrategyProperty struct {
 	// The number of times to move a job to the `RUNNABLE` status.
 	//
 	// You can specify between 1 and 10 attempts. If the value of `attempts` is greater than one, the job is retried on failure the same number of attempts as the value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-attempts
+	//
 	Attempts *float64 `field:"optional" json:"attempts" yaml:"attempts"`
 	// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
 	//
 	// If this parameter is specified, then the `attempts` parameter must also be specified. If none of the listed conditions match, then the job is retried.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit
+	//
 	EvaluateOnExit interface{} `field:"optional" json:"evaluateOnExit" yaml:"evaluateOnExit"`
 }
 

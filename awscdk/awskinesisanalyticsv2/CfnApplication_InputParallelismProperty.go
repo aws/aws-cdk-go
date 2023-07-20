@@ -12,8 +12,12 @@ package awskinesisanalyticsv2
 //   	Count: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputparallelism.html
+//
 type CfnApplication_InputParallelismProperty struct {
 	// The number of in-application streams to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputparallelism.html#cfn-kinesisanalyticsv2-application-inputparallelism-count
+	//
 	Count *float64 `field:"optional" json:"count" yaml:"count"`
 }
 

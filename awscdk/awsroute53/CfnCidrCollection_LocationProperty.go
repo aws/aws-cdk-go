@@ -15,10 +15,16 @@ package awsroute53
 //   	LocationName: jsii.String("locationName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html
+//
 type CfnCidrCollection_LocationProperty struct {
 	// List of CIDR blocks.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-cidrlist
+	//
 	CidrList *[]*string `field:"required" json:"cidrList" yaml:"cidrList"`
 	// The CIDR collection location name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-locationname
+	//
 	LocationName *string `field:"required" json:"locationName" yaml:"locationName"`
 }
 

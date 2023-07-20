@@ -26,12 +26,18 @@ package awsvpclattice
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-action.html
+//
 type CfnRule_ActionProperty struct {
 	// Describes the rule action that returns a custom HTTP response.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-action.html#cfn-vpclattice-rule-action-fixedresponse
+	//
 	FixedResponse interface{} `field:"optional" json:"fixedResponse" yaml:"fixedResponse"`
 	// The forward action.
 	//
 	// Traffic that matches the rule is forwarded to the specified target groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-action.html#cfn-vpclattice-rule-action-forward
+	//
 	Forward interface{} `field:"optional" json:"forward" yaml:"forward"`
 }
 

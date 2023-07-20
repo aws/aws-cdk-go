@@ -38,20 +38,36 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterslidercontrol.html
+//
 type CfnTemplate_ParameterSliderControlProperty struct {
 	// The smaller value that is displayed at the left of the slider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterslidercontrol.html#cfn-quicksight-template-parameterslidercontrol-maximumvalue
+	//
 	MaximumValue *float64 `field:"required" json:"maximumValue" yaml:"maximumValue"`
 	// The larger value that is displayed at the right of the slider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterslidercontrol.html#cfn-quicksight-template-parameterslidercontrol-minimumvalue
+	//
 	MinimumValue *float64 `field:"required" json:"minimumValue" yaml:"minimumValue"`
 	// The ID of the `ParameterSliderControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterslidercontrol.html#cfn-quicksight-template-parameterslidercontrol-parametercontrolid
+	//
 	ParameterControlId *string `field:"required" json:"parameterControlId" yaml:"parameterControlId"`
 	// The source parameter name of the `ParameterSliderControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterslidercontrol.html#cfn-quicksight-template-parameterslidercontrol-sourceparametername
+	//
 	SourceParameterName *string `field:"required" json:"sourceParameterName" yaml:"sourceParameterName"`
 	// The number of increments that the slider bar is divided into.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterslidercontrol.html#cfn-quicksight-template-parameterslidercontrol-stepsize
+	//
 	StepSize *float64 `field:"required" json:"stepSize" yaml:"stepSize"`
 	// The title of the `ParameterSliderControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterslidercontrol.html#cfn-quicksight-template-parameterslidercontrol-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// The display options of a control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterslidercontrol.html#cfn-quicksight-template-parameterslidercontrol-displayoptions
+	//
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

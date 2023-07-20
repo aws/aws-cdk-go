@@ -25,10 +25,16 @@ package awswafregional
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html
+//
 type CfnXssMatchSetProps struct {
 	// The name, if any, of the `XssMatchSet` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples
+	//
 	XssMatchTuples interface{} `field:"optional" json:"xssMatchTuples" yaml:"xssMatchTuples"`
 }
 

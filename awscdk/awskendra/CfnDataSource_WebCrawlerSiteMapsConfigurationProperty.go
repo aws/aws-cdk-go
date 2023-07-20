@@ -16,10 +16,14 @@ package awskendra
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html
+//
 type CfnDataSource_WebCrawlerSiteMapsConfigurationProperty struct {
 	// The list of sitemap URLs of the websites you want to crawl.
 	//
 	// The list can include a maximum of three sitemap URLs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html#cfn-kendra-datasource-webcrawlersitemapsconfiguration-sitemaps
+	//
 	SiteMaps *[]*string `field:"required" json:"siteMaps" yaml:"siteMaps"`
 }
 

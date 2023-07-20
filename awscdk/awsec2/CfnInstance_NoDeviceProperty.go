@@ -15,6 +15,8 @@ package awsec2
 //   noDeviceProperty := &NoDeviceProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-nodevice.html
+//
 type CfnInstance_NoDeviceProperty struct {
 }
 

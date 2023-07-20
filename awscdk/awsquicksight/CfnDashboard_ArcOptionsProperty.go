@@ -12,8 +12,12 @@ package awsquicksight
 //   	ArcThickness: jsii.String("arcThickness"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-arcoptions.html
+//
 type CfnDashboard_ArcOptionsProperty struct {
 	// The arc thickness of a `GaugeChartVisual` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-arcoptions.html#cfn-quicksight-dashboard-arcoptions-arcthickness
+	//
 	ArcThickness *string `field:"optional" json:"arcThickness" yaml:"arcThickness"`
 }
 

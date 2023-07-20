@@ -48,12 +48,20 @@ package awsquicksight
 //   	FilterId: jsii.String("filterId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-categoryfilter.html
+//
 type CfnDashboard_CategoryFilterProperty struct {
 	// The column that the filter is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-categoryfilter.html#cfn-quicksight-dashboard-categoryfilter-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// The configuration for a `CategoryFilter` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-categoryfilter.html#cfn-quicksight-dashboard-categoryfilter-configuration
+	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-categoryfilter.html#cfn-quicksight-dashboard-categoryfilter-filterid
+	//
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
 }
 

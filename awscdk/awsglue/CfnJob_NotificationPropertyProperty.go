@@ -12,8 +12,12 @@ package awsglue
 //   	NotifyDelayAfter: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html
+//
 type CfnJob_NotificationPropertyProperty struct {
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html#cfn-glue-job-notificationproperty-notifydelayafter
+	//
 	NotifyDelayAfter *float64 `field:"optional" json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 }
 

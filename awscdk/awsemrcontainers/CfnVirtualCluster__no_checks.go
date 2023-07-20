@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnVirtualCluster) validateSetNameParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnVirtualCluster) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnVirtualClusterParameters(scope constructs.Construct, id *string, props *CfnVirtualClusterProps) error {
 	return nil
 }

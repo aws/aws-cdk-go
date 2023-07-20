@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnModelCard) validateSetSecurityConfigParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnModelCard) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnModelCardParameters(scope constructs.Construct, id *string, props *CfnModelCardProps) error {
 	return nil
 }

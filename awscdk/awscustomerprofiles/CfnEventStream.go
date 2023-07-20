@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CustomerProfiles::EventStream`.
-//
 // An Event Stream resource of Amazon Connect Customer Profiles.
 //
 // Example:
@@ -32,11 +30,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventstream.html
+//
 type CfnEventStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The timestamp of when the export was created.
 	AttrCreatedAt() *string
+	// Details regarding the Kinesis stream.
+	AttrDestinationDetails() awscdk.IResolvable
 	// The status of enabling the Kinesis stream as a destination for export.
 	AttrDestinationDetailsStatus() *string
 	// The StreamARN of the destination to deliver profile events to.
@@ -84,7 +86,8 @@ type CfnEventStream interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The tags used to organize, track, or control access for this resource.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -99,8 +102,6 @@ type CfnEventStream interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The StreamARN of the destination to deliver profile events to.
-	//
-	// For example, arn:aws:kinesis:region:account-id:stream/stream-name.
 	Uri() *string
 	SetUri(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -246,6 +247,16 @@ func (j *jsiiProxy_CfnEventStream) AttrCreatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventStream) AttrDestinationDetails() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrDestinationDetails",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventStream) AttrDestinationDetailsStatus() *string {
 	var returns *string
 	_jsii_.Get(
@@ -386,8 +397,8 @@ func (j *jsiiProxy_CfnEventStream) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventStream) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnEventStream) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -427,7 +438,6 @@ func (j *jsiiProxy_CfnEventStream) Uri() *string {
 }
 
 
-// Create a new `AWS::CustomerProfiles::EventStream`.
 func NewCfnEventStream(scope constructs.Construct, id *string, props *CfnEventStreamProps) CfnEventStream {
 	_init_.Initialize()
 
@@ -445,7 +455,6 @@ func NewCfnEventStream(scope constructs.Construct, id *string, props *CfnEventSt
 	return &j
 }
 
-// Create a new `AWS::CustomerProfiles::EventStream`.
 func NewCfnEventStream_Override(c CfnEventStream, scope constructs.Construct, id *string, props *CfnEventStreamProps) {
 	_init_.Initialize()
 
@@ -474,6 +483,17 @@ func (j *jsiiProxy_CfnEventStream)SetEventStreamName(val *string) {
 	_jsii_.Set(
 		j,
 		"eventStreamName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventStream)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnFaq) validateSetS3PathParameters(val interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFaq) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFaqParameters(scope constructs.Construct, id *string, props *CfnFaqProps) error {
 	return nil
 }

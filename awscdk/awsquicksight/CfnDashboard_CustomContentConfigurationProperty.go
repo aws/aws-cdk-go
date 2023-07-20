@@ -14,16 +14,24 @@ package awsquicksight
 //   	ImageScaling: jsii.String("imageScaling"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customcontentconfiguration.html
+//
 type CfnDashboard_CustomContentConfigurationProperty struct {
 	// The content type of the custom content visual.
 	//
 	// You can use this to have the visual render as an image.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customcontentconfiguration.html#cfn-quicksight-dashboard-customcontentconfiguration-contenttype
+	//
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The input URL that links to the custom content that you want in the custom visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customcontentconfiguration.html#cfn-quicksight-dashboard-customcontentconfiguration-contenturl
+	//
 	ContentUrl *string `field:"optional" json:"contentUrl" yaml:"contentUrl"`
 	// The sizing options for the size of the custom content visual.
 	//
 	// This structure is required when the `ContentType` of the visual is `'IMAGE'` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customcontentconfiguration.html#cfn-quicksight-dashboard-customcontentconfiguration-imagescaling
+	//
 	ImageScaling *string `field:"optional" json:"imageScaling" yaml:"imageScaling"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::DocumentationPart`.
+// The `AWS::ApiGateway::DocumentationPart` resource creates a documentation part for an API.
 //
-// The `AWS::ApiGateway::DocumentationPart` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide* .
+// For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,6 +29,8 @@ import (
 //   	Properties: jsii.String("properties"),
 //   	RestApiId: jsii.String("restApiId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html
 //
 type CfnDocumentationPart interface {
 	awscdk.CfnResource
@@ -60,8 +62,6 @@ type CfnDocumentationPart interface {
 	// The tree node.
 	Node() constructs.Node
 	// The new documentation content map of the targeted API entity.
-	//
-	// Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 	Properties() *string
 	SetProperties(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -363,7 +363,6 @@ func (j *jsiiProxy_CfnDocumentationPart) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::ApiGateway::DocumentationPart`.
 func NewCfnDocumentationPart(scope constructs.Construct, id *string, props *CfnDocumentationPartProps) CfnDocumentationPart {
 	_init_.Initialize()
 
@@ -381,7 +380,6 @@ func NewCfnDocumentationPart(scope constructs.Construct, id *string, props *CfnD
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::DocumentationPart`.
 func NewCfnDocumentationPart_Override(c CfnDocumentationPart, scope constructs.Construct, id *string, props *CfnDocumentationPartProps) {
 	_init_.Initialize()
 

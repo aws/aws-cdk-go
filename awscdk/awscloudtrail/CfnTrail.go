@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudTrail::Trail`.
-//
 // Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
 //
 // Example:
@@ -97,12 +95,13 @@ import (
 //   	TrailName: jsii.String("trailName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html
+//
 type CfnTrail interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Specifies the settings for advanced event selectors.
-	//
-	// You can add advanced event selectors, and conditions for your advanced event selectors, up to a maximum of 500 values for all conditions and selectors on a trail. You can use either `AdvancedEventSelectors` or `EventSelectors` , but not both. If you apply `AdvancedEventSelectors` to a trail, any existing `EventSelectors` are overwritten. For more information about advanced event selectors, see [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide* .
 	AdvancedEventSelectors() interface{}
 	SetAdvancedEventSelectors(val interface{})
 	// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
@@ -115,72 +114,39 @@ type CfnTrail interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs are delivered.
-	//
-	// You must use a log group that exists in your account.
-	//
-	// Not required unless you specify `CloudWatchLogsRoleArn` .
 	CloudWatchLogsLogGroupArn() *string
 	SetCloudWatchLogsLogGroupArn(val *string)
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
-	//
-	// You must use a role that exists in your account.
 	CloudWatchLogsRoleArn() *string
 	SetCloudWatchLogsRoleArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies whether log file validation is enabled. The default is false.
+	// Specifies whether log file validation is enabled.
 	//
-	// > When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail does not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.
+	// The default is false.
 	EnableLogFileValidation() interface{}
 	SetEnableLogFileValidation(val interface{})
 	// Use event selectors to further specify the management and data event settings for your trail.
-	//
-	// By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
-	//
-	// You can configure up to five event selectors for a trail.
-	//
-	// For more information about how to configure event selectors, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#aws-resource-cloudtrail-trail--examples) and [Configuring event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-additional-cli-commands.html#configuring-event-selector-examples) in the *AWS CloudTrail User Guide* .
 	EventSelectors() interface{}
 	SetEventSelectors(val interface{})
 	// Specifies whether the trail is publishing events from global services such as IAM to the log files.
 	IncludeGlobalServiceEvents() interface{}
 	SetIncludeGlobalServiceEvents(val interface{})
 	// A JSON string that contains the insight types you want to log on a trail.
-	//
-	// `ApiCallRateInsight` and `ApiErrorRateInsight` are valid Insight types.
-	//
-	// The `ApiCallRateInsight` Insights type analyzes write-only management API calls that are aggregated per minute against a baseline API call volume.
-	//
-	// The `ApiErrorRateInsight` Insights type analyzes management API calls that result in error codes. The error is shown if the API call is unsuccessful.
 	InsightSelectors() interface{}
 	SetInsightSelectors(val interface{})
 	// Whether the CloudTrail trail is currently logging AWS API calls.
 	IsLogging() interface{}
 	SetIsLogging(val interface{})
 	// Specifies whether the trail applies only to the current Region or to all Regions.
-	//
-	// The default is false. If the trail exists only in the current Region and this value is set to true, shadow trails (replications of the trail) will be created in the other Regions. If the trail exists in all Regions and this value is set to false, the trail will remain in the Region where it was created, and its shadow trails in other Regions will be deleted. As a best practice, consider using trails that log events in all Regions.
 	IsMultiRegionTrail() interface{}
 	SetIsMultiRegionTrail(val interface{})
 	// Specifies whether the trail is applied to all accounts in an organization in AWS Organizations , or only for the current AWS account .
-	//
-	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account or delegated administrator account for an organization in AWS Organizations . If the trail is not an organization trail and this is set to `true` , the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to `false` , the trail will remain in the current AWS account but be deleted from all member accounts in the organization.
 	IsOrganizationTrail() interface{}
 	SetIsOrganizationTrail(val interface{})
 	// Specifies the AWS KMS key ID to use to encrypt the logs delivered by CloudTrail.
-	//
-	// The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-	//
-	// CloudTrail also supports AWS KMS multi-Region keys. For more information about multi-Region keys, see [Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide* .
-	//
-	// Examples:
-	//
-	// - alias/MyAliasName
-	// - arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
-	// - arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012
-	// - 12345678-1234-1234-1234-123456789012.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -201,33 +167,26 @@ type CfnTrail interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Specifies the name of the Amazon S3 bucket designated for publishing log files.
-	//
-	// See [Amazon S3 Bucket Naming Requirements](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html) .
 	S3BucketName() *string
 	SetS3BucketName(val *string)
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery.
-	//
-	// For more information, see [Finding Your CloudTrail Log Files](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html) . The maximum length is 200 characters.
 	S3KeyPrefix() *string
 	SetS3KeyPrefix(val *string)
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery.
-	//
-	// The maximum length is 256 characters.
 	SnsTopicName() *string
 	SetSnsTopicName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A custom set of tags (key-value pairs) for this trail.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// Specifies the name of the trail. The name must meet the following requirements:.
+	// A custom set of tags (key-value pairs) for this trail.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// Specifies the name of the trail.
 	//
-	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
-	// - Start with a letter or number, and end with a letter or number
-	// - Be between 3 and 128 characters
-	// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
-	// - Not be in IP address format (for example, 192.168.5.4)
+	// The name must meet the following requirements:.
 	TrailName() *string
 	SetTrailName(val *string)
 	// Deprecated.
@@ -374,6 +333,7 @@ type CfnTrail interface {
 type jsiiProxy_CfnTrail struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTrail) AdvancedEventSelectors() interface{} {
@@ -626,6 +586,16 @@ func (j *jsiiProxy_CfnTrail) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrail) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrail) TrailName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -657,7 +627,6 @@ func (j *jsiiProxy_CfnTrail) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudTrail::Trail`.
 func NewCfnTrail(scope constructs.Construct, id *string, props *CfnTrailProps) CfnTrail {
 	_init_.Initialize()
 
@@ -675,7 +644,6 @@ func NewCfnTrail(scope constructs.Construct, id *string, props *CfnTrailProps) C
 	return &j
 }
 
-// Create a new `AWS::CloudTrail::Trail`.
 func NewCfnTrail_Override(c CfnTrail, scope constructs.Construct, id *string, props *CfnTrailProps) {
 	_init_.Initialize()
 
@@ -821,6 +789,17 @@ func (j *jsiiProxy_CfnTrail)SetSnsTopicName(val *string) {
 	_jsii_.Set(
 		j,
 		"snsTopicName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrail)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

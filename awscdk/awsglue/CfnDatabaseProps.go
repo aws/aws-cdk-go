@@ -38,12 +38,18 @@ package awsglue
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html
+//
 type CfnDatabaseProps struct {
 	// The AWS account ID for the account in which to create the catalog object.
 	//
 	// > To specify the account ID, you can use the `Ref` intrinsic function with the `AWS::AccountId` pseudo parameter. For example: `!Ref AWS::AccountId`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html#cfn-glue-database-catalogid
+	//
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The metadata for the database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html#cfn-glue-database-databaseinput
+	//
 	DatabaseInput interface{} `field:"required" json:"databaseInput" yaml:"databaseInput"`
 }
 

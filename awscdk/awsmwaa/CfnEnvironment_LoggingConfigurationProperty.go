@@ -36,16 +36,28 @@ package awsmwaa
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
+//
 type CfnEnvironment_LoggingConfigurationProperty struct {
 	// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
+	//
 	DagProcessingLogs interface{} `field:"optional" json:"dagProcessingLogs" yaml:"dagProcessingLogs"`
 	// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
+	//
 	SchedulerLogs interface{} `field:"optional" json:"schedulerLogs" yaml:"schedulerLogs"`
 	// Defines the task logs sent to CloudWatch Logs and the logging level to send.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
+	//
 	TaskLogs interface{} `field:"optional" json:"taskLogs" yaml:"taskLogs"`
 	// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
+	//
 	WebserverLogs interface{} `field:"optional" json:"webserverLogs" yaml:"webserverLogs"`
 	// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
+	//
 	WorkerLogs interface{} `field:"optional" json:"workerLogs" yaml:"workerLogs"`
 }
 

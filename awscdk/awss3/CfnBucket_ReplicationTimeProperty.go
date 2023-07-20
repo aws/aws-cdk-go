@@ -17,10 +17,16 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html
+//
 type CfnBucket_ReplicationTimeProperty struct {
 	// Specifies whether the replication time is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-status
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 	// A container specifying the time by which replication should be complete for all objects and operations on objects.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-time
+	//
 	Time interface{} `field:"required" json:"time" yaml:"time"`
 }
 

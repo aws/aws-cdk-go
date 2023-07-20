@@ -9,6 +9,8 @@ package awsmedialive
 //   dolbyVision81SettingsProperty := &DolbyVision81SettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dolbyvision81settings.html
+//
 type CfnChannel_DolbyVision81SettingsProperty struct {
 }
 

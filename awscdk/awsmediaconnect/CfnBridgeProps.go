@@ -63,26 +63,42 @@ package awsmediaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html
+//
 type CfnBridgeProps struct {
 	// The network output name.
 	//
 	// This name is used to reference the output and must be unique among outputs in this bridge.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The bridge placement Amazon Resource Number (ARN).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-placementarn
+	//
 	PlacementArn *string `field:"required" json:"placementArn" yaml:"placementArn"`
 	// The sources that you want to add to this bridge.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-sources
+	//
 	Sources interface{} `field:"required" json:"sources" yaml:"sources"`
 	// Create a bridge with the egress bridge type.
 	//
 	// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-egressgatewaybridge
+	//
 	EgressGatewayBridge interface{} `field:"optional" json:"egressGatewayBridge" yaml:"egressGatewayBridge"`
 	// Create a bridge with the ingress bridge type.
 	//
 	// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-ingressgatewaybridge
+	//
 	IngressGatewayBridge interface{} `field:"optional" json:"ingressGatewayBridge" yaml:"ingressGatewayBridge"`
 	// The outputs that you want to add to this bridge.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-outputs
+	//
 	Outputs interface{} `field:"optional" json:"outputs" yaml:"outputs"`
 	// The settings for source failover.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-sourcefailoverconfig
+	//
 	SourceFailoverConfig interface{} `field:"optional" json:"sourceFailoverConfig" yaml:"sourceFailoverConfig"`
 }
 

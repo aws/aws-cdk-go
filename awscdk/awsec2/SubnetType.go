@@ -4,10 +4,9 @@ package awsec2
 // The type of Subnet.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
-//   cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 //   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
 //   	}),

@@ -16,12 +16,20 @@ package awslookoutmetrics
 //   	Namespace: jsii.String("namespace"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html
+//
 type CfnAnomalyDetector_MetricProperty struct {
 	// The function with which the metric is calculated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-aggregationfunction
+	//
 	AggregationFunction *string `field:"required" json:"aggregationFunction" yaml:"aggregationFunction"`
 	// The name of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-metricname
+	//
 	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace for the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-namespace
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 

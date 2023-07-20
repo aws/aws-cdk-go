@@ -27,16 +27,26 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
+//
 type CfnUserGroupProps struct {
 	// The current supported value is redis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+	//
 	Engine *string `field:"required" json:"engine" yaml:"engine"`
 	// The ID of the user group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+	//
 	UserGroupId *string `field:"required" json:"userGroupId" yaml:"userGroupId"`
 	// The list of user IDs that belong to the user group.
 	//
 	// A user named `default` must be included.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+	//
 	UserIds *[]*string `field:"required" json:"userIds" yaml:"userIds"`
-	// `AWS::ElastiCache::UserGroup.Tags`.
+	// An array of key-value pairs to apply to this user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

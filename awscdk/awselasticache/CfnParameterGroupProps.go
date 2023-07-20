@@ -27,12 +27,18 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html
+//
 type CfnParameterGroupProps struct {
 	// The name of the cache parameter group family that this cache parameter group is compatible with.
 	//
 	// Valid values are: `memcached1.4` | `memcached1.5` | `memcached1.6` | `redis2.6` | `redis2.8` | `redis3.2` | `redis4.0` | `redis5.0` | `redis6.x` | `redis7`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html#cfn-elasticache-parametergroup-cacheparametergroupfamily
+	//
 	CacheParameterGroupFamily *string `field:"required" json:"cacheParameterGroupFamily" yaml:"cacheParameterGroupFamily"`
 	// The description for this cache parameter group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html#cfn-elasticache-parametergroup-description
+	//
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// A comma-delimited list of parameter name/value pairs.
 	//
@@ -42,10 +48,14 @@ type CfnParameterGroupProps struct {
 	// "Properties" : { "cas_disabled" : "1", "chunk_size_growth_factor" : "1.02"
 	// }
 	// ```.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html#cfn-elasticache-parametergroup-properties
+	//
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// A tag that can be added to an ElastiCache parameter group.
 	//
 	// Tags are composed of a Key/Value pair. You can use tags to categorize and track all your parameter groups. A tag with a null Value is permitted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html#cfn-elasticache-parametergroup-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

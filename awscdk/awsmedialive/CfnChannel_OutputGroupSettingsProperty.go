@@ -177,24 +177,42 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html
+//
 type CfnChannel_OutputGroupSettingsProperty struct {
 	// The configuration of an archive output group.
 	//
 	// The parent of this entity is OutputGroupSettings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-archivegroupsettings
+	//
 	ArchiveGroupSettings interface{} `field:"optional" json:"archiveGroupSettings" yaml:"archiveGroupSettings"`
 	// The configuration of a frame capture output group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-framecapturegroupsettings
+	//
 	FrameCaptureGroupSettings interface{} `field:"optional" json:"frameCaptureGroupSettings" yaml:"frameCaptureGroupSettings"`
 	// The configuration of an HLS output group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-hlsgroupsettings
+	//
 	HlsGroupSettings interface{} `field:"optional" json:"hlsGroupSettings" yaml:"hlsGroupSettings"`
 	// The configuration of a MediaPackage output group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-mediapackagegroupsettings
+	//
 	MediaPackageGroupSettings interface{} `field:"optional" json:"mediaPackageGroupSettings" yaml:"mediaPackageGroupSettings"`
 	// The configuration of a Microsoft Smooth output group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-mssmoothgroupsettings
+	//
 	MsSmoothGroupSettings interface{} `field:"optional" json:"msSmoothGroupSettings" yaml:"msSmoothGroupSettings"`
 	// The settings for a Multiplex output group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-multiplexgroupsettings
+	//
 	MultiplexGroupSettings interface{} `field:"optional" json:"multiplexGroupSettings" yaml:"multiplexGroupSettings"`
 	// The configuration of an RTMP output group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-rtmpgroupsettings
+	//
 	RtmpGroupSettings interface{} `field:"optional" json:"rtmpGroupSettings" yaml:"rtmpGroupSettings"`
 	// The configuration of a UDP output group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-udpgroupsettings
+	//
 	UdpGroupSettings interface{} `field:"optional" json:"udpGroupSettings" yaml:"udpGroupSettings"`
 }
 

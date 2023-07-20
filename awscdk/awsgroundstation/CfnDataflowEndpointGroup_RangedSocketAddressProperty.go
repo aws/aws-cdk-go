@@ -14,10 +14,14 @@ package awsgroundstation
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html
+//
 type CfnDataflowEndpointGroup_RangedSocketAddressProperty struct {
-	// `CfnDataflowEndpointGroup.RangedSocketAddressProperty.Name`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html#cfn-groundstation-dataflowendpointgroup-rangedsocketaddress-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `CfnDataflowEndpointGroup.RangedSocketAddressProperty.PortRange`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html#cfn-groundstation-dataflowendpointgroup-rangedsocketaddress-portrange
+	//
 	PortRange interface{} `field:"optional" json:"portRange" yaml:"portRange"`
 }
 

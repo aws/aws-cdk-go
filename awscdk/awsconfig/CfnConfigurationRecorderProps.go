@@ -22,10 +22,14 @@ package awsconfig
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
+//
 type CfnConfigurationRecorderProps struct {
 	// The Amazon Resource Name (ARN) of the IAM (IAM) role that is used to make read or write requests to the delivery channel that you specify and to get configuration details for supported AWS resources.
 	//
 	// For more information, see [Permissions for the IAM Role Assigned](https://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) to AWS Config in the AWS Config Developer Guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A name for the configuration recorder.
 	//
@@ -34,10 +38,14 @@ type CfnConfigurationRecorderProps struct {
 	// > After you create a configuration recorder, you cannot rename it. If you don't want a name that AWS CloudFormation generates, specify a value for this property.
 	//
 	// Updates are not supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Indicates whether to record configurations for all supported resources or for a list of resource types.
 	//
 	// The resource types that you list must be supported by AWS Config .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-recordinggroup
+	//
 	RecordingGroup interface{} `field:"optional" json:"recordingGroup" yaml:"recordingGroup"`
 }
 

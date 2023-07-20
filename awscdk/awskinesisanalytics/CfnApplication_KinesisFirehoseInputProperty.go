@@ -15,12 +15,18 @@ package awskinesisanalytics
 //   	RoleArn: jsii.String("roleArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-kinesisfirehoseinput.html
+//
 type CfnApplication_KinesisFirehoseInputProperty struct {
 	// ARN of the input delivery stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-kinesisfirehoseinput.html#cfn-kinesisanalytics-application-kinesisfirehoseinput-resourcearn
+	//
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.
 	//
 	// You need to make sure that the role has the necessary permissions to access the stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-kinesisfirehoseinput.html#cfn-kinesisanalytics-application-kinesisfirehoseinput-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 

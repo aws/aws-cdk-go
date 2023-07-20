@@ -96,25 +96,39 @@ package awsquicksight
 //   	VerticalPosition: jsii.String("verticalPosition"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinelabelconfiguration.html
+//
 type CfnDashboard_ReferenceLineLabelConfigurationProperty struct {
 	// The custom label configuration of the label in a reference line.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinelabelconfiguration.html#cfn-quicksight-dashboard-referencelinelabelconfiguration-customlabelconfiguration
+	//
 	CustomLabelConfiguration interface{} `field:"optional" json:"customLabelConfiguration" yaml:"customLabelConfiguration"`
 	// The font color configuration of the label in a reference line.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinelabelconfiguration.html#cfn-quicksight-dashboard-referencelinelabelconfiguration-fontcolor
+	//
 	FontColor *string `field:"optional" json:"fontColor" yaml:"fontColor"`
 	// The font configuration of the label in a reference line.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinelabelconfiguration.html#cfn-quicksight-dashboard-referencelinelabelconfiguration-fontconfiguration
+	//
 	FontConfiguration interface{} `field:"optional" json:"fontConfiguration" yaml:"fontConfiguration"`
 	// The horizontal position configuration of the label in a reference line. Choose one of the following options:.
 	//
 	// - `LEFT`
 	// - `CENTER`
 	// - `RIGHT`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinelabelconfiguration.html#cfn-quicksight-dashboard-referencelinelabelconfiguration-horizontalposition
+	//
 	HorizontalPosition *string `field:"optional" json:"horizontalPosition" yaml:"horizontalPosition"`
 	// The value label configuration of the label in a reference line.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinelabelconfiguration.html#cfn-quicksight-dashboard-referencelinelabelconfiguration-valuelabelconfiguration
+	//
 	ValueLabelConfiguration interface{} `field:"optional" json:"valueLabelConfiguration" yaml:"valueLabelConfiguration"`
 	// The vertical position configuration of the label in a reference line. Choose one of the following options:.
 	//
 	// - `ABOVE`
 	// - `BELOW`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinelabelconfiguration.html#cfn-quicksight-dashboard-referencelinelabelconfiguration-verticalposition
+	//
 	VerticalPosition *string `field:"optional" json:"verticalPosition" yaml:"verticalPosition"`
 }
 

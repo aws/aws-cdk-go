@@ -19,8 +19,12 @@ package awswaf
 //   	"value": jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-ipset-ipsetdescriptor.html
+//
 type CfnIPSet_IPSetDescriptorProperty struct {
 	// Specify `IPV4` or `IPV6` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-ipset-ipsetdescriptor.html#cfn-waf-ipset-ipsetdescriptor-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Specify an IPv4 address by using CIDR notation. For example:.
 	//
@@ -33,6 +37,8 @@ type CfnIPSet_IPSetDescriptorProperty struct {
 	//
 	// - To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
 	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-ipset-ipsetdescriptor.html#cfn-waf-ipset-ipsetdescriptor-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDetectorModel) validateSetRoleArnParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnDetectorModel) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDetectorModelParameters(scope constructs.Construct, id *string, props *CfnDetectorModelProps) error {
 	return nil
 }

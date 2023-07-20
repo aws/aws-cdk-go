@@ -16,8 +16,12 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html
+//
 type CfnChannel_MultiplexOutputSettingsProperty struct {
 	// Destination is a Multiplex.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html#cfn-medialive-channel-multiplexoutputsettings-destination
+	//
 	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
 }
 

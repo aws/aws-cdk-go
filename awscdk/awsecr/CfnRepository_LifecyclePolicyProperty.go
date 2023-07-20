@@ -15,12 +15,18 @@ package awsecr
 //   	RegistryId: jsii.String("registryId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
+//
 type CfnRepository_LifecyclePolicyProperty struct {
 	// The JSON repository policy text to apply to the repository.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
+	//
 	LifecyclePolicyText *string `field:"optional" json:"lifecyclePolicyText" yaml:"lifecyclePolicyText"`
 	// The AWS account ID associated with the registry that contains the repository.
 	//
 	// If you do not specify a registry, the default registry is assumed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
+	//
 	RegistryId *string `field:"optional" json:"registryId" yaml:"registryId"`
 }
 

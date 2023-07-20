@@ -78,14 +78,24 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html
+//
 type CfnVirtualGateway_VirtualGatewayListenerProperty struct {
 	// The port mapping information for the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-portmapping
+	//
 	PortMapping interface{} `field:"required" json:"portMapping" yaml:"portMapping"`
 	// The connection pool information for the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-connectionpool
+	//
 	ConnectionPool interface{} `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-healthcheck
+	//
 	HealthCheck interface{} `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// A reference to an object that represents the Transport Layer Security (TLS) properties for the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-tls
+	//
 	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 }
 

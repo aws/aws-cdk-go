@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPNGatewayRoutePropagation`.
-//
 // Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC.
 //
 // If you reference a VPN gateway that is in the same template as your VPN gateway route propagation, you must explicitly declare a dependency on the VPN gateway attachment. The `AWS::EC2::VPNGatewayRoutePropagation` resource cannot use the VPN gateway until it has successfully attached to the VPC. Add a [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) in the `AWS::EC2::VPNGatewayRoutePropagation` resource to explicitly declare a dependency on the VPN gateway attachment.
@@ -27,9 +25,12 @@ import (
 //   	VpnGatewayId: jsii.String("vpnGatewayId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngatewayroutepropagation.html
+//
 type CfnVPNGatewayRoutePropagation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -57,8 +58,6 @@ type CfnVPNGatewayRoutePropagation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ID of the route table.
-	//
-	// The routing table must be associated with the same VPC that the virtual private gateway is attached to.
 	RouteTableIds() *[]*string
 	SetRouteTableIds(val *[]*string)
 	// The stack in which this element is defined.
@@ -79,8 +78,6 @@ type CfnVPNGatewayRoutePropagation interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of the virtual private gateway that is attached to a VPC.
-	//
-	// The virtual private gateway must be attached to the same VPC that the routing tables are associated with.
 	VpnGatewayId() *string
 	SetVpnGatewayId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -216,6 +213,16 @@ type jsiiProxy_CfnVPNGatewayRoutePropagation struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -337,7 +344,6 @@ func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) VpnGatewayId() *string {
 }
 
 
-// Create a new `AWS::EC2::VPNGatewayRoutePropagation`.
 func NewCfnVPNGatewayRoutePropagation(scope constructs.Construct, id *string, props *CfnVPNGatewayRoutePropagationProps) CfnVPNGatewayRoutePropagation {
 	_init_.Initialize()
 
@@ -355,7 +361,6 @@ func NewCfnVPNGatewayRoutePropagation(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::EC2::VPNGatewayRoutePropagation`.
 func NewCfnVPNGatewayRoutePropagation_Override(c CfnVPNGatewayRoutePropagation, scope constructs.Construct, id *string, props *CfnVPNGatewayRoutePropagationProps) {
 	_init_.Initialize()
 

@@ -47,20 +47,32 @@ package awscloudfront
 //   	Comment: jsii.String("comment"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
+//
 type CfnOriginRequestPolicy_OriginRequestPolicyConfigProperty struct {
 	// The cookies from viewer requests to include in origin requests.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
+	//
 	CookiesConfig interface{} `field:"required" json:"cookiesConfig" yaml:"cookiesConfig"`
 	// The HTTP headers to include in origin requests.
 	//
 	// These can include headers from viewer requests and additional headers added by CloudFront.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
+	//
 	HeadersConfig interface{} `field:"required" json:"headersConfig" yaml:"headersConfig"`
 	// A unique name to identify the origin request policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The URL query strings from viewer requests to include in origin requests.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
+	//
 	QueryStringsConfig interface{} `field:"required" json:"queryStringsConfig" yaml:"queryStringsConfig"`
 	// A comment to describe the origin request policy.
 	//
 	// The comment cannot be longer than 128 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
+	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::TypeActivation`.
+// Activates a public third-party extension, making it available for use in stack templates.
 //
-// Activates a public third-party extension, making it available for use in stack templates. For more information, see [Using public extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html) in the *AWS CloudFormation User Guide* .
+// For more information, see [Using public extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html) in the *AWS CloudFormation User Guide* .
 //
 // Once you have activated a public third-party extension in your account and Region, use [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration) in the *CloudFormation User Guide* .
 //
@@ -36,16 +36,14 @@ import (
 //   	VersionBump: jsii.String("versionBump"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html
+//
 type CfnTypeActivation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The Amazon Resource Number (ARN) of the activated extension, in this account and Region.
 	AttrArn() *string
 	// Whether to automatically update the extension in this account and Region when a new *minor* version is published by the extension publisher.
-	//
-	// Major versions released by the publisher must be manually updated.
-	//
-	// The default is `true` .
 	AutoUpdate() interface{}
 	SetAutoUpdate(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -74,22 +72,14 @@ type CfnTypeActivation interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The major version of this extension you want to activate, if multiple major versions are available.
-	//
-	// The default is the latest major version. CloudFormation uses the latest available *minor* version of the major version selected.
-	//
-	// You can specify `MajorVersion` or `VersionBump` , but not both.
 	MajorVersion() *string
 	SetMajorVersion(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The Amazon Resource Number (ARN) of the public extension.
-	//
-	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
 	PublicTypeArn() *string
 	SetPublicTypeArn(val *string)
 	// The ID of the extension publisher.
-	//
-	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
 	PublisherId() *string
 	SetPublisherId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -102,20 +92,12 @@ type CfnTypeActivation interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The extension type.
-	//
-	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
 	Type() *string
 	SetType(val *string)
 	// The name of the extension.
-	//
-	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
 	TypeName() *string
 	SetTypeName(val *string)
 	// An alias to assign to the public extension, in this account and Region.
-	//
-	// If you specify an alias for the extension, CloudFormation treats the alias as the extension type name within this account and Region. You must use the alias to refer to the extension in your templates, API calls, and CloudFormation console.
-	//
-	// An extension alias must be unique within a given account and Region. You can activate the same public resource multiple times in the same account and Region, using different type name aliases.
 	TypeNameAlias() *string
 	SetTypeNameAlias(val *string)
 	// Deprecated.
@@ -132,11 +114,6 @@ type CfnTypeActivation interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Manually updates a previously-activated type to a new major or minor version, if available.
-	//
-	// You can also use this parameter to update the value of `AutoUpdate` .
-	//
-	// - `MAJOR` : CloudFormation updates the extension to the newest major version, if one is available.
-	// - `MINOR` : CloudFormation updates the extension to the newest minor version, if one is available.
 	VersionBump() *string
 	SetVersionBump(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -483,7 +460,6 @@ func (j *jsiiProxy_CfnTypeActivation) VersionBump() *string {
 }
 
 
-// Create a new `AWS::CloudFormation::TypeActivation`.
 func NewCfnTypeActivation(scope constructs.Construct, id *string, props *CfnTypeActivationProps) CfnTypeActivation {
 	_init_.Initialize()
 
@@ -501,7 +477,6 @@ func NewCfnTypeActivation(scope constructs.Construct, id *string, props *CfnType
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::TypeActivation`.
 func NewCfnTypeActivation_Override(c CfnTypeActivation, scope constructs.Construct, id *string, props *CfnTypeActivationProps) {
 	_init_.Initialize()
 

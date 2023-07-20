@@ -13,12 +13,18 @@ package awscloudfront
 //   	Runtime: jsii.String("runtime"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html
+//
 type CfnFunction_FunctionConfigProperty struct {
 	// A comment to describe the function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-comment
+	//
 	Comment *string `field:"required" json:"comment" yaml:"comment"`
 	// The function's runtime environment.
 	//
 	// The only valid value is `cloudfront-js-1.0` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-runtime
+	//
 	Runtime *string `field:"required" json:"runtime" yaml:"runtime"`
 }
 

@@ -14,12 +14,16 @@ package awsgreengrassv2
 //   	TimeoutInSeconds: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentconfigurationvalidationpolicy.html
+//
 type CfnDeployment_DeploymentConfigurationValidationPolicyProperty struct {
 	// The amount of time in seconds that a component can validate its configuration updates.
 	//
 	// If the validation time exceeds this timeout, then the deployment proceeds for the device.
 	//
 	// Default: `30`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentconfigurationvalidationpolicy.html#cfn-greengrassv2-deployment-deploymentconfigurationvalidationpolicy-timeoutinseconds
+	//
 	TimeoutInSeconds *float64 `field:"optional" json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 }
 

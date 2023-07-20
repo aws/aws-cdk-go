@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::ADMChannel`.
+// A *channel* is a type of platform that you can deliver messages to.
 //
-// A *channel* is a type of platform that you can deliver messages to. You can use the ADM channel to send push notifications through the Amazon Device Messaging (ADM) service to apps that run on Amazon devices, such as Kindle Fire tablets. Before you can use Amazon Pinpoint to send messages to Amazon devices, you have to enable the ADM channel for an Amazon Pinpoint application.
+// You can use the ADM channel to send push notifications through the Amazon Device Messaging (ADM) service to apps that run on Amazon devices, such as Kindle Fire tablets. Before you can use Amazon Pinpoint to send messages to Amazon devices, you have to enable the ADM channel for an Amazon Pinpoint application.
 //
 // The ADMChannel resource represents the status and authentication settings for the ADM channel for an application.
 //
@@ -29,12 +29,15 @@ import (
 //   	Enabled: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-admchannel.html
+//
 type CfnADMChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The unique identifier for the Amazon Pinpoint application that the ADM channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -230,6 +233,16 @@ func (j *jsiiProxy_CfnADMChannel) ApplicationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnADMChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnADMChannel) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -361,7 +374,6 @@ func (j *jsiiProxy_CfnADMChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Pinpoint::ADMChannel`.
 func NewCfnADMChannel(scope constructs.Construct, id *string, props *CfnADMChannelProps) CfnADMChannel {
 	_init_.Initialize()
 
@@ -379,7 +391,6 @@ func NewCfnADMChannel(scope constructs.Construct, id *string, props *CfnADMChann
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::ADMChannel`.
 func NewCfnADMChannel_Override(c CfnADMChannel, scope constructs.Construct, id *string, props *CfnADMChannelProps) {
 	_init_.Initialize()
 

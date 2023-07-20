@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnStreamingDistribution) validateSetStreamingDistributionCon
 	return nil
 }
 
+func (j *jsiiProxy_CfnStreamingDistribution) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnStreamingDistributionParameters(scope constructs.Construct, id *string, props *CfnStreamingDistributionProps) error {
 	return nil
 }

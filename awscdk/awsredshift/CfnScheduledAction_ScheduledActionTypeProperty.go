@@ -26,12 +26,20 @@ package awsredshift
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html
+//
 type CfnScheduledAction_ScheduledActionTypeProperty struct {
 	// An action that runs a `PauseCluster` API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html#cfn-redshift-scheduledaction-scheduledactiontype-pausecluster
+	//
 	PauseCluster interface{} `field:"optional" json:"pauseCluster" yaml:"pauseCluster"`
 	// An action that runs a `ResizeCluster` API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html#cfn-redshift-scheduledaction-scheduledactiontype-resizecluster
+	//
 	ResizeCluster interface{} `field:"optional" json:"resizeCluster" yaml:"resizeCluster"`
 	// An action that runs a `ResumeCluster` API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html#cfn-redshift-scheduledaction-scheduledactiontype-resumecluster
+	//
 	ResumeCluster interface{} `field:"optional" json:"resumeCluster" yaml:"resumeCluster"`
 }
 

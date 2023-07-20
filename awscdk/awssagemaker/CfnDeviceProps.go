@@ -30,14 +30,22 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
+//
 type CfnDeviceProps struct {
 	// The name of the fleet the device belongs to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+	//
 	DeviceFleetName *string `field:"required" json:"deviceFleetName" yaml:"deviceFleetName"`
 	// Edge device you want to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
+	//
 	Device interface{} `field:"optional" json:"device" yaml:"device"`
 	// An array of key-value pairs that contain metadata to help you categorize and organize your devices.
 	//
 	// Each tag consists of a key and a value, both of which you define.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

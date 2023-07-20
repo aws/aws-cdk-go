@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSM::PatchBaseline`.
+// The `AWS::SSM::PatchBaseline` resource defines the basic information for an AWS Systems Manager patch baseline.
 //
-// The `AWS::SSM::PatchBaseline` resource defines the basic information for an AWS Systems Manager patch baseline. A patch baseline defines which patches are approved for installation on your instances.
+// A patch baseline defines which patches are approved for installation on your instances.
 //
 // For more information, see [CreatePatchBaseline](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html) in the *AWS Systems Manager API Reference* .
 //
@@ -85,27 +85,25 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html
+//
 type CfnPatchBaseline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A set of rules used to include patches in the baseline.
 	ApprovalRules() interface{}
 	SetApprovalRules(val interface{})
 	// A list of explicitly approved patches for the baseline.
-	//
-	// For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html) in the *AWS Systems Manager User Guide* .
 	ApprovedPatches() *[]*string
 	SetApprovedPatches(val *[]*string)
 	// Defines the compliance level for approved patches.
-	//
-	// When an approved patch is reported as missing, this value describes the severity of the compliance violation. The default value is `UNSPECIFIED` .
 	ApprovedPatchesComplianceLevel() *string
 	SetApprovedPatchesComplianceLevel(val *string)
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the managed nodes.
-	//
-	// The default value is `false` . Applies to Linux managed nodes only.
 	ApprovedPatchesEnableNonSecurity() interface{}
 	SetApprovedPatchesEnableNonSecurity(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -137,8 +135,6 @@ type CfnPatchBaseline interface {
 	// The tree node.
 	Node() constructs.Node
 	// Defines the operating system the patch baseline applies to.
-	//
-	// The default value is `WINDOWS` .
 	OperatingSystem() *string
 	SetOperatingSystem(val *string)
 	// The name of the patch group to be registered with the patch baseline.
@@ -150,29 +146,23 @@ type CfnPatchBaseline interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A list of explicitly rejected patches for the baseline.
-	//
-	// For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html) in the *AWS Systems Manager User Guide* .
 	RejectedPatches() *[]*string
 	SetRejectedPatches(val *[]*string)
 	// The action for Patch Manager to take on patches included in the `RejectedPackages` list.
-	//
-	// - *`ALLOW_AS_DEPENDENCY`* : A package in the `Rejected` patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as `InstalledOther` . This is the default action if no option is specified.
-	// - *`BLOCK`* : Packages in the `RejectedPatches` list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as `InstalledRejected` .
 	RejectedPatchesAction() *string
 	SetRejectedPatchesAction(val *string)
 	// Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
-	//
-	// Applies to Linux managed nodes only.
 	Sources() interface{}
 	SetSources(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Optional metadata that you assign to a resource.
-	//
-	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Optional metadata that you assign to a resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -317,6 +307,7 @@ type CfnPatchBaseline interface {
 type jsiiProxy_CfnPatchBaseline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPatchBaseline) ApprovalRules() interface{} {
@@ -354,6 +345,16 @@ func (j *jsiiProxy_CfnPatchBaseline) ApprovedPatchesEnableNonSecurity() interfac
 	_jsii_.Get(
 		j,
 		"approvedPatchesEnableNonSecurity",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPatchBaseline) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -529,6 +530,16 @@ func (j *jsiiProxy_CfnPatchBaseline) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPatchBaseline) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPatchBaseline) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -550,7 +561,6 @@ func (j *jsiiProxy_CfnPatchBaseline) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::SSM::PatchBaseline`.
 func NewCfnPatchBaseline(scope constructs.Construct, id *string, props *CfnPatchBaselineProps) CfnPatchBaseline {
 	_init_.Initialize()
 
@@ -568,7 +578,6 @@ func NewCfnPatchBaseline(scope constructs.Construct, id *string, props *CfnPatch
 	return &j
 }
 
-// Create a new `AWS::SSM::PatchBaseline`.
 func NewCfnPatchBaseline_Override(c CfnPatchBaseline, scope constructs.Construct, id *string, props *CfnPatchBaselineProps) {
 	_init_.Initialize()
 
@@ -686,6 +695,17 @@ func (j *jsiiProxy_CfnPatchBaseline)SetSources(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sources",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPatchBaseline)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

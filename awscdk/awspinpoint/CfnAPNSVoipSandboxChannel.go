@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::APNSVoipSandboxChannel`.
+// A *channel* is a type of platform that you can deliver messages to.
 //
-// A *channel* is a type of platform that you can deliver messages to. You can use the APNs VoIP sandbox channel to send VoIP notification messages to the sandbox environment of the Apple Push Notification service (APNs). Before you can use Amazon Pinpoint to send VoIP notifications to the APNs sandbox environment, you have to enable the APNs VoIP sandbox channel for an Amazon Pinpoint application.
+// You can use the APNs VoIP sandbox channel to send VoIP notification messages to the sandbox environment of the Apple Push Notification service (APNs). Before you can use Amazon Pinpoint to send VoIP notifications to the APNs sandbox environment, you have to enable the APNs VoIP sandbox channel for an Amazon Pinpoint application.
 //
 // The APNSVoipSandboxChannel resource represents the status and authentication settings of the APNs VoIP sandbox channel for an application.
 //
@@ -34,20 +34,19 @@ import (
 //   	TokenKeyId: jsii.String("tokenKeyId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnsvoipsandboxchannel.html
+//
 type CfnAPNSVoipSandboxChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The unique identifier for the application that the APNs VoIP sandbox channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// The bundle identifier that's assigned to your iOS app.
-	//
-	// This identifier is used for APNs tokens.
 	BundleId() *string
 	SetBundleId(val *string)
 	// The APNs client certificate that you received from Apple.
-	//
-	// Specify this value if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
 	Certificate() *string
 	SetCertificate(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -60,8 +59,6 @@ type CfnAPNSVoipSandboxChannel interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs.
-	//
-	// Valid options are `key` or `certificate` .
 	DefaultAuthenticationMethod() *string
 	SetDefaultAuthenticationMethod(val *string)
 	// Specifies whether the APNs VoIP sandbox channel is enabled for the application.
@@ -92,16 +89,12 @@ type CfnAPNSVoipSandboxChannel interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The identifier that's assigned to your Apple developer account team.
-	//
-	// This identifier is used for APNs tokens.
 	TeamId() *string
 	SetTeamId(val *string)
 	// The authentication key to use for APNs tokens.
 	TokenKey() *string
 	SetTokenKey(val *string)
 	// The key identifier that's assigned to your APNs signing key.
-	//
-	// Specify this value if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
 	TokenKeyId() *string
 	SetTokenKeyId(val *string)
 	// Deprecated.
@@ -255,6 +248,16 @@ func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) ApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"applicationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -441,7 +444,6 @@ func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::Pinpoint::APNSVoipSandboxChannel`.
 func NewCfnAPNSVoipSandboxChannel(scope constructs.Construct, id *string, props *CfnAPNSVoipSandboxChannelProps) CfnAPNSVoipSandboxChannel {
 	_init_.Initialize()
 
@@ -459,7 +461,6 @@ func NewCfnAPNSVoipSandboxChannel(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::APNSVoipSandboxChannel`.
 func NewCfnAPNSVoipSandboxChannel_Override(c CfnAPNSVoipSandboxChannel, scope constructs.Construct, id *string, props *CfnAPNSVoipSandboxChannelProps) {
 	_init_.Initialize()
 

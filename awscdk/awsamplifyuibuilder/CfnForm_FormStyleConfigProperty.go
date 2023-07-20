@@ -13,10 +13,16 @@ package awsamplifyuibuilder
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyleconfig.html
+//
 type CfnForm_FormStyleConfigProperty struct {
 	// A reference to a design token to use to bind the form's style properties to an existing theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyleconfig.html#cfn-amplifyuibuilder-form-formstyleconfig-tokenreference
+	//
 	TokenReference *string `field:"optional" json:"tokenReference" yaml:"tokenReference"`
 	// The value of the style setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyleconfig.html#cfn-amplifyuibuilder-form-formstyleconfig-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

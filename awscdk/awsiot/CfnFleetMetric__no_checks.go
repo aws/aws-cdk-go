@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnFleetMetric) validateSetMetricNameParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleetMetric) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFleetMetricParameters(scope constructs.Construct, id *string, props *CfnFleetMetricProps) error {
 	return nil
 }

@@ -87,14 +87,24 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html
+//
 type CfnRoute_HttpRouteProperty struct {
 	// An object that represents the action to take if a match is determined.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-action
+	//
 	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An object that represents the criteria for determining a request match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-match
+	//
 	Match interface{} `field:"required" json:"match" yaml:"match"`
 	// An object that represents a retry policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-retrypolicy
+	//
 	RetryPolicy interface{} `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// An object that represents types of timeouts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-timeout
+	//
 	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

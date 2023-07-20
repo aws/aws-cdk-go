@@ -27,12 +27,20 @@ package awsredshiftserverless
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-endpoint.html
+//
 type CfnWorkgroup_EndpointProperty struct {
 	// The DNS address of the VPC endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-endpoint.html#cfn-redshiftserverless-workgroup-endpoint-address
+	//
 	Address *string `field:"optional" json:"address" yaml:"address"`
 	// The port that Amazon Redshift Serverless listens on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-endpoint.html#cfn-redshiftserverless-workgroup-endpoint-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// An array of `VpcEndpoint` objects.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-endpoint.html#cfn-redshiftserverless-workgroup-endpoint-vpcendpoints
+	//
 	VpcEndpoints interface{} `field:"optional" json:"vpcEndpoints" yaml:"vpcEndpoints"`
 }
 

@@ -12,8 +12,12 @@ package awsappmesh
 //   	VirtualRouterName: jsii.String("virtualRouterName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html
+//
 type CfnVirtualService_VirtualRouterServiceProviderProperty struct {
 	// The name of the virtual router that is acting as a service provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html#cfn-appmesh-virtualservice-virtualrouterserviceprovider-virtualroutername
+	//
 	VirtualRouterName *string `field:"required" json:"virtualRouterName" yaml:"virtualRouterName"`
 }
 

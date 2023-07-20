@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetNameParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetVideoContentSourceUrlParameters(val *string) error {
 	return nil
 }

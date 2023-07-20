@@ -21,12 +21,20 @@ package awslightsail
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html
+//
 type CfnContainer_PublicEndpointProperty struct {
 	// The name of the container entry of the deployment that the endpoint configuration applies to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-containername
+	//
 	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The port of the specified container to which traffic is forwarded to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-containerport
+	//
 	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
 	// An object that describes the health check configuration of the container.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-healthcheckconfig
+	//
 	HealthCheckConfig interface{} `field:"optional" json:"healthCheckConfig" yaml:"healthCheckConfig"`
 }
 

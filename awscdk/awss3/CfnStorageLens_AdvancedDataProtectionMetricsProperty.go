@@ -16,8 +16,12 @@ package awss3
 //   	IsEnabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advanceddataprotectionmetrics.html
+//
 type CfnStorageLens_AdvancedDataProtectionMetricsProperty struct {
 	// Indicates whether advanced data protection metrics are enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advanceddataprotectionmetrics.html#cfn-s3-storagelens-advanceddataprotectionmetrics-isenabled
+	//
 	IsEnabled interface{} `field:"optional" json:"isEnabled" yaml:"isEnabled"`
 }
 

@@ -15,8 +15,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visiblerangeoptions.html
+//
 type CfnDashboard_VisibleRangeOptionsProperty struct {
 	// The percent range in the visible range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visiblerangeoptions.html#cfn-quicksight-dashboard-visiblerangeoptions-percentrange
+	//
 	PercentRange interface{} `field:"optional" json:"percentRange" yaml:"percentRange"`
 }
 

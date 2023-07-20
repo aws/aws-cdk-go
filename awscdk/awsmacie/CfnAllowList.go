@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Macie::AllowList`.
+// The `AWS::Macie::AllowList` resource specifies an allow list.
 //
-// The `AWS::Macie::AllowList` resource specifies an allow list. In Amazon Macie , an allow list defines specific text or a text pattern for Macie to ignore when it inspects data sources for sensitive data. If data matches text or a text pattern in an allow list, Macie doesn’t report the data in sensitive data findings or sensitive data discovery results, even if the data matches the criteria of a custom data identifier or a managed data identifier. You can create and use allow lists in all the AWS Regions where Macie is currently available except the Asia Pacific (Osaka) Region.
+// In Amazon Macie , an allow list defines specific text or a text pattern for Macie to ignore when it inspects data sources for sensitive data. If data matches text or a text pattern in an allow list, Macie doesn’t report the data in sensitive data findings or sensitive data discovery results, even if the data matches the criteria of a custom data identifier or a managed data identifier. You can create and use allow lists in all the AWS Regions where Macie is currently available except the Asia Pacific (Osaka) Region.
 //
 // Macie supports two types of allow lists:
 //
@@ -51,9 +51,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-allowlist.html
+//
 type CfnAllowList interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the allow list.
 	AttrArn() *string
 	// The unique identifier for the allow list.
@@ -83,13 +86,9 @@ type CfnAllowList interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The criteria that specify the text or text pattern to ignore.
-	//
-	// The criteria can be the location and name of an Amazon S3 object that lists specific text to ignore ( `S3WordsList` ), or a regular expression ( `Regex` ) that defines a text pattern to ignore.
 	Criteria() interface{}
 	SetCriteria(val interface{})
 	// A custom description of the allow list.
-	//
-	// The description can contain 1-512 characters.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -103,8 +102,6 @@ type CfnAllowList interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A custom name for the allow list.
-	//
-	// The name can contain 1-128 characters.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -118,10 +115,11 @@ type CfnAllowList interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to the allow list.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to the allow list.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -266,6 +264,7 @@ type CfnAllowList interface {
 type jsiiProxy_CfnAllowList struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAllowList) AttrArn() *string {
@@ -418,6 +417,16 @@ func (j *jsiiProxy_CfnAllowList) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAllowList) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAllowList) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -439,7 +448,6 @@ func (j *jsiiProxy_CfnAllowList) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Macie::AllowList`.
 func NewCfnAllowList(scope constructs.Construct, id *string, props *CfnAllowListProps) CfnAllowList {
 	_init_.Initialize()
 
@@ -457,7 +465,6 @@ func NewCfnAllowList(scope constructs.Construct, id *string, props *CfnAllowList
 	return &j
 }
 
-// Create a new `AWS::Macie::AllowList`.
 func NewCfnAllowList_Override(c CfnAllowList, scope constructs.Construct, id *string, props *CfnAllowListProps) {
 	_init_.Initialize()
 
@@ -494,6 +501,17 @@ func (j *jsiiProxy_CfnAllowList)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAllowList)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

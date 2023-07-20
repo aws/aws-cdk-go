@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnOptionGroup) validateSetOptionGroupDescriptionParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnOptionGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnOptionGroupParameters(scope constructs.Construct, id *string, props *CfnOptionGroupProps) error {
 	return nil
 }

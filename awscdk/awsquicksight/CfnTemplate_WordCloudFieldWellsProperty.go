@@ -509,8 +509,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-wordcloudfieldwells.html
+//
 type CfnTemplate_WordCloudFieldWellsProperty struct {
 	// The aggregated field wells of a word cloud.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-wordcloudfieldwells.html#cfn-quicksight-template-wordcloudfieldwells-wordcloudaggregatedfieldwells
+	//
 	WordCloudAggregatedFieldWells interface{} `field:"optional" json:"wordCloudAggregatedFieldWells" yaml:"wordCloudAggregatedFieldWells"`
 }
 

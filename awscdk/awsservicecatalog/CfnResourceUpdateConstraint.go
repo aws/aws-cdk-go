@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::ResourceUpdateConstraint`.
-//
 // Specifies a `RESOURCE_UPDATE` constraint.
 //
 // Example:
@@ -28,15 +26,15 @@ import (
 //   	Description: jsii.String("description"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html
+//
 type CfnResourceUpdateConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -77,8 +75,6 @@ type CfnResourceUpdateConstraint interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// If set to `ALLOWED` , lets users change tags in a [CloudFormationProvisionedProduct](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html) resource.
-	//
-	// If set to `NOT_ALLOWED` , prevents users from changing tags in a [CloudFormationProvisionedProduct](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html) resource.
 	TagUpdateOnProvisionedProduct() *string
 	SetTagUpdateOnProvisionedProduct(val *string)
 	// Deprecated.
@@ -237,6 +233,16 @@ func (j *jsiiProxy_CfnResourceUpdateConstraint) AcceptLanguage() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceUpdateConstraint) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceUpdateConstraint) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -378,7 +384,6 @@ func (j *jsiiProxy_CfnResourceUpdateConstraint) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::ServiceCatalog::ResourceUpdateConstraint`.
 func NewCfnResourceUpdateConstraint(scope constructs.Construct, id *string, props *CfnResourceUpdateConstraintProps) CfnResourceUpdateConstraint {
 	_init_.Initialize()
 
@@ -396,7 +401,6 @@ func NewCfnResourceUpdateConstraint(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::ResourceUpdateConstraint`.
 func NewCfnResourceUpdateConstraint_Override(c CfnResourceUpdateConstraint, scope constructs.Construct, id *string, props *CfnResourceUpdateConstraintProps) {
 	_init_.Initialize()
 

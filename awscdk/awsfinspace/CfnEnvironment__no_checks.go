@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnEnvironment) validateSetSuperuserParametersParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnvironment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEnvironmentParameters(scope constructs.Construct, id *string, props *CfnEnvironmentProps) error {
 	return nil
 }

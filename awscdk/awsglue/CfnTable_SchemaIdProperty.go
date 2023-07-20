@@ -17,17 +17,25 @@ package awsglue
 //   	SchemaName: jsii.String("schemaName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html
+//
 type CfnTable_SchemaIdProperty struct {
 	// The name of the schema registry that contains the schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+	//
 	RegistryName *string `field:"optional" json:"registryName" yaml:"registryName"`
 	// The Amazon Resource Name (ARN) of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be
 	// provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+	//
 	SchemaArn *string `field:"optional" json:"schemaArn" yaml:"schemaArn"`
 	// The name of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+	//
 	SchemaName *string `field:"optional" json:"schemaName" yaml:"schemaName"`
 }
 

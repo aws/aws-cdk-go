@@ -50,6 +50,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsguru.CfnLogAnomalyDetectionIntegrationProps",
+		reflect.TypeOf((*CfnLogAnomalyDetectionIntegrationProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_devopsguru.CfnNotificationChannel",
 		reflect.TypeOf((*CfnNotificationChannel)(nil)).Elem(),

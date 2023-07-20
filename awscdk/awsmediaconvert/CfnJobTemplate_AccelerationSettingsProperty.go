@@ -14,8 +14,12 @@ package awsmediaconvert
 //   	Mode: jsii.String("mode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-accelerationsettings.html
+//
 type CfnJobTemplate_AccelerationSettingsProperty struct {
 	// Specify the conditions when the service will run your job with accelerated transcoding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-accelerationsettings.html#cfn-mediaconvert-jobtemplate-accelerationsettings-mode
+	//
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
 }
 

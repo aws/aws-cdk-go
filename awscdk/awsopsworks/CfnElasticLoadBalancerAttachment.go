@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpsWorks::ElasticLoadBalancerAttachment`.
-//
 // Attaches an Elastic Load Balancing load balancer to an AWS OpsWorks layer that you specify.
 //
 // Example:
@@ -23,9 +21,12 @@ import (
 //   	LayerId: jsii.String("layerId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elasticloadbalancerattachment.html
+//
 type CfnElasticLoadBalancerAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -208,6 +209,16 @@ type jsiiProxy_CfnElasticLoadBalancerAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -329,7 +340,6 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) UpdatedProperties() *map[st
 }
 
 
-// Create a new `AWS::OpsWorks::ElasticLoadBalancerAttachment`.
 func NewCfnElasticLoadBalancerAttachment(scope constructs.Construct, id *string, props *CfnElasticLoadBalancerAttachmentProps) CfnElasticLoadBalancerAttachment {
 	_init_.Initialize()
 
@@ -347,7 +357,6 @@ func NewCfnElasticLoadBalancerAttachment(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Create a new `AWS::OpsWorks::ElasticLoadBalancerAttachment`.
 func NewCfnElasticLoadBalancerAttachment_Override(c CfnElasticLoadBalancerAttachment, scope constructs.Construct, id *string, props *CfnElasticLoadBalancerAttachmentProps) {
 	_init_.Initialize()
 

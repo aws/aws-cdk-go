@@ -14,6 +14,8 @@ package awsappsync
 //   	MergeType: jsii.String("mergeType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-sourceapiassociation-sourceapiassociationconfig.html
+//
 type CfnSourceApiAssociation_SourceApiAssociationConfigProperty struct {
 	// The property that indicates which merging option is enabled in the source API association.
 	//
@@ -22,6 +24,8 @@ type CfnSourceApiAssociation_SourceApiAssociationConfigProperty struct {
 	// The following values are valid:
 	//
 	// `MANUAL_MERGE | AUTO_MERGE`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-sourceapiassociation-sourceapiassociationconfig.html#cfn-appsync-sourceapiassociation-sourceapiassociationconfig-mergetype
+	//
 	MergeType *string `field:"optional" json:"mergeType" yaml:"mergeType"`
 }
 

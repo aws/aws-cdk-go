@@ -29,28 +29,40 @@ import (
 //   	VpcEndpointId: jsii.String("vpcEndpointId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html
+//
 type CfnAgentProps struct {
 	// Specifies your DataSync agent's activation key.
 	//
 	// If you don't have an activation key, see [Activate your agent](https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
+	//
 	ActivationKey *string `field:"optional" json:"activationKey" yaml:"activationKey"`
 	// Specifies a name for your agent.
 	//
 	// You can see this name in the DataSync console.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
+	//
 	AgentName *string `field:"optional" json:"agentName" yaml:"agentName"`
 	// The Amazon Resource Names (ARNs) of the security groups used to protect your data transfer task subnets.
 	//
 	// See [SecurityGroupArns](https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns) .
 	//
 	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
+	//
 	SecurityGroupArns *[]*string `field:"optional" json:"securityGroupArns" yaml:"securityGroupArns"`
 	// Specifies the ARN of the subnet where you want to run your DataSync task when using a VPC endpoint.
 	//
 	// This is the subnet where DataSync creates and manages the [network interfaces](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces) for your transfer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
+	//
 	SubnetArns *[]*string `field:"optional" json:"subnetArns" yaml:"subnetArns"`
 	// Specifies labels that help you categorize, filter, and search for your AWS resources.
 	//
 	// We recommend creating at least one tag for your agent.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ID of the virtual private cloud (VPC) endpoint that the agent has access to.
 	//
@@ -59,6 +71,8 @@ type CfnAgentProps struct {
 	// For more information about activating your agent in a private network based on a VPC, see [Using AWS DataSync in a Virtual Private Cloud](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-in-vpc.html) in the *AWS DataSync User Guide.*
 	//
 	// A VPC endpoint ID looks like this: `vpce-01234d5aff67890e1` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+	//
 	VpcEndpointId *string `field:"optional" json:"vpcEndpointId" yaml:"vpcEndpointId"`
 }
 

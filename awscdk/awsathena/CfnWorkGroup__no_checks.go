@@ -88,7 +88,15 @@ func (j *jsiiProxy_CfnWorkGroup) validateSetRecursiveDeleteOptionParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkGroup) validateSetWorkGroupConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnWorkGroup) validateSetWorkGroupConfigurationUpdatesParameters(val interface{}) error {
 	return nil
 }
 

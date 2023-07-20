@@ -14,6 +14,8 @@ package awsverifiedpermissions
 //   	Mode: jsii.String("mode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-validationsettings.html
+//
 type CfnPolicyStore_ValidationSettingsProperty struct {
 	// The validation mode currently configured for this policy store. The valid values are:.
 	//
@@ -23,6 +25,8 @@ type CfnPolicyStore_ValidationSettingsProperty struct {
 	// > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
 	// >
 	// > To submit a static policy or policy template without a schema, you must turn off validation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-validationsettings.html#cfn-verifiedpermissions-policystore-validationsettings-mode
+	//
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
 }
 

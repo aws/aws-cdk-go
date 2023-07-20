@@ -17,12 +17,18 @@ package awselasticache
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authenticationmode.html
+//
 type CfnUser_AuthenticationModeProperty struct {
 	// Specifies the authentication type.
 	//
 	// Possible options are IAM authentication, password and no password.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authenticationmode.html#cfn-elasticache-user-authenticationmode-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Specifies the passwords to use for authentication if `Type` is set to `password` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authenticationmode.html#cfn-elasticache-user-authenticationmode-passwords
+	//
 	Passwords *[]*string `field:"optional" json:"passwords" yaml:"passwords"`
 }
 

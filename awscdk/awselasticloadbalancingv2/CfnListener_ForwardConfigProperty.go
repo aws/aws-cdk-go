@@ -23,10 +23,16 @@ package awselasticloadbalancingv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html
+//
 type CfnListener_ForwardConfigProperty struct {
 	// Information about how traffic will be distributed between multiple target groups in a forward rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups
+	//
 	TargetGroups interface{} `field:"optional" json:"targetGroups" yaml:"targetGroups"`
 	// Information about the target group stickiness for a rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroupstickinessconfig
+	//
 	TargetGroupStickinessConfig interface{} `field:"optional" json:"targetGroupStickinessConfig" yaml:"targetGroupStickinessConfig"`
 }
 

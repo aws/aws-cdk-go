@@ -27,10 +27,16 @@ package awselasticbeanstalk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html
+//
 type CfnApplication_ApplicationVersionLifecycleConfigProperty struct {
 	// Specify a max age rule to restrict the length of time that application versions are retained for an application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html#cfn-elasticbeanstalk-application-applicationversionlifecycleconfig-maxagerule
+	//
 	MaxAgeRule interface{} `field:"optional" json:"maxAgeRule" yaml:"maxAgeRule"`
 	// Specify a max count rule to restrict the number of application versions that are retained for an application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html#cfn-elasticbeanstalk-application-applicationversionlifecycleconfig-maxcountrule
+	//
 	MaxCountRule interface{} `field:"optional" json:"maxCountRule" yaml:"maxCountRule"`
 }
 

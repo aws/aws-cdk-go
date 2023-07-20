@@ -35,18 +35,28 @@ package awsquicksight
 //   	RelativeDateValue: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html
+//
 type CfnDashboard_RelativeDatesFilterProperty struct {
 	// The date configuration of the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-anchordateconfiguration
+	//
 	AnchorDateConfiguration interface{} `field:"required" json:"anchorDateConfiguration" yaml:"anchorDateConfiguration"`
 	// The column that the filter is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-filterid
+	//
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
 	// This option determines how null values should be treated when filtering data.
 	//
 	// - `ALL_VALUES` : Include null values in filtered results.
 	// - `NULLS_ONLY` : Only include null values in filtered results.
 	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-nulloption
+	//
 	NullOption *string `field:"required" json:"nullOption" yaml:"nullOption"`
 	// The range date type of the filter. Choose one of the options below:.
 	//
@@ -55,16 +65,28 @@ type CfnDashboard_RelativeDatesFilterProperty struct {
 	// - `LAST`
 	// - `NOW`
 	// - `NEXT`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-relativedatetype
+	//
 	RelativeDateType *string `field:"required" json:"relativeDateType" yaml:"relativeDateType"`
 	// The level of time precision that is used to aggregate `DateTime` values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-timegranularity
+	//
 	TimeGranularity *string `field:"required" json:"timeGranularity" yaml:"timeGranularity"`
 	// The configuration for the exclude period of the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-excludeperiodconfiguration
+	//
 	ExcludePeriodConfiguration interface{} `field:"optional" json:"excludePeriodConfiguration" yaml:"excludePeriodConfiguration"`
 	// The minimum granularity (period granularity) of the relative dates filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-minimumgranularity
+	//
 	MinimumGranularity *string `field:"optional" json:"minimumGranularity" yaml:"minimumGranularity"`
 	// The parameter whose value should be used for the filter value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-parametername
+	//
 	ParameterName *string `field:"optional" json:"parameterName" yaml:"parameterName"`
 	// The date value of the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatesfilter.html#cfn-quicksight-dashboard-relativedatesfilter-relativedatevalue
+	//
 	RelativeDateValue *float64 `field:"optional" json:"relativeDateValue" yaml:"relativeDateValue"`
 }
 

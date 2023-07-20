@@ -45,14 +45,22 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html
+//
 type CfnBot_DialogStateProperty struct {
 	// Defines the action that the bot executes at runtime when the conversation reaches this step.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html#cfn-lex-bot-dialogstate-dialogaction
+	//
 	DialogAction interface{} `field:"optional" json:"dialogAction" yaml:"dialogAction"`
 	// Override settings to configure the intent state.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html#cfn-lex-bot-dialogstate-intent
+	//
 	Intent interface{} `field:"optional" json:"intent" yaml:"intent"`
 	// Map of key/value pairs representing session-specific context information.
 	//
 	// It contains application information passed between Amazon Lex and a client application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html#cfn-lex-bot-dialogstate-sessionattributes
+	//
 	SessionAttributes interface{} `field:"optional" json:"sessionAttributes" yaml:"sessionAttributes"`
 }
 

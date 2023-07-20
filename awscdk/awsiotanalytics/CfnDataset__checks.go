@@ -386,6 +386,16 @@ func (j *jsiiProxy_CfnDataset) validateSetRetentionPeriodParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataset) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataset) validateSetTriggersParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

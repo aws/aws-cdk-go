@@ -91,14 +91,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericalmeasurefield.html
+//
 type CfnDashboard_NumericalMeasureFieldProperty struct {
 	// The column that is used in the `NumericalMeasureField` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericalmeasurefield.html#cfn-quicksight-dashboard-numericalmeasurefield-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// The custom field ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericalmeasurefield.html#cfn-quicksight-dashboard-numericalmeasurefield-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The aggregation function of the measure field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericalmeasurefield.html#cfn-quicksight-dashboard-numericalmeasurefield-aggregationfunction
+	//
 	AggregationFunction interface{} `field:"optional" json:"aggregationFunction" yaml:"aggregationFunction"`
 	// The format configuration of the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericalmeasurefield.html#cfn-quicksight-dashboard-numericalmeasurefield-formatconfiguration
+	//
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
 }
 

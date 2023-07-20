@@ -16,12 +16,20 @@ package awsiotanalytics
 //   	Next: jsii.String("next"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html
+//
 type CfnPipeline_ChannelProperty struct {
 	// The name of the channel from which the messages are processed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-channelname
+	//
 	ChannelName *string `field:"required" json:"channelName" yaml:"channelName"`
 	// The name of the 'channel' activity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The next activity in the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-next
+	//
 	Next *string `field:"optional" json:"next" yaml:"next"`
 }
 

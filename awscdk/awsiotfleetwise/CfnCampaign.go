@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTFleetWise::Campaign`.
+// Creates an orchestration of data collection rules.
 //
-// Creates an orchestration of data collection rules. The AWS IoT FleetWise Edge Agent software running in vehicles uses campaigns to decide how to collect and transfer data to the cloud. You create campaigns in the cloud. After you or your team approve campaigns, AWS IoT FleetWise automatically deploys them to vehicles.
+// The AWS IoT FleetWise Edge Agent software running in vehicles uses campaigns to decide how to collect and transfer data to the cloud. You create campaigns in the cloud. After you or your team approve campaigns, AWS IoT FleetWise automatically deploys them to vehicles.
 //
 // For more information, see [Collect and transfer data with campaigns](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html) in the *AWS IoT FleetWise Developer Guide* .
 //
@@ -84,15 +84,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html
+//
 type CfnCampaign interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Specifies how to update a campaign. The action can be one of the following:.
+	awscdk.ITaggable
+	// Specifies how to update a campaign.
 	//
-	// - `APPROVE` - To approve delivering a data collection scheme to vehicles.
-	// - `SUSPEND` - To suspend collecting signal data. The campaign is deleted from vehicles and all vehicles in the suspended campaign will stop sending data.
-	// - `RESUME` - To reactivate the `SUSPEND` campaign. The campaign is redeployed to all vehicles and the vehicles will resume sending data.
-	// - `UPDATE` - To update a campaign.
+	// The action can be one of the following:.
 	Action() *string
 	SetAction(val *string)
 	// The Amazon Resource Name (ARN) of the campaign.
@@ -111,15 +111,9 @@ type CfnCampaign interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The data collection scheme associated with the campaign.
-	//
-	// You can specify a scheme that collects data based on time or an event.
 	CollectionScheme() interface{}
 	SetCollectionScheme(val interface{})
 	// (Optional) Whether to compress signals before transmitting data to AWS IoT FleetWise .
-	//
-	// If you don't want to compress the signals, use `OFF` . If it's not specified, `SNAPPY` is used.
-	//
-	// Default: `SNAPPY`.
 	Compression() *string
 	SetCompression(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -127,36 +121,18 @@ type CfnCampaign interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// (Optional) The destination where the campaign sends data.
-	//
-	// You can choose to send data to be stored in Amazon S3 or Amazon Timestream .
-	//
-	// Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. AWS IoT FleetWise supports at-least-once file delivery to S3. Your vehicle data is stored on multiple AWS IoT FleetWise servers for redundancy and high availability.
-	//
-	// You can use Amazon Timestream to access and analyze time series data, and Timestream to query vehicle data so that you can identify trends and patterns.
 	DataDestinationConfigs() interface{}
 	SetDataDestinationConfigs(val interface{})
 	// (Optional) A list of vehicle attributes to associate with a campaign.
-	//
-	// Enrich the data with specified vehicle attributes. For example, add `make` and `model` to the campaign, and AWS IoT FleetWise will associate the data with those attributes as dimensions in Amazon Timestream . You can then query the data against `make` and `model` .
-	//
-	// Default: An empty array.
 	DataExtraDimensions() *[]*string
 	SetDataExtraDimensions(val *[]*string)
 	// (Optional) The description of the campaign.
 	Description() *string
 	SetDescription(val *string)
 	// (Optional) Option for a vehicle to send diagnostic trouble codes to AWS IoT FleetWise .
-	//
-	// If you want to send diagnostic trouble codes, use `SEND_ACTIVE_DTCS` . If it's not specified, `OFF` is used.
-	//
-	// Default: `OFF`.
 	DiagnosticsMode() *string
 	SetDiagnosticsMode(val *string)
 	// (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight UTC time).
-	//
-	// Vehicle data isn't collected after the campaign expires.
-	//
-	// Default: 253402214400 (December 31, 9999, 00:00:00 UTC).
 	ExpiryTime() *string
 	SetExpiryTime(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -175,17 +151,9 @@ type CfnCampaign interface {
 	// The tree node.
 	Node() constructs.Node
 	// (Optional) How long (in milliseconds) to collect raw data after a triggering event initiates the collection.
-	//
-	// If it's not specified, `0` is used.
-	//
-	// Default: `0`.
 	PostTriggerCollectionDuration() *float64
 	SetPostTriggerCollectionDuration(val *float64)
 	// (Optional) A number indicating the priority of one campaign over another campaign for a certain vehicle or fleet.
-	//
-	// A campaign with the lowest value is deployed to vehicles before any other campaigns. If it's not specified, `0` is used.
-	//
-	// Default: `0`.
 	Priority() *float64
 	SetPriority(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -200,10 +168,6 @@ type CfnCampaign interface {
 	SignalsToCollect() interface{}
 	SetSignalsToCollect(val interface{})
 	// (Optional) Whether to store collected data after a vehicle lost a connection with the cloud.
-	//
-	// After a connection is re-established, the data is automatically forwarded to AWS IoT FleetWise . If you want to store collected data when a vehicle loses connection with the cloud, use `TO_DISK` . If it's not specified, `OFF` is used.
-	//
-	// Default: `OFF`.
 	SpoolingMode() *string
 	SetSpoolingMode(val *string)
 	// The stack in which this element is defined.
@@ -211,14 +175,13 @@ type CfnCampaign interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// (Optional) The time, in milliseconds, to deliver a campaign after it was approved.
-	//
-	// If it's not specified, `0` is used.
-	//
-	// Default: `0`.
 	StartTime() *string
 	SetStartTime(val *string)
-	// (Optional) Metadata that can be used to manage the campaign.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// (Optional) Metadata that can be used to manage the campaign.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The Amazon Resource Name (ARN) of a vehicle or fleet to which the campaign is deployed.
 	TargetArn() *string
 	SetTargetArn(val *string)
@@ -366,6 +329,7 @@ type CfnCampaign interface {
 type jsiiProxy_CfnCampaign struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCampaign) Action() *string {
@@ -648,6 +612,16 @@ func (j *jsiiProxy_CfnCampaign) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCampaign) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCampaign) TargetArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -679,7 +653,6 @@ func (j *jsiiProxy_CfnCampaign) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTFleetWise::Campaign`.
 func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignProps) CfnCampaign {
 	_init_.Initialize()
 
@@ -697,7 +670,6 @@ func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignPr
 	return &j
 }
 
-// Create a new `AWS::IoTFleetWise::Campaign`.
 func NewCfnCampaign_Override(c CfnCampaign, scope constructs.Construct, id *string, props *CfnCampaignProps) {
 	_init_.Initialize()
 
@@ -842,6 +814,17 @@ func (j *jsiiProxy_CfnCampaign)SetStartTime(val *string) {
 	_jsii_.Set(
 		j,
 		"startTime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCampaign)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

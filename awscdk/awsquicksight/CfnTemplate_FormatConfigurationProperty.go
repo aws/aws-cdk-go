@@ -219,12 +219,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-formatconfiguration.html
+//
 type CfnTemplate_FormatConfigurationProperty struct {
 	// Formatting configuration for `DateTime` fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-formatconfiguration.html#cfn-quicksight-template-formatconfiguration-datetimeformatconfiguration
+	//
 	DateTimeFormatConfiguration interface{} `field:"optional" json:"dateTimeFormatConfiguration" yaml:"dateTimeFormatConfiguration"`
 	// Formatting configuration for number fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-formatconfiguration.html#cfn-quicksight-template-formatconfiguration-numberformatconfiguration
+	//
 	NumberFormatConfiguration interface{} `field:"optional" json:"numberFormatConfiguration" yaml:"numberFormatConfiguration"`
 	// Formatting configuration for string fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-formatconfiguration.html#cfn-quicksight-template-formatconfiguration-stringformatconfiguration
+	//
 	StringFormatConfiguration interface{} `field:"optional" json:"stringFormatConfiguration" yaml:"stringFormatConfiguration"`
 }
 

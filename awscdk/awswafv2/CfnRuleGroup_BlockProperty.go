@@ -1,6 +1,8 @@
 package awswafv2
 
 
+// Block traffic towards application.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,8 +23,12 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-block.html
+//
 type CfnRuleGroup_BlockProperty struct {
-	// `CfnRuleGroup.BlockProperty.CustomResponse`.
+	// Custom response.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-block.html#cfn-wafv2-rulegroup-block-customresponse
+	//
 	CustomResponse interface{} `field:"optional" json:"customResponse" yaml:"customResponse"`
 }
 

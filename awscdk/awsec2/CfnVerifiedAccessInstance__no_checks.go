@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance) validateSetLoggingConfigurationsPa
 	return nil
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessInstance) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessInstance) validateSetVerifiedAccessTrustProvidersParameters(val interface{}) error {
 	return nil
 }

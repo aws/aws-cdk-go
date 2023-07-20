@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CleanRooms::ConfiguredTableAssociation`.
+// Creates a configured table association.
 //
-// Creates a configured table association. A configured table association links a configured table with a collaboration.
+// A configured table association links a configured table with a collaboration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,6 +34,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html
+//
 type CfnConfiguredTableAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -51,8 +53,6 @@ type CfnConfiguredTableAssociation interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A unique identifier for the configured table to be associated to.
-	//
-	// Currently accepts a configured table ID.
 	ConfiguredTableIdentifier() *string
 	SetConfiguredTableIdentifier(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -76,8 +76,6 @@ type CfnConfiguredTableAssociation interface {
 	MembershipIdentifier() *string
 	SetMembershipIdentifier(val *string)
 	// The name of the configured table association, in lowercase.
-	//
-	// The table is identified by this name when running protected queries against the underlying data.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -95,9 +93,8 @@ type CfnConfiguredTableAssociation interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An optional label that you can assign to a resource when you create it.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -394,8 +391,8 @@ func (j *jsiiProxy_CfnConfiguredTableAssociation) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguredTableAssociation) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnConfiguredTableAssociation) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -425,7 +422,6 @@ func (j *jsiiProxy_CfnConfiguredTableAssociation) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::CleanRooms::ConfiguredTableAssociation`.
 func NewCfnConfiguredTableAssociation(scope constructs.Construct, id *string, props *CfnConfiguredTableAssociationProps) CfnConfiguredTableAssociation {
 	_init_.Initialize()
 
@@ -443,7 +439,6 @@ func NewCfnConfiguredTableAssociation(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::CleanRooms::ConfiguredTableAssociation`.
 func NewCfnConfiguredTableAssociation_Override(c CfnConfiguredTableAssociation, scope constructs.Construct, id *string, props *CfnConfiguredTableAssociationProps) {
 	_init_.Initialize()
 
@@ -502,6 +497,17 @@ func (j *jsiiProxy_CfnConfiguredTableAssociation)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfiguredTableAssociation)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

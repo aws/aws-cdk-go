@@ -12,8 +12,12 @@ package awsec2
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html
+//
 type CfnSpotFleet_TargetGroupProperty struct {
 	// The Amazon Resource Name (ARN) of the target group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html#cfn-ec2-spotfleet-targetgroup-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 

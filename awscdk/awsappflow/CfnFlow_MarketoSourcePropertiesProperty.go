@@ -12,8 +12,12 @@ package awsappflow
 //   	Object: jsii.String("object"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html
+//
 type CfnFlow_MarketoSourcePropertiesProperty struct {
 	// The object specified in the Marketo flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html#cfn-appflow-flow-marketosourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 }
 

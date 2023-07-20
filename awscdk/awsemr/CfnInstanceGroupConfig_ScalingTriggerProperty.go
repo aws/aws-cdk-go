@@ -31,10 +31,14 @@ package awsemr
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-scalingtrigger.html
+//
 type CfnInstanceGroupConfig_ScalingTriggerProperty struct {
 	// The definition of a CloudWatch metric alarm.
 	//
 	// When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-scalingtrigger.html#cfn-emr-instancegroupconfig-scalingtrigger-cloudwatchalarmdefinition
+	//
 	CloudWatchAlarmDefinition interface{} `field:"required" json:"cloudWatchAlarmDefinition" yaml:"cloudWatchAlarmDefinition"`
 }
 

@@ -27,18 +27,26 @@ package awsgreengrass
 //   	Tags: tags,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html
+//
 type CfnGroupProps struct {
 	// The name of the group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The group version to include when the group is created.
 	//
 	// A group version references the Amazon Resource Name (ARN) of a core definition version, device definition version, subscription definition version, and other version types. The group version must reference a core definition version that contains one core. Other version types are optionally included, depending on your business need.
 	//
 	// > To associate a group version after the group is created, create an [`AWS::Greengrass::GroupVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html) resource and specify the ID of this group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-initialversion
+	//
 	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// The Amazon Resource Name (ARN) of the IAM role attached to the group.
 	//
 	// This role contains the permissions that Lambda functions and connectors use to interact with other AWS services.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Application-specific metadata to attach to the group.
 	//
@@ -50,6 +58,8 @@ type CfnGroupProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-tags
+	//
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 

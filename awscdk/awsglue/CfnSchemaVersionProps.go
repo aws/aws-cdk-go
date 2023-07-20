@@ -17,10 +17,16 @@ package awsglue
 //   	SchemaDefinition: jsii.String("schemaDefinition"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+//
 type CfnSchemaVersionProps struct {
 	// The schema that includes the schema version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
+	//
 	Schema interface{} `field:"required" json:"schema" yaml:"schema"`
 	// The schema definition for the schema version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+	//
 	SchemaDefinition *string `field:"required" json:"schemaDefinition" yaml:"schemaDefinition"`
 }
 

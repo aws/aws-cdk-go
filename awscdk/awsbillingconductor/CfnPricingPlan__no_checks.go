@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnPricingPlan) validateSetNameParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnPricingPlan) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPricingPlanParameters(scope constructs.Construct, id *string, props *CfnPricingPlanProps) error {
 	return nil
 }

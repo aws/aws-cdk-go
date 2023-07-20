@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EMR::SecurityConfiguration`.
-//
 // Use a `SecurityConfiguration` resource to configure data encryption, Kerberos authentication (available in Amazon EMR release version 5.10.0 and later), and Amazon S3 authorization for EMRFS (available in EMR 5.10.0 and later). You can re-use a security configuration for any number of clusters in your account. For more information and example security configuration JSON objects, see [Create a Security Configuration](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-create-security-configuration.html) in the *Amazon EMR Management Guide* .
 //
 // Example:
@@ -26,6 +24,8 @@ import (
 //   	// the properties below are optional
 //   	Name: jsii.String("name"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html
 //
 type CfnSecurityConfiguration interface {
 	awscdk.CfnResource
@@ -333,7 +333,6 @@ func (j *jsiiProxy_CfnSecurityConfiguration) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::EMR::SecurityConfiguration`.
 func NewCfnSecurityConfiguration(scope constructs.Construct, id *string, props *CfnSecurityConfigurationProps) CfnSecurityConfiguration {
 	_init_.Initialize()
 
@@ -351,7 +350,6 @@ func NewCfnSecurityConfiguration(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::EMR::SecurityConfiguration`.
 func NewCfnSecurityConfiguration_Override(c CfnSecurityConfiguration, scope constructs.Construct, id *string, props *CfnSecurityConfigurationProps) {
 	_init_.Initialize()
 

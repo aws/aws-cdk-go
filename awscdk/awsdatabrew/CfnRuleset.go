@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataBrew::Ruleset`.
-//
 // Specifies a new ruleset that can be used in a profile job to validate the data quality of a dataset.
 //
 // Example:
@@ -60,9 +58,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html
+//
 type CfnRuleset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -102,10 +103,11 @@ type CfnRuleset interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is associated with.
 	TargetArn() *string
 	SetTargetArn(val *string)
@@ -253,6 +255,7 @@ type CfnRuleset interface {
 type jsiiProxy_CfnRuleset struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRuleset) CfnOptions() awscdk.ICfnResourceOptions {
@@ -375,6 +378,16 @@ func (j *jsiiProxy_CfnRuleset) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuleset) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuleset) TargetArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -406,7 +419,6 @@ func (j *jsiiProxy_CfnRuleset) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DataBrew::Ruleset`.
 func NewCfnRuleset(scope constructs.Construct, id *string, props *CfnRulesetProps) CfnRuleset {
 	_init_.Initialize()
 
@@ -424,7 +436,6 @@ func NewCfnRuleset(scope constructs.Construct, id *string, props *CfnRulesetProp
 	return &j
 }
 
-// Create a new `AWS::DataBrew::Ruleset`.
 func NewCfnRuleset_Override(c CfnRuleset, scope constructs.Construct, id *string, props *CfnRulesetProps) {
 	_init_.Initialize()
 
@@ -461,6 +472,17 @@ func (j *jsiiProxy_CfnRuleset)SetRules(val interface{}) {
 	_jsii_.Set(
 		j,
 		"rules",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuleset)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

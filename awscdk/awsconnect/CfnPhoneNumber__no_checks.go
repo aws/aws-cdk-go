@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnPhoneNumber) validateSetCountryCodeParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnPhoneNumber) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPhoneNumber) validateSetTargetArnParameters(val *string) error {
 	return nil
 }

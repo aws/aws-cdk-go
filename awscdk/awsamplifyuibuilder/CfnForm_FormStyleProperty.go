@@ -23,12 +23,20 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyle.html
+//
 type CfnForm_FormStyleProperty struct {
 	// The spacing for the horizontal gap.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyle.html#cfn-amplifyuibuilder-form-formstyle-horizontalgap
+	//
 	HorizontalGap interface{} `field:"optional" json:"horizontalGap" yaml:"horizontalGap"`
 	// The size of the outer padding for the form.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyle.html#cfn-amplifyuibuilder-form-formstyle-outerpadding
+	//
 	OuterPadding interface{} `field:"optional" json:"outerPadding" yaml:"outerPadding"`
 	// The spacing for the vertical gap.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyle.html#cfn-amplifyuibuilder-form-formstyle-verticalgap
+	//
 	VerticalGap interface{} `field:"optional" json:"verticalGap" yaml:"verticalGap"`
 }
 

@@ -19,14 +19,20 @@ package awsapigateway
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
+//
 type CfnRestApi_EndpointConfigurationProperty struct {
 	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName).
 	//
 	// For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types
+	//
 	Types *[]*string `field:"optional" json:"types" yaml:"types"`
 	// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes.
 	//
 	// It is only supported for `PRIVATE` endpoint type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids
+	//
 	VpcEndpointIds *[]*string `field:"optional" json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
 }
 

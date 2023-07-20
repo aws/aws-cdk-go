@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Oam::Sink`.
+// Creates or updates a *sink* in the current account, so that it can be used as a monitoring account in CloudWatch cross-account observability.
 //
-// Creates or updates a *sink* in the current account, so that it can be used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that represents an attachment point in a monitoring account, which source accounts can link to to be able to send observability data.
+// A sink is a resource that represents an attachment point in a monitoring account, which source accounts can link to to be able to send observability data.
 //
 // After you create a sink, you must create a sink policy that allows source accounts to attach to it. For more information, see [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html) .
 //
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-sink.html
+//
 type CfnSink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the sink.
 	//
 	// For example, `arn:aws:oam:us-west-1:111111111111:sink:abcd1234-a123-456a-a12b-a123b456c789`.
@@ -66,11 +69,6 @@ type CfnSink interface {
 	// The tree node.
 	Node() constructs.Node
 	// The IAM policy that grants permissions to source accounts to link to this sink.
-	//
-	// The policy can grant permission in the following ways:
-	//
-	// - Include organization IDs or organization paths to permit all accounts in an organization
-	// - Include account IDs to permit the specified accounts.
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -82,10 +80,11 @@ type CfnSink interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to the sink.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to the sink.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +229,7 @@ type CfnSink interface {
 type jsiiProxy_CfnSink struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSink) AttrArn() *string {
@@ -352,6 +352,16 @@ func (j *jsiiProxy_CfnSink) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSink) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSink) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -373,7 +383,6 @@ func (j *jsiiProxy_CfnSink) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Oam::Sink`.
 func NewCfnSink(scope constructs.Construct, id *string, props *CfnSinkProps) CfnSink {
 	_init_.Initialize()
 
@@ -391,7 +400,6 @@ func NewCfnSink(scope constructs.Construct, id *string, props *CfnSinkProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::Oam::Sink`.
 func NewCfnSink_Override(c CfnSink, scope constructs.Construct, id *string, props *CfnSinkProps) {
 	_init_.Initialize()
 
@@ -414,12 +422,17 @@ func (j *jsiiProxy_CfnSink)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnSink)SetPolicy(val interface{}) {
-	if err := j.validateSetPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"policy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSink)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

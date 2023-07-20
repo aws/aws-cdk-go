@@ -43,10 +43,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimehierarchy.html
+//
 type CfnAnalysis_DateTimeHierarchyProperty struct {
 	// The hierarchy ID of the `DateTime` hierarchy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimehierarchy.html#cfn-quicksight-analysis-datetimehierarchy-hierarchyid
+	//
 	HierarchyId *string `field:"required" json:"hierarchyId" yaml:"hierarchyId"`
 	// The option that determines the drill down filters for the `DateTime` hierarchy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimehierarchy.html#cfn-quicksight-analysis-datetimehierarchy-drilldownfilters
+	//
 	DrillDownFilters interface{} `field:"optional" json:"drillDownFilters" yaml:"drillDownFilters"`
 }
 

@@ -14,10 +14,14 @@ package awsmedialive
 //   	InputLossThresholdMsec: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html
+//
 type CfnChannel_InputLossFailoverSettingsProperty struct {
 	// The amount of time (in milliseconds) that no input is detected.
 	//
 	// After that time, an input failover will occur.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html#cfn-medialive-channel-inputlossfailoversettings-inputlossthresholdmsec
+	//
 	InputLossThresholdMsec *float64 `field:"optional" json:"inputLossThresholdMsec" yaml:"inputLossThresholdMsec"`
 }
 

@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetMssPackageParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnOriginEndpointParameters(scope constructs.Construct, id *string, props *CfnOriginEndpointProps) error {
 	return nil
 }

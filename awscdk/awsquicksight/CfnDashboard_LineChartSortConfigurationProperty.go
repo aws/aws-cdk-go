@@ -77,16 +77,28 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartsortconfiguration.html
+//
 type CfnDashboard_LineChartSortConfigurationProperty struct {
 	// The limit on the number of categories that are displayed in a line chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartsortconfiguration.html#cfn-quicksight-dashboard-linechartsortconfiguration-categoryitemslimitconfiguration
+	//
 	CategoryItemsLimitConfiguration interface{} `field:"optional" json:"categoryItemsLimitConfiguration" yaml:"categoryItemsLimitConfiguration"`
 	// The sort configuration of the category fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartsortconfiguration.html#cfn-quicksight-dashboard-linechartsortconfiguration-categorysort
+	//
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
 	// The limit on the number of lines that are displayed in a line chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartsortconfiguration.html#cfn-quicksight-dashboard-linechartsortconfiguration-coloritemslimitconfiguration
+	//
 	ColorItemsLimitConfiguration interface{} `field:"optional" json:"colorItemsLimitConfiguration" yaml:"colorItemsLimitConfiguration"`
 	// The limit on the number of small multiples panels that are displayed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartsortconfiguration.html#cfn-quicksight-dashboard-linechartsortconfiguration-smallmultipleslimitconfiguration
+	//
 	SmallMultiplesLimitConfiguration interface{} `field:"optional" json:"smallMultiplesLimitConfiguration" yaml:"smallMultiplesLimitConfiguration"`
 	// The sort configuration of the small multiples field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartsortconfiguration.html#cfn-quicksight-dashboard-linechartsortconfiguration-smallmultiplessort
+	//
 	SmallMultiplesSort interface{} `field:"optional" json:"smallMultiplesSort" yaml:"smallMultiplesSort"`
 }
 

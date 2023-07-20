@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeBuild::SourceCredential`.
+// Information about the credentials for a GitHub, GitHub Enterprise, or Bitbucket repository.
 //
-// Information about the credentials for a GitHub, GitHub Enterprise, or Bitbucket repository. We strongly recommend that you use AWS Secrets Manager to store your credentials. If you use Secrets Manager , you must have secrets in your secrets manager. For more information, see [Using Dynamic References to Specify Template Values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) .
+// We strongly recommend that you use AWS Secrets Manager to store your credentials. If you use Secrets Manager , you must have secrets in your secrets manager. For more information, see [Using Dynamic References to Specify Template Values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) .
 //
 // > For security purposes, do not use plain text in your AWS CloudFormation template to store your credentials.
 //
@@ -29,12 +29,13 @@ import (
 //   	Username: jsii.String("username"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html
+//
 type CfnSourceCredential interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The type of authentication used by the credentials.
-	//
-	// Valid options are OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
 	AuthType() *string
 	SetAuthType(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -64,8 +65,6 @@ type CfnSourceCredential interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The type of source provider.
-	//
-	// The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
 	ServerType() *string
 	SetServerType(val *string)
 	// The stack in which this element is defined.
@@ -73,8 +72,6 @@ type CfnSourceCredential interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// For GitHub or GitHub Enterprise, this is the personal access token.
-	//
-	// For Bitbucket, this is the app password.
 	Token() *string
 	SetToken(val *string)
 	// Deprecated.
@@ -91,8 +88,6 @@ type CfnSourceCredential interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The Bitbucket username when the `authType` is BASIC_AUTH.
-	//
-	// This parameter is not valid for other types of source providers or connections.
 	Username() *string
 	SetUsername(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -226,6 +221,16 @@ type CfnSourceCredential interface {
 type jsiiProxy_CfnSourceCredential struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnSourceCredential) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnSourceCredential) AuthType() *string {
@@ -369,7 +374,6 @@ func (j *jsiiProxy_CfnSourceCredential) Username() *string {
 }
 
 
-// Create a new `AWS::CodeBuild::SourceCredential`.
 func NewCfnSourceCredential(scope constructs.Construct, id *string, props *CfnSourceCredentialProps) CfnSourceCredential {
 	_init_.Initialize()
 
@@ -387,7 +391,6 @@ func NewCfnSourceCredential(scope constructs.Construct, id *string, props *CfnSo
 	return &j
 }
 
-// Create a new `AWS::CodeBuild::SourceCredential`.
 func NewCfnSourceCredential_Override(c CfnSourceCredential, scope constructs.Construct, id *string, props *CfnSourceCredentialProps) {
 	_init_.Initialize()
 

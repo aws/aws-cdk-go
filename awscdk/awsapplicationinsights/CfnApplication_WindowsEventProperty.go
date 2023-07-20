@@ -19,18 +19,28 @@ package awsapplicationinsights
 //   	PatternSet: jsii.String("patternSet"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
+//
 type CfnApplication_WindowsEventProperty struct {
 	// The levels of event to log.
 	//
 	// You must specify each level to log. Possible values include `INFORMATION` , `WARNING` , `ERROR` , `CRITICAL` , and `VERBOSE` . This field is required for each type of Windows Event to log.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
+	//
 	EventLevels *[]*string `field:"required" json:"eventLevels" yaml:"eventLevels"`
 	// The type of Windows Events to log, equivalent to the Windows Event log channel name.
 	//
 	// For example, System, Security, CustomEventName, and so on. This field is required for each type of Windows event to log.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
+	//
 	EventName *string `field:"required" json:"eventName" yaml:"eventName"`
 	// The CloudWatch log group name to be associated with the monitored log.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
+	//
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The log pattern set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
+	//
 	PatternSet *string `field:"optional" json:"patternSet" yaml:"patternSet"`
 }
 

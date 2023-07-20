@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudWatch::MetricStream`.
+// Creates or updates a metric stream.
 //
-// Creates or updates a metric stream. Metrics streams can automatically stream CloudWatch metrics to AWS destinations including Amazon S3 and to many third-party solutions. For more information, see [Metric streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html) .
+// Metrics streams can automatically stream CloudWatch metrics to AWS destinations including Amazon S3 and to many third-party solutions. For more information, see [Metric streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html) .
 //
 // To create a metric stream, you must be logged on to an account that has the `iam:PassRole` permission and either the *CloudWatchFullAccess* policy or the `cloudwatch:PutMetricStream` permission.
 //
@@ -79,9 +79,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+//
 type CfnMetricStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the metric stream.
 	AttrArn() *string
 	// The date that the metric stream was originally created.
@@ -100,29 +103,15 @@ type CfnMetricStream interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here.
-	//
-	// You cannot specify both `IncludeFilters` and `ExcludeFilters` in the same metric stream.
-	//
-	// When you modify the `IncludeFilters` or `ExcludeFilters` of an existing metric stream in any way, the metric stream is effectively restarted, so after such a change you will get only the datapoints that have a timestamp after the time of the update.
 	ExcludeFilters() interface{}
 	SetExcludeFilters(val interface{})
 	// The ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-	//
-	// This Amazon Kinesis Firehose delivery stream must already exist and must be in the same account as the metric stream.
 	FirehoseArn() *string
 	SetFirehoseArn(val *string)
 	// If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here.
-	//
-	// You cannot specify both `IncludeFilters` and `ExcludeFilters` in the same metric stream.
-	//
-	// When you modify the `IncludeFilters` or `ExcludeFilters` of an existing metric stream in any way, the metric stream is effectively restarted, so after such a change you will get only the datapoints that have a timestamp after the time of the update.
 	IncludeFilters() interface{}
 	SetIncludeFilters(val interface{})
 	// If you are creating a metric stream in a monitoring account, specify `true` to include metrics from source accounts that are linked to this monitoring account, in the metric stream.
-	//
-	// The default is `false` .
-	//
-	// For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html)
 	IncludeLinkedAccountsMetrics() interface{}
 	SetIncludeLinkedAccountsMetrics(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -136,19 +125,11 @@ type CfnMetricStream interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// If you are creating a new metric stream, this is the name for the new stream.
-	//
-	// The name must be different than the names of other metric streams in this account and Region.
-	//
-	// If you are updating a metric stream, specify the name of that stream here.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The output format for the stream.
-	//
-	// Valid values are `json` and `opentelemetry0.7` For more information about metric stream output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html) .
-	//
-	// This parameter is required.
 	OutputFormat() *string
 	SetOutputFormat(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -157,8 +138,6 @@ type CfnMetricStream interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN of an IAM role that this metric stream will use to access Amazon Kinesis Firehose resources.
-	//
-	// This IAM role must already exist and must be in the same account as the metric stream. This IAM role must include the `firehose:PutRecord` and `firehose:PutRecordBatch` permissions.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -166,16 +145,13 @@ type CfnMetricStream interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed.
-	//
-	// You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
-	//
-	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `OutputFormat` . If the `OutputFormat` is `json` , you can stream any additional statistic that is supported by CloudWatch , listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html) . If the `OutputFormat` is `opentelemetry0` .7, you can stream percentile statistics *(p??)* .
 	StatisticsConfigurations() interface{}
 	SetStatisticsConfigurations(val interface{})
-	// An array of key-value pairs to apply to the metric stream.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to the metric stream.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -320,6 +296,7 @@ type CfnMetricStream interface {
 type jsiiProxy_CfnMetricStream struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMetricStream) AttrArn() *string {
@@ -532,6 +509,16 @@ func (j *jsiiProxy_CfnMetricStream) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMetricStream) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMetricStream) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -553,7 +540,6 @@ func (j *jsiiProxy_CfnMetricStream) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::CloudWatch::MetricStream`.
 func NewCfnMetricStream(scope constructs.Construct, id *string, props *CfnMetricStreamProps) CfnMetricStream {
 	_init_.Initialize()
 
@@ -571,7 +557,6 @@ func NewCfnMetricStream(scope constructs.Construct, id *string, props *CfnMetric
 	return &j
 }
 
-// Create a new `AWS::CloudWatch::MetricStream`.
 func NewCfnMetricStream_Override(c CfnMetricStream, scope constructs.Construct, id *string, props *CfnMetricStreamProps) {
 	_init_.Initialize()
 
@@ -663,6 +648,17 @@ func (j *jsiiProxy_CfnMetricStream)SetStatisticsConfigurations(val interface{}) 
 	_jsii_.Set(
 		j,
 		"statisticsConfigurations",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMetricStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

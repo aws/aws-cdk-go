@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeStarNotifications::NotificationRule`.
+// Creates a notification rule for a resource.
 //
-// Creates a notification rule for a resource. The rule specifies the events you want notifications about and the targets (such as AWS Chatbot topics or AWS Chatbot clients configured for Slack) where you want to receive them.
+// The rule specifies the events you want notifications about and the targets (such as AWS Chatbot topics or AWS Chatbot clients configured for Slack) where you want to receive them.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -42,16 +42,18 @@ import (
 //   	TargetAddress: jsii.String("targetAddress"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html
+//
 type CfnNotificationRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::CodeStarNotifications::NotificationRule.CreatedBy`.
 	CreatedBy() *string
 	SetCreatedBy(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -59,16 +61,11 @@ type CfnNotificationRule interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The level of detail to include in the notifications for this resource.
-	//
-	// `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
 	DetailType() *string
 	SetDetailType(val *string)
-	// `AWS::CodeStarNotifications::NotificationRule.EventTypeId`.
 	EventTypeId() *string
 	SetEventTypeId(val *string)
 	// A list of event types associated with this notification rule.
-	//
-	// For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
 	EventTypeIds() *[]*string
 	SetEventTypeIds(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -82,8 +79,6 @@ type CfnNotificationRule interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name for the notification rule.
-	//
-	// Notification rule names must be unique in your AWS account .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -94,8 +89,6 @@ type CfnNotificationRule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the resource to associate with the notification rule.
-	//
-	// Supported resources include pipelines in AWS CodePipeline , repositories in AWS CodeCommit , and build projects in AWS CodeBuild .
 	Resource() *string
 	SetResource(val *string)
 	// The stack in which this element is defined.
@@ -103,15 +96,13 @@ type CfnNotificationRule interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The status of the notification rule.
-	//
-	// The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
 	Status() *string
 	SetStatus(val *string)
-	// A list of tags to apply to this notification rule.
-	//
-	// Key names cannot start with " `aws` ".
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// `AWS::CodeStarNotifications::NotificationRule.TargetAddress`.
+	// A list of tags to apply to this notification rule.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	TargetAddress() *string
 	SetTargetAddress(val *string)
 	// A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and AWS Chatbot clients to associate with the notification rule.
@@ -261,6 +252,7 @@ type CfnNotificationRule interface {
 type jsiiProxy_CfnNotificationRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNotificationRule) AttrArn() *string {
@@ -433,6 +425,16 @@ func (j *jsiiProxy_CfnNotificationRule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNotificationRule) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNotificationRule) TargetAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -474,7 +476,6 @@ func (j *jsiiProxy_CfnNotificationRule) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::CodeStarNotifications::NotificationRule`.
 func NewCfnNotificationRule(scope constructs.Construct, id *string, props *CfnNotificationRuleProps) CfnNotificationRule {
 	_init_.Initialize()
 
@@ -492,7 +493,6 @@ func NewCfnNotificationRule(scope constructs.Construct, id *string, props *CfnNo
 	return &j
 }
 
-// Create a new `AWS::CodeStarNotifications::NotificationRule`.
 func NewCfnNotificationRule_Override(c CfnNotificationRule, scope constructs.Construct, id *string, props *CfnNotificationRuleProps) {
 	_init_.Initialize()
 
@@ -567,6 +567,14 @@ func (j *jsiiProxy_CfnNotificationRule)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNotificationRule)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

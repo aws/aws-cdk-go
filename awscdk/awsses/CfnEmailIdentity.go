@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::EmailIdentity`.
+// Specifies an identity for using within SES.
 //
-// Specifies an identity for using within SES. An identity is an email address or domain that you use when you send email. Before you can use an identity to send email, you first have to verify it. By verifying an identity, you demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2 permission to send email from the identity.
+// An identity is an email address or domain that you use when you send email. Before you can use an identity to send email, you first have to verify it. By verifying an identity, you demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2 permission to send email from the identity.
 //
 // When you verify an email address, SES sends an email to the address. Your email address is verified as soon as you follow the link in the verification email. When you verify a domain without specifying the DkimSigningAttributes properties, OR only the NextSigningKeyLength property of DkimSigningAttributes, this resource provides a set of CNAME token names and values (DkimDNSTokenName1, DkimDNSTokenValue1, DkimDNSTokenName2, DkimDNSTokenValue2, DkimDNSTokenName3, DkimDNSTokenValue3) as outputs. You can then add these to the DNS configuration for your domain. Your domain is verified when Amazon SES detects these records in the DNS configuration for your domain. This verification method is known as Easy DKIM.
 //
@@ -47,6 +47,8 @@ import (
 //   		MailFromDomain: jsii.String("mailFromDomain"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html
 //
 type CfnEmailIdentity interface {
 	awscdk.CfnResource
@@ -478,7 +480,6 @@ func (j *jsiiProxy_CfnEmailIdentity) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::SES::EmailIdentity`.
 func NewCfnEmailIdentity(scope constructs.Construct, id *string, props *CfnEmailIdentityProps) CfnEmailIdentity {
 	_init_.Initialize()
 
@@ -496,7 +497,6 @@ func NewCfnEmailIdentity(scope constructs.Construct, id *string, props *CfnEmail
 	return &j
 }
 
-// Create a new `AWS::SES::EmailIdentity`.
 func NewCfnEmailIdentity_Override(c CfnEmailIdentity, scope constructs.Construct, id *string, props *CfnEmailIdentityProps) {
 	_init_.Initialize()
 

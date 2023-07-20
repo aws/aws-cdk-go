@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Batch::JobDefinition`.
+// The `AWS::Batch::JobDefinition` resource specifies the parameters for an AWS Batch job definition.
 //
-// The `AWS::Batch::JobDefinition` resource specifies the parameters for an AWS Batch job definition. For more information, see [Job Definitions](https://docs.aws.amazon.com/batch/latest/userguide/job_definitions.html) in the ** .
+// For more information, see [Job Definitions](https://docs.aws.amazon.com/batch/latest/userguide/job_definitions.html) in the ** .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -367,17 +367,19 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html
+//
 type CfnJobDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// An object with various properties specific to Amazon ECS based jobs.
-	//
-	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
 	ContainerProperties() interface{}
 	SetContainerProperties(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -385,8 +387,6 @@ type CfnJobDefinition interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// An object with various properties that are specific to Amazon EKS based jobs.
-	//
-	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
 	EksProperties() interface{}
 	SetEksProperties(val interface{})
 	// The name of the job definition.
@@ -405,25 +405,15 @@ type CfnJobDefinition interface {
 	// The tree node.
 	Node() constructs.Node
 	// An object with various properties that are specific to multi-node parallel jobs.
-	//
-	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
-	//
-	// > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
 	NodeProperties() interface{}
 	SetNodeProperties(val interface{})
 	// Default parameters or parameter substitution placeholders that are set in the job definition.
-	//
-	// Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// The platform capabilities required by the job definition.
-	//
-	// If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
 	PlatformCapabilities() *[]*string
 	SetPlatformCapabilities(val *[]*string)
 	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task.
-	//
-	// If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
 	PropagateTags() interface{}
 	SetPropagateTags(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -435,26 +425,21 @@ type CfnJobDefinition interface {
 	RetryStrategy() interface{}
 	SetRetryStrategy(val interface{})
 	// The scheduling priority of the job definition.
-	//
-	// This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 	SchedulingPriority() *float64
 	SetSchedulingPriority(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags that are applied to the job definition.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags that are applied to the job definition.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// The timeout time for jobs that are submitted with this job definition.
-	//
-	// After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
 	Timeout() interface{}
 	SetTimeout(val interface{})
 	// The type of job definition.
-	//
-	// For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
-	//
-	// > If the job is run on Fargate resources, then `multinode` isn't supported.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -601,6 +586,17 @@ type CfnJobDefinition interface {
 type jsiiProxy_CfnJobDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnJobDefinition) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnJobDefinition) CfnOptions() awscdk.ICfnResourceOptions {
@@ -783,6 +779,16 @@ func (j *jsiiProxy_CfnJobDefinition) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobDefinition) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobDefinition) Timeout() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -824,7 +830,6 @@ func (j *jsiiProxy_CfnJobDefinition) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Batch::JobDefinition`.
 func NewCfnJobDefinition(scope constructs.Construct, id *string, props *CfnJobDefinitionProps) CfnJobDefinition {
 	_init_.Initialize()
 
@@ -842,7 +847,6 @@ func NewCfnJobDefinition(scope constructs.Construct, id *string, props *CfnJobDe
 	return &j
 }
 
-// Create a new `AWS::Batch::JobDefinition`.
 func NewCfnJobDefinition_Override(c CfnJobDefinition, scope constructs.Construct, id *string, props *CfnJobDefinitionProps) {
 	_init_.Initialize()
 
@@ -895,9 +899,6 @@ func (j *jsiiProxy_CfnJobDefinition)SetNodeProperties(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnJobDefinition)SetParameters(val interface{}) {
-	if err := j.validateSetParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parameters",
@@ -939,6 +940,14 @@ func (j *jsiiProxy_CfnJobDefinition)SetSchedulingPriority(val *float64) {
 	_jsii_.Set(
 		j,
 		"schedulingPriority",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobDefinition)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

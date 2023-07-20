@@ -14,10 +14,14 @@ package awscertificatemanager
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html
+//
 type CfnAccountProps struct {
 	// Object containing expiration events options associated with an AWS account .
 	//
 	// For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
+	//
 	ExpiryEventsConfiguration interface{} `field:"required" json:"expiryEventsConfiguration" yaml:"expiryEventsConfiguration"`
 }
 

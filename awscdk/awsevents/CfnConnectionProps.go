@@ -94,16 +94,26 @@ package awsevents
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html
+//
 type CfnConnectionProps struct {
 	// The type of authorization to use for the connection.
 	//
 	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
+	//
 	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
+	//
 	AuthParameters interface{} `field:"required" json:"authParameters" yaml:"authParameters"`
 	// A description for the connection to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name for the connection to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

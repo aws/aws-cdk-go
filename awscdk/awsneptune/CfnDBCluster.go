@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Neptune::DBCluster`.
-//
 // The `AWS::Neptune::DBCluster` resource creates an Amazon Neptune DB cluster. Neptune is a fully managed graph database.
 //
 // > Currently, you can create this resource only in AWS Regions in which Amazon Neptune is supported.
@@ -49,7 +47,6 @@ import (
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	IamAuthEnabled: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
-//   	Port: jsii.Number(123),
 //   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	RestoreToTime: jsii.String("restoreToTime"),
@@ -73,12 +70,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html
+//
 type CfnDBCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Provides a list of the Amazon Identity and Access Management (IAM) roles that are associated with the DB cluster.
-	//
-	// IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon services on your behalf.
 	AssociatedRoles() interface{}
 	SetAssociatedRoles(val interface{})
 	// The resource id for the DB cluster.
@@ -101,8 +99,6 @@ type CfnDBCluster interface {
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
 	// Specifies the number of days for which automatic DB snapshots are retained.
-	//
-	// An update may require some interruption. See [ModifyDBInstance](https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance) in the Amazon Neptune User Guide for more information.
 	BackupRetentionPeriod() *float64
 	SetBackupRetentionPeriod(val *float64)
 	// Options for this resource, such as condition, update policy etc.
@@ -118,31 +114,18 @@ type CfnDBCluster interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Contains a user-supplied DB cluster identifier.
-	//
-	// This identifier is the unique key that identifies a DB cluster.
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
 	// Provides the name of the DB cluster parameter group.
-	//
-	// An update may require some interruption. See [ModifyDBInstance](https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance) in the Amazon Neptune User Guide for more information.
 	DbClusterParameterGroupName() *string
 	SetDbClusterParameterGroupName(val *string)
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
-	//
-	// Used only in case of a major engine version upgrade request
-	//
-	// Note that when you apply a parameter group using `DBInstanceParameterGroupName` , parameter changes are applied immediately, not during the next maintenance window.
-	//
-	// **Constraints** - The DB parameter group must be in the same DB parameter group family as the target DB cluster version.
-	// - The `DBInstanceParameterGroupName` parameter is only valid for major engine version upgrades.
 	DbInstanceParameterGroupName() *string
 	SetDbInstanceParameterGroupName(val *string)
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
 	// Indicates whether or not the DB cluster has deletion protection enabled.
-	//
-	// The database can't be deleted when deletion protection is enabled.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
 	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
@@ -169,12 +152,7 @@ type CfnDBCluster interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Neptune::DBCluster.Port`.
-	Port() *float64
-	SetPort(val *float64)
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the `BackupRetentionPeriod` .
-	//
-	// An update may require some interruption.
 	PreferredBackupWindow() *string
 	SetPreferredBackupWindow(val *string)
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -186,34 +164,20 @@ type CfnDBCluster interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
-	//
-	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
-	//
-	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 	RestoreToTime() *string
 	SetRestoreToTime(val *string)
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
-	//
-	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
-	//
-	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 	RestoreType() *string
 	SetRestoreType(val *string)
-	// `AWS::Neptune::DBCluster.ServerlessScalingConfiguration`.
+	// Contains the scaling configuration of an Neptune Serverless DB cluster.
 	ServerlessScalingConfiguration() interface{}
 	SetServerlessScalingConfiguration(val interface{})
-	// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
+	// Specifies the identifier for a DB cluster snapshot.
 	//
-	// After you restore a DB cluster using a `SnapshotIdentifier` , you must specify the same `SnapshotIdentifier` for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
-	//
-	// However, if you don't specify the `SnapshotIdentifier` , an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the `SnapshotIdentifier` , and the original DB cluster is deleted.
+	// Must match the identifier of an existing snapshot.
 	SnapshotIdentifier() *string
 	SetSnapshotIdentifier(val *string)
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
-	//
-	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
-	//
-	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 	SourceDbClusterIdentifier() *string
 	SetSourceDbClusterIdentifier(val *string)
 	// The stack in which this element is defined.
@@ -221,14 +185,13 @@ type CfnDBCluster interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Indicates whether the DB cluster is encrypted.
-	//
-	// If you specify the `DBClusterIdentifier` , `DBSnapshotIdentifier` , or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the `KmsKeyId` property, you must enable encryption.
-	//
-	// If you specify the `KmsKeyId` , you must enable encryption by setting `StorageEncrypted` to true.
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
-	// The tags assigned to this cluster.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags assigned to this cluster.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -243,10 +206,6 @@ type CfnDBCluster interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
-	//
-	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
-	//
-	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 	UseLatestRestorableTime() interface{}
 	SetUseLatestRestorableTime(val interface{})
 	// Provides a list of VPC security groups that the DB cluster belongs to.
@@ -383,6 +342,7 @@ type CfnDBCluster interface {
 type jsiiProxy_CfnDBCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDBCluster) AssociatedRoles() interface{} {
@@ -615,16 +575,6 @@ func (j *jsiiProxy_CfnDBCluster) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) Port() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"port",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDBCluster) PreferredBackupWindow() *string {
 	var returns *string
 	_jsii_.Get(
@@ -735,6 +685,16 @@ func (j *jsiiProxy_CfnDBCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -776,7 +736,6 @@ func (j *jsiiProxy_CfnDBCluster) VpcSecurityGroupIds() *[]*string {
 }
 
 
-// Create a new `AWS::Neptune::DBCluster`.
 func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
 	_init_.Initialize()
 
@@ -794,7 +753,6 @@ func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBCluster
 	return &j
 }
 
-// Create a new `AWS::Neptune::DBCluster`.
 func NewCfnDBCluster_Override(c CfnDBCluster, scope constructs.Construct, id *string, props *CfnDBClusterProps) {
 	_init_.Initialize()
 
@@ -921,14 +879,6 @@ func (j *jsiiProxy_CfnDBCluster)SetKmsKeyId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster)SetPort(val *float64) {
-	_jsii_.Set(
-		j,
-		"port",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnDBCluster)SetPreferredBackupWindow(val *string) {
 	_jsii_.Set(
 		j,
@@ -995,6 +945,17 @@ func (j *jsiiProxy_CfnDBCluster)SetStorageEncrypted(val interface{}) {
 	_jsii_.Set(
 		j,
 		"storageEncrypted",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

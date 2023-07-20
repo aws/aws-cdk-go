@@ -16,8 +16,12 @@ package awsiot
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
+//
 type CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty struct {
 	// The `Sns` notification target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
+	//
 	Sns interface{} `field:"optional" json:"sns" yaml:"sns"`
 }
 

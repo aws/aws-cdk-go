@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VerifiedPermissions::PolicyTemplate`.
+// Creates a policy template.
 //
-// Creates a policy template. A template can use placeholders for the principal and resource. A template must be instantiated into a policy by associating it with specific principals and resources to use for the placeholders. That instantiated policy can then be considered in authorization decisions. The instantiated policy works identically to any other policy, except that it is dynamically linked to the template. If the template changes, then any policies that are linked to that template are immediately updated as well.
+// A template can use placeholders for the principal and resource. A template must be instantiated into a policy by associating it with specific principals and resources to use for the placeholders. That instantiated policy can then be considered in authorization decisions. The instantiated policy works identically to any other policy, except that it is dynamically linked to the template. If the template changes, then any policies that are linked to that template are immediately updated as well.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,6 +25,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	PolicyStoreId: jsii.String("policyStoreId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html
 //
 type CfnPolicyTemplate interface {
 	awscdk.CfnResource
@@ -357,7 +359,6 @@ func (j *jsiiProxy_CfnPolicyTemplate) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::VerifiedPermissions::PolicyTemplate`.
 func NewCfnPolicyTemplate(scope constructs.Construct, id *string, props *CfnPolicyTemplateProps) CfnPolicyTemplate {
 	_init_.Initialize()
 
@@ -375,7 +376,6 @@ func NewCfnPolicyTemplate(scope constructs.Construct, id *string, props *CfnPoli
 	return &j
 }
 
-// Create a new `AWS::VerifiedPermissions::PolicyTemplate`.
 func NewCfnPolicyTemplate_Override(c CfnPolicyTemplate, scope constructs.Construct, id *string, props *CfnPolicyTemplateProps) {
 	_init_.Initialize()
 

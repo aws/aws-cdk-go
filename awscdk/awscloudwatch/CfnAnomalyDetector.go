@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudWatch::AnomalyDetector`.
+// The `AWS::CloudWatch::AnomalyDetector` type specifies an anomaly detection band for a certain metric and statistic.
 //
-// The `AWS::CloudWatch::AnomalyDetector` type specifies an anomaly detection band for a certain metric and statistic. The band represents the expected "normal" range for the metric values. Anomaly detection bands can be used for visualization of a metric's expected values, and for alarms.
+// The band represents the expected "normal" range for the metric values. Anomaly detection bands can be used for visualization of a metric's expected values, and for alarms.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -83,17 +83,18 @@ import (
 //   	Stat: jsii.String("stat"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html
+//
 type CfnAnomalyDetector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specifies details about how the anomaly detection model is to be trained, including time ranges to exclude when training and updating the model.
-	//
-	// The configuration can also include the time zone to use for the metric.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -285,6 +286,16 @@ type jsiiProxy_CfnAnomalyDetector struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnAnomalyDetector) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnomalyDetector) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -456,7 +467,6 @@ func (j *jsiiProxy_CfnAnomalyDetector) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::CloudWatch::AnomalyDetector`.
 func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) CfnAnomalyDetector {
 	_init_.Initialize()
 
@@ -474,7 +484,6 @@ func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAno
 	return &j
 }
 
-// Create a new `AWS::CloudWatch::AnomalyDetector`.
 func NewCfnAnomalyDetector_Override(c CfnAnomalyDetector, scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) {
 	_init_.Initialize()
 

@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnStream) validateSetStreamNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnStream) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnStreamParameters(scope constructs.Construct, id *string, props *CfnStreamProps) error {
 	return nil
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FMS::NotificationChannel`.
-//
 // Designates the IAM role and Amazon Simple Notification Service (SNS) topic to use to record SNS logs.
 //
 // To perform this action outside of the console, you must configure the SNS topic to allow the role `AWSServiceRoleForFMS` to publish SNS logs. For more information, see [Firewall Manager required permissions for API actions](https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html) in the *AWS Firewall Manager Developer Guide* .
@@ -24,6 +22,8 @@ import (
 //   	SnsRoleName: jsii.String("snsRoleName"),
 //   	SnsTopicArn: jsii.String("snsTopicArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
 //
 type CfnNotificationChannel interface {
 	awscdk.CfnResource
@@ -331,7 +331,6 @@ func (j *jsiiProxy_CfnNotificationChannel) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::FMS::NotificationChannel`.
 func NewCfnNotificationChannel(scope constructs.Construct, id *string, props *CfnNotificationChannelProps) CfnNotificationChannel {
 	_init_.Initialize()
 
@@ -349,7 +348,6 @@ func NewCfnNotificationChannel(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::FMS::NotificationChannel`.
 func NewCfnNotificationChannel_Override(c CfnNotificationChannel, scope constructs.Construct, id *string, props *CfnNotificationChannelProps) {
 	_init_.Initialize()
 

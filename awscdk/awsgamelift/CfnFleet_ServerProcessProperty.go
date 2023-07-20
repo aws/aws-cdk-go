@@ -18,8 +18,12 @@ package awsgamelift
 //   	Parameters: jsii.String("parameters"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
+//
 type CfnFleet_ServerProcessProperty struct {
 	// The number of server processes using this configuration that run concurrently on each instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
+	//
 	ConcurrentExecutions *float64 `field:"required" json:"concurrentExecutions" yaml:"concurrentExecutions"`
 	// The location of a game build executable or the Realtime script file that contains the `Init()` function.
 	//
@@ -27,8 +31,12 @@ type CfnFleet_ServerProcessProperty struct {
 	//
 	// - Windows (custom game builds only): `C:\game` . Example: " `C:\game\MyGame\server.exe` "
 	// - Linux: `/local/game` . Examples: " `/local/game/MyGame/server.exe` " or " `/local/game/MyRealtimeScript.js` "
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
+	//
 	LaunchPath *string `field:"required" json:"launchPath" yaml:"launchPath"`
 	// An optional list of parameters to pass to the server executable or Realtime script on launch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
+	//
 	Parameters *string `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

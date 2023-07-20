@@ -21,12 +21,18 @@ package awsglue
 //   	Logical: jsii.String("logical"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html
+//
 type CfnTrigger_PredicateProperty struct {
 	// A list of the conditions that determine when the trigger will fire.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-conditions
+	//
 	Conditions interface{} `field:"optional" json:"conditions" yaml:"conditions"`
 	// An optional field if only one condition is listed.
 	//
 	// If multiple conditions are listed, then this field is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical
+	//
 	Logical *string `field:"optional" json:"logical" yaml:"logical"`
 }
 

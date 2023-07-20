@@ -12,8 +12,12 @@ package awsconnect
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html
+//
 type CfnRule_EventBridgeActionProperty struct {
 	// The name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html#cfn-connect-rule-eventbridgeaction-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

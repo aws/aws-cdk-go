@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ImageBuilder::ContainerRecipe`.
+// Creates a new container recipe.
 //
-// Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.
+// Container recipes define how images are configured, tested, and assessed.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -74,9 +74,12 @@ import (
 //   	WorkingDirectory: jsii.String("workingDirectory"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html
+//
 type CfnContainerRecipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the container recipe.
 	//
 	// For example, `arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/mybasicrecipe/2020.12.17` .
@@ -89,8 +92,6 @@ type CfnContainerRecipe interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Build and test components that are included in the container recipe.
-	//
-	// Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
 	Components() interface{}
 	SetComponents(val interface{})
 	// Specifies the type of container, such as Docker.
@@ -104,8 +105,6 @@ type CfnContainerRecipe interface {
 	Description() *string
 	SetDescription(val *string)
 	// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside.
-	//
-	// The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
 	DockerfileTemplateData() *string
 	SetDockerfileTemplateData(val *string)
 	// The S3 URI for the Dockerfile that will be used to build your container image.
@@ -150,8 +149,11 @@ type CfnContainerRecipe interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags that are attached to the container recipe.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags that are attached to the container recipe.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The destination repository for the container image.
 	TargetRepository() interface{}
 	SetTargetRepository(val interface{})
@@ -169,14 +171,6 @@ type CfnContainerRecipe interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The semantic version of the container recipe.
-	//
-	// > The semantic version has four nodes: <major>.<minor>.<patch>/<build>. You can assign values for the first three, and can filter on all of them.
-	// >
-	// > *Assignment:* For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.
-	// >
-	// > *Patterns:* You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.
-	// >
-	// > *Filtering:* With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.
 	Version() *string
 	SetVersion(val *string)
 	// The working directory for use during build and test workflows.
@@ -313,6 +307,7 @@ type CfnContainerRecipe interface {
 type jsiiProxy_CfnContainerRecipe struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnContainerRecipe) AttrArn() *string {
@@ -535,6 +530,16 @@ func (j *jsiiProxy_CfnContainerRecipe) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContainerRecipe) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContainerRecipe) TargetRepository() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -586,7 +591,6 @@ func (j *jsiiProxy_CfnContainerRecipe) WorkingDirectory() *string {
 }
 
 
-// Create a new `AWS::ImageBuilder::ContainerRecipe`.
 func NewCfnContainerRecipe(scope constructs.Construct, id *string, props *CfnContainerRecipeProps) CfnContainerRecipe {
 	_init_.Initialize()
 
@@ -604,7 +608,6 @@ func NewCfnContainerRecipe(scope constructs.Construct, id *string, props *CfnCon
 	return &j
 }
 
-// Create a new `AWS::ImageBuilder::ContainerRecipe`.
 func NewCfnContainerRecipe_Override(c CfnContainerRecipe, scope constructs.Construct, id *string, props *CfnContainerRecipeProps) {
 	_init_.Initialize()
 
@@ -714,6 +717,14 @@ func (j *jsiiProxy_CfnContainerRecipe)SetPlatformOverride(val *string) {
 	_jsii_.Set(
 		j,
 		"platformOverride",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContainerRecipe)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

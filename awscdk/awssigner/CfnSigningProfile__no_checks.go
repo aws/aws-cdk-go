@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnSigningProfile) validateSetSignatureValidityPeriodParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnSigningProfile) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSigningProfileParameters(scope constructs.Construct, id *string, props *CfnSigningProfileProps) error {
 	return nil
 }

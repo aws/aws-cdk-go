@@ -15,10 +15,16 @@ package awsdatapipeline
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetag.html
+//
 type CfnPipeline_PipelineTagProperty struct {
 	// The key name of a tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetag.html#cfn-datapipeline-pipeline-pipelinetag-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value to associate with the key name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetag.html#cfn-datapipeline-pipeline-pipelinetag-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

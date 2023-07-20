@@ -20,17 +20,7 @@ package awsstepfunctionstasks
 //
 //   	// the properties below are optional
 //   	NestedConfig: []*applicationConfiguration{
-//   		&applicationConfiguration{
-//   			Classification: classification,
-//
-//   			// the properties below are optional
-//   			NestedConfig: []*applicationConfiguration{
-//   				applicationConfiguration_,
-//   			},
-//   			Properties: map[string]*string{
-//   				"propertiesKey": jsii.String("properties"),
-//   			},
-//   		},
+//   		applicationConfiguration_,
 //   	},
 //   	Properties: map[string]*string{
 //   		"propertiesKey": jsii.String("properties"),

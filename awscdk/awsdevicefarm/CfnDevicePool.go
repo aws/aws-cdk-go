@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DeviceFarm::DevicePool`.
-//
 // Represents a request to the create device pool operation.
 //
 // Example:
@@ -40,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-devicepool.html
+//
 type CfnDevicePool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the device pool.
 	//
 	// See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -70,10 +71,6 @@ type CfnDevicePool interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The number of devices that Device Farm can add to your device pool.
-	//
-	// Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
-	//
-	// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
 	MaxDevices() *float64
 	SetMaxDevices(val *float64)
 	// The device pool's name.
@@ -96,10 +93,11 @@ type CfnDevicePool interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -244,6 +242,7 @@ type CfnDevicePool interface {
 type jsiiProxy_CfnDevicePool struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDevicePool) AttrArn() *string {
@@ -396,6 +395,16 @@ func (j *jsiiProxy_CfnDevicePool) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDevicePool) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDevicePool) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -417,7 +426,6 @@ func (j *jsiiProxy_CfnDevicePool) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DeviceFarm::DevicePool`.
 func NewCfnDevicePool(scope constructs.Construct, id *string, props *CfnDevicePoolProps) CfnDevicePool {
 	_init_.Initialize()
 
@@ -435,7 +443,6 @@ func NewCfnDevicePool(scope constructs.Construct, id *string, props *CfnDevicePo
 	return &j
 }
 
-// Create a new `AWS::DeviceFarm::DevicePool`.
 func NewCfnDevicePool_Override(c CfnDevicePool, scope constructs.Construct, id *string, props *CfnDevicePoolProps) {
 	_init_.Initialize()
 
@@ -491,6 +498,17 @@ func (j *jsiiProxy_CfnDevicePool)SetRules(val interface{}) {
 	_jsii_.Set(
 		j,
 		"rules",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDevicePool)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

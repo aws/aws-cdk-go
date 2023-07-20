@@ -20,14 +20,22 @@ package awsmediaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html
+//
 type CfnBridgeOutputProps struct {
 	// The ARN of the bridge that you want to describe.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html#cfn-mediaconnect-bridgeoutput-bridgearn
+	//
 	BridgeArn *string `field:"required" json:"bridgeArn" yaml:"bridgeArn"`
 	// The network output name.
 	//
 	// This name is used to reference the output and must be unique among outputs in this bridge.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html#cfn-mediaconnect-bridgeoutput-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Add a network output to an existing bridge.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html#cfn-mediaconnect-bridgeoutput-networkoutput
+	//
 	NetworkOutput interface{} `field:"required" json:"networkOutput" yaml:"networkOutput"`
 }
 

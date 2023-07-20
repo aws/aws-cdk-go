@@ -61,20 +61,28 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html
+//
 type CfnWebACL_AWSManagedRulesATPRuleSetProperty struct {
 	// The path of the login endpoint for your application.
 	//
 	// For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` .
 	//
 	// The rule group inspects only HTTP `POST` requests to your specified login endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-loginpath
+	//
 	LoginPath *string `field:"required" json:"loginPath" yaml:"loginPath"`
 	// The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-requestinspection
+	//
 	RequestInspection interface{} `field:"optional" json:"requestInspection" yaml:"requestInspection"`
 	// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
 	//
 	// The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that submit too many failed login attempts in a short amount of time.
 	//
 	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-responseinspection
+	//
 	ResponseInspection interface{} `field:"optional" json:"responseInspection" yaml:"responseInspection"`
 }
 

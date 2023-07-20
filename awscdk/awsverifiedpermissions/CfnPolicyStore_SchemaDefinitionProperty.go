@@ -14,10 +14,14 @@ package awsverifiedpermissions
 //   	CedarJson: jsii.String("cedarJson"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html
+//
 type CfnPolicyStore_SchemaDefinitionProperty struct {
 	// A JSON string representation of the schema supported by applications that use this policy store.
 	//
 	// For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html#cfn-verifiedpermissions-policystore-schemadefinition-cedarjson
+	//
 	CedarJson *string `field:"optional" json:"cedarJson" yaml:"cedarJson"`
 }
 

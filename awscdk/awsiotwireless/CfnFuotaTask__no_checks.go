@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnFuotaTask) validateSetLoRaWanParameters(val interface{}) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnFuotaTask) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFuotaTaskParameters(scope constructs.Construct, id *string, props *CfnFuotaTaskProps) error {
 	return nil
 }

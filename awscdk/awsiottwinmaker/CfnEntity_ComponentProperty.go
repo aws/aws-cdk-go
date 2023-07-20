@@ -52,24 +52,40 @@ package awsiottwinmaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html
+//
 type CfnEntity_ComponentProperty struct {
 	// The name of the component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-componentname
+	//
 	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`
 	// The ID of the ComponentType.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-componenttypeid
+	//
 	ComponentTypeId *string `field:"optional" json:"componentTypeId" yaml:"componentTypeId"`
 	// The name of the property definition set in the request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-definedin
+	//
 	DefinedIn *string `field:"optional" json:"definedIn" yaml:"definedIn"`
 	// The description of the component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An object that maps strings to the properties to set in the component type.
 	//
 	// Each string in the mapping must be unique to this object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-properties
+	//
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// An object that maps strings to the property groups in the component type.
 	//
 	// Each string in the mapping must be unique to this object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-propertygroups
+	//
 	PropertyGroups interface{} `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
 	// The status of the component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-status
+	//
 	Status interface{} `field:"optional" json:"status" yaml:"status"`
 }
 

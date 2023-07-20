@@ -12,8 +12,12 @@ package awsevents
 //   	HealthCheck: jsii.String("healthCheck"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-primary.html
+//
 type CfnEndpoint_PrimaryProperty struct {
 	// The ARN of the health check used by the endpoint to determine whether failover is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-primary.html#cfn-events-endpoint-primary-healthcheck
+	//
 	HealthCheck *string `field:"required" json:"healthCheck" yaml:"healthCheck"`
 }
 

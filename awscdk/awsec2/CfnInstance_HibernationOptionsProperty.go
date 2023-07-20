@@ -14,10 +14,14 @@ package awsec2
 //   	Configured: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html
+//
 type CfnInstance_HibernationOptionsProperty struct {
 	// Set to `true` to enable your instance for hibernation.
 	//
 	// Default: `false`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
+	//
 	Configured interface{} `field:"optional" json:"configured" yaml:"configured"`
 }
 

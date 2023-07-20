@@ -73,22 +73,38 @@ package awscloudwatch
 //   	Stat: jsii.String("stat"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html
+//
 type CfnAnomalyDetectorProps struct {
 	// Specifies details about how the anomaly detection model is to be trained, including time ranges to exclude when training and updating the model.
 	//
 	// The configuration can also include the time zone to use for the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-configuration
+	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
 	// The dimensions of the metric associated with the anomaly detection band.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-dimensions
+	//
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The CloudWatch metric math expression for this anomaly detector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricmathanomalydetector
+	//
 	MetricMathAnomalyDetector interface{} `field:"optional" json:"metricMathAnomalyDetector" yaml:"metricMathAnomalyDetector"`
 	// The name of the metric associated with the anomaly detection band.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricname
+	//
 	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric associated with the anomaly detection band.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-namespace
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The CloudWatch metric and statistic for this anomaly detector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector
+	//
 	SingleMetricAnomalyDetector interface{} `field:"optional" json:"singleMetricAnomalyDetector" yaml:"singleMetricAnomalyDetector"`
 	// The statistic of the metric associated with the anomaly detection band.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-stat
+	//
 	Stat *string `field:"optional" json:"stat" yaml:"stat"`
 }
 

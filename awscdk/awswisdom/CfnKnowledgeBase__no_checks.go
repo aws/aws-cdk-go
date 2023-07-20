@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetSourceConfigurationParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnKnowledgeBase) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnKnowledgeBaseParameters(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) error {
 	return nil
 }

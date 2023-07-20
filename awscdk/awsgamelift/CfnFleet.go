@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GameLift::Fleet`.
+// The `AWS::GameLift::Fleet` resource creates an Amazon GameLift (GameLift) fleet to host custom game server or Realtime Servers.
 //
-// The `AWS::GameLift::Fleet` resource creates an Amazon GameLift (GameLift) fleet to host custom game server or Realtime Servers. A fleet is a set of EC2 instances, configured with instructions to run game servers on each instance.
+// A fleet is a set of EC2 instances, configured with instructions to run game servers on each instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,6 +55,9 @@ import (
 //   			},
 //   		},
 //   	},
+//   	LogPaths: []*string{
+//   		jsii.String("logPaths"),
+//   	},
 //   	MaxSize: jsii.Number(123),
 //   	MetricGroups: []*string{
 //   		jsii.String("metricGroups"),
@@ -81,28 +84,24 @@ import (
 //   		},
 //   	},
 //   	ScriptId: jsii.String("scriptId"),
+//   	ServerLaunchParameters: jsii.String("serverLaunchParameters"),
+//   	ServerLaunchPath: jsii.String("serverLaunchPath"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
 //
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::GameLift::Fleet.AnywhereConfiguration`.
+	// Configuration for Anywhere fleet.
 	AnywhereConfiguration() interface{}
 	SetAnywhereConfiguration(val interface{})
 	// A unique identifier for the fleet.
 	AttrFleetId() *string
 	// A unique identifier for a build to be deployed on the new fleet.
-	//
-	// If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a `READY` status. This fleet setting cannot be changed once the fleet is created.
 	BuildId() *string
 	SetBuildId(val *string)
 	// Prompts Amazon GameLift to generate a TLS/SSL certificate for the fleet.
-	//
-	// Amazon GameLift uses the certificates to encrypt traffic between game clients and the game servers running on Amazon GameLift. By default, the `CertificateConfiguration` is `DISABLED` . You can't change this property after you create the fleet.
-	//
-	// AWS Certificate Manager (ACM) certificates expire after 13 months. Certificate expiration can cause fleets to fail, preventing players from connecting to instances in the fleet. We recommend you replace fleets before 13 months, consider using fleet aliases for a smooth transition.
-	//
-	// > ACM isn't available in all AWS regions. A fleet creation request with certificate generation enabled in an unsupported Region, fails with a 4xx error. For more information about the supported Regions, see [Supported Regions](https://docs.aws.amazon.com/acm/latest/userguide/acm-regions.html) in the *AWS Certificate Manager User Guide* .
 	CertificateConfiguration() interface{}
 	SetCertificateConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -111,8 +110,6 @@ type CfnFleet interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The type of compute resource used to host your game servers.
-	//
-	// You can use your own compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed Amazon GameLift.
 	ComputeType() *string
 	SetComputeType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -123,35 +120,21 @@ type CfnFleet interface {
 	Description() *string
 	SetDescription(val *string)
 	// The number of EC2 instances that you want this fleet to host.
-	//
-	// When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
 	DesiredEc2Instances() *float64
 	SetDesiredEc2Instances(val *float64)
 	// The allowed IP address ranges and port settings that allow inbound traffic to access game sessions on this fleet.
-	//
-	// If the fleet is hosting a custom game build, this property must be set before players can connect to game sessions. For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges.
 	Ec2InboundPermissions() interface{}
 	SetEc2InboundPermissions(val interface{})
 	// The Amazon GameLift-supported Amazon EC2 instance type to use for all fleet instances.
-	//
-	// Instance type determines the computing resources that will be used to host your game servers, including CPU, memory, storage, and networking capacity. See [Amazon Elastic Compute Cloud Instance Types](https://docs.aws.amazon.com/ec2/instance-types/) for detailed descriptions of Amazon EC2 instance types.
 	Ec2InstanceType() *string
 	SetEc2InstanceType(val *string)
 	// Indicates whether to use On-Demand or Spot instances for this fleet.
-	//
-	// By default, this property is set to `ON_DEMAND` . Learn more about when to use [On-Demand versus Spot Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot) . This property cannot be changed after the fleet is created.
 	FleetType() *string
 	SetFleetType(val *string)
 	// A unique identifier for an IAM role that manages access to your AWS services.
-	//
-	// With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN by using the [IAM dashboard](https://docs.aws.amazon.com/iam/) in the AWS Management Console . Learn more about using on-box credentials for your game servers at [Access external resources from a game server](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) . This property cannot be changed after the fleet is created.
 	InstanceRoleArn() *string
 	SetInstanceRoleArn(val *string)
 	// A set of remote locations to deploy additional instances to and manage as part of the fleet.
-	//
-	// This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code such as `us-west-2` . To create a fleet with instances in the home Region only, don't use this parameter.
-	//
-	// To use this parameter, Amazon GameLift requires you to use your home location in the request.
 	Locations() interface{}
 	SetLocations(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -164,44 +147,32 @@ type CfnFleet interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// This parameter is no longer used.
+	// Deprecated: this property has been deprecated.
+	LogPaths() *[]*string
+	// Deprecated: this property has been deprecated.
+	SetLogPaths(val *[]*string)
 	// The maximum number of instances that are allowed in the specified fleet location.
-	//
-	// If this parameter is not set, the default is 1.
 	MaxSize() *float64
 	SetMaxSize(val *float64)
 	// The name of an AWS CloudWatch metric group to add this fleet to.
-	//
-	// A metric group is used to aggregate the metrics for multiple fleets. You can specify an existing metric group name or set a new name to create a new metric group. A fleet can be included in only one metric group at a time.
 	MetricGroups() *[]*string
 	SetMetricGroups(val *[]*string)
 	// The minimum number of instances that are allowed in the specified fleet location.
-	//
-	// If this parameter is not set, the default is 0.
 	MinSize() *float64
 	SetMinSize(val *float64)
 	// A descriptive label that is associated with a fleet.
-	//
-	// Fleet names do not need to be unique.
 	Name() *string
 	SetName(val *string)
 	// The status of termination protection for active game sessions on the fleet.
-	//
-	// By default, this property is set to `NoProtection` .
-	//
-	// - *NoProtection* - Game sessions can be terminated during active gameplay as a result of a scale-down event.
-	// - *FullProtection* - Game sessions in `ACTIVE` status cannot be terminated during a scale-down event.
 	NewGameSessionProtectionPolicy() *string
 	SetNewGameSessionProtectionPolicy(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Used when peering your Amazon GameLift fleet with a VPC, the unique identifier for the AWS account that owns the VPC.
-	//
-	// You can find your account ID in the AWS Management Console under account settings.
 	PeerVpcAwsAccountId() *string
 	SetPeerVpcAwsAccountId(val *string)
 	// A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet.
-	//
-	// The VPC must be in the same Region as your fleet. To look up a VPC ID, use the [VPC Dashboard](https://docs.aws.amazon.com/vpc/) in the AWS Management Console . Learn more about VPC peering in [VPC Peering with Amazon GameLift Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html) .
 	PeerVpcId() *string
 	SetPeerVpcId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -213,19 +184,21 @@ type CfnFleet interface {
 	ResourceCreationLimitPolicy() interface{}
 	SetResourceCreationLimitPolicy(val interface{})
 	// Instructions for how to launch and maintain server processes on instances in the fleet.
-	//
-	// The runtime configuration defines one or more server process configurations, each identifying a build executable or Realtime script file and the number of processes of that type to run concurrently.
-	//
-	// > The `RuntimeConfiguration` parameter is required unless the fleet is being configured using the older parameters `ServerLaunchPath` and `ServerLaunchParameters` , which are still supported for backward compatibility.
 	RuntimeConfiguration() interface{}
 	SetRuntimeConfiguration(val interface{})
 	// The unique identifier for a Realtime configuration script to be deployed on fleet instances.
-	//
-	// You can use either the script ID or ARN. Scripts must be uploaded to Amazon GameLift prior to creating the fleet. This fleet property cannot be changed later.
-	//
-	// > You can't use the `!Ref` command to reference a script created with a CloudFormation template for the fleet property `ScriptId` . Instead, use `Fn::GetAtt Script.Arn` or `Fn::GetAtt Script.Id` to retrieve either of these properties as input for `ScriptId` . Alternatively, enter a `ScriptId` string manually.
 	ScriptId() *string
 	SetScriptId(val *string)
+	// This parameter is no longer used but is retained for backward compatibility.
+	// Deprecated: this property has been deprecated.
+	ServerLaunchParameters() *string
+	// Deprecated: this property has been deprecated.
+	SetServerLaunchParameters(val *string)
+	// This parameter is no longer used.
+	// Deprecated: this property has been deprecated.
+	ServerLaunchPath() *string
+	// Deprecated: this property has been deprecated.
+	SetServerLaunchPath(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -546,6 +519,16 @@ func (j *jsiiProxy_CfnFleet) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) LogPaths() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"logPaths",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) MaxSize() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -666,6 +649,26 @@ func (j *jsiiProxy_CfnFleet) ScriptId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) ServerLaunchParameters() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"serverLaunchParameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) ServerLaunchPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"serverLaunchPath",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -697,7 +700,6 @@ func (j *jsiiProxy_CfnFleet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GameLift::Fleet`.
 func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) CfnFleet {
 	_init_.Initialize()
 
@@ -715,7 +717,6 @@ func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) C
 	return &j
 }
 
-// Create a new `AWS::GameLift::Fleet`.
 func NewCfnFleet_Override(c CfnFleet, scope constructs.Construct, id *string, props *CfnFleetProps) {
 	_init_.Initialize()
 
@@ -826,6 +827,14 @@ func (j *jsiiProxy_CfnFleet)SetLocations(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnFleet)SetLogPaths(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"logPaths",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFleet)SetMaxSize(val *float64) {
 	_jsii_.Set(
 		j,
@@ -911,6 +920,22 @@ func (j *jsiiProxy_CfnFleet)SetScriptId(val *string) {
 	_jsii_.Set(
 		j,
 		"scriptId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetServerLaunchParameters(val *string) {
+	_jsii_.Set(
+		j,
+		"serverLaunchParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetServerLaunchPath(val *string) {
+	_jsii_.Set(
+		j,
+		"serverLaunchPath",
 		val,
 	)
 }

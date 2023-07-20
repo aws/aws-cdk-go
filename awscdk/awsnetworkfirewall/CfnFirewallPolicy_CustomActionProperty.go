@@ -30,12 +30,18 @@ package awsnetworkfirewall
 //   	ActionName: jsii.String("actionName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html
+//
 type CfnFirewallPolicy_CustomActionProperty struct {
 	// The custom action associated with the action name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actiondefinition
+	//
 	ActionDefinition interface{} `field:"required" json:"actionDefinition" yaml:"actionDefinition"`
 	// The descriptive name of the custom action.
 	//
 	// You can't change the name of a custom action after you create it.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actionname
+	//
 	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 }
 

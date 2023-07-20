@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DeviceFarm::TestGridProject`.
+// A Selenium testing project.
 //
-// A Selenium testing project. Projects are used to collect and collate sessions.
+// Projects are used to collect and collate sessions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-testgridproject.html
+//
 type CfnTestGridProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `TestGrid` project.
 	//
 	// See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -83,10 +86,11 @@ type CfnTestGridProject interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +238,7 @@ type CfnTestGridProject interface {
 type jsiiProxy_CfnTestGridProject struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTestGridProject) AttrArn() *string {
@@ -356,6 +361,16 @@ func (j *jsiiProxy_CfnTestGridProject) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTestGridProject) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTestGridProject) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -387,7 +402,6 @@ func (j *jsiiProxy_CfnTestGridProject) VpcConfig() interface{} {
 }
 
 
-// Create a new `AWS::DeviceFarm::TestGridProject`.
 func NewCfnTestGridProject(scope constructs.Construct, id *string, props *CfnTestGridProjectProps) CfnTestGridProject {
 	_init_.Initialize()
 
@@ -405,7 +419,6 @@ func NewCfnTestGridProject(scope constructs.Construct, id *string, props *CfnTes
 	return &j
 }
 
-// Create a new `AWS::DeviceFarm::TestGridProject`.
 func NewCfnTestGridProject_Override(c CfnTestGridProject, scope constructs.Construct, id *string, props *CfnTestGridProjectProps) {
 	_init_.Initialize()
 
@@ -431,6 +444,17 @@ func (j *jsiiProxy_CfnTestGridProject)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTestGridProject)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

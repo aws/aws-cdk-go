@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DLM::LifecyclePolicy`.
-//
 // Specifies a lifecycle policy, which is used to automate operations on Amazon EBS resources.
 //
 // The properties are required when you add a lifecycle policy and optional when you update a lifecycle policy.
@@ -175,11 +173,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html
+//
 type CfnLifecyclePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the lifecycle policy.
 	AttrArn() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -190,8 +192,6 @@ type CfnLifecyclePolicy interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A description of the lifecycle policy.
-	//
-	// The characters ^[0-9A-Za-z _-]+$ are supported.
 	Description() *string
 	SetDescription(val *string)
 	// The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.
@@ -224,8 +224,11 @@ type CfnLifecyclePolicy interface {
 	// The activation state of the lifecycle policy.
 	State() *string
 	SetState(val *string)
-	// The tags to apply to the lifecycle policy during creation.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to apply to the lifecycle policy during creation.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -370,6 +373,7 @@ type CfnLifecyclePolicy interface {
 type jsiiProxy_CfnLifecyclePolicy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLifecyclePolicy) AttrArn() *string {
@@ -377,6 +381,16 @@ func (j *jsiiProxy_CfnLifecyclePolicy) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -512,6 +526,16 @@ func (j *jsiiProxy_CfnLifecyclePolicy) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLifecyclePolicy) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLifecyclePolicy) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -533,7 +557,6 @@ func (j *jsiiProxy_CfnLifecyclePolicy) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::DLM::LifecyclePolicy`.
 func NewCfnLifecyclePolicy(scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) CfnLifecyclePolicy {
 	_init_.Initialize()
 
@@ -551,7 +574,6 @@ func NewCfnLifecyclePolicy(scope constructs.Construct, id *string, props *CfnLif
 	return &j
 }
 
-// Create a new `AWS::DLM::LifecyclePolicy`.
 func NewCfnLifecyclePolicy_Override(c CfnLifecyclePolicy, scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) {
 	_init_.Initialize()
 
@@ -593,6 +615,17 @@ func (j *jsiiProxy_CfnLifecyclePolicy)SetState(val *string) {
 	_jsii_.Set(
 		j,
 		"state",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

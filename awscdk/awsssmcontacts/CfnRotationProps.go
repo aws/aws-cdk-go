@@ -60,24 +60,38 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html
+//
 type CfnRotationProps struct {
 	// The Amazon Resource Names (ARNs) of the contacts to add to the rotation.
 	//
 	// The order in which you list the contacts is their shift order in the rotation schedule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-contactids
+	//
 	ContactIds *[]*string `field:"required" json:"contactIds" yaml:"contactIds"`
 	// The name for the rotation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Information about the rule that specifies when shift team members rotate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-recurrence
+	//
 	Recurrence interface{} `field:"required" json:"recurrence" yaml:"recurrence"`
 	// The date and time the rotation goes into effect.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-starttime
+	//
 	StartTime *string `field:"required" json:"startTime" yaml:"startTime"`
 	// The time zone to base the rotation’s activity on, in Internet Assigned Numbers Authority (IANA) format.
 	//
 	// For example: "America/Los_Angeles", "UTC", or "Asia/Seoul". For more information, see the [Time Zone Database](https://docs.aws.amazon.com/https://www.iana.org/time-zones) on the IANA website.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-timezoneid
+	//
 	TimeZoneId *string `field:"required" json:"timeZoneId" yaml:"timeZoneId"`
 	// Optional metadata to assign to the rotation.
 	//
 	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

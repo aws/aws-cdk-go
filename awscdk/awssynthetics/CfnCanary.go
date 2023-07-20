@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Synthetics::Canary`.
+// Creates or updates a canary.
 //
-// Creates or updates a canary. Canaries are scripts that monitor your endpoints and APIs from the outside-in. Canaries help you check the availability and latency of your web services and troubleshoot anomalies by investigating load time data, screenshots of the UI, logs, and metrics. You can set up a canary to run continuously or just once.
+// Canaries are scripts that monitor your endpoints and APIs from the outside-in. Canaries help you check the availability and latency of your web services and troubleshoot anomalies by investigating load time data, screenshots of the UI, logs, and metrics. You can set up a canary to run continuously or just once.
 //
 // To create canaries, you must have the `CloudWatchSyntheticsFullAccess` policy. If you are creating a new IAM role for the canary, you also need the the `iam:CreateRole` , `iam:CreatePolicy` and `iam:AttachRolePolicy` permissions. For more information, see [Necessary Roles and Permissions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Roles) .
 //
@@ -97,15 +97,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
+//
 type CfnCanary interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.
 	ArtifactConfig() interface{}
 	SetArtifactConfig(val interface{})
 	// The location in Amazon S3 where Synthetics stores artifacts from the runs of this canary.
-	//
-	// Artifacts include the log file, screenshots, and HAR files. Specify the full location path, including `s3://` at the beginning of the path.
 	ArtifactS3Location() *string
 	SetArtifactS3Location(val *string)
 	// `Ref` returns the ARN of the Lambda layer where Synthetics stores the canary script code.
@@ -122,33 +123,21 @@ type CfnCanary interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Use this structure to input your script code for the canary.
-	//
-	// This structure contains the Lambda handler with the location where the canary should start running the script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included. If the script is passed into the canary directly, the script code is contained in the value of `Script` .
 	Code() interface{}
 	SetCode(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Synthetics::Canary.DeleteLambdaResourcesOnCanaryDeletion`.
+	// Deletes associated lambda resources created by Synthetics if set to True.
+	// Deprecated: this property has been deprecated.
 	DeleteLambdaResourcesOnCanaryDeletion() interface{}
+	// Deprecated: this property has been deprecated.
 	SetDeleteLambdaResourcesOnCanaryDeletion(val interface{})
 	// The ARN of the IAM role to be used to run the canary.
-	//
-	// This role must already exist, and must include `lambda.amazonaws.com` as a principal in the trust policy. The role must also have the following permissions:
-	//
-	// - `s3:PutObject`
-	// - `s3:GetBucketLocation`
-	// - `s3:ListAllMyBuckets`
-	// - `cloudwatch:PutMetricData`
-	// - `logs:CreateLogGroup`
-	// - `logs:CreateLogStream`
-	// - `logs:PutLogEvents`.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// The number of days to retain data about failed runs of this canary.
-	//
-	// If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	FailureRetentionPeriod() *float64
 	SetFailureRetentionPeriod(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -162,10 +151,6 @@ type CfnCanary interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name for this canary.
-	//
-	// Be sure to give it a descriptive name that distinguishes it from other canaries in your account.
-	//
-	// Do not include secrets or proprietary information in your canary names. The canary name makes up part of the canary ARN, and the ARN is included in outbound calls over the internet. For more information, see [Security Considerations for Synthetics Canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html) .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -176,13 +161,9 @@ type CfnCanary interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A structure that contains input information for a canary run.
-	//
-	// If you omit this structure, the frequency of the canary is used as canary's timeout value, up to a maximum of 900 seconds.
 	RunConfig() interface{}
 	SetRunConfig(val interface{})
 	// Specifies the runtime version to use for the canary.
-	//
-	// For more information about runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) .
 	RuntimeVersion() *string
 	SetRuntimeVersion(val *string)
 	// A structure that contains information about how often the canary is to run, and when these runs are to stop.
@@ -193,17 +174,16 @@ type CfnCanary interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specify TRUE to have the canary start making runs immediately after it is created.
-	//
-	// A canary that you create using CloudFormation can't be used to monitor the CloudFormation stack that creates the canary or to roll back that stack if there is a failure.
 	StartCanaryAfterCreation() interface{}
 	SetStartCanaryAfterCreation(val interface{})
 	// The number of days to retain data about successful runs of this canary.
-	//
-	// If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod() *float64
 	SetSuccessRetentionPeriod(val *float64)
-	// The list of key-value pairs that are associated with the canary.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of key-value pairs that are associated with the canary.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -221,8 +201,6 @@ type CfnCanary interface {
 	VisualReference() interface{}
 	SetVisualReference(val interface{})
 	// If this canary is to test an endpoint in a VPC, this structure contains information about the subnet and security groups of the VPC endpoint.
-	//
-	// For more information, see [Running a Canary in a VPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html) .
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -356,6 +334,7 @@ type CfnCanary interface {
 type jsiiProxy_CfnCanary struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCanary) ArtifactConfig() interface{} {
@@ -598,6 +577,16 @@ func (j *jsiiProxy_CfnCanary) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCanary) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCanary) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -639,7 +628,6 @@ func (j *jsiiProxy_CfnCanary) VpcConfig() interface{} {
 }
 
 
-// Create a new `AWS::Synthetics::Canary`.
 func NewCfnCanary(scope constructs.Construct, id *string, props *CfnCanaryProps) CfnCanary {
 	_init_.Initialize()
 
@@ -657,7 +645,6 @@ func NewCfnCanary(scope constructs.Construct, id *string, props *CfnCanaryProps)
 	return &j
 }
 
-// Create a new `AWS::Synthetics::Canary`.
 func NewCfnCanary_Override(c CfnCanary, scope constructs.Construct, id *string, props *CfnCanaryProps) {
 	_init_.Initialize()
 
@@ -790,6 +777,17 @@ func (j *jsiiProxy_CfnCanary)SetSuccessRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"successRetentionPeriod",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCanary)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

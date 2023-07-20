@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayPeeringAttachment`.
+// Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter).
 //
-// Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The peer transit gateway can be in your account or a different AWS account .
+// The peer transit gateway can be in your account or a different AWS account .
 //
 // After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.
 //
@@ -35,15 +35,20 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html
+//
 type CfnTransitGatewayPeeringAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The time the transit gateway peering attachment was created.
 	AttrCreationTime() *string
 	// The state of the transit gateway peering attachment.
 	//
 	// Note that the `initiating` state has been deprecated.
 	AttrState() *string
+	// The status of the transit gateway peering attachment.
+	AttrStatus() awscdk.IResolvable
 	// The status code.
 	AttrStatusCode() *string
 	// The status message.
@@ -89,8 +94,11 @@ type CfnTransitGatewayPeeringAttachment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the transit gateway peering attachment.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the transit gateway peering attachment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ID of the transit gateway peering attachment.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
@@ -238,6 +246,7 @@ type CfnTransitGatewayPeeringAttachment interface {
 type jsiiProxy_CfnTransitGatewayPeeringAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) AttrCreationTime() *string {
@@ -255,6 +264,16 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) AttrState() *string {
 	_jsii_.Get(
 		j,
 		"attrState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) AttrStatus() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrStatus",
 		&returns,
 	)
 	return returns
@@ -410,6 +429,16 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Tags() awscdk.TagManager 
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) TransitGatewayId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -441,7 +470,6 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) UpdatedProperties() *map[
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayPeeringAttachment`.
 func NewCfnTransitGatewayPeeringAttachment(scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) CfnTransitGatewayPeeringAttachment {
 	_init_.Initialize()
 
@@ -459,7 +487,6 @@ func NewCfnTransitGatewayPeeringAttachment(scope constructs.Construct, id *strin
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayPeeringAttachment`.
 func NewCfnTransitGatewayPeeringAttachment_Override(c CfnTransitGatewayPeeringAttachment, scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) {
 	_init_.Initialize()
 
@@ -499,6 +526,17 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetPeerTransitGatewayId(va
 	_jsii_.Set(
 		j,
 		"peerTransitGatewayId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

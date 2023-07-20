@@ -14,8 +14,12 @@ package awsrekognition
 //   	OptIn: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-datasharingpreference.html
+//
 type CfnStreamProcessor_DataSharingPreferenceProperty struct {
 	// Describes the opt-in status applied to a stream processor's data sharing policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-datasharingpreference.html#cfn-rekognition-streamprocessor-datasharingpreference-optin
+	//
 	OptIn interface{} `field:"required" json:"optIn" yaml:"optIn"`
 }
 

@@ -19,8 +19,12 @@ package awsiotanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html
+//
 type CfnDatastore_IotSiteWiseMultiLayerStorageProperty struct {
 	// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html#cfn-iotanalytics-datastore-iotsitewisemultilayerstorage-customermanageds3storage
+	//
 	CustomerManagedS3Storage interface{} `field:"optional" json:"customerManagedS3Storage" yaml:"customerManagedS3Storage"`
 }
 

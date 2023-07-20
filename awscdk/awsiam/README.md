@@ -428,13 +428,19 @@ policyDocument := map[string]interface{}{
 			"Action": []*string{
 				jsii.String("iam:ChangePassword"),
 			},
-			"Resource": jsii.String("*"),
+			"Resource": []*string{
+				jsii.String("*"),
+			},
 		},
-		map[string]*string{
+		map[string]interface{}{
 			"Sid": jsii.String("SecondStatement"),
 			"Effect": jsii.String("Allow"),
-			"Action": jsii.String("s3:ListAllMyBuckets"),
-			"Resource": jsii.String("*"),
+			"Action": []*string{
+				jsii.String("s3:ListAllMyBuckets"),
+			},
+			"Resource": []*string{
+				jsii.String("*"),
+			},
 		},
 		map[string]interface{}{
 			"Sid": jsii.String("ThirdStatement"),
@@ -800,6 +806,59 @@ group := iam.NewGroup(this, jsii.String("MyGroup")) // or Group.fromGroupArn(thi
 user.AddToGroup(group)
 // or
 group.addUser(user)
+```
+
+## Instance Profiles
+
+An IAM instance profile is a container for an IAM role that you can use to pass role information to an EC2 instance when the instance starts. By default, an instance profile must be created with a role:
+
+```go
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
+})
+
+instanceProfile := iam.NewInstanceProfile(this, jsii.String("InstanceProfile"), &InstanceProfileProps{
+	Role: Role,
+})
+```
+
+An instance profile can also optionally be created with an instance profile name and/or a [path](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) to the instance profile:
+
+```go
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
+})
+
+instanceProfile := iam.NewInstanceProfile(this, jsii.String("InstanceProfile"), &InstanceProfileProps{
+	Role: Role,
+	InstanceProfileName: jsii.String("MyInstanceProfile"),
+	Path: jsii.String("/sample/path/"),
+})
+```
+
+To import an existing instance profile by name:
+
+```go
+instanceProfile := iam.InstanceProfile_FromInstanceProfileName(this, jsii.String("ImportedInstanceProfile"), jsii.String("MyInstanceProfile"))
+```
+
+To import an existing instance profile by ARN:
+
+```go
+instanceProfile := iam.InstanceProfile_FromInstanceProfileArn(this, jsii.String("ImportedInstanceProfile"), jsii.String("arn:aws:iam::account-id:instance-profile/MyInstanceProfile"))
+```
+
+To import an existing instance profile with an associated role:
+
+```go
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
+})
+
+instanceProfile := iam.InstanceProfile_FromInstanceProfileAttributes(this, jsii.String("ImportedInstanceProfile"), &InstanceProfileAttributes{
+	InstanceProfileArn: jsii.String("arn:aws:iam::account-id:instance-profile/MyInstanceProfile"),
+	Role: Role,
+})
 ```
 
 ## Features

@@ -19,8 +19,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html
+//
 type CfnVirtualRouter_VirtualRouterSpecProperty struct {
 	// The listeners that the virtual router is expected to receive inbound traffic from.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html#cfn-appmesh-virtualrouter-virtualrouterspec-listeners
+	//
 	Listeners interface{} `field:"required" json:"listeners" yaml:"listeners"`
 }
 

@@ -19,10 +19,16 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorsettings.html
+//
 type CfnChannel_VideoSelectorSettingsProperty struct {
 	// Used to extract video by PID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorsettings.html#cfn-medialive-channel-videoselectorsettings-videoselectorpid
+	//
 	VideoSelectorPid interface{} `field:"optional" json:"videoSelectorPid" yaml:"videoSelectorPid"`
 	// Used to extract video by program ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorsettings.html#cfn-medialive-channel-videoselectorsettings-videoselectorprogramid
+	//
 	VideoSelectorProgramId interface{} `field:"optional" json:"videoSelectorProgramId" yaml:"videoSelectorProgramId"`
 }
 

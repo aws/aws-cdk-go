@@ -17,6 +17,7 @@ package awsappmesh
 //   			VirtualNode: virtualNode,
 //
 //   			// the properties below are optional
+//   			Port: jsii.Number(123),
 //   			Weight: jsii.Number(123),
 //   		},
 //   	},

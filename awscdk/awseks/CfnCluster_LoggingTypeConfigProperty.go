@@ -14,8 +14,12 @@ package awseks
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-loggingtypeconfig.html
+//
 type CfnCluster_LoggingTypeConfigProperty struct {
 	// The name of the log type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-loggingtypeconfig.html#cfn-eks-cluster-loggingtypeconfig-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

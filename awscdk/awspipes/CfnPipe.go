@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pipes::Pipe`.
+// Create a pipe.
 //
-// Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.
+// Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -346,9 +346,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html
+//
 type CfnPipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the pipe.
 	AttrArn() *string
 	// The time the pipe was created.
@@ -413,14 +416,15 @@ type CfnPipe interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The list of key-value pairs to associate with the pipe.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of key-value pairs to associate with the pipe.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The ARN of the target resource.
 	Target() *string
 	SetTarget(val *string)
 	// The parameters required to set up a target for your pipe.
-	//
-	// For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
 	TargetParameters() interface{}
 	SetTargetParameters(val interface{})
 	// Deprecated.
@@ -567,6 +571,7 @@ type CfnPipe interface {
 type jsiiProxy_CfnPipe struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPipe) AttrArn() *string {
@@ -789,6 +794,16 @@ func (j *jsiiProxy_CfnPipe) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipe) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipe) Target() *string {
 	var returns *string
 	_jsii_.Get(
@@ -830,7 +845,6 @@ func (j *jsiiProxy_CfnPipe) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Pipes::Pipe`.
 func NewCfnPipe(scope constructs.Construct, id *string, props *CfnPipeProps) CfnPipe {
 	_init_.Initialize()
 
@@ -848,7 +862,6 @@ func NewCfnPipe(scope constructs.Construct, id *string, props *CfnPipeProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::Pipes::Pipe`.
 func NewCfnPipe_Override(c CfnPipe, scope constructs.Construct, id *string, props *CfnPipeProps) {
 	_init_.Initialize()
 
@@ -931,6 +944,14 @@ func (j *jsiiProxy_CfnPipe)SetSourceParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipe)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::Rule`.
-//
 // Creates a rule for the specified Amazon Connect instance.
 //
 // Example:
@@ -84,9 +82,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html
+//
 type CfnRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A list of actions to be run when the rule is triggered.
 	Actions() interface{}
 	SetActions(val interface{})
@@ -123,8 +124,6 @@ type CfnRule interface {
 	// The tree node.
 	Node() constructs.Node
 	// The publish status of the rule.
-	//
-	// *Allowed values* : `DRAFT` | `PUBLISHED`.
 	PublishStatus() *string
 	SetPublishStatus(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -136,10 +135,11 @@ type CfnRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The event source to trigger the rule.
 	TriggerEventSource() interface{}
 	SetTriggerEventSource(val interface{})
@@ -287,6 +287,7 @@ type CfnRule interface {
 type jsiiProxy_CfnRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRule) Actions() interface{} {
@@ -439,6 +440,16 @@ func (j *jsiiProxy_CfnRule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRule) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRule) TriggerEventSource() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -470,7 +481,6 @@ func (j *jsiiProxy_CfnRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Connect::Rule`.
 func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) CfnRule {
 	_init_.Initialize()
 
@@ -488,7 +498,6 @@ func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::Connect::Rule`.
 func NewCfnRule_Override(c CfnRule, scope constructs.Construct, id *string, props *CfnRuleProps) {
 	_init_.Initialize()
 
@@ -550,6 +559,17 @@ func (j *jsiiProxy_CfnRule)SetPublishStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"publishStatus",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRule)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

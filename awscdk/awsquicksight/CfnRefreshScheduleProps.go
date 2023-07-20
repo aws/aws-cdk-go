@@ -27,12 +27,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html
+//
 type CfnRefreshScheduleProps struct {
 	// The AWS account ID of the account that you are creating a schedule in.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html#cfn-quicksight-refreshschedule-awsaccountid
+	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
 	// The ID of the dataset that you are creating a refresh schedule for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html#cfn-quicksight-refreshschedule-datasetid
+	//
 	DataSetId *string `field:"optional" json:"dataSetId" yaml:"dataSetId"`
 	// The refresh schedule of a dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html#cfn-quicksight-refreshschedule-schedule
+	//
 	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
 }
 

@@ -91,8 +91,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableconditionalformattingoption.html
+//
 type CfnAnalysis_PivotTableConditionalFormattingOptionProperty struct {
 	// The cell conditional formatting option for a pivot table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableconditionalformattingoption.html#cfn-quicksight-analysis-pivottableconditionalformattingoption-cell
+	//
 	Cell interface{} `field:"optional" json:"cell" yaml:"cell"`
 }
 

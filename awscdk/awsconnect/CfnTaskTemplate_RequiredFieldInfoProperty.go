@@ -14,8 +14,12 @@ package awsconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-requiredfieldinfo.html
+//
 type CfnTaskTemplate_RequiredFieldInfoProperty struct {
 	// The unique identifier for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-requiredfieldinfo.html#cfn-connect-tasktemplate-requiredfieldinfo-id
+	//
 	Id interface{} `field:"required" json:"id" yaml:"id"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QLDB::Stream`.
+// The `AWS::QLDB::Stream` resource specifies a journal stream for a given Amazon Quantum Ledger Database (Amazon QLDB) ledger.
 //
-// The `AWS::QLDB::Stream` resource specifies a journal stream for a given Amazon Quantum Ledger Database (Amazon QLDB) ledger. The stream captures every document revision that is committed to the ledger's journal and delivers the data to a specified Amazon Kinesis Data Streams resource.
+// The stream captures every document revision that is committed to the ledger's journal and delivers the data to a specified Amazon Kinesis Data Streams resource.
 //
 // For more information, see [StreamJournalToKinesis](https://docs.aws.amazon.com/qldb/latest/developerguide/API_StreamJournalToKinesis.html) in the *Amazon QLDB API Reference* .
 //
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html
+//
 type CfnStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the QLDB journal stream.
 	//
 	// For example: `arn:aws:qldb:us-east-1:123456789012:stream/exampleLedger/IiPT4brpZCqCq3f4MTHbYy` .
@@ -61,19 +64,9 @@ type CfnStream interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The exclusive date and time that specifies when the stream ends.
-	//
-	// If you don't define this parameter, the stream runs indefinitely until you cancel it.
-	//
-	// The `ExclusiveEndTime` must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
 	ExclusiveEndTime() *string
 	SetExclusiveEndTime(val *string)
 	// The inclusive start date and time from which to start streaming journal data.
-	//
-	// This parameter must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
-	//
-	// The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
-	//
-	// If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
 	InclusiveStartTime() *string
 	SetInclusiveStartTime(val *string)
 	// The configuration settings of the Kinesis Data Streams destination for your stream request.
@@ -100,8 +93,6 @@ type CfnStream interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
-	//
-	// To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -109,16 +100,13 @@ type CfnStream interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name that you want to assign to the QLDB journal stream.
-	//
-	// User-defined names can help identify and indicate the purpose of a stream.
-	//
-	// Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
 	StreamName() *string
 	SetStreamName(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -263,6 +251,7 @@ type CfnStream interface {
 type jsiiProxy_CfnStream struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStream) AttrArn() *string {
@@ -435,6 +424,16 @@ func (j *jsiiProxy_CfnStream) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStream) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStream) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -456,7 +455,6 @@ func (j *jsiiProxy_CfnStream) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::QLDB::Stream`.
 func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps) CfnStream {
 	_init_.Initialize()
 
@@ -474,7 +472,6 @@ func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps)
 	return &j
 }
 
-// Create a new `AWS::QLDB::Stream`.
 func NewCfnStream_Override(c CfnStream, scope constructs.Construct, id *string, props *CfnStreamProps) {
 	_init_.Initialize()
 
@@ -544,6 +541,17 @@ func (j *jsiiProxy_CfnStream)SetStreamName(val *string) {
 	_jsii_.Set(
 		j,
 		"streamName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::Instance`.
-//
 // The `AWS::Lightsail::Instance` resource specifies an Amazon Lightsail instance.
 //
 // Example:
@@ -96,12 +94,13 @@ import (
 //   	UserData: jsii.String("userData"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html
+//
 type CfnInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// An array of add-ons for the instance.
-	//
-	// > If the instance has an add-on enabled when performing a delete instance request, the add-on is automatically disabled before the instance is deleted.
 	AddOns() interface{}
 	SetAddOns(val interface{})
 	// The number of vCPUs the instance has.
@@ -155,21 +154,15 @@ type CfnInstance interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
-	//
-	// > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
 	Hardware() interface{}
 	SetHardware(val interface{})
 	// The name of the instance.
 	InstanceName() *string
 	SetInstanceName(val *string)
 	// The name of the key pair to use for the instance.
-	//
-	// If no key pair name is specified, the Regional Lightsail default key pair is used.
 	KeyPairName() *string
 	SetKeyPairName(val *string)
 	// The location for the instance, such as the AWS Region and Availability Zone.
-	//
-	// > The `Location` property is read-only and should not be specified in a create instance or update instance request.
 	Location() interface{}
 	SetLocation(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -197,16 +190,13 @@ type CfnInstance interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The status code and the state (for example, `running` ) of the instance.
-	//
-	// > The `State` property is read-only and should not be specified in a create instance or update instance request.
 	State() interface{}
 	SetState(val interface{})
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
-	//
-	// > The `Value` of `Tags` is optional for Lightsail resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -221,10 +211,6 @@ type CfnInstance interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The optional launch script for the instance.
-	//
-	// Specify a launch script to configure an instance with additional user data. For example, you might want to specify `apt-get -y update` as a launch script.
-	//
-	// > Depending on the blueprint of your instance, the command to get software on your instance varies. Amazon Linux and CentOS use `yum` , Debian and Ubuntu use `apt-get` , and FreeBSD uses `pkg` .
 	UserData() *string
 	SetUserData(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -358,6 +344,7 @@ type CfnInstance interface {
 type jsiiProxy_CfnInstance struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInstance) AddOns() interface{} {
@@ -700,6 +687,16 @@ func (j *jsiiProxy_CfnInstance) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInstance) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInstance) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -731,7 +728,6 @@ func (j *jsiiProxy_CfnInstance) UserData() *string {
 }
 
 
-// Create a new `AWS::Lightsail::Instance`.
 func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstanceProps) CfnInstance {
 	_init_.Initialize()
 
@@ -749,7 +745,6 @@ func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstancePr
 	return &j
 }
 
-// Create a new `AWS::Lightsail::Instance`.
 func NewCfnInstance_Override(c CfnInstance, scope constructs.Construct, id *string, props *CfnInstanceProps) {
 	_init_.Initialize()
 
@@ -860,6 +855,17 @@ func (j *jsiiProxy_CfnInstance)SetState(val interface{}) {
 	_jsii_.Set(
 		j,
 		"state",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

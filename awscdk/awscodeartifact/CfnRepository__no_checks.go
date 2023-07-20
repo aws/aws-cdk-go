@@ -84,11 +84,11 @@ func (j *jsiiProxy_CfnRepository) validateSetDomainNameParameters(val *string) e
 	return nil
 }
 
-func (j *jsiiProxy_CfnRepository) validateSetPermissionsPolicyDocumentParameters(val interface{}) error {
+func (j *jsiiProxy_CfnRepository) validateSetRepositoryNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnRepository) validateSetRepositoryNameParameters(val *string) error {
+func (j *jsiiProxy_CfnRepository) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

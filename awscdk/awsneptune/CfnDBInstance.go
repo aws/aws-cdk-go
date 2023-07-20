@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Neptune::DBInstance`.
-//
 // The `AWS::Neptune::DBInstance` type creates an Amazon Neptune DB instance.
 //
 // *Updating DB Instances*
@@ -59,27 +57,25 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html
+//
 type CfnDBInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Indicates that major version upgrades are allowed.
-	//
-	// Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
-	//
-	// When you change this parameter for an existing DB cluster, CloudFormation will replace your existing DB cluster with a new, empty one that uses the engine version you specified.
 	AllowMajorVersionUpgrade() interface{}
 	SetAllowMajorVersionUpgrade(val interface{})
 	// The connection endpoint for the database.
 	//
 	// For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com` .
 	AttrEndpoint() *string
+	AttrId() *string
 	// The port number on which the database accepts connections.
 	//
 	// For example: `8182` .
 	AttrPort() *string
 	// Indicates that minor version patches are applied automatically.
-	//
-	// When updating this property, some interruptions may occur.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
 	// Specifies the name of the Availability Zone the DB instance is located in.
@@ -98,30 +94,18 @@ type CfnDBInstance interface {
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
 	// Contains the name of the compute and memory capacity class of the DB instance.
-	//
-	// If you update this property, some interruptions may occur.
 	DbInstanceClass() *string
 	SetDbInstanceClass(val *string)
 	// Contains a user-supplied database identifier.
-	//
-	// This identifier is the unique key that identifies a DB instance.
 	DbInstanceIdentifier() *string
 	SetDbInstanceIdentifier(val *string)
 	// The name of an existing DB parameter group or a reference to an AWS::Neptune::DBParameterGroup resource created in the template.
-	//
-	// If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
 	DbParameterGroupName() *string
 	SetDbParameterGroupName(val *string)
 	// This parameter is not supported.
-	//
-	// `AWS::Neptune::DBInstance` does not support restoring from snapshots.
-	//
-	// `AWS::Neptune::DBCluster` does support restoring from snapshots.
 	DbSnapshotIdentifier() *string
 	SetDbSnapshotIdentifier(val *string)
 	// A DB subnet group to associate with the DB instance.
-	//
-	// If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -148,8 +132,11 @@ type CfnDBInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An arbitrary set of tags (key-value pairs) for this DB instance.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An arbitrary set of tags (key-value pairs) for this DB instance.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -294,6 +281,7 @@ type CfnDBInstance interface {
 type jsiiProxy_CfnDBInstance struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDBInstance) AllowMajorVersionUpgrade() interface{} {
@@ -311,6 +299,16 @@ func (j *jsiiProxy_CfnDBInstance) AttrEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -506,6 +504,16 @@ func (j *jsiiProxy_CfnDBInstance) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -527,7 +535,6 @@ func (j *jsiiProxy_CfnDBInstance) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Neptune::DBInstance`.
 func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
 	_init_.Initialize()
 
@@ -545,7 +552,6 @@ func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstan
 	return &j
 }
 
-// Create a new `AWS::Neptune::DBInstance`.
 func NewCfnDBInstance_Override(c CfnDBInstance, scope constructs.Construct, id *string, props *CfnDBInstanceProps) {
 	_init_.Initialize()
 
@@ -641,6 +647,17 @@ func (j *jsiiProxy_CfnDBInstance)SetPreferredMaintenanceWindow(val *string) {
 	_jsii_.Set(
 		j,
 		"preferredMaintenanceWindow",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

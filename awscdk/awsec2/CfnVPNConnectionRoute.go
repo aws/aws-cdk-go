@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPNConnectionRoute`.
+// Specifies a static route for a VPN connection between an existing virtual private gateway and a VPN customer gateway.
 //
-// Specifies a static route for a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
+// The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
 //
 // For more information, see [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *AWS Site-to-Site VPN User Guide* .
 //
@@ -24,6 +24,8 @@ import (
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	VpnConnectionId: jsii.String("vpnConnectionId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnectionroute.html
 //
 type CfnVPNConnectionRoute interface {
 	awscdk.CfnResource
@@ -331,7 +333,6 @@ func (j *jsiiProxy_CfnVPNConnectionRoute) VpnConnectionId() *string {
 }
 
 
-// Create a new `AWS::EC2::VPNConnectionRoute`.
 func NewCfnVPNConnectionRoute(scope constructs.Construct, id *string, props *CfnVPNConnectionRouteProps) CfnVPNConnectionRoute {
 	_init_.Initialize()
 
@@ -349,7 +350,6 @@ func NewCfnVPNConnectionRoute(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::EC2::VPNConnectionRoute`.
 func NewCfnVPNConnectionRoute_Override(c CfnVPNConnectionRoute, scope constructs.Construct, id *string, props *CfnVPNConnectionRouteProps) {
 	_init_.Initialize()
 

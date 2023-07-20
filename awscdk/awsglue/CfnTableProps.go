@@ -90,14 +90,22 @@ package awsglue
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html
+//
 type CfnTableProps struct {
 	// The ID of the Data Catalog in which to create the `Table` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-catalogid
+	//
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The name of the database where the table metadata resides.
 	//
 	// For Hive compatibility, this must be all lowercase.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-databasename
+	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// A structure used to define a table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-tableinput
+	//
 	TableInput interface{} `field:"required" json:"tableInput" yaml:"tableInput"`
 }
 

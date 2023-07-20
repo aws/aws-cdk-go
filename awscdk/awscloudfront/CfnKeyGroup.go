@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::KeyGroup`.
-//
 // A key group.
 //
 // A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
@@ -31,6 +29,8 @@ import (
 //   		Comment: jsii.String("comment"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
 //
 type CfnKeyGroup interface {
 	awscdk.CfnResource
@@ -349,7 +349,6 @@ func (j *jsiiProxy_CfnKeyGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudFront::KeyGroup`.
 func NewCfnKeyGroup(scope constructs.Construct, id *string, props *CfnKeyGroupProps) CfnKeyGroup {
 	_init_.Initialize()
 
@@ -367,7 +366,6 @@ func NewCfnKeyGroup(scope constructs.Construct, id *string, props *CfnKeyGroupPr
 	return &j
 }
 
-// Create a new `AWS::CloudFront::KeyGroup`.
 func NewCfnKeyGroup_Override(c CfnKeyGroup, scope constructs.Construct, id *string, props *CfnKeyGroupProps) {
 	_init_.Initialize()
 

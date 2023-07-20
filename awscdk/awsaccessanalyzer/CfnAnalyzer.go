@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AccessAnalyzer::Analyzer`.
+// The `AWS::AccessAnalyzer::Analyzer` resource specifies a new analyzer.
 //
-// The `AWS::AccessAnalyzer::Analyzer` resource specifies a new analyzer. The analyzer is an object that represents the IAM Access Analyzer feature. An analyzer is required for Access Analyzer to become operational.
+// The analyzer is an object that represents the IAM Access Analyzer feature. An analyzer is required for Access Analyzer to become operational.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -53,15 +53,19 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
+//
 type CfnAnalyzer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the analyzer.
 	AnalyzerName() *string
 	SetAnalyzerName(val *string)
 	// Specifies the archive rules to add for the analyzer.
 	ArchiveRules() interface{}
 	SetArchiveRules(val interface{})
+	// Amazon Resource Name (ARN) of the analyzer.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -93,11 +97,12 @@ type CfnAnalyzer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to apply to the analyzer.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to apply to the analyzer.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type represents the zone of trust for the analyzer.
-	//
-	// *Allowed Values* : ACCOUNT | ORGANIZATION.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -244,6 +249,7 @@ type CfnAnalyzer interface {
 type jsiiProxy_CfnAnalyzer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAnalyzer) AnalyzerName() *string {
@@ -366,6 +372,16 @@ func (j *jsiiProxy_CfnAnalyzer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnalyzer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnalyzer) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -397,7 +413,6 @@ func (j *jsiiProxy_CfnAnalyzer) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AccessAnalyzer::Analyzer`.
 func NewCfnAnalyzer(scope constructs.Construct, id *string, props *CfnAnalyzerProps) CfnAnalyzer {
 	_init_.Initialize()
 
@@ -415,7 +430,6 @@ func NewCfnAnalyzer(scope constructs.Construct, id *string, props *CfnAnalyzerPr
 	return &j
 }
 
-// Create a new `AWS::AccessAnalyzer::Analyzer`.
 func NewCfnAnalyzer_Override(c CfnAnalyzer, scope constructs.Construct, id *string, props *CfnAnalyzerProps) {
 	_init_.Initialize()
 
@@ -441,6 +455,17 @@ func (j *jsiiProxy_CfnAnalyzer)SetArchiveRules(val interface{}) {
 	_jsii_.Set(
 		j,
 		"archiveRules",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnalyzer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

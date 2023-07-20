@@ -358,36 +358,56 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html
+//
 type CfnComponent_ActionParametersProperty struct {
 	// The HTML anchor link to the location to open.
 	//
 	// Specify this value for a navigation action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-anchor
+	//
 	Anchor interface{} `field:"optional" json:"anchor" yaml:"anchor"`
 	// A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model.
 	//
 	// Use when the action performs an operation on an Amplify DataStore model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-fields
+	//
 	Fields interface{} `field:"optional" json:"fields" yaml:"fields"`
 	// Specifies whether the user should be signed out globally.
 	//
 	// Specify this value for an auth sign out action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-global
+	//
 	Global interface{} `field:"optional" json:"global" yaml:"global"`
 	// The unique ID of the component that the `ActionParameters` apply to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-id
+	//
 	Id interface{} `field:"optional" json:"id" yaml:"id"`
 	// The name of the data model.
 	//
 	// Use when the action performs an operation on an Amplify DataStore model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-model
+	//
 	Model *string `field:"optional" json:"model" yaml:"model"`
 	// A key-value pair that specifies the state property name and its initial value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-state
+	//
 	State interface{} `field:"optional" json:"state" yaml:"state"`
 	// The element within the same component to modify when the action occurs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-target
+	//
 	Target interface{} `field:"optional" json:"target" yaml:"target"`
 	// The type of navigation action.
 	//
 	// Valid values are `url` and `anchor` . This value is required for a navigation action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-type
+	//
 	Type interface{} `field:"optional" json:"type" yaml:"type"`
 	// The URL to the location to open.
 	//
 	// Specify this value for a navigation action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-url
+	//
 	Url interface{} `field:"optional" json:"url" yaml:"url"`
 }
 

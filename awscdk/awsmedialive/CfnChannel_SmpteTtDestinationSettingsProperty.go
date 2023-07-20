@@ -13,6 +13,8 @@ package awsmedialive
 //   smpteTtDestinationSettingsProperty := &SmpteTtDestinationSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-smptettdestinationsettings.html
+//
 type CfnChannel_SmpteTtDestinationSettingsProperty struct {
 }
 

@@ -13,10 +13,16 @@ package awsmemorydb
 //   	Port: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html
+//
 type CfnCluster_EndpointProperty struct {
 	// The DNS hostname of the node.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html#cfn-memorydb-cluster-endpoint-address
+	//
 	Address *string `field:"optional" json:"address" yaml:"address"`
 	// The port number that the engine is listening on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html#cfn-memorydb-cluster-endpoint-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

@@ -17,10 +17,14 @@ package awsmsk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html
+//
 type CfnBatchScramSecretProps struct {
-	// `AWS::MSK::BatchScramSecret.ClusterArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html#cfn-msk-batchscramsecret-clusterarn
+	//
 	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
-	// `AWS::MSK::BatchScramSecret.SecretArnList`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html#cfn-msk-batchscramsecret-secretarnlist
+	//
 	SecretArnList *[]*string `field:"optional" json:"secretArnList" yaml:"secretArnList"`
 }
 

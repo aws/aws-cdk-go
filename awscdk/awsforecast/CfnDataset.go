@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Forecast::Dataset`.
+// Creates an Amazon Forecast dataset.
 //
-// Creates an Amazon Forecast dataset. The information about the dataset that you provide helps Forecast understand how to consume the data for model training. This includes the following:
+// The information about the dataset that you provide helps Forecast understand how to consume the data for model training. This includes the following:
 //
 // - *`DataFrequency`* - How frequently your historical time-series data is collected.
 // - *`Domain`* and *`DatasetType`* - Each dataset has an associated dataset domain and a type within the domain. Amazon Forecast provides a list of predefined domains and types within each domain. For each unique dataset domain and type within the domain, Amazon Forecast requires your data to include a minimum set of predefined fields.
@@ -50,6 +50,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html
+//
 type CfnDataset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -64,18 +66,9 @@ type CfnDataset interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The frequency of data collection. This parameter is required for RELATED_TIME_SERIES datasets.
+	// The frequency of data collection.
 	//
-	// Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H (Hour), and min (Minute). For example, "1D" indicates every day and "15min" indicates every 15 minutes. You cannot specify a value that would overlap with the next larger frequency. That means, for example, you cannot specify a frequency of 60 minutes, because that is equivalent to 1 hour. The valid values for each frequency are the following:
-	//
-	// - Minute - 1-59
-	// - Hour - 1-23
-	// - Day - 1-6
-	// - Week - 1-4
-	// - Month - 1-11
-	// - Year - 1
-	//
-	// Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".
+	// This parameter is required for RELATED_TIME_SERIES datasets.
 	DataFrequency() *string
 	SetDataFrequency(val *string)
 	// The name of the dataset.
@@ -108,8 +101,6 @@ type CfnDataset interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The schema for the dataset.
-	//
-	// The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
 	Schema() interface{}
 	SetSchema(val interface{})
 	// The stack in which this element is defined.
@@ -117,8 +108,6 @@ type CfnDataset interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() *[]*CfnDataset_TagsItemsProperty
 	SetTags(val *[]*CfnDataset_TagsItemsProperty)
 	// Deprecated.
@@ -448,7 +437,6 @@ func (j *jsiiProxy_CfnDataset) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Forecast::Dataset`.
 func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProps) CfnDataset {
 	_init_.Initialize()
 
@@ -466,7 +454,6 @@ func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProp
 	return &j
 }
 
-// Create a new `AWS::Forecast::Dataset`.
 func NewCfnDataset_Override(c CfnDataset, scope constructs.Construct, id *string, props *CfnDatasetProps) {
 	_init_.Initialize()
 
@@ -519,9 +506,6 @@ func (j *jsiiProxy_CfnDataset)SetDomain(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataset)SetEncryptionConfig(val interface{}) {
-	if err := j.validateSetEncryptionConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"encryptionConfig",

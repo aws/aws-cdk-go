@@ -18,24 +18,24 @@ package awsemr
 //   		"configurationPropertiesKey": jsii.String("configurationProperties"),
 //   	},
 //   	Configurations: []interface{}{
-//   		&configurationProperty{
-//   			Classification: jsii.String("classification"),
-//   			ConfigurationProperties: map[string]*string{
-//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
-//   			},
-//   			Configurations: []interface{}{
-//   				configurationProperty_,
-//   			},
-//   		},
+//   		configurationProperty_,
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html
+//
 type CfnCluster_ConfigurationProperty struct {
 	// The classification within a configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-classification
+	//
 	Classification *string `field:"optional" json:"classification" yaml:"classification"`
 	// A list of additional configurations to apply within a configuration object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-configurationproperties
+	//
 	ConfigurationProperties interface{} `field:"optional" json:"configurationProperties" yaml:"configurationProperties"`
 	// A list of additional configurations to apply within a configuration object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-configurations
+	//
 	Configurations interface{} `field:"optional" json:"configurations" yaml:"configurations"`
 }
 

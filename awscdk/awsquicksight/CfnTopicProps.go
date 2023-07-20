@@ -270,18 +270,30 @@ package awsquicksight
 //   	TopicId: jsii.String("topicId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html
+//
 type CfnTopicProps struct {
 	// The ID of the AWS account that you want to create a topic in.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-awsaccountid
+	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
 	// The data sets that the topic is associated with.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-datasets
+	//
 	DataSets interface{} `field:"optional" json:"dataSets" yaml:"dataSets"`
 	// The description of the topic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the topic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The ID for the topic.
 	//
 	// This ID is unique per AWS Region for each AWS account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-topicid
+	//
 	TopicId *string `field:"optional" json:"topicId" yaml:"topicId"`
 }
 

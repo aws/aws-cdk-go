@@ -18,16 +18,23 @@ package awscloudfront
 //   	HttpsPort: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html
+//
 type CfnDistribution_LegacyCustomOriginProperty struct {
-	// `CfnDistribution.LegacyCustomOriginProperty.DNSName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-dnsname
+	//
 	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
-	// `CfnDistribution.LegacyCustomOriginProperty.OriginProtocolPolicy`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originprotocolpolicy
+	//
 	OriginProtocolPolicy *string `field:"required" json:"originProtocolPolicy" yaml:"originProtocolPolicy"`
-	// `CfnDistribution.LegacyCustomOriginProperty.OriginSSLProtocols`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originsslprotocols
+	//
 	OriginSslProtocols *[]*string `field:"required" json:"originSslProtocols" yaml:"originSslProtocols"`
-	// `CfnDistribution.LegacyCustomOriginProperty.HTTPPort`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpport
+	//
 	HttpPort *float64 `field:"optional" json:"httpPort" yaml:"httpPort"`
-	// `CfnDistribution.LegacyCustomOriginProperty.HTTPSPort`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpsport
+	//
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
 }
 

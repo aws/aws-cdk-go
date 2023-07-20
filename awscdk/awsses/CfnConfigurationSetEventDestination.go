@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::ConfigurationSetEventDestination`.
+// Specifies a configuration set event destination.
 //
-// Specifies a configuration set event destination. An event destination is an AWS service that Amazon SES publishes email sending events to. When you specify an event destination, you provide one, and only one, destination. You can send event data to Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon Simple Notification Service (Amazon SNS).
+// An event destination is an AWS service that Amazon SES publishes email sending events to. When you specify an event destination, you provide one, and only one, destination. You can send event data to Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon Simple Notification Service (Amazon SNS).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,6 +46,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html
 //
 type CfnConfigurationSetEventDestination interface {
 	awscdk.CfnResource
@@ -364,7 +366,6 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) UpdatedProperties() *map
 }
 
 
-// Create a new `AWS::SES::ConfigurationSetEventDestination`.
 func NewCfnConfigurationSetEventDestination(scope constructs.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) CfnConfigurationSetEventDestination {
 	_init_.Initialize()
 
@@ -382,7 +383,6 @@ func NewCfnConfigurationSetEventDestination(scope constructs.Construct, id *stri
 	return &j
 }
 
-// Create a new `AWS::SES::ConfigurationSetEventDestination`.
 func NewCfnConfigurationSetEventDestination_Override(c CfnConfigurationSetEventDestination, scope constructs.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) {
 	_init_.Initialize()
 

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnCertificate) validateSetCertificateParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnCertificate) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCertificate) validateSetUsageParameters(val *string) error {
 	return nil
 }

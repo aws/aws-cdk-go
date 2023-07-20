@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnTrafficMirrorSession) validateSetSessionNumberParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrafficMirrorSession) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrafficMirrorSession) validateSetTrafficMirrorFilterIdParameters(val *string) error {
 	return nil
 }

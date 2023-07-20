@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NetworkAcl`.
-//
 // Specifies a network ACL for your VPC.
 //
 // Example:
@@ -30,9 +28,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html
+//
 type CfnNetworkAcl interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the network ACL.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -65,8 +66,11 @@ type CfnNetworkAcl interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the network ACL.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the network ACL.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -214,6 +218,7 @@ type CfnNetworkAcl interface {
 type jsiiProxy_CfnNetworkAcl struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNetworkAcl) AttrId() *string {
@@ -316,6 +321,16 @@ func (j *jsiiProxy_CfnNetworkAcl) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkAcl) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkAcl) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -347,7 +362,6 @@ func (j *jsiiProxy_CfnNetworkAcl) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::NetworkAcl`.
 func NewCfnNetworkAcl(scope constructs.Construct, id *string, props *CfnNetworkAclProps) CfnNetworkAcl {
 	_init_.Initialize()
 
@@ -365,7 +379,6 @@ func NewCfnNetworkAcl(scope constructs.Construct, id *string, props *CfnNetworkA
 	return &j
 }
 
-// Create a new `AWS::EC2::NetworkAcl`.
 func NewCfnNetworkAcl_Override(c CfnNetworkAcl, scope constructs.Construct, id *string, props *CfnNetworkAclProps) {
 	_init_.Initialize()
 
@@ -373,6 +386,17 @@ func NewCfnNetworkAcl_Override(c CfnNetworkAcl, scope constructs.Construct, id *
 		"aws-cdk-lib.aws_ec2.CfnNetworkAcl",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkAcl)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
+		val,
 	)
 }
 

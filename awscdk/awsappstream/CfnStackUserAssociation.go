@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::StackUserAssociation`.
-//
 // The `AWS::AppStream::StackUserAssociation` resource associates the specified users with the specified stacks for Amazon AppStream 2.0. Users in an AppStream 2.0 user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.
 //
 // Example:
@@ -27,12 +25,13 @@ import (
 //   	SendEmailNotification: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html
+//
 type CfnStackUserAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The authentication type for the user who is associated with the stack.
-	//
-	// You must specify USERPOOL.
 	AuthenticationType() *string
 	SetAuthenticationType(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -85,8 +84,6 @@ type CfnStackUserAssociation interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The email address of the user who is associated with the stack.
-	//
-	// > Users' email addresses are case-sensitive.
 	UserName() *string
 	SetUserName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -220,6 +217,16 @@ type CfnStackUserAssociation interface {
 type jsiiProxy_CfnStackUserAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnStackUserAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnStackUserAssociation) AuthenticationType() *string {
@@ -363,7 +370,6 @@ func (j *jsiiProxy_CfnStackUserAssociation) UserName() *string {
 }
 
 
-// Create a new `AWS::AppStream::StackUserAssociation`.
 func NewCfnStackUserAssociation(scope constructs.Construct, id *string, props *CfnStackUserAssociationProps) CfnStackUserAssociation {
 	_init_.Initialize()
 
@@ -381,7 +387,6 @@ func NewCfnStackUserAssociation(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::AppStream::StackUserAssociation`.
 func NewCfnStackUserAssociation_Override(c CfnStackUserAssociation, scope constructs.Construct, id *string, props *CfnStackUserAssociationProps) {
 	_init_.Initialize()
 

@@ -12,8 +12,12 @@ package awsomics
 //   	ReferenceArn: jsii.String("referenceArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-variantstore-referenceitem.html
+//
 type CfnVariantStore_ReferenceItemProperty struct {
 	// The reference's ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-variantstore-referenceitem.html#cfn-omics-variantstore-referenceitem-referencearn
+	//
 	ReferenceArn *string `field:"required" json:"referenceArn" yaml:"referenceArn"`
 }
 

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnSite) validateSetLocationParameters(val interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnSite) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSiteParameters(scope constructs.Construct, id *string, props *CfnSiteProps) error {
 	return nil
 }

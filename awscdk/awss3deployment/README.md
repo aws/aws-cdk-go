@@ -420,25 +420,23 @@ to make from placeholders in a local file which will be resolved during deployme
 is especially useful in situations like creating an API from a spec file, where users might
 want to reference other CDK resources they have created.
 
-The syntax for template variables is `{{ variable-name }}` in your local file. Then, you would
+The syntax for template variables is `{{ variableName }}` in your local file. Then, you would
 specify the substitutions in CDK like this:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
 var myLambdaFunction function
+var destinationBucket bucket
 
 
 s3deploy.NewDeployTimeSubstitutedFile(this, jsii.String("MyFile"), &DeployTimeSubstitutedFileProps{
 	Source: jsii.String("my-file.yaml"),
 	DestinationBucket: destinationBucket,
-	Substitutions: map[string]interface{}{
-		"variable": variable,
-	} - name,
-	MyLambdaFunction: MyLambdaFunction,
-	: .functionName,
-});
+	Substitutions: map[string]*string{
+		"variableName": myLambdaFunction.functionName,
+	},
+})
 ```
 
 Nested variables, like `{{ {{ foo }} }}` or `{{ foo {{ bar }} }}`, are not supported by this

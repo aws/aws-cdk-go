@@ -22,24 +22,44 @@ package awsacmpca
 //   	NonRepudiation: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html
+//
 type CfnCertificate_KeyUsageProperty struct {
 	// Key can be used to sign CRLs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
+	//
 	CrlSign interface{} `field:"optional" json:"crlSign" yaml:"crlSign"`
 	// Key can be used to decipher data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
+	//
 	DataEncipherment interface{} `field:"optional" json:"dataEncipherment" yaml:"dataEncipherment"`
 	// Key can be used only to decipher data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
+	//
 	DecipherOnly interface{} `field:"optional" json:"decipherOnly" yaml:"decipherOnly"`
 	// Key can be used for digital signing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
+	//
 	DigitalSignature interface{} `field:"optional" json:"digitalSignature" yaml:"digitalSignature"`
 	// Key can be used only to encipher data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
+	//
 	EncipherOnly interface{} `field:"optional" json:"encipherOnly" yaml:"encipherOnly"`
 	// Key can be used in a key-agreement protocol.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
+	//
 	KeyAgreement interface{} `field:"optional" json:"keyAgreement" yaml:"keyAgreement"`
 	// Key can be used to sign certificates.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
+	//
 	KeyCertSign interface{} `field:"optional" json:"keyCertSign" yaml:"keyCertSign"`
 	// Key can be used to encipher data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
+	//
 	KeyEncipherment interface{} `field:"optional" json:"keyEncipherment" yaml:"keyEncipherment"`
 	// Key can be used for non-repudiation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
+	//
 	NonRepudiation interface{} `field:"optional" json:"nonRepudiation" yaml:"nonRepudiation"`
 }
 

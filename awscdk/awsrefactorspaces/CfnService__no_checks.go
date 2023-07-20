@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnService) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnService) validateSetUrlEndpointParameters(val interface{}) error {
 	return nil
 }

@@ -15,10 +15,16 @@ package awsssmincidents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html
+//
 type CfnResponsePlan_SsmParameterProperty struct {
 	// The key parameter to use when running the automation document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value parameter to use when running the automation document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-values
+	//
 	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 

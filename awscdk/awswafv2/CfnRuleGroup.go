@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFv2::RuleGroup`.
+// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019.
 //
-// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+// For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
 // Use an `RuleGroup` to define a collection of rules for inspecting and controlling web requests. You use a rule group in an `WebACL` by providing its Amazon Resource Name (ARN) to the rule statement `RuleGroupReferenceStatement` , when you add rules to the web ACL.
 //
@@ -516,9 +516,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html
+//
 type CfnRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the rule group.
 	AttrArn() *string
 	// The ID of the rule group.
@@ -532,15 +535,9 @@ type CfnRuleGroup interface {
 	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 	AttrLabelNamespace() *string
 	// The labels that one or more rules in this rule group add to matching web requests.
-	//
-	// These labels are defined in the `RuleLabels` for a `Rule` .
 	AvailableLabels() interface{}
 	SetAvailableLabels(val interface{})
 	// The web ACL capacity units (WCUs) required for this rule group.
-	//
-	// When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
-	//
-	// AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
 	Capacity() *float64
 	SetCapacity(val *float64)
 	// Options for this resource, such as condition, update policy etc.
@@ -549,8 +546,6 @@ type CfnRuleGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The labels that one or more rules in this rule group match against in label match statements.
-	//
-	// These labels are defined in a `LabelMatchStatement` specification, in the `Statement` definition of a rule.
 	ConsumedLabels() interface{}
 	SetConsumedLabels(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -558,12 +553,6 @@ type CfnRuleGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A map of custom response keys and content bodies.
-	//
-	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
-	//
-	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-	//
-	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies() interface{}
 	SetCustomResponseBodies(val interface{})
 	// A description of the rule group that helps with identification.
@@ -580,8 +569,6 @@ type CfnRuleGroup interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the rule group.
-	//
-	// You cannot change the name of a rule group after you create it.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -592,27 +579,20 @@ type CfnRuleGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
-	//
-	// Each rule includes one top-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
 	Rules() interface{}
 	SetRules(val interface{})
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
-	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
-	//
-	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope() *string
 	SetScope(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key:value pairs associated with an AWS resource.
-	//
-	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	//
-	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key:value pairs associated with an AWS resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -760,6 +740,7 @@ type CfnRuleGroup interface {
 type jsiiProxy_CfnRuleGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRuleGroup) AttrArn() *string {
@@ -962,6 +943,16 @@ func (j *jsiiProxy_CfnRuleGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuleGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuleGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -993,7 +984,6 @@ func (j *jsiiProxy_CfnRuleGroup) VisibilityConfig() interface{} {
 }
 
 
-// Create a new `AWS::WAFv2::RuleGroup`.
 func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
 	_init_.Initialize()
 
@@ -1011,7 +1001,6 @@ func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroup
 	return &j
 }
 
-// Create a new `AWS::WAFv2::RuleGroup`.
 func NewCfnRuleGroup_Override(c CfnRuleGroup, scope constructs.Construct, id *string, props *CfnRuleGroupProps) {
 	_init_.Initialize()
 
@@ -1100,6 +1089,17 @@ func (j *jsiiProxy_CfnRuleGroup)SetScope(val *string) {
 	_jsii_.Set(
 		j,
 		"scope",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuleGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

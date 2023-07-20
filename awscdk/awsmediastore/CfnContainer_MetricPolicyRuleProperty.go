@@ -15,12 +15,18 @@ package awsmediastore
 //   	ObjectGroupName: jsii.String("objectGroupName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html
+//
 type CfnContainer_MetricPolicyRuleProperty struct {
 	// A path or file name that defines which objects to include in the group.
 	//
 	// Wildcards (*) are acceptable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html#cfn-mediastore-container-metricpolicyrule-objectgroup
+	//
 	ObjectGroup *string `field:"required" json:"objectGroup" yaml:"objectGroup"`
 	// A name that allows you to refer to the object group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html#cfn-mediastore-container-metricpolicyrule-objectgroupname
+	//
 	ObjectGroupName *string `field:"required" json:"objectGroupName" yaml:"objectGroupName"`
 }
 

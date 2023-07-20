@@ -13,6 +13,8 @@ package awsmedialive
 //   rtmpCaptionInfoDestinationSettingsProperty := &RtmpCaptionInfoDestinationSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpcaptioninfodestinationsettings.html
+//
 type CfnChannel_RtmpCaptionInfoDestinationSettingsProperty struct {
 }
 

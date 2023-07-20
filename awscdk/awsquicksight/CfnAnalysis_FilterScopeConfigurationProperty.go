@@ -26,8 +26,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterscopeconfiguration.html
+//
 type CfnAnalysis_FilterScopeConfigurationProperty struct {
 	// The configuration for applying a filter to specific sheets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterscopeconfiguration.html#cfn-quicksight-analysis-filterscopeconfiguration-selectedsheets
+	//
 	SelectedSheets interface{} `field:"optional" json:"selectedSheets" yaml:"selectedSheets"`
 }
 

@@ -32,12 +32,20 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html
+//
 type CfnModelPackage_DriftCheckBiasProperty struct {
 	// The bias config file for a model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html#cfn-sagemaker-modelpackage-driftcheckbias-configfile
+	//
 	ConfigFile interface{} `field:"optional" json:"configFile" yaml:"configFile"`
 	// The post-training constraints.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html#cfn-sagemaker-modelpackage-driftcheckbias-posttrainingconstraints
+	//
 	PostTrainingConstraints interface{} `field:"optional" json:"postTrainingConstraints" yaml:"postTrainingConstraints"`
 	// The pre-training constraints.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html#cfn-sagemaker-modelpackage-driftcheckbias-pretrainingconstraints
+	//
 	PreTrainingConstraints interface{} `field:"optional" json:"preTrainingConstraints" yaml:"preTrainingConstraints"`
 }
 

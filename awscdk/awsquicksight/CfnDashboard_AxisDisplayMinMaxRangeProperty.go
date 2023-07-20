@@ -13,10 +13,16 @@ package awsquicksight
 //   	Minimum: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisdisplayminmaxrange.html
+//
 type CfnDashboard_AxisDisplayMinMaxRangeProperty struct {
 	// The maximum setup for an axis display range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisdisplayminmaxrange.html#cfn-quicksight-dashboard-axisdisplayminmaxrange-maximum
+	//
 	Maximum *float64 `field:"optional" json:"maximum" yaml:"maximum"`
 	// The minimum setup for an axis display range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisdisplayminmaxrange.html#cfn-quicksight-dashboard-axisdisplayminmaxrange-minimum
+	//
 	Minimum *float64 `field:"optional" json:"minimum" yaml:"minimum"`
 }
 

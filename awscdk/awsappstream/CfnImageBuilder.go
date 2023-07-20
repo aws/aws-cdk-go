@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::ImageBuilder`.
-//
 // The `AWS::AppStream::ImageBuilder` resource creates an image builder for Amazon AppStream 2.0. An image builder is a virtual machine that is used to create an image.
 //
 // The initial state of the image builder is `PENDING` . When it is ready, the state is `RUNNING` .
@@ -58,12 +56,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html
+//
 type CfnImageBuilder interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The list of virtual private cloud (VPC) interface endpoint objects.
-	//
-	// Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints() interface{}
 	SetAccessEndpoints(val interface{})
 	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
@@ -93,10 +92,6 @@ type CfnImageBuilder interface {
 	EnableDefaultInternetAccess() interface{}
 	SetEnableDefaultInternetAccess(val interface{})
 	// The ARN of the IAM role that is applied to the image builder.
-	//
-	// To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
-	//
-	// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
 	// The ARN of the public, private, or shared image to use.
@@ -105,41 +100,9 @@ type CfnImageBuilder interface {
 	// The name of the image used to create the image builder.
 	ImageName() *string
 	SetImageName(val *string)
-	// The instance type to use when launching the image builder. The following instance types are available:.
+	// The instance type to use when launching the image builder.
 	//
-	// - stream.standard.small
-	// - stream.standard.medium
-	// - stream.standard.large
-	// - stream.compute.large
-	// - stream.compute.xlarge
-	// - stream.compute.2xlarge
-	// - stream.compute.4xlarge
-	// - stream.compute.8xlarge
-	// - stream.memory.large
-	// - stream.memory.xlarge
-	// - stream.memory.2xlarge
-	// - stream.memory.4xlarge
-	// - stream.memory.8xlarge
-	// - stream.memory.z1d.large
-	// - stream.memory.z1d.xlarge
-	// - stream.memory.z1d.2xlarge
-	// - stream.memory.z1d.3xlarge
-	// - stream.memory.z1d.6xlarge
-	// - stream.memory.z1d.12xlarge
-	// - stream.graphics-design.large
-	// - stream.graphics-design.xlarge
-	// - stream.graphics-design.2xlarge
-	// - stream.graphics-design.4xlarge
-	// - stream.graphics-desktop.2xlarge
-	// - stream.graphics.g4dn.xlarge
-	// - stream.graphics.g4dn.2xlarge
-	// - stream.graphics.g4dn.4xlarge
-	// - stream.graphics.g4dn.8xlarge
-	// - stream.graphics.g4dn.12xlarge
-	// - stream.graphics.g4dn.16xlarge
-	// - stream.graphics-pro.4xlarge
-	// - stream.graphics-pro.8xlarge
-	// - stream.graphics-pro.16xlarge
+	// The following instance types are available:.
 	InstanceType() *string
 	SetInstanceType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -166,8 +129,11 @@ type CfnImageBuilder interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -182,8 +148,6 @@ type CfnImageBuilder interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The VPC configuration for the image builder.
-	//
-	// You can specify only one subnet.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -317,6 +281,7 @@ type CfnImageBuilder interface {
 type jsiiProxy_CfnImageBuilder struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnImageBuilder) AccessEndpoints() interface{} {
@@ -529,6 +494,16 @@ func (j *jsiiProxy_CfnImageBuilder) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImageBuilder) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImageBuilder) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -560,7 +535,6 @@ func (j *jsiiProxy_CfnImageBuilder) VpcConfig() interface{} {
 }
 
 
-// Create a new `AWS::AppStream::ImageBuilder`.
 func NewCfnImageBuilder(scope constructs.Construct, id *string, props *CfnImageBuilderProps) CfnImageBuilder {
 	_init_.Initialize()
 
@@ -578,7 +552,6 @@ func NewCfnImageBuilder(scope constructs.Construct, id *string, props *CfnImageB
 	return &j
 }
 
-// Create a new `AWS::AppStream::ImageBuilder`.
 func NewCfnImageBuilder_Override(c CfnImageBuilder, scope constructs.Construct, id *string, props *CfnImageBuilderProps) {
 	_init_.Initialize()
 
@@ -688,6 +661,17 @@ func (j *jsiiProxy_CfnImageBuilder)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageBuilder)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

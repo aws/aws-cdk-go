@@ -13,6 +13,8 @@ package awsmedialive
 //   passThroughSettingsProperty := &PassThroughSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-passthroughsettings.html
+//
 type CfnChannel_PassThroughSettingsProperty struct {
 }
 

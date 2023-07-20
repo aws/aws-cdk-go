@@ -1,6 +1,8 @@
 package awsnimblestudio
 
 
+// <p>TODO</p>.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,10 +15,16 @@ package awsnimblestudio
 //   	KeyArn: jsii.String("keyArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-streamingimage-streamingimageencryptionconfiguration.html
+//
 type CfnStreamingImage_StreamingImageEncryptionConfigurationProperty struct {
-	// `CfnStreamingImage.StreamingImageEncryptionConfigurationProperty.KeyType`.
+	// <p/>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-streamingimage-streamingimageencryptionconfiguration.html#cfn-nimblestudio-streamingimage-streamingimageencryptionconfiguration-keytype
+	//
 	KeyType *string `field:"required" json:"keyType" yaml:"keyType"`
-	// `CfnStreamingImage.StreamingImageEncryptionConfigurationProperty.KeyArn`.
+	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-streamingimage-streamingimageencryptionconfiguration.html#cfn-nimblestudio-streamingimage-streamingimageencryptionconfiguration-keyarn
+	//
 	KeyArn *string `field:"optional" json:"keyArn" yaml:"keyArn"`
 }
 

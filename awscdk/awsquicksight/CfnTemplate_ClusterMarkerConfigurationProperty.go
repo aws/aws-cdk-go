@@ -16,8 +16,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-clustermarkerconfiguration.html
+//
 type CfnTemplate_ClusterMarkerConfigurationProperty struct {
 	// The cluster marker that is a part of the cluster marker configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-clustermarkerconfiguration.html#cfn-quicksight-template-clustermarkerconfiguration-clustermarker
+	//
 	ClusterMarker interface{} `field:"optional" json:"clusterMarker" yaml:"clusterMarker"`
 }
 

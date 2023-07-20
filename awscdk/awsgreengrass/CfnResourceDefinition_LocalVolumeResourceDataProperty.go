@@ -25,14 +25,22 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html
+//
 type CfnResourceDefinition_LocalVolumeResourceDataProperty struct {
 	// The absolute local path of the resource in the Lambda environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-destinationpath
+	//
 	DestinationPath *string `field:"required" json:"destinationPath" yaml:"destinationPath"`
 	// The local absolute path of the volume resource on the host.
 	//
 	// The source path for a volume resource type cannot start with `/sys` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-sourcepath
+	//
 	SourcePath *string `field:"required" json:"sourcePath" yaml:"sourcePath"`
 	// Settings that define additional Linux OS group permissions to give to the Lambda function process.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-groupownersetting
+	//
 	GroupOwnerSetting interface{} `field:"optional" json:"groupOwnerSetting" yaml:"groupOwnerSetting"`
 }
 

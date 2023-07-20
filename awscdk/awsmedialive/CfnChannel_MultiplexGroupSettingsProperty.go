@@ -13,6 +13,8 @@ package awsmedialive
 //   multiplexGroupSettingsProperty := &MultiplexGroupSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexgroupsettings.html
+//
 type CfnChannel_MultiplexGroupSettingsProperty struct {
 }
 

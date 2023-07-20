@@ -1,6 +1,8 @@
 package awsosis
 
 
+// The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -10,8 +12,11 @@ package awsosis
 //   	LogGroup: jsii.String("logGroup"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-cloudwatchlogdestination.html
+//
 type CfnPipeline_CloudWatchLogDestinationProperty struct {
-	// `CfnPipeline.CloudWatchLogDestinationProperty.LogGroup`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-cloudwatchlogdestination.html#cfn-osis-pipeline-cloudwatchlogdestination-loggroup
+	//
 	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
 }
 

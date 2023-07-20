@@ -43,18 +43,32 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html
+//
 type CfnThemeProps struct {
 	// The name of the theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html#cfn-amplifyuibuilder-theme-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of key-value pairs that defines the properties of the theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html#cfn-amplifyuibuilder-theme-values
+	//
 	Values interface{} `field:"required" json:"values" yaml:"values"`
 	// The unique ID for the Amplify app associated with the theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html#cfn-amplifyuibuilder-theme-appid
+	//
 	AppId *string `field:"optional" json:"appId" yaml:"appId"`
 	// The name of the backend environment that is a part of the Amplify app.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html#cfn-amplifyuibuilder-theme-environmentname
+	//
 	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
 	// Describes the properties that can be overriden to customize a theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html#cfn-amplifyuibuilder-theme-overrides
+	//
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 	// One or more key-value pairs to use when tagging the theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html#cfn-amplifyuibuilder-theme-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

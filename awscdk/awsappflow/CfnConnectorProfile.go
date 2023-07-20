@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppFlow::ConnectorProfile`.
+// The `AWS::AppFlow::ConnectorProfile` resource is an Amazon AppFlow resource type that specifies the configuration profile for an instance of a connector.
 //
-// The `AWS::AppFlow::ConnectorProfile` resource is an Amazon AppFlow resource type that specifies the configuration profile for an instance of a connector. This includes the provided name, credentials ARN, connection-mode, and so on. The fields that are common to all types of connector profiles are explicitly specified under the `Properties` field. The rest of the connector-specific properties are specified under `Properties/ConnectorProfileConfig` .
+// This includes the provided name, credentials ARN, connection-mode, and so on. The fields that are common to all types of connector profiles are explicitly specified under the `Properties` field. The rest of the connector-specific properties are specified under `Properties/ConnectorProfileConfig` .
 //
 // > If you want to use AWS CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
 //
@@ -237,6 +237,7 @@ import (
 //   				ApplicationHostUrl: jsii.String("applicationHostUrl"),
 //   				ApplicationServicePath: jsii.String("applicationServicePath"),
 //   				ClientNumber: jsii.String("clientNumber"),
+//   				DisableSso: jsii.Boolean(false),
 //   				LogonLanguage: jsii.String("logonLanguage"),
 //   				OAuthProperties: &OAuthPropertiesProperty{
 //   					AuthCodeUrl: jsii.String("authCodeUrl"),
@@ -276,6 +277,8 @@ import (
 //   	KmsArn: jsii.String("kmsArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
+//
 type CfnConnectorProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -298,8 +301,6 @@ type CfnConnectorProfile interface {
 	ConnectorProfileConfig() interface{}
 	SetConnectorProfileConfig(val interface{})
 	// The name of the connector profile.
-	//
-	// The name is unique for each `ConnectorProfile` in the AWS account .
 	ConnectorProfileName() *string
 	SetConnectorProfileName(val *string)
 	// The type of connector, such as Salesforce, Amplitude, and so on.
@@ -310,8 +311,6 @@ type CfnConnectorProfile interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
-	//
-	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn() *string
 	SetKmsArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -662,7 +661,6 @@ func (j *jsiiProxy_CfnConnectorProfile) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::AppFlow::ConnectorProfile`.
 func NewCfnConnectorProfile(scope constructs.Construct, id *string, props *CfnConnectorProfileProps) CfnConnectorProfile {
 	_init_.Initialize()
 
@@ -680,7 +678,6 @@ func NewCfnConnectorProfile(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
-// Create a new `AWS::AppFlow::ConnectorProfile`.
 func NewCfnConnectorProfile_Override(c CfnConnectorProfile, scope constructs.Construct, id *string, props *CfnConnectorProfileProps) {
 	_init_.Initialize()
 

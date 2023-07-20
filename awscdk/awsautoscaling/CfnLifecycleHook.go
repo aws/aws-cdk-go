@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AutoScaling::LifecycleHook`.
+// The `AWS::AutoScaling::LifecycleHook` resource specifies lifecycle hooks for an Auto Scaling group.
 //
-// The `AWS::AutoScaling::LifecycleHook` resource specifies lifecycle hooks for an Auto Scaling group. These hooks let you create solutions that are aware of events in the Auto Scaling instance lifecycle, and then perform a custom action on instances when the corresponding lifecycle event occurs. A lifecycle hook provides a specified amount of time (one hour by default) to wait for the action to complete before the instance transitions to the next state.
+// These hooks let you create solutions that are aware of events in the Auto Scaling instance lifecycle, and then perform a custom action on instances when the corresponding lifecycle event occurs. A lifecycle hook provides a specified amount of time (one hour by default) to wait for the action to complete before the instance transitions to the next state.
 //
 // Use lifecycle hooks to prepare new instances for use or to delay them from being registered behind a load balancer before their configuration has been applied completely. You can also use lifecycle hooks to prepare running instances to be terminated by, for example, downloading logs or other data.
 //
@@ -35,6 +35,8 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html
+//
 type CfnLifecycleHook interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -51,24 +53,17 @@ type CfnLifecycleHook interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
-	//
-	// The default value is `ABANDON` .
-	//
-	// Valid values: `CONTINUE` | `ABANDON`.
 	DefaultResult() *string
 	SetDefaultResult(val *string)
 	// The maximum time, in seconds, that can elapse before the lifecycle hook times out.
-	//
-	// The range is from `30` to `7200` seconds. The default value is `3600` seconds (1 hour).
 	HeartbeatTimeout() *float64
 	SetHeartbeatTimeout(val *float64)
 	// The name of the lifecycle hook.
 	LifecycleHookName() *string
 	SetLifecycleHookName(val *string)
-	// The lifecycle transition. For Auto Scaling groups, there are two major lifecycle transitions.
+	// The lifecycle transition.
 	//
-	// - To create a lifecycle hook for scale-out events, specify `autoscaling:EC2_INSTANCE_LAUNCHING` .
-	// - To create a lifecycle hook for scale-in events, specify `autoscaling:EC2_INSTANCE_TERMINATING` .
+	// For Auto Scaling groups, there are two major lifecycle transitions.
 	LifecycleTransition() *string
 	SetLifecycleTransition(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -87,8 +82,6 @@ type CfnLifecycleHook interface {
 	NotificationMetadata() *string
 	SetNotificationMetadata(val *string)
 	// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling sends notifications to when an instance is in a wait state for the lifecycle hook.
-	//
-	// You can specify an Amazon SNS topic or an Amazon SQS queue.
 	NotificationTargetArn() *string
 	SetNotificationTargetArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -97,10 +90,6 @@ type CfnLifecycleHook interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
-	//
-	// For information about creating this role, see [Configure a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -434,7 +423,6 @@ func (j *jsiiProxy_CfnLifecycleHook) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::AutoScaling::LifecycleHook`.
 func NewCfnLifecycleHook(scope constructs.Construct, id *string, props *CfnLifecycleHookProps) CfnLifecycleHook {
 	_init_.Initialize()
 
@@ -452,7 +440,6 @@ func NewCfnLifecycleHook(scope constructs.Construct, id *string, props *CfnLifec
 	return &j
 }
 
-// Create a new `AWS::AutoScaling::LifecycleHook`.
 func NewCfnLifecycleHook_Override(c CfnLifecycleHook, scope constructs.Construct, id *string, props *CfnLifecycleHookProps) {
 	_init_.Initialize()
 

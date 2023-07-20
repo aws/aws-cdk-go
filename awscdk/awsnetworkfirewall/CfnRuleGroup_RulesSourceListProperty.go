@@ -22,17 +22,25 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html
+//
 type CfnRuleGroup_RulesSourceListProperty struct {
 	// Whether you want to allow or deny access to the domains in your target list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
+	//
 	GeneratedRulesType *string `field:"required" json:"generatedRulesType" yaml:"generatedRulesType"`
 	// The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:.
 	//
 	// - Explicit names. For example, `abc.example.com` matches only the domain `abc.example.com` .
 	// - Names that use a domain wildcard, which you indicate with an initial ' `.` '. For example, `.example.com` matches `example.com` and matches all subdomains of `example.com` , such as `abc.example.com` and `www.example.com` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
+	//
 	Targets *[]*string `field:"required" json:"targets" yaml:"targets"`
 	// The types of targets to inspect for.
 	//
 	// Valid values are `TLS_SNI` and `HTTP_HOST` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
+	//
 	TargetTypes *[]*string `field:"required" json:"targetTypes" yaml:"targetTypes"`
 }
 

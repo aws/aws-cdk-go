@@ -12,8 +12,12 @@ package awscustomerprofiles
 //   	Object: jsii.String("object"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html
+//
 type CfnIntegration_MarketoSourcePropertiesProperty struct {
 	// The object specified in the Marketo flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html#cfn-customerprofiles-integration-marketosourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 }
 

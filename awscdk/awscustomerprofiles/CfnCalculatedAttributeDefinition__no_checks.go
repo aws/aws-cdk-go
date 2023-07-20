@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetStatisticParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCalculatedAttributeDefinitionParameters(scope constructs.Construct, id *string, props *CfnCalculatedAttributeDefinitionProps) error {
 	return nil
 }

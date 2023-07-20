@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SNS::TopicPolicy`.
+// The `AWS::SNS::TopicPolicy` resource associates Amazon SNS topics with a policy.
 //
-// The `AWS::SNS::TopicPolicy` resource associates Amazon SNS topics with a policy. For an example snippet, see [Declaring an Amazon SNS policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *AWS CloudFormation User Guide* .
+// For an example snippet, see [Declaring an Amazon SNS policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *AWS CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,9 +27,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html
+//
 type CfnTopicPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The provider-assigned unique ID for this managed resource.
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -64,8 +68,6 @@ type CfnTopicPolicy interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy.
-	//
-	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html)` resource.
 	Topics() *[]*string
 	SetTopics(val *[]*string)
 	// Deprecated.
@@ -214,6 +216,16 @@ type jsiiProxy_CfnTopicPolicy struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnTopicPolicy) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopicPolicy) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -335,7 +347,6 @@ func (j *jsiiProxy_CfnTopicPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SNS::TopicPolicy`.
 func NewCfnTopicPolicy(scope constructs.Construct, id *string, props *CfnTopicPolicyProps) CfnTopicPolicy {
 	_init_.Initialize()
 
@@ -353,7 +364,6 @@ func NewCfnTopicPolicy(scope constructs.Construct, id *string, props *CfnTopicPo
 	return &j
 }
 
-// Create a new `AWS::SNS::TopicPolicy`.
 func NewCfnTopicPolicy_Override(c CfnTopicPolicy, scope constructs.Construct, id *string, props *CfnTopicPolicyProps) {
 	_init_.Initialize()
 

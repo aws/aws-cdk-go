@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppSync::Resolver`.
+// The `AWS::AppSync::Resolver` resource defines the logical GraphQL resolver that you attach to fields in a schema.
 //
-// The `AWS::AppSync::Resolver` resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html) .
+// Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html) .
 //
 // > When you submit an update, AWS CloudFormation updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CloudFormation template. Changing the Amazon S3 file content without changing a property value will not result in an update operation.
 // >
@@ -65,6 +65,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html
+//
 type CfnResolver interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -73,6 +75,7 @@ type CfnResolver interface {
 	SetApiId(val *string)
 	// The GraphQL field on a type that invokes the resolver.
 	AttrFieldName() *string
+	AttrId() *string
 	// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
 	AttrResolverArn() *string
 	// The GraphQL type that invokes this resolver.
@@ -86,8 +89,6 @@ type CfnResolver interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The `resolver` code that contains the request and response functions.
-	//
-	// When code is used, the `runtime` is required. The runtime value must be `APPSYNC_JS` .
 	Code() *string
 	SetCode(val *string)
 	// The Amazon S3 endpoint.
@@ -104,9 +105,6 @@ type CfnResolver interface {
 	FieldName() *string
 	SetFieldName(val *string)
 	// The resolver type.
-	//
-	// - *UNIT* : A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
-	// - *PIPELINE* : A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of `Function` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind() *string
 	SetKind(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -133,26 +131,18 @@ type CfnResolver interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The request mapping template.
-	//
-	// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
 	RequestMappingTemplate() *string
 	SetRequestMappingTemplate(val *string)
 	// The location of a request mapping template in an Amazon S3 bucket.
-	//
-	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 	RequestMappingTemplateS3Location() *string
 	SetRequestMappingTemplateS3Location(val *string)
 	// The response mapping template.
 	ResponseMappingTemplate() *string
 	SetResponseMappingTemplate(val *string)
 	// The location of a response mapping template in an Amazon S3 bucket.
-	//
-	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 	ResponseMappingTemplateS3Location() *string
 	SetResponseMappingTemplateS3Location(val *string)
 	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function.
-	//
-	// Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 	Runtime() interface{}
 	SetRuntime(val interface{})
 	// The stack in which this element is defined.
@@ -326,6 +316,16 @@ func (j *jsiiProxy_CfnResolver) AttrFieldName() *string {
 	_jsii_.Get(
 		j,
 		"attrFieldName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolver) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -602,7 +602,6 @@ func (j *jsiiProxy_CfnResolver) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppSync::Resolver`.
 func NewCfnResolver(scope constructs.Construct, id *string, props *CfnResolverProps) CfnResolver {
 	_init_.Initialize()
 
@@ -620,7 +619,6 @@ func NewCfnResolver(scope constructs.Construct, id *string, props *CfnResolverPr
 	return &j
 }
 
-// Create a new `AWS::AppSync::Resolver`.
 func NewCfnResolver_Override(c CfnResolver, scope constructs.Construct, id *string, props *CfnResolverProps) {
 	_init_.Initialize()
 

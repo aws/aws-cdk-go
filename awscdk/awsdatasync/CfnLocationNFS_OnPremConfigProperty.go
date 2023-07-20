@@ -14,8 +14,12 @@ package awsdatasync
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html
+//
 type CfnLocationNFS_OnPremConfigProperty struct {
 	// ARNs of the agents to use for an NFS location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
+	//
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
 }
 

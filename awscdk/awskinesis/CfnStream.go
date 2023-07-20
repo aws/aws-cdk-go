@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Kinesis::Stream`.
+// Creates a Kinesis stream that captures and transports data records that are emitted from data sources.
 //
-// Creates a Kinesis stream that captures and transports data records that are emitted from data sources. For information about creating streams, see [CreateStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html) in the Amazon Kinesis API Reference.
+// For information about creating streams, see [CreateStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html) in the Amazon Kinesis API Reference.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
+//
 type CfnStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon resource name (ARN) of the Kinesis stream, such as `arn:aws:kinesis:us-east-2:123456789012:stream/mystream` .
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -62,10 +65,6 @@ type CfnStream interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the Kinesis stream.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the stream name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -76,13 +75,9 @@ type CfnStream interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The number of hours for the data records that are stored in shards to remain accessible.
-	//
-	// The default value is 24. For more information about the stream retention period, see [Changing the Data Retention Period](https://docs.aws.amazon.com/streams/latest/dev/kinesis-extended-retention.html) in the Amazon Kinesis Developer Guide.
 	RetentionPeriodHours() *float64
 	SetRetentionPeriodHours(val *float64)
 	// The number of shards that the stream uses.
-	//
-	// For greater provisioned throughput, increase the number of shards.
 	ShardCount() *float64
 	SetShardCount(val *float64)
 	// The stack in which this element is defined.
@@ -90,19 +85,16 @@ type CfnStream interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
-	//
-	// Removing this property from your stack template and updating your stack disables encryption.
 	StreamEncryption() interface{}
 	SetStreamEncryption(val interface{})
 	// Specifies the capacity mode to which you want to set your data stream.
-	//
-	// Currently, in Kinesis Data Streams, you can choose between an *on-demand* capacity mode and a *provisioned* capacity mode for your data streams.
 	StreamModeDetails() interface{}
 	SetStreamModeDetails(val interface{})
-	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
-	//
-	// For information about constraints for this property, see [Tag Restrictions](https://docs.aws.amazon.com/streams/latest/dev/tagging.html#tagging-restrictions) in the *Amazon Kinesis Developer Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -247,6 +239,7 @@ type CfnStream interface {
 type jsiiProxy_CfnStream struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStream) AttrArn() *string {
@@ -399,6 +392,16 @@ func (j *jsiiProxy_CfnStream) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStream) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStream) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -420,7 +423,6 @@ func (j *jsiiProxy_CfnStream) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Kinesis::Stream`.
 func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps) CfnStream {
 	_init_.Initialize()
 
@@ -438,7 +440,6 @@ func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps)
 	return &j
 }
 
-// Create a new `AWS::Kinesis::Stream`.
 func NewCfnStream_Override(c CfnStream, scope constructs.Construct, id *string, props *CfnStreamProps) {
 	_init_.Initialize()
 
@@ -491,6 +492,17 @@ func (j *jsiiProxy_CfnStream)SetStreamModeDetails(val interface{}) {
 	_jsii_.Set(
 		j,
 		"streamModeDetails",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

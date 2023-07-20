@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ResilienceHub::ResiliencyPolicy`.
-//
 // Defines a resiliency policy.
 //
 // Example:
@@ -36,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html
+//
 type CfnResiliencyPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the resiliency policy.
 	AttrPolicyArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -83,10 +84,11 @@ type CfnResiliencyPolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags assigned to the resource.
-	//
-	// A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags assigned to the resource.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The tier for this resiliency policy, ranging from the highest severity ( `MissionCritical` ) to lowest ( `NonCritical` ).
 	Tier() *string
 	SetTier(val *string)
@@ -234,6 +236,7 @@ type CfnResiliencyPolicy interface {
 type jsiiProxy_CfnResiliencyPolicy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnResiliencyPolicy) AttrPolicyArn() *string {
@@ -376,6 +379,16 @@ func (j *jsiiProxy_CfnResiliencyPolicy) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResiliencyPolicy) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResiliencyPolicy) Tier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -407,7 +420,6 @@ func (j *jsiiProxy_CfnResiliencyPolicy) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::ResilienceHub::ResiliencyPolicy`.
 func NewCfnResiliencyPolicy(scope constructs.Construct, id *string, props *CfnResiliencyPolicyProps) CfnResiliencyPolicy {
 	_init_.Initialize()
 
@@ -425,7 +437,6 @@ func NewCfnResiliencyPolicy(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
-// Create a new `AWS::ResilienceHub::ResiliencyPolicy`.
 func NewCfnResiliencyPolicy_Override(c CfnResiliencyPolicy, scope constructs.Construct, id *string, props *CfnResiliencyPolicyProps) {
 	_init_.Initialize()
 
@@ -470,6 +481,14 @@ func (j *jsiiProxy_CfnResiliencyPolicy)SetPolicyName(val *string) {
 	_jsii_.Set(
 		j,
 		"policyName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResiliencyPolicy)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

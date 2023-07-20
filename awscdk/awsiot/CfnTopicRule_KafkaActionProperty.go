@@ -20,16 +20,28 @@ package awsiot
 //   	Partition: jsii.String("partition"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html
+//
 type CfnTopicRule_KafkaActionProperty struct {
 	// Properties of the Apache Kafka producer client.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-clientproperties
+	//
 	ClientProperties interface{} `field:"required" json:"clientProperties" yaml:"clientProperties"`
 	// The ARN of Kafka action's VPC `TopicRuleDestination` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-destinationarn
+	//
 	DestinationArn *string `field:"required" json:"destinationArn" yaml:"destinationArn"`
 	// The Kafka topic for messages to be sent to the Kafka broker.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
+	//
 	Topic *string `field:"required" json:"topic" yaml:"topic"`
 	// The Kafka message key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The Kafka message partition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-partition
+	//
 	Partition *string `field:"optional" json:"partition" yaml:"partition"`
 }
 

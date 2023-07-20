@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnChannel) validateSetIngressAccessLogsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnChannelParameters(scope constructs.Construct, id *string, props *CfnChannelProps) error {
 	return nil
 }

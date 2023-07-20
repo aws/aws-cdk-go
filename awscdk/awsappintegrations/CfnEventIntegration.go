@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppIntegrations::EventIntegration`.
+// Creates an event integration.
 //
-// Creates an event integration. You provide a name, description, and a reference to an Amazon EventBridge bus in your account and a partner event source that will push events to that bus. No objects are created in your account, only metadata that is persisted on the EventIntegration control plane.
+// You provide a name, description, and a reference to an Amazon EventBridge bus in your account and a partner event source that will push events to that bus. No objects are created in your account, only metadata that is persisted on the EventIntegration control plane.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html
+//
 type CfnEventIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the event integration.
 	AttrEventIntegrationArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -82,10 +85,11 @@ type CfnEventIntegration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +234,7 @@ type CfnEventIntegration interface {
 type jsiiProxy_CfnEventIntegration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEventIntegration) AttrEventIntegrationArn() *string {
@@ -372,6 +377,16 @@ func (j *jsiiProxy_CfnEventIntegration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventIntegration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventIntegration) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -393,7 +408,6 @@ func (j *jsiiProxy_CfnEventIntegration) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::AppIntegrations::EventIntegration`.
 func NewCfnEventIntegration(scope constructs.Construct, id *string, props *CfnEventIntegrationProps) CfnEventIntegration {
 	_init_.Initialize()
 
@@ -411,7 +425,6 @@ func NewCfnEventIntegration(scope constructs.Construct, id *string, props *CfnEv
 	return &j
 }
 
-// Create a new `AWS::AppIntegrations::EventIntegration`.
 func NewCfnEventIntegration_Override(c CfnEventIntegration, scope constructs.Construct, id *string, props *CfnEventIntegrationProps) {
 	_init_.Initialize()
 
@@ -459,6 +472,17 @@ func (j *jsiiProxy_CfnEventIntegration)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventIntegration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

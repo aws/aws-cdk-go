@@ -18,14 +18,22 @@ package alexaask
 //   	RefreshToken: jsii.String("refreshToken"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html
+//
 type CfnSkill_AuthenticationConfigurationProperty struct {
 	// Client ID from Login with Amazon (LWA).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-clientid
+	//
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// Client secret from Login with Amazon (LWA).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-clientsecret
+	//
 	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// Refresh token from Login with Amazon (LWA).
 	//
 	// This token is secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-refreshtoken
+	//
 	RefreshToken *string `field:"required" json:"refreshToken" yaml:"refreshToken"`
 }
 

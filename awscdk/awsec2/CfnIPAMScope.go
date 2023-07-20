@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::IPAMScope`.
+// In IPAM, a scope is the highest-level container within IPAM.
 //
-// In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.
+// An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.
 //
 // For more information, see [How IPAM works](https://docs.aws.amazon.com//vpc/latest/ipam/how-it-works-ipam.html) in the *Amazon VPC IPAM User Guide* .
 //
@@ -33,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html
+//
 type CfnIPAMScope interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the scope.
 	AttrArn() *string
 	// The ARN of an IPAM.
@@ -84,10 +87,11 @@ type CfnIPAMScope interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The key/value combination of a tag assigned to the resource.
-	//
-	// Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key `Owner` and the value `TeamA` , specify `tag:Owner` for the filter name and `TeamA` for the filter value.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key/value combination of a tag assigned to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +236,7 @@ type CfnIPAMScope interface {
 type jsiiProxy_CfnIPAMScope struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIPAMScope) AttrArn() *string {
@@ -404,6 +409,16 @@ func (j *jsiiProxy_CfnIPAMScope) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAMScope) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAMScope) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -425,7 +440,6 @@ func (j *jsiiProxy_CfnIPAMScope) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::IPAMScope`.
 func NewCfnIPAMScope(scope constructs.Construct, id *string, props *CfnIPAMScopeProps) CfnIPAMScope {
 	_init_.Initialize()
 
@@ -443,7 +457,6 @@ func NewCfnIPAMScope(scope constructs.Construct, id *string, props *CfnIPAMScope
 	return &j
 }
 
-// Create a new `AWS::EC2::IPAMScope`.
 func NewCfnIPAMScope_Override(c CfnIPAMScope, scope constructs.Construct, id *string, props *CfnIPAMScopeProps) {
 	_init_.Initialize()
 
@@ -469,6 +482,17 @@ func (j *jsiiProxy_CfnIPAMScope)SetIpamId(val *string) {
 	_jsii_.Set(
 		j,
 		"ipamId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAMScope)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

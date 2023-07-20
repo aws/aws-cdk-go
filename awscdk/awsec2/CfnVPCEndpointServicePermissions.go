@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPCEndpointServicePermissions`.
-//
 // Grant or revoke permissions for service consumers (users, IAM roles, and AWS accounts) to connect to a VPC endpoint service.
 //
 // If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.
@@ -29,12 +27,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html
+//
 type CfnVPCEndpointServicePermissions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ).
-	//
-	// Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 	AllowedPrincipals() *[]*string
 	SetAllowedPrincipals(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -337,7 +335,6 @@ func (j *jsiiProxy_CfnVPCEndpointServicePermissions) UpdatedProperties() *map[st
 }
 
 
-// Create a new `AWS::EC2::VPCEndpointServicePermissions`.
 func NewCfnVPCEndpointServicePermissions(scope constructs.Construct, id *string, props *CfnVPCEndpointServicePermissionsProps) CfnVPCEndpointServicePermissions {
 	_init_.Initialize()
 
@@ -355,7 +352,6 @@ func NewCfnVPCEndpointServicePermissions(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Create a new `AWS::EC2::VPCEndpointServicePermissions`.
 func NewCfnVPCEndpointServicePermissions_Override(c CfnVPCEndpointServicePermissions, scope constructs.Construct, id *string, props *CfnVPCEndpointServicePermissionsProps) {
 	_init_.Initialize()
 

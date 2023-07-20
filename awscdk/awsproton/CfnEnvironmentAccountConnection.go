@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Proton::EnvironmentAccountConnection`.
-//
 // Detailed data of an AWS Proton environment account connection resource.
 //
 // Example:
@@ -33,9 +31,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmentaccountconnection.html
+//
 type CfnEnvironmentAccountConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the environment account connection ARN.
 	AttrArn() *string
 	// Returns the environment account connection ID.
@@ -48,17 +49,9 @@ type CfnEnvironmentAccountConnection interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The Amazon Resource Name (ARN) of an IAM service role in the environment account.
-	//
-	// AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
 	CodebuildRoleArn() *string
 	SetCodebuildRoleArn(val *string)
 	// The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account.
-	//
-	// It determines the scope of infrastructure that a component can provision in the account.
-	//
-	// The environment account connection must have a `componentRoleArn` to allow directly defined components to be associated with any environments running in the account.
-	//
-	// For more information about components, see [AWS Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the *AWS Proton User Guide* .
 	ComponentRoleArn() *string
 	SetComponentRoleArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -98,12 +91,11 @@ type CfnEnvironmentAccountConnection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An optional list of metadata items that you can associate with the AWS Proton environment account connection.
-	//
-	// A tag is a key-value pair.
-	//
-	// For more information, see [AWS Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in the *AWS Proton User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An optional list of metadata items that you can associate with the AWS Proton environment account connection.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -248,6 +240,7 @@ type CfnEnvironmentAccountConnection interface {
 type jsiiProxy_CfnEnvironmentAccountConnection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEnvironmentAccountConnection) AttrArn() *string {
@@ -430,6 +423,16 @@ func (j *jsiiProxy_CfnEnvironmentAccountConnection) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironmentAccountConnection) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironmentAccountConnection) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -451,7 +454,6 @@ func (j *jsiiProxy_CfnEnvironmentAccountConnection) UpdatedProperties() *map[str
 }
 
 
-// Create a new `AWS::Proton::EnvironmentAccountConnection`.
 func NewCfnEnvironmentAccountConnection(scope constructs.Construct, id *string, props *CfnEnvironmentAccountConnectionProps) CfnEnvironmentAccountConnection {
 	_init_.Initialize()
 
@@ -469,7 +471,6 @@ func NewCfnEnvironmentAccountConnection(scope constructs.Construct, id *string, 
 	return &j
 }
 
-// Create a new `AWS::Proton::EnvironmentAccountConnection`.
 func NewCfnEnvironmentAccountConnection_Override(c CfnEnvironmentAccountConnection, scope constructs.Construct, id *string, props *CfnEnvironmentAccountConnectionProps) {
 	_init_.Initialize()
 
@@ -524,6 +525,17 @@ func (j *jsiiProxy_CfnEnvironmentAccountConnection)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironmentAccountConnection)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

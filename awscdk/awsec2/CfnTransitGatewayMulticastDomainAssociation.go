@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayMulticastDomainAssociation`.
-//
 // Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.
 //
 // The transit gateway attachment must be in the available state before you can add a resource.
@@ -25,6 +23,8 @@ import (
 //   	TransitGatewayAttachmentId: jsii.String("transitGatewayAttachmentId"),
 //   	TransitGatewayMulticastDomainId: jsii.String("transitGatewayMulticastDomainId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html
 //
 type CfnTransitGatewayMulticastDomainAssociation interface {
 	awscdk.CfnResource
@@ -381,7 +381,6 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) UpdatedPropertie
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayMulticastDomainAssociation`.
 func NewCfnTransitGatewayMulticastDomainAssociation(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastDomainAssociationProps) CfnTransitGatewayMulticastDomainAssociation {
 	_init_.Initialize()
 
@@ -399,7 +398,6 @@ func NewCfnTransitGatewayMulticastDomainAssociation(scope constructs.Construct, 
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayMulticastDomainAssociation`.
 func NewCfnTransitGatewayMulticastDomainAssociation_Override(c CfnTransitGatewayMulticastDomainAssociation, scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastDomainAssociationProps) {
 	_init_.Initialize()
 

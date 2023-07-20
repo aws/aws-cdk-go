@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EFS::MountTarget`.
+// The `AWS::EFS::MountTarget` resource is an Amazon EFS resource that creates a mount target for an EFS file system.
 //
-// The `AWS::EFS::MountTarget` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
+// You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,6 +28,8 @@ import (
 //   	// the properties below are optional
 //   	IpAddress: jsii.String("ipAddress"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
 //
 type CfnMountTarget interface {
 	awscdk.CfnResource
@@ -73,8 +75,6 @@ type CfnMountTarget interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Up to five VPC security group IDs, of the form `sg-xxxxxxxx` .
-	//
-	// These must be for the same VPC as subnet specified.
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
 	// The stack in which this element is defined.
@@ -82,8 +82,6 @@ type CfnMountTarget interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The ID of the subnet to add the mount target in.
-	//
-	// For file systems that use One Zone storage classes, use the subnet that is associated with the file system's Availability Zone.
 	SubnetId() *string
 	SetSubnetId(val *string)
 	// Deprecated.
@@ -393,7 +391,6 @@ func (j *jsiiProxy_CfnMountTarget) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EFS::MountTarget`.
 func NewCfnMountTarget(scope constructs.Construct, id *string, props *CfnMountTargetProps) CfnMountTarget {
 	_init_.Initialize()
 
@@ -411,7 +408,6 @@ func NewCfnMountTarget(scope constructs.Construct, id *string, props *CfnMountTa
 	return &j
 }
 
-// Create a new `AWS::EFS::MountTarget`.
 func NewCfnMountTarget_Override(c CfnMountTarget, scope constructs.Construct, id *string, props *CfnMountTargetProps) {
 	_init_.Initialize()
 

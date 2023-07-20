@@ -12,8 +12,12 @@ package awsappflow
 //   	ApiToken: jsii.String("apiToken"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html
+//
 type CfnConnectorProfile_DynatraceConnectorProfileCredentialsProperty struct {
 	// The API tokens used by Dynatrace API to authenticate various API calls.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
+	//
 	ApiToken *string `field:"required" json:"apiToken" yaml:"apiToken"`
 }
 

@@ -17,14 +17,20 @@ package awsroute53recoverycontrol
 //   	WaitPeriodMs: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html
+//
 type CfnSafetyRule_AssertionRuleProperty struct {
 	// The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
 	//
 	// For example, you might include three routing controls, one for each of three AWS Regions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-assertedcontrols
+	//
 	AssertedControls *[]*string `field:"required" json:"assertedControls" yaml:"assertedControls"`
 	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
 	//
 	// This helps prevent flapping of state. The wait period is 5000 ms by default, but you can choose a custom value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-waitperiodms
+	//
 	WaitPeriodMs *float64 `field:"required" json:"waitPeriodMs" yaml:"waitPeriodMs"`
 }
 

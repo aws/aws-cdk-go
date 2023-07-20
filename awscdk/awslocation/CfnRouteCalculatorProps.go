@@ -17,6 +17,8 @@ package awslocation
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html
+//
 type CfnRouteCalculatorProps struct {
 	// The name of the route calculator resource.
 	//
@@ -25,6 +27,8 @@ type CfnRouteCalculatorProps struct {
 	// - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique Route calculator resource name.
 	// - No spaces allowed. For example, `ExampleRouteCalculator` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
+	//
 	CalculatorName *string `field:"required" json:"calculatorName" yaml:"calculatorName"`
 	// Specifies the data provider of traffic and road network data.
 	//
@@ -39,12 +43,18 @@ type CfnRouteCalculatorProps struct {
 	// - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE car routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html) and [HERE truck routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html) .
 	//
 	// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
+	//
 	DataSource *string `field:"required" json:"dataSource" yaml:"dataSource"`
 	// The optional description for the route calculator resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
 	//
 	// *Allowed Values* : `RequestBasedUsage`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
+	//
 	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
 }
 

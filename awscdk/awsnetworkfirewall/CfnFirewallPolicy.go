@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkFirewall::FirewallPolicy`.
+// Use the `FirewallPolicy` to define the stateless and stateful network traffic filtering behavior for your `Firewall` .
 //
-// Use the `FirewallPolicy` to define the stateless and stateful network traffic filtering behavior for your `Firewall` . You can use one firewall policy for multiple firewalls.
+// You can use one firewall policy for multiple firewalls.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -88,9 +88,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
+//
 type CfnFirewallPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
 	AttrFirewallPolicyArn() *string
 	// The unique ID of the `FirewallPolicy` resource.
@@ -111,8 +114,6 @@ type CfnFirewallPolicy interface {
 	FirewallPolicy() interface{}
 	SetFirewallPolicy(val interface{})
 	// The descriptive name of the firewall policy.
-	//
-	// You can't change the name of a firewall policy after you create it.
 	FirewallPolicyName() *string
 	SetFirewallPolicyName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -136,10 +137,11 @@ type CfnFirewallPolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -284,6 +286,7 @@ type CfnFirewallPolicy interface {
 type jsiiProxy_CfnFirewallPolicy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFirewallPolicy) AttrFirewallPolicyArn() *string {
@@ -426,6 +429,16 @@ func (j *jsiiProxy_CfnFirewallPolicy) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFirewallPolicy) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFirewallPolicy) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -447,7 +460,6 @@ func (j *jsiiProxy_CfnFirewallPolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::NetworkFirewall::FirewallPolicy`.
 func NewCfnFirewallPolicy(scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) CfnFirewallPolicy {
 	_init_.Initialize()
 
@@ -465,7 +477,6 @@ func NewCfnFirewallPolicy(scope constructs.Construct, id *string, props *CfnFire
 	return &j
 }
 
-// Create a new `AWS::NetworkFirewall::FirewallPolicy`.
 func NewCfnFirewallPolicy_Override(c CfnFirewallPolicy, scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) {
 	_init_.Initialize()
 
@@ -502,6 +513,17 @@ func (j *jsiiProxy_CfnFirewallPolicy)SetFirewallPolicyName(val *string) {
 	_jsii_.Set(
 		j,
 		"firewallPolicyName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewallPolicy)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

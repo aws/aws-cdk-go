@@ -48,10 +48,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-globaltableborderoptions.html
+//
 type CfnTemplate_GlobalTableBorderOptionsProperty struct {
 	// Determines the options for side specific border.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-globaltableborderoptions.html#cfn-quicksight-template-globaltableborderoptions-sidespecificborder
+	//
 	SideSpecificBorder interface{} `field:"optional" json:"sideSpecificBorder" yaml:"sideSpecificBorder"`
 	// Determines the options for uniform border.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-globaltableborderoptions.html#cfn-quicksight-template-globaltableborderoptions-uniformborder
+	//
 	UniformBorder interface{} `field:"optional" json:"uniformBorder" yaml:"uniformBorder"`
 }
 

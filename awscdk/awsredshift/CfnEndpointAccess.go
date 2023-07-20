@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Redshift::EndpointAccess`.
-//
 // Creates a Redshift-managed VPC endpoint.
 //
 // Example:
@@ -30,6 +28,8 @@ import (
 //   	ResourceOwner: jsii.String("resourceOwner"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html
+//
 type CfnEndpointAccess interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -41,6 +41,11 @@ type CfnEndpointAccess interface {
 	AttrEndpointStatus() *string
 	// The port number on which the cluster accepts incoming connections.
 	AttrPort() *float64
+	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
+	AttrVpcEndpoint() awscdk.IResolvable
+	// One or more network interfaces of the endpoint.
+	//
+	// Also known as an interface endpoint.
 	AttrVpcEndpointNetworkInterfaces() awscdk.IResolvable
 	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
 	AttrVpcEndpointVpcEndpointId() *string
@@ -279,6 +284,16 @@ func (j *jsiiProxy_CfnEndpointAccess) AttrPort() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpointAccess) AttrVpcEndpoint() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEndpoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpointAccess) AttrVpcEndpointNetworkInterfaces() awscdk.IResolvable {
 	var returns awscdk.IResolvable
 	_jsii_.Get(
@@ -470,7 +485,6 @@ func (j *jsiiProxy_CfnEndpointAccess) VpcSecurityGroupIds() *[]*string {
 }
 
 
-// Create a new `AWS::Redshift::EndpointAccess`.
 func NewCfnEndpointAccess(scope constructs.Construct, id *string, props *CfnEndpointAccessProps) CfnEndpointAccess {
 	_init_.Initialize()
 
@@ -488,7 +502,6 @@ func NewCfnEndpointAccess(scope constructs.Construct, id *string, props *CfnEndp
 	return &j
 }
 
-// Create a new `AWS::Redshift::EndpointAccess`.
 func NewCfnEndpointAccess_Override(c CfnEndpointAccess, scope constructs.Construct, id *string, props *CfnEndpointAccessProps) {
 	_init_.Initialize()
 

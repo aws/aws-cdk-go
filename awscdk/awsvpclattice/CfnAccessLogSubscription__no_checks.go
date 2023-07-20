@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnAccessLogSubscription) validateSetDestinationArnParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnAccessLogSubscription) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAccessLogSubscriptionParameters(scope constructs.Construct, id *string, props *CfnAccessLogSubscriptionProps) error {
 	return nil
 }

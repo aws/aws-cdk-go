@@ -80,6 +80,10 @@ func validateCfnRegistry_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnRegistry) validateSetTagsRawParameters(val *[]*CfnRegistry_TagsEntryProperty) error {
+	return nil
+}
+
 func validateNewCfnRegistryParameters(scope constructs.Construct, id *string, props *CfnRegistryProps) error {
 	return nil
 }

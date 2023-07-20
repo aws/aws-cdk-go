@@ -76,6 +76,8 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html
+//
 type CfnServerProps struct {
 	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate.
 	//
@@ -96,20 +98,30 @@ type CfnServerProps struct {
 	// - Elliptic Prime Curve 521 bit (EC_secp521r1)
 	//
 	// > The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-certificate
+	//
 	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
 	// Specifies the domain of the storage system that is used for file transfers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-domain
+	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 	// The virtual private cloud (VPC) endpoint settings that are configured for your server.
 	//
 	// When you host your endpoint within your VPC, you can make your endpoint accessible only to resources within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-endpointdetails
+	//
 	EndpointDetails interface{} `field:"optional" json:"endpointDetails" yaml:"endpointDetails"`
 	// The type of endpoint that you want your server to use.
 	//
 	// You can choose to make your server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-endpointtype
+	//
 	EndpointType *string `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` .
 	//
 	// Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Not required when `IdentityProviderType` is set to `SERVICE_MANAGED` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-identityproviderdetails
+	//
 	IdentityProviderDetails interface{} `field:"optional" json:"identityProviderDetails" yaml:"identityProviderDetails"`
 	// The mode of authentication for a server.
 	//
@@ -120,20 +132,28 @@ type CfnServerProps struct {
 	// Use the `API_GATEWAY` value to integrate with an identity provider of your choosing. The `API_GATEWAY` setting requires you to provide an Amazon API Gateway endpoint URL to call for authentication by using the `IdentityProviderDetails` parameter.
 	//
 	// Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-identityprovidertype
+	//
 	IdentityProviderType *string `field:"optional" json:"identityProviderType" yaml:"identityProviderType"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents.
 	//
 	// When set, you can view user activity in your CloudWatch logs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-loggingrole
+	//
 	LoggingRole *string `field:"optional" json:"loggingRole" yaml:"loggingRole"`
 	// Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
 	//
 	// > The SFTP protocol does not support post-authentication display banners.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-postauthenticationloginbanner
+	//
 	PostAuthenticationLoginBanner *string `field:"optional" json:"postAuthenticationLoginBanner" yaml:"postAuthenticationLoginBanner"`
 	// Specifies a string to display when users connect to a server.
 	//
 	// This string is displayed before the user authenticates. For example, the following banner displays details about using the system:
 	//
 	// `This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-preauthenticationloginbanner
+	//
 	PreAuthenticationLoginBanner *string `field:"optional" json:"preAuthenticationLoginBanner" yaml:"preAuthenticationLoginBanner"`
 	// The protocol settings that are configured for your server.
 	//
@@ -145,6 +165,8 @@ type CfnServerProps struct {
 	// The `Protocols` parameter is an array of strings.
 	//
 	// *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-protocoldetails
+	//
 	ProtocolDetails interface{} `field:"optional" json:"protocolDetails" yaml:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
 	//
@@ -164,8 +186,12 @@ type CfnServerProps struct {
 	// The `Protocols` parameter is an array of strings.
 	//
 	// *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-protocols
+	//
 	Protocols *[]*string `field:"optional" json:"protocols" yaml:"protocols"`
 	// Specifies the name of the security policy that is attached to the server.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-securitypolicyname
+	//
 	SecurityPolicyName *string `field:"optional" json:"securityPolicyName" yaml:"securityPolicyName"`
 	// Specifies the log groups to which your server logs are sent.
 	//
@@ -178,12 +204,18 @@ type CfnServerProps struct {
 	// If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty value for this parameter in an `update-server` call. For example:
 	//
 	// `update-server --server-id s-1234567890abcdef0 --structured-log-destinations`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-structuredlogdestinations
+	//
 	StructuredLogDestinations *[]*string `field:"optional" json:"structuredLogDestinations" yaml:"structuredLogDestinations"`
 	// Key-value pairs that can be used to group and search for servers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.
 	//
 	// In addition to a workflow to execute when a file is uploaded completely, `WorkflowDetails` can also contain a workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when the session disconnects.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-workflowdetails
+	//
 	WorkflowDetails interface{} `field:"optional" json:"workflowDetails" yaml:"workflowDetails"`
 }
 

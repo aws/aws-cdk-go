@@ -15,14 +15,20 @@ package awspipes
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentvariable.html
+//
 type CfnPipe_EcsEnvironmentVariableProperty struct {
 	// The name of the key-value pair.
 	//
 	// For environment variables, this is the name of the environment variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentvariable.html#cfn-pipes-pipe-ecsenvironmentvariable-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value of the key-value pair.
 	//
 	// For environment variables, this is the value of the environment variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentvariable.html#cfn-pipes-pipe-ecsenvironmentvariable-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

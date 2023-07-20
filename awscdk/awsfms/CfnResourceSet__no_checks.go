@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnResourceSet) validateSetResourceTypeListParameters(val *[]
 	return nil
 }
 
+func (j *jsiiProxy_CfnResourceSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnResourceSetParameters(scope constructs.Construct, id *string, props *CfnResourceSetProps) error {
 	return nil
 }

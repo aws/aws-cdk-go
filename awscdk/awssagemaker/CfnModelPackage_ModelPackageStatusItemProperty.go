@@ -16,12 +16,20 @@ package awssagemaker
 //   	FailureReason: jsii.String("failureReason"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusitem.html
+//
 type CfnModelPackage_ModelPackageStatusItemProperty struct {
 	// The name of the model package for which the overall status is being reported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusitem.html#cfn-sagemaker-modelpackage-modelpackagestatusitem-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The current status.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusitem.html#cfn-sagemaker-modelpackage-modelpackagestatusitem-status
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 	// if the overall status is `Failed` , the reason for the failure.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusitem.html#cfn-sagemaker-modelpackage-modelpackagestatusitem-failurereason
+	//
 	FailureReason *string `field:"optional" json:"failureReason" yaml:"failureReason"`
 }
 

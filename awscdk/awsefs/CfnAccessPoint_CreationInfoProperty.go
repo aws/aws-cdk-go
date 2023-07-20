@@ -20,16 +20,24 @@ package awsefs
 //   	Permissions: jsii.String("permissions"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html
+//
 type CfnAccessPoint_CreationInfoProperty struct {
 	// Specifies the POSIX group ID to apply to the `RootDirectory` .
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
+	//
 	OwnerGid *string `field:"required" json:"ownerGid" yaml:"ownerGid"`
 	// Specifies the POSIX user ID to apply to the `RootDirectory` .
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
+	//
 	OwnerUid *string `field:"required" json:"ownerUid" yaml:"ownerUid"`
 	// Specifies the POSIX permissions to apply to the `RootDirectory` , in the format of an octal number representing the file's mode bits.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
+	//
 	Permissions *string `field:"required" json:"permissions" yaml:"permissions"`
 }
 

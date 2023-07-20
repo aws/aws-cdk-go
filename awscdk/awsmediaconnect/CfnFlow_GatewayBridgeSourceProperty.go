@@ -1,6 +1,8 @@
 package awsmediaconnect
 
 
+// The source configuration for cloud flows receiving a stream from a bridge.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,10 +17,16 @@ package awsmediaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-gatewaybridgesource.html
+//
 type CfnFlow_GatewayBridgeSourceProperty struct {
-	// `CfnFlow.GatewayBridgeSourceProperty.BridgeArn`.
+	// The ARN of the bridge feeding this flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-gatewaybridgesource.html#cfn-mediaconnect-flow-gatewaybridgesource-bridgearn
+	//
 	BridgeArn *string `field:"required" json:"bridgeArn" yaml:"bridgeArn"`
-	// `CfnFlow.GatewayBridgeSourceProperty.VpcInterfaceAttachment`.
+	// The settings for attaching a VPC interface to an resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-gatewaybridgesource.html#cfn-mediaconnect-flow-gatewaybridgesource-vpcinterfaceattachment
+	//
 	VpcInterfaceAttachment interface{} `field:"optional" json:"vpcInterfaceAttachment" yaml:"vpcInterfaceAttachment"`
 }
 

@@ -314,18 +314,28 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html
+//
 type CfnBot_IntentClosingSettingProperty struct {
 	// The response that Amazon Lex sends to the user when the intent is complete.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-closingresponse
+	//
 	ClosingResponse interface{} `field:"optional" json:"closingResponse" yaml:"closingResponse"`
 	// A list of conditional branches associated with the intent's closing response.
 	//
 	// These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-conditional
+	//
 	Conditional interface{} `field:"optional" json:"conditional" yaml:"conditional"`
 	// Specifies whether an intent's closing response is used.
 	//
 	// When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-isactive
+	//
 	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
 	// Specifies the next step that the bot executes after playing the intent's closing response.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-nextstep
+	//
 	NextStep interface{} `field:"optional" json:"nextStep" yaml:"nextStep"`
 }
 

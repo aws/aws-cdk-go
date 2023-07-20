@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::LocationNFS`.
-//
 // The `AWS::DataSync::LocationNFS` resource specifies a file system on a Network File System (NFS) server that can be read from or written to.
 //
 // Example:
@@ -39,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html
+//
 type CfnLocationNFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the specified source NFS file system location.
 	AttrLocationArn() *string
 	// The URI of the specified source NFS location.
@@ -71,8 +72,6 @@ type CfnLocationNFS interface {
 	// The tree node.
 	Node() constructs.Node
 	// Specifies the Amazon Resource Names (ARNs) of agents that DataSync uses to connect to your NFS file server.
-	//
-	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
 	OnPremConfig() interface{}
 	SetOnPremConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -81,12 +80,6 @@ type CfnLocationNFS interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Specifies the IP address or domain name of your NFS file server.
-	//
-	// An agent that is installed on-premises uses this hostname to mount the NFS server in a network.
-	//
-	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
-	//
-	// > You must specify be an IP version 4 address or Domain Name System (DNS)-compliant name.
 	ServerHostname() *string
 	SetServerHostname(val *string)
 	// The stack in which this element is defined.
@@ -94,20 +87,13 @@ type CfnLocationNFS interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies the subdirectory in the NFS file server that DataSync transfers to or from.
-	//
-	// The NFS path should be a path that's exported by the NFS server, or a subdirectory of that path. The path should be such that it can be mounted by other NFS clients in your network.
-	//
-	// To see all the paths exported by your NFS server, run " `showmount -e nfs-server-name` " from an NFS client that has access to your server. You can specify any directory that appears in the results, and any subdirectory of that directory. Ensure that the NFS export is accessible without Kerberos authentication.
-	//
-	// To transfer all the data in the folder you specified, DataSync needs to have permissions to read all the data. To ensure this, either configure the NFS export with `no_root_squash,` or ensure that the permissions for all of the files that you want DataSync allow read access for all users. Doing either enables the agent to read the files. For the agent to access directories, you must additionally enable all execute access.
-	//
-	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// Specifies labels that help you categorize, filter, and search for your AWS resources.
-	//
-	// We recommend creating at least a name tag for your location.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -252,6 +238,7 @@ type CfnLocationNFS interface {
 type jsiiProxy_CfnLocationNFS struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocationNFS) AttrLocationArn() *string {
@@ -404,6 +391,16 @@ func (j *jsiiProxy_CfnLocationNFS) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationNFS) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationNFS) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -425,7 +422,6 @@ func (j *jsiiProxy_CfnLocationNFS) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DataSync::LocationNFS`.
 func NewCfnLocationNFS(scope constructs.Construct, id *string, props *CfnLocationNFSProps) CfnLocationNFS {
 	_init_.Initialize()
 
@@ -443,7 +439,6 @@ func NewCfnLocationNFS(scope constructs.Construct, id *string, props *CfnLocatio
 	return &j
 }
 
-// Create a new `AWS::DataSync::LocationNFS`.
 func NewCfnLocationNFS_Override(c CfnLocationNFS, scope constructs.Construct, id *string, props *CfnLocationNFSProps) {
 	_init_.Initialize()
 
@@ -488,6 +483,17 @@ func (j *jsiiProxy_CfnLocationNFS)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationNFS)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

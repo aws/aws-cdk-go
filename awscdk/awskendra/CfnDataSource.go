@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Kendra::DataSource`.
-//
 // Creates a data source connector that you want to use with an Amazon Kendra index.
 //
 // You specify a name, data source connector type and description for your data source. You also specify configuration information for the data source connector.
@@ -575,9 +573,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html
+//
 type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the data source. For example:.
 	//
 	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`.
@@ -599,12 +600,6 @@ type CfnDataSource interface {
 	CustomDocumentEnrichmentConfiguration() interface{}
 	SetCustomDocumentEnrichmentConfiguration(val interface{})
 	// Configuration information for an Amazon Kendra data source.
-	//
-	// The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
-	//
-	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
-	//
-	// The `Configuration` parameter is required for all other data sources.
 	DataSourceConfiguration() interface{}
 	SetDataSourceConfiguration(val interface{})
 	// A description for the data source connector.
@@ -634,25 +629,20 @@ type CfnDataSource interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
-	//
-	// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
-	//
-	// The `RoleArn` parameter is required for all other data sources.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index.
-	//
-	// If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
 	Schedule() *string
 	SetSchedule(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of the data source.
 	Type() *string
 	SetType(val *string)
@@ -800,6 +790,7 @@ type CfnDataSource interface {
 type jsiiProxy_CfnDataSource struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDataSource) AttrArn() *string {
@@ -982,6 +973,16 @@ func (j *jsiiProxy_CfnDataSource) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1013,7 +1014,6 @@ func (j *jsiiProxy_CfnDataSource) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Kendra::DataSource`.
 func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
@@ -1031,7 +1031,6 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 	return &j
 }
 
-// Create a new `AWS::Kendra::DataSource`.
 func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 
@@ -1106,6 +1105,17 @@ func (j *jsiiProxy_CfnDataSource)SetSchedule(val *string) {
 	_jsii_.Set(
 		j,
 		"schedule",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

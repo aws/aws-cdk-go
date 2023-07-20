@@ -80,10 +80,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiconditionalformattingoption.html
+//
 type CfnDashboard_KPIConditionalFormattingOptionProperty struct {
 	// The conditional formatting for the primary value of a KPI visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiconditionalformattingoption.html#cfn-quicksight-dashboard-kpiconditionalformattingoption-primaryvalue
+	//
 	PrimaryValue interface{} `field:"optional" json:"primaryValue" yaml:"primaryValue"`
 	// The conditional formatting for the progress bar of a KPI visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiconditionalformattingoption.html#cfn-quicksight-dashboard-kpiconditionalformattingoption-progressbar
+	//
 	ProgressBar interface{} `field:"optional" json:"progressBar" yaml:"progressBar"`
 }
 

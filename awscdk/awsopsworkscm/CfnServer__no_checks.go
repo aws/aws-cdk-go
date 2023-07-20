@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnServer) validateSetServiceRoleArnParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnServer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnServerParameters(scope constructs.Construct, id *string, props *CfnServerProps) error {
 	return nil
 }

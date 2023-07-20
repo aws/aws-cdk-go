@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnCapacityProvider) validateSetAutoScalingGroupProviderParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnCapacityProvider) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCapacityProviderParameters(scope constructs.Construct, id *string, props *CfnCapacityProviderProps) error {
 	return nil
 }

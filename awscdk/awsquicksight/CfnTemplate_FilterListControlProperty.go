@@ -58,23 +58,39 @@ package awsquicksight
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html
+//
 type CfnTemplate_FilterListControlProperty struct {
 	// The ID of the `FilterListControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html#cfn-quicksight-template-filterlistcontrol-filtercontrolid
+	//
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
 	// The source filter ID of the `FilterListControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html#cfn-quicksight-template-filterlistcontrol-sourcefilterid
+	//
 	SourceFilterId *string `field:"required" json:"sourceFilterId" yaml:"sourceFilterId"`
 	// The title of the `FilterListControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html#cfn-quicksight-template-filterlistcontrol-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html#cfn-quicksight-template-filterlistcontrol-cascadingcontrolconfiguration
+	//
 	CascadingControlConfiguration interface{} `field:"optional" json:"cascadingControlConfiguration" yaml:"cascadingControlConfiguration"`
 	// The display options of a control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html#cfn-quicksight-template-filterlistcontrol-displayoptions
+	//
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 	// A list of selectable values that are used in a control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html#cfn-quicksight-template-filterlistcontrol-selectablevalues
+	//
 	SelectableValues interface{} `field:"optional" json:"selectableValues" yaml:"selectableValues"`
 	// The type of `FilterListControl` . Choose one of the following options:.
 	//
 	// - `MULTI_SELECT` : The user can select multiple entries from the list.
 	// - `SINGLE_SELECT` : The user can select a single entry from the list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html#cfn-quicksight-template-filterlistcontrol-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

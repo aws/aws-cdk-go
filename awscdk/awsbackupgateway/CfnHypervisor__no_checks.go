@@ -80,6 +80,10 @@ func validateCfnHypervisor_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnHypervisor) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnHypervisorParameters(scope constructs.Construct, id *string, props *CfnHypervisorProps) error {
 	return nil
 }

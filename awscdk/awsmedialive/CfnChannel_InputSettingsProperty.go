@@ -116,36 +116,59 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html
+//
 type CfnChannel_InputSettingsProperty struct {
 	// Information about the specific audio to extract from the input.
 	//
 	// The parent of this entity is InputSettings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-audioselectors
+	//
 	AudioSelectors interface{} `field:"optional" json:"audioSelectors" yaml:"audioSelectors"`
 	// Information about the specific captions to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-captionselectors
+	//
 	CaptionSelectors interface{} `field:"optional" json:"captionSelectors" yaml:"captionSelectors"`
 	// Enables or disables the deblock filter when filtering.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-deblockfilter
+	//
 	DeblockFilter *string `field:"optional" json:"deblockFilter" yaml:"deblockFilter"`
 	// Enables or disables the denoise filter when filtering.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-denoisefilter
+	//
 	DenoiseFilter *string `field:"optional" json:"denoiseFilter" yaml:"denoiseFilter"`
 	// Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-filterstrength
+	//
 	FilterStrength *float64 `field:"optional" json:"filterStrength" yaml:"filterStrength"`
 	// Turns on the filter for this input.
 	//
 	// MPEG-2 inputs have the deblocking filter enabled by default. 1) auto - filtering is applied depending on input type/quality 2) disabled - no filtering is applied to the input 3) forced - filtering is applied regardless of the input type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-inputfilter
+	//
 	InputFilter *string `field:"optional" json:"inputFilter" yaml:"inputFilter"`
 	// Information about how to connect to the upstream system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-networkinputsettings
+	//
 	NetworkInputSettings interface{} `field:"optional" json:"networkInputSettings" yaml:"networkInputSettings"`
-	// `CfnChannel.InputSettingsProperty.Scte35Pid`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-scte35pid
+	//
 	Scte35Pid *float64 `field:"optional" json:"scte35Pid" yaml:"scte35Pid"`
 	// Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input.
 	//
 	// Applicable data types are captions, timecode, AFD, and SCTE-104 messages.
 	// - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any).
 	// - IGNORE: Never extract any ancillary data from SMPTE-2038.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-smpte2038datapreference
+	//
 	Smpte2038DataPreference *string `field:"optional" json:"smpte2038DataPreference" yaml:"smpte2038DataPreference"`
 	// The loop input if it is a file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-sourceendbehavior
+	//
 	SourceEndBehavior *string `field:"optional" json:"sourceEndBehavior" yaml:"sourceEndBehavior"`
 	// Information about one video to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-videoselector
+	//
 	VideoSelector interface{} `field:"optional" json:"videoSelector" yaml:"videoSelector"`
 }
 

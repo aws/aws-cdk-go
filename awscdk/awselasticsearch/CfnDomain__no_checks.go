@@ -80,10 +80,6 @@ func validateCfnDomain_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnDomain) validateSetAccessPoliciesParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDomain) validateSetAdvancedOptionsParameters(val interface{}) error {
 	return nil
 }
@@ -121,6 +117,10 @@ func (j *jsiiProxy_CfnDomain) validateSetNodeToNodeEncryptionOptionsParameters(v
 }
 
 func (j *jsiiProxy_CfnDomain) validateSetSnapshotOptionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

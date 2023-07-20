@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::UserProfile`.
+// Creates a user profile.
 //
-// Creates a user profile. A user profile represents a single user within a domain, and is the main way to reference a "person" for the purposes of sharing, reporting, and other user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an administrator invites a person by email or imports them from IAM Identity Center , a user profile is automatically created. A user profile is the primary holder of settings for an individual user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
+// A user profile represents a single user within a domain, and is the main way to reference a "person" for the purposes of sharing, reporting, and other user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an administrator invites a person by email or imports them from IAM Identity Center , a user profile is automatically created. A user profile is the primary holder of settings for an individual user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
 //
 // > If you're using IAM Identity Center authentication, a user in IAM Identity Center , or a group in IAM Identity Center containing that user, must be assigned to the Amazon SageMaker Studio application from the IAM Identity Center Console to create a user profile. For more information about application assignment, see [Assign user access](https://docs.aws.amazon.com/singlesignon/latest/userguide/assignuserstoapp.html) . After assignment is complete, a user profile can be created for that user in IAM Identity Center with AWS CloudFormation.
 //
@@ -73,9 +73,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html
+//
 type CfnUserProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the user profile, such as `arn:aws:sagemaker:us-west-2:account-id:user-profile/my-user-profile` .
 	AttrUserProfileArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -108,25 +111,20 @@ type CfnUserProfile interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A specifier for the type of value specified in SingleSignOnUserValue.
-	//
-	// Currently, the only supported value is "UserName". If the Domain's AuthMode is IAM Identity Center , this field is required. If the Domain's AuthMode is not IAM Identity Center , this field cannot be specified.
 	SingleSignOnUserIdentifier() *string
 	SetSingleSignOnUserIdentifier(val *string)
 	// The username of the associated AWS Single Sign-On User for this UserProfile.
-	//
-	// If the Domain's AuthMode is IAM Identity Center , this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not IAM Identity Center , this field cannot be specified.
 	SingleSignOnUserValue() *string
 	SetSingleSignOnUserValue(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// Tags that you specify for the User Profile are also added to all apps that the User Profile launches.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -277,6 +275,7 @@ type CfnUserProfile interface {
 type jsiiProxy_CfnUserProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnUserProfile) AttrUserProfileArn() *string {
@@ -409,6 +408,16 @@ func (j *jsiiProxy_CfnUserProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserProfile) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -450,7 +459,6 @@ func (j *jsiiProxy_CfnUserProfile) UserSettings() interface{} {
 }
 
 
-// Create a new `AWS::SageMaker::UserProfile`.
 func NewCfnUserProfile(scope constructs.Construct, id *string, props *CfnUserProfileProps) CfnUserProfile {
 	_init_.Initialize()
 
@@ -468,7 +476,6 @@ func NewCfnUserProfile(scope constructs.Construct, id *string, props *CfnUserPro
 	return &j
 }
 
-// Create a new `AWS::SageMaker::UserProfile`.
 func NewCfnUserProfile_Override(c CfnUserProfile, scope constructs.Construct, id *string, props *CfnUserProfileProps) {
 	_init_.Initialize()
 
@@ -502,6 +509,17 @@ func (j *jsiiProxy_CfnUserProfile)SetSingleSignOnUserValue(val *string) {
 	_jsii_.Set(
 		j,
 		"singleSignOnUserValue",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

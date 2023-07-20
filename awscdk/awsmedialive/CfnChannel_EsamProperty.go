@@ -15,18 +15,26 @@ package awsmedialive
 //   	ZoneIdentity: jsii.String("zoneIdentity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html
+//
 type CfnChannel_EsamProperty struct {
-	// `CfnChannel.EsamProperty.AcquisitionPointId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-acquisitionpointid
+	//
 	AcquisitionPointId *string `field:"optional" json:"acquisitionPointId" yaml:"acquisitionPointId"`
-	// `CfnChannel.EsamProperty.AdAvailOffset`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-adavailoffset
+	//
 	AdAvailOffset *float64 `field:"optional" json:"adAvailOffset" yaml:"adAvailOffset"`
-	// `CfnChannel.EsamProperty.PasswordParam`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-passwordparam
+	//
 	PasswordParam *string `field:"optional" json:"passwordParam" yaml:"passwordParam"`
-	// `CfnChannel.EsamProperty.PoisEndpoint`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-poisendpoint
+	//
 	PoisEndpoint *string `field:"optional" json:"poisEndpoint" yaml:"poisEndpoint"`
-	// `CfnChannel.EsamProperty.Username`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-username
+	//
 	Username *string `field:"optional" json:"username" yaml:"username"`
-	// `CfnChannel.EsamProperty.ZoneIdentity`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-zoneidentity
+	//
 	ZoneIdentity *string `field:"optional" json:"zoneIdentity" yaml:"zoneIdentity"`
 }
 

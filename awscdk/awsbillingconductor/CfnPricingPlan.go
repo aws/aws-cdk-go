@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::BillingConductor::PricingPlan`.
-//
 // Creates a pricing plan that is used for computing AWS charges for billing groups.
 //
 // Example:
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingplan.html
+//
 type CfnPricingPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the created pricing plan.
 	AttrArn() *string
 	// The time the pricing plan was created.
@@ -84,8 +85,11 @@ type CfnPricingPlan interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A map that contains tag keys and tag values that are attached to a pricing plan.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A map that contains tag keys and tag values that are attached to a pricing plan.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +234,7 @@ type CfnPricingPlan interface {
 type jsiiProxy_CfnPricingPlan struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPricingPlan) AttrArn() *string {
@@ -392,6 +397,16 @@ func (j *jsiiProxy_CfnPricingPlan) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPricingPlan) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPricingPlan) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -413,7 +428,6 @@ func (j *jsiiProxy_CfnPricingPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::BillingConductor::PricingPlan`.
 func NewCfnPricingPlan(scope constructs.Construct, id *string, props *CfnPricingPlanProps) CfnPricingPlan {
 	_init_.Initialize()
 
@@ -431,7 +445,6 @@ func NewCfnPricingPlan(scope constructs.Construct, id *string, props *CfnPricing
 	return &j
 }
 
-// Create a new `AWS::BillingConductor::PricingPlan`.
 func NewCfnPricingPlan_Override(c CfnPricingPlan, scope constructs.Construct, id *string, props *CfnPricingPlanProps) {
 	_init_.Initialize()
 
@@ -465,6 +478,17 @@ func (j *jsiiProxy_CfnPricingPlan)SetPricingRuleArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"pricingRuleArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPricingPlan)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ManagedBlockchain::Node`.
-//
 // Creates a node on the specified blockchain network.
 //
 // Applies to Hyperledger Fabric and Ethereum.
@@ -30,6 +28,8 @@ import (
 //   	// the properties below are optional
 //   	MemberId: jsii.String("memberId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html
 //
 type CfnNode interface {
 	awscdk.CfnResource
@@ -64,17 +64,9 @@ type CfnNode interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The unique identifier of the member to which the node belongs.
-	//
-	// Applies only to Hyperledger Fabric.
 	MemberId() *string
 	SetMemberId(val *string)
 	// The unique identifier of the network for the node.
-	//
-	// Ethereum public networks have the following `NetworkId` s:
-	//
-	// - `n-ethereum-mainnet`
-	// - `n-ethereum-goerli`
-	// - `n-ethereum-rinkeby`.
 	NetworkId() *string
 	SetNetworkId(val *string)
 	// The tree node.
@@ -408,7 +400,6 @@ func (j *jsiiProxy_CfnNode) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ManagedBlockchain::Node`.
 func NewCfnNode(scope constructs.Construct, id *string, props *CfnNodeProps) CfnNode {
 	_init_.Initialize()
 
@@ -426,7 +417,6 @@ func NewCfnNode(scope constructs.Construct, id *string, props *CfnNodeProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::ManagedBlockchain::Node`.
 func NewCfnNode_Override(c CfnNode, scope constructs.Construct, id *string, props *CfnNodeProps) {
 	_init_.Initialize()
 

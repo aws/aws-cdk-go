@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EKS::Addon`.
-//
 // Creates an Amazon EKS add-on.
 //
 // Amazon EKS add-ons help to automate the provisioning and lifecycle management of common operational software for Amazon EKS clusters. For more information, see [Amazon EKS add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html) in the *Amazon EKS User Guide* .
@@ -38,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html
+//
 type CfnAddon interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the add-on.
 	AddonName() *string
 	SetAddonName(val *string)
@@ -77,8 +78,6 @@ type CfnAddon interface {
 	// The tree node.
 	Node() constructs.Node
 	// Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
-	//
-	// If an IAM account is associated with the add-on, it isn't removed.
 	PreserveOnDelete() interface{}
 	SetPreserveOnDelete(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -87,31 +86,20 @@ type CfnAddon interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// How to resolve field value conflicts for an Amazon EKS add-on.
-	//
-	// Conflicts are handled based on the value you choose:
-	//
-	// - *None* – If the self-managed version of the add-on is installed on your cluster, Amazon EKS doesn't change the value. Creation of the add-on might fail.
-	// - *Overwrite* – If the self-managed version of the add-on is installed on your cluster and the Amazon EKS default value is different than the existing value, Amazon EKS changes the value to the Amazon EKS default value.
-	// - *Preserve* – This is similar to the NONE option. If the self-managed version of the add-on is installed on your cluster Amazon EKS doesn't change the add-on resource properties. Creation of the add-on might fail if conflicts are detected. This option works differently during the update operation. For more information, see [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) .
-	//
-	// If you don't currently have the self-managed version of the add-on installed on your cluster, the Amazon EKS add-on is installed. Amazon EKS sets all values to default values, regardless of the option that you specify.
 	ResolveConflicts() *string
 	SetResolveConflicts(val *string)
 	// The Amazon Resource Name (ARN) of an existing IAM role to bind to the add-on's service account.
-	//
-	// The role must be assigned the IAM permissions required by the add-on. If you don't specify an existing IAM role, then the add-on uses the permissions assigned to the node IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html) in the *Amazon EKS User Guide* .
-	//
-	// > To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC) provider created for your cluster. For more information, see [Enabling IAM roles for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html) in the *Amazon EKS User Guide* .
 	ServiceAccountRoleArn() *string
 	SetServiceAccountRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The metadata that you apply to the add-on to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Add-on tags do not propagate to any other resources associated with the cluster.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The metadata that you apply to the add-on to assist with categorization and organization.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -256,6 +244,7 @@ type CfnAddon interface {
 type jsiiProxy_CfnAddon struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAddon) AddonName() *string {
@@ -428,6 +417,16 @@ func (j *jsiiProxy_CfnAddon) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAddon) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAddon) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -449,7 +448,6 @@ func (j *jsiiProxy_CfnAddon) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EKS::Addon`.
 func NewCfnAddon(scope constructs.Construct, id *string, props *CfnAddonProps) CfnAddon {
 	_init_.Initialize()
 
@@ -467,7 +465,6 @@ func NewCfnAddon(scope constructs.Construct, id *string, props *CfnAddonProps) C
 	return &j
 }
 
-// Create a new `AWS::EKS::Addon`.
 func NewCfnAddon_Override(c CfnAddon, scope constructs.Construct, id *string, props *CfnAddonProps) {
 	_init_.Initialize()
 
@@ -539,6 +536,17 @@ func (j *jsiiProxy_CfnAddon)SetServiceAccountRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceAccountRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAddon)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

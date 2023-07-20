@@ -25,12 +25,18 @@ package awspinpoint
 //   	FilterType: jsii.String("filterType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigneventfilter.html
+//
 type CfnCampaign_CampaignEventFilterProperty struct {
 	// The dimension settings of the event filter for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigneventfilter.html#cfn-pinpoint-campaign-campaigneventfilter-dimensions
+	//
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The type of event that causes the campaign to be sent.
 	//
 	// Valid values are: `SYSTEM` , sends the campaign when a system event occurs; and, `ENDPOINT` , sends the campaign when an endpoint event (Events resource) occurs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigneventfilter.html#cfn-pinpoint-campaign-campaigneventfilter-filtertype
+	//
 	FilterType *string `field:"optional" json:"filterType" yaml:"filterType"`
 }
 

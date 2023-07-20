@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnDataRepositoryAssociation) validateSetS3Parameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataRepositoryAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDataRepositoryAssociationParameters(scope constructs.Construct, id *string, props *CfnDataRepositoryAssociationProps) error {
 	return nil
 }

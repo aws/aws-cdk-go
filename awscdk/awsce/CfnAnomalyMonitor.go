@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CE::AnomalyMonitor`.
+// The `AWS::CE::AnomalyMonitor` resource is a Cost Explorer resource type that continuously inspects your account's cost data for anomalies, based on `MonitorType` and `MonitorSpecification` .
 //
-// The `AWS::CE::AnomalyMonitor` resource is a Cost Explorer resource type that continuously inspects your account's cost data for anomalies, based on `MonitorType` and `MonitorSpecification` . The content consists of detailed metadata and the current status of the monitor object.
+// The content consists of detailed metadata and the current status of the monitor object.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,6 +32,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html
 //
 type CfnAnomalyMonitor interface {
 	awscdk.CfnResource
@@ -72,8 +74,6 @@ type CfnAnomalyMonitor interface {
 	MonitorName() *string
 	SetMonitorName(val *string)
 	// The array of `MonitorSpecification` in JSON array format.
-	//
-	// For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
 	MonitorSpecification() *string
 	SetMonitorSpecification(val *string)
 	// The possible type values.
@@ -86,7 +86,7 @@ type CfnAnomalyMonitor interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::CE::AnomalyMonitor.ResourceTags`.
+	// Tags to assign to monitor.
 	ResourceTags() interface{}
 	SetResourceTags(val interface{})
 	// The stack in which this element is defined.
@@ -440,7 +440,6 @@ func (j *jsiiProxy_CfnAnomalyMonitor) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::CE::AnomalyMonitor`.
 func NewCfnAnomalyMonitor(scope constructs.Construct, id *string, props *CfnAnomalyMonitorProps) CfnAnomalyMonitor {
 	_init_.Initialize()
 
@@ -458,7 +457,6 @@ func NewCfnAnomalyMonitor(scope constructs.Construct, id *string, props *CfnAnom
 	return &j
 }
 
-// Create a new `AWS::CE::AnomalyMonitor`.
 func NewCfnAnomalyMonitor_Override(c CfnAnomalyMonitor, scope constructs.Construct, id *string, props *CfnAnomalyMonitorProps) {
 	_init_.Initialize()
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTTwinMaker::Workspace`.
-//
 // Use the `AWS::IoTTwinMaker::Workspace` resource to declare a workspace.
 //
 // Example:
@@ -30,9 +28,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-workspace.html
+//
 type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The workspace ARN.
 	AttrArn() *string
 	// The date and time the workspace was created.
@@ -78,8 +79,11 @@ type CfnWorkspace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that you can use to manage the workspace.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that you can use to manage the workspace.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -227,6 +231,7 @@ type CfnWorkspace interface {
 type jsiiProxy_CfnWorkspace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnWorkspace) AttrArn() *string {
@@ -379,6 +384,16 @@ func (j *jsiiProxy_CfnWorkspace) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkspace) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkspace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -410,7 +425,6 @@ func (j *jsiiProxy_CfnWorkspace) WorkspaceId() *string {
 }
 
 
-// Create a new `AWS::IoTTwinMaker::Workspace`.
 func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
@@ -428,7 +442,6 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 	return &j
 }
 
-// Create a new `AWS::IoTTwinMaker::Workspace`.
 func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 
@@ -465,6 +478,14 @@ func (j *jsiiProxy_CfnWorkspace)SetS3Location(val *string) {
 	_jsii_.Set(
 		j,
 		"s3Location",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkspace)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

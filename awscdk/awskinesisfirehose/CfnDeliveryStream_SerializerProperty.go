@@ -35,14 +35,20 @@ package awskinesisfirehose
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html
+//
 type CfnDeliveryStream_SerializerProperty struct {
 	// A serializer to use for converting data to the ORC format before storing it in Amazon S3.
 	//
 	// For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-orcserde
+	//
 	OrcSerDe interface{} `field:"optional" json:"orcSerDe" yaml:"orcSerDe"`
 	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3.
 	//
 	// For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-parquetserde
+	//
 	ParquetSerDe interface{} `field:"optional" json:"parquetSerDe" yaml:"parquetSerDe"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RolesAnywhere::Profile`.
+// Creates a *profile* , a list of the roles that Roles Anywhere service is trusted to assume.
 //
-// Creates a *profile* , a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.
+// You use profiles to intersect permissions with IAM managed policies.
 //
 // *Required permissions:* `rolesanywhere:CreateProfile` .
 //
@@ -42,9 +42,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html
+//
 type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the profile.
 	AttrProfileArn() *string
 	// The unique primary identifier of the Profile.
@@ -91,8 +94,6 @@ type CfnProfile interface {
 	RequireInstanceProperties() interface{}
 	SetRequireInstanceProperties(val interface{})
 	// A list of IAM role ARNs.
-	//
-	// During `CreateSession` , if a matching role ARN is provided, the properties in this profile will be applied to the intersection session policy.
 	RoleArns() *[]*string
 	SetRoleArns(val *[]*string)
 	// A session policy that applies to the trust boundary of the vended session credentials.
@@ -102,8 +103,11 @@ type CfnProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to attach to the profile.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to attach to the profile.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -248,6 +252,7 @@ type CfnProfile interface {
 type jsiiProxy_CfnProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnProfile) AttrProfileArn() *string {
@@ -430,6 +435,16 @@ func (j *jsiiProxy_CfnProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProfile) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -451,7 +466,6 @@ func (j *jsiiProxy_CfnProfile) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::RolesAnywhere::Profile`.
 func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProps) CfnProfile {
 	_init_.Initialize()
 
@@ -469,7 +483,6 @@ func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProp
 	return &j
 }
 
-// Create a new `AWS::RolesAnywhere::Profile`.
 func NewCfnProfile_Override(c CfnProfile, scope constructs.Construct, id *string, props *CfnProfileProps) {
 	_init_.Initialize()
 
@@ -544,6 +557,17 @@ func (j *jsiiProxy_CfnProfile)SetSessionPolicy(val *string) {
 	_jsii_.Set(
 		j,
 		"sessionPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

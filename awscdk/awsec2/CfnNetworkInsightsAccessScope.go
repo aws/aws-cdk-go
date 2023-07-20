@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NetworkInsightsAccessScope`.
+// Describes a Network Access Scope.
 //
-// Describes a Network Access Scope. A Network Access Scope defines outbound (egress) and inbound (ingress) traffic patterns, including sources, destinations, paths, and traffic types.
+// A Network Access Scope defines outbound (egress) and inbound (ingress) traffic patterns, including sources, destinations, paths, and traffic types.
 //
 // Network Access Analyzer identifies unintended network access to your resources on AWS . When you start an analysis on a Network Access Scope, Network Access Analyzer produces findings. For more information, see the [Network Access Analyzer User Guide](https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/) .
 //
@@ -193,9 +193,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html
+//
 type CfnNetworkInsightsAccessScope interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The creation date.
 	AttrCreatedDate() *string
 	// The ARN of the Network Access Scope.
@@ -240,8 +243,11 @@ type CfnNetworkInsightsAccessScope interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -386,6 +392,7 @@ type CfnNetworkInsightsAccessScope interface {
 type jsiiProxy_CfnNetworkInsightsAccessScope struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNetworkInsightsAccessScope) AttrCreatedDate() *string {
@@ -538,6 +545,16 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScope) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInsightsAccessScope) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInsightsAccessScope) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -559,7 +576,6 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScope) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::EC2::NetworkInsightsAccessScope`.
 func NewCfnNetworkInsightsAccessScope(scope constructs.Construct, id *string, props *CfnNetworkInsightsAccessScopeProps) CfnNetworkInsightsAccessScope {
 	_init_.Initialize()
 
@@ -577,7 +593,6 @@ func NewCfnNetworkInsightsAccessScope(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::EC2::NetworkInsightsAccessScope`.
 func NewCfnNetworkInsightsAccessScope_Override(c CfnNetworkInsightsAccessScope, scope constructs.Construct, id *string, props *CfnNetworkInsightsAccessScopeProps) {
 	_init_.Initialize()
 
@@ -606,6 +621,17 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScope)SetMatchPaths(val interface{}) 
 	_jsii_.Set(
 		j,
 		"matchPaths",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsAccessScope)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

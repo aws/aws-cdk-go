@@ -50,30 +50,52 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html
+//
 type CfnInputProps struct {
 	// Settings that apply only if the input is a push type of input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-destinations
+	//
 	Destinations interface{} `field:"optional" json:"destinations" yaml:"destinations"`
 	// Settings that apply only if the input is an Elemental Link input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
+	//
 	InputDevices interface{} `field:"optional" json:"inputDevices" yaml:"inputDevices"`
 	// The list of input security groups (referenced by IDs) to attach to the input if the input is a push type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputsecuritygroups
+	//
 	InputSecurityGroups *[]*string `field:"optional" json:"inputSecurityGroups" yaml:"inputSecurityGroups"`
 	// Settings that apply only if the input is a MediaConnect input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-mediaconnectflows
+	//
 	MediaConnectFlows interface{} `field:"optional" json:"mediaConnectFlows" yaml:"mediaConnectFlows"`
 	// A name for the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM role for MediaLive to assume when creating a MediaConnect input or Amazon VPC input.
 	//
 	// This doesn't apply to other types of inputs. The role is identified by its ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Settings that apply only if the input is a pull type of input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sources
+	//
 	Sources interface{} `field:"optional" json:"sources" yaml:"sources"`
 	// A collection of tags for this input.
 	//
 	// Each tag is a key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-tags
+	//
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// The type for this input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// Settings that apply only if the input is an push input where the source is on Amazon VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-vpc
+	//
 	Vpc interface{} `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

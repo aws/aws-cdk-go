@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnAuthorizer) validateSetSigningDisabledParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnAuthorizer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAuthorizer) validateSetTokenSigningPublicKeysParameters(val interface{}) error {
 	return nil
 }

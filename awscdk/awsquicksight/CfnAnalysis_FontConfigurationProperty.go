@@ -20,16 +20,28 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontconfiguration.html
+//
 type CfnAnalysis_FontConfigurationProperty struct {
 	// Determines the color of the text.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontconfiguration.html#cfn-quicksight-analysis-fontconfiguration-fontcolor
+	//
 	FontColor *string `field:"optional" json:"fontColor" yaml:"fontColor"`
 	// Determines the appearance of decorative lines on the text.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontconfiguration.html#cfn-quicksight-analysis-fontconfiguration-fontdecoration
+	//
 	FontDecoration *string `field:"optional" json:"fontDecoration" yaml:"fontDecoration"`
 	// The option that determines the text display size.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontconfiguration.html#cfn-quicksight-analysis-fontconfiguration-fontsize
+	//
 	FontSize interface{} `field:"optional" json:"fontSize" yaml:"fontSize"`
 	// Determines the text display face that is inherited by the given font family.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontconfiguration.html#cfn-quicksight-analysis-fontconfiguration-fontstyle
+	//
 	FontStyle *string `field:"optional" json:"fontStyle" yaml:"fontStyle"`
 	// The option that determines the text display weight, or boldness.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontconfiguration.html#cfn-quicksight-analysis-fontconfiguration-fontweight
+	//
 	FontWeight interface{} `field:"optional" json:"fontWeight" yaml:"fontWeight"`
 }
 

@@ -36,15 +36,23 @@ package awsquicksight
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-chartaxislabeloptions.html
+//
 type CfnDashboard_ChartAxisLabelOptionsProperty struct {
 	// The label options for a chart axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-chartaxislabeloptions.html#cfn-quicksight-dashboard-chartaxislabeloptions-axislabeloptions
+	//
 	AxisLabelOptions interface{} `field:"optional" json:"axisLabelOptions" yaml:"axisLabelOptions"`
 	// The visibility configuration of the sort icon on a chart's axis label.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-chartaxislabeloptions.html#cfn-quicksight-dashboard-chartaxislabeloptions-sorticonvisibility
+	//
 	SortIconVisibility *string `field:"optional" json:"sortIconVisibility" yaml:"sortIconVisibility"`
 	// The visibility of an axis label on a chart. Choose one of the following options:.
 	//
 	// - `VISIBLE` : Shows the axis.
 	// - `HIDDEN` : Hides the axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-chartaxislabeloptions.html#cfn-quicksight-dashboard-chartaxislabeloptions-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

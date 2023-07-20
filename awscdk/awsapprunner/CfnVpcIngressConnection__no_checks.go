@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnVpcIngressConnection) validateSetServiceArnParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnVpcIngressConnection) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnVpcIngressConnectionParameters(scope constructs.Construct, id *string, props *CfnVpcIngressConnectionProps) error {
 	return nil
 }

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnEventDataStore) validateSetOrganizationEnabledParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventDataStore) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEventDataStore) validateSetTerminationProtectionEnabledParameters(val interface{}) error {
 	return nil
 }

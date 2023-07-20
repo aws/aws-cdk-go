@@ -25,10 +25,16 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html
+//
 type CfnBucket_ReplicationRuleAndOperatorProperty struct {
 	// An object key name prefix that identifies the subset of objects to which the rule applies.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// An array of tags containing key and value pairs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-tagfilters
+	//
 	TagFilters interface{} `field:"optional" json:"tagFilters" yaml:"tagFilters"`
 }
 

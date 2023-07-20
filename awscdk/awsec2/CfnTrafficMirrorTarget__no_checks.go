@@ -80,6 +80,10 @@ func validateCfnTrafficMirrorTarget_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrafficMirrorTarget) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnTrafficMirrorTargetParameters(scope constructs.Construct, id *string, props *CfnTrafficMirrorTargetProps) error {
 	return nil
 }

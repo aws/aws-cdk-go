@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Batch::JobQueue`.
+// The `AWS::Batch::JobQueue` resource specifies the parameters for an AWS Batch job queue definition.
 //
-// The `AWS::Batch::JobQueue` resource specifies the parameters for an AWS Batch job queue definition. For more information, see [Job Queues](https://docs.aws.amazon.com/batch/latest/userguide/job_queues.html) in the ** .
+// For more information, see [Job Queues](https://docs.aws.amazon.com/batch/latest/userguide/job_queues.html) in the ** .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html
+//
 type CfnJobQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the job queue ARN, such as `batch: *us-east-1* : *111122223333* :job-queue/ *JobQueueName*` .
 	AttrJobQueueArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -47,10 +50,6 @@ type CfnJobQueue interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The set of compute environments mapped to a job queue and their order relative to each other.
-	//
-	// The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the `VALID` state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
-	//
-	// > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
 	ComputeEnvironmentOrder() interface{}
 	SetComputeEnvironmentOrder(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -58,8 +57,6 @@ type CfnJobQueue interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the job queue.
-	//
-	// It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	JobQueueName() *string
 	SetJobQueueName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -75,8 +72,6 @@ type CfnJobQueue interface {
 	// The tree node.
 	Node() constructs.Node
 	// The priority of the job queue.
-	//
-	// Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
 	Priority() *float64
 	SetPriority(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -85,8 +80,6 @@ type CfnJobQueue interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the scheduling policy.
-	//
-	// The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 	SchedulingPolicyArn() *string
 	SetSchedulingPolicyArn(val *string)
 	// The stack in which this element is defined.
@@ -94,14 +87,13 @@ type CfnJobQueue interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The state of the job queue.
-	//
-	// If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 	State() *string
 	SetState(val *string)
-	// The tags that are applied to the job queue.
-	//
-	// For more information, see [Tagging your AWS Batch resources](https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html) in *AWS Batch User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags that are applied to the job queue.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,6 +238,7 @@ type CfnJobQueue interface {
 type jsiiProxy_CfnJobQueue struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnJobQueue) AttrJobQueueArn() *string {
@@ -398,6 +391,16 @@ func (j *jsiiProxy_CfnJobQueue) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobQueue) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobQueue) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -419,7 +422,6 @@ func (j *jsiiProxy_CfnJobQueue) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Batch::JobQueue`.
 func NewCfnJobQueue(scope constructs.Construct, id *string, props *CfnJobQueueProps) CfnJobQueue {
 	_init_.Initialize()
 
@@ -437,7 +439,6 @@ func NewCfnJobQueue(scope constructs.Construct, id *string, props *CfnJobQueuePr
 	return &j
 }
 
-// Create a new `AWS::Batch::JobQueue`.
 func NewCfnJobQueue_Override(c CfnJobQueue, scope constructs.Construct, id *string, props *CfnJobQueueProps) {
 	_init_.Initialize()
 
@@ -490,6 +491,14 @@ func (j *jsiiProxy_CfnJobQueue)SetState(val *string) {
 	_jsii_.Set(
 		j,
 		"state",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobQueue)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

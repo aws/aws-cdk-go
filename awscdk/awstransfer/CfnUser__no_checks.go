@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnUser) validateSetServerIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnUser) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUser) validateSetUserNameParameters(val *string) error {
 	return nil
 }

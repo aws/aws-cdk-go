@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnEnvironmentEC2) validateSetRepositoriesParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnvironmentEC2) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEnvironmentEC2Parameters(scope constructs.Construct, id *string, props *CfnEnvironmentEC2Props) error {
 	return nil
 }

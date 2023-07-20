@@ -15,12 +15,18 @@ package awsecs
 //   	DeviceType: jsii.String("deviceType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html
+//
 type CfnTaskDefinition_InferenceAcceleratorProperty struct {
 	// The Elastic Inference accelerator device name.
 	//
 	// The `deviceName` must also be referenced in a container definition as a [ResourceRequirement](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename
+	//
 	DeviceName *string `field:"optional" json:"deviceName" yaml:"deviceName"`
 	// The Elastic Inference accelerator type to use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype
+	//
 	DeviceType *string `field:"optional" json:"deviceType" yaml:"deviceType"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::UserPoolUserToGroupAttachment`.
-//
 // Adds the specified user to the specified group.
 //
 // Calling this action requires developer credentials.
@@ -26,9 +24,12 @@ import (
 //   	UserPoolId: jsii.String("userPoolId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html
+//
 type CfnUserPoolUserToGroupAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -214,6 +215,16 @@ type jsiiProxy_CfnUserPoolUserToGroupAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -345,7 +356,6 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) UserPoolId() *string {
 }
 
 
-// Create a new `AWS::Cognito::UserPoolUserToGroupAttachment`.
 func NewCfnUserPoolUserToGroupAttachment(scope constructs.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) CfnUserPoolUserToGroupAttachment {
 	_init_.Initialize()
 
@@ -363,7 +373,6 @@ func NewCfnUserPoolUserToGroupAttachment(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Create a new `AWS::Cognito::UserPoolUserToGroupAttachment`.
 func NewCfnUserPoolUserToGroupAttachment_Override(c CfnUserPoolUserToGroupAttachment, scope constructs.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) {
 	_init_.Initialize()
 

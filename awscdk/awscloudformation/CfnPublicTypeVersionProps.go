@@ -16,10 +16,14 @@ package awscloudformation
 //   	TypeName: jsii.String("typeName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html
+//
 type CfnPublicTypeVersionProps struct {
 	// The Amazon Resource Number (ARN) of the extension.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The S3 bucket to which CloudFormation delivers the contract test execution logs.
 	//
@@ -31,6 +35,8 @@ type CfnPublicTypeVersionProps struct {
 	// - PutObject
 	//
 	// For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+	//
 	LogDeliveryBucket *string `field:"optional" json:"logDeliveryBucket" yaml:"logDeliveryBucket"`
 	// The version number to assign to this version of the extension.
 	//
@@ -43,14 +49,20 @@ type CfnPublicTypeVersionProps struct {
 	// If you don't specify a version number, CloudFormation increments the version number by one minor version release.
 	//
 	// You cannot specify a version number the first time you publish a type. AWS CloudFormation automatically sets the first version number to be `1.0.0` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+	//
 	PublicVersionNumber *string `field:"optional" json:"publicVersionNumber" yaml:"publicVersionNumber"`
 	// The type of the extension to test.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The name of the extension to test.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+	//
 	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
 }
 

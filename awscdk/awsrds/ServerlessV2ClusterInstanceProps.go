@@ -7,20 +7,15 @@ import (
 // Options for creating a serverless v2 instance.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 //   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
 //   	}),
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
-//   	}),
-//   	ServerlessV2MinCapacity: jsii.Number(6.5),
-//   	ServerlessV2MaxCapacity: jsii.Number(64),
+//   	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
 //   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
+//   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
 //   			ScaleWithWriter: jsii.Boolean(true),
 //   		}),
 //   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),

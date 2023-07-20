@@ -13,10 +13,16 @@ package awscognito
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooluser-attributetype.html
+//
 type CfnUserPoolUser_AttributeTypeProperty struct {
 	// The name of the attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooluser-attributetype.html#cfn-cognito-userpooluser-attributetype-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value of the attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooluser-attributetype.html#cfn-cognito-userpooluser-attributetype-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

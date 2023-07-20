@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnLocationFSxLustre) validateSetSecurityGroupArnsParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationFSxLustre) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLocationFSxLustreParameters(scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) error {
 	return nil
 }

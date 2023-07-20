@@ -15,10 +15,16 @@ package awsce
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalymonitor-resourcetag.html
+//
 type CfnAnomalyMonitor_ResourceTagProperty struct {
 	// The key that's associated with the tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalymonitor-resourcetag.html#cfn-ce-anomalymonitor-resourcetag-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value that's associated with the tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalymonitor-resourcetag.html#cfn-ce-anomalymonitor-resourcetag-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::EvaluationForm`.
-//
 // Creates an evaluation form for the specified Amazon Connect instance.
 //
 // Example:
@@ -118,9 +116,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html
+//
 type CfnEvaluationForm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the evaluation form.
 	AttrEvaluationFormArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -133,20 +134,12 @@ type CfnEvaluationForm interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The description of the evaluation form.
-	//
-	// *Length Constraints* : Minimum length of 0. Maximum length of 1024.
 	Description() *string
 	SetDescription(val *string)
 	// The identifier of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// Items that are part of the evaluation form.
-	//
-	// The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
-	//
-	// *Minimum size* : 1
-	//
-	// *Maximum size* : 100.
 	Items() interface{}
 	SetItems(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -174,14 +167,13 @@ type CfnEvaluationForm interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The status of the evaluation form.
-	//
-	// *Allowed values* : `DRAFT` | `ACTIVE`.
 	Status() *string
 	SetStatus(val *string)
-	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A title of the evaluation form.
 	Title() *string
 	SetTitle(val *string)
@@ -329,6 +321,7 @@ type CfnEvaluationForm interface {
 type jsiiProxy_CfnEvaluationForm struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEvaluationForm) AttrEvaluationFormArn() *string {
@@ -481,6 +474,16 @@ func (j *jsiiProxy_CfnEvaluationForm) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEvaluationForm) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEvaluationForm) Title() *string {
 	var returns *string
 	_jsii_.Get(
@@ -512,7 +515,6 @@ func (j *jsiiProxy_CfnEvaluationForm) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Connect::EvaluationForm`.
 func NewCfnEvaluationForm(scope constructs.Construct, id *string, props *CfnEvaluationFormProps) CfnEvaluationForm {
 	_init_.Initialize()
 
@@ -530,7 +532,6 @@ func NewCfnEvaluationForm(scope constructs.Construct, id *string, props *CfnEval
 	return &j
 }
 
-// Create a new `AWS::Connect::EvaluationForm`.
 func NewCfnEvaluationForm_Override(c CfnEvaluationForm, scope constructs.Construct, id *string, props *CfnEvaluationFormProps) {
 	_init_.Initialize()
 
@@ -589,6 +590,17 @@ func (j *jsiiProxy_CfnEvaluationForm)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEvaluationForm)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

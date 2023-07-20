@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::Prompt`.
-//
 // Creates a prompt for the specified Amazon Connect instance.
 //
 // Example:
@@ -32,6 +30,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.html
 //
 type CfnPrompt interface {
 	awscdk.CfnResource
@@ -74,8 +74,6 @@ type CfnPrompt interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The URI for the S3 bucket where the prompt is stored.
-	//
-	// This property is required when you create a prompt.
 	S3Uri() *string
 	SetS3Uri(val *string)
 	// The stack in which this element is defined.
@@ -83,9 +81,8 @@ type CfnPrompt interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -362,8 +359,8 @@ func (j *jsiiProxy_CfnPrompt) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrompt) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnPrompt) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -393,7 +390,6 @@ func (j *jsiiProxy_CfnPrompt) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Connect::Prompt`.
 func NewCfnPrompt(scope constructs.Construct, id *string, props *CfnPromptProps) CfnPrompt {
 	_init_.Initialize()
 
@@ -411,7 +407,6 @@ func NewCfnPrompt(scope constructs.Construct, id *string, props *CfnPromptProps)
 	return &j
 }
 
-// Create a new `AWS::Connect::Prompt`.
 func NewCfnPrompt_Override(c CfnPrompt, scope constructs.Construct, id *string, props *CfnPromptProps) {
 	_init_.Initialize()
 
@@ -456,6 +451,17 @@ func (j *jsiiProxy_CfnPrompt)SetS3Uri(val *string) {
 	_jsii_.Set(
 		j,
 		"s3Uri",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPrompt)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

@@ -28,6 +28,8 @@ package awsdatasync
 //   	VerifyMode: jsii.String("verifyMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html
+//
 type CfnTask_OptionsProperty struct {
 	// A file metadata value that shows the last time that a file was accessed (that is, when the file was read or written to).
 	//
@@ -42,10 +44,14 @@ type CfnTask_OptionsProperty struct {
 	// > If `Atime` is set to `BEST_EFFORT` , `Mtime` must be set to `PRESERVE` .
 	// >
 	// > If `Atime` is set to `NONE` , `Mtime` must also be `NONE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-atime
+	//
 	Atime *string `field:"optional" json:"atime" yaml:"atime"`
 	// A value that limits the bandwidth used by AWS DataSync .
 	//
 	// For example, if you want AWS DataSync to use a maximum of 1 MB, set this value to `1048576` (=1024*1024).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-bytespersecond
+	//
 	BytesPerSecond *float64 `field:"optional" json:"bytesPerSecond" yaml:"bytesPerSecond"`
 	// The group ID (GID) of the file's owners.
 	//
@@ -56,12 +62,16 @@ type CfnTask_OptionsProperty struct {
 	// `NAME` : Currently not supported.
 	//
 	// `NONE` : Ignore the UID and GID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-gid
+	//
 	Gid *string `field:"optional" json:"gid" yaml:"gid"`
 	// Specifies the type of logs that DataSync publishes to a Amazon CloudWatch Logs log group.
 	//
 	// To specify the log group, see [CloudWatchLogGroupArn](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn) .
 	//
 	// If you set `LogLevel` to `OFF` , no logs are published. `BASIC` publishes logs on errors for individual files transferred. `TRANSFER` publishes logs for every file or object that is transferred and integrity checked.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel
+	//
 	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	//
@@ -76,18 +86,24 @@ type CfnTask_OptionsProperty struct {
 	// > If `Mtime` is set to `PRESERVE` , `Atime` must be set to `BEST_EFFORT` .
 	// >
 	// > If `Mtime` is set to `NONE` , `Atime` must also be set to `NONE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
+	//
 	Mtime *string `field:"optional" json:"mtime" yaml:"mtime"`
 	// Specifies whether object tags are preserved when transferring between object storage systems.
 	//
 	// If you want your DataSync task to ignore object tags, specify the `NONE` value.
 	//
 	// Default Value: `PRESERVE`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-objecttags
+	//
 	ObjectTags *string `field:"optional" json:"objectTags" yaml:"objectTags"`
 	// Specifies whether data at the destination location should be overwritten or preserved.
 	//
 	// If set to `NEVER` , a destination file for example will not be replaced by a source file (even if the destination file differs from the source file). If you modify files in the destination and you sync the files, you can use this value to protect against overwriting those changes.
 	//
 	// Some storage classes have specific behaviors that can affect your Amazon S3 storage cost. For detailed information, see [Considerations when working with Amazon S3 storage classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode
+	//
 	OverwriteMode *string `field:"optional" json:"overwriteMode" yaml:"overwriteMode"`
 	// A value that determines which users or groups can access a file for a specific purpose, such as reading, writing, or execution of the file.
 	//
@@ -100,6 +116,8 @@ type CfnTask_OptionsProperty struct {
 	// `NONE` : Ignore permissions.
 	//
 	// > AWS DataSync can preserve extant permissions of a source location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-posixpermissions
+	//
 	PosixPermissions *string `field:"optional" json:"posixPermissions" yaml:"posixPermissions"`
 	// A value that specifies whether files in the destination that don't exist in the source file system are preserved.
 	//
@@ -110,6 +128,8 @@ type CfnTask_OptionsProperty struct {
 	// `PRESERVE` : Ignore destination files that aren't present in the source (recommended).
 	//
 	// `REMOVE` : Delete destination files that aren't present in the source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedeletedfiles
+	//
 	PreserveDeletedFiles *string `field:"optional" json:"preserveDeletedFiles" yaml:"preserveDeletedFiles"`
 	// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and re-create the files with that device name and metadata on the destination.
 	//
@@ -122,6 +142,8 @@ type CfnTask_OptionsProperty struct {
 	// `NONE` : Ignore special devices (recommended).
 	//
 	// `PRESERVE` : Preserve character and block device metadata. This option isn't currently supported for Amazon EFS.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices
+	//
 	PreserveDevices *string `field:"optional" json:"preserveDevices" yaml:"preserveDevices"`
 	// A value that determines which components of the SMB security descriptor are copied from source to destination objects.
 	//
@@ -145,14 +167,20 @@ type CfnTask_OptionsProperty struct {
 	// Copying SACLs requires granting additional permissions to the Windows user that DataSync uses to access your SMB location. For information about choosing a user that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#SMBuser) .
 	//
 	// `NONE` : None of the SMB security descriptor components are copied. Destination objects are owned by the user that was provided for accessing the destination location. DACLs and SACLs are set based on the destination server’s configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags
+	//
 	SecurityDescriptorCopyFlags *string `field:"optional" json:"securityDescriptorCopyFlags" yaml:"securityDescriptorCopyFlags"`
 	// Specifies whether your transfer tasks should be put into a queue during certain scenarios when [running multiple tasks](https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#running-multiple-tasks) . This is `ENABLED` by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing
+	//
 	TaskQueueing *string `field:"optional" json:"taskQueueing" yaml:"taskQueueing"`
 	// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing it to the destination location.
 	//
 	// `CHANGED` : DataSync copies only data or metadata that is new or different from the source location to the destination location.
 	//
 	// `ALL` : DataSync copies all source location content to the destination, without comparing it to existing content on the destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-transfermode
+	//
 	TransferMode *string `field:"optional" json:"transferMode" yaml:"transferMode"`
 	// The user ID (UID) of the file's owner.
 	//
@@ -163,6 +191,8 @@ type CfnTask_OptionsProperty struct {
 	// `NAME` : Currently not supported
 	//
 	// `NONE` : Ignore the UID and GID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-uid
+	//
 	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 	// A value that determines whether a data integrity verification is performed at the end of a task execution after all data and metadata have been transferred.
 	//
@@ -175,6 +205,8 @@ type CfnTask_OptionsProperty struct {
 	// `POINT_IN_TIME_CONSISTENT` : Scan the entire source and entire destination at the end of the transfer to verify that the source and destination are fully synchronized. This option isn't supported when transferring to S3 Glacier or S3 Glacier Deep Archive storage classes.
 	//
 	// `NONE` : No additional verification is done at the end of the transfer, but all data transmissions are integrity-checked with checksum verification during the transfer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-verifymode
+	//
 	VerifyMode *string `field:"optional" json:"verifyMode" yaml:"verifyMode"`
 }
 

@@ -16,8 +16,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-customactionnavigationoperation.html
+//
 type CfnAnalysis_CustomActionNavigationOperationProperty struct {
 	// The configuration that chooses the navigation target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-customactionnavigationoperation.html#cfn-quicksight-analysis-customactionnavigationoperation-localnavigationconfiguration
+	//
 	LocalNavigationConfiguration interface{} `field:"optional" json:"localNavigationConfiguration" yaml:"localNavigationConfiguration"`
 }
 

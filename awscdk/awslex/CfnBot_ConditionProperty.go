@@ -12,8 +12,12 @@ package awslex
 //   	ExpressionString: jsii.String("expressionString"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-condition.html
+//
 type CfnBot_ConditionProperty struct {
 	// The expression string that is evaluated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-condition.html#cfn-lex-bot-condition-expressionstring
+	//
 	ExpressionString *string `field:"required" json:"expressionString" yaml:"expressionString"`
 }
 

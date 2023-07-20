@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnPricingRule) validateSetScopeParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnPricingRule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPricingRule) validateSetTieringParameters(val interface{}) error {
 	return nil
 }

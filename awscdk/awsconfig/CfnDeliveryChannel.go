@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Config::DeliveryChannel`.
-//
 // Specifies a delivery channel object to deliver configuration information to an Amazon S3 bucket and Amazon SNS topic.
 //
 // Before you can create a delivery channel, you must create a configuration recorder. You can use this action to change the Amazon S3 bucket or an Amazon SNS topic of the existing delivery channel. To change the Amazon S3 bucket or an Amazon SNS topic, call this action and specify the changed values for the S3 bucket and the SNS topic. If you specify a different value for either the S3 bucket or the SNS topic, this action will keep the existing value for the parameter that is not changed.
@@ -45,9 +43,12 @@ import (
 //   	SnsTopicArn: jsii.String("snsTopicArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html
+//
 type CfnDeliveryChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -71,10 +72,6 @@ type CfnDeliveryChannel interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A name for the delivery channel.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -85,21 +82,15 @@ type CfnDeliveryChannel interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
-	//
-	// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
 	S3BucketName() *string
 	SetS3BucketName(val *string)
 	// The prefix for the specified Amazon S3 bucket.
 	S3KeyPrefix() *string
 	SetS3KeyPrefix(val *string)
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config .
-	//
-	// Must belong to the same Region as the destination S3 bucket.
 	S3KmsKeyArn() *string
 	SetS3KmsKeyArn(val *string)
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
-	//
-	// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
 	SnsTopicArn() *string
 	SetSnsTopicArn(val *string)
 	// The stack in which this element is defined.
@@ -250,6 +241,16 @@ type CfnDeliveryChannel interface {
 type jsiiProxy_CfnDeliveryChannel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDeliveryChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDeliveryChannel) CfnOptions() awscdk.ICfnResourceOptions {
@@ -413,7 +414,6 @@ func (j *jsiiProxy_CfnDeliveryChannel) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::Config::DeliveryChannel`.
 func NewCfnDeliveryChannel(scope constructs.Construct, id *string, props *CfnDeliveryChannelProps) CfnDeliveryChannel {
 	_init_.Initialize()
 
@@ -431,7 +431,6 @@ func NewCfnDeliveryChannel(scope constructs.Construct, id *string, props *CfnDel
 	return &j
 }
 
-// Create a new `AWS::Config::DeliveryChannel`.
 func NewCfnDeliveryChannel_Override(c CfnDeliveryChannel, scope constructs.Construct, id *string, props *CfnDeliveryChannelProps) {
 	_init_.Initialize()
 

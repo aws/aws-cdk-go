@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ResourceExplorer2::View`.
-//
 // Creates a view that users can query by using the [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation. Results from queries that you make using this view include only resources that match the view's `Filters` .
 //
 // Example:
@@ -35,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html
+//
 type CfnView interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the new view. For example:.
 	//
 	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`.
@@ -52,12 +53,6 @@ type CfnView interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view.
-	//
-	// When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
-	//
-	// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
-	//
-	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 	Filters() interface{}
 	SetFilters(val interface{})
 	// A list of fields that provide additional information about the view.
@@ -84,8 +79,11 @@ type CfnView interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tag key and value pairs that are attached to the view.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tag key and value pairs that are attached to the view.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -233,6 +231,7 @@ type CfnView interface {
 type jsiiProxy_CfnView struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnView) AttrViewArn() *string {
@@ -355,6 +354,16 @@ func (j *jsiiProxy_CfnView) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnView) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnView) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -386,7 +395,6 @@ func (j *jsiiProxy_CfnView) ViewName() *string {
 }
 
 
-// Create a new `AWS::ResourceExplorer2::View`.
 func NewCfnView(scope constructs.Construct, id *string, props *CfnViewProps) CfnView {
 	_init_.Initialize()
 
@@ -404,7 +412,6 @@ func NewCfnView(scope constructs.Construct, id *string, props *CfnViewProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::ResourceExplorer2::View`.
 func NewCfnView_Override(c CfnView, scope constructs.Construct, id *string, props *CfnViewProps) {
 	_init_.Initialize()
 
@@ -433,6 +440,14 @@ func (j *jsiiProxy_CfnView)SetIncludedProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"includedProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnView)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

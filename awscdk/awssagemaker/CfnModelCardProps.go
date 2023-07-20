@@ -200,12 +200,18 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html
+//
 type CfnModelCardProps struct {
 	// The content of the model card.
 	//
 	// Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-content
+	//
 	Content interface{} `field:"required" json:"content" yaml:"content"`
 	// The unique name of the model card.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-modelcardname
+	//
 	ModelCardName *string `field:"required" json:"modelCardName" yaml:"modelCardName"`
 	// The approval status of the model card within your organization.
 	//
@@ -215,6 +221,8 @@ type CfnModelCardProps struct {
 	// - `PendingReview` : The model card is pending review.
 	// - `Approved` : The model card is approved.
 	// - `Archived` : The model card is archived. No more updates should be made to the model card, but it can still be exported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-modelcardstatus
+	//
 	ModelCardStatus *string `field:"required" json:"modelCardStatus" yaml:"modelCardStatus"`
 	// Information about the user who created or modified one or more of the following:.
 	//
@@ -224,12 +232,20 @@ type CfnModelCardProps struct {
 	// - Lineage group
 	// - Project
 	// - Model Card.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-createdby
+	//
 	CreatedBy interface{} `field:"optional" json:"createdBy" yaml:"createdBy"`
-	// `AWS::SageMaker::ModelCard.LastModifiedBy`.
+	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-lastmodifiedby
+	//
 	LastModifiedBy interface{} `field:"optional" json:"lastModifiedBy" yaml:"lastModifiedBy"`
 	// The security configuration used to protect model card data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-securityconfig
+	//
 	SecurityConfig interface{} `field:"optional" json:"securityConfig" yaml:"securityConfig"`
 	// Key-value pairs used to manage metadata for the model card.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudWatch::CompositeAlarm`.
+// The `AWS::CloudWatch::CompositeAlarm` type creates or updates a composite alarm.
 //
-// The `AWS::CloudWatch::CompositeAlarm` type creates or updates a composite alarm. When you create a composite alarm, you specify a rule expression for the alarm that takes into account the alarm states of other alarms that you have created. The composite alarm goes into ALARM state only if all conditions of the rule are met.
+// When you create a composite alarm, you specify a rule expression for the alarm that takes into account the alarm states of other alarms that you have created. The composite alarm goes into ALARM state only if all conditions of the rule are met.
 //
 // The alarms specified in a composite alarm's rule expression can include metric alarms and other composite alarms.
 //
@@ -49,63 +49,33 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
+//
 type CfnCompositeAlarm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm.
-	//
-	// The default is TRUE.
 	ActionsEnabled() interface{}
 	SetActionsEnabled(val interface{})
 	// Actions will be suppressed if the suppressor alarm is in the `ALARM` state.
-	//
-	// `ActionsSuppressor` can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
 	ActionsSuppressor() *string
 	SetActionsSuppressor(val *string)
 	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state.
-	//
-	// After this time, the composite alarm performs its actions.
-	//
-	// > `ExtensionPeriod` is required only when `ActionsSuppressor` is specified.
 	ActionsSuppressorExtensionPeriod() *float64
 	SetActionsSuppressorExtensionPeriod(val *float64)
 	// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state.
-	//
-	// After this time, the composite alarm performs its actions.
-	//
-	// > `WaitPeriod` is required only when `ActionsSuppressor` is specified.
 	ActionsSuppressorWaitPeriod() *float64
 	SetActionsSuppressorWaitPeriod(val *float64)
 	// The actions to execute when this alarm transitions to the ALARM state from any other state.
-	//
-	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
 	AlarmActions() *[]*string
 	SetAlarmActions(val *[]*string)
 	// The description for the composite alarm.
 	AlarmDescription() *string
 	SetAlarmDescription(val *string)
 	// The name for the composite alarm.
-	//
-	// This name must be unique within your AWS account.
 	AlarmName() *string
 	SetAlarmName(val *string)
 	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state.
-	//
-	// For each alarm that you reference, you designate a function that specifies whether that alarm needs to be in ALARM state, OK state, or INSUFFICIENT_DATA state. You can use operators (AND, OR and NOT) to combine multiple functions in a single expression. You can use parenthesis to logically group the functions in your expression.
-	//
-	// You can use either alarm names or ARNs to reference the other alarms that are to be evaluated.
-	//
-	// Functions can include the following:
-	//
-	// - ALARM("alarm-name or alarm-ARN") is TRUE if the named alarm is in ALARM state.
-	// - OK("alarm-name or alarm-ARN") is TRUE if the named alarm is in OK state.
-	// - INSUFFICIENT_DATA("alarm-name or alarm-ARN") is TRUE if the named alarm is in INSUFFICIENT_DATA state.
-	// - TRUE always evaluates to TRUE.
-	// - FALSE always evaluates to FALSE.
-	//
-	// TRUE and FALSE are useful for testing a complex AlarmRule structure, and for testing your alarm actions.
-	//
-	// For more information about `AlarmRule` syntax, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
 	AlarmRule() *string
 	SetAlarmRule(val *string)
 	// The ARN of the composite alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm/CompositeAlarmName` .
@@ -120,8 +90,6 @@ type CfnCompositeAlarm interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
-	//
-	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
 	InsufficientDataActions() *[]*string
 	SetInsufficientDataActions(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -137,8 +105,6 @@ type CfnCompositeAlarm interface {
 	// The tree node.
 	Node() constructs.Node
 	// The actions to execute when this alarm transitions to the OK state from any other state.
-	//
-	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
 	OkActions() *[]*string
 	SetOkActions(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -507,7 +473,6 @@ func (j *jsiiProxy_CfnCompositeAlarm) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::CloudWatch::CompositeAlarm`.
 func NewCfnCompositeAlarm(scope constructs.Construct, id *string, props *CfnCompositeAlarmProps) CfnCompositeAlarm {
 	_init_.Initialize()
 
@@ -525,7 +490,6 @@ func NewCfnCompositeAlarm(scope constructs.Construct, id *string, props *CfnComp
 	return &j
 }
 
-// Create a new `AWS::CloudWatch::CompositeAlarm`.
 func NewCfnCompositeAlarm_Override(c CfnCompositeAlarm, scope constructs.Construct, id *string, props *CfnCompositeAlarmProps) {
 	_init_.Initialize()
 

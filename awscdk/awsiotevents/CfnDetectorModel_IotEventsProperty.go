@@ -18,10 +18,16 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html
+//
 type CfnDetectorModel_IotEventsProperty struct {
 	// The name of the AWS IoT Events input where the data is sent.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
+	//
 	InputName *string `field:"required" json:"inputName" yaml:"inputName"`
 	// You can configure the action payload when you send a message to an AWS IoT Events input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
+	//
 	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 

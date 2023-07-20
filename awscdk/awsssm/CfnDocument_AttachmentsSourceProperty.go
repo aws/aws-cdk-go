@@ -16,10 +16,16 @@ package awsssm
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html
+//
 type CfnDocument_AttachmentsSourceProperty struct {
 	// The key of a key-value pair that identifies the location of an attachment to a document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The name of the document attachment file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value of a key-value pair that identifies the location of an attachment to a document.
 	//
@@ -38,6 +44,8 @@ type CfnDocument_AttachmentsSourceProperty struct {
 	// However, if the SSM document is shared with you from another account, the full SSM document ARN must be specified instead of the document name only. For example:
 	//
 	// `"Values": [ "arn:aws:ssm:us-east-2:111122223333:document/OtherAccountDocument/3/their-file.py" ]`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+	//
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

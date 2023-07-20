@@ -17,10 +17,16 @@ package awsmsk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html
+//
 type CfnCluster_PrometheusProperty struct {
 	// Indicates whether you want to enable or disable the JMX Exporter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-jmxexporter
+	//
 	JmxExporter interface{} `field:"optional" json:"jmxExporter" yaml:"jmxExporter"`
 	// Indicates whether you want to enable or disable the Node Exporter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-nodeexporter
+	//
 	NodeExporter interface{} `field:"optional" json:"nodeExporter" yaml:"nodeExporter"`
 }
 

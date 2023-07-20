@@ -19,12 +19,20 @@ package awsimagebuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html
+//
 type CfnDistributionConfiguration_ContainerDistributionConfigurationProperty struct {
 	// Tags that are attached to the container distribution configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-containertags
+	//
 	ContainerTags *[]*string `field:"optional" json:"containerTags" yaml:"containerTags"`
 	// The description of the container distribution configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The destination repository for the container distribution configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-targetrepository
+	//
 	TargetRepository interface{} `field:"optional" json:"targetRepository" yaml:"targetRepository"`
 }
 

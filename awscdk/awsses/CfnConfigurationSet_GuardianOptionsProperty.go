@@ -12,11 +12,15 @@ package awsses
 //   	OptimizedSharedDelivery: jsii.String("optimizedSharedDelivery"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-guardianoptions.html
+//
 type CfnConfigurationSet_GuardianOptionsProperty struct {
 	// Specifies the status of your VDM optimized shared delivery. Can be one of the following:.
 	//
 	// - `ENABLED` – Amazon SES enables optimized shared delivery for the configuration set.
 	// - `DISABLED` – Amazon SES disables optimized shared delivery for the configuration set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-guardianoptions.html#cfn-ses-configurationset-guardianoptions-optimizedshareddelivery
+	//
 	OptimizedSharedDelivery *string `field:"required" json:"optimizedSharedDelivery" yaml:"optimizedSharedDelivery"`
 }
 

@@ -12,12 +12,16 @@ package awswafv2
 //   	Identifier: jsii.String("identifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldidentifier.html
+//
 type CfnWebACL_FieldIdentifierProperty struct {
 	// The name of the username or password field, used in the `ManagedRuleGroupConfig` settings.
 	//
 	// When the `PayloadType` is `JSON` , the identifier must be in JSON pointer syntax. For example `/form/username` . For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 	//
 	// When the `PayloadType` is `FORM_ENCODED` , use the HTML form names. For example, `username` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldidentifier.html#cfn-wafv2-webacl-fieldidentifier-identifier
+	//
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 }
 

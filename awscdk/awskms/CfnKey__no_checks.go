@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnKey) validateSetMultiRegionParameters(val interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnKey) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnKeyParameters(scope constructs.Construct, id *string, props *CfnKeyProps) error {
 	return nil
 }

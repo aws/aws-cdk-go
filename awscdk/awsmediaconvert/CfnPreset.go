@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConvert::Preset`.
-//
 // The AWS::MediaConvert::Preset resource is an AWS Elemental MediaConvert resource type that you can use to specify encoding settings for a single output in a transcoding job.
 //
 // When you declare this entity in your AWS CloudFormation template, you pass in your transcoding job settings in JSON or YAML format. This settings specification must be formed in a particular way that conforms to AWS Elemental MediaConvert job validation. For more information about creating an output preset model for the `SettingsJson` property, see the Remarks section later in this topic.
@@ -35,11 +33,15 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html
+//
 type CfnPreset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
 	AttrArn() *string
+	AttrId() *string
 	// The name of the output preset, such as `HEVC high res` .
 	AttrName() *string
 	// The new category for the preset, if you are changing it.
@@ -78,20 +80,17 @@ type CfnPreset interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Specify, in JSON format, the transcoding job settings for this output preset.
-	//
-	// This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-	//
-	// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 	SettingsJson() interface{}
 	SetSettingsJson(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -236,6 +235,7 @@ type CfnPreset interface {
 type jsiiProxy_CfnPreset struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPreset) AttrArn() *string {
@@ -243,6 +243,16 @@ func (j *jsiiProxy_CfnPreset) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPreset) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -388,6 +398,16 @@ func (j *jsiiProxy_CfnPreset) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPreset) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPreset) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -409,7 +429,6 @@ func (j *jsiiProxy_CfnPreset) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MediaConvert::Preset`.
 func NewCfnPreset(scope constructs.Construct, id *string, props *CfnPresetProps) CfnPreset {
 	_init_.Initialize()
 
@@ -427,7 +446,6 @@ func NewCfnPreset(scope constructs.Construct, id *string, props *CfnPresetProps)
 	return &j
 }
 
-// Create a new `AWS::MediaConvert::Preset`.
 func NewCfnPreset_Override(c CfnPreset, scope constructs.Construct, id *string, props *CfnPresetProps) {
 	_init_.Initialize()
 
@@ -469,6 +487,14 @@ func (j *jsiiProxy_CfnPreset)SetSettingsJson(val interface{}) {
 	_jsii_.Set(
 		j,
 		"settingsJson",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPreset)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

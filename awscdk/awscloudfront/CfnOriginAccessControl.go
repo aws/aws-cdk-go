@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::OriginAccessControl`.
+// Creates a new origin access control in CloudFront.
 //
-// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
+// After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
 //
 // This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
 //
@@ -33,6 +33,8 @@ import (
 //   		Description: jsii.String("description"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html
 //
 type CfnOriginAccessControl interface {
 	awscdk.CfnResource
@@ -339,7 +341,6 @@ func (j *jsiiProxy_CfnOriginAccessControl) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::CloudFront::OriginAccessControl`.
 func NewCfnOriginAccessControl(scope constructs.Construct, id *string, props *CfnOriginAccessControlProps) CfnOriginAccessControl {
 	_init_.Initialize()
 
@@ -357,7 +358,6 @@ func NewCfnOriginAccessControl(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::CloudFront::OriginAccessControl`.
 func NewCfnOriginAccessControl_Override(c CfnOriginAccessControl, scope constructs.Construct, id *string, props *CfnOriginAccessControlProps) {
 	_init_.Initialize()
 

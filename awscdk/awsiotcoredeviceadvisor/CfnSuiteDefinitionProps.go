@@ -25,6 +25,8 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
+//
 type CfnSuiteDefinitionProps struct {
 	// The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
 	//
@@ -53,8 +55,12 @@ type CfnSuiteDefinitionProps struct {
 	// This is a required element.
 	//
 	// *Type:* String.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
+	//
 	SuiteDefinitionConfiguration interface{} `field:"required" json:"suiteDefinitionConfiguration" yaml:"suiteDefinitionConfiguration"`
 	// Metadata that can be used to manage the the Suite Definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

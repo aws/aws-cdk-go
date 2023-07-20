@@ -72,14 +72,22 @@ package awsses
 //   	After: jsii.String("after"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html
+//
 type CfnReceiptRuleProps struct {
 	// A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html#cfn-ses-receiptrule-rule
+	//
 	Rule interface{} `field:"required" json:"rule" yaml:"rule"`
 	// The name of the rule set where the receipt rule is added.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html#cfn-ses-receiptrule-rulesetname
+	//
 	RuleSetName *string `field:"required" json:"ruleSetName" yaml:"ruleSetName"`
 	// The name of an existing rule after which the new rule is placed.
 	//
 	// If this parameter is null, the new rule is inserted at the beginning of the rule list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html#cfn-ses-receiptrule-after
+	//
 	After *string `field:"optional" json:"after" yaml:"after"`
 }
 

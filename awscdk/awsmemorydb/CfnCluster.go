@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MemoryDB::Cluster`.
+// Specifies a cluster .
 //
-// Specifies a cluster . All nodes in the cluster run the same protocol-compliant engine software.
+// All nodes in the cluster run the same protocol-compliant engine software.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -60,9 +60,12 @@ import (
 //   	TlsEnabled: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the Access Control List to associate with the cluster .
 	AclName() *string
 	SetAclName(val *string)
@@ -97,8 +100,6 @@ type CfnCluster interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Enables data tiering.
-	//
-	// Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html) .
 	DataTiering() *string
 	SetDataTiering(val *string)
 	// A description of the cluster .
@@ -108,8 +109,6 @@ type CfnCluster interface {
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	// The user-supplied name of a final cluster snapshot.
-	//
-	// This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
 	FinalSnapshotName() *string
 	SetFinalSnapshotName(val *string)
 	// The ID of the KMS key used to encrypt the cluster .
@@ -126,10 +125,6 @@ type CfnCluster interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Specifies the weekly time range during which maintenance on the cluster is performed.
-	//
-	// It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period.
-	//
-	// *Pattern* : `ddd:hh24:mi-ddd:hh24:mi`.
 	MaintenanceWindow() *string
 	SetMaintenanceWindow(val *string)
 	// The tree node.
@@ -138,10 +133,6 @@ type CfnCluster interface {
 	NodeType() *string
 	SetNodeType(val *string)
 	// The number of replicas to apply to each shard.
-	//
-	// *Default value* : `1`
-	//
-	// *Maximum value* : `5`.
 	NumReplicasPerShard() *float64
 	SetNumReplicasPerShard(val *float64)
 	// The number of shards in the cluster .
@@ -162,23 +153,15 @@ type CfnCluster interface {
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3.
-	//
-	// The snapshot files are used to populate the new cluster . The Amazon S3 object name in the ARN cannot contain any commas.
 	SnapshotArns() *[]*string
 	SetSnapshotArns(val *[]*string)
 	// The name of a snapshot from which to restore data into the new cluster .
-	//
-	// The snapshot status changes to restoring while the new cluster is being created.
 	SnapshotName() *string
 	SetSnapshotName(val *string)
 	// The number of days for which MemoryDB retains automatic snapshots before deleting them.
-	//
-	// For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.
 	SnapshotRetentionLimit() *float64
 	SetSnapshotRetentionLimit(val *float64)
 	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard.
-	//
-	// Example: 05:00-09:00 If you do not specify this parameter, MemoryDB automatically chooses an appropriate time range.
 	SnapshotWindow() *string
 	SetSnapshotWindow(val *string)
 	// When you pass the logical ID of this resource to the intrinsic `Ref` function, Ref returns the ARN of the SNS topic, such as `arn:aws:memorydb:us-east-1:123456789012:mySNSTopic`.
@@ -194,10 +177,11 @@ type CfnCluster interface {
 	// The name of the subnet group used by the cluster .
 	SubnetGroupName() *string
 	SetSubnetGroupName(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A flag to indicate if In-transit encryption is enabled.
 	TlsEnabled() interface{}
 	SetTlsEnabled(val interface{})
@@ -345,6 +329,7 @@ type CfnCluster interface {
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCluster) AclName() *string {
@@ -717,6 +702,16 @@ func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) TlsEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -748,7 +743,6 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MemoryDB::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -766,7 +760,6 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
-// Create a new `AWS::MemoryDB::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -972,6 +965,17 @@ func (j *jsiiProxy_CfnCluster)SetSubnetGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -40,10 +40,15 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-setparametervalueconfiguration.html
+//
 type CfnTemplate_SetParameterValueConfigurationProperty struct {
 	// The destination parameter name of the `SetParameterValueConfiguration` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-setparametervalueconfiguration.html#cfn-quicksight-template-setparametervalueconfiguration-destinationparametername
+	//
 	DestinationParameterName *string `field:"required" json:"destinationParameterName" yaml:"destinationParameterName"`
-	// `CfnTemplate.SetParameterValueConfigurationProperty.Value`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-setparametervalueconfiguration.html#cfn-quicksight-template-setparametervalueconfiguration-value
+	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 }
 

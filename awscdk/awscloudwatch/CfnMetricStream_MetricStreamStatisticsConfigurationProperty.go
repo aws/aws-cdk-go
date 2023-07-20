@@ -22,10 +22,16 @@ package awscloudwatch
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html
+//
 type CfnMetricStream_MetricStreamStatisticsConfigurationProperty struct {
 	// The additional statistics to stream for the metrics listed in `IncludeMetrics` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html#cfn-cloudwatch-metricstream-metricstreamstatisticsconfiguration-additionalstatistics
+	//
 	AdditionalStatistics *[]*string `field:"required" json:"additionalStatistics" yaml:"additionalStatistics"`
 	// An array that defines the metrics that are to have additional statistics streamed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html#cfn-cloudwatch-metricstream-metricstreamstatisticsconfiguration-includemetrics
+	//
 	IncludeMetrics interface{} `field:"required" json:"includeMetrics" yaml:"includeMetrics"`
 }
 

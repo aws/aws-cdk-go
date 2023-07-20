@@ -17,14 +17,24 @@ package awsglue
 //   	WriteManifest: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-deltatarget.html
+//
 type CfnCrawler_DeltaTargetProperty struct {
 	// The name of the connection to use to connect to the Delta table target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-deltatarget.html#cfn-glue-crawler-deltatarget-connectionname
+	//
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-deltatarget.html#cfn-glue-crawler-deltatarget-createnativedeltatable
+	//
 	CreateNativeDeltaTable interface{} `field:"optional" json:"createNativeDeltaTable" yaml:"createNativeDeltaTable"`
 	// A list of the Amazon S3 paths to the Delta tables.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-deltatarget.html#cfn-glue-crawler-deltatarget-deltatables
+	//
 	DeltaTables *[]*string `field:"optional" json:"deltaTables" yaml:"deltaTables"`
 	// Specifies whether to write the manifest files to the Delta table path.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-deltatarget.html#cfn-glue-crawler-deltatarget-writemanifest
+	//
 	WriteManifest interface{} `field:"optional" json:"writeManifest" yaml:"writeManifest"`
 }
 

@@ -13,10 +13,18 @@ package awsmemorydb
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-user-authenticationmode.html
+//
 type CfnUser_AuthenticationModeProperty struct {
-	// `CfnUser.AuthenticationModeProperty.Passwords`.
+	// Passwords used for this user account.
+	//
+	// You can create up to two passwords for each user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-user-authenticationmode.html#cfn-memorydb-user-authenticationmode-passwords
+	//
 	Passwords *[]*string `field:"optional" json:"passwords" yaml:"passwords"`
-	// `CfnUser.AuthenticationModeProperty.Type`.
+	// Type of authentication strategy for this user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-user-authenticationmode.html#cfn-memorydb-user-authenticationmode-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

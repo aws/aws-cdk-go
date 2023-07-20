@@ -147,8 +147,12 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html
+//
 type CfnDetectorModel_OnEnterProperty struct {
 	// Specifies the actions that are performed when the state is entered and the `condition` is `TRUE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events
+	//
 	Events interface{} `field:"optional" json:"events" yaml:"events"`
 }
 

@@ -12,6 +12,8 @@ package awslex
 //   	Pattern: jsii.String("pattern"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueregexfilter.html
+//
 type CfnBot_SlotValueRegexFilterProperty struct {
 	// A regular expression used to validate the value of a slot.
 	//
@@ -27,6 +29,8 @@ type CfnBot_SlotValueRegexFilterProperty struct {
 	//
 	// - Infinite repeaters: *, +, or {x,} with no upper bound.
 	// - Wild card (.)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueregexfilter.html#cfn-lex-bot-slotvalueregexfilter-pattern
+	//
 	Pattern *string `field:"required" json:"pattern" yaml:"pattern"`
 }
 

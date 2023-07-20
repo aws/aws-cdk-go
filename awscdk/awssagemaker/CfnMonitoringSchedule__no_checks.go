@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnMonitoringSchedule) validateSetMonitoringScheduleNameParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnMonitoringSchedule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMonitoringScheduleParameters(scope constructs.Construct, id *string, props *CfnMonitoringScheduleProps) error {
 	return nil
 }

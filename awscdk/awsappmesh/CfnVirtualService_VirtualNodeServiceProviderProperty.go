@@ -12,8 +12,12 @@ package awsappmesh
 //   	VirtualNodeName: jsii.String("virtualNodeName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualnodeserviceprovider.html
+//
 type CfnVirtualService_VirtualNodeServiceProviderProperty struct {
 	// The name of the virtual node that is acting as a service provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualnodeserviceprovider.html#cfn-appmesh-virtualservice-virtualnodeserviceprovider-virtualnodename
+	//
 	VirtualNodeName *string `field:"required" json:"virtualNodeName" yaml:"virtualNodeName"`
 }
 

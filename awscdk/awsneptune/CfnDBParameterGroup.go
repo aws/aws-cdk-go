@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Neptune::DBParameterGroup`.
+// `AWS::Neptune::DBParameterGroup` creates a new DB parameter group.
 //
-// `AWS::Neptune::DBParameterGroup` creates a new DB parameter group. This type can be declared in a template and referenced in the `DBParameterGroupName` parameter of `AWS::Neptune::DBInstance` .
+// This type can be declared in a template and referenced in the `DBParameterGroupName` parameter of `AWS::Neptune::DBInstance` .
 //
 // > Applying a parameter group to a DB instance might require the instance to reboot, resulting in a database outage for the duration of the reboot. > If you provide a custom `DBParameterGroup` that you associate with `DBInstance` , it is best to specify an `EngineVersion` property in `DBCluster` . That `EngineVersion` needs to be compatible with the value of the `Family` property in the `DBParameterGroup` .
 //
@@ -41,9 +41,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html
+//
 type CfnDBParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -75,10 +79,6 @@ type CfnDBParameterGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// The parameters to set for this DB parameter group.
-	//
-	// The parameters are expressed as a JSON object consisting of key-value pairs.
-	//
-	// Changes to dynamic parameters are applied immediately. During an update, if you have static parameters (whether they were changed or not), it triggers AWS CloudFormation to reboot the associated DB instance without failover.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -90,8 +90,11 @@ type CfnDBParameterGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags that you want to attach to this parameter group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags that you want to attach to this parameter group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -236,6 +239,17 @@ type CfnDBParameterGroup interface {
 type jsiiProxy_CfnDBParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDBParameterGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDBParameterGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -368,6 +382,16 @@ func (j *jsiiProxy_CfnDBParameterGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBParameterGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -389,7 +413,6 @@ func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::Neptune::DBParameterGroup`.
 func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) CfnDBParameterGroup {
 	_init_.Initialize()
 
@@ -407,7 +430,6 @@ func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDB
 	return &j
 }
 
-// Create a new `AWS::Neptune::DBParameterGroup`.
 func NewCfnDBParameterGroup_Override(c CfnDBParameterGroup, scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) {
 	_init_.Initialize()
 
@@ -455,6 +477,17 @@ func (j *jsiiProxy_CfnDBParameterGroup)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

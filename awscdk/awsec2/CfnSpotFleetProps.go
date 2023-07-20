@@ -311,8 +311,12 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
+//
 type CfnSpotFleetProps struct {
 	// Describes the configuration of a Spot Fleet request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
+	//
 	SpotFleetRequestConfigData interface{} `field:"required" json:"spotFleetRequestConfigData" yaml:"spotFleetRequestConfigData"`
 }
 

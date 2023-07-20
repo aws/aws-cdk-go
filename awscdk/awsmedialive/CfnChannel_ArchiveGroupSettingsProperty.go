@@ -22,12 +22,20 @@ package awsmedialive
 //   	RolloverInterval: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html
+//
 type CfnChannel_ArchiveGroupSettingsProperty struct {
 	// Settings to configure the destination of an Archive output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-archivecdnsettings
+	//
 	ArchiveCdnSettings interface{} `field:"optional" json:"archiveCdnSettings" yaml:"archiveCdnSettings"`
 	// A directory and base file name where archive files should be written.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-destination
+	//
 	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
 	// The number of seconds to write to an archive file before closing and starting a new one.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-rolloverinterval
+	//
 	RolloverInterval *float64 `field:"optional" json:"rolloverInterval" yaml:"rolloverInterval"`
 }
 

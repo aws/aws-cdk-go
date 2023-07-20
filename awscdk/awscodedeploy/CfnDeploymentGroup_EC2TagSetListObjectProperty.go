@@ -24,10 +24,14 @@ package awscodedeploy
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagsetlistobject.html
+//
 type CfnDeploymentGroup_EC2TagSetListObjectProperty struct {
 	// A list that contains other lists of Amazon EC2 instance tag groups.
 	//
 	// For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagsetlistobject.html#cfn-codedeploy-deploymentgroup-ec2tagsetlistobject-ec2taggroup
+	//
 	Ec2TagGroup interface{} `field:"optional" json:"ec2TagGroup" yaml:"ec2TagGroup"`
 }
 

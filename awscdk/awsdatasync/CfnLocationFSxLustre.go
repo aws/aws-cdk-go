@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::LocationFSxLustre`.
-//
 // The `AWS::DataSync::LocationFSxLustre` resource specifies an endpoint for an Amazon FSx for Lustre file system.
 //
 // Example:
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html
+//
 type CfnLocationFSxLustre interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the specified FSx for Lustre file system location.
 	AttrLocationArn() *string
 	// The URI of the specified FSx for Lustre file system location.
@@ -71,10 +72,6 @@ type CfnLocationFSxLustre interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARNs of the security groups that are used to configure the FSx for Lustre file system.
-	//
-	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
-	//
-	// *Length constraints* : Maximum length of 128.
 	SecurityGroupArns() *[]*string
 	SetSecurityGroupArns(val *[]*string)
 	// The stack in which this element is defined.
@@ -82,14 +79,13 @@ type CfnLocationFSxLustre interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A subdirectory in the location's path.
-	//
-	// This subdirectory in the FSx for Lustre file system is used to read data from the FSx for Lustre source location or write data to the FSx for Lustre destination.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// The key-value pair that represents a tag that you want to add to the resource.
-	//
-	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key-value pair that represents a tag that you want to add to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +230,7 @@ type CfnLocationFSxLustre interface {
 type jsiiProxy_CfnLocationFSxLustre struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocationFSxLustre) AttrLocationArn() *string {
@@ -376,6 +373,16 @@ func (j *jsiiProxy_CfnLocationFSxLustre) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationFSxLustre) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationFSxLustre) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -397,7 +404,6 @@ func (j *jsiiProxy_CfnLocationFSxLustre) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::DataSync::LocationFSxLustre`.
 func NewCfnLocationFSxLustre(scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) CfnLocationFSxLustre {
 	_init_.Initialize()
 
@@ -415,7 +421,6 @@ func NewCfnLocationFSxLustre(scope constructs.Construct, id *string, props *CfnL
 	return &j
 }
 
-// Create a new `AWS::DataSync::LocationFSxLustre`.
 func NewCfnLocationFSxLustre_Override(c CfnLocationFSxLustre, scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) {
 	_init_.Initialize()
 
@@ -449,6 +454,17 @@ func (j *jsiiProxy_CfnLocationFSxLustre)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationFSxLustre)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

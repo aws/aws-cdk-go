@@ -14,8 +14,12 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-connectorprovisioningconfig.html
+//
 type CfnConnector_ConnectorProvisioningConfigProperty struct {
 	// Contains information about the configuration of the lambda which is being registered as the connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-connectorprovisioningconfig.html#cfn-appflow-connector-connectorprovisioningconfig-lambda
+	//
 	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
 }
 

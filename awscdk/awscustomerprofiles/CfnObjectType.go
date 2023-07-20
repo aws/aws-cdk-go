@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CustomerProfiles::ObjectType`.
-//
 // Specifies an Amazon Connect Customer Profiles Object Type Mapping.
 //
 // Example:
@@ -61,12 +59,13 @@ import (
 //   	TemplateId: jsii.String("templateId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html
+//
 type CfnObjectType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Indicates whether a profile should be created when data is received if one doesn’t exist for an object of this type.
-	//
-	// The default is `FALSE` . If the AllowProfileCreation flag is set to `FALSE` , then the service tries to fetch a standard profile and associate this object with the profile. If it is set to `TRUE` , and if no match is found, then the service creates a new standard profile.
 	AllowProfileCreation() interface{}
 	SetAllowProfileCreation(val interface{})
 	// The timestamp of when the object type was created.
@@ -89,8 +88,6 @@ type CfnObjectType interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// The customer-provided key to encrypt the profile object that will be created in this profile object type mapping.
-	//
-	// If not specified the system will use the encryption key of the domain.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
 	// The number of days until the data of this type expires.
@@ -126,11 +123,12 @@ type CfnObjectType interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A unique identifier for the template mapping.
-	//
-	// This can be used instead of specifying the Keys and Fields properties directly.
 	TemplateId() *string
 	SetTemplateId(val *string)
 	// Deprecated.
@@ -277,6 +275,7 @@ type CfnObjectType interface {
 type jsiiProxy_CfnObjectType struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnObjectType) AllowProfileCreation() interface{} {
@@ -469,6 +468,16 @@ func (j *jsiiProxy_CfnObjectType) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnObjectType) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnObjectType) TemplateId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -500,7 +509,6 @@ func (j *jsiiProxy_CfnObjectType) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CustomerProfiles::ObjectType`.
 func NewCfnObjectType(scope constructs.Construct, id *string, props *CfnObjectTypeProps) CfnObjectType {
 	_init_.Initialize()
 
@@ -518,7 +526,6 @@ func NewCfnObjectType(scope constructs.Construct, id *string, props *CfnObjectTy
 	return &j
 }
 
-// Create a new `AWS::CustomerProfiles::ObjectType`.
 func NewCfnObjectType_Override(c CfnObjectType, scope constructs.Construct, id *string, props *CfnObjectTypeProps) {
 	_init_.Initialize()
 
@@ -601,6 +608,17 @@ func (j *jsiiProxy_CfnObjectType)SetObjectTypeName(val *string) {
 	_jsii_.Set(
 		j,
 		"objectTypeName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnObjectType)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

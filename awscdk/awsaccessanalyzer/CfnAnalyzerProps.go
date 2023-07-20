@@ -46,16 +46,26 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
+//
 type CfnAnalyzerProps struct {
 	// The type represents the zone of trust for the analyzer.
 	//
 	// *Allowed Values* : ACCOUNT | ORGANIZATION.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The name of the analyzer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
+	//
 	AnalyzerName *string `field:"optional" json:"analyzerName" yaml:"analyzerName"`
 	// Specifies the archive rules to add for the analyzer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
+	//
 	ArchiveRules interface{} `field:"optional" json:"archiveRules" yaml:"archiveRules"`
 	// The tags to apply to the analyzer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

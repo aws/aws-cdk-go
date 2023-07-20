@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3::AccessPoint`.
-//
 // The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
 //
 // Example:
@@ -37,6 +35,8 @@ import (
 //   		VpcId: jsii.String("vpcId"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html
 //
 type CfnAccessPoint interface {
 	awscdk.CfnResource
@@ -79,8 +79,6 @@ type CfnAccessPoint interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of this access point.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -89,8 +87,6 @@ type CfnAccessPoint interface {
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket.
-	//
-	// You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide* .
 	PublicAccessBlockConfiguration() interface{}
 	SetPublicAccessBlockConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -452,7 +448,6 @@ func (j *jsiiProxy_CfnAccessPoint) VpcConfiguration() interface{} {
 }
 
 
-// Create a new `AWS::S3::AccessPoint`.
 func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
@@ -470,7 +465,6 @@ func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessP
 	return &j
 }
 
-// Create a new `AWS::S3::AccessPoint`.
 func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 
@@ -509,9 +503,6 @@ func (j *jsiiProxy_CfnAccessPoint)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnAccessPoint)SetPolicy(val interface{}) {
-	if err := j.validateSetPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"policy",

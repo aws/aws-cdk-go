@@ -51,8 +51,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-bodysectioncontent.html
+//
 type CfnDashboard_BodySectionContentProperty struct {
 	// The layout configuration of a body section.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-bodysectioncontent.html#cfn-quicksight-dashboard-bodysectioncontent-layout
+	//
 	Layout interface{} `field:"optional" json:"layout" yaml:"layout"`
 }
 

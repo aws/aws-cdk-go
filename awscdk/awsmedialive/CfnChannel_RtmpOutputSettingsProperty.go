@@ -19,16 +19,26 @@ package awsmedialive
 //   	NumRetries: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html
+//
 type CfnChannel_RtmpOutputSettingsProperty struct {
 	// If set to verifyAuthenticity, verifies the TLS certificate chain to a trusted certificate authority (CA).
 	//
 	// This causes RTMPS outputs with self-signed certificates to fail.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-certificatemode
+	//
 	CertificateMode *string `field:"optional" json:"certificateMode" yaml:"certificateMode"`
 	// The number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-connectionretryinterval
+	//
 	ConnectionRetryInterval *float64 `field:"optional" json:"connectionRetryInterval" yaml:"connectionRetryInterval"`
 	// The RTMP endpoint excluding the stream name (for example, rtmp://host/appname).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-destination
+	//
 	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
 	// The number of retry attempts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-numretries
+	//
 	NumRetries *float64 `field:"optional" json:"numRetries" yaml:"numRetries"`
 }
 

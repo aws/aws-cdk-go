@@ -24,10 +24,16 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html
+//
 type CfnInstance_SsmAssociationProperty struct {
 	// The name of an SSM document to associate with the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html#cfn-ec2-instance-ssmassociation-documentname
+	//
 	DocumentName *string `field:"required" json:"documentName" yaml:"documentName"`
 	// The input parameter values to use with the associated SSM document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html#cfn-ec2-instance-ssmassociation-associationparameters
+	//
 	AssociationParameters interface{} `field:"optional" json:"associationParameters" yaml:"associationParameters"`
 }
 

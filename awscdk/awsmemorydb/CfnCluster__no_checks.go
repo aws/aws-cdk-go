@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnCluster) validateSetNodeTypeParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetTlsEnabledParameters(val interface{}) error {
 	return nil
 }

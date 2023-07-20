@@ -14,8 +14,12 @@ package awsroute53
 //   	Comment: jsii.String("comment"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
+//
 type CfnHostedZone_HostedZoneConfigProperty struct {
 	// Any comments that you want to include about the hosted zone.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
+	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 

@@ -16,10 +16,14 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html
+//
 type CfnEndpoint_AutoRollbackConfigProperty struct {
 	// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint.
 	//
 	// If any alarms are tripped during a deployment, SageMaker rolls back the deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html#cfn-sagemaker-endpoint-autorollbackconfig-alarms
+	//
 	Alarms interface{} `field:"required" json:"alarms" yaml:"alarms"`
 }
 

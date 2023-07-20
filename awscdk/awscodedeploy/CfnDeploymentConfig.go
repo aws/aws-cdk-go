@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeDeploy::DeploymentConfig`.
+// The `AWS::CodeDeploy::DeploymentConfig` resource creates a set of deployment rules, deployment success conditions, and deployment failure conditions that AWS CodeDeploy uses during a deployment.
 //
-// The `AWS::CodeDeploy::DeploymentConfig` resource creates a set of deployment rules, deployment success conditions, and deployment failure conditions that AWS CodeDeploy uses during a deployment. The deployment configuration specifies, through the use of a `MinimumHealthyHosts` value, the number or percentage of instances that must remain available at any time during a deployment.
+// The deployment configuration specifies, through the use of a `MinimumHealthyHosts` value, the number or percentage of instances that must remain available at any time during a deployment.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,6 +40,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html
+//
 type CfnDeploymentConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -56,10 +58,6 @@ type CfnDeploymentConfig interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A name for the deployment configuration.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	DeploymentConfigName() *string
 	SetDeploymentConfigName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -73,19 +71,6 @@ type CfnDeploymentConfig interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The minimum number of healthy instances that should be available at any time during the deployment.
-	//
-	// There are two parameters expected in the input: type and value.
-	//
-	// The type parameter takes either of the following values:
-	//
-	// - HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.
-	// - FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
-	//
-	// The value parameter takes an integer.
-	//
-	// For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
-	//
-	// For more information about instance health, see [CodeDeploy Instance Health](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html) in the AWS CodeDeploy User Guide.
 	MinimumHealthyHosts() interface{}
 	SetMinimumHealthyHosts(val interface{})
 	// The tree node.
@@ -389,7 +374,6 @@ func (j *jsiiProxy_CfnDeploymentConfig) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::CodeDeploy::DeploymentConfig`.
 func NewCfnDeploymentConfig(scope constructs.Construct, id *string, props *CfnDeploymentConfigProps) CfnDeploymentConfig {
 	_init_.Initialize()
 
@@ -407,7 +391,6 @@ func NewCfnDeploymentConfig(scope constructs.Construct, id *string, props *CfnDe
 	return &j
 }
 
-// Create a new `AWS::CodeDeploy::DeploymentConfig`.
 func NewCfnDeploymentConfig_Override(c CfnDeploymentConfig, scope constructs.Construct, id *string, props *CfnDeploymentConfigProps) {
 	_init_.Initialize()
 

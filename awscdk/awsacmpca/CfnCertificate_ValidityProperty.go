@@ -15,10 +15,16 @@ package awsacmpca
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html
+//
 type CfnCertificate_ValidityProperty struct {
 	// Specifies whether the `Value` parameter represents days, months, or years.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// A long integer interpreted according to the value of `Type` , below.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

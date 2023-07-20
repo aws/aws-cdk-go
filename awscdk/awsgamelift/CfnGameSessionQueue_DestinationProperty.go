@@ -14,10 +14,14 @@ package awsgamelift
 //   	DestinationArn: jsii.String("destinationArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-destination.html
+//
 type CfnGameSessionQueue_DestinationProperty struct {
 	// The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias.
 	//
 	// ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-destination.html#cfn-gamelift-gamesessionqueue-destination-destinationarn
+	//
 	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 }
 

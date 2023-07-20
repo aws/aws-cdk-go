@@ -88,14 +88,6 @@ func (j *jsiiProxy_CfnRoute) validateSetApiKeyRequiredParameters(val interface{}
 	return nil
 }
 
-func (j *jsiiProxy_CfnRoute) validateSetRequestModelsParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnRoute) validateSetRequestParametersParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnRoute) validateSetRouteKeyParameters(val *string) error {
 	return nil
 }

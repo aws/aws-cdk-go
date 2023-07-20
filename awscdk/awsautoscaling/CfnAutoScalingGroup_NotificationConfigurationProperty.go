@@ -21,8 +21,12 @@ package awsautoscaling
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html
+//
 type CfnAutoScalingGroup_NotificationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html#cfn-autoscaling-autoscalinggroup-notificationconfiguration-topicarn
+	//
 	TopicArn *string `field:"required" json:"topicArn" yaml:"topicArn"`
 	// A list of event types that send a notification. Event types can include any of the following types.
 	//
@@ -33,6 +37,8 @@ type CfnAutoScalingGroup_NotificationConfigurationProperty struct {
 	// - `autoscaling:EC2_INSTANCE_TERMINATE`
 	// - `autoscaling:EC2_INSTANCE_TERMINATE_ERROR`
 	// - `autoscaling:TEST_NOTIFICATION`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html#cfn-autoscaling-autoscalinggroup-notificationconfiguration-notificationtypes
+	//
 	NotificationTypes *[]*string `field:"optional" json:"notificationTypes" yaml:"notificationTypes"`
 }
 

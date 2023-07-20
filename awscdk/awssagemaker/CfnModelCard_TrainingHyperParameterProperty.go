@@ -13,10 +13,16 @@ package awssagemaker
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-traininghyperparameter.html
+//
 type CfnModelCard_TrainingHyperParameterProperty struct {
 	// The name of the hyper parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-traininghyperparameter.html#cfn-sagemaker-modelcard-traininghyperparameter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value specified for the hyper parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-traininghyperparameter.html#cfn-sagemaker-modelcard-traininghyperparameter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

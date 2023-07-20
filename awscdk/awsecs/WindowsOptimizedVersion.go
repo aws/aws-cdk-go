@@ -5,6 +5,7 @@ package awsecs
 type WindowsOptimizedVersion string
 
 const (
+	WindowsOptimizedVersion_SERVER_2022 WindowsOptimizedVersion = "SERVER_2022"
 	WindowsOptimizedVersion_SERVER_2019 WindowsOptimizedVersion = "SERVER_2019"
 	WindowsOptimizedVersion_SERVER_2016 WindowsOptimizedVersion = "SERVER_2016"
 )

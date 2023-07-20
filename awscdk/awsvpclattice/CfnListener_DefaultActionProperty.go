@@ -26,12 +26,18 @@ package awsvpclattice
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-defaultaction.html
+//
 type CfnListener_DefaultActionProperty struct {
 	// Information about an action that returns a custom HTTP response.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-defaultaction.html#cfn-vpclattice-listener-defaultaction-fixedresponse
+	//
 	FixedResponse interface{} `field:"optional" json:"fixedResponse" yaml:"fixedResponse"`
 	// Describes a forward action.
 	//
 	// You can use forward actions to route requests to one or more target groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-defaultaction.html#cfn-vpclattice-listener-defaultaction-forward
+	//
 	Forward interface{} `field:"optional" json:"forward" yaml:"forward"`
 }
 

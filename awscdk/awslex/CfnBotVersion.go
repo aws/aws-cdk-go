@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lex::BotVersion`.
-//
 // > Amazon Lex V2 is the only supported version in AWS CloudFormation .
 //
 // Specifies a new version of the bot based on the `DRAFT` version. If the `DRAFT` version of this resource hasn't changed since you created the last version, Amazon Lex doesn't create a new version, it returns the last created version.
@@ -37,6 +35,8 @@ import (
 //   	Description: jsii.String("description"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botversion.html
+//
 type CfnBotVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -46,8 +46,6 @@ type CfnBotVersion interface {
 	BotId() *string
 	SetBotId(val *string)
 	// Specifies the locales that Amazon Lex adds to this version.
-	//
-	// You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	BotVersionLocaleSpecification() interface{}
 	SetBotVersionLocaleSpecification(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -370,7 +368,6 @@ func (j *jsiiProxy_CfnBotVersion) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lex::BotVersion`.
 func NewCfnBotVersion(scope constructs.Construct, id *string, props *CfnBotVersionProps) CfnBotVersion {
 	_init_.Initialize()
 
@@ -388,7 +385,6 @@ func NewCfnBotVersion(scope constructs.Construct, id *string, props *CfnBotVersi
 	return &j
 }
 
-// Create a new `AWS::Lex::BotVersion`.
 func NewCfnBotVersion_Override(c CfnBotVersion, scope constructs.Construct, id *string, props *CfnBotVersionProps) {
 	_init_.Initialize()
 

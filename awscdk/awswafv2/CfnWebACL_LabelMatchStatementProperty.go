@@ -15,6 +15,8 @@ package awswafv2
 //   	Scope: jsii.String("scope"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html
+//
 type CfnWebACL_LabelMatchStatementProperty struct {
 	// The string to match against. The setting you provide for this depends on the match statement's `Scope` setting:.
 	//
@@ -22,8 +24,12 @@ type CfnWebACL_LabelMatchStatementProperty struct {
 	// - If the `Scope` indicates `NAMESPACE` , then this specification can include any number of contiguous namespace strings, and can include the entire label namespace prefix from the rule group or web ACL where the label originates.
 	//
 	// Labels are case sensitive and components of a label must be separated by colon, for example `NS1:NS2:name` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// Specify whether you want to match using the label name or just the namespace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
+	//
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 }
 

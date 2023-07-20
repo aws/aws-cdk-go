@@ -80,6 +80,10 @@ func validateCfnTransitGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransitGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnTransitGatewayParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayProps) error {
 	return nil
 }

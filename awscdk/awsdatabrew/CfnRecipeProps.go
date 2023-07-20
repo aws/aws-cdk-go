@@ -47,14 +47,24 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html
+//
 type CfnRecipeProps struct {
 	// The unique name for the recipe.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of steps that are defined by the recipe.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
+	//
 	Steps interface{} `field:"required" json:"steps" yaml:"steps"`
 	// The description of the recipe.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Metadata tags that have been applied to the recipe.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

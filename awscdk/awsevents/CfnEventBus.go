@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Events::EventBus`.
+// Creates a new event bus within your account.
 //
-// Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.
+// This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,11 +31,14 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html
+//
 type CfnEventBus interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The ARN of the event bus, such as `arn:aws:events:us-east-2:123456789012:event-bus/aws.partner/PartnerName/acct1/repo1` .
 	AttrArn() *string
+	AttrId() *string
 	// The name of the event bus, such as `PartnerName/acct1/repo1` .
 	AttrName() *string
 	// The policy for the event bus in JSON form.
@@ -63,10 +66,6 @@ type CfnEventBus interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the new event bus.
-	//
-	// Custom event bus names can't contain the `/` character, but you can use the `/` character in partner event bus names. In addition, for partner event buses, the name must exactly match the name of the partner event source that this event bus is matched to.
-	//
-	// You can't use the name `default` for a custom event bus, as this name is already used for your account's default event bus.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -239,6 +238,16 @@ func (j *jsiiProxy_CfnEventBus) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventBus) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventBus) AttrName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -390,7 +399,6 @@ func (j *jsiiProxy_CfnEventBus) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Events::EventBus`.
 func NewCfnEventBus(scope constructs.Construct, id *string, props *CfnEventBusProps) CfnEventBus {
 	_init_.Initialize()
 
@@ -408,7 +416,6 @@ func NewCfnEventBus(scope constructs.Construct, id *string, props *CfnEventBusPr
 	return &j
 }
 
-// Create a new `AWS::Events::EventBus`.
 func NewCfnEventBus_Override(c CfnEventBus, scope constructs.Construct, id *string, props *CfnEventBusProps) {
 	_init_.Initialize()
 

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnLocationEFS) validateSetEc2ConfigParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationEFS) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLocationEFSParameters(scope constructs.Construct, id *string, props *CfnLocationEFSProps) error {
 	return nil
 }

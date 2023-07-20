@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
-//
 // Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.
 //
 // Kinesis Data Analytics reads reference data (that is, an Amazon S3 object) and creates an in-application table within your application. In the request, you provide the source (S3 bucket name and object key name), name of the in-application table to create, and the necessary mapping information that describes how data in an Amazon S3 object maps to columns in the resulting in-application table.
@@ -61,12 +59,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html
+//
 type CfnApplicationReferenceDataSourceV2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The name of the application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -256,6 +257,16 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) ApplicationName() *strin
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -367,7 +378,6 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) UpdatedProperties() *map
 }
 
 
-// Create a new `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
 func NewCfnApplicationReferenceDataSourceV2(scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceV2Props) CfnApplicationReferenceDataSourceV2 {
 	_init_.Initialize()
 
@@ -385,7 +395,6 @@ func NewCfnApplicationReferenceDataSourceV2(scope constructs.Construct, id *stri
 	return &j
 }
 
-// Create a new `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
 func NewCfnApplicationReferenceDataSourceV2_Override(c CfnApplicationReferenceDataSourceV2, scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceV2Props) {
 	_init_.Initialize()
 

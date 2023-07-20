@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MemoryDB::User`.
+// Specifies a MemoryDB user.
 //
-// Specifies a MemoryDB user. For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html) .
+// For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-user.html
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Access permissions string used for this user.
 	AccessString() *string
 	SetAccessString(val *string)
@@ -47,10 +50,6 @@ type CfnUser interface {
 	// *Valid values* : `active` | `modifying` | `deleting`.
 	AttrStatus() *string
 	// Denotes whether the user requires a password to authenticate.
-	//
-	// *Example:*
-	//
-	// `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`.
 	AuthenticationMode() interface{}
 	SetAuthenticationMode(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -83,10 +82,11 @@ type CfnUser interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +234,7 @@ type CfnUser interface {
 type jsiiProxy_CfnUser struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnUser) AccessString() *string {
@@ -366,6 +367,16 @@ func (j *jsiiProxy_CfnUser) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUser) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUser) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -397,7 +408,6 @@ func (j *jsiiProxy_CfnUser) UserName() *string {
 }
 
 
-// Create a new `AWS::MemoryDB::User`.
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
@@ -415,7 +425,6 @@ func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::MemoryDB::User`.
 func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 
@@ -435,12 +444,20 @@ func (j *jsiiProxy_CfnUser)SetAccessString(val *string) {
 }
 
 func (j *jsiiProxy_CfnUser)SetAuthenticationMode(val interface{}) {
-	if err := j.validateSetAuthenticationModeParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"authenticationMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUser)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"authenticationMode",
+		"tagsRaw",
 		val,
 	)
 }

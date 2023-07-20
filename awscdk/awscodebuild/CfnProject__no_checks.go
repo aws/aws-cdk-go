@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnProject) validateSetSourceParameters(val interface{}) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnProject) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnProject) validateSetTriggersParameters(val interface{}) error {
 	return nil
 }

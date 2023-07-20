@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::EgressOnlyInternetGateway`.
+// [IPv6 only] Specifies an egress-only internet gateway for your VPC.
 //
-// [IPv6 only] Specifies an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance.
+// An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,6 +21,8 @@ import (
 //   cfnEgressOnlyInternetGateway := awscdk.Aws_ec2.NewCfnEgressOnlyInternetGateway(this, jsii.String("MyCfnEgressOnlyInternetGateway"), &CfnEgressOnlyInternetGatewayProps{
 //   	VpcId: jsii.String("vpcId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
 //
 type CfnEgressOnlyInternetGateway interface {
 	awscdk.CfnResource
@@ -327,7 +329,6 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::EgressOnlyInternetGateway`.
 func NewCfnEgressOnlyInternetGateway(scope constructs.Construct, id *string, props *CfnEgressOnlyInternetGatewayProps) CfnEgressOnlyInternetGateway {
 	_init_.Initialize()
 
@@ -345,7 +346,6 @@ func NewCfnEgressOnlyInternetGateway(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Create a new `AWS::EC2::EgressOnlyInternetGateway`.
 func NewCfnEgressOnlyInternetGateway_Override(c CfnEgressOnlyInternetGateway, scope constructs.Construct, id *string, props *CfnEgressOnlyInternetGatewayProps) {
 	_init_.Initialize()
 

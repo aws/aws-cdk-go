@@ -29,10 +29,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericaxisoptions.html
+//
 type CfnTemplate_NumericAxisOptionsProperty struct {
 	// The range setup of a numeric axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericaxisoptions.html#cfn-quicksight-template-numericaxisoptions-range
+	//
 	Range interface{} `field:"optional" json:"range" yaml:"range"`
 	// The scale setup of a numeric axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericaxisoptions.html#cfn-quicksight-template-numericaxisoptions-scale
+	//
 	Scale interface{} `field:"optional" json:"scale" yaml:"scale"`
 }
 

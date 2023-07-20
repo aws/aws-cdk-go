@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Proton::EnvironmentTemplate`.
+// Create an environment template for AWS Proton .
 //
-// Create an environment template for AWS Proton . For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide* .
+// For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide* .
 //
 // You can create an environment template in one of the two following ways:
 //
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html
+//
 type CfnEnvironmentTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the ARN of the environment template.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -87,12 +90,11 @@ type CfnEnvironmentTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An optional list of metadata items that you can associate with the AWS Proton environment template.
-	//
-	// A tag is a key-value pair.
-	//
-	// For more information, see [AWS Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in the *AWS Proton User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An optional list of metadata items that you can associate with the AWS Proton environment template.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -237,6 +239,7 @@ type CfnEnvironmentTemplate interface {
 type jsiiProxy_CfnEnvironmentTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEnvironmentTemplate) AttrArn() *string {
@@ -389,6 +392,16 @@ func (j *jsiiProxy_CfnEnvironmentTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironmentTemplate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironmentTemplate) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -410,7 +423,6 @@ func (j *jsiiProxy_CfnEnvironmentTemplate) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::Proton::EnvironmentTemplate`.
 func NewCfnEnvironmentTemplate(scope constructs.Construct, id *string, props *CfnEnvironmentTemplateProps) CfnEnvironmentTemplate {
 	_init_.Initialize()
 
@@ -428,7 +440,6 @@ func NewCfnEnvironmentTemplate(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::Proton::EnvironmentTemplate`.
 func NewCfnEnvironmentTemplate_Override(c CfnEnvironmentTemplate, scope constructs.Construct, id *string, props *CfnEnvironmentTemplateProps) {
 	_init_.Initialize()
 
@@ -475,6 +486,17 @@ func (j *jsiiProxy_CfnEnvironmentTemplate)SetProvisioning(val *string) {
 	_jsii_.Set(
 		j,
 		"provisioning",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironmentTemplate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

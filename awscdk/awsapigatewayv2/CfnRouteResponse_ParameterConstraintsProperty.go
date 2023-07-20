@@ -12,8 +12,12 @@ package awsapigatewayv2
 //   	Required: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html
+//
 type CfnRouteResponse_ParameterConstraintsProperty struct {
 	// Specifies whether the parameter is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html#cfn-apigatewayv2-routeresponse-parameterconstraints-required
+	//
 	Required interface{} `field:"required" json:"required" yaml:"required"`
 }
 

@@ -15,12 +15,18 @@ package awsmedialive
 //   	NameModifier: jsii.String("nameModifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mssmoothoutputsettings.html
+//
 type CfnChannel_MsSmoothOutputSettingsProperty struct {
 	// Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mssmoothoutputsettings.html#cfn-medialive-channel-mssmoothoutputsettings-h265packagingtype
+	//
 	H265PackagingType *string `field:"optional" json:"h265PackagingType" yaml:"h265PackagingType"`
 	// A string that is concatenated to the end of the destination file name.
 	//
 	// This is required for multiple outputs of the same type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mssmoothoutputsettings.html#cfn-medialive-channel-mssmoothoutputsettings-namemodifier
+	//
 	NameModifier *string `field:"optional" json:"nameModifier" yaml:"nameModifier"`
 }
 

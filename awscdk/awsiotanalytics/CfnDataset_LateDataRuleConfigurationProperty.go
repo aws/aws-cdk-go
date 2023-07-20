@@ -14,8 +14,12 @@ package awsiotanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedataruleconfiguration.html
+//
 type CfnDataset_LateDataRuleConfigurationProperty struct {
 	// The information needed to configure a delta time session window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedataruleconfiguration.html#cfn-iotanalytics-dataset-latedataruleconfiguration-deltatimesessionwindowconfiguration
+	//
 	DeltaTimeSessionWindowConfiguration interface{} `field:"optional" json:"deltaTimeSessionWindowConfiguration" yaml:"deltaTimeSessionWindowConfiguration"`
 }
 

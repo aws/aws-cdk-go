@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnSchema) validateSetRegistryNameParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnSchema) validateSetTagsRawParameters(val *[]*CfnSchema_TagsEntryProperty) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSchema) validateSetTypeParameters(val *string) error {
 	return nil
 }

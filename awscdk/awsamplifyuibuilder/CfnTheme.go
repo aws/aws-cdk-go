@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AmplifyUIBuilder::Theme`.
+// The AWS::AmplifyUIBuilder::Theme resource specifies a theme within an Amplify app.
 //
-// The AWS::AmplifyUIBuilder::Theme resource specifies a theme within an Amplify app. A theme is a collection of style settings that apply globally to the components associated with the app.
+// A theme is a collection of style settings that apply globally to the components associated with the app.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -53,9 +53,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html
+//
 type CfnTheme interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique ID for the Amplify app associated with the theme.
 	AppId() *string
 	SetAppId(val *string)
@@ -100,8 +103,11 @@ type CfnTheme interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// One or more key-value pairs to use when tagging the theme.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more key-value pairs to use when tagging the theme.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -249,6 +255,7 @@ type CfnTheme interface {
 type jsiiProxy_CfnTheme struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTheme) AppId() *string {
@@ -391,6 +398,16 @@ func (j *jsiiProxy_CfnTheme) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTheme) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTheme) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -422,7 +439,6 @@ func (j *jsiiProxy_CfnTheme) Values() interface{} {
 }
 
 
-// Create a new `AWS::AmplifyUIBuilder::Theme`.
 func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
@@ -440,7 +456,6 @@ func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) C
 	return &j
 }
 
-// Create a new `AWS::AmplifyUIBuilder::Theme`.
 func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 
@@ -485,6 +500,14 @@ func (j *jsiiProxy_CfnTheme)SetOverrides(val interface{}) {
 	_jsii_.Set(
 		j,
 		"overrides",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTheme)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

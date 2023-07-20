@@ -32,6 +32,8 @@ package awsservicediscovery
 //   	ResourcePath: jsii.String("resourcePath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html
+//
 type CfnService_HealthCheckConfigProperty struct {
 	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
 	//
@@ -48,16 +50,22 @@ type CfnService_HealthCheckConfigProperty struct {
 	// If you specify `TCP` for `Type` , don't specify a value for `ResourcePath` .
 	//
 	// For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around.
 	//
 	// For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-failurethreshold
+	//
 	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 	// The path that you want Route 53 to request when performing health checks.
 	//
 	// The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is `/docs/route53-health-check.html` . Route 53 automatically adds the DNS name for the service. If you don't specify a value for `ResourcePath` , the default value is `/` .
 	//
 	// If you specify `TCP` for `Type` , you must *not* specify a value for `ResourcePath` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-resourcepath
+	//
 	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
 }
 

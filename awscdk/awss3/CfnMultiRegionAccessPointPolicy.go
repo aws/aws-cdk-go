@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3::MultiRegionAccessPointPolicy`.
-//
 // Applies an Amazon S3 access policy to an Amazon S3 Multi-Region Access Point.
 //
 // It is not possible to delete an access policy for a Multi-Region Access Point from the CloudFormation template. When you attempt to delete the policy, CloudFormation updates the policy using `DeletionPolicy:Retain` and `UpdateReplacePolicy:Retain` . CloudFormation updates the policy to only allow access to the account that created the bucket.
@@ -27,9 +25,14 @@ import (
 //   	Policy: policy,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html
+//
 type CfnMultiRegionAccessPointPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Policy Status associated with this Multi Region Access Point.
+	AttrPolicyStatus() awscdk.IResolvable
+	// Specifies whether the policy is public or not.
 	AttrPolicyStatusIsPublic() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -213,6 +216,16 @@ type jsiiProxy_CfnMultiRegionAccessPointPolicy struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) AttrPolicyStatus() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrPolicyStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) AttrPolicyStatusIsPublic() *string {
 	var returns *string
 	_jsii_.Get(
@@ -344,7 +357,6 @@ func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) UpdatedProperties() *map[str
 }
 
 
-// Create a new `AWS::S3::MultiRegionAccessPointPolicy`.
 func NewCfnMultiRegionAccessPointPolicy(scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) CfnMultiRegionAccessPointPolicy {
 	_init_.Initialize()
 
@@ -362,7 +374,6 @@ func NewCfnMultiRegionAccessPointPolicy(scope constructs.Construct, id *string, 
 	return &j
 }
 
-// Create a new `AWS::S3::MultiRegionAccessPointPolicy`.
 func NewCfnMultiRegionAccessPointPolicy_Override(c CfnMultiRegionAccessPointPolicy, scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) {
 	_init_.Initialize()
 

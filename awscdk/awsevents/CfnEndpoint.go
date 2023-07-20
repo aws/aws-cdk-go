@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Events::Endpoint`.
+// A global endpoint used to improve your application's availability by making it regional-fault tolerant.
 //
-// A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html) in the *Amazon EventBridge User Guide* .
+// For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html) in the *Amazon EventBridge User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,6 +44,8 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html
+//
 type CfnEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -70,8 +72,6 @@ type CfnEndpoint interface {
 	Description() *string
 	SetDescription(val *string)
 	// The event buses being used by the endpoint.
-	//
-	// *Exactly* : `2`.
 	EventBuses() interface{}
 	SetEventBuses(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -95,8 +95,6 @@ type CfnEndpoint interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Whether event replication was enabled or disabled for this endpoint.
-	//
-	// The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 	ReplicationConfig() interface{}
 	SetReplicationConfig(val interface{})
 	// The ARN of the role used by event replication for the endpoint.
@@ -466,7 +464,6 @@ func (j *jsiiProxy_CfnEndpoint) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Events::Endpoint`.
 func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
@@ -484,7 +481,6 @@ func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointPr
 	return &j
 }
 
-// Create a new `AWS::Events::Endpoint`.
 func NewCfnEndpoint_Override(c CfnEndpoint, scope constructs.Construct, id *string, props *CfnEndpointProps) {
 	_init_.Initialize()
 

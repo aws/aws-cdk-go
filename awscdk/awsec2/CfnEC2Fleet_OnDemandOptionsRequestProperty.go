@@ -21,6 +21,8 @@ package awsec2
 //   	SingleInstanceType: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html
+//
 type CfnEC2Fleet_OnDemandOptionsRequestProperty struct {
 	// The strategy that determines the order of the launch template overrides to use in fulfilling On-Demand capacity.
 	//
@@ -29,12 +31,18 @@ type CfnEC2Fleet_OnDemandOptionsRequestProperty struct {
 	// `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
 	//
 	// Default: `lowest-price`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-allocationstrategy
+	//
 	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
 	//
 	// Supported only for fleets of type `instant` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-capacityreservationoptions
+	//
 	CapacityReservationOptions interface{} `field:"optional" json:"capacityReservationOptions" yaml:"capacityReservationOptions"`
 	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-maxtotalprice
+	//
 	MaxTotalPrice *string `field:"optional" json:"maxTotalPrice" yaml:"maxTotalPrice"`
 	// The minimum target capacity for On-Demand Instances in the fleet.
 	//
@@ -43,14 +51,20 @@ type CfnEC2Fleet_OnDemandOptionsRequestProperty struct {
 	// Supported only for fleets of type `instant` .
 	//
 	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-mintargetcapacity
+	//
 	MinTargetCapacity *float64 `field:"optional" json:"minTargetCapacity" yaml:"minTargetCapacity"`
 	// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
 	//
 	// Supported only for fleets of type `instant` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleavailabilityzone
+	//
 	SingleAvailabilityZone interface{} `field:"optional" json:"singleAvailabilityZone" yaml:"singleAvailabilityZone"`
 	// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
 	//
 	// Supported only for fleets of type `instant` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleinstancetype
+	//
 	SingleInstanceType interface{} `field:"optional" json:"singleInstanceType" yaml:"singleInstanceType"`
 }
 

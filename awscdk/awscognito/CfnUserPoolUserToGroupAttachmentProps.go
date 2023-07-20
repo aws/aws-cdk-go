@@ -14,12 +14,20 @@ package awscognito
 //   	UserPoolId: jsii.String("userPoolId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html
+//
 type CfnUserPoolUserToGroupAttachmentProps struct {
 	// The group name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-groupname
+	//
 	GroupName *string `field:"required" json:"groupName" yaml:"groupName"`
 	// The username for the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-username
+	//
 	Username *string `field:"required" json:"username" yaml:"username"`
 	// The user pool ID for the user pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-userpoolid
+	//
 	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 }
 

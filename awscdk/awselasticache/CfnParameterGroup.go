@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElastiCache::ParameterGroup`.
+// The `AWS::ElastiCache::ParameterGroup` type creates a new cache parameter group.
 //
-// The `AWS::ElastiCache::ParameterGroup` type creates a new cache parameter group. Cache parameter groups control the parameters for a cache cluster.
+// Cache parameter groups control the parameters for a cache cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,12 +34,14 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html
+//
 type CfnParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// The name of the cache parameter group family that this cache parameter group is compatible with.
-	//
-	// Valid values are: `memcached1.4` | `memcached1.5` | `memcached1.6` | `redis2.6` | `redis2.8` | `redis3.2` | `redis4.0` | `redis5.0` | `redis6.x` | `redis7`
 	CacheParameterGroupFamily() *string
 	SetCacheParameterGroupFamily(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -67,13 +69,6 @@ type CfnParameterGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// A comma-delimited list of parameter name/value pairs.
-	//
-	// For example:
-	//
-	// ```
-	// "Properties" : { "cas_disabled" : "1", "chunk_size_growth_factor" : "1.02"
-	// }
-	// ```.
 	Properties() interface{}
 	SetProperties(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -85,10 +80,11 @@ type CfnParameterGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A tag that can be added to an ElastiCache parameter group.
-	//
-	// Tags are composed of a Key/Value pair. You can use tags to categorize and track all your parameter groups. A tag with a null Value is permitted.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A tag that can be added to an ElastiCache parameter group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -233,6 +229,17 @@ type CfnParameterGroup interface {
 type jsiiProxy_CfnParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnParameterGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnParameterGroup) CacheParameterGroupFamily() *string {
@@ -355,6 +362,16 @@ func (j *jsiiProxy_CfnParameterGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnParameterGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnParameterGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -376,7 +393,6 @@ func (j *jsiiProxy_CfnParameterGroup) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::ElastiCache::ParameterGroup`.
 func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnParameterGroupProps) CfnParameterGroup {
 	_init_.Initialize()
 
@@ -394,7 +410,6 @@ func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnPara
 	return &j
 }
 
-// Create a new `AWS::ElastiCache::ParameterGroup`.
 func NewCfnParameterGroup_Override(c CfnParameterGroup, scope constructs.Construct, id *string, props *CfnParameterGroupProps) {
 	_init_.Initialize()
 
@@ -434,6 +449,17 @@ func (j *jsiiProxy_CfnParameterGroup)SetProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"properties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

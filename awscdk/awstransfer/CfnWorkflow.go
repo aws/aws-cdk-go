@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Transfer::Workflow`.
+// Allows you to create a workflow with specified steps and step details the workflow invokes after file transfer completes.
 //
-// Allows you to create a workflow with specified steps and step details the workflow invokes after file transfer completes. After creating a workflow, you can associate the workflow created with any transfer servers by specifying the `workflow-details` field in `CreateServer` and `UpdateServer` operations.
+// After creating a workflow, you can associate the workflow created with any transfer servers by specifying the `workflow-details` field in `CreateServer` and `UpdateServer` operations.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -85,9 +85,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html
+//
 type CfnWorkflow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// Specifies the unique Amazon Resource Name (ARN) for the workflow.
 	AttrArn() *string
 	// A unique identifier for a workflow.
 	AttrWorkflowId() *string
@@ -130,10 +134,11 @@ type CfnWorkflow interface {
 	// Specifies the details for the steps that are in the specified workflow.
 	Steps() interface{}
 	SetSteps(val interface{})
-	// Key-value pairs that can be used to group and search for workflows.
-	//
-	// Tags are metadata attached to workflows for any purpose.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs that can be used to group and search for workflows.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -278,6 +283,7 @@ type CfnWorkflow interface {
 type jsiiProxy_CfnWorkflow struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnWorkflow) AttrArn() *string {
@@ -420,6 +426,16 @@ func (j *jsiiProxy_CfnWorkflow) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -441,7 +457,6 @@ func (j *jsiiProxy_CfnWorkflow) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Transfer::Workflow`.
 func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowProps) CfnWorkflow {
 	_init_.Initialize()
 
@@ -459,7 +474,6 @@ func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowPr
 	return &j
 }
 
-// Create a new `AWS::Transfer::Workflow`.
 func NewCfnWorkflow_Override(c CfnWorkflow, scope constructs.Construct, id *string, props *CfnWorkflowProps) {
 	_init_.Initialize()
 
@@ -496,6 +510,17 @@ func (j *jsiiProxy_CfnWorkflow)SetSteps(val interface{}) {
 	_jsii_.Set(
 		j,
 		"steps",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

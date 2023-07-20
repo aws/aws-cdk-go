@@ -12,8 +12,12 @@ package awsquicksight
 //   	Show: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html
+//
 type CfnTheme_MarginStyleProperty struct {
 	// This Boolean value controls whether to display sheet margins.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show
+	//
 	Show interface{} `field:"optional" json:"show" yaml:"show"`
 }
 

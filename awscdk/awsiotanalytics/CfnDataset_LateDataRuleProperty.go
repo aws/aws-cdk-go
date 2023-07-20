@@ -19,10 +19,16 @@ package awsiotanalytics
 //   	RuleName: jsii.String("ruleName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html
+//
 type CfnDataset_LateDataRuleProperty struct {
 	// The information needed to configure the late data rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html#cfn-iotanalytics-dataset-latedatarule-ruleconfiguration
+	//
 	RuleConfiguration interface{} `field:"required" json:"ruleConfiguration" yaml:"ruleConfiguration"`
 	// The name of the late data rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html#cfn-iotanalytics-dataset-latedatarule-rulename
+	//
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 }
 

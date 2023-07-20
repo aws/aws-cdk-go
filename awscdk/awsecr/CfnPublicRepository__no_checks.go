@@ -80,11 +80,7 @@ func validateCfnPublicRepository_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnPublicRepository) validateSetRepositoryCatalogDataParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnPublicRepository) validateSetRepositoryPolicyTextParameters(val interface{}) error {
+func (j *jsiiProxy_CfnPublicRepository) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

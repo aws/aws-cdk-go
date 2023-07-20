@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IdentityStore::Group`.
-//
 // A group object, which contains a specified group’s metadata and attributes.
 //
 // Example:
@@ -25,6 +23,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html
 //
 type CfnGroup interface {
 	awscdk.CfnResource
@@ -43,10 +43,10 @@ type CfnGroup interface {
 	// A string containing the description of the group.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::IdentityStore::Group.DisplayName`.
+	// A string containing the name of the group.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	// `AWS::IdentityStore::Group.IdentityStoreId`.
+	// The globally unique identifier for the identity store.
 	IdentityStoreId() *string
 	SetIdentityStoreId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -357,7 +357,6 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IdentityStore::Group`.
 func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
@@ -375,7 +374,6 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 	return &j
 }
 
-// Create a new `AWS::IdentityStore::Group`.
 func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 

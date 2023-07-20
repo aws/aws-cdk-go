@@ -108,10 +108,16 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html
+//
 type CfnBot_DefaultConditionalBranchProperty struct {
 	// The next step in the conversation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html#cfn-lex-bot-defaultconditionalbranch-nextstep
+	//
 	NextStep interface{} `field:"optional" json:"nextStep" yaml:"nextStep"`
 	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html#cfn-lex-bot-defaultconditionalbranch-response
+	//
 	Response interface{} `field:"optional" json:"response" yaml:"response"`
 }
 

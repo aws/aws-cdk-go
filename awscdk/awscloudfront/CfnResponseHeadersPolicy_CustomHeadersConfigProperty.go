@@ -20,8 +20,12 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html
+//
 type CfnResponseHeadersPolicy_CustomHeadersConfigProperty struct {
 	// The list of HTTP response headers and their values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html#cfn-cloudfront-responseheaderspolicy-customheadersconfig-items
+	//
 	Items interface{} `field:"required" json:"items" yaml:"items"`
 }
 

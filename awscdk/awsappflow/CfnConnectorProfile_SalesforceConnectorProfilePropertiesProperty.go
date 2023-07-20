@@ -14,12 +14,20 @@ package awsappflow
 //   	UsePrivateLinkForMetadataAndAuthorization: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html
+//
 type CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty struct {
 	// The location of the Salesforce resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-instanceurl
+	//
 	InstanceUrl *string `field:"optional" json:"instanceUrl" yaml:"instanceUrl"`
 	// Indicates whether the connector profile applies to a sandbox or production environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-issandboxenvironment
+	//
 	IsSandboxEnvironment interface{} `field:"optional" json:"isSandboxEnvironment" yaml:"isSandboxEnvironment"`
-	// `CfnConnectorProfile.SalesforceConnectorProfilePropertiesProperty.usePrivateLinkForMetadataAndAuthorization`.
+	// Indicates whether to make Metadata And Authorization calls over Pivate Network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-useprivatelinkformetadataandauthorization
+	//
 	UsePrivateLinkForMetadataAndAuthorization interface{} `field:"optional" json:"usePrivateLinkForMetadataAndAuthorization" yaml:"usePrivateLinkForMetadataAndAuthorization"`
 }
 

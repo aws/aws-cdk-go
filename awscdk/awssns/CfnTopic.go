@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SNS::Topic`.
-//
 // The `AWS::SNS::Topic` resource creates a topic to which notifications can be published.
 //
 // > One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [Amazon SNS endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *AWS General Reference* .
@@ -45,9 +43,12 @@ import (
 //   	TracingConfig: jsii.String("tracingConfig"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html
+//
 type CfnTopic interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the ARN of an Amazon SNS topic.
 	AttrTopicArn() *string
 	// Returns the name of an Amazon SNS topic.
@@ -58,11 +59,6 @@ type CfnTopic interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Enables content-based deduplication for FIFO topics.
-	//
-	// - By default, `ContentBasedDeduplication` is set to `false` . If you create a FIFO topic and this attribute is `false` , you must specify a value for the `MessageDeduplicationId` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
-	// - When you set `ContentBasedDeduplication` to `true` , Amazon SNS uses a SHA-256 hash to generate the `MessageDeduplicationId` using the body of the message (but not the attributes of the message).
-	//
-	// (Optional) To override the generated value, you can specify a value for the the `MessageDeduplicationId` parameter for the `Publish` action.
 	ContentBasedDeduplication() interface{}
 	SetContentBasedDeduplication(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -70,27 +66,15 @@ type CfnTopic interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The body of the policy document you want to use for this topic.
-	//
-	// You can only add one policy per topic.
-	//
-	// The policy must be in JSON string format.
-	//
-	// Length Constraints: Maximum length of 30,720.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
-	//
-	// The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName() *string
 	SetDisplayName(val *string)
 	// Set to true to create a FIFO topic.
 	FifoTopic() interface{}
 	SetFifoTopic(val interface{})
 	// The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom CMK.
-	//
-	// For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms) . For more examples, see `[KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters)` in the *AWS Key Management Service API Reference* .
-	//
-	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html) .
 	KmsMasterKeyId() *string
 	SetKmsMasterKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -111,8 +95,6 @@ type CfnTopic interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
-	//
-	// By default, `SignatureVersion` is set to `1` .
 	SignatureVersion() *string
 	SetSignatureVersion(val *string)
 	// The stack in which this element is defined.
@@ -120,26 +102,17 @@ type CfnTopic interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The Amazon SNS subscriptions (endpoints) for this topic.
-	//
-	// > If you specify the `Subscription` property in the `AWS::SNS::Topic` resource and it creates an associated subscription resource, the associated subscription is not deleted when the `AWS::SNS::Topic` resource is deleted.
 	Subscription() interface{}
 	SetSubscription(val interface{})
-	// The list of tags to add to a new topic.
-	//
-	// > To be able to tag a topic on creation, you must have the `sns:CreateTopic` and `sns:TagResource` permissions.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of tags to add to a new topic.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The name of the topic you want to create.
-	//
-	// Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with `.fifo` .
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TopicName() *string
 	SetTopicName(val *string)
 	// Tracing mode of an Amazon SNS topic.
-	//
-	// By default `TracingConfig` is set to `PassThrough` , and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to `Active` , SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
 	TracingConfig() *string
 	SetTracingConfig(val *string)
 	// Deprecated.
@@ -286,6 +259,7 @@ type CfnTopic interface {
 type jsiiProxy_CfnTopic struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTopic) AttrTopicArn() *string {
@@ -468,6 +442,16 @@ func (j *jsiiProxy_CfnTopic) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopic) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopic) TopicName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -509,7 +493,6 @@ func (j *jsiiProxy_CfnTopic) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SNS::Topic`.
 func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) CfnTopic {
 	_init_.Initialize()
 
@@ -527,7 +510,6 @@ func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) C
 	return &j
 }
 
-// Create a new `AWS::SNS::Topic`.
 func NewCfnTopic_Override(c CfnTopic, scope constructs.Construct, id *string, props *CfnTopicProps) {
 	_init_.Initialize()
 
@@ -550,9 +532,6 @@ func (j *jsiiProxy_CfnTopic)SetContentBasedDeduplication(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnTopic)SetDataProtectionPolicy(val interface{}) {
-	if err := j.validateSetDataProtectionPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"dataProtectionPolicy",
@@ -602,6 +581,17 @@ func (j *jsiiProxy_CfnTopic)SetSubscription(val interface{}) {
 	_jsii_.Set(
 		j,
 		"subscription",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GameLift::Build`.
+// The `AWS::GameLift::Build` resource creates a game server build that is installed and run on instances in an Amazon GameLift fleet.
 //
-// The `AWS::GameLift::Build` resource creates a game server build that is installed and run on instances in an Amazon GameLift fleet. This resource points to an Amazon S3 location that contains a zip file with all of the components of the game server build.
+// This resource points to an Amazon S3 location that contains a zip file with all of the components of the game server build.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,9 +33,14 @@ import (
 //   	Version: jsii.String("version"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
+//
 type CfnBuild interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A unique identifier for a build to be deployed on the new fleet.
+	//
+	// If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 	AttrBuildId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -57,17 +62,11 @@ type CfnBuild interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A descriptive label that is associated with a build.
-	//
-	// Build names do not need to be unique.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The operating system that your game server binaries run on.
-	//
-	// This value determines the type of fleet resources that you use for this build. If your game build contains multiple executables, they all must run on the same operating system. You must specify a valid operating system in this request. There is no default value. You can't change a build's operating system later.
-	//
-	// > The Amazon Linux 2023 OS is not available in the China Regions. > Support is ending in 2023 for the Windows Server 2012 and Amazon Linux (AL1) operating systems. If you have active fleets using these operating systems, you can continue to create new builds using these until their end of support. All other users must use Windows Server 2016, Amazon Linux 2, or Amazon Linux 2023. For more information, including specific end-of-support dates, see the Amazon GameLift FAQs for [Windows Server](https://docs.aws.amazon.com/gamelift/faq/win2012/) and [Linux Server](https://docs.aws.amazon.com/gamelift/faq/al1/) .
 	OperatingSystem() *string
 	SetOperatingSystem(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -76,8 +75,6 @@ type CfnBuild interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A server SDK version you used when integrating your game server build with Amazon GameLift.
-	//
-	// For more information see [Integrate games with custom game servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html) . By default Amazon GameLift sets this value to `4.0.2` .
 	ServerSdkVersion() *string
 	SetServerSdkVersion(val *string)
 	// The stack in which this element is defined.
@@ -85,10 +82,6 @@ type CfnBuild interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Information indicating where your game build files are stored.
-	//
-	// Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
-	//
-	// If a `StorageLocation` is specified, the size of your file can be found in your Amazon S3 bucket. Amazon GameLift will report a `SizeOnDisk` of 0.
 	StorageLocation() interface{}
 	SetStorageLocation(val interface{})
 	// Deprecated.
@@ -105,8 +98,6 @@ type CfnBuild interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Version information that is associated with this build.
-	//
-	// Version strings do not need to be unique.
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -403,7 +394,6 @@ func (j *jsiiProxy_CfnBuild) Version() *string {
 }
 
 
-// Create a new `AWS::GameLift::Build`.
 func NewCfnBuild(scope constructs.Construct, id *string, props *CfnBuildProps) CfnBuild {
 	_init_.Initialize()
 
@@ -421,7 +411,6 @@ func NewCfnBuild(scope constructs.Construct, id *string, props *CfnBuildProps) C
 	return &j
 }
 
-// Create a new `AWS::GameLift::Build`.
 func NewCfnBuild_Override(c CfnBuild, scope constructs.Construct, id *string, props *CfnBuildProps) {
 	_init_.Initialize()
 

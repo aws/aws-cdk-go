@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnConfiguredTable) validateSetTableReferenceParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfiguredTable) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnConfiguredTableParameters(scope constructs.Construct, id *string, props *CfnConfiguredTableProps) error {
 	return nil
 }

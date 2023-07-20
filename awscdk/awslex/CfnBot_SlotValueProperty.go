@@ -12,10 +12,14 @@ package awslex
 //   	InterpretedValue: jsii.String("interpretedValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalue.html
+//
 type CfnBot_SlotValueProperty struct {
 	// The value that Amazon Lex determines for the slot.
 	//
 	// The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalue.html#cfn-lex-bot-slotvalue-interpretedvalue
+	//
 	InterpretedValue *string `field:"optional" json:"interpretedValue" yaml:"interpretedValue"`
 }
 

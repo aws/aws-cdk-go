@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FraudDetector::EntityType`.
+// Manages an entity type.
 //
-// Manages an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.
+// An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,9 +31,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html
+//
 type CfnEntityType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The entity type ARN.
 	AttrArn() *string
 	// Timestamp of when entity type was created.
@@ -63,8 +66,6 @@ type CfnEntityType interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The entity type name.
-	//
-	// Pattern: `^[0-9a-z_-]+$`.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -78,8 +79,11 @@ type CfnEntityType interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A key and value pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A key and value pair.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,6 +228,7 @@ type CfnEntityType interface {
 type jsiiProxy_CfnEntityType struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEntityType) AttrArn() *string {
@@ -366,6 +371,16 @@ func (j *jsiiProxy_CfnEntityType) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEntityType) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEntityType) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -387,7 +402,6 @@ func (j *jsiiProxy_CfnEntityType) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::FraudDetector::EntityType`.
 func NewCfnEntityType(scope constructs.Construct, id *string, props *CfnEntityTypeProps) CfnEntityType {
 	_init_.Initialize()
 
@@ -405,7 +419,6 @@ func NewCfnEntityType(scope constructs.Construct, id *string, props *CfnEntityTy
 	return &j
 }
 
-// Create a new `AWS::FraudDetector::EntityType`.
 func NewCfnEntityType_Override(c CfnEntityType, scope constructs.Construct, id *string, props *CfnEntityTypeProps) {
 	_init_.Initialize()
 
@@ -431,6 +444,17 @@ func (j *jsiiProxy_CfnEntityType)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEntityType)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -19,10 +19,14 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html
+//
 type CfnVirtualService_VirtualServiceSpecProperty struct {
 	// The App Mesh object that is acting as the provider for a virtual service.
 	//
 	// You can specify a single virtual node or virtual router.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html#cfn-appmesh-virtualservice-virtualservicespec-provider
+	//
 	Provider interface{} `field:"optional" json:"provider" yaml:"provider"`
 }
 

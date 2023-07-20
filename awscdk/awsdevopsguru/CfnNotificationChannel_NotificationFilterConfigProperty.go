@@ -19,14 +19,20 @@ package awsdevopsguru
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationfilterconfig.html
+//
 type CfnNotificationChannel_NotificationFilterConfigProperty struct {
 	// The events that you want to receive notifications for.
 	//
 	// For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationfilterconfig.html#cfn-devopsguru-notificationchannel-notificationfilterconfig-messagetypes
+	//
 	MessageTypes *[]*string `field:"optional" json:"messageTypes" yaml:"messageTypes"`
 	// The severity levels that you want to receive notifications for.
 	//
 	// For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationfilterconfig.html#cfn-devopsguru-notificationchannel-notificationfilterconfig-severities
+	//
 	Severities *[]*string `field:"optional" json:"severities" yaml:"severities"`
 }
 

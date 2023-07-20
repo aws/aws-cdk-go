@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Signer::SigningProfile`.
+// Creates a signing profile.
 //
-// Creates a signing profile. A signing profile is a code-signing template that can be used to carry out a pre-defined signing job.
+// A signing profile is a code-signing template that can be used to carry out a pre-defined signing job.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
+//
 type CfnSigningProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the signing profile created.
 	AttrArn() *string
 	// The name of the signing profile created.
@@ -75,16 +78,17 @@ type CfnSigningProfile interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The validity period override for any signature generated using this signing profile.
-	//
-	// If unspecified, the default is 135 months.
 	SignatureValidityPeriod() interface{}
 	SetSignatureValidityPeriod(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags associated with the signing profile.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags associated with the signing profile.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -229,6 +233,7 @@ type CfnSigningProfile interface {
 type jsiiProxy_CfnSigningProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSigningProfile) AttrArn() *string {
@@ -381,6 +386,16 @@ func (j *jsiiProxy_CfnSigningProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSigningProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSigningProfile) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -402,7 +417,6 @@ func (j *jsiiProxy_CfnSigningProfile) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Signer::SigningProfile`.
 func NewCfnSigningProfile(scope constructs.Construct, id *string, props *CfnSigningProfileProps) CfnSigningProfile {
 	_init_.Initialize()
 
@@ -420,7 +434,6 @@ func NewCfnSigningProfile(scope constructs.Construct, id *string, props *CfnSign
 	return &j
 }
 
-// Create a new `AWS::Signer::SigningProfile`.
 func NewCfnSigningProfile_Override(c CfnSigningProfile, scope constructs.Construct, id *string, props *CfnSigningProfileProps) {
 	_init_.Initialize()
 
@@ -449,6 +462,17 @@ func (j *jsiiProxy_CfnSigningProfile)SetSignatureValidityPeriod(val interface{})
 	_jsii_.Set(
 		j,
 		"signatureValidityPeriod",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSigningProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -28,18 +28,28 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html
+//
 type CfnThingTypeProps struct {
 	// Deprecates a thing type. You can not associate new things with deprecated thing type.
 	//
 	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html#cfn-iot-thingtype-deprecatethingtype
+	//
 	DeprecateThingType interface{} `field:"optional" json:"deprecateThingType" yaml:"deprecateThingType"`
 	// Metadata which can be used to manage the thing type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html#cfn-iot-thingtype-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the thing type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html#cfn-iot-thingtype-thingtypename
+	//
 	ThingTypeName *string `field:"optional" json:"thingTypeName" yaml:"thingTypeName"`
 	// The thing type properties for the thing type to create.
 	//
 	// It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html#cfn-iot-thingtype-thingtypeproperties
+	//
 	ThingTypeProperties interface{} `field:"optional" json:"thingTypeProperties" yaml:"thingTypeProperties"`
 }
 

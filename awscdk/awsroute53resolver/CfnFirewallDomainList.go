@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::FirewallDomainList`.
-//
 // High-level information about a list of firewall domains for use in a [AWS::Route53Resolver::FirewallRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-rule.html) . This is returned by [GetFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetFirewallDomainList.html) .
 //
 // To retrieve the domains that are defined for this domain list, call [ListFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallDomains.html) .
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html
+//
 type CfnFirewallDomainList interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the firewall domain list.
 	AttrArn() *string
 	// The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
@@ -69,8 +70,6 @@ type CfnFirewallDomainList interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The fully qualified URL or URI of the file stored in Amazon Simple Storage Service (Amazon S3) that contains the list of domains to import.
-	//
-	// The file must be in an S3 bucket that's in the same Region as your DNS Firewall. The file must be a text file and must contain a single domain per line.
 	DomainFileUrl() *string
 	SetDomainFileUrl(val *string)
 	// A list of the domain lists that you have defined.
@@ -100,8 +99,11 @@ type CfnFirewallDomainList interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of the tag keys and values that you want to associate with the domain list.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of the tag keys and values that you want to associate with the domain list.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,6 +248,7 @@ type CfnFirewallDomainList interface {
 type jsiiProxy_CfnFirewallDomainList struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFirewallDomainList) AttrArn() *string {
@@ -458,6 +461,16 @@ func (j *jsiiProxy_CfnFirewallDomainList) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFirewallDomainList) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFirewallDomainList) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -479,7 +492,6 @@ func (j *jsiiProxy_CfnFirewallDomainList) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::Route53Resolver::FirewallDomainList`.
 func NewCfnFirewallDomainList(scope constructs.Construct, id *string, props *CfnFirewallDomainListProps) CfnFirewallDomainList {
 	_init_.Initialize()
 
@@ -497,7 +509,6 @@ func NewCfnFirewallDomainList(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::FirewallDomainList`.
 func NewCfnFirewallDomainList_Override(c CfnFirewallDomainList, scope constructs.Construct, id *string, props *CfnFirewallDomainListProps) {
 	_init_.Initialize()
 
@@ -528,6 +539,17 @@ func (j *jsiiProxy_CfnFirewallDomainList)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewallDomainList)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

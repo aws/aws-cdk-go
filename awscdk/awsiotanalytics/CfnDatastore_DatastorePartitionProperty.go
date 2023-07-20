@@ -22,10 +22,16 @@ package awsiotanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartition.html
+//
 type CfnDatastore_DatastorePartitionProperty struct {
 	// A partition dimension defined by an attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartition.html#cfn-iotanalytics-datastore-datastorepartition-partition
+	//
 	Partition interface{} `field:"optional" json:"partition" yaml:"partition"`
 	// A partition dimension defined by a timestamp attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartition.html#cfn-iotanalytics-datastore-datastorepartition-timestamppartition
+	//
 	TimestampPartition interface{} `field:"optional" json:"timestampPartition" yaml:"timestampPartition"`
 }
 

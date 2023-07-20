@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RefactorSpaces::Route`.
+// Creates an AWS Migration Hub Refactor Spaces route.
 //
-// Creates an AWS Migration Hub Refactor Spaces route. The account owner of the service resource is always the environment owner, regardless of which account creates the route. Routes target a service in the application. If an application does not have any routes, then the first route must be created as a `DEFAULT` `RouteType` .
+// The account owner of the service resource is always the environment owner, regardless of which account creates the route. Routes target a service in the application. If an application does not have any routes, then the first route must be created as a `DEFAULT` `RouteType` .
 //
 // When created, the default route defaults to an active state so state is not a required input. However, like all other state values the state of the default route can be updated after creation, but only when all other routes are also inactive. Conversely, no route can be active without the default route also being active.
 //
@@ -76,9 +76,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html
+//
 type CfnRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique identifier of the application.
 	ApplicationIdentifier() *string
 	SetApplicationIdentifier(val *string)
@@ -130,8 +133,11 @@ type CfnRoute interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags assigned to the route.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags assigned to the route.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -279,6 +285,7 @@ type CfnRoute interface {
 type jsiiProxy_CfnRoute struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRoute) ApplicationIdentifier() *string {
@@ -451,6 +458,16 @@ func (j *jsiiProxy_CfnRoute) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRoute) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRoute) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -482,7 +499,6 @@ func (j *jsiiProxy_CfnRoute) UriPathRoute() interface{} {
 }
 
 
-// Create a new `AWS::RefactorSpaces::Route`.
 func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) CfnRoute {
 	_init_.Initialize()
 
@@ -500,7 +516,6 @@ func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) C
 	return &j
 }
 
-// Create a new `AWS::RefactorSpaces::Route`.
 func NewCfnRoute_Override(c CfnRoute, scope constructs.Construct, id *string, props *CfnRouteProps) {
 	_init_.Initialize()
 
@@ -562,6 +577,17 @@ func (j *jsiiProxy_CfnRoute)SetServiceIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRoute)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

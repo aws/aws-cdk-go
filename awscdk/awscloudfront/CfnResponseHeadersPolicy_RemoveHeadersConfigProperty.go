@@ -16,8 +16,12 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheadersconfig.html
+//
 type CfnResponseHeadersPolicy_RemoveHeadersConfigProperty struct {
 	// The list of HTTP header names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheadersconfig.html#cfn-cloudfront-responseheaderspolicy-removeheadersconfig-items
+	//
 	Items interface{} `field:"required" json:"items" yaml:"items"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cassandra::Keyspace`.
+// You can use the `AWS::Cassandra::Keyspace` resource to create a new keyspace in Amazon Keyspaces (for Apache Cassandra).
 //
-// You can use the `AWS::Cassandra::Keyspace` resource to create a new keyspace in Amazon Keyspaces (for Apache Cassandra). For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide* .
+// For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
+//
 type CfnKeyspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -47,12 +50,6 @@ type CfnKeyspace interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the keyspace to be created.
-	//
-	// The keyspace name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the keyspace name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// *Length constraints:* Minimum length of 3. Maximum length of 255.
-	//
-	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`.
 	KeyspaceName() *string
 	SetKeyspaceName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -72,22 +69,20 @@ type CfnKeyspace interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies the `ReplicationStrategy` of a keyspace. The options are:.
+	// Specifies the `ReplicationStrategy` of a keyspace.
 	//
-	// - `SINGLE_REGION` for a single Region keyspace (optional) or
-	// - `MULTI_REGION` for a multi-Region keyspace
-	//
-	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+	// The options are:.
 	ReplicationSpecification() interface{}
 	SetReplicationSpecification(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +227,7 @@ type CfnKeyspace interface {
 type jsiiProxy_CfnKeyspace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnKeyspace) CfnOptions() awscdk.ICfnResourceOptions {
@@ -344,6 +340,16 @@ func (j *jsiiProxy_CfnKeyspace) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKeyspace) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKeyspace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -365,7 +371,6 @@ func (j *jsiiProxy_CfnKeyspace) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Cassandra::Keyspace`.
 func NewCfnKeyspace(scope constructs.Construct, id *string, props *CfnKeyspaceProps) CfnKeyspace {
 	_init_.Initialize()
 
@@ -383,7 +388,6 @@ func NewCfnKeyspace(scope constructs.Construct, id *string, props *CfnKeyspacePr
 	return &j
 }
 
-// Create a new `AWS::Cassandra::Keyspace`.
 func NewCfnKeyspace_Override(c CfnKeyspace, scope constructs.Construct, id *string, props *CfnKeyspaceProps) {
 	_init_.Initialize()
 
@@ -409,6 +413,17 @@ func (j *jsiiProxy_CfnKeyspace)SetReplicationSpecification(val interface{}) {
 	_jsii_.Set(
 		j,
 		"replicationSpecification",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKeyspace)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

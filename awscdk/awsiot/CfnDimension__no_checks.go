@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnDimension) validateSetStringValuesParameters(val *[]*strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnDimension) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDimension) validateSetTypeParameters(val *string) error {
 	return nil
 }

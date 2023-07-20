@@ -29,14 +29,20 @@ package awsgreengrass
 //   	Tags: tags,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html
+//
 type CfnConnectorDefinitionProps struct {
 	// The name of the connector definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html#cfn-greengrass-connectordefinition-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The connector definition version to include when the connector definition is created.
 	//
 	// A connector definition version contains a list of [`connector`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html) property types.
 	//
 	// > To associate a connector definition version after the connector definition is created, create an [`AWS::Greengrass::ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html) resource and specify the ID of this connector definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html#cfn-greengrass-connectordefinition-initialversion
+	//
 	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// Application-specific metadata to attach to the connector definition.
 	//
@@ -48,6 +54,8 @@ type CfnConnectorDefinitionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html#cfn-greengrass-connectordefinition-tags
+	//
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 

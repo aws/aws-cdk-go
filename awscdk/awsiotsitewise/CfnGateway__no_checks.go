@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnGateway) validateSetGatewayPlatformParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnGatewayParameters(scope constructs.Construct, id *string, props *CfnGatewayProps) error {
 	return nil
 }

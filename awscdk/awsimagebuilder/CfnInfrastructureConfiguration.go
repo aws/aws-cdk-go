@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ImageBuilder::InfrastructureConfiguration`.
+// The infrastructure configuration allows you to specify the infrastructure within which to build and test your image.
 //
-// The infrastructure configuration allows you to specify the infrastructure within which to build and test your image. In the infrastructure configuration, you can specify instance types, subnets, and security groups to associate with your instance. You can also associate an Amazon EC2 key pair with the instance used to build your image. This allows you to log on to your instance to troubleshoot if your build fails and you set terminateInstanceOnFailure to false.
+// In the infrastructure configuration, you can specify instance types, subnets, and security groups to associate with your instance. You can also associate an Amazon EC2 key pair with the instance used to build your image. This allows you to log on to your instance to troubleshoot if your build fails and you set terminateInstanceOnFailure to false.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,9 +52,12 @@ import (
 //   	TerminateInstanceOnFailure: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html
+//
 type CfnInfrastructureConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the infrastructure configuration.
 	//
 	// The following pattern is applied: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:\d{12}|aws):(?:image-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\d+)\.(?:x|\d+)\.(?:x|\d+))(?:/\d+)?)?$` .
@@ -124,8 +127,11 @@ type CfnInfrastructureConfiguration interface {
 	// The subnet ID of the infrastructure configuration.
 	SubnetId() *string
 	SetSubnetId(val *string)
-	// The tags of the infrastructure configuration.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags of the infrastructure configuration.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure() interface{}
 	SetTerminateInstanceOnFailure(val interface{})
@@ -273,6 +279,7 @@ type CfnInfrastructureConfiguration interface {
 type jsiiProxy_CfnInfrastructureConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInfrastructureConfiguration) AttrArn() *string {
@@ -495,6 +502,16 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInfrastructureConfiguration) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInfrastructureConfiguration) TerminateInstanceOnFailure() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -526,7 +543,6 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) UpdatedProperties() *map[stri
 }
 
 
-// Create a new `AWS::ImageBuilder::InfrastructureConfiguration`.
 func NewCfnInfrastructureConfiguration(scope constructs.Construct, id *string, props *CfnInfrastructureConfigurationProps) CfnInfrastructureConfiguration {
 	_init_.Initialize()
 
@@ -544,7 +560,6 @@ func NewCfnInfrastructureConfiguration(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Create a new `AWS::ImageBuilder::InfrastructureConfiguration`.
 func NewCfnInfrastructureConfiguration_Override(c CfnInfrastructureConfiguration, scope constructs.Construct, id *string, props *CfnInfrastructureConfigurationProps) {
 	_init_.Initialize()
 
@@ -654,6 +669,14 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInfrastructureConfiguration)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

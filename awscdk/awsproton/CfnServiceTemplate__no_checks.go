@@ -80,6 +80,10 @@ func validateCfnServiceTemplate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnServiceTemplate) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnServiceTemplateParameters(scope constructs.Construct, id *string, props *CfnServiceTemplateProps) error {
 	return nil
 }

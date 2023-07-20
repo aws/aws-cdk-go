@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Config::ConfigRule`.
+// > You must first create and start the AWS Config configuration recorder in order to create AWS Config managed rules with AWS CloudFormation .
 //
-// > You must first create and start the AWS Config configuration recorder in order to create AWS Config managed rules with AWS CloudFormation . For more information, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) .
+// For more information, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) .
 //
 // Adds or updates an AWS Config rule to evaluate if your AWS resources comply with your desired configurations. For information on how many AWS Config rules you can have per account, see [*Service Limits*](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in the *AWS Config Developer Guide* .
 //
@@ -73,6 +73,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html
+//
 type CfnConfigRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -88,8 +90,6 @@ type CfnConfigRule interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A name for the AWS Config rule.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	ConfigRuleName() *string
 	SetConfigRuleName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -113,13 +113,6 @@ type CfnConfigRule interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
-	//
-	// You can specify a value for `MaximumExecutionFrequency` when:
-	//
-	// - You are using an AWS managed rule that is triggered at a periodic frequency.
-	// - Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html) .
-	//
-	// > By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
 	MaximumExecutionFrequency() *string
 	SetMaximumExecutionFrequency(val *string)
 	// The tree node.
@@ -130,10 +123,6 @@ type CfnConfigRule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Defines which resources can trigger an evaluation for the rule.
-	//
-	// The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
-	//
-	// > The scope can be empty.
 	Scope() interface{}
 	SetScope(val interface{})
 	// Provides the rule owner ( `AWS` for managed rules, `CUSTOM_POLICY` for Custom Policy rules, and `CUSTOM_LAMBDA` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
@@ -480,7 +469,6 @@ func (j *jsiiProxy_CfnConfigRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Config::ConfigRule`.
 func NewCfnConfigRule(scope constructs.Construct, id *string, props *CfnConfigRuleProps) CfnConfigRule {
 	_init_.Initialize()
 
@@ -498,7 +486,6 @@ func NewCfnConfigRule(scope constructs.Construct, id *string, props *CfnConfigRu
 	return &j
 }
 
-// Create a new `AWS::Config::ConfigRule`.
 func NewCfnConfigRule_Override(c CfnConfigRule, scope constructs.Construct, id *string, props *CfnConfigRuleProps) {
 	_init_.Initialize()
 
@@ -526,9 +513,6 @@ func (j *jsiiProxy_CfnConfigRule)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnConfigRule)SetInputParameters(val interface{}) {
-	if err := j.validateSetInputParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"inputParameters",

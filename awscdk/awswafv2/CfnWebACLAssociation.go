@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFv2::WebACLAssociation`.
+// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019.
 //
-// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+// For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
 // Use a web ACL association to define an association between a web ACL and a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance.
 //
@@ -28,6 +28,8 @@ import (
 //   	ResourceArn: jsii.String("resourceArn"),
 //   	WebAclArn: jsii.String("webAclArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
 //
 type CfnWebACLAssociation interface {
 	awscdk.CfnResource
@@ -59,15 +61,6 @@ type CfnWebACLAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
-	//
-	// The ARN must be in one of the following formats:
-	//
-	// - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
-	// - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
-	// - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
-	// - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
-	// - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
-	// - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`.
 	ResourceArn() *string
 	SetResourceArn(val *string)
 	// The stack in which this element is defined.
@@ -344,7 +337,6 @@ func (j *jsiiProxy_CfnWebACLAssociation) WebAclArn() *string {
 }
 
 
-// Create a new `AWS::WAFv2::WebACLAssociation`.
 func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) CfnWebACLAssociation {
 	_init_.Initialize()
 
@@ -362,7 +354,6 @@ func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnW
 	return &j
 }
 
-// Create a new `AWS::WAFv2::WebACLAssociation`.
 func NewCfnWebACLAssociation_Override(c CfnWebACLAssociation, scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) {
 	_init_.Initialize()
 

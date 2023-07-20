@@ -21,10 +21,14 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventinvokedestinationconfig.html
+//
 type CfnFunction_EventInvokeDestinationConfigProperty struct {
-	// `CfnFunction.EventInvokeDestinationConfigProperty.OnFailure`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventinvokedestinationconfig.html#cfn-serverless-function-eventinvokedestinationconfig-onfailure
+	//
 	OnFailure interface{} `field:"required" json:"onFailure" yaml:"onFailure"`
-	// `CfnFunction.EventInvokeDestinationConfigProperty.OnSuccess`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventinvokedestinationconfig.html#cfn-serverless-function-eventinvokedestinationconfig-onsuccess
+	//
 	OnSuccess interface{} `field:"required" json:"onSuccess" yaml:"onSuccess"`
 }
 

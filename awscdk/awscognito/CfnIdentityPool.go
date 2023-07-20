@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::IdentityPool`.
-//
 // The `AWS::Cognito::IdentityPool` resource creates an Amazon Cognito identity pool.
 //
 // To avoid deleting the resource accidentally from AWS CloudFormation , use [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) and the [UpdateReplacePolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html) to retain the resource on deletion or replacement.
@@ -28,6 +26,8 @@ import (
 //   	AllowUnauthenticatedIdentities: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html
+//
 type CfnIdentityPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -37,6 +37,7 @@ type CfnIdentityPool interface {
 	// Specifies whether the identity pool supports unauthenticated logins.
 	AllowUnauthenticatedIdentities() interface{}
 	SetAllowUnauthenticatedIdentities(val interface{})
+	AttrId() *string
 	// The name of the Amazon Cognito identity pool, returned as a string.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -58,21 +59,9 @@ type CfnIdentityPool interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The "domain" Amazon Cognito uses when referencing your users.
-	//
-	// This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
-	//
-	// *Minimum length* : 1
-	//
-	// *Maximum length* : 100.
 	DeveloperProviderName() *string
 	SetDeveloperProviderName(val *string)
 	// The name of your Amazon Cognito identity pool.
-	//
-	// *Minimum length* : 1
-	//
-	// *Maximum length* : 128
-	//
-	// *Pattern* : `[\w\s+=,.@-]+`
 	IdentityPoolName() *string
 	SetIdentityPoolName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -269,6 +258,16 @@ func (j *jsiiProxy_CfnIdentityPool) AllowUnauthenticatedIdentities() interface{}
 	_jsii_.Get(
 		j,
 		"allowUnauthenticatedIdentities",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdentityPool) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -475,7 +474,6 @@ func (j *jsiiProxy_CfnIdentityPool) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Cognito::IdentityPool`.
 func NewCfnIdentityPool(scope constructs.Construct, id *string, props *CfnIdentityPoolProps) CfnIdentityPool {
 	_init_.Initialize()
 
@@ -493,7 +491,6 @@ func NewCfnIdentityPool(scope constructs.Construct, id *string, props *CfnIdenti
 	return &j
 }
 
-// Create a new `AWS::Cognito::IdentityPool`.
 func NewCfnIdentityPool_Override(c CfnIdentityPool, scope constructs.Construct, id *string, props *CfnIdentityPoolProps) {
 	_init_.Initialize()
 
@@ -527,9 +524,6 @@ func (j *jsiiProxy_CfnIdentityPool)SetAllowUnauthenticatedIdentities(val interfa
 }
 
 func (j *jsiiProxy_CfnIdentityPool)SetCognitoEvents(val interface{}) {
-	if err := j.validateSetCognitoEventsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"cognitoEvents",
@@ -603,9 +597,6 @@ func (j *jsiiProxy_CfnIdentityPool)SetSamlProviderArns(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnIdentityPool)SetSupportedLoginProviders(val interface{}) {
-	if err := j.validateSetSupportedLoginProvidersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"supportedLoginProviders",

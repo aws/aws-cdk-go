@@ -12,8 +12,12 @@ package awsappmesh
 //   	Port: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproutematch.html
+//
 type CfnRoute_TcpRouteMatchProperty struct {
 	// The port number to match on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproutematch.html#cfn-appmesh-route-tcproutematch-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

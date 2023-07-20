@@ -14,6 +14,8 @@ package awssecurityhub
 //   	Product: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-severityupdate.html
+//
 type CfnAutomationRule_SeverityUpdateProperty struct {
 	// The severity value of the finding. The allowed values are the following.
 	//
@@ -22,6 +24,8 @@ type CfnAutomationRule_SeverityUpdateProperty struct {
 	// - `MEDIUM` - The issue must be addressed but not urgently.
 	// - `HIGH` - The issue must be addressed as a priority.
 	// - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-severityupdate.html#cfn-securityhub-automationrule-severityupdate-label
+	//
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The normalized severity for the finding. This attribute is to be deprecated in favor of `Label` .
 	//
@@ -32,8 +36,12 @@ type CfnAutomationRule_SeverityUpdateProperty struct {
 	// - 40–69 - `MEDIUM`
 	// - 70–89 - `HIGH`
 	// - 90–100 - `CRITICAL`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-severityupdate.html#cfn-securityhub-automationrule-severityupdate-normalized
+	//
 	Normalized *float64 `field:"optional" json:"normalized" yaml:"normalized"`
 	// The native severity as defined by the AWS service or integrated partner product that generated the finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-severityupdate.html#cfn-securityhub-automationrule-severityupdate-product
+	//
 	Product *float64 `field:"optional" json:"product" yaml:"product"`
 }
 

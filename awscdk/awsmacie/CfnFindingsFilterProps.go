@@ -33,25 +33,37 @@ package awsmacie
 //   	Position: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
+//
 type CfnFindingsFilterProps struct {
 	// The criteria to use to filter findings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+	//
 	FindingCriteria interface{} `field:"required" json:"findingCriteria" yaml:"findingCriteria"`
 	// A custom name for the findings filter. The name can contain 3-64 characters.
 	//
 	// Avoid including sensitive data in the name. Users of the account might be able to see the name, depending on the actions that they're allowed to perform in Amazon Macie .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The action to perform on findings that match the filter criteria ( `FindingCriteria` ). Valid values are:.
 	//
 	// - `ARCHIVE` - Suppress (automatically archive) the findings.
 	// - `NOOP` - Don't perform any action on the findings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+	//
 	Action *string `field:"optional" json:"action" yaml:"action"`
 	// A custom description of the findings filter. The description can contain 1-512 characters.
 	//
 	// Avoid including sensitive data in the description. Users of the account might be able to see the description, depending on the actions that they're allowed to perform in Amazon Macie .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The position of the findings filter in the list of saved filters on the Amazon Macie console.
 	//
 	// This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to findings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+	//
 	Position *float64 `field:"optional" json:"position" yaml:"position"`
 }
 

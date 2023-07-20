@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnAggregationAuthorization) validateSetAuthorizedAwsRegionPa
 	return nil
 }
 
+func (j *jsiiProxy_CfnAggregationAuthorization) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAggregationAuthorizationParameters(scope constructs.Construct, id *string, props *CfnAggregationAuthorizationProps) error {
 	return nil
 }

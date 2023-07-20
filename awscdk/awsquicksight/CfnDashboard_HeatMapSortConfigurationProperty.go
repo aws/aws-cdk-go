@@ -73,14 +73,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-heatmapsortconfiguration.html
+//
 type CfnDashboard_HeatMapSortConfigurationProperty struct {
 	// The limit on the number of columns that are displayed in a heat map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-heatmapsortconfiguration.html#cfn-quicksight-dashboard-heatmapsortconfiguration-heatmapcolumnitemslimitconfiguration
+	//
 	HeatMapColumnItemsLimitConfiguration interface{} `field:"optional" json:"heatMapColumnItemsLimitConfiguration" yaml:"heatMapColumnItemsLimitConfiguration"`
 	// The column sort configuration for heat map for columns that aren't a part of a field well.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-heatmapsortconfiguration.html#cfn-quicksight-dashboard-heatmapsortconfiguration-heatmapcolumnsort
+	//
 	HeatMapColumnSort interface{} `field:"optional" json:"heatMapColumnSort" yaml:"heatMapColumnSort"`
 	// The limit on the number of rows that are displayed in a heat map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-heatmapsortconfiguration.html#cfn-quicksight-dashboard-heatmapsortconfiguration-heatmaprowitemslimitconfiguration
+	//
 	HeatMapRowItemsLimitConfiguration interface{} `field:"optional" json:"heatMapRowItemsLimitConfiguration" yaml:"heatMapRowItemsLimitConfiguration"`
 	// The field sort configuration of the rows fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-heatmapsortconfiguration.html#cfn-quicksight-dashboard-heatmapsortconfiguration-heatmaprowsort
+	//
 	HeatMapRowSort interface{} `field:"optional" json:"heatMapRowSort" yaml:"heatMapRowSort"`
 }
 

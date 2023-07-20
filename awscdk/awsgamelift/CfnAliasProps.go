@@ -22,14 +22,22 @@ package awsgamelift
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
+//
 type CfnAliasProps struct {
 	// A descriptive label that is associated with an alias.
 	//
 	// Alias names do not need to be unique.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The routing configuration, including routing type and fleet target, for the alias.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
+	//
 	RoutingStrategy interface{} `field:"required" json:"routingStrategy" yaml:"routingStrategy"`
 	// A human-readable description of the alias.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

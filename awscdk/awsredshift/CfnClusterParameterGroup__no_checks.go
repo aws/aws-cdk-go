@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnClusterParameterGroup) validateSetParametersParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnClusterParameterGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnClusterParameterGroupParameters(scope constructs.Construct, id *string, props *CfnClusterParameterGroupProps) error {
 	return nil
 }

@@ -18,13 +18,19 @@ package awscassandra
 //   	OrderBy: jsii.String("orderBy"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html
+//
 type CfnTable_ClusteringKeyColumnProperty struct {
 	// The name and data type of this clustering key column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// The order in which this column's data is stored:.
 	//
 	// - `ASC` (default) - The column's data is stored in ascending order.
 	// - `DESC` - The column's data is stored in descending order.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby
+	//
 	OrderBy *string `field:"optional" json:"orderBy" yaml:"orderBy"`
 }
 

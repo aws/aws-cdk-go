@@ -29,14 +29,20 @@ package awsgreengrass
 //   	Tags: tags,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html
+//
 type CfnDeviceDefinitionProps struct {
 	// The name of the device definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The device definition version to include when the device definition is created.
 	//
 	// A device definition version contains a list of [`device`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-device.html) property types.
 	//
 	// > To associate a device definition version after the device definition is created, create an [`AWS::Greengrass::DeviceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html) resource and specify the ID of this device definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-initialversion
+	//
 	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// Application-specific metadata to attach to the device definition.
 	//
@@ -48,6 +54,8 @@ type CfnDeviceDefinitionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-tags
+	//
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 

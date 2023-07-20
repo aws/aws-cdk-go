@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppConfig::DeploymentStrategy`.
+// The `AWS::AppConfig::DeploymentStrategy` resource creates an AWS AppConfig deployment strategy.
 //
-// The `AWS::AppConfig::DeploymentStrategy` resource creates an AWS AppConfig deployment strategy. A deployment strategy defines important criteria for rolling out your configuration to the designated targets. A deployment strategy includes: the overall duration required, a percentage of targets to receive the deployment during each interval, an algorithm that defines how percentage grows, and bake time.
+// A deployment strategy defines important criteria for rolling out your configuration to the designated targets. A deployment strategy includes: the overall duration required, a percentage of targets to receive the deployment during each interval, an algorithm that defines how percentage grows, and bake time.
 //
 // AWS AppConfig requires that you create resources and deploy a configuration in the following order:
 //
@@ -46,9 +46,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html
+//
 type CfnDeploymentStrategy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -65,26 +68,14 @@ type CfnDeploymentStrategy interface {
 	Description() *string
 	SetDescription(val *string)
 	// Specifies the amount of time AWS AppConfig monitors for Amazon CloudWatch alarms after the configuration has been deployed to 100% of its targets, before considering the deployment to be complete.
-	//
-	// If an alarm is triggered during this time, AWS AppConfig rolls back the deployment. You must configure permissions for AWS AppConfig to roll back based on CloudWatch alarms. For more information, see [Configuring permissions for rollback based on Amazon CloudWatch alarms](https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html) in the *AWS AppConfig User Guide* .
 	FinalBakeTimeInMinutes() *float64
 	SetFinalBakeTimeInMinutes(val *float64)
 	// The percentage of targets to receive a deployed configuration during each interval.
 	GrowthFactor() *float64
 	SetGrowthFactor(val *float64)
-	// The algorithm used to define how percentage grows over time. AWS AppConfig supports the following growth types:.
+	// The algorithm used to define how percentage grows over time.
 	//
-	// *Linear* : For this type, AWS AppConfig processes the deployment by dividing the total number of targets by the value specified for `Step percentage` . For example, a linear deployment that uses a `Step percentage` of 10 deploys the configuration to 10 percent of the hosts. After those deployments are complete, the system deploys the configuration to the next 10 percent. This continues until 100% of the targets have successfully received the configuration.
-	//
-	// *Exponential* : For this type, AWS AppConfig processes the deployment exponentially using the following formula: `G*(2^N)` . In this formula, `G` is the growth factor specified by the user and `N` is the number of steps until the configuration is deployed to all targets. For example, if you specify a growth factor of 2, then the system rolls out the configuration as follows:
-	//
-	// `2*(2^0)`
-	//
-	// `2*(2^1)`
-	//
-	// `2*(2^2)`
-	//
-	// Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the targets, 8% of the targets, and continues until the configuration has been deployed to all targets.
+	// AWS AppConfig supports the following growth types:.
 	GrowthType() *string
 	SetGrowthType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -115,8 +106,6 @@ type CfnDeploymentStrategy interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Assigns metadata to an AWS AppConfig resource.
-	//
-	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define. You can specify a maximum of 50 tags for a resource.
 	Tags() *[]*CfnDeploymentStrategy_TagsProperty
 	SetTags(val *[]*CfnDeploymentStrategy_TagsProperty)
 	// Deprecated.
@@ -263,6 +252,16 @@ type CfnDeploymentStrategy interface {
 type jsiiProxy_CfnDeploymentStrategy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDeploymentStrategy) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDeploymentStrategy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -446,7 +445,6 @@ func (j *jsiiProxy_CfnDeploymentStrategy) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::AppConfig::DeploymentStrategy`.
 func NewCfnDeploymentStrategy(scope constructs.Construct, id *string, props *CfnDeploymentStrategyProps) CfnDeploymentStrategy {
 	_init_.Initialize()
 
@@ -464,7 +462,6 @@ func NewCfnDeploymentStrategy(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::AppConfig::DeploymentStrategy`.
 func NewCfnDeploymentStrategy_Override(c CfnDeploymentStrategy, scope constructs.Construct, id *string, props *CfnDeploymentStrategyProps) {
 	_init_.Initialize()
 

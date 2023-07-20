@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::DHCPOptions`.
-//
 // Specifies a set of DHCP options for your VPC.
 //
 // You must specify at least one of the following properties: `DomainNameServers` , `NetbiosNameServers` , `NtpServers` . If you specify `NetbiosNameServers` , you must specify `NetbiosNodeType` .
@@ -40,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html
+//
 type CfnDHCPOptions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the DHCP options set.
 	AttrDhcpOptionsId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -55,13 +56,9 @@ type CfnDHCPOptions interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// This value is used to complete unqualified DNS hostnames.
-	//
-	// If you're using AmazonProvidedDNS in `us-east-1` , specify `ec2.internal` . If you're using AmazonProvidedDNS in another Region, specify *region* . `compute.internal` (for example, `ap-northeast-1.compute.internal` ). Otherwise, specify a domain name (for example, *MyCompany.com* ).
 	DomainName() *string
 	SetDomainName(val *string)
 	// The IPv4 addresses of up to four domain name servers, or `AmazonProvidedDNS` .
-	//
-	// The default is `AmazonProvidedDNS` . To have your instance receive a custom DNS hostname as specified in `DomainName` , you must set this property to a custom DNS server.
 	DomainNameServers() *[]*string
 	SetDomainNameServers(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -78,8 +75,6 @@ type CfnDHCPOptions interface {
 	NetbiosNameServers() *[]*string
 	SetNetbiosNameServers(val *[]*string)
 	// The NetBIOS node type (1, 2, 4, or 8).
-	//
-	// We recommend that you specify 2 (broadcast and multicast are not currently supported).
 	NetbiosNodeType() *float64
 	SetNetbiosNodeType(val *float64)
 	// The tree node.
@@ -96,8 +91,11 @@ type CfnDHCPOptions interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Any tags assigned to the DHCP options set.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags assigned to the DHCP options set.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -242,6 +240,7 @@ type CfnDHCPOptions interface {
 type jsiiProxy_CfnDHCPOptions struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDHCPOptions) AttrDhcpOptionsId() *string {
@@ -394,6 +393,16 @@ func (j *jsiiProxy_CfnDHCPOptions) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDHCPOptions) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDHCPOptions) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -415,7 +424,6 @@ func (j *jsiiProxy_CfnDHCPOptions) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::DHCPOptions`.
 func NewCfnDHCPOptions(scope constructs.Construct, id *string, props *CfnDHCPOptionsProps) CfnDHCPOptions {
 	_init_.Initialize()
 
@@ -433,7 +441,6 @@ func NewCfnDHCPOptions(scope constructs.Construct, id *string, props *CfnDHCPOpt
 	return &j
 }
 
-// Create a new `AWS::EC2::DHCPOptions`.
 func NewCfnDHCPOptions_Override(c CfnDHCPOptions, scope constructs.Construct, id *string, props *CfnDHCPOptionsProps) {
 	_init_.Initialize()
 
@@ -480,6 +487,17 @@ func (j *jsiiProxy_CfnDHCPOptions)SetNtpServers(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"ntpServers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDHCPOptions)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -25,12 +25,17 @@ package awss3outposts
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html
+//
 type CfnBucket_FilterProperty struct {
-	// `CfnBucket.FilterProperty.AndOperator`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html#cfn-s3outposts-bucket-filter-andoperator
+	//
 	AndOperator interface{} `field:"optional" json:"andOperator" yaml:"andOperator"`
-	// `CfnBucket.FilterProperty.Prefix`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html#cfn-s3outposts-bucket-filter-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
-	// `CfnBucket.FilterProperty.Tag`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html#cfn-s3outposts-bucket-filter-tag
+	//
 	Tag interface{} `field:"optional" json:"tag" yaml:"tag"`
 }
 

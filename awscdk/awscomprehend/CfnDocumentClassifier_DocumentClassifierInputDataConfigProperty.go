@@ -44,12 +44,16 @@ package awscomprehend
 //   	TestS3Uri: jsii.String("testS3Uri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html
+//
 type CfnDocumentClassifier_DocumentClassifierInputDataConfigProperty struct {
 	// A list of augmented manifest files that provide training data for your custom model.
 	//
 	// An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
 	//
 	// This parameter is required if you set `DataFormat` to `AUGMENTED_MANIFEST` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-augmentedmanifests
+	//
 	AugmentedManifests interface{} `field:"optional" json:"augmentedManifests" yaml:"augmentedManifests"`
 	// The format of your training data:.
 	//
@@ -59,20 +63,29 @@ type CfnDocumentClassifier_DocumentClassifierInputDataConfigProperty struct {
 	// If you use this value, you must provide the `AugmentedManifests` parameter in your request.
 	//
 	// If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-dataformat
+	//
 	DataFormat *string `field:"optional" json:"dataFormat" yaml:"dataFormat"`
-	// `CfnDocumentClassifier.DocumentClassifierInputDataConfigProperty.DocumentReaderConfig`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-documentreaderconfig
+	//
 	DocumentReaderConfig interface{} `field:"optional" json:"documentReaderConfig" yaml:"documentReaderConfig"`
 	// The S3 location of the training documents.
 	//
 	// This parameter is required in a request to create a native document model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-documents
+	//
 	Documents interface{} `field:"optional" json:"documents" yaml:"documents"`
 	// The type of input documents for training the model.
 	//
 	// Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-documenttype
+	//
 	DocumentType *string `field:"optional" json:"documentType" yaml:"documentType"`
 	// Indicates the delimiter used to separate each label for training a multi-label classifier.
 	//
 	// The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-labeldelimiter
+	//
 	LabelDelimiter *string `field:"optional" json:"labelDelimiter" yaml:"labelDelimiter"`
 	// The Amazon S3 URI for the input data.
 	//
@@ -81,10 +94,14 @@ type CfnDocumentClassifier_DocumentClassifierInputDataConfigProperty struct {
 	// For example, if you use the URI `S3://bucketName/prefix` , if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.
 	//
 	// This parameter is required if you set `DataFormat` to `COMPREHEND_CSV` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-s3uri
+	//
 	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 	// This specifies the Amazon S3 location where the test annotations for an entity recognizer are located.
 	//
 	// The URI must be in the same AWS Region as the API endpoint that you are calling.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-tests3uri
+	//
 	TestS3Uri *string `field:"optional" json:"testS3Uri" yaml:"testS3Uri"`
 }
 

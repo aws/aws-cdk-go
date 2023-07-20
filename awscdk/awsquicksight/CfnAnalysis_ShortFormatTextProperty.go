@@ -15,12 +15,18 @@ package awsquicksight
 //   	RichText: jsii.String("richText"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-shortformattext.html
+//
 type CfnAnalysis_ShortFormatTextProperty struct {
 	// Plain text format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-shortformattext.html#cfn-quicksight-analysis-shortformattext-plaintext
+	//
 	PlainText *string `field:"optional" json:"plainText" yaml:"plainText"`
 	// Rich text.
 	//
 	// Examples of rich text include bold, underline, and italics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-shortformattext.html#cfn-quicksight-analysis-shortformattext-richtext
+	//
 	RichText *string `field:"optional" json:"richText" yaml:"richText"`
 }
 

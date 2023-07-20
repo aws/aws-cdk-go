@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTSiteWise::Gateway`.
+// Creates a gateway, which is a virtual or edge device that delivers industrial data streams from local servers to AWS IoT SiteWise .
 //
-// Creates a gateway, which is a virtual or edge device that delivers industrial data streams from local servers to AWS IoT SiteWise . For more information, see [Ingesting data using a gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html) in the *AWS IoT SiteWise User Guide* .
+// For more information, see [Ingesting data using a gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html) in the *AWS IoT SiteWise User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,9 +46,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
+//
 type CfnGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID for the gateway.
 	AttrGatewayId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -61,18 +64,12 @@ type CfnGateway interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A list of gateway capability summaries that each contain a namespace and status.
-	//
-	// Each gateway capability defines data sources for the gateway. To retrieve a capability configuration's definition, use [DescribeGatewayCapabilityConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html) .
 	GatewayCapabilitySummaries() interface{}
 	SetGatewayCapabilitySummaries(val interface{})
 	// A unique, friendly name for the gateway.
-	//
-	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	GatewayName() *string
 	SetGatewayName(val *string)
 	// The gateway's platform.
-	//
-	// You can only specify one platform in a gateway.
 	GatewayPlatform() interface{}
 	SetGatewayPlatform(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -96,10 +93,11 @@ type CfnGateway interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs that contain metadata for the gateway.
-	//
-	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs that contain metadata for the gateway.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -244,6 +242,7 @@ type CfnGateway interface {
 type jsiiProxy_CfnGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnGateway) AttrGatewayId() *string {
@@ -376,6 +375,16 @@ func (j *jsiiProxy_CfnGateway) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGateway) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGateway) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -397,7 +406,6 @@ func (j *jsiiProxy_CfnGateway) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTSiteWise::Gateway`.
 func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProps) CfnGateway {
 	_init_.Initialize()
 
@@ -415,7 +423,6 @@ func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProp
 	return &j
 }
 
-// Create a new `AWS::IoTSiteWise::Gateway`.
 func NewCfnGateway_Override(c CfnGateway, scope constructs.Construct, id *string, props *CfnGatewayProps) {
 	_init_.Initialize()
 
@@ -455,6 +462,17 @@ func (j *jsiiProxy_CfnGateway)SetGatewayPlatform(val interface{}) {
 	_jsii_.Set(
 		j,
 		"gatewayPlatform",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

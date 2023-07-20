@@ -17,10 +17,16 @@ package awscustomerprofiles
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html
+//
 type CfnObjectType_FieldMapProperty struct {
 	// Name of the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Represents a field in a ProfileObjectType.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield
+	//
 	ObjectTypeField interface{} `field:"optional" json:"objectTypeField" yaml:"objectTypeField"`
 }
 

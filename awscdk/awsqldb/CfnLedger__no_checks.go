@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnLedger) validateSetPermissionsModeParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnLedger) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLedgerParameters(scope constructs.Construct, id *string, props *CfnLedgerProps) error {
 	return nil
 }

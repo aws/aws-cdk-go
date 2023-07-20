@@ -193,14 +193,24 @@ package awsappmesh
 //   	Priority: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html
+//
 type CfnGatewayRoute_GatewayRouteSpecProperty struct {
 	// An object that represents the specification of a gRPC gateway route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-grpcroute
+	//
 	GrpcRoute interface{} `field:"optional" json:"grpcRoute" yaml:"grpcRoute"`
 	// An object that represents the specification of an HTTP/2 gateway route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-http2route
+	//
 	Http2Route interface{} `field:"optional" json:"http2Route" yaml:"http2Route"`
 	// An object that represents the specification of an HTTP gateway route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-httproute
+	//
 	HttpRoute interface{} `field:"optional" json:"httpRoute" yaml:"httpRoute"`
 	// The ordering of the gateway routes spec.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-priority
+	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 

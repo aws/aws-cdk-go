@@ -12,8 +12,12 @@ package awsquicksight
 //   	AvailabilityStatus: jsii.String("availabilityStatus"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetlayoutelementmaximizationoption.html
+//
 type CfnDashboard_SheetLayoutElementMaximizationOptionProperty struct {
 	// The status of the sheet layout maximization options of a dashbaord.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetlayoutelementmaximizationoption.html#cfn-quicksight-dashboard-sheetlayoutelementmaximizationoption-availabilitystatus
+	//
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 

@@ -29,12 +29,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldseriesitem.html
+//
 type CfnTemplate_FieldSeriesItemProperty struct {
 	// The axis that you are binding the field to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldseriesitem.html#cfn-quicksight-template-fieldseriesitem-axisbinding
+	//
 	AxisBinding *string `field:"required" json:"axisBinding" yaml:"axisBinding"`
 	// The field ID of the field for which you are setting the axis binding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldseriesitem.html#cfn-quicksight-template-fieldseriesitem-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The options that determine the presentation of line series associated to the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldseriesitem.html#cfn-quicksight-template-fieldseriesitem-settings
+	//
 	Settings interface{} `field:"optional" json:"settings" yaml:"settings"`
 }
 

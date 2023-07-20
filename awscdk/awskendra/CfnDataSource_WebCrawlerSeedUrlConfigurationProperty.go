@@ -19,10 +19,14 @@ package awskendra
 //   	WebCrawlerMode: jsii.String("webCrawlerMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerseedurlconfiguration.html
+//
 type CfnDataSource_WebCrawlerSeedUrlConfigurationProperty struct {
 	// The list of seed or starting point URLs of the websites you want to crawl.
 	//
 	// The list can include a maximum of 100 seed URLs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerseedurlconfiguration.html#cfn-kendra-datasource-webcrawlerseedurlconfiguration-seedurls
+	//
 	SeedUrls *[]*string `field:"required" json:"seedUrls" yaml:"seedUrls"`
 	// You can choose one of the following modes:.
 	//
@@ -31,6 +35,8 @@ type CfnDataSource_WebCrawlerSeedUrlConfigurationProperty struct {
 	// - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
 	//
 	// The default mode is set to `HOST_ONLY` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerseedurlconfiguration.html#cfn-kendra-datasource-webcrawlerseedurlconfiguration-webcrawlermode
+	//
 	WebCrawlerMode *string `field:"optional" json:"webCrawlerMode" yaml:"webCrawlerMode"`
 }
 

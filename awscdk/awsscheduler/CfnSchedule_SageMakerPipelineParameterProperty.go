@@ -13,10 +13,16 @@ package awsscheduler
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sagemakerpipelineparameter.html
+//
 type CfnSchedule_SageMakerPipelineParameterProperty struct {
 	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sagemakerpipelineparameter.html#cfn-scheduler-schedule-sagemakerpipelineparameter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sagemakerpipelineparameter.html#cfn-scheduler-schedule-sagemakerpipelineparameter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

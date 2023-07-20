@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::CustomerGateway`.
-//
 // Specifies a customer gateway.
 //
 // Example:
@@ -33,14 +31,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html
+//
 type CfnCustomerGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the customer gateway.
 	AttrCustomerGatewayId() *string
 	// For devices that support BGP, the customer gateway's BGP ASN.
-	//
-	// Default: 65000.
 	BgpAsn() *float64
 	SetBgpAsn(val *float64)
 	// Options for this resource, such as condition, update policy etc.
@@ -56,8 +55,6 @@ type CfnCustomerGateway interface {
 	DeviceName() *string
 	SetDeviceName(val *string)
 	// IPv4 address for the customer gateway device's outside interface.
-	//
-	// The address must be static.
 	IpAddress() *string
 	SetIpAddress(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -81,8 +78,11 @@ type CfnCustomerGateway interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// One or more tags for the customer gateway.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more tags for the customer gateway.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of VPN connection that this customer gateway supports ( `ipsec.1` ).
 	Type() *string
 	SetType(val *string)
@@ -230,6 +230,7 @@ type CfnCustomerGateway interface {
 type jsiiProxy_CfnCustomerGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCustomerGateway) AttrCustomerGatewayId() *string {
@@ -362,6 +363,16 @@ func (j *jsiiProxy_CfnCustomerGateway) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomerGateway) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomerGateway) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -393,7 +404,6 @@ func (j *jsiiProxy_CfnCustomerGateway) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::EC2::CustomerGateway`.
 func NewCfnCustomerGateway(scope constructs.Construct, id *string, props *CfnCustomerGatewayProps) CfnCustomerGateway {
 	_init_.Initialize()
 
@@ -411,7 +421,6 @@ func NewCfnCustomerGateway(scope constructs.Construct, id *string, props *CfnCus
 	return &j
 }
 
-// Create a new `AWS::EC2::CustomerGateway`.
 func NewCfnCustomerGateway_Override(c CfnCustomerGateway, scope constructs.Construct, id *string, props *CfnCustomerGatewayProps) {
 	_init_.Initialize()
 
@@ -448,6 +457,17 @@ func (j *jsiiProxy_CfnCustomerGateway)SetIpAddress(val *string) {
 	_jsii_.Set(
 		j,
 		"ipAddress",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomerGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -54,32 +54,54 @@ import (
 //   	TemplateId: jsii.String("templateId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html
+//
 type CfnObjectTypeProps struct {
 	// The unique name of the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
+	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Indicates whether a profile should be created when data is received if one doesn’t exist for an object of this type.
 	//
 	// The default is `FALSE` . If the AllowProfileCreation flag is set to `FALSE` , then the service tries to fetch a standard profile and associate this object with the profile. If it is set to `TRUE` , and if no match is found, then the service creates a new standard profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
+	//
 	AllowProfileCreation interface{} `field:"optional" json:"allowProfileCreation" yaml:"allowProfileCreation"`
 	// The description of the profile object type mapping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The customer-provided key to encrypt the profile object that will be created in this profile object type mapping.
 	//
 	// If not specified the system will use the encryption key of the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
+	//
 	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The number of days until the data of this type expires.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
+	//
 	ExpirationDays *float64 `field:"optional" json:"expirationDays" yaml:"expirationDays"`
 	// A list of field definitions for the object type mapping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
+	//
 	Fields interface{} `field:"optional" json:"fields" yaml:"fields"`
 	// A list of keys that can be used to map data to the profile or search for the profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
+	//
 	Keys interface{} `field:"optional" json:"keys" yaml:"keys"`
 	// The name of the profile object type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
+	//
 	ObjectTypeName *string `field:"optional" json:"objectTypeName" yaml:"objectTypeName"`
 	// The tags used to organize, track, or control access for this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A unique identifier for the template mapping.
 	//
 	// This can be used instead of specifying the Keys and Fields properties directly.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+	//
 	TemplateId *string `field:"optional" json:"templateId" yaml:"templateId"`
 }
 

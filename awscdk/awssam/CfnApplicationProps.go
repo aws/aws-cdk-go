@@ -24,16 +24,23 @@ package awssam
 //   	TimeoutInMinutes: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-application.html
+//
 type CfnApplicationProps struct {
-	// `AWS::Serverless::Application.Location`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-application.html#cfn-serverless-application-location
+	//
 	Location interface{} `field:"required" json:"location" yaml:"location"`
-	// `AWS::Serverless::Application.NotificationArns`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-application.html#cfn-serverless-application-notificationarns
+	//
 	NotificationArns *[]*string `field:"optional" json:"notificationArns" yaml:"notificationArns"`
-	// `AWS::Serverless::Application.Parameters`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-application.html#cfn-serverless-application-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
-	// `AWS::Serverless::Application.Tags`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-application.html#cfn-serverless-application-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::Serverless::Application.TimeoutInMinutes`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-application.html#cfn-serverless-application-timeoutinminutes
+	//
 	TimeoutInMinutes *float64 `field:"optional" json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 }
 

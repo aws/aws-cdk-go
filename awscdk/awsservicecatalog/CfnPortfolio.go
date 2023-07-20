@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::Portfolio`.
-//
 // Specifies a portfolio.
 //
 // Example:
@@ -33,15 +31,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolio.html
+//
 type CfnPortfolio interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// The name of the portfolio.
 	AttrPortfolioName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -83,8 +82,11 @@ type CfnPortfolio interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// One or more tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -229,6 +231,7 @@ type CfnPortfolio interface {
 type jsiiProxy_CfnPortfolio struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPortfolio) AcceptLanguage() *string {
@@ -236,6 +239,16 @@ func (j *jsiiProxy_CfnPortfolio) AcceptLanguage() *string {
 	_jsii_.Get(
 		j,
 		"acceptLanguage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPortfolio) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -371,6 +384,16 @@ func (j *jsiiProxy_CfnPortfolio) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortfolio) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortfolio) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -392,7 +415,6 @@ func (j *jsiiProxy_CfnPortfolio) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ServiceCatalog::Portfolio`.
 func NewCfnPortfolio(scope constructs.Construct, id *string, props *CfnPortfolioProps) CfnPortfolio {
 	_init_.Initialize()
 
@@ -410,7 +432,6 @@ func NewCfnPortfolio(scope constructs.Construct, id *string, props *CfnPortfolio
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::Portfolio`.
 func NewCfnPortfolio_Override(c CfnPortfolio, scope constructs.Construct, id *string, props *CfnPortfolioProps) {
 	_init_.Initialize()
 
@@ -455,6 +476,17 @@ func (j *jsiiProxy_CfnPortfolio)SetProviderName(val *string) {
 	_jsii_.Set(
 		j,
 		"providerName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPortfolio)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

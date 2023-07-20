@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DocDB::DBSubnetGroup`.
+// The `AWS::DocDB::DBSubnetGroup` Amazon DocumentDB (with MongoDB compatibility) resource describes a DBSubnetGroup.
 //
-// The `AWS::DocDB::DBSubnetGroup` Amazon DocumentDB (with MongoDB compatibility) resource describes a DBSubnetGroup. subnet groups must contain at least one subnet in at least two Availability Zones in the AWS Region . For more information, see [DBSubnetGroup](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBSubnetGroup.html) in the *Amazon DocumentDB Developer Guide* .
+// subnet groups must contain at least one subnet in at least two Availability Zones in the AWS Region . For more information, see [DBSubnetGroup](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBSubnetGroup.html) in the *Amazon DocumentDB Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html
+//
 type CfnDBSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -49,11 +53,9 @@ type CfnDBSubnetGroup interface {
 	// The description for the subnet group.
 	DbSubnetGroupDescription() *string
 	SetDbSubnetGroupDescription(val *string)
-	// The name for the subnet group. This value is stored as a lowercase string.
+	// The name for the subnet group.
 	//
-	// Constraints: Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens. Must not be default.
-	//
-	// Example: `mySubnetgroup`.
+	// This value is stored as a lowercase string.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,8 +82,11 @@ type CfnDBSubnetGroup interface {
 	// The Amazon EC2 subnet IDs for the subnet group.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// The tags to be assigned to the subnet group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to be assigned to the subnet group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +231,17 @@ type CfnDBSubnetGroup interface {
 type jsiiProxy_CfnDBSubnetGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDBSubnetGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDBSubnetGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -348,6 +364,16 @@ func (j *jsiiProxy_CfnDBSubnetGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBSubnetGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBSubnetGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -369,7 +395,6 @@ func (j *jsiiProxy_CfnDBSubnetGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::DocDB::DBSubnetGroup`.
 func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) CfnDBSubnetGroup {
 	_init_.Initialize()
 
@@ -387,7 +412,6 @@ func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSub
 	return &j
 }
 
-// Create a new `AWS::DocDB::DBSubnetGroup`.
 func NewCfnDBSubnetGroup_Override(c CfnDBSubnetGroup, scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) {
 	_init_.Initialize()
 
@@ -424,6 +448,17 @@ func (j *jsiiProxy_CfnDBSubnetGroup)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBSubnetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

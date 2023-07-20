@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
-//
 // Specifies an SSL server certificate to add to the certificate list for an HTTPS or TLS listener.
 //
 // Example:
@@ -27,12 +25,13 @@ import (
 //   	ListenerArn: jsii.String("listenerArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html
+//
 type CfnListenerCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The certificate.
-	//
-	// You can specify one certificate per resource.
 	Certificates() interface{}
 	SetCertificates(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -214,6 +213,16 @@ type jsiiProxy_CfnListenerCertificate struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnListenerCertificate) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnListenerCertificate) Certificates() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -335,7 +344,6 @@ func (j *jsiiProxy_CfnListenerCertificate) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
 func NewCfnListenerCertificate(scope constructs.Construct, id *string, props *CfnListenerCertificateProps) CfnListenerCertificate {
 	_init_.Initialize()
 
@@ -353,7 +361,6 @@ func NewCfnListenerCertificate(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
 func NewCfnListenerCertificate_Override(c CfnListenerCertificate, scope constructs.Construct, id *string, props *CfnListenerCertificateProps) {
 	_init_.Initialize()
 

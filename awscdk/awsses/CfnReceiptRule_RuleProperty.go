@@ -70,32 +70,46 @@ package awsses
 //   	TlsPolicy: jsii.String("tlsPolicy"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html
+//
 type CfnReceiptRule_RuleProperty struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-actions
+	//
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// If `true` , the receipt rule is active.
 	//
 	// The default value is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name of the receipt rule. The name must meet the following requirements:.
 	//
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or periods (.).
 	// - Start and end with a letter or number.
 	// - Contain 64 characters or fewer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The recipient domains and email addresses that the receipt rule applies to.
 	//
 	// If this field is not specified, this rule matches all recipients on all verified domains.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-recipients
+	//
 	Recipients *[]*string `field:"optional" json:"recipients" yaml:"recipients"`
 	// If `true` , then messages that this receipt rule applies to are scanned for spam and viruses.
 	//
 	// The default value is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-scanenabled
+	//
 	ScanEnabled interface{} `field:"optional" json:"scanEnabled" yaml:"scanEnabled"`
 	// Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS).
 	//
 	// If this parameter is set to `Require` , Amazon SES bounces emails that are not received over TLS. The default is `Optional` .
 	//
 	// Valid Values: `Require | Optional`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-tlspolicy
+	//
 	TlsPolicy *string `field:"optional" json:"tlsPolicy" yaml:"tlsPolicy"`
 }
 

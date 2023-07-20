@@ -17,8 +17,12 @@ package awslambda
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-aliasroutingconfiguration.html
+//
 type CfnAlias_AliasRoutingConfigurationProperty struct {
 	// The second version, and the percentage of traffic that's routed to it.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-aliasroutingconfiguration.html#cfn-lambda-alias-aliasroutingconfiguration-additionalversionweights
+	//
 	AdditionalVersionWeights interface{} `field:"required" json:"additionalVersionWeights" yaml:"additionalVersionWeights"`
 }
 

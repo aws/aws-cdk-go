@@ -10,9 +10,10 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var componentConditionPropertyProperty_ componentConditionPropertyProperty
 //   var componentPropertyProperty_ componentPropertyProperty
 //
-//   componentConditionPropertyProperty := &ComponentConditionPropertyProperty{
+//   componentConditionPropertyProperty := &componentConditionPropertyProperty{
 //   	Else: &componentPropertyProperty{
 //   		BindingProperties: &ComponentPropertyBindingPropertiesProperty{
 //   			Property: jsii.String("property"),
@@ -36,15 +37,7 @@ package awsamplifyuibuilder
 //   		Concat: []interface{}{
 //   			componentPropertyProperty_,
 //   		},
-//   		Condition: &ComponentConditionPropertyProperty{
-//   			Else: componentPropertyProperty_,
-//   			Field: jsii.String("field"),
-//   			Operand: jsii.String("operand"),
-//   			OperandType: jsii.String("operandType"),
-//   			Operator: jsii.String("operator"),
-//   			Property: jsii.String("property"),
-//   			Then: componentPropertyProperty_,
-//   		},
+//   		Condition: componentConditionPropertyProperty_,
 //   		Configured: jsii.Boolean(false),
 //   		DefaultValue: jsii.String("defaultValue"),
 //   		Event: jsii.String("event"),
@@ -83,15 +76,7 @@ package awsamplifyuibuilder
 //   		Concat: []interface{}{
 //   			componentPropertyProperty_,
 //   		},
-//   		Condition: &ComponentConditionPropertyProperty{
-//   			Else: componentPropertyProperty_,
-//   			Field: jsii.String("field"),
-//   			Operand: jsii.String("operand"),
-//   			OperandType: jsii.String("operandType"),
-//   			Operator: jsii.String("operator"),
-//   			Property: jsii.String("property"),
-//   			Then: componentPropertyProperty_,
-//   		},
+//   		Condition: componentConditionPropertyProperty_,
 //   		Configured: jsii.Boolean(false),
 //   		DefaultValue: jsii.String("defaultValue"),
 //   		Event: jsii.String("event"),
@@ -104,22 +89,38 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html
+//
 type CfnComponent_ComponentConditionPropertyProperty struct {
 	// The value to assign to the property if the condition is not met.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-else
+	//
 	Else interface{} `field:"optional" json:"else" yaml:"else"`
 	// The name of a field.
 	//
 	// Specify this when the property is a data model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-field
+	//
 	Field *string `field:"optional" json:"field" yaml:"field"`
 	// The value of the property to evaluate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-operand
+	//
 	Operand *string `field:"optional" json:"operand" yaml:"operand"`
 	// The type of the property to evaluate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-operandtype
+	//
 	OperandType *string `field:"optional" json:"operandType" yaml:"operandType"`
 	// The operator to use to perform the evaluation, such as `eq` to represent equals.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-operator
+	//
 	Operator *string `field:"optional" json:"operator" yaml:"operator"`
 	// The name of the conditional property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-property
+	//
 	Property *string `field:"optional" json:"property" yaml:"property"`
 	// The value to assign to the property if the condition is met.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-then
+	//
 	Then interface{} `field:"optional" json:"then" yaml:"then"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::UserPool`.
+// The `AWS::Cognito::UserPool` resource creates an Amazon Cognito user pool.
 //
-// The `AWS::Cognito::UserPool` resource creates an Amazon Cognito user pool. For more information on working with Amazon Cognito user pools, see [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) and [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) .
+// For more information on working with Amazon Cognito user pools, see [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) and [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) .
 //
 // > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
 //
@@ -145,31 +145,31 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html
+//
 type CfnUserPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` .
-	//
-	// It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
 	AccountRecoverySetting() interface{}
 	SetAccountRecoverySetting(val interface{})
 	// The configuration for creating a new user profile.
 	AdminCreateUserConfig() interface{}
 	SetAdminCreateUserConfig(val interface{})
-	// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+	// Attributes supported as an alias for this user pool.
 	//
-	// > This user pool property cannot be updated.
+	// Possible values: *phone_number* , *email* , or *preferred_username* .
 	AliasAttributes() *[]*string
 	SetAliasAttributes(val *[]*string)
 	// The Amazon Resource Name (ARN) of the user pool, such as `arn:aws:cognito-idp:us-east-1:123412341234:userpool/us-east-1_123412341` .
 	AttrArn() *string
+	AttrId() *string
 	// The provider name of the Amazon Cognito user pool, specified as a `String` .
 	AttrProviderName() *string
 	// The URL of the provider of the Amazon Cognito user pool, specified as a `String` .
 	AttrProviderUrl() *string
 	// The attributes to be auto-verified.
-	//
-	// Possible values: *email* , *phone_number* .
 	AutoVerifiedAttributes() *[]*string
 	SetAutoVerifiedAttributes(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -182,51 +182,24 @@ type CfnUserPool interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// When active, `DeletionProtection` prevents accidental deletion of your user pool.
-	//
-	// Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.
-	//
-	// When you try to delete a protected user pool in a `DeleteUserPool` API request, Amazon Cognito returns an `InvalidParameterException` error. To delete a protected user pool, send a new `DeleteUserPool` request after you deactivate deletion protection in an `UpdateUserPool` API request.
 	DeletionProtection() *string
 	SetDeletionProtection(val *string)
 	// The device-remembering configuration for a user pool.
-	//
-	// A null value indicates that you have deactivated device remembering in your user pool.
-	//
-	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
 	DeviceConfiguration() interface{}
 	SetDeviceConfiguration(val interface{})
 	// The email configuration of your user pool.
-	//
-	// The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
 	EmailConfiguration() interface{}
 	SetEmailConfiguration(val interface{})
 	// This parameter is no longer used.
-	//
-	// See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
 	EmailVerificationMessage() *string
 	SetEmailVerificationMessage(val *string)
 	// This parameter is no longer used.
-	//
-	// See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
 	EmailVerificationSubject() *string
 	SetEmailVerificationSubject(val *string)
 	// Enables MFA on a specified user pool.
-	//
-	// To disable all MFAs after it has been enabled, set MfaConfiguration to “OFF” and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to “OFF”. Can be one of the following values:
-	//
-	// - `SMS_MFA` - Enables SMS MFA for the user pool. SMS_MFA can only be enabled if SMS configuration is provided.
-	// - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
-	//
-	// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`.
 	EnabledMfas() *[]*string
 	SetEnabledMfas(val *[]*string)
 	// The Lambda trigger configuration information for the new user pool.
-	//
-	// > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
-	// >
-	// > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
-	// >
-	// > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
 	LambdaConfig() interface{}
 	SetLambdaConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -239,11 +212,9 @@ type CfnUserPool interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The multi-factor authentication (MFA) configuration. Valid values include:.
+	// The multi-factor authentication (MFA) configuration.
 	//
-	// - `OFF` MFA won't be used for any users.
-	// - `ON` MFA is required for all users to sign in.
-	// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
+	// Valid values include:.
 	MfaConfiguration() *string
 	SetMfaConfiguration(val *string)
 	// The tree node.
@@ -256,31 +227,25 @@ type CfnUserPool interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The schema attributes for the new user pool. These attributes can be standard or custom attributes.
+	// The schema attributes for the new user pool.
 	//
-	// > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
+	// These attributes can be standard or custom attributes.
 	Schema() interface{}
 	SetSchema(val interface{})
 	// A string representing the SMS authentication message.
 	SmsAuthenticationMessage() *string
 	SetSmsAuthenticationMessage(val *string)
 	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service.
-	//
-	// To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
 	SmsConfiguration() interface{}
 	SetSmsConfiguration(val interface{})
 	// This parameter is no longer used.
-	//
-	// See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
 	SmsVerificationMessage() *string
 	SetSmsVerificationMessage(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tag keys and values to assign to the user pool.
-	//
-	// A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -296,32 +261,23 @@ type CfnUserPool interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The settings for updates to user attributes.
-	//
-	// These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
-	// a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
-	// more information, see [Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
 	UserAttributeUpdateSettings() interface{}
 	SetUserAttributeUpdateSettings(val interface{})
 	// Determines whether email addresses or phone numbers can be specified as user names when a user signs up.
-	//
-	// Possible values: `phone_number` or `email` .
-	//
-	// This user pool property cannot be updated.
 	UsernameAttributes() *[]*string
 	SetUsernameAttributes(val *[]*string)
 	// You can choose to set case sensitivity on the username input for the selected sign-in option.
-	//
-	// For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
 	UsernameConfiguration() interface{}
 	SetUsernameConfiguration(val interface{})
 	// Enables advanced security risk detection.
-	//
-	// Set the key `AdvancedSecurityMode` to the value "AUDIT".
 	UserPoolAddOns() interface{}
 	SetUserPoolAddOns(val interface{})
 	// A string used to name the user pool.
 	UserPoolName() *string
 	SetUserPoolName(val *string)
+	// The tag keys and values to assign to the user pool.
+	UserPoolTagsRaw() interface{}
+	SetUserPoolTagsRaw(val interface{})
 	// The template for the verification message that the user sees when the app requests permission to access the user's information.
 	VerificationMessageTemplate() interface{}
 	SetVerificationMessageTemplate(val interface{})
@@ -456,6 +412,7 @@ type CfnUserPool interface {
 type jsiiProxy_CfnUserPool struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnUserPool) AccountRecoverySetting() interface{} {
@@ -493,6 +450,16 @@ func (j *jsiiProxy_CfnUserPool) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPool) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -818,6 +785,16 @@ func (j *jsiiProxy_CfnUserPool) UserPoolName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPool) UserPoolTagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"userPoolTagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPool) VerificationMessageTemplate() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -829,7 +806,6 @@ func (j *jsiiProxy_CfnUserPool) VerificationMessageTemplate() interface{} {
 }
 
 
-// Create a new `AWS::Cognito::UserPool`.
 func NewCfnUserPool(scope constructs.Construct, id *string, props *CfnUserPoolProps) CfnUserPool {
 	_init_.Initialize()
 
@@ -847,7 +823,6 @@ func NewCfnUserPool(scope constructs.Construct, id *string, props *CfnUserPoolPr
 	return &j
 }
 
-// Create a new `AWS::Cognito::UserPool`.
 func NewCfnUserPool_Override(c CfnUserPool, scope constructs.Construct, id *string, props *CfnUserPoolProps) {
 	_init_.Initialize()
 
@@ -1063,6 +1038,14 @@ func (j *jsiiProxy_CfnUserPool)SetUserPoolName(val *string) {
 	_jsii_.Set(
 		j,
 		"userPoolName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPool)SetUserPoolTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"userPoolTagsRaw",
 		val,
 	)
 }

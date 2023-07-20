@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Omics::VariantStore`.
-//
 // Create a store for variant data.
 //
 // Example:
@@ -37,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html
+//
 type CfnVariantStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// When the store was created.
 	AttrCreationTime() *string
 	// The store's ID.
@@ -96,8 +97,11 @@ type CfnVariantStore interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags for the store.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags for the store.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -242,6 +246,7 @@ type CfnVariantStore interface {
 type jsiiProxy_CfnVariantStore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVariantStore) AttrCreationTime() *string {
@@ -444,6 +449,16 @@ func (j *jsiiProxy_CfnVariantStore) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVariantStore) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVariantStore) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -465,7 +480,6 @@ func (j *jsiiProxy_CfnVariantStore) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Omics::VariantStore`.
 func NewCfnVariantStore(scope constructs.Construct, id *string, props *CfnVariantStoreProps) CfnVariantStore {
 	_init_.Initialize()
 
@@ -483,7 +497,6 @@ func NewCfnVariantStore(scope constructs.Construct, id *string, props *CfnVarian
 	return &j
 }
 
-// Create a new `AWS::Omics::VariantStore`.
 func NewCfnVariantStore_Override(c CfnVariantStore, scope constructs.Construct, id *string, props *CfnVariantStoreProps) {
 	_init_.Initialize()
 
@@ -531,6 +544,14 @@ func (j *jsiiProxy_CfnVariantStore)SetSseConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sseConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVariantStore)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

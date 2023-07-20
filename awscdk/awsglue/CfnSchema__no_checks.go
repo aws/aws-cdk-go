@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnSchema) validateSetSchemaDefinitionParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnSchema) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSchemaParameters(scope constructs.Construct, id *string, props *CfnSchemaProps) error {
 	return nil
 }

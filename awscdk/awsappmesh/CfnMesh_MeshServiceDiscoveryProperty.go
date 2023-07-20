@@ -12,8 +12,12 @@ package awsappmesh
 //   	IpPreference: jsii.String("ipPreference"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html
+//
 type CfnMesh_MeshServiceDiscoveryProperty struct {
 	// The IP version to use to control traffic within the mesh.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html#cfn-appmesh-mesh-meshservicediscovery-ippreference
+	//
 	IpPreference *string `field:"optional" json:"ipPreference" yaml:"ipPreference"`
 }
 

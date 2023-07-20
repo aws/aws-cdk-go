@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Omics::AnnotationStore`.
-//
 // Creates an annotation store.
 //
 // Example:
@@ -49,9 +47,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-annotationstore.html
+//
 type CfnAnnotationStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// When the store was created.
 	AttrCreationTime() *string
 	// The store's ID.
@@ -114,8 +115,11 @@ type CfnAnnotationStore interface {
 	// File parsing options for the annotation store.
 	StoreOptions() interface{}
 	SetStoreOptions(val interface{})
-	// Tags for the store.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags for the store.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -260,6 +264,7 @@ type CfnAnnotationStore interface {
 type jsiiProxy_CfnAnnotationStore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAnnotationStore) AttrCreationTime() *string {
@@ -482,6 +487,16 @@ func (j *jsiiProxy_CfnAnnotationStore) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnnotationStore) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnnotationStore) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -503,7 +518,6 @@ func (j *jsiiProxy_CfnAnnotationStore) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::Omics::AnnotationStore`.
 func NewCfnAnnotationStore(scope constructs.Construct, id *string, props *CfnAnnotationStoreProps) CfnAnnotationStore {
 	_init_.Initialize()
 
@@ -521,7 +535,6 @@ func NewCfnAnnotationStore(scope constructs.Construct, id *string, props *CfnAnn
 	return &j
 }
 
-// Create a new `AWS::Omics::AnnotationStore`.
 func NewCfnAnnotationStore_Override(c CfnAnnotationStore, scope constructs.Construct, id *string, props *CfnAnnotationStoreProps) {
 	_init_.Initialize()
 
@@ -591,6 +604,14 @@ func (j *jsiiProxy_CfnAnnotationStore)SetStoreOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"storeOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnnotationStore)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

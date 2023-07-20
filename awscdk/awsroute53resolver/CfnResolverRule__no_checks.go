@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnResolverRule) validateSetRuleTypeParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnResolverRule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnResolverRule) validateSetTargetIpsParameters(val interface{}) error {
 	return nil
 }

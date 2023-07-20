@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IAM::ServerCertificate`.
+// Uploads a server certificate entity for the AWS account .
 //
-// Uploads a server certificate entity for the AWS account . The server certificate entity includes a public key certificate, a private key, and an optional certificate chain, which should all be PEM-encoded.
+// The server certificate entity includes a public key certificate, a private key, and an optional certificate chain, which should all be PEM-encoded.
 //
 // We recommend that you use [AWS Certificate Manager](https://docs.aws.amazon.com/acm/) to provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to AWS resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more information about using ACM, see the [AWS Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/) .
 //
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html
+//
 type CfnServerCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::ServerCertificate` resource.
 	AttrArn() *string
 	// The contents of the public key certificate.
@@ -73,21 +76,9 @@ type CfnServerCertificate interface {
 	// The tree node.
 	Node() constructs.Node
 	// The path for the server certificate.
-	//
-	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
-	//
-	// This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	//
-	// > If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
 	Path() *string
 	SetPath(val *string)
 	// The contents of the private key in PEM-encoded format.
-	//
-	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
-	//
-	// - Any printable ASCII character ranging from the space character ( `\ u0020` ) through the end of the ASCII character range
-	// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` )
-	// - The special characters tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ).
 	PrivateKey() *string
 	SetPrivateKey(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -96,20 +87,17 @@ type CfnServerCertificate interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The name for the server certificate.
-	//
-	// Do not include the path in this value. The name of the certificate cannot contain any spaces.
-	//
-	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	ServerCertificateName() *string
 	SetServerCertificateName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags that are attached to the server certificate.
-	//
-	// For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags that are attached to the server certificate.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -254,6 +242,7 @@ type CfnServerCertificate interface {
 type jsiiProxy_CfnServerCertificate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnServerCertificate) AttrArn() *string {
@@ -406,6 +395,16 @@ func (j *jsiiProxy_CfnServerCertificate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServerCertificate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServerCertificate) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -427,7 +426,6 @@ func (j *jsiiProxy_CfnServerCertificate) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::IAM::ServerCertificate`.
 func NewCfnServerCertificate(scope constructs.Construct, id *string, props *CfnServerCertificateProps) CfnServerCertificate {
 	_init_.Initialize()
 
@@ -445,7 +443,6 @@ func NewCfnServerCertificate(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
-// Create a new `AWS::IAM::ServerCertificate`.
 func NewCfnServerCertificate_Override(c CfnServerCertificate, scope constructs.Construct, id *string, props *CfnServerCertificateProps) {
 	_init_.Initialize()
 
@@ -492,6 +489,17 @@ func (j *jsiiProxy_CfnServerCertificate)SetServerCertificateName(val *string) {
 	_jsii_.Set(
 		j,
 		"serverCertificateName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServerCertificate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

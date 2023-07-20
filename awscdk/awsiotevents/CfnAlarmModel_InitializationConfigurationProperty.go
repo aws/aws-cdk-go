@@ -14,10 +14,14 @@ package awsiotevents
 //   	DisabledOnInitialization: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-initializationconfiguration.html
+//
 type CfnAlarmModel_InitializationConfigurationProperty struct {
 	// The value must be `TRUE` or `FALSE` .
 	//
 	// If `FALSE` , all alarm instances created based on the alarm model are activated. The default value is `TRUE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-initializationconfiguration.html#cfn-iotevents-alarmmodel-initializationconfiguration-disabledoninitialization
+	//
 	DisabledOnInitialization interface{} `field:"required" json:"disabledOnInitialization" yaml:"disabledOnInitialization"`
 }
 

@@ -28,28 +28,41 @@ package awsconfig
 //   	TagValueScope: jsii.String("tagValueScope"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html
+//
 type CfnOrganizationConfigRule_OrganizationCustomPolicyRuleMetadataProperty struct {
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.PolicyText`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-policytext
+	//
 	PolicyText *string `field:"required" json:"policyText" yaml:"policyText"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.Runtime`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-runtime
+	//
 	Runtime *string `field:"required" json:"runtime" yaml:"runtime"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.DebugLogDeliveryAccounts`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-debuglogdeliveryaccounts
+	//
 	DebugLogDeliveryAccounts *[]*string `field:"optional" json:"debugLogDeliveryAccounts" yaml:"debugLogDeliveryAccounts"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.Description`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.InputParameters`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-inputparameters
+	//
 	InputParameters *string `field:"optional" json:"inputParameters" yaml:"inputParameters"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.MaximumExecutionFrequency`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-maximumexecutionfrequency
+	//
 	MaximumExecutionFrequency *string `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.OrganizationConfigRuleTriggerTypes`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-organizationconfigruletriggertypes
+	//
 	OrganizationConfigRuleTriggerTypes *[]*string `field:"optional" json:"organizationConfigRuleTriggerTypes" yaml:"organizationConfigRuleTriggerTypes"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.ResourceIdScope`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-resourceidscope
+	//
 	ResourceIdScope *string `field:"optional" json:"resourceIdScope" yaml:"resourceIdScope"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.ResourceTypesScope`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-resourcetypesscope
+	//
 	ResourceTypesScope *[]*string `field:"optional" json:"resourceTypesScope" yaml:"resourceTypesScope"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.TagKeyScope`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-tagkeyscope
+	//
 	TagKeyScope *string `field:"optional" json:"tagKeyScope" yaml:"tagKeyScope"`
-	// `CfnOrganizationConfigRule.OrganizationCustomPolicyRuleMetadataProperty.TagValueScope`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-tagvaluescope
+	//
 	TagValueScope *string `field:"optional" json:"tagValueScope" yaml:"tagValueScope"`
 }
 

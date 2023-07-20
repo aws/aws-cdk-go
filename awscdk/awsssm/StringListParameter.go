@@ -22,7 +22,7 @@ type StringListParameter interface {
 	IStringListParameter
 	// The encryption key that is used to encrypt this parameter.
 	//
-	// * @default - default master key.
+	// *.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//

@@ -20,8 +20,12 @@ package awsglue
 //   	QuoteSymbol: jsii.String("quoteSymbol"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html
+//
 type CfnClassifier_CsvClassifierProperty struct {
 	// Enables the processing of files that contain only one column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
+	//
 	AllowSingleColumn interface{} `field:"optional" json:"allowSingleColumn" yaml:"allowSingleColumn"`
 	// Indicates whether the CSV file contains a header.
 	//
@@ -30,20 +34,32 @@ type CfnClassifier_CsvClassifierProperty struct {
 	// A value of `PRESENT` specifies that the CSV file contains headings.
 	//
 	// A value of `ABSENT` specifies that the CSV file does not contain headings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
+	//
 	ContainsHeader *string `field:"optional" json:"containsHeader" yaml:"containsHeader"`
 	// A custom symbol to denote what separates each column entry in the row.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter
+	//
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// Specifies not to trim values before identifying the type of column values.
 	//
 	// The default value is `true` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming
+	//
 	DisableValueTrimming interface{} `field:"optional" json:"disableValueTrimming" yaml:"disableValueTrimming"`
 	// A list of strings representing column names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header
+	//
 	Header *[]*string `field:"optional" json:"header" yaml:"header"`
 	// The name of the classifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A custom symbol to denote what combines content into a single column value.
 	//
 	// It must be different from the column delimiter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol
+	//
 	QuoteSymbol *string `field:"optional" json:"quoteSymbol" yaml:"quoteSymbol"`
 }
 

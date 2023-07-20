@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DocDBElastic::Cluster`.
-//
 // Creates a new Amazon DocumentDB elastic cluster and returns its cluster structure.
 //
 // Example:
@@ -43,32 +41,21 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the Amazon DocumentDB elastic clusters administrator.
-	//
-	// *Constraints* :
-	//
-	// - Must be from 1 to 63 letters or numbers.
-	// - The first character must be a letter.
-	// - Cannot be a reserved word.
 	AdminUserName() *string
 	SetAdminUserName(val *string)
 	// The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
-	//
-	// *Constraints* :
-	//
-	// - Must contain from 8 to 100 characters.
-	// - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
-	// - A valid `AdminUserName` entry is also required.
 	AdminUserPassword() *string
 	SetAdminUserPassword(val *string)
 	AttrClusterArn() *string
 	AttrClusterEndpoint() *string
 	// The authentication type used to determine where to fetch the password used for accessing the elastic cluster.
-	//
-	// Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
 	AuthType() *string
 	SetAuthType(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -76,15 +63,9 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The name of the new elastic cluster. This parameter is stored as a lowercase string.
+	// The name of the new elastic cluster.
 	//
-	// *Constraints* :
-	//
-	// - Must contain from 1 to 63 letters, numbers, or hyphens.
-	// - The first character must be a letter.
-	// - Cannot end with a hyphen or contain two consecutive hyphens.
-	//
-	// *Example* : `my-cluster`.
+	// This parameter is stored as a lowercase string.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -92,10 +73,6 @@ type CfnCluster interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The KMS key identifier to use to encrypt the new elastic cluster.
-	//
-	// The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
-	//
-	// If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -111,14 +88,6 @@ type CfnCluster interface {
 	// The tree node.
 	Node() constructs.Node
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// *Format* : `ddd:hh24:mi-ddd:hh24:mi`
-	//
-	// *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
-	//
-	// *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
-	//
-	// *Constraints* : Minimum 30-minute window.
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -127,13 +96,9 @@ type CfnCluster interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The number of vCPUs assigned to each elastic cluster shard.
-	//
-	// Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
 	ShardCapacity() *float64
 	SetShardCapacity(val *float64)
 	// The number of shards assigned to the elastic cluster.
-	//
-	// Maximum is 32.
 	ShardCount() *float64
 	SetShardCount(val *float64)
 	// The stack in which this element is defined.
@@ -143,8 +108,11 @@ type CfnCluster interface {
 	// The Amazon EC2 subnet IDs for the new elastic cluster.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// The tags to be assigned to the new elastic cluster.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to be assigned to the new elastic cluster.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -292,6 +260,7 @@ type CfnCluster interface {
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCluster) AdminUserName() *string {
@@ -494,6 +463,16 @@ func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -525,7 +504,6 @@ func (j *jsiiProxy_CfnCluster) VpcSecurityGroupIds() *[]*string {
 }
 
 
-// Create a new `AWS::DocDBElastic::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -543,7 +521,6 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
-// Create a new `AWS::DocDBElastic::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -637,6 +614,17 @@ func (j *jsiiProxy_CfnCluster)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::EmailChannel`.
+// A *channel* is a type of platform that you can deliver messages to.
 //
-// A *channel* is a type of platform that you can deliver messages to. You can use the email channel to send email to users. Before you can use Amazon Pinpoint to send email, you must enable the email channel for an Amazon Pinpoint application.
+// You can use the email channel to send email to users. Before you can use Amazon Pinpoint to send email, you must enable the email channel for an Amazon Pinpoint application.
 //
 // The EmailChannel resource represents the status, identity, and other settings of the email channel for an application.
 //
@@ -31,12 +31,15 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html
+//
 type CfnEmailChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The unique identifier for the Amazon Pinpoint application that you're specifying the email channel for.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -238,6 +241,16 @@ func (j *jsiiProxy_CfnEmailChannel) ApplicationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEmailChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEmailChannel) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -389,7 +402,6 @@ func (j *jsiiProxy_CfnEmailChannel) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Pinpoint::EmailChannel`.
 func NewCfnEmailChannel(scope constructs.Construct, id *string, props *CfnEmailChannelProps) CfnEmailChannel {
 	_init_.Initialize()
 
@@ -407,7 +419,6 @@ func NewCfnEmailChannel(scope constructs.Construct, id *string, props *CfnEmailC
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::EmailChannel`.
 func NewCfnEmailChannel_Override(c CfnEmailChannel, scope constructs.Construct, id *string, props *CfnEmailChannelProps) {
 	_init_.Initialize()
 

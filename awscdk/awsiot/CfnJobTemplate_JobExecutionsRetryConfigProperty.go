@@ -17,8 +17,11 @@ package awsiot
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html
+//
 type CfnJobTemplate_JobExecutionsRetryConfigProperty struct {
-	// `CfnJobTemplate.JobExecutionsRetryConfigProperty.RetryCriteriaList`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html#cfn-iot-jobtemplate-jobexecutionsretryconfig-retrycriterialist
+	//
 	RetryCriteriaList interface{} `field:"optional" json:"retryCriteriaList" yaml:"retryCriteriaList"`
 }
 

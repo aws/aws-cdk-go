@@ -179,14 +179,6 @@ func validateCfnParameterGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnParameterGroup) validateSetParameterNameValuesParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnParameterGroupParameters(scope constructs.Construct, id *string, props *CfnParameterGroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

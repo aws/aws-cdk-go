@@ -15,12 +15,18 @@ package awsec2
 //   	PrivateIpAddress: jsii.String("privateIpAddress"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html
+//
 type CfnLaunchTemplate_PrivateIpAddProperty struct {
 	// Indicates whether the private IPv4 address is the primary private IPv4 address.
 	//
 	// Only one IPv4 address can be designated as primary.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-primary
+	//
 	Primary interface{} `field:"optional" json:"primary" yaml:"primary"`
 	// The private IPv4 address.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-privateipaddress
+	//
 	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 }
 

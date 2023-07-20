@@ -19,10 +19,16 @@ package awspinpoint
 //   	TextColor: jsii.String("textColor"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-defaultbuttonconfiguration.html
+//
 type CfnInAppTemplate_DefaultButtonConfigurationProperty struct {
 	// The background color of a button, expressed as a hex color code (such as #000000 for black).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-defaultbuttonconfiguration.html#cfn-pinpoint-inapptemplate-defaultbuttonconfiguration-backgroundcolor
+	//
 	BackgroundColor *string `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
 	// The border radius of a button.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-defaultbuttonconfiguration.html#cfn-pinpoint-inapptemplate-defaultbuttonconfiguration-borderradius
+	//
 	BorderRadius *float64 `field:"optional" json:"borderRadius" yaml:"borderRadius"`
 	// The action that occurs when a recipient chooses a button in an in-app message.
 	//
@@ -31,12 +37,20 @@ type CfnInAppTemplate_DefaultButtonConfigurationProperty struct {
 	// - `LINK` – A link to a web destination.
 	// - `DEEP_LINK` – A link to a specific page in an application.
 	// - `CLOSE` – Dismisses the message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-defaultbuttonconfiguration.html#cfn-pinpoint-inapptemplate-defaultbuttonconfiguration-buttonaction
+	//
 	ButtonAction *string `field:"optional" json:"buttonAction" yaml:"buttonAction"`
 	// The destination (such as a URL) for a button.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-defaultbuttonconfiguration.html#cfn-pinpoint-inapptemplate-defaultbuttonconfiguration-link
+	//
 	Link *string `field:"optional" json:"link" yaml:"link"`
 	// The text that appears on a button in an in-app message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-defaultbuttonconfiguration.html#cfn-pinpoint-inapptemplate-defaultbuttonconfiguration-text
+	//
 	Text *string `field:"optional" json:"text" yaml:"text"`
 	// The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-defaultbuttonconfiguration.html#cfn-pinpoint-inapptemplate-defaultbuttonconfiguration-textcolor
+	//
 	TextColor *string `field:"optional" json:"textColor" yaml:"textColor"`
 }
 

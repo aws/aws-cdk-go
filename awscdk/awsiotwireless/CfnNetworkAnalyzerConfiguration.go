@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTWireless::NetworkAnalyzerConfiguration`.
-//
 // Network analyzer configuration.
 //
 // Example:
@@ -40,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-networkanalyzerconfiguration.html
+//
 type CfnNetworkAnalyzerConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -81,10 +82,11 @@ type CfnNetworkAnalyzerConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to attach to the specified resource.
-	//
-	// Tags are metadata that you can use to manage a resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to attach to the specified resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Trace content for your wireless gateway and wireless device resources.
 	TraceContent() interface{}
 	SetTraceContent(val interface{})
@@ -102,13 +104,9 @@ type CfnNetworkAnalyzerConfiguration interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Wireless device resources to add to the network analyzer configuration.
-	//
-	// Provide the `WirelessDeviceId` of the resource to add in the input array.
 	WirelessDevices() *[]*string
 	SetWirelessDevices(val *[]*string)
 	// Wireless gateway resources to add to the network analyzer configuration.
-	//
-	// Provide the `WirelessGatewayId` of the resource to add in the input array.
 	WirelessGateways() *[]*string
 	SetWirelessGateways(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -242,6 +240,7 @@ type CfnNetworkAnalyzerConfiguration interface {
 type jsiiProxy_CfnNetworkAnalyzerConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) AttrArn() *string {
@@ -364,6 +363,16 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) TraceContent() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -415,7 +424,6 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) WirelessGateways() *[]*strin
 }
 
 
-// Create a new `AWS::IoTWireless::NetworkAnalyzerConfiguration`.
 func NewCfnNetworkAnalyzerConfiguration(scope constructs.Construct, id *string, props *CfnNetworkAnalyzerConfigurationProps) CfnNetworkAnalyzerConfiguration {
 	_init_.Initialize()
 
@@ -433,7 +441,6 @@ func NewCfnNetworkAnalyzerConfiguration(scope constructs.Construct, id *string, 
 	return &j
 }
 
-// Create a new `AWS::IoTWireless::NetworkAnalyzerConfiguration`.
 func NewCfnNetworkAnalyzerConfiguration_Override(c CfnNetworkAnalyzerConfiguration, scope constructs.Construct, id *string, props *CfnNetworkAnalyzerConfigurationProps) {
 	_init_.Initialize()
 
@@ -463,10 +470,18 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetTraceContent(val interface{}) {
-	if err := j.validateSetTraceContentParameters(val); err != nil {
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetTraceContent(val interface{}) {
 	_jsii_.Set(
 		j,
 		"traceContent",

@@ -13,10 +13,16 @@ package awsiotevents
 //   	VariableName: jsii.String("variableName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html
+//
 type CfnDetectorModel_SetVariableProperty struct {
 	// The new value of the variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// The name of the variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
+	//
 	VariableName *string `field:"required" json:"variableName" yaml:"variableName"`
 }
 

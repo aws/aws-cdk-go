@@ -24,12 +24,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-colorscale.html
+//
 type CfnTemplate_ColorScaleProperty struct {
 	// Determines the color fill type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-colorscale.html#cfn-quicksight-template-colorscale-colorfilltype
+	//
 	ColorFillType *string `field:"required" json:"colorFillType" yaml:"colorFillType"`
 	// Determines the list of colors that are applied to the visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-colorscale.html#cfn-quicksight-template-colorscale-colors
+	//
 	Colors interface{} `field:"required" json:"colors" yaml:"colors"`
 	// Determines the color that is applied to null values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-colorscale.html#cfn-quicksight-template-colorscale-nullvaluecolor
+	//
 	NullValueColor interface{} `field:"optional" json:"nullValueColor" yaml:"nullValueColor"`
 }
 

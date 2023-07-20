@@ -15,10 +15,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html
+//
 type CfnDashboard_DateTimeParameterProperty struct {
 	// A display name for the date-time parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values for the date-time parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-values
+	//
 	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 

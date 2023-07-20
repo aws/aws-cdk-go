@@ -16,10 +16,14 @@ package awsiot
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
+//
 type CfnThing_AttributePayloadProperty struct {
 	// A JSON string containing up to three key-value pair in JSON format. For example:.
 	//
 	// `{\"attributes\":{\"string1\":\"string2\"}}`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
+	//
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAF::Rule`.
+// > This is *AWS WAF Classic* documentation.
 //
-// > This is *AWS WAF Classic* documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+// For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
 // >
 // > *For the latest version of AWS WAF* , use the AWS WAF V2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) . With the latest version, AWS WAF has a single set of endpoints for regional and global use.
 //
@@ -41,9 +41,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html
+//
 type CfnRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -64,13 +67,9 @@ type CfnRule interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the metrics for this `Rule` .
-	//
-	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF , including "All" and "Default_Action." You can't change `MetricName` after you create the `Rule` .
 	MetricName() *string
 	SetMetricName(val *string)
 	// The friendly name or description for the `Rule` .
-	//
-	// You can't change the name of a `Rule` after you create it.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -233,6 +232,16 @@ type jsiiProxy_CfnRule struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnRule) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRule) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -364,7 +373,6 @@ func (j *jsiiProxy_CfnRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::WAF::Rule`.
 func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) CfnRule {
 	_init_.Initialize()
 
@@ -382,7 +390,6 @@ func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::WAF::Rule`.
 func NewCfnRule_Override(c CfnRule, scope constructs.Construct, id *string, props *CfnRuleProps) {
 	_init_.Initialize()
 

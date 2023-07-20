@@ -21,10 +21,16 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html
+//
 type CfnJob_DatabaseTableOutputOptionsProperty struct {
 	// A prefix for the name of a table DataBrew will create in the database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
+	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
+	//
 	TempDirectory interface{} `field:"optional" json:"tempDirectory" yaml:"tempDirectory"`
 }
 

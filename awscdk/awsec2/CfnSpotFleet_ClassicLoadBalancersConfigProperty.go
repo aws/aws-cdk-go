@@ -18,8 +18,12 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html
+//
 type CfnSpotFleet_ClassicLoadBalancersConfigProperty struct {
 	// One or more Classic Load Balancers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html#cfn-ec2-spotfleet-classicloadbalancersconfig-classicloadbalancers
+	//
 	ClassicLoadBalancers interface{} `field:"required" json:"classicLoadBalancers" yaml:"classicLoadBalancers"`
 }
 

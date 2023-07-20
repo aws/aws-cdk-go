@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace) validateSetNameParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnRuleGroupsNamespace) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRuleGroupsNamespace) validateSetWorkspaceParameters(val *string) error {
 	return nil
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::SchemaVersionMetadata`.
-//
 // The `AWS::Glue::SchemaVersionMetadata` is an AWS Glue resource type that defines the metadata key-value pairs for a schema version in AWS Glue Schema Registry.
 //
 // Example:
@@ -23,6 +21,8 @@ import (
 //   	SchemaVersionId: jsii.String("schemaVersionId"),
 //   	Value: jsii.String("value"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
 //
 type CfnSchemaVersionMetadata interface {
 	awscdk.CfnResource
@@ -343,7 +343,6 @@ func (j *jsiiProxy_CfnSchemaVersionMetadata) Value() *string {
 }
 
 
-// Create a new `AWS::Glue::SchemaVersionMetadata`.
 func NewCfnSchemaVersionMetadata(scope constructs.Construct, id *string, props *CfnSchemaVersionMetadataProps) CfnSchemaVersionMetadata {
 	_init_.Initialize()
 
@@ -361,7 +360,6 @@ func NewCfnSchemaVersionMetadata(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::Glue::SchemaVersionMetadata`.
 func NewCfnSchemaVersionMetadata_Override(c CfnSchemaVersionMetadata, scope constructs.Construct, id *string, props *CfnSchemaVersionMetadataProps) {
 	_init_.Initialize()
 

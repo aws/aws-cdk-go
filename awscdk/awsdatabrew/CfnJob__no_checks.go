@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnJob) validateSetRoleArnParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnJob) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnJob) validateSetTypeParameters(val *string) error {
 	return nil
 }

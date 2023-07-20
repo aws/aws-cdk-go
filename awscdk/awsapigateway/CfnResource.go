@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::Resource`.
-//
 // The `AWS::ApiGateway::Resource` resource creates a resource in an API.
 //
 // Example:
@@ -23,6 +21,8 @@ import (
 //   	PathPart: jsii.String("pathPart"),
 //   	RestApiId: jsii.String("restApiId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
 //
 type CfnResource interface {
 	awscdk.CfnResource
@@ -357,7 +357,6 @@ func (j *jsiiProxy_CfnResource) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGateway::Resource`.
 func NewCfnResource(scope constructs.Construct, id *string, props *CfnResourceProps) CfnResource {
 	_init_.Initialize()
 
@@ -375,7 +374,6 @@ func NewCfnResource(scope constructs.Construct, id *string, props *CfnResourcePr
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::Resource`.
 func NewCfnResource_Override(c CfnResource, scope constructs.Construct, id *string, props *CfnResourceProps) {
 	_init_.Initialize()
 

@@ -12,8 +12,12 @@ package awssagemaker
 //   	S3Uri: jsii.String("s3Uri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html
+//
 type CfnMonitoringSchedule_ConstraintsResourceProperty struct {
 	// The Amazon S3 URI for the constraints resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html#cfn-sagemaker-monitoringschedule-constraintsresource-s3uri
+	//
 	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 }
 

@@ -106,6 +106,8 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html
+//
 type CfnPipelineProps struct {
 	// A list of "PipelineActivity" objects.
 	//
@@ -114,12 +116,18 @@ type CfnPipelineProps struct {
 	// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
 	//
 	// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelineactivities
+	//
 	PipelineActivities interface{} `field:"required" json:"pipelineActivities" yaml:"pipelineActivities"`
 	// The name of the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelinename
+	//
 	PipelineName *string `field:"optional" json:"pipelineName" yaml:"pipelineName"`
 	// Metadata which can be used to manage the pipeline.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

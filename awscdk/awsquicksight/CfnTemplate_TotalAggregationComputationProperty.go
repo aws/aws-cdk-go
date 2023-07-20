@@ -264,12 +264,20 @@ package awsquicksight
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html
+//
 type CfnTemplate_TotalAggregationComputationProperty struct {
 	// The ID for a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html#cfn-quicksight-template-totalaggregationcomputation-computationid
+	//
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
 	// The value field that is used in a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html#cfn-quicksight-template-totalaggregationcomputation-value
+	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The name of a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html#cfn-quicksight-template-totalaggregationcomputation-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

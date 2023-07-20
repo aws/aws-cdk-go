@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lambda::EventSourceMapping`.
+// The `AWS::Lambda::EventSourceMapping` resource creates a mapping between an event source and an AWS Lambda function.
 //
-// The `AWS::Lambda::EventSourceMapping` resource creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.
+// Lambda reads items from the event source and triggers the function.
 //
 // For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
 //
@@ -93,6 +93,8 @@ import (
 //   	TumblingWindowInSeconds: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
+//
 type CfnEventSourceMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -102,21 +104,9 @@ type CfnEventSourceMapping interface {
 	// The event source mapping's ID.
 	AttrId() *string
 	// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function.
-	//
-	// Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
-	//
-	// - *Amazon Kinesis* – Default 100. Max 10,000.
-	// - *Amazon DynamoDB Streams* – Default 100. Max 10,000.
-	// - *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
-	// - *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
-	// - *Self-managed Apache Kafka* – Default 100. Max 10,000.
-	// - *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
-	// - *DocumentDB* – Default 100. Max 10,000.
 	BatchSize() *float64
 	SetBatchSize(val *float64)
 	// (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.
-	//
-	// The default value is false.
 	BisectBatchOnFunctionError() interface{}
 	SetBisectBatchOnFunctionError(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -134,39 +124,21 @@ type CfnEventSourceMapping interface {
 	// Specific configuration settings for a DocumentDB event source.
 	DocumentDbEventSourceConfig() interface{}
 	SetDocumentDbEventSourceConfig(val interface{})
-	// When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
+	// When true, the event source mapping is active.
 	//
-	// Default: True.
+	// When false, Lambda pauses polling and invocation.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The Amazon Resource Name (ARN) of the event source.
-	//
-	// - *Amazon Kinesis* – The ARN of the data stream or a stream consumer.
-	// - *Amazon DynamoDB Streams* – The ARN of the stream.
-	// - *Amazon Simple Queue Service* – The ARN of the queue.
-	// - *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster.
-	// - *Amazon MQ* – The ARN of the broker.
-	// - *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
 	EventSourceArn() *string
 	SetEventSourceArn(val *string)
 	// An object that defines the filter criteria that determine whether Lambda should process an event.
-	//
-	// For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) .
 	FilterCriteria() interface{}
 	SetFilterCriteria(val interface{})
 	// The name of the Lambda function.
-	//
-	// **Name formats** - *Function name* – `MyFunction` .
-	// - *Function ARN* – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
-	// - *Version or Alias ARN* – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD` .
-	// - *Partial ARN* – `123456789012:function:MyFunction` .
-	//
-	// The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
-	//
-	// Valid Values: `ReportBatchItemFailures`.
 	FunctionResponseTypes() *[]*string
 	SetFunctionResponseTypes(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -180,33 +152,17 @@ type CfnEventSourceMapping interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-	//
-	// *Default ( Kinesis , DynamoDB , Amazon SQS event sources)* : 0
-	//
-	// *Default ( Amazon MSK , Kafka, Amazon MQ , Amazon DocumentDB event sources)* : 500 ms
-	//
-	// *Related setting:* For Amazon SQS event sources, when you set `BatchSize` to a value greater than 10, you must set `MaximumBatchingWindowInSeconds` to at least 1.
 	MaximumBatchingWindowInSeconds() *float64
 	SetMaximumBatchingWindowInSeconds(val *float64)
 	// (Kinesis and DynamoDB Streams only) Discard records older than the specified age.
-	//
-	// The default value is -1,
-	// which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
-	//
-	// > The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
 	MaximumRecordAgeInSeconds() *float64
 	SetMaximumRecordAgeInSeconds(val *float64)
 	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries.
-	//
-	// The default value is -1,
-	// which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
 	MaximumRetryAttempts() *float64
 	SetMaximumRetryAttempts(val *float64)
 	// The tree node.
 	Node() constructs.Node
 	// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard.
-	//
-	// The default value is 1.
 	ParallelizationFactor() *float64
 	SetParallelizationFactor(val *float64)
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
@@ -218,8 +174,6 @@ type CfnEventSourceMapping interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// (Amazon SQS only) The scaling configuration for the event source.
-	//
-	// For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency) .
 	ScalingConfig() interface{}
 	SetScalingConfig(val interface{})
 	// The self-managed Apache Kafka cluster for your event source.
@@ -235,24 +189,18 @@ type CfnEventSourceMapping interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
+	// The position in a stream from which to start reading.
 	//
-	// - *LATEST* - Read only new records.
-	// - *TRIM_HORIZON* - Process all available records.
-	// - *AT_TIMESTAMP* - Specify a time from which to start reading records.
+	// Required for Amazon Kinesis and Amazon DynamoDB.
 	StartingPosition() *string
 	SetStartingPosition(val *string)
 	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
-	//
-	// `StartingPositionTimestamp` cannot be in the future.
 	StartingPositionTimestamp() *float64
 	SetStartingPositionTimestamp(val *float64)
 	// The name of the Kafka topic.
 	Topics() *[]*string
 	SetTopics(val *[]*string)
 	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources.
-	//
-	// A value of 0 seconds indicates no tumbling window.
 	TumblingWindowInSeconds() *float64
 	SetTumblingWindowInSeconds(val *float64)
 	// Deprecated.
@@ -742,7 +690,6 @@ func (j *jsiiProxy_CfnEventSourceMapping) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::Lambda::EventSourceMapping`.
 func NewCfnEventSourceMapping(scope constructs.Construct, id *string, props *CfnEventSourceMappingProps) CfnEventSourceMapping {
 	_init_.Initialize()
 
@@ -760,7 +707,6 @@ func NewCfnEventSourceMapping(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Lambda::EventSourceMapping`.
 func NewCfnEventSourceMapping_Override(c CfnEventSourceMapping, scope constructs.Construct, id *string, props *CfnEventSourceMappingProps) {
 	_init_.Initialize()
 

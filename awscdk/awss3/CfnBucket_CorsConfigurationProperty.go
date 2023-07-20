@@ -33,10 +33,14 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsconfiguration.html
+//
 type CfnBucket_CorsConfigurationProperty struct {
 	// A set of origins and methods (cross-origin access that you want to allow).
 	//
 	// You can add up to 100 rules to the configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsconfiguration.html#cfn-s3-bucket-corsconfiguration-corsrules
+	//
 	CorsRules interface{} `field:"required" json:"corsRules" yaml:"corsRules"`
 }
 

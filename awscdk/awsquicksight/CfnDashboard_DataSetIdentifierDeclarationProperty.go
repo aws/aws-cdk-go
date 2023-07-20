@@ -13,10 +13,16 @@ package awsquicksight
 //   	Identifier: jsii.String("identifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetidentifierdeclaration.html
+//
 type CfnDashboard_DataSetIdentifierDeclarationProperty struct {
 	// The Amazon Resource Name (ARN) of the data set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetidentifierdeclaration.html#cfn-quicksight-dashboard-datasetidentifierdeclaration-datasetarn
+	//
 	DataSetArn *string `field:"required" json:"dataSetArn" yaml:"dataSetArn"`
 	// The identifier of the data set, typically the data set's name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetidentifierdeclaration.html#cfn-quicksight-dashboard-datasetidentifierdeclaration-identifier
+	//
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 }
 

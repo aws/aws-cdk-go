@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCustomerGateway) validateSetIpAddressParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnCustomerGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCustomerGateway) validateSetTypeParameters(val *string) error {
 	return nil
 }

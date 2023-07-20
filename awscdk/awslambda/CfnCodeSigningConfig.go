@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lambda::CodeSigningConfig`.
-//
 // Details about a [Code signing configuration](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html) .
 //
 // Example:
@@ -31,6 +29,8 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
 //
 type CfnCodeSigningConfig interface {
 	awscdk.CfnResource
@@ -375,7 +375,6 @@ func (j *jsiiProxy_CfnCodeSigningConfig) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::Lambda::CodeSigningConfig`.
 func NewCfnCodeSigningConfig(scope constructs.Construct, id *string, props *CfnCodeSigningConfigProps) CfnCodeSigningConfig {
 	_init_.Initialize()
 
@@ -393,7 +392,6 @@ func NewCfnCodeSigningConfig(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
-// Create a new `AWS::Lambda::CodeSigningConfig`.
 func NewCfnCodeSigningConfig_Override(c CfnCodeSigningConfig, scope constructs.Construct, id *string, props *CfnCodeSigningConfigProps) {
 	_init_.Initialize()
 

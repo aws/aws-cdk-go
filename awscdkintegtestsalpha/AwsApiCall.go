@@ -35,6 +35,10 @@ type AwsApiCall interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// Experimental.
+	OutputPaths() *[]*string
+	// Experimental.
+	SetOutputPaths(val *[]*string)
 	// access the AssertionsProvider.
 	//
 	// This can be used to add additional IAM policies
@@ -153,6 +157,16 @@ func (j *jsiiProxy_AwsApiCall) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_AwsApiCall) OutputPaths() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"outputPaths",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_AwsApiCall) Provider() AssertionsProvider {
 	var returns AssertionsProvider
 	_jsii_.Get(
@@ -228,6 +242,14 @@ func (j *jsiiProxy_AwsApiCall)SetFlattenResponse(val *string) {
 	_jsii_.Set(
 		j,
 		"flattenResponse",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AwsApiCall)SetOutputPaths(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"outputPaths",
 		val,
 	)
 }

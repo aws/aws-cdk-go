@@ -13,10 +13,16 @@ package awsbudgets
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html
+//
 type CfnBudgetsAction_ActionThresholdProperty struct {
 	// The type of threshold for a notification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The threshold of a notification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

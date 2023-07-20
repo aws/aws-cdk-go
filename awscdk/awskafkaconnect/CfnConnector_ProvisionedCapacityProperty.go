@@ -15,12 +15,18 @@ package awskafkaconnect
 //   	McuCount: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-provisionedcapacity.html
+//
 type CfnConnector_ProvisionedCapacityProperty struct {
 	// The number of workers that are allocated to the connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-provisionedcapacity.html#cfn-kafkaconnect-connector-provisionedcapacity-workercount
+	//
 	WorkerCount *float64 `field:"required" json:"workerCount" yaml:"workerCount"`
 	// The number of microcontroller units (MCUs) allocated to each connector worker.
 	//
 	// The valid values are 1,2,4,8.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-provisionedcapacity.html#cfn-kafkaconnect-connector-provisionedcapacity-mcucount
+	//
 	McuCount *float64 `field:"optional" json:"mcuCount" yaml:"mcuCount"`
 }
 

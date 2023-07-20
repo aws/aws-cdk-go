@@ -16,12 +16,20 @@ package awsshield
 //   	PhoneNumber: jsii.String("phoneNumber"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-proactiveengagement-emergencycontact.html
+//
 type CfnProactiveEngagement_EmergencyContactProperty struct {
 	// The email address for the contact.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-proactiveengagement-emergencycontact.html#cfn-shield-proactiveengagement-emergencycontact-emailaddress
+	//
 	EmailAddress *string `field:"required" json:"emailAddress" yaml:"emailAddress"`
 	// Additional notes regarding the contact.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-proactiveengagement-emergencycontact.html#cfn-shield-proactiveengagement-emergencycontact-contactnotes
+	//
 	ContactNotes *string `field:"optional" json:"contactNotes" yaml:"contactNotes"`
 	// The phone number for the contact.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-proactiveengagement-emergencycontact.html#cfn-shield-proactiveengagement-emergencycontact-phonenumber
+	//
 	PhoneNumber *string `field:"optional" json:"phoneNumber" yaml:"phoneNumber"`
 }
 

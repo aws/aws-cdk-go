@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::ConnectAttachment`.
-//
 // Creates a core network Connect attachment from a specified core network attachment.
 //
 // A core network Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a core network and an appliance. A core network Connect attachment uses an existing VPC attachment as the underlying transport mechanism.
@@ -47,9 +45,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html
+//
 type CfnConnectAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the Connect attachment.
 	AttrAttachmentId() *string
 	// The rule number associated with the attachment.
@@ -104,7 +105,7 @@ type CfnConnectAttachment interface {
 	// Options for connecting an attachment.
 	Options() interface{}
 	SetOptions(val interface{})
-	// `AWS::NetworkManager::ConnectAttachment.ProposedSegmentChange`.
+	// The attachment to move from one segment to another.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -116,8 +117,11 @@ type CfnConnectAttachment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::NetworkManager::ConnectAttachment.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags for the attachment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ID of the transport attachment.
 	TransportAttachmentId() *string
 	SetTransportAttachmentId(val *string)
@@ -265,6 +269,7 @@ type CfnConnectAttachment interface {
 type jsiiProxy_CfnConnectAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnConnectAttachment) AttrAttachmentId() *string {
@@ -497,6 +502,16 @@ func (j *jsiiProxy_CfnConnectAttachment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnectAttachment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnectAttachment) TransportAttachmentId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -528,7 +543,6 @@ func (j *jsiiProxy_CfnConnectAttachment) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::NetworkManager::ConnectAttachment`.
 func NewCfnConnectAttachment(scope constructs.Construct, id *string, props *CfnConnectAttachmentProps) CfnConnectAttachment {
 	_init_.Initialize()
 
@@ -546,7 +560,6 @@ func NewCfnConnectAttachment(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::ConnectAttachment`.
 func NewCfnConnectAttachment_Override(c CfnConnectAttachment, scope constructs.Construct, id *string, props *CfnConnectAttachmentProps) {
 	_init_.Initialize()
 
@@ -597,6 +610,17 @@ func (j *jsiiProxy_CfnConnectAttachment)SetProposedSegmentChange(val interface{}
 	_jsii_.Set(
 		j,
 		"proposedSegmentChange",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnectAttachment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AutoScalingPlans::ScalingPlan`.
+// The `AWS::AutoScalingPlans::ScalingPlan` resource defines an AWS Auto Scaling scaling plan.
 //
-// The `AWS::AutoScalingPlans::ScalingPlan` resource defines an AWS Auto Scaling scaling plan. A scaling plan is used to scale application resources to size them appropriately to ensure that enough resource is available in the application at peak times and to reduce allocated resource during periods of low utilization. The following resources can be added to a scaling plan:
+// A scaling plan is used to scale application resources to size them appropriately to ensure that enough resource is available in the application at peak times and to reduce allocated resource during periods of low utilization. The following resources can be added to a scaling plan:
 //
 // - Amazon EC2 Auto Scaling groups
 // - Amazon EC2 Spot Fleet requests
@@ -110,14 +110,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html
+//
 type CfnScalingPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// A CloudFormation stack or a set of tags.
-	//
-	// You can create one scaling plan per application source. The `ApplicationSource` property must be present to ensure interoperability with the AWS Auto Scaling console.
 	ApplicationSource() interface{}
 	SetApplicationSource(val interface{})
+	AttrId() *string
 	AttrScalingPlanName() *string
 	AttrScalingPlanVersion() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -309,6 +310,16 @@ func (j *jsiiProxy_CfnScalingPlan) ApplicationSource() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScalingPlan) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScalingPlan) AttrScalingPlanName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -440,7 +451,6 @@ func (j *jsiiProxy_CfnScalingPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AutoScalingPlans::ScalingPlan`.
 func NewCfnScalingPlan(scope constructs.Construct, id *string, props *CfnScalingPlanProps) CfnScalingPlan {
 	_init_.Initialize()
 
@@ -458,7 +468,6 @@ func NewCfnScalingPlan(scope constructs.Construct, id *string, props *CfnScaling
 	return &j
 }
 
-// Create a new `AWS::AutoScalingPlans::ScalingPlan`.
 func NewCfnScalingPlan_Override(c CfnScalingPlan, scope constructs.Construct, id *string, props *CfnScalingPlanProps) {
 	_init_.Initialize()
 

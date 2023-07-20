@@ -12,10 +12,14 @@ package awsiot
 //   	SecurityPolicy: jsii.String("securityPolicy"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-tlsconfig.html
+//
 type CfnDomainConfiguration_TlsConfigProperty struct {
 	// The security policy for a domain configuration.
 	//
 	// For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-tlsconfig.html#cfn-iot-domainconfiguration-tlsconfig-securitypolicy
+	//
 	SecurityPolicy *string `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 }
 

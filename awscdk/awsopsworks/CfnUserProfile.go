@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpsWorks::UserProfile`.
-//
 // Describes a user's SSH information.
 //
 // Example:
@@ -27,14 +25,15 @@ import (
 //   	SshUsername: jsii.String("sshUsername"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html
+//
 type CfnUserProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Whether users can specify their own SSH public key through the My Settings page.
-	//
-	// For more information, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html) .
 	AllowSelfManagement() interface{}
 	SetAllowSelfManagement(val interface{})
+	AttrId() *string
 	// The user's SSH user name, as a string.
 	AttrSshUsername() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -232,6 +231,16 @@ func (j *jsiiProxy_CfnUserProfile) AllowSelfManagement() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserProfile) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserProfile) AttrSshUsername() *string {
 	var returns *string
 	_jsii_.Get(
@@ -373,7 +382,6 @@ func (j *jsiiProxy_CfnUserProfile) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::OpsWorks::UserProfile`.
 func NewCfnUserProfile(scope constructs.Construct, id *string, props *CfnUserProfileProps) CfnUserProfile {
 	_init_.Initialize()
 
@@ -391,7 +399,6 @@ func NewCfnUserProfile(scope constructs.Construct, id *string, props *CfnUserPro
 	return &j
 }
 
-// Create a new `AWS::OpsWorks::UserProfile`.
 func NewCfnUserProfile_Override(c CfnUserProfile, scope constructs.Construct, id *string, props *CfnUserProfileProps) {
 	_init_.Initialize()
 

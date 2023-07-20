@@ -18,8 +18,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableinlinevisualization.html
+//
 type CfnTemplate_TableInlineVisualizationProperty struct {
 	// The configuration of the inline visualization of the data bars within a chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableinlinevisualization.html#cfn-quicksight-template-tableinlinevisualization-databars
+	//
 	DataBars interface{} `field:"optional" json:"dataBars" yaml:"dataBars"`
 }
 

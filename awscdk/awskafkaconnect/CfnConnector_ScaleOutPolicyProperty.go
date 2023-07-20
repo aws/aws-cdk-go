@@ -12,8 +12,12 @@ package awskafkaconnect
 //   	CpuUtilizationPercentage: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleoutpolicy.html
+//
 type CfnConnector_ScaleOutPolicyProperty struct {
 	// The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleoutpolicy.html#cfn-kafkaconnect-connector-scaleoutpolicy-cpuutilizationpercentage
+	//
 	CpuUtilizationPercentage *float64 `field:"required" json:"cpuUtilizationPercentage" yaml:"cpuUtilizationPercentage"`
 }
 

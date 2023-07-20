@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnPackagingConfiguration) validateSetPackagingGroupIdParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnPackagingConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPackagingConfigurationParameters(scope constructs.Construct, id *string, props *CfnPackagingConfigurationProps) error {
 	return nil
 }

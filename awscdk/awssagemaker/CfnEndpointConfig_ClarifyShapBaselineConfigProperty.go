@@ -12,12 +12,17 @@ package awssagemaker
 //   	ShapBaselineUri: jsii.String("shapBaselineUri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapbaselineconfig.html
+//
 type CfnEndpointConfig_ClarifyShapBaselineConfigProperty struct {
-	// `CfnEndpointConfig.ClarifyShapBaselineConfigProperty.MimeType`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapbaselineconfig.html#cfn-sagemaker-endpointconfig-clarifyshapbaselineconfig-mimetype
+	//
 	MimeType *string `field:"optional" json:"mimeType" yaml:"mimeType"`
-	// `CfnEndpointConfig.ClarifyShapBaselineConfigProperty.ShapBaseline`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapbaselineconfig.html#cfn-sagemaker-endpointconfig-clarifyshapbaselineconfig-shapbaseline
+	//
 	ShapBaseline *string `field:"optional" json:"shapBaseline" yaml:"shapBaseline"`
-	// `CfnEndpointConfig.ClarifyShapBaselineConfigProperty.ShapBaselineUri`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapbaselineconfig.html#cfn-sagemaker-endpointconfig-clarifyshapbaselineconfig-shapbaselineuri
+	//
 	ShapBaselineUri *string `field:"optional" json:"shapBaselineUri" yaml:"shapBaselineUri"`
 }
 

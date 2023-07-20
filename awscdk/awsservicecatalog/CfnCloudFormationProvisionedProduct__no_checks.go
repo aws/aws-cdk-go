@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) validateSetProvisioningP
 	return nil
 }
 
+func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCloudFormationProvisionedProductParameters(scope constructs.Construct, id *string, props *CfnCloudFormationProvisionedProductProps) error {
 	return nil
 }

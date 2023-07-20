@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnDashboard) validateSetSourceEntityParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnDashboard) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDashboardParameters(scope constructs.Construct, id *string, props *CfnDashboardProps) error {
 	return nil
 }

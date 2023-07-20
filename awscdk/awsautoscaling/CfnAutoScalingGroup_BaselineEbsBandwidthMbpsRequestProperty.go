@@ -13,10 +13,16 @@ package awsautoscaling
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html
+//
 type CfnAutoScalingGroup_BaselineEbsBandwidthMbpsRequestProperty struct {
 	// The maximum value in Mbps.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html#cfn-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum value in Mbps.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html#cfn-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

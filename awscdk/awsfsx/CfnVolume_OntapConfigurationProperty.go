@@ -25,20 +25,30 @@ package awsfsx
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html
+//
 type CfnVolume_OntapConfigurationProperty struct {
 	// Specifies the size of the volume, in megabytes (MB), that you are creating.
 	//
 	// Provide any whole number in the range of 20–104857600 to specify the size of the volume.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-sizeinmegabytes
+	//
 	SizeInMegabytes *string `field:"required" json:"sizeInMegabytes" yaml:"sizeInMegabytes"`
 	// Specifies the ONTAP SVM in which to create the volume.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-storagevirtualmachineid
+	//
 	StorageVirtualMachineId *string `field:"required" json:"storageVirtualMachineId" yaml:"storageVirtualMachineId"`
 	// A boolean flag indicating whether tags for the volume should be copied to backups.
 	//
 	// This value defaults to false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the volume, regardless of this value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-copytagstobackups
+	//
 	CopyTagsToBackups *string `field:"optional" json:"copyTagsToBackups" yaml:"copyTagsToBackups"`
 	// Specifies the location in the SVM's namespace where the volume is mounted.
 	//
 	// This parameter is required. The `JunctionPath` must have a leading forward slash, such as `/vol3` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-junctionpath
+	//
 	JunctionPath *string `field:"optional" json:"junctionPath" yaml:"junctionPath"`
 	// Specifies the type of volume you are creating. Valid values are the following:.
 	//
@@ -46,6 +56,8 @@ type CfnVolume_OntapConfigurationProperty struct {
 	// - `DP` specifies a data-protection volume. A `DP` volume is read-only and can be used as the destination of a NetApp SnapMirror relationship.
 	//
 	// For more information, see [Volume types](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types) in the *Amazon FSx for NetApp ONTAP User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-ontapvolumetype
+	//
 	OntapVolumeType *string `field:"optional" json:"ontapVolumeType" yaml:"ontapVolumeType"`
 	// Specifies the security style for the volume.
 	//
@@ -54,6 +66,8 @@ type CfnVolume_OntapConfigurationProperty struct {
 	// - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
 	// - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
 	// - `MIXED` if the file system is managed by both UNIX and Windows administrators and users consist of both NFS and SMB clients.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-securitystyle
+	//
 	SecurityStyle *string `field:"optional" json:"securityStyle" yaml:"securityStyle"`
 	// Specifies the snapshot policy for the volume. There are three built-in snapshot policies:.
 	//
@@ -64,10 +78,14 @@ type CfnVolume_OntapConfigurationProperty struct {
 	// You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.
 	//
 	// For more information, see [Snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the *Amazon FSx for NetApp ONTAP User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-snapshotpolicy
+	//
 	SnapshotPolicy *string `field:"optional" json:"snapshotPolicy" yaml:"snapshotPolicy"`
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
 	//
 	// This parameter is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-storageefficiencyenabled
+	//
 	StorageEfficiencyEnabled *string `field:"optional" json:"storageEfficiencyEnabled" yaml:"storageEfficiencyEnabled"`
 	// Describes the data tiering policy for an ONTAP volume.
 	//
@@ -82,6 +100,8 @@ type CfnVolume_OntapConfigurationProperty struct {
 	// - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
 	//
 	// - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-tieringpolicy
+	//
 	TieringPolicy interface{} `field:"optional" json:"tieringPolicy" yaml:"tieringPolicy"`
 }
 

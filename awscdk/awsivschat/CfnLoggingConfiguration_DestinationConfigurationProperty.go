@@ -22,12 +22,20 @@ package awsivschat
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html
+//
 type CfnLoggingConfiguration_DestinationConfigurationProperty struct {
 	// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration-cloudwatchlogs
+	//
 	CloudWatchLogs interface{} `field:"optional" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
 	// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration-firehose
+	//
 	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
 	// An Amazon S3 destination configuration where chat activity will be logged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration-s3
+	//
 	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 }
 

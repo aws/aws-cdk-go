@@ -17,16 +17,24 @@ package awsiot
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html
+//
 type CfnJobTemplate_ExponentialRolloutRateProperty struct {
 	// The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
 	//
 	// This parameter allows you to define the initial rate of rollout.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html#cfn-iot-jobtemplate-exponentialrolloutrate-baserateperminute
+	//
 	BaseRatePerMinute *float64 `field:"required" json:"baseRatePerMinute" yaml:"baseRatePerMinute"`
 	// The exponential factor to increase the rate of rollout for a job.
 	//
 	// AWS IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html#cfn-iot-jobtemplate-exponentialrolloutrate-incrementfactor
+	//
 	IncrementFactor *float64 `field:"required" json:"incrementFactor" yaml:"incrementFactor"`
 	// The criteria to initiate the increase in rate of rollout for a job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html#cfn-iot-jobtemplate-exponentialrolloutrate-rateincreasecriteria
+	//
 	RateIncreaseCriteria interface{} `field:"required" json:"rateIncreaseCriteria" yaml:"rateIncreaseCriteria"`
 }
 

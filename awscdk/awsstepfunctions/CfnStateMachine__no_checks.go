@@ -80,10 +80,6 @@ func validateCfnStateMachine_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionS3LocationParameters(val interface{}) error {
 	return nil
 }
@@ -97,6 +93,10 @@ func (j *jsiiProxy_CfnStateMachine) validateSetLoggingConfigurationParameters(va
 }
 
 func (j *jsiiProxy_CfnStateMachine) validateSetRoleArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnStateMachine) validateSetTagsRawParameters(val *[]*CfnStateMachine_TagsEntryProperty) error {
 	return nil
 }
 

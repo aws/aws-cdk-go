@@ -52,10 +52,16 @@ package awsacmpca
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
+//
 type CfnCertificateAuthority_AccessDescriptionProperty struct {
 	// The location of `AccessDescription` information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
+	//
 	AccessLocation interface{} `field:"required" json:"accessLocation" yaml:"accessLocation"`
 	// The type and format of `AccessDescription` information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
+	//
 	AccessMethod interface{} `field:"required" json:"accessMethod" yaml:"accessMethod"`
 }
 

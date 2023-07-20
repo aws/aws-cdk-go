@@ -29,8 +29,12 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html
+//
 type CfnScheduledAuditProps struct {
 	// How often the scheduled audit occurs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-frequency
+	//
 	Frequency *string `field:"required" json:"frequency" yaml:"frequency"`
 	// Which checks are performed during the scheduled audit.
 	//
@@ -52,16 +56,26 @@ type CfnScheduledAuditProps struct {
 	// - `REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK`
 	// - `REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK`
 	// - `UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-targetchecknames
+	//
 	TargetCheckNames *[]*string `field:"required" json:"targetCheckNames" yaml:"targetCheckNames"`
 	// The day of the month on which the scheduled audit is run (if the `frequency` is "MONTHLY").
 	//
 	// If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofmonth
+	//
 	DayOfMonth *string `field:"optional" json:"dayOfMonth" yaml:"dayOfMonth"`
 	// The day of the week on which the scheduled audit is run (if the `frequency` is "WEEKLY" or "BIWEEKLY").
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofweek
+	//
 	DayOfWeek *string `field:"optional" json:"dayOfWeek" yaml:"dayOfWeek"`
 	// The name of the scheduled audit.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-scheduledauditname
+	//
 	ScheduledAuditName *string `field:"optional" json:"scheduledAuditName" yaml:"scheduledAuditName"`
 	// Metadata that can be used to manage the scheduled audit.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

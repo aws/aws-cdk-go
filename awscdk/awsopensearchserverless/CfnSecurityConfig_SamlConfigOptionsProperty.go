@@ -17,16 +17,26 @@ package awsopensearchserverless
 //   	UserAttribute: jsii.String("userAttribute"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html
+//
 type CfnSecurityConfig_SamlConfigOptionsProperty struct {
 	// The XML IdP metadata file generated from your identity provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-metadata
+	//
 	Metadata *string `field:"required" json:"metadata" yaml:"metadata"`
 	// The group attribute for this SAML integration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-groupattribute
+	//
 	GroupAttribute *string `field:"optional" json:"groupAttribute" yaml:"groupAttribute"`
 	// The session timeout, in minutes.
 	//
 	// Default is 60 minutes (12 hours).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-sessiontimeout
+	//
 	SessionTimeout *float64 `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 	// A user attribute for this SAML integration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-userattribute
+	//
 	UserAttribute *string `field:"optional" json:"userAttribute" yaml:"userAttribute"`
 }
 

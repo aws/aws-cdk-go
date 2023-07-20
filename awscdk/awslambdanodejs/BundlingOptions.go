@@ -22,6 +22,10 @@ type BundlingOptions struct {
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// Docker [Networking options](https://docs.docker.com/engine/reference/commandline/run/#connect-a-container-to-a-network---network).
 	Network *string `field:"optional" json:"network" yaml:"network"`
+	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
+	//
+	// Example value: `linux/amd64`.
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
 	SecurityOpt *string `field:"optional" json:"securityOpt" yaml:"securityOpt"`
 	// The user to use when running the container.
@@ -79,7 +83,7 @@ type BundlingOptions struct {
 	// it should also have `npm`, `yarn` or `pnpm` depending on the lock file you're using.
 	//
 	// See https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-lambda-nodejs/lib/Dockerfile
-	// for the default image provided by @aws-cdk/aws-lambda-nodejs.
+	// for the default image provided by.
 	DockerImage awscdk.DockerImage `field:"optional" json:"dockerImage" yaml:"dockerImage"`
 	// Build arguments to pass into esbuild.
 	//

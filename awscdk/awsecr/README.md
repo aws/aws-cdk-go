@@ -13,7 +13,10 @@ repository := ecr.NewRepository(this, jsii.String("Repository"))
 
 ## Image scanning
 
-Amazon ECR image scanning helps in identifying software vulnerabilities in your container images. You can manually scan container images stored in Amazon ECR, or you can configure your repositories to scan images when you push them to a repository. To create a new repository to scan on push, simply enable `imageScanOnPush` in the properties
+Amazon ECR image scanning helps in identifying software vulnerabilities in your container images.
+You can manually scan container images stored in Amazon ECR, or you can configure your repositories
+to scan images when you push them to a repository. To create a new repository to scan on push, simply
+enable `imageScanOnPush` in the properties.
 
 ```go
 repository := ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
@@ -76,11 +79,13 @@ The grantPush method grants the specified IAM entity (the grantee) permission to
 Here is an example of granting a user push permissions:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+var repository repository
+
+
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("codebuild.amazonaws.com")),
 })
-repository.grantPush(role)
+repository.GrantPush(role)
 ```
 
 #### grantPull
@@ -93,11 +98,13 @@ The grantPull method grants the specified IAM entity (the grantee) permission to
 * 'ecr:GetAuthorizationToken'
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+var repository repository
+
+
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("codebuild.amazonaws.com")),
 })
-repository.grantPull(role)
+repository.GrantPull(role)
 ```
 
 #### grantPullPush
@@ -107,11 +114,13 @@ The grantPullPush method grants the specified IAM entity (the grantee) permissio
 Here is an example of granting a user both pull and push permissions:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+var repository repository
+
+
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("codebuild.amazonaws.com")),
 })
-repository.grantPullPush(role)
+repository.GrantPullPush(role)
 ```
 
 By using these methods, you can grant specific operational permissions on the ECR repository to IAM entities. This allows for proper management of access to the repository and ensures security.

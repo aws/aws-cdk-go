@@ -13,10 +13,16 @@ package awsacmpca
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-customattribute.html
+//
 type CfnCertificate_CustomAttributeProperty struct {
 	// Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-customattribute.html#cfn-acmpca-certificate-customattribute-objectidentifier
+	//
 	ObjectIdentifier *string `field:"required" json:"objectIdentifier" yaml:"objectIdentifier"`
 	// Specifies the attribute value of relative distinguished name (RDN).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-customattribute.html#cfn-acmpca-certificate-customattribute-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

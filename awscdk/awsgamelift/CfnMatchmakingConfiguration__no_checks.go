@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) validateSetRuleSetNameParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnMatchmakingConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMatchmakingConfigurationParameters(scope constructs.Construct, id *string, props *CfnMatchmakingConfigurationProps) error {
 	return nil
 }

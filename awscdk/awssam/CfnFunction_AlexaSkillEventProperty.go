@@ -12,8 +12,11 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-alexaskillevent.html
+//
 type CfnFunction_AlexaSkillEventProperty struct {
-	// `CfnFunction.AlexaSkillEventProperty.Variables`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-alexaskillevent.html#cfn-serverless-function-alexaskillevent-variables
+	//
 	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 

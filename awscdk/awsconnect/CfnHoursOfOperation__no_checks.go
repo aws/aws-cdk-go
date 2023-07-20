@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnHoursOfOperation) validateSetNameParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnHoursOfOperation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnHoursOfOperation) validateSetTimeZoneParameters(val *string) error {
 	return nil
 }

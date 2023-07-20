@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudTrail::EventDataStore`.
-//
 // Creates a new event data store.
 //
 // Example:
@@ -66,18 +64,13 @@ import (
 //   	TerminationProtectionEnabled: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html
+//
 type CfnEventDataStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The advanced event selectors to use to select the events for the data store.
-	//
-	// You can configure up to five advanced event selectors for each event data store.
-	//
-	// For more information about how to use advanced event selectors to log CloudTrail events, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
-	//
-	// For more information about how to use advanced event selectors to include AWS Config configuration items in your event data store, see [Create an event data store for AWS Config configuration items](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-eds-config) in the CloudTrail User Guide.
-	//
-	// For more information about how to use advanced event selectors to include non- AWS events in your event data store, see [Create an integration to log events from outside AWS](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-integration) in the CloudTrail User Guide.
 	AdvancedEventSelectors() interface{}
 	SetAdvancedEventSelectors(val interface{})
 	// `Ref` returns the time stamp of the creation of the event data store, such as `1248496624` .
@@ -98,24 +91,9 @@ type CfnEventDataStore interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specifies whether the event data store should start ingesting live events.
-	//
-	// The default is true.
 	IngestionEnabled() interface{}
 	SetIngestionEnabled(val interface{})
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail.
-	//
-	// The value can be an alias name prefixed by `alias/` , a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-	//
-	// > Disabling or deleting the KMS key, or removing CloudTrail permissions on the key, prevents CloudTrail from logging events to the event data store, and prevents users from querying the data in the event data store that was encrypted with the key. After you associate an event data store with a KMS key, the KMS key cannot be removed or changed. Before you disable or delete a KMS key that you are using with an event data store, delete or back up your event data store.
-	//
-	// CloudTrail also supports AWS KMS multi-Region keys. For more information about multi-Region keys, see [Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide* .
-	//
-	// Examples:
-	//
-	// - `alias/MyAliasName`
-	// - `arn:aws:kms:us-east-2:123456789012:alias/MyAliasName`
-	// - `arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012`
-	// - `12345678-1234-1234-1234-123456789012`.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -145,19 +123,18 @@ type CfnEventDataStore interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The retention period of the event data store, in days.
-	//
-	// You can set a retention period of up to 2557 days, the equivalent of seven years.
 	RetentionPeriod() *float64
 	SetRetentionPeriod(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Specifies whether termination protection is enabled for the event data store.
-	//
-	// If termination protection is enabled, you cannot delete the event data store until termination protection is disabled.
 	TerminationProtectionEnabled() interface{}
 	SetTerminationProtectionEnabled(val interface{})
 	// Deprecated.
@@ -304,6 +281,7 @@ type CfnEventDataStore interface {
 type jsiiProxy_CfnEventDataStore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEventDataStore) AdvancedEventSelectors() interface{} {
@@ -506,6 +484,16 @@ func (j *jsiiProxy_CfnEventDataStore) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventDataStore) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventDataStore) TerminationProtectionEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -537,7 +525,6 @@ func (j *jsiiProxy_CfnEventDataStore) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::CloudTrail::EventDataStore`.
 func NewCfnEventDataStore(scope constructs.Construct, id *string, props *CfnEventDataStoreProps) CfnEventDataStore {
 	_init_.Initialize()
 
@@ -555,7 +542,6 @@ func NewCfnEventDataStore(scope constructs.Construct, id *string, props *CfnEven
 	return &j
 }
 
-// Create a new `AWS::CloudTrail::EventDataStore`.
 func NewCfnEventDataStore_Override(c CfnEventDataStore, scope constructs.Construct, id *string, props *CfnEventDataStoreProps) {
 	_init_.Initialize()
 
@@ -630,6 +616,17 @@ func (j *jsiiProxy_CfnEventDataStore)SetRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"retentionPeriod",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventDataStore)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

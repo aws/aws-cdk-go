@@ -17,6 +17,8 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-donutoptions.html
+//
 type CfnDashboard_DonutOptionsProperty struct {
 	// The option for define the arc of the chart shape. Valid values are as follows:.
 	//
@@ -24,10 +26,14 @@ type CfnDashboard_DonutOptionsProperty struct {
 	// - `SMALL` - A small-sized donut chart
 	// - `MEDIUM` - A medium-sized donut chart
 	// - `LARGE` - A large-sized donut chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-donutoptions.html#cfn-quicksight-dashboard-donutoptions-arcoptions
+	//
 	ArcOptions interface{} `field:"optional" json:"arcOptions" yaml:"arcOptions"`
 	// The label options of the label that is displayed in the center of a donut chart.
 	//
 	// This option isn't available for pie charts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-donutoptions.html#cfn-quicksight-dashboard-donutoptions-donutcenteroptions
+	//
 	DonutCenterOptions interface{} `field:"optional" json:"donutCenterOptions" yaml:"donutCenterOptions"`
 }
 

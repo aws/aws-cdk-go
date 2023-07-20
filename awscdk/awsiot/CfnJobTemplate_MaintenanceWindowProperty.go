@@ -13,10 +13,16 @@ package awsiot
 //   	StartTime: jsii.String("startTime"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html
+//
 type CfnJobTemplate_MaintenanceWindowProperty struct {
 	// Displays the duration of the next maintenance window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html#cfn-iot-jobtemplate-maintenancewindow-durationinminutes
+	//
 	DurationInMinutes *float64 `field:"optional" json:"durationInMinutes" yaml:"durationInMinutes"`
 	// Displays the start time of the next maintenance window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html#cfn-iot-jobtemplate-maintenancewindow-starttime
+	//
 	StartTime *string `field:"optional" json:"startTime" yaml:"startTime"`
 }
 

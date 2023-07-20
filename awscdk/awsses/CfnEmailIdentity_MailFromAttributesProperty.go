@@ -13,6 +13,8 @@ package awsses
 //   	MailFromDomain: jsii.String("mailFromDomain"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-mailfromattributes.html
+//
 type CfnEmailIdentity_MailFromAttributesProperty struct {
 	// The action to take if the required MX record isn't found when you send an email.
 	//
@@ -21,6 +23,8 @@ type CfnEmailIdentity_MailFromAttributesProperty struct {
 	// These behaviors are taken when the custom MAIL FROM domain configuration is in the `Pending` , `Failed` , and `TemporaryFailure` states.
 	//
 	// Valid Values: `USE_DEFAULT_VALUE | REJECT_MESSAGE`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-mailfromattributes.html#cfn-ses-emailidentity-mailfromattributes-behavioronmxfailure
+	//
 	BehaviorOnMxFailure *string `field:"optional" json:"behaviorOnMxFailure" yaml:"behaviorOnMxFailure"`
 	// The custom MAIL FROM domain that you want the verified identity to use.
 	//
@@ -29,6 +33,8 @@ type CfnEmailIdentity_MailFromAttributesProperty struct {
 	// - It has to be a subdomain of the verified identity.
 	// - It can't be used to receive email.
 	// - It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback forwarding emails.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-mailfromattributes.html#cfn-ses-emailidentity-mailfromattributes-mailfromdomain
+	//
 	MailFromDomain *string `field:"optional" json:"mailFromDomain" yaml:"mailFromDomain"`
 }
 

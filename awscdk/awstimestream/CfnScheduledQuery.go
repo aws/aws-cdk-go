@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Timestream::ScheduledQuery`.
+// Create a scheduled query that will be run on your behalf at the configured schedule.
 //
-// Create a scheduled query that will be run on your behalf at the configured schedule. Timestream assumes the execution role provided as part of the `ScheduledQueryExecutionRoleArn` parameter to run the query. You can use the `NotificationConfiguration` parameter to configure notification for your scheduled query operations.
+// Timestream assumes the execution role provided as part of the `ScheduledQueryExecutionRoleArn` parameter to run the query. You can use the `NotificationConfiguration` parameter to configure notification for your scheduled query operations.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -100,9 +100,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-scheduledquery.html
+//
 type CfnScheduledQuery interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The `ARN` of the scheduled query.
 	AttrArn() *string
 	// The scheduled query error reporting configuration.
@@ -127,11 +130,6 @@ type CfnScheduledQuery interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result.
-	//
-	// Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
-	//
-	// - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
-	// - After 8 hours, any request with the same `ClientToken` is treated as a new request.
 	ClientToken() *string
 	SetClientToken(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -139,15 +137,9 @@ type CfnScheduledQuery interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Configuration for error reporting.
-	//
-	// Error reports will be generated when a problem is encountered when writing the query results.
 	ErrorReportConfiguration() interface{}
 	SetErrorReportConfiguration(val interface{})
 	// The Amazon KMS key used to encrypt the scheduled query resource, at-rest.
-	//
-	// If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
-	//
-	// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -163,15 +155,9 @@ type CfnScheduledQuery interface {
 	// The tree node.
 	Node() constructs.Node
 	// Notification configuration for the scheduled query.
-	//
-	// A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
 	NotificationConfiguration() interface{}
 	SetNotificationConfiguration(val interface{})
 	// The query string to run.
-	//
-	// Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
-	//
-	// The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString() *string
 	SetQueryString(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -186,16 +172,17 @@ type CfnScheduledQuery interface {
 	ScheduledQueryExecutionRoleArn() *string
 	SetScheduledQueryExecutionRoleArn(val *string)
 	// A name for the query.
-	//
-	// Scheduled query names must be unique within each Region.
 	ScheduledQueryName() *string
 	SetScheduledQueryName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs to label the scheduled query.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs to label the scheduled query.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Scheduled query target store configuration.
 	TargetConfiguration() interface{}
 	SetTargetConfiguration(val interface{})
@@ -343,6 +330,7 @@ type CfnScheduledQuery interface {
 type jsiiProxy_CfnScheduledQuery struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnScheduledQuery) AttrArn() *string {
@@ -605,6 +593,16 @@ func (j *jsiiProxy_CfnScheduledQuery) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScheduledQuery) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScheduledQuery) TargetConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -636,7 +634,6 @@ func (j *jsiiProxy_CfnScheduledQuery) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Timestream::ScheduledQuery`.
 func NewCfnScheduledQuery(scope constructs.Construct, id *string, props *CfnScheduledQueryProps) CfnScheduledQuery {
 	_init_.Initialize()
 
@@ -654,7 +651,6 @@ func NewCfnScheduledQuery(scope constructs.Construct, id *string, props *CfnSche
 	return &j
 }
 
-// Create a new `AWS::Timestream::ScheduledQuery`.
 func NewCfnScheduledQuery_Override(c CfnScheduledQuery, scope constructs.Construct, id *string, props *CfnScheduledQueryProps) {
 	_init_.Initialize()
 
@@ -740,6 +736,17 @@ func (j *jsiiProxy_CfnScheduledQuery)SetScheduledQueryName(val *string) {
 	_jsii_.Set(
 		j,
 		"scheduledQueryName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledQuery)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

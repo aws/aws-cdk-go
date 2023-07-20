@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::MonitoringSubscription`.
+// A monitoring subscription.
 //
-// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+// This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,6 +26,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html
 //
 type CfnMonitoringSubscription interface {
 	awscdk.CfnResource
@@ -333,7 +335,6 @@ func (j *jsiiProxy_CfnMonitoringSubscription) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::CloudFront::MonitoringSubscription`.
 func NewCfnMonitoringSubscription(scope constructs.Construct, id *string, props *CfnMonitoringSubscriptionProps) CfnMonitoringSubscription {
 	_init_.Initialize()
 
@@ -351,7 +352,6 @@ func NewCfnMonitoringSubscription(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::CloudFront::MonitoringSubscription`.
 func NewCfnMonitoringSubscription_Override(c CfnMonitoringSubscription, scope constructs.Construct, id *string, props *CfnMonitoringSubscriptionProps) {
 	_init_.Initialize()
 

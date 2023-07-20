@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnTrustAnchor) validateSetSourceParameters(val interface{}) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrustAnchor) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnTrustAnchorParameters(scope constructs.Construct, id *string, props *CfnTrustAnchorProps) error {
 	return nil
 }

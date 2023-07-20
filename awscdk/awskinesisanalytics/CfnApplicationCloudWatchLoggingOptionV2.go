@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
-//
 // Adds an Amazon CloudWatch log stream to monitor application configuration errors.
 //
 // > Only one *ApplicationCloudWatchLoggingOption* resource can be attached per application.
@@ -27,12 +25,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html
+//
 type CfnApplicationCloudWatchLoggingOptionV2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The name of the application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -222,6 +223,16 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) ApplicationName() *s
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -333,7 +344,6 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) UpdatedProperties() 
 }
 
 
-// Create a new `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
 func NewCfnApplicationCloudWatchLoggingOptionV2(scope constructs.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionV2Props) CfnApplicationCloudWatchLoggingOptionV2 {
 	_init_.Initialize()
 
@@ -351,7 +361,6 @@ func NewCfnApplicationCloudWatchLoggingOptionV2(scope constructs.Construct, id *
 	return &j
 }
 
-// Create a new `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
 func NewCfnApplicationCloudWatchLoggingOptionV2_Override(c CfnApplicationCloudWatchLoggingOptionV2, scope constructs.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionV2Props) {
 	_init_.Initialize()
 

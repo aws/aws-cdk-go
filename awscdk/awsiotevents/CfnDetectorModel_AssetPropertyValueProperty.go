@@ -33,16 +33,24 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html
+//
 type CfnDetectorModel_AssetPropertyValueProperty struct {
 	// The value to send to an asset property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
+	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The quality of the asset property value.
 	//
 	// The value must be `'GOOD'` , `'BAD'` , or `'UNCERTAIN'` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality
+	//
 	Quality *string `field:"optional" json:"quality" yaml:"quality"`
 	// The timestamp associated with the asset property value.
 	//
 	// The default is the current event time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp
+	//
 	Timestamp interface{} `field:"optional" json:"timestamp" yaml:"timestamp"`
 }
 

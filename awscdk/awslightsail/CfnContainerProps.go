@@ -69,20 +69,32 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html
+//
 type CfnContainerProps struct {
 	// The power specification of the container service.
 	//
 	// The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-power
+	//
 	Power *string `field:"required" json:"power" yaml:"power"`
 	// The scale specification of the container service.
 	//
 	// The scale specifies the allocated compute nodes of the container service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-scale
+	//
 	Scale *float64 `field:"required" json:"scale" yaml:"scale"`
 	// The name of the container service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-servicename
+	//
 	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// An object that describes the current container deployment of the container service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-containerservicedeployment
+	//
 	ContainerServiceDeployment interface{} `field:"optional" json:"containerServiceDeployment" yaml:"containerServiceDeployment"`
 	// A Boolean value indicating whether the container service is disabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-isdisabled
+	//
 	IsDisabled interface{} `field:"optional" json:"isDisabled" yaml:"isDisabled"`
 	// The public domain name of the container service, such as `example.com` and `www.example.com` .
 	//
@@ -91,12 +103,16 @@ type CfnContainerProps struct {
 	// If you don't specify public domain names, then you can use the default domain of the container service.
 	//
 	// > You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the [AWS::Lightsail::Certificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html) resource to create a certificate for the public domain names that you want to use with your container service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-publicdomainnames
+	//
 	PublicDomainNames interface{} `field:"optional" json:"publicDomainNames" yaml:"publicDomainNames"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
 	//
 	// > The `Value` of `Tags` is optional for Lightsail resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

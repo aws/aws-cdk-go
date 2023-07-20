@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::PublicKey`.
-//
 // A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
 //
 // Example:
@@ -28,6 +26,8 @@ import (
 //   		Comment: jsii.String("comment"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
 //
 type CfnPublicKey interface {
 	awscdk.CfnResource
@@ -346,7 +346,6 @@ func (j *jsiiProxy_CfnPublicKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudFront::PublicKey`.
 func NewCfnPublicKey(scope constructs.Construct, id *string, props *CfnPublicKeyProps) CfnPublicKey {
 	_init_.Initialize()
 
@@ -364,7 +363,6 @@ func NewCfnPublicKey(scope constructs.Construct, id *string, props *CfnPublicKey
 	return &j
 }
 
-// Create a new `AWS::CloudFront::PublicKey`.
 func NewCfnPublicKey_Override(c CfnPublicKey, scope constructs.Construct, id *string, props *CfnPublicKeyProps) {
 	_init_.Initialize()
 

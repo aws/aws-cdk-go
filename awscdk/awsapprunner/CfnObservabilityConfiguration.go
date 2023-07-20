@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppRunner::ObservabilityConfiguration`.
-//
 // Specify an AWS App Runner observability configuration by using the `AWS::AppRunner::ObservabilityConfiguration` resource in an AWS CloudFormation template.
 //
 // The `AWS::AppRunner::ObservabilityConfiguration` resource is an AWS App Runner resource type that specifies an App Runner observability configuration.
@@ -39,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html
+//
 type CfnObservabilityConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// It's set to `true` for the configuration with the highest `Revision` among all configurations that share the same `ObservabilityConfigurationName` .
 	//
 	// It's set to `false` otherwise.
@@ -74,14 +75,6 @@ type CfnObservabilityConfiguration interface {
 	// The tree node.
 	Node() constructs.Node
 	// A name for the observability configuration.
-	//
-	// When you use it for the first time in an AWS Region , App Runner creates revision number `1` of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
-	//
-	// > The name `DefaultConfiguration` is reserved. You can't use it to create a new observability configuration, and you can't create a revision of it.
-	// >
-	// > When you want to use your own observability configuration for your App Runner service, *create a configuration with a different name* , and then provide it when you create or update your service.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a name for your observability configuration.
 	ObservabilityConfigurationName() *string
 	SetObservabilityConfigurationName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -93,13 +86,12 @@ type CfnObservabilityConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of metadata items that you can associate with your observability configuration resource.
-	//
-	// A tag is a key-value pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of metadata items that you can associate with your observability configuration resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The configuration of the tracing feature within this observability configuration.
-	//
-	// If you don't specify it, App Runner doesn't enable tracing.
 	TraceConfiguration() interface{}
 	SetTraceConfiguration(val interface{})
 	// Deprecated.
@@ -246,6 +238,7 @@ type CfnObservabilityConfiguration interface {
 type jsiiProxy_CfnObservabilityConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnObservabilityConfiguration) AttrLatest() awscdk.IResolvable {
@@ -378,6 +371,16 @@ func (j *jsiiProxy_CfnObservabilityConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnObservabilityConfiguration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnObservabilityConfiguration) TraceConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -409,7 +412,6 @@ func (j *jsiiProxy_CfnObservabilityConfiguration) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::AppRunner::ObservabilityConfiguration`.
 func NewCfnObservabilityConfiguration(scope constructs.Construct, id *string, props *CfnObservabilityConfigurationProps) CfnObservabilityConfiguration {
 	_init_.Initialize()
 
@@ -427,7 +429,6 @@ func NewCfnObservabilityConfiguration(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::AppRunner::ObservabilityConfiguration`.
 func NewCfnObservabilityConfiguration_Override(c CfnObservabilityConfiguration, scope constructs.Construct, id *string, props *CfnObservabilityConfigurationProps) {
 	_init_.Initialize()
 
@@ -442,6 +443,17 @@ func (j *jsiiProxy_CfnObservabilityConfiguration)SetObservabilityConfigurationNa
 	_jsii_.Set(
 		j,
 		"observabilityConfigurationName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnObservabilityConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::ContactList`.
-//
 // A list that contains contacts that have subscribed to a particular topic or topics.
 //
 // Example:
@@ -39,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html
+//
 type CfnContactList interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -78,11 +79,12 @@ type CfnContactList interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags associated with a contact list.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags associated with a contact list.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// An interest group, theme, or label within a list.
-	//
-	// A contact list can have multiple topics.
 	Topics() interface{}
 	SetTopics(val interface{})
 	// Deprecated.
@@ -229,6 +231,7 @@ type CfnContactList interface {
 type jsiiProxy_CfnContactList struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnContactList) CfnOptions() awscdk.ICfnResourceOptions {
@@ -341,6 +344,16 @@ func (j *jsiiProxy_CfnContactList) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContactList) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContactList) Topics() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -372,7 +385,6 @@ func (j *jsiiProxy_CfnContactList) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SES::ContactList`.
 func NewCfnContactList(scope constructs.Construct, id *string, props *CfnContactListProps) CfnContactList {
 	_init_.Initialize()
 
@@ -390,7 +402,6 @@ func NewCfnContactList(scope constructs.Construct, id *string, props *CfnContact
 	return &j
 }
 
-// Create a new `AWS::SES::ContactList`.
 func NewCfnContactList_Override(c CfnContactList, scope constructs.Construct, id *string, props *CfnContactListProps) {
 	_init_.Initialize()
 
@@ -413,6 +424,17 @@ func (j *jsiiProxy_CfnContactList)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContactList)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnCustomMetric) validateSetMetricTypeParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnCustomMetric) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCustomMetricParameters(scope constructs.Construct, id *string, props *CfnCustomMetricProps) error {
 	return nil
 }

@@ -12,10 +12,14 @@ package awsiot
 //   	Action: jsii.String("action"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html
+//
 type CfnMitigationAction_UpdateDeviceCertificateParamsProperty struct {
 	// The action that you want to apply to the device certificate.
 	//
 	// The only supported value is `DEACTIVATE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
+	//
 	Action *string `field:"required" json:"action" yaml:"action"`
 }
 

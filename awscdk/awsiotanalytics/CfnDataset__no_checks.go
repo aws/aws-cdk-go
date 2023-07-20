@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDataset) validateSetRetentionPeriodParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataset) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataset) validateSetTriggersParameters(val interface{}) error {
 	return nil
 }

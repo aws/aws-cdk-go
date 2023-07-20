@@ -17,14 +17,20 @@ package awsgreengrass
 //   	GroupPermission: jsii.String("groupPermission"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedownloadownersetting.html
+//
 type CfnResourceDefinitionVersion_ResourceDownloadOwnerSettingProperty struct {
 	// The group owner of the machine learning resource.
 	//
 	// This is the group ID (GID) of an existing Linux OS group on the system. The group's permissions are added to the Lambda process.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedownloadownersetting.html#cfn-greengrass-resourcedefinitionversion-resourcedownloadownersetting-groupowner
+	//
 	GroupOwner *string `field:"required" json:"groupOwner" yaml:"groupOwner"`
 	// The permissions that the group owner has to the machine learning resource.
 	//
 	// Valid values are `rw` (read-write) or `ro` (read-only).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedownloadownersetting.html#cfn-greengrass-resourcedefinitionversion-resourcedownloadownersetting-grouppermission
+	//
 	GroupPermission *string `field:"required" json:"groupPermission" yaml:"groupPermission"`
 }
 

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkUpdateParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnPartnerAccount) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPartnerAccountParameters(scope constructs.Construct, id *string, props *CfnPartnerAccountProps) error {
 	return nil
 }

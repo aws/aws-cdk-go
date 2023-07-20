@@ -13,12 +13,18 @@ package awsgroundstation
 //   	DataflowEndpointRegion: jsii.String("dataflowEndpointRegion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html
+//
 type CfnConfig_DataflowEndpointConfigProperty struct {
 	// The name of the dataflow endpoint to use during contacts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointname
+	//
 	DataflowEndpointName *string `field:"optional" json:"dataflowEndpointName" yaml:"dataflowEndpointName"`
 	// The region of the dataflow endpoint to use during contacts.
 	//
 	// When omitted, Ground Station will use the region of the contact.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointregion
+	//
 	DataflowEndpointRegion *string `field:"optional" json:"dataflowEndpointRegion" yaml:"dataflowEndpointRegion"`
 }
 

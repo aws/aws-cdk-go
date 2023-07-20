@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53RecoveryReadiness::RecoveryGroup`.
+// Creates a recovery group in Amazon Route 53 Application Recovery Controller.
 //
-// Creates a recovery group in Amazon Route 53 Application Recovery Controller. A recovery group represents your application. It typically consists of two or more cells that are replicas of each other in terms of resources and functionality, so that you can fail over from one to the other, for example, from one Region to another. You create recovery groups so you can use readiness checks to audit resources in your application.
+// A recovery group represents your application. It typically consists of two or more cells that are replicas of each other in terms of resources and functionality, so that you can fail over from one to the other, for example, from one Region to another. You create recovery groups so you can use readiness checks to audit resources in your application.
 //
 // For more information, see [Readiness checks, resource sets, and readiness scopes](https://docs.aws.amazon.com/r53recovery/latest/dg/recovery-readiness.recovery-groups.readiness-scope.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
 //
@@ -35,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html
+//
 type CfnRecoveryGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the recovery group.
 	AttrRecoveryGroupArn() *string
 	// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
@@ -76,8 +79,11 @@ type CfnRecoveryGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of tags associated with a resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A collection of tags associated with a resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -222,6 +228,7 @@ type CfnRecoveryGroup interface {
 type jsiiProxy_CfnRecoveryGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRecoveryGroup) AttrRecoveryGroupArn() *string {
@@ -344,6 +351,16 @@ func (j *jsiiProxy_CfnRecoveryGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRecoveryGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRecoveryGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -365,7 +382,6 @@ func (j *jsiiProxy_CfnRecoveryGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Route53RecoveryReadiness::RecoveryGroup`.
 func NewCfnRecoveryGroup(scope constructs.Construct, id *string, props *CfnRecoveryGroupProps) CfnRecoveryGroup {
 	_init_.Initialize()
 
@@ -383,7 +399,6 @@ func NewCfnRecoveryGroup(scope constructs.Construct, id *string, props *CfnRecov
 	return &j
 }
 
-// Create a new `AWS::Route53RecoveryReadiness::RecoveryGroup`.
 func NewCfnRecoveryGroup_Override(c CfnRecoveryGroup, scope constructs.Construct, id *string, props *CfnRecoveryGroupProps) {
 	_init_.Initialize()
 
@@ -406,6 +421,17 @@ func (j *jsiiProxy_CfnRecoveryGroup)SetRecoveryGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"recoveryGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRecoveryGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

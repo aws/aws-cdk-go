@@ -11,10 +11,14 @@ package awssam
 //   	SemanticVersion: jsii.String("semanticVersion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-application-applicationlocation.html
+//
 type CfnApplication_ApplicationLocationProperty struct {
-	// `CfnApplication.ApplicationLocationProperty.ApplicationId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-application-applicationlocation.html#cfn-serverless-application-applicationlocation-applicationid
+	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
-	// `CfnApplication.ApplicationLocationProperty.SemanticVersion`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-application-applicationlocation.html#cfn-serverless-application-applicationlocation-semanticversion
+	//
 	SemanticVersion *string `field:"required" json:"semanticVersion" yaml:"semanticVersion"`
 }
 

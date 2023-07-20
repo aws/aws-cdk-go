@@ -17,6 +17,8 @@ package awsbackup
 //   	ResourceType: jsii.String("resourceType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
+//
 type CfnBackupPlan_AdvancedBackupSettingResourceTypeProperty struct {
 	// The backup option for the resource.
 	//
@@ -31,10 +33,14 @@ type CfnBackupPlan_AdvancedBackupSettingResourceTypeProperty struct {
 	// If you specify an invalid option, you get an `InvalidParameterValueException` exception.
 	//
 	// For more information about Windows VSS backups, see [Creating a VSS-Enabled Windows Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
+	//
 	BackupOptions interface{} `field:"required" json:"backupOptions" yaml:"backupOptions"`
 	// The name of a resource type.
 	//
 	// The only supported resource type is EC2.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
+	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 }
 

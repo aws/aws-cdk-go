@@ -20,8 +20,12 @@ package awspipes
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filtercriteria.html
+//
 type CfnPipe_FilterCriteriaProperty struct {
 	// The event patterns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filtercriteria.html#cfn-pipes-pipe-filtercriteria-filters
+	//
 	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
 }
 

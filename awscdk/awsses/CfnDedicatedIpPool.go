@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::DedicatedIpPool`.
+// Create a new pool of dedicated IP addresses.
 //
-// Create a new pool of dedicated IP addresses. A pool can include one or more dedicated IP addresses that are associated with your AWS account . You can associate a pool with a configuration set. When you send an email that uses that configuration set, the message is sent from one of the addresses in the associated pool.
+// A pool can include one or more dedicated IP addresses that are associated with your AWS account . You can associate a pool with a configuration set. When you send an email that uses that configuration set, the message is sent from one of the addresses in the associated pool.
 //
 // > You can't delete dedicated IP pools that have a `STANDARD` scaling mode with one or more dedicated IP addresses. This constraint doesn't apply to dedicated IP pools that have a `MANAGED` scaling mode.
 //
@@ -24,6 +24,8 @@ import (
 //   	PoolName: jsii.String("poolName"),
 //   	ScalingMode: jsii.String("scalingMode"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html
 //
 type CfnDedicatedIpPool interface {
 	awscdk.CfnResource
@@ -58,15 +60,6 @@ type CfnDedicatedIpPool interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The type of scaling mode.
-	//
-	// The following options are available:
-	//
-	// - `STANDARD` - The customer controls which IPs are part of the dedicated IP pool.
-	// - `MANAGED` - The reputation and number of IPs are automatically managed by Amazon SES .
-	//
-	// The `STANDARD` option is selected by default if no value is specified.
-	//
-	// > Updating *ScalingMode* doesn't require a replacement if you're updating its value from `STANDARD` to `MANAGED` . However, updating *ScalingMode* from `MANAGED` to `STANDARD` is not supported.
 	ScalingMode() *string
 	SetScalingMode(val *string)
 	// The stack in which this element is defined.
@@ -340,7 +333,6 @@ func (j *jsiiProxy_CfnDedicatedIpPool) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::SES::DedicatedIpPool`.
 func NewCfnDedicatedIpPool(scope constructs.Construct, id *string, props *CfnDedicatedIpPoolProps) CfnDedicatedIpPool {
 	_init_.Initialize()
 
@@ -358,7 +350,6 @@ func NewCfnDedicatedIpPool(scope constructs.Construct, id *string, props *CfnDed
 	return &j
 }
 
-// Create a new `AWS::SES::DedicatedIpPool`.
 func NewCfnDedicatedIpPool_Override(c CfnDedicatedIpPool, scope constructs.Construct, id *string, props *CfnDedicatedIpPoolProps) {
 	_init_.Initialize()
 

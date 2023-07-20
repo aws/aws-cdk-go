@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnFlywheel) validateSetFlywheelNameParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlywheel) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlywheel) validateSetTaskConfigParameters(val interface{}) error {
 	return nil
 }

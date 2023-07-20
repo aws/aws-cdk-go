@@ -20,10 +20,14 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html
+//
 type CfnLoggingConfiguration_LoggingConfigurationProperty struct {
 	// Defines the logging destinations for the logs for a firewall.
 	//
 	// Network Firewall generates logs for stateful rule groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
+	//
 	LogDestinationConfigs interface{} `field:"required" json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
 }
 

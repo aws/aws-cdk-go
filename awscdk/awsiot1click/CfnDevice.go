@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT1Click::Device`.
+// The `AWS::IoT1Click::Device` resource controls the enabled state of an AWS IoT 1-Click compatible device.
 //
-// The `AWS::IoT1Click::Device` resource controls the enabled state of an AWS IoT 1-Click compatible device. For more information, see [Device](https://docs.aws.amazon.com/iot-1-click/1.0/devices-apireference/devices-deviceid.html) in the *AWS IoT 1-Click Devices API Reference* .
+// For more information, see [Device](https://docs.aws.amazon.com/iot-1-click/1.0/devices-apireference/devices-deviceid.html) in the *AWS IoT 1-Click Devices API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	DeviceId: jsii.String("deviceId"),
 //   	Enabled: jsii.Boolean(false),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html
 //
 type CfnDevice interface {
 	awscdk.CfnResource
@@ -365,7 +367,6 @@ func (j *jsiiProxy_CfnDevice) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT1Click::Device`.
 func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps) CfnDevice {
 	_init_.Initialize()
 
@@ -383,7 +384,6 @@ func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps)
 	return &j
 }
 
-// Create a new `AWS::IoT1Click::Device`.
 func NewCfnDevice_Override(c CfnDevice, scope constructs.Construct, id *string, props *CfnDeviceProps) {
 	_init_.Initialize()
 

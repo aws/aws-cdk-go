@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::Workteam`.
+// Creates a new work team for labeling your data.
 //
-// Creates a new work team for labeling your data. A work team is defined by one or more Amazon Cognito user pools. You must first create the user pools before you can create a work team.
+// A work team is defined by one or more Amazon Cognito user pools. You must first create the user pools before you can create a work team.
 //
 // You cannot create more than 25 work teams in an account and region.
 //
@@ -49,9 +49,13 @@ import (
 //   	WorkteamName: jsii.String("workteamName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html
+//
 type CfnWorkteam interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// The name of the work team.
 	AttrWorkteamName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -77,8 +81,6 @@ type CfnWorkteam interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A list of `MemberDefinition` objects that contains objects that identify the workers that make up the work team.
-	//
-	// Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `CognitoMemberDefinition` . For workforces created using your own OIDC identity provider (IdP) use `OidcMemberDefinition` .
 	MemberDefinitions() interface{}
 	SetMemberDefinitions(val interface{})
 	// The tree node.
@@ -95,8 +97,11 @@ type CfnWorkteam interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -110,7 +115,6 @@ type CfnWorkteam interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::SageMaker::Workteam.WorkforceName`.
 	WorkforceName() *string
 	SetWorkforceName(val *string)
 	// The name of the work team.
@@ -247,6 +251,17 @@ type CfnWorkteam interface {
 type jsiiProxy_CfnWorkteam struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnWorkteam) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnWorkteam) AttrWorkteamName() *string {
@@ -379,6 +394,16 @@ func (j *jsiiProxy_CfnWorkteam) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkteam) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkteam) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -420,7 +445,6 @@ func (j *jsiiProxy_CfnWorkteam) WorkteamName() *string {
 }
 
 
-// Create a new `AWS::SageMaker::Workteam`.
 func NewCfnWorkteam(scope constructs.Construct, id *string, props *CfnWorkteamProps) CfnWorkteam {
 	_init_.Initialize()
 
@@ -438,7 +462,6 @@ func NewCfnWorkteam(scope constructs.Construct, id *string, props *CfnWorkteamPr
 	return &j
 }
 
-// Create a new `AWS::SageMaker::Workteam`.
 func NewCfnWorkteam_Override(c CfnWorkteam, scope constructs.Construct, id *string, props *CfnWorkteamProps) {
 	_init_.Initialize()
 
@@ -475,6 +498,17 @@ func (j *jsiiProxy_CfnWorkteam)SetNotificationConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"notificationConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkteam)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

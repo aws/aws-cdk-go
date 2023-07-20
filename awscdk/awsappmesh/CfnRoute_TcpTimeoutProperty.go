@@ -15,10 +15,14 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcptimeout.html
+//
 type CfnRoute_TcpTimeoutProperty struct {
 	// An object that represents an idle timeout.
 	//
 	// An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcptimeout.html#cfn-appmesh-route-tcptimeout-idle
+	//
 	Idle interface{} `field:"optional" json:"idle" yaml:"idle"`
 }
 

@@ -17,8 +17,12 @@ package awsservicecatalog
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-connectionparameters.html
+//
 type CfnCloudFormationProduct_ConnectionParametersProperty struct {
 	// Provides `ConnectionType` details.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-connectionparameters.html#cfn-servicecatalog-cloudformationproduct-connectionparameters-codestar
+	//
 	CodeStar interface{} `field:"optional" json:"codeStar" yaml:"codeStar"`
 }
 

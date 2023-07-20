@@ -17,8 +17,12 @@ package awsresiliencehub
 //   	AwsRegion: jsii.String("awsRegion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html
+//
 type CfnApp_PhysicalResourceIdProperty struct {
 	// The identifier of the physical resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-identifier
+	//
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// Specifies the type of physical resource identifier.
 	//
@@ -50,10 +54,16 @@ type CfnApp_PhysicalResourceIdProperty struct {
 	// - `AWS::Route53::RecordSet`
 	// - `AWS::S3::Bucket`
 	// - `AWS::SQS::Queue`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The AWS account that owns the physical resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-awsaccountid
+	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
 	// The AWS Region that the physical resource is located in.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-awsregion
+	//
 	AwsRegion *string `field:"optional" json:"awsRegion" yaml:"awsRegion"`
 }
 

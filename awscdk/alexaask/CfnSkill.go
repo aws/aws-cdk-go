@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `Alexa::ASK::Skill`.
+// The `Alexa::ASK::Skill` resource creates an Alexa skill that enables customers to access new abilities.
 //
-// The `Alexa::ASK::Skill` resource creates an Alexa skill that enables customers to access new abilities. For more information about developing a skill, see the  .
+// For more information about developing a skill, see the  .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,12 +40,13 @@ import (
 //   	VendorId: jsii.String("vendorId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html
+//
 type CfnSkill interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
-	//
-	// Only Login with Amazon clients created through the  are supported. The client ID, client secret, and refresh token are required.
 	AuthenticationConfiguration() interface{}
 	SetAuthenticationConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -75,8 +76,6 @@ type CfnSkill interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Configuration for the skill package that contains the components of the Alexa skill.
-	//
-	// Skill packages are retrieved from an Amazon S3 bucket and key and used to create and update the skill. For more information about the skill package format, see the  .
 	SkillPackage() interface{}
 	SetSkillPackage(val interface{})
 	// The stack in which this element is defined.
@@ -97,8 +96,6 @@ type CfnSkill interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The vendor ID associated with the Amazon developer account that will host the skill.
-	//
-	// Details for retrieving the vendor ID are in  . The provided LWA credentials must be linked to the developer account associated with this vendor ID.
 	VendorId() *string
 	SetVendorId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -234,6 +231,16 @@ type jsiiProxy_CfnSkill struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnSkill) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSkill) AuthenticationConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -365,7 +372,6 @@ func (j *jsiiProxy_CfnSkill) VendorId() *string {
 }
 
 
-// Create a new `Alexa::ASK::Skill`.
 func NewCfnSkill(scope constructs.Construct, id *string, props *CfnSkillProps) CfnSkill {
 	_init_.Initialize()
 
@@ -383,7 +389,6 @@ func NewCfnSkill(scope constructs.Construct, id *string, props *CfnSkillProps) C
 	return &j
 }
 
-// Create a new `Alexa::ASK::Skill`.
 func NewCfnSkill_Override(c CfnSkill, scope constructs.Construct, id *string, props *CfnSkillProps) {
 	_init_.Initialize()
 

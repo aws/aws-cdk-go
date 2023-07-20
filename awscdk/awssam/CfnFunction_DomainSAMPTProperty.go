@@ -10,8 +10,11 @@ package awssam
 //   	DomainName: jsii.String("domainName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-domainsampt.html
+//
 type CfnFunction_DomainSAMPTProperty struct {
-	// `CfnFunction.DomainSAMPTProperty.DomainName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-domainsampt.html#cfn-serverless-function-domainsampt-domainname
+	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 

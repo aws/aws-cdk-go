@@ -253,9 +253,8 @@ node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 
 By using a key-value pair indexed signature, you can specify json key pairs to customize the log entry pattern. You can also use text format as below. You can only specify one of these 2 formats.
 
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-accessLog: appmesh.AccessLog.fromFilePath('/dev/stdout', appmesh.LoggingFormat.fromText('test_pattern')),
+```text
+  accessLog: appmesh.AccessLog.fromFilePath('/dev/stdout', appmesh.LoggingFormat.fromText('test_pattern')),
 ```
 
 For what values and operators you can use for these two formats, please visit the latest envoy documentation. (https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage)

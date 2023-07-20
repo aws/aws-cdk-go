@@ -22,8 +22,12 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html
+//
 type CfnFunctionDefinitionVersion_DefaultConfigProperty struct {
 	// Configuration settings for the Lambda execution environment on the AWS IoT Greengrass core.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html#cfn-greengrass-functiondefinitionversion-defaultconfig-execution
+	//
 	Execution interface{} `field:"required" json:"execution" yaml:"execution"`
 }
 

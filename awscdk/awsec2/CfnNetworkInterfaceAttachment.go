@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NetworkInterfaceAttachment`.
+// Attaches an elastic network interface (ENI) to an Amazon EC2 instance.
 //
-// Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
+// You can use this resource type to attach additional network interfaces to an instance without interruption.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,9 +27,12 @@ import (
 //   	DeleteOnTermination: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html
+//
 type CfnNetworkInterfaceAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -40,13 +43,9 @@ type CfnNetworkInterfaceAttachment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Whether to delete the network interface when the instance terminates.
-	//
-	// By default, this value is set to `true` .
 	DeleteOnTermination() interface{}
 	SetDeleteOnTermination(val interface{})
 	// The network interface's position in the attachment order.
-	//
-	// For example, the first attached network interface has a `DeviceIndex` of 0.
 	DeviceIndex() *string
 	SetDeviceIndex(val *string)
 	// The ID of the instance to which you will attach the ENI.
@@ -222,6 +221,16 @@ type jsiiProxy_CfnNetworkInterfaceAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInterfaceAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -363,7 +372,6 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::EC2::NetworkInterfaceAttachment`.
 func NewCfnNetworkInterfaceAttachment(scope constructs.Construct, id *string, props *CfnNetworkInterfaceAttachmentProps) CfnNetworkInterfaceAttachment {
 	_init_.Initialize()
 
@@ -381,7 +389,6 @@ func NewCfnNetworkInterfaceAttachment(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::EC2::NetworkInterfaceAttachment`.
 func NewCfnNetworkInterfaceAttachment_Override(c CfnNetworkInterfaceAttachment, scope constructs.Construct, id *string, props *CfnNetworkInterfaceAttachmentProps) {
 	_init_.Initialize()
 

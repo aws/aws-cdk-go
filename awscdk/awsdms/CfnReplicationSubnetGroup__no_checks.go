@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup) validateSetSubnetIdsParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicationSubnetGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnReplicationSubnetGroupParameters(scope constructs.Construct, id *string, props *CfnReplicationSubnetGroupProps) error {
 	return nil
 }

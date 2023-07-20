@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnVpcConnector) validateSetSubnetsParameters(val *[]*string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnVpcConnector) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnVpcConnectorParameters(scope constructs.Construct, id *string, props *CfnVpcConnectorProps) error {
 	return nil
 }

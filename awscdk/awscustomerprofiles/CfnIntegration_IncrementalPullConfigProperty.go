@@ -12,8 +12,12 @@ package awscustomerprofiles
 //   	DatetimeTypeFieldName: jsii.String("datetimeTypeFieldName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html
+//
 type CfnIntegration_IncrementalPullConfigProperty struct {
 	// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html#cfn-customerprofiles-integration-incrementalpullconfig-datetimetypefieldname
+	//
 	DatetimeTypeFieldName *string `field:"optional" json:"datetimeTypeFieldName" yaml:"datetimeTypeFieldName"`
 }
 

@@ -16,14 +16,20 @@ package awsappflow
 //   	RefreshToken: jsii.String("refreshToken"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html
+//
 type CfnConnectorProfile_PardotConnectorProfileCredentialsProperty struct {
-	// `CfnConnectorProfile.PardotConnectorProfileCredentialsProperty.AccessToken`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html#cfn-appflow-connectorprofile-pardotconnectorprofilecredentials-accesstoken
+	//
 	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
-	// `CfnConnectorProfile.PardotConnectorProfileCredentialsProperty.ClientCredentialsArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html#cfn-appflow-connectorprofile-pardotconnectorprofilecredentials-clientcredentialsarn
+	//
 	ClientCredentialsArn *string `field:"optional" json:"clientCredentialsArn" yaml:"clientCredentialsArn"`
-	// `CfnConnectorProfile.PardotConnectorProfileCredentialsProperty.ConnectorOAuthRequest`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html#cfn-appflow-connectorprofile-pardotconnectorprofilecredentials-connectoroauthrequest
+	//
 	ConnectorOAuthRequest interface{} `field:"optional" json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
-	// `CfnConnectorProfile.PardotConnectorProfileCredentialsProperty.RefreshToken`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html#cfn-appflow-connectorprofile-pardotconnectorprofilecredentials-refreshtoken
+	//
 	RefreshToken *string `field:"optional" json:"refreshToken" yaml:"refreshToken"`
 }
 

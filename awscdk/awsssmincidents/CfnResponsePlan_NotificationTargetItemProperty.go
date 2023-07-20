@@ -12,8 +12,12 @@ package awsssmincidents
 //   	SnsTopicArn: jsii.String("snsTopicArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html
+//
 type CfnResponsePlan_NotificationTargetItemProperty struct {
 	// The Amazon Resource Name (ARN) of the SNS topic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html#cfn-ssmincidents-responseplan-notificationtargetitem-snstopicarn
+	//
 	SnsTopicArn *string `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 

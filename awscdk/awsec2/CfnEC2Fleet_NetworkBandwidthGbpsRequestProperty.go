@@ -15,14 +15,20 @@ package awsec2
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-networkbandwidthgbpsrequest.html
+//
 type CfnEC2Fleet_NetworkBandwidthGbpsRequestProperty struct {
 	// The maximum amount of network bandwidth, in Gbps.
 	//
 	// To specify no maximum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-networkbandwidthgbpsrequest.html#cfn-ec2-ec2fleet-networkbandwidthgbpsrequest-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of network bandwidth, in Gbps.
 	//
 	// To specify no minimum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-networkbandwidthgbpsrequest.html#cfn-ec2-ec2fleet-networkbandwidthgbpsrequest-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

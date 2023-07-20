@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceDiscovery::PublicDnsNamespace`.
+// Creates a public namespace based on DNS, which is visible on the internet.
 //
-// Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace `example.com` and name your service `backend` , the resulting DNS name for the service is `backend.example.com` . You can discover instances that were registered with a public DNS namespace by using either a `DiscoverInstances` request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account , see [AWS Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the *AWS Cloud Map Developer Guide* .
+// The namespace defines your service naming scheme. For example, if you name your namespace `example.com` and name your service `backend` , the resulting DNS name for the service is `backend.example.com` . You can discover instances that were registered with a public DNS namespace by using either a `DiscoverInstances` request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account , see [AWS Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the *AWS Cloud Map Developer Guide* .
 //
 // > The `CreatePublicDnsNamespace` API operation is not supported in the AWS GovCloud (US) Regions.
 //
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html
+//
 type CfnPublicDnsNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the public namespace.
 	AttrArn() *string
 	// The ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
@@ -72,8 +75,6 @@ type CfnPublicDnsNamespace interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name that you want to assign to this namespace.
-	//
-	// > Do not include sensitive information in the name. The name is publicly available using DNS queries.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -90,10 +91,11 @@ type CfnPublicDnsNamespace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the namespace.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the namespace.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,6 +240,7 @@ type CfnPublicDnsNamespace interface {
 type jsiiProxy_CfnPublicDnsNamespace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPublicDnsNamespace) AttrArn() *string {
@@ -390,6 +393,16 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPublicDnsNamespace) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPublicDnsNamespace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -411,7 +424,6 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::ServiceDiscovery::PublicDnsNamespace`.
 func NewCfnPublicDnsNamespace(scope constructs.Construct, id *string, props *CfnPublicDnsNamespaceProps) CfnPublicDnsNamespace {
 	_init_.Initialize()
 
@@ -429,7 +441,6 @@ func NewCfnPublicDnsNamespace(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::ServiceDiscovery::PublicDnsNamespace`.
 func NewCfnPublicDnsNamespace_Override(c CfnPublicDnsNamespace, scope constructs.Construct, id *string, props *CfnPublicDnsNamespaceProps) {
 	_init_.Initialize()
 
@@ -466,6 +477,17 @@ func (j *jsiiProxy_CfnPublicDnsNamespace)SetProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"properties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPublicDnsNamespace)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

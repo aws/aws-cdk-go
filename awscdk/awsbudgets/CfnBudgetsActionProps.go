@@ -57,28 +57,46 @@ package awsbudgets
 //   	ApprovalModel: jsii.String("approvalModel"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
+//
 type CfnBudgetsActionProps struct {
 	// The trigger threshold of the action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
+	//
 	ActionThreshold interface{} `field:"required" json:"actionThreshold" yaml:"actionThreshold"`
 	// The type of action.
 	//
 	// This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
+	//
 	ActionType *string `field:"required" json:"actionType" yaml:"actionType"`
 	// A string that represents the budget name.
 	//
 	// ":" and "\" characters aren't allowed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
+	//
 	BudgetName *string `field:"required" json:"budgetName" yaml:"budgetName"`
 	// Specifies all of the type-specific parameters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
+	//
 	Definition interface{} `field:"required" json:"definition" yaml:"definition"`
 	// The role passed for action execution and reversion.
 	//
 	// Roles and actions must be in the same account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
+	//
 	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The type of a notification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
+	//
 	NotificationType *string `field:"required" json:"notificationType" yaml:"notificationType"`
 	// A list of subscribers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
+	//
 	Subscribers interface{} `field:"required" json:"subscribers" yaml:"subscribers"`
 	// This specifies if the action needs manual or automatic approval.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
+	//
 	ApprovalModel *string `field:"optional" json:"approvalModel" yaml:"approvalModel"`
 }
 

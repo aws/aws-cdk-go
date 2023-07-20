@@ -9,6 +9,8 @@ package awssam
 //   emptySAMPTProperty := &EmptySAMPTProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-emptysampt.html
+//
 type CfnFunction_EmptySAMPTProperty struct {
 }
 

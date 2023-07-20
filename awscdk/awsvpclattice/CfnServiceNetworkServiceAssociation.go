@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VpcLattice::ServiceNetworkServiceAssociation`.
-//
 // Associates a service with a service network.
 //
 // You can't use this operation if the service and service network are already associated or if there is a disassociation or deletion in progress. If the association fails, you can retry the operation by deleting the association and recreating it.
@@ -39,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkserviceassociation.html
+//
 type CfnServiceNetworkServiceAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the association between the service network and the service.
 	AttrArn() *string
 	// The date and time that the association was created, specified in ISO-8601 format.
@@ -75,7 +76,6 @@ type CfnServiceNetworkServiceAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::VpcLattice::ServiceNetworkServiceAssociation.DnsEntry`.
 	DnsEntry() interface{}
 	SetDnsEntry(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -99,16 +99,17 @@ type CfnServiceNetworkServiceAssociation interface {
 	ServiceIdentifier() *string
 	SetServiceIdentifier(val *string)
 	// The ID or Amazon Resource Name (ARN) of the service network.
-	//
-	// You must use the ARN if the resources specified in the operation are in different accounts.
 	ServiceNetworkIdentifier() *string
 	SetServiceNetworkIdentifier(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the association.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the association.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -253,6 +254,7 @@ type CfnServiceNetworkServiceAssociation interface {
 type jsiiProxy_CfnServiceNetworkServiceAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnServiceNetworkServiceAssociation) AttrArn() *string {
@@ -495,6 +497,16 @@ func (j *jsiiProxy_CfnServiceNetworkServiceAssociation) Tags() awscdk.TagManager
 	return returns
 }
 
+func (j *jsiiProxy_CfnServiceNetworkServiceAssociation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServiceNetworkServiceAssociation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -516,7 +528,6 @@ func (j *jsiiProxy_CfnServiceNetworkServiceAssociation) UpdatedProperties() *map
 }
 
 
-// Create a new `AWS::VpcLattice::ServiceNetworkServiceAssociation`.
 func NewCfnServiceNetworkServiceAssociation(scope constructs.Construct, id *string, props *CfnServiceNetworkServiceAssociationProps) CfnServiceNetworkServiceAssociation {
 	_init_.Initialize()
 
@@ -534,7 +545,6 @@ func NewCfnServiceNetworkServiceAssociation(scope constructs.Construct, id *stri
 	return &j
 }
 
-// Create a new `AWS::VpcLattice::ServiceNetworkServiceAssociation`.
 func NewCfnServiceNetworkServiceAssociation_Override(c CfnServiceNetworkServiceAssociation, scope constructs.Construct, id *string, props *CfnServiceNetworkServiceAssociationProps) {
 	_init_.Initialize()
 
@@ -568,6 +578,17 @@ func (j *jsiiProxy_CfnServiceNetworkServiceAssociation)SetServiceNetworkIdentifi
 	_jsii_.Set(
 		j,
 		"serviceNetworkIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServiceNetworkServiceAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

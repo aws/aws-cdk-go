@@ -15,10 +15,14 @@ package awsbudgets
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-autoadjustdata.html
+//
 type CfnBudget_AutoAdjustDataProperty struct {
-	// `CfnBudget.AutoAdjustDataProperty.AutoAdjustType`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-autoadjustdata.html#cfn-budgets-budget-autoadjustdata-autoadjusttype
+	//
 	AutoAdjustType *string `field:"required" json:"autoAdjustType" yaml:"autoAdjustType"`
-	// `CfnBudget.AutoAdjustDataProperty.HistoricalOptions`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-autoadjustdata.html#cfn-budgets-budget-autoadjustdata-historicaloptions
+	//
 	HistoricalOptions interface{} `field:"optional" json:"historicalOptions" yaml:"historicalOptions"`
 }
 

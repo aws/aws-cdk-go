@@ -66,18 +66,32 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayoptions.html
+//
 type CfnTemplate_AxisDisplayOptionsProperty struct {
 	// Determines whether or not the axis line is visible.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayoptions.html#cfn-quicksight-template-axisdisplayoptions-axislinevisibility
+	//
 	AxisLineVisibility *string `field:"optional" json:"axisLineVisibility" yaml:"axisLineVisibility"`
 	// The offset value that determines the starting placement of the axis within a visual's bounds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayoptions.html#cfn-quicksight-template-axisdisplayoptions-axisoffset
+	//
 	AxisOffset *string `field:"optional" json:"axisOffset" yaml:"axisOffset"`
 	// The data options for an axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayoptions.html#cfn-quicksight-template-axisdisplayoptions-dataoptions
+	//
 	DataOptions interface{} `field:"optional" json:"dataOptions" yaml:"dataOptions"`
 	// Determines whether or not the grid line is visible.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayoptions.html#cfn-quicksight-template-axisdisplayoptions-gridlinevisibility
+	//
 	GridLineVisibility *string `field:"optional" json:"gridLineVisibility" yaml:"gridLineVisibility"`
 	// The scroll bar options for an axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayoptions.html#cfn-quicksight-template-axisdisplayoptions-scrollbaroptions
+	//
 	ScrollbarOptions interface{} `field:"optional" json:"scrollbarOptions" yaml:"scrollbarOptions"`
 	// The tick label options of an axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayoptions.html#cfn-quicksight-template-axisdisplayoptions-ticklabeloptions
+	//
 	TickLabelOptions interface{} `field:"optional" json:"tickLabelOptions" yaml:"tickLabelOptions"`
 }
 

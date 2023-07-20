@@ -19,8 +19,12 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+//
 type CfnStorageLens_PrefixLevelProperty struct {
 	// A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
+	//
 	StorageMetrics interface{} `field:"required" json:"storageMetrics" yaml:"storageMetrics"`
 }
 

@@ -17,14 +17,20 @@ package awscodebuild
 //   	Resource: jsii.String("resource"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html
+//
 type CfnProject_SourceAuthProperty struct {
 	// The authorization type to use. The only valid value is `OAUTH` , which represents the OAuth authorization type.
 	//
 	// > This data type is used by the AWS CodeBuild console only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The resource value that applies to the specified authorization type.
 	//
 	// > This data type is used by the AWS CodeBuild console only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-resource
+	//
 	Resource *string `field:"optional" json:"resource" yaml:"resource"`
 }
 

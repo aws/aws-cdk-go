@@ -23,8 +23,12 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html
+//
 type CfnSubscriptionDefinition_SubscriptionDefinitionVersionProperty struct {
 	// The subscriptions in this version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html#cfn-greengrass-subscriptiondefinition-subscriptiondefinitionversion-subscriptions
+	//
 	Subscriptions interface{} `field:"required" json:"subscriptions" yaml:"subscriptions"`
 }
 

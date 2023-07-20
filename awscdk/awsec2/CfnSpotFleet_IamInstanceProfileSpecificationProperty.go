@@ -12,8 +12,12 @@ package awsec2
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html
+//
 type CfnSpotFleet_IamInstanceProfileSpecificationProperty struct {
 	// The Amazon Resource Name (ARN) of the instance profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 

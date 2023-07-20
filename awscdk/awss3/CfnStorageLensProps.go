@@ -110,10 +110,16 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
+//
 type CfnStorageLensProps struct {
 	// This resource contains the details Amazon S3 Storage Lens configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
+	//
 	StorageLensConfiguration interface{} `field:"required" json:"storageLensConfiguration" yaml:"storageLensConfiguration"`
 	// A set of tags (key–value pairs) to associate with the Storage Lens configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -24,8 +24,12 @@ package awsappflow
 //   	WriteOperationType: jsii.String("writeOperationType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html
+//
 type CfnFlow_SalesforceDestinationPropertiesProperty struct {
 	// The object specified in the Salesforce flow destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
 	//
@@ -38,16 +42,24 @@ type CfnFlow_SalesforceDestinationPropertiesProperty struct {
 	//
 	// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
 	// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail with a timed out error.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-datatransferapi
+	//
 	DataTransferApi *string `field:"optional" json:"dataTransferApi" yaml:"dataTransferApi"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
+	//
 	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+	//
 	IdFieldNames *[]*string `field:"optional" json:"idFieldNames" yaml:"idFieldNames"`
 	// This specifies the type of write operation to be performed in Salesforce.
 	//
 	// When the value is `UPSERT` , then `idFieldNames` is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
+	//
 	WriteOperationType *string `field:"optional" json:"writeOperationType" yaml:"writeOperationType"`
 }
 

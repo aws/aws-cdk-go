@@ -13,10 +13,16 @@ package awsm2
 //   	MountPoint: jsii.String("mountPoint"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-efsstorageconfiguration.html
+//
 type CfnEnvironment_EfsStorageConfigurationProperty struct {
 	// The file system identifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-efsstorageconfiguration.html#cfn-m2-environment-efsstorageconfiguration-filesystemid
+	//
 	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
 	// The mount point for the file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-efsstorageconfiguration.html#cfn-m2-environment-efsstorageconfiguration-mountpoint
+	//
 	MountPoint *string `field:"required" json:"mountPoint" yaml:"mountPoint"`
 }
 

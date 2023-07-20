@@ -63,10 +63,16 @@ package awsconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html
+//
 type CfnEvaluationForm_EvaluationFormQuestionTypePropertiesProperty struct {
 	// The properties of the numeric question.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-numeric
+	//
 	Numeric interface{} `field:"optional" json:"numeric" yaml:"numeric"`
 	// The properties of the numeric question.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-singleselect
+	//
 	SingleSelect interface{} `field:"optional" json:"singleSelect" yaml:"singleSelect"`
 }
 

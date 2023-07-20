@@ -14,12 +14,17 @@ package awssam
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-sqsevent.html
+//
 type CfnFunction_SQSEventProperty struct {
-	// `CfnFunction.SQSEventProperty.Queue`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-sqsevent.html#cfn-serverless-function-sqsevent-queue
+	//
 	Queue *string `field:"required" json:"queue" yaml:"queue"`
-	// `CfnFunction.SQSEventProperty.BatchSize`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-sqsevent.html#cfn-serverless-function-sqsevent-batchsize
+	//
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
-	// `CfnFunction.SQSEventProperty.Enabled`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-sqsevent.html#cfn-serverless-function-sqsevent-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

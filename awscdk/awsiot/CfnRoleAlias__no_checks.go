@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnRoleAlias) validateSetRoleArnParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnRoleAlias) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnRoleAliasParameters(scope constructs.Construct, id *string, props *CfnRoleAliasProps) error {
 	return nil
 }

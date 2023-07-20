@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::OriginRequestPolicy`.
-//
 // An origin request policy.
 //
 // When it's attached to a cache behavior, the origin request policy determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
@@ -58,6 +56,8 @@ import (
 //   		Comment: jsii.String("comment"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
 //
 type CfnOriginRequestPolicy interface {
 	awscdk.CfnResource
@@ -378,7 +378,6 @@ func (j *jsiiProxy_CfnOriginRequestPolicy) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::CloudFront::OriginRequestPolicy`.
 func NewCfnOriginRequestPolicy(scope constructs.Construct, id *string, props *CfnOriginRequestPolicyProps) CfnOriginRequestPolicy {
 	_init_.Initialize()
 
@@ -396,7 +395,6 @@ func NewCfnOriginRequestPolicy(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::CloudFront::OriginRequestPolicy`.
 func NewCfnOriginRequestPolicy_Override(c CfnOriginRequestPolicy, scope constructs.Construct, id *string, props *CfnOriginRequestPolicyProps) {
 	_init_.Initialize()
 

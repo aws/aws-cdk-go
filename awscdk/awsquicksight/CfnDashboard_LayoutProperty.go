@@ -275,8 +275,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layout.html
+//
 type CfnDashboard_LayoutProperty struct {
 	// The configuration that determines what the type of layout for a sheet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layout.html#cfn-quicksight-dashboard-layout-configuration
+	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
 }
 

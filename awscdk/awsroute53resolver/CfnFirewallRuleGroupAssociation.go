@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::FirewallRuleGroupAssociation`.
-//
 // An association between a firewall rule group and a VPC, which enables DNS filtering for the VPC.
 //
 // Example:
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html
+//
 type CfnFirewallRuleGroupAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the firewall rule group association.
 	AttrArn() *string
 	// The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
@@ -88,12 +89,6 @@ type CfnFirewallRuleGroupAssociation interface {
 	// The tree node.
 	Node() constructs.Node
 	// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
-	//
-	// DNS Firewall filters VPC traffic starting from rule group with the lowest numeric priority setting.
-	//
-	// You must specify a unique priority for each rule group that you associate with a single VPC. To make it easier to insert rule groups later, leave space between the numbers, for example, use 101, 200, and so on. You can change the priority setting for a rule group association after you create it.
-	//
-	// The allowed values for `Priority` are between 100 and 9900 (excluding 100 and 9900).
 	Priority() *float64
 	SetPriority(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -105,8 +100,11 @@ type CfnFirewallRuleGroupAssociation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of the tag keys and values that you want to associate with the rule group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of the tag keys and values that you want to associate with the rule group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -254,6 +252,7 @@ type CfnFirewallRuleGroupAssociation interface {
 type jsiiProxy_CfnFirewallRuleGroupAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) AttrArn() *string {
@@ -466,6 +465,16 @@ func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -497,7 +506,6 @@ func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) VpcId() *string {
 }
 
 
-// Create a new `AWS::Route53Resolver::FirewallRuleGroupAssociation`.
 func NewCfnFirewallRuleGroupAssociation(scope constructs.Construct, id *string, props *CfnFirewallRuleGroupAssociationProps) CfnFirewallRuleGroupAssociation {
 	_init_.Initialize()
 
@@ -515,7 +523,6 @@ func NewCfnFirewallRuleGroupAssociation(scope constructs.Construct, id *string, 
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::FirewallRuleGroupAssociation`.
 func NewCfnFirewallRuleGroupAssociation_Override(c CfnFirewallRuleGroupAssociation, scope constructs.Construct, id *string, props *CfnFirewallRuleGroupAssociationProps) {
 	_init_.Initialize()
 
@@ -560,6 +567,17 @@ func (j *jsiiProxy_CfnFirewallRuleGroupAssociation)SetPriority(val *float64) {
 	_jsii_.Set(
 		j,
 		"priority",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewallRuleGroupAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

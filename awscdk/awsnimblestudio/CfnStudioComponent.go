@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NimbleStudio::StudioComponent`.
+// The `AWS::NimbleStudio::StudioComponent` resource represents a network resource that is used by a studio's users and workflows.
 //
-// The `AWS::NimbleStudio::StudioComponent` resource represents a network resource that is used by a studio's users and workflows. A typical studio contains studio components for the following: a render farm, an Active Directory, a licensing service, and a shared file system.
+// A typical studio contains studio components for the following: a render farm, an Active Directory, a licensing service, and a shared file system.
 //
 // Access to a studio component is managed by specifying security groups for the resource, as well as its endpoint.
 //
@@ -66,21 +66,26 @@ import (
 //   			Script: jsii.String("script"),
 //   		},
 //   	},
+//   	RuntimeRoleArn: jsii.String("runtimeRoleArn"),
 //   	ScriptParameters: []interface{}{
 //   		&ScriptParameterKeyValueProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	SecureInitializationRoleArn: jsii.String("secureInitializationRoleArn"),
 //   	Subtype: jsii.String("subtype"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html
+//
 type CfnStudioComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique identifier for the studio component resource.
 	AttrStudioComponentId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -124,25 +129,28 @@ type CfnStudioComponent interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	RuntimeRoleArn() *string
+	SetRuntimeRoleArn(val *string)
 	// Parameters for the studio component scripts.
 	ScriptParameters() interface{}
 	SetScriptParameters(val interface{})
+	SecureInitializationRoleArn() *string
+	SetSecureInitializationRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The unique identifier for a studio resource.
-	//
-	// In Nimble Studio , all other resources are contained in a studio resource.
 	StudioId() *string
 	SetStudioId(val *string)
 	// The specific subtype of a studio component.
 	Subtype() *string
 	SetSubtype(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The type of the studio component.
 	Type() *string
 	SetType(val *string)
@@ -290,6 +298,7 @@ type CfnStudioComponent interface {
 type jsiiProxy_CfnStudioComponent struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStudioComponent) AttrStudioComponentId() *string {
@@ -422,11 +431,31 @@ func (j *jsiiProxy_CfnStudioComponent) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStudioComponent) RuntimeRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"runtimeRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStudioComponent) ScriptParameters() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"scriptParameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStudioComponent) SecureInitializationRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"secureInitializationRoleArn",
 		&returns,
 	)
 	return returns
@@ -472,6 +501,16 @@ func (j *jsiiProxy_CfnStudioComponent) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStudioComponent) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStudioComponent) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -503,7 +542,6 @@ func (j *jsiiProxy_CfnStudioComponent) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::NimbleStudio::StudioComponent`.
 func NewCfnStudioComponent(scope constructs.Construct, id *string, props *CfnStudioComponentProps) CfnStudioComponent {
 	_init_.Initialize()
 
@@ -521,7 +559,6 @@ func NewCfnStudioComponent(scope constructs.Construct, id *string, props *CfnStu
 	return &j
 }
 
-// Create a new `AWS::NimbleStudio::StudioComponent`.
 func NewCfnStudioComponent_Override(c CfnStudioComponent, scope constructs.Construct, id *string, props *CfnStudioComponentProps) {
 	_init_.Initialize()
 
@@ -581,6 +618,14 @@ func (j *jsiiProxy_CfnStudioComponent)SetName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnStudioComponent)SetRuntimeRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"runtimeRoleArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnStudioComponent)SetScriptParameters(val interface{}) {
 	if err := j.validateSetScriptParametersParameters(val); err != nil {
 		panic(err)
@@ -588,6 +633,14 @@ func (j *jsiiProxy_CfnStudioComponent)SetScriptParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"scriptParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStudioComponent)SetSecureInitializationRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"secureInitializationRoleArn",
 		val,
 	)
 }
@@ -607,6 +660,14 @@ func (j *jsiiProxy_CfnStudioComponent)SetSubtype(val *string) {
 	_jsii_.Set(
 		j,
 		"subtype",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStudioComponent)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

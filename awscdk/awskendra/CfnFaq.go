@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Kendra::Faq`.
-//
 // Creates an new set of frequently asked question (FAQ) questions and answers.
 //
 // Example:
@@ -38,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
+//
 type CfnFaq interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`.
 	AttrArn() *string
 	// The identifier for the FAQ. For example:.
@@ -60,16 +61,6 @@ type CfnFaq interface {
 	Description() *string
 	SetDescription(val *string)
 	// The format of the input file.
-	//
-	// You can choose between a basic CSV format, a CSV format that includes customs attributes in a header, and a JSON format that includes custom attributes.
-	//
-	// The format must match the format of the file stored in the S3 bucket identified in the S3Path parameter.
-	//
-	// Valid values are:
-	//
-	// - `CSV`
-	// - `CSV_WITH_HEADER`
-	// - `JSON`.
 	FileFormat() *string
 	SetFileFormat(val *string)
 	// The identifier of the index that contains the FAQ.
@@ -105,10 +96,11 @@ type CfnFaq interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -253,6 +245,7 @@ type CfnFaq interface {
 type jsiiProxy_CfnFaq struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFaq) AttrArn() *string {
@@ -425,6 +418,16 @@ func (j *jsiiProxy_CfnFaq) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFaq) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFaq) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -446,7 +449,6 @@ func (j *jsiiProxy_CfnFaq) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Kendra::Faq`.
 func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFaq {
 	_init_.Initialize()
 
@@ -464,7 +466,6 @@ func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFa
 	return &j
 }
 
-// Create a new `AWS::Kendra::Faq`.
 func NewCfnFaq_Override(c CfnFaq, scope constructs.Construct, id *string, props *CfnFaqProps) {
 	_init_.Initialize()
 
@@ -531,6 +532,17 @@ func (j *jsiiProxy_CfnFaq)SetS3Path(val interface{}) {
 	_jsii_.Set(
 		j,
 		"s3Path",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFaq)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

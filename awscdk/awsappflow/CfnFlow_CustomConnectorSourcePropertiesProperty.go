@@ -15,12 +15,25 @@ package awsappflow
 //   	CustomProperties: map[string]*string{
 //   		"customPropertiesKey": jsii.String("customProperties"),
 //   	},
+//   	DataTransferApi: &DataTransferApiProperty{
+//   		Name: jsii.String("name"),
+//   		Type: jsii.String("type"),
+//   	},
 //   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html
 //
 type CfnFlow_CustomConnectorSourcePropertiesProperty struct {
 	// The entity specified in the custom connector as a source in the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-entityname
+	//
 	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
 	// Custom properties that are required to use the custom connector as a source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-customproperties
+	//
 	CustomProperties interface{} `field:"optional" json:"customProperties" yaml:"customProperties"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-datatransferapi
+	//
+	DataTransferApi interface{} `field:"optional" json:"dataTransferApi" yaml:"dataTransferApi"`
 }
 

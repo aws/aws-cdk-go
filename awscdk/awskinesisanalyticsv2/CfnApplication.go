@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::KinesisAnalyticsV2::Application`.
+// Creates an Amazon Kinesis Data Analytics application.
 //
-// Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html) .
+// For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -200,21 +200,22 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Use this parameter to configure the application.
 	ApplicationConfiguration() interface{}
 	SetApplicationConfiguration(val interface{})
 	// The description of the application.
 	ApplicationDescription() *string
 	SetApplicationDescription(val *string)
-	// `AWS::KinesisAnalyticsV2::Application.ApplicationMaintenanceConfiguration`.
+	// Describes the maintenance configuration for the application.
 	ApplicationMaintenanceConfiguration() interface{}
 	SetApplicationMaintenanceConfiguration(val interface{})
 	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE` .
-	//
-	// However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
 	ApplicationMode() *string
 	SetApplicationMode(val *string)
 	// The name of the application.
@@ -246,7 +247,7 @@ type CfnApplication interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::KinesisAnalyticsV2::Application.RunConfiguration`.
+	// Identifies the run configuration (start parameters) of a Kinesis Data Analytics application.
 	RunConfiguration() interface{}
 	SetRunConfiguration(val interface{})
 	// The runtime environment for the application.
@@ -259,10 +260,11 @@ type CfnApplication interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of one or more tags to assign to the application.
-	//
-	// A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of one or more tags to assign to the application.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -407,6 +409,7 @@ type CfnApplication interface {
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnApplication) ApplicationConfiguration() interface{} {
@@ -579,6 +582,16 @@ func (j *jsiiProxy_CfnApplication) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -600,7 +613,6 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::KinesisAnalyticsV2::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -618,7 +630,6 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
-// Create a new `AWS::KinesisAnalyticsV2::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
@@ -704,6 +715,17 @@ func (j *jsiiProxy_CfnApplication)SetServiceExecutionRole(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceExecutionRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

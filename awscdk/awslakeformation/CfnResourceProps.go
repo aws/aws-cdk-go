@@ -17,14 +17,24 @@ package awslakeformation
 //   	WithFederation: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html
+//
 type CfnResourceProps struct {
 	// The Amazon Resource Name (ARN) of the resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html#cfn-lakeformation-resource-resourcearn
+	//
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html#cfn-lakeformation-resource-useservicelinkedrole
+	//
 	UseServiceLinkedRole interface{} `field:"required" json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
 	// The IAM role that registered a resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html#cfn-lakeformation-resource-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Allows Lake Formation to assume a role to access tables in a federated database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html#cfn-lakeformation-resource-withfederation
+	//
 	WithFederation interface{} `field:"optional" json:"withFederation" yaml:"withFederation"`
 }
 

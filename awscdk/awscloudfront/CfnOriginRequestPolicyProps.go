@@ -41,8 +41,12 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+//
 type CfnOriginRequestPolicyProps struct {
 	// The origin request policy configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
+	//
 	OriginRequestPolicyConfig interface{} `field:"required" json:"originRequestPolicyConfig" yaml:"originRequestPolicyConfig"`
 }
 

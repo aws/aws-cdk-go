@@ -284,10 +284,16 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html
+//
 type CfnDetectorModel_OnInputProperty struct {
 	// Specifies the actions performed when the `condition` evaluates to TRUE.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
+	//
 	Events interface{} `field:"optional" json:"events" yaml:"events"`
 	// Specifies the actions performed, and the next state entered, when a `condition` evaluates to TRUE.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
+	//
 	TransitionEvents interface{} `field:"optional" json:"transitionEvents" yaml:"transitionEvents"`
 }
 

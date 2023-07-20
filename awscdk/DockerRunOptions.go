@@ -19,6 +19,7 @@ package awscdk
 //   		"environmentKey": jsii.String("environment"),
 //   	},
 //   	Network: jsii.String("network"),
+//   	Platform: jsii.String("platform"),
 //   	SecurityOpt: jsii.String("securityOpt"),
 //   	User: jsii.String("user"),
 //   	Volumes: []dockerVolume{
@@ -45,6 +46,10 @@ type DockerRunOptions struct {
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// Docker [Networking options](https://docs.docker.com/engine/reference/commandline/run/#connect-a-container-to-a-network---network).
 	Network *string `field:"optional" json:"network" yaml:"network"`
+	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
+	//
+	// Example value: `linux/amd64`.
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
 	SecurityOpt *string `field:"optional" json:"securityOpt" yaml:"securityOpt"`
 	// The user to use when running the container.

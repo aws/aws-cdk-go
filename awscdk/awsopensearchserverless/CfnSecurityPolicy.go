@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpenSearchServerless::SecurityPolicy`.
-//
 // Creates an encryption or network policy to be used by one or more OpenSearch Serverless collections.
 //
 // Network policies specify access to a collection and its OpenSearch Dashboards endpoint from public networks or specific VPC endpoints. For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html) .
@@ -30,6 +28,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securitypolicy.html
 //
 type CfnSecurityPolicy interface {
 	awscdk.CfnResource
@@ -74,8 +74,6 @@ type CfnSecurityPolicy interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The type of security policy.
-	//
-	// Can be either `encryption` or `network` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -365,7 +363,6 @@ func (j *jsiiProxy_CfnSecurityPolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::OpenSearchServerless::SecurityPolicy`.
 func NewCfnSecurityPolicy(scope constructs.Construct, id *string, props *CfnSecurityPolicyProps) CfnSecurityPolicy {
 	_init_.Initialize()
 
@@ -383,7 +380,6 @@ func NewCfnSecurityPolicy(scope constructs.Construct, id *string, props *CfnSecu
 	return &j
 }
 
-// Create a new `AWS::OpenSearchServerless::SecurityPolicy`.
 func NewCfnSecurityPolicy_Override(c CfnSecurityPolicy, scope constructs.Construct, id *string, props *CfnSecurityPolicyProps) {
 	_init_.Initialize()
 

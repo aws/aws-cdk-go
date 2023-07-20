@@ -11,10 +11,14 @@ package awsiotthingsgraph
 //   	Text: jsii.String("text"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotthingsgraph-flowtemplate-definitiondocument.html
+//
 type CfnFlowTemplate_DefinitionDocumentProperty struct {
-	// `CfnFlowTemplate.DefinitionDocumentProperty.Language`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotthingsgraph-flowtemplate-definitiondocument.html#cfn-iotthingsgraph-flowtemplate-definitiondocument-language
+	//
 	Language *string `field:"required" json:"language" yaml:"language"`
-	// `CfnFlowTemplate.DefinitionDocumentProperty.Text`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotthingsgraph-flowtemplate-definitiondocument.html#cfn-iotthingsgraph-flowtemplate-definitiondocument-text
+	//
 	Text *string `field:"required" json:"text" yaml:"text"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Evidently::Feature`.
+// Creates or updates an Evidently *feature* that you want to launch or test.
 //
-// Creates or updates an Evidently *feature* that you want to launch or test. You can define up to five variations of a feature, and use these variations in your launches and experiments. A feature must be created in a project. For information about creating a project, see [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html) .
+// You can define up to five variations of a feature, and use these variations in your launches and experiments. A feature must be created in a project. For information about creating a project, see [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -51,9 +51,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html
+//
 type CfnFeature interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the feature.
 	//
 	// For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
@@ -68,25 +71,15 @@ type CfnFeature interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the variation to use as the default variation.
-	//
-	// The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
-	//
-	// This variation must also be listed in the `Variations` structure.
-	//
-	// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
 	DefaultVariation() *string
 	SetDefaultVariation(val *string)
 	// An optional description of the feature.
 	Description() *string
 	SetDescription(val *string)
 	// Specify users that should always be served a specific variation of a feature.
-	//
-	// Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
 	EntityOverrides() interface{}
 	SetEntityOverrides(val interface{})
 	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments.
-	//
-	// Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 	EvaluationStrategy() *string
 	SetEvaluationStrategy(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -100,8 +93,6 @@ type CfnFeature interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name for the feature.
-	//
-	// It can include up to 127 characters.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -118,16 +109,11 @@ type CfnFeature interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Assigns one or more tags (key-value pairs) to the feature.
-	//
-	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-	//
-	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-	//
-	// You can associate as many as 50 tags with a feature.
-	//
-	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Assigns one or more tags (key-value pairs) to the feature.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -142,8 +128,6 @@ type CfnFeature interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// An array of structures that contain the configuration of the feature's different variations.
-	//
-	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 	Variations() interface{}
 	SetVariations(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -277,6 +261,7 @@ type CfnFeature interface {
 type jsiiProxy_CfnFeature struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFeature) AttrArn() *string {
@@ -439,6 +424,16 @@ func (j *jsiiProxy_CfnFeature) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFeature) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFeature) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -470,7 +465,6 @@ func (j *jsiiProxy_CfnFeature) Variations() interface{} {
 }
 
 
-// Create a new `AWS::Evidently::Feature`.
 func NewCfnFeature(scope constructs.Construct, id *string, props *CfnFeatureProps) CfnFeature {
 	_init_.Initialize()
 
@@ -488,7 +482,6 @@ func NewCfnFeature(scope constructs.Construct, id *string, props *CfnFeatureProp
 	return &j
 }
 
-// Create a new `AWS::Evidently::Feature`.
 func NewCfnFeature_Override(c CfnFeature, scope constructs.Construct, id *string, props *CfnFeatureProps) {
 	_init_.Initialize()
 
@@ -552,6 +545,17 @@ func (j *jsiiProxy_CfnFeature)SetProject(val *string) {
 	_jsii_.Set(
 		j,
 		"project",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFeature)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

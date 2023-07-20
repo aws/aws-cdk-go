@@ -22,6 +22,8 @@ package awsemrserverless
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html
+//
 type CfnApplication_InitialCapacityConfigKeyValuePairProperty struct {
 	// The worker type for an analytics framework.
 	//
@@ -32,8 +34,12 @@ type CfnApplication_InitialCapacityConfigKeyValuePairProperty struct {
 	// *Maximum* : 50
 	//
 	// *Pattern* : `^[a-zA-Z]+[-_]*[a-zA-Z]+$`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html#cfn-emrserverless-application-initialcapacityconfigkeyvaluepair-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value for the initial capacity configuration per worker.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html#cfn-emrserverless-application-initialcapacityconfigkeyvaluepair-value
+	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 }
 

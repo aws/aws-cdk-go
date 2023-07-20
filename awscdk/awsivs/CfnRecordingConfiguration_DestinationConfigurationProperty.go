@@ -16,10 +16,14 @@ package awsivs
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html
+//
 type CfnRecordingConfiguration_DestinationConfigurationProperty struct {
 	// An S3 destination configuration where recorded videos will be stored.
 	//
 	// See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3
+	//
 	S3 interface{} `field:"required" json:"s3" yaml:"s3"`
 }
 

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnReportGroup) validateSetExportConfigParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnReportGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnReportGroup) validateSetTypeParameters(val *string) error {
 	return nil
 }

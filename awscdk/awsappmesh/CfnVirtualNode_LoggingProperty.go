@@ -27,8 +27,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-logging.html
+//
 type CfnVirtualNode_LoggingProperty struct {
 	// The access log configuration for a virtual node.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-logging.html#cfn-appmesh-virtualnode-logging-accesslog
+	//
 	AccessLog interface{} `field:"optional" json:"accessLog" yaml:"accessLog"`
 }
 

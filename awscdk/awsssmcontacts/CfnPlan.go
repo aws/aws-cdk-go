@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSMContacts::Plan`.
-//
 // Information about the stages and on-call rotation teams associated with an escalation plan or engagement plan.
 //
 // Example:
@@ -45,6 +43,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-plan.html
 //
 type CfnPlan interface {
 	awscdk.CfnResource
@@ -377,7 +377,6 @@ func (j *jsiiProxy_CfnPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SSMContacts::Plan`.
 func NewCfnPlan(scope constructs.Construct, id *string, props *CfnPlanProps) CfnPlan {
 	_init_.Initialize()
 
@@ -395,7 +394,6 @@ func NewCfnPlan(scope constructs.Construct, id *string, props *CfnPlanProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::SSMContacts::Plan`.
 func NewCfnPlan_Override(c CfnPlan, scope constructs.Construct, id *string, props *CfnPlanProps) {
 	_init_.Initialize()
 

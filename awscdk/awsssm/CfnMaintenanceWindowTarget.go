@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSM::MaintenanceWindowTarget`.
+// The `AWS::SSM::MaintenanceWindowTarget` resource registers a target with a maintenance window for AWS Systems Manager .
 //
-// The `AWS::SSM::MaintenanceWindowTarget` resource registers a target with a maintenance window for AWS Systems Manager . For more information, see [RegisterTargetWithMaintenanceWindow](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTargetWithMaintenanceWindow.html) in the *AWS Systems Manager API Reference* .
+// For more information, see [RegisterTargetWithMaintenanceWindow](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTargetWithMaintenanceWindow.html) in the *AWS Systems Manager API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,9 +36,12 @@ import (
 //   	OwnerInformation: jsii.String("ownerInformation"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html
+//
 type CfnMaintenanceWindowTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -82,10 +85,6 @@ type CfnMaintenanceWindowTarget interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The targets to register with the maintenance window.
-	//
-	// In other words, the instances to run commands on when the maintenance window runs.
-	//
-	// You must specify targets by using the `WindowTargetIds` parameter.
 	Targets() interface{}
 	SetTargets(val interface{})
 	// Deprecated.
@@ -235,6 +234,16 @@ type CfnMaintenanceWindowTarget interface {
 type jsiiProxy_CfnMaintenanceWindowTarget struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindowTarget) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnMaintenanceWindowTarget) CfnOptions() awscdk.ICfnResourceOptions {
@@ -398,7 +407,6 @@ func (j *jsiiProxy_CfnMaintenanceWindowTarget) WindowId() *string {
 }
 
 
-// Create a new `AWS::SSM::MaintenanceWindowTarget`.
 func NewCfnMaintenanceWindowTarget(scope constructs.Construct, id *string, props *CfnMaintenanceWindowTargetProps) CfnMaintenanceWindowTarget {
 	_init_.Initialize()
 
@@ -416,7 +424,6 @@ func NewCfnMaintenanceWindowTarget(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::SSM::MaintenanceWindowTarget`.
 func NewCfnMaintenanceWindowTarget_Override(c CfnMaintenanceWindowTarget, scope constructs.Construct, id *string, props *CfnMaintenanceWindowTargetProps) {
 	_init_.Initialize()
 

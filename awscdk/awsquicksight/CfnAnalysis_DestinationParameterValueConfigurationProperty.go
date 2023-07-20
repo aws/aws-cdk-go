@@ -39,16 +39,27 @@ package awsquicksight
 //   	SourceParameterName: jsii.String("sourceParameterName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html
+//
 type CfnAnalysis_DestinationParameterValueConfigurationProperty struct {
 	// The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-customvaluesconfiguration
+	//
 	CustomValuesConfiguration interface{} `field:"optional" json:"customValuesConfiguration" yaml:"customValuesConfiguration"`
 	// The configuration that selects all options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-selectallvalueoptions
+	//
 	SelectAllValueOptions *string `field:"optional" json:"selectAllValueOptions" yaml:"selectAllValueOptions"`
-	// `CfnAnalysis.DestinationParameterValueConfigurationProperty.SourceColumn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-sourcecolumn
+	//
 	SourceColumn interface{} `field:"optional" json:"sourceColumn" yaml:"sourceColumn"`
 	// The source field ID of the destination parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-sourcefield
+	//
 	SourceField *string `field:"optional" json:"sourceField" yaml:"sourceField"`
 	// The source parameter name of the destination parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-sourceparametername
+	//
 	SourceParameterName *string `field:"optional" json:"sourceParameterName" yaml:"sourceParameterName"`
 }
 

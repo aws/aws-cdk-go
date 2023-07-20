@@ -23,10 +23,16 @@ package awslex
 //   	LocaleId: jsii.String("localeId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botaliaslocalesettingsitem.html
+//
 type CfnBot_BotAliasLocaleSettingsItemProperty struct {
 	// Specifies locale settings for a locale.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botaliaslocalesettingsitem.html#cfn-lex-bot-botaliaslocalesettingsitem-botaliaslocalesetting
+	//
 	BotAliasLocaleSetting interface{} `field:"required" json:"botAliasLocaleSetting" yaml:"botAliasLocaleSetting"`
 	// Specifies the locale that the settings apply to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botaliaslocalesettingsitem.html#cfn-lex-bot-botaliaslocalesettingsitem-localeid
+	//
 	LocaleId *string `field:"required" json:"localeId" yaml:"localeId"`
 }
 

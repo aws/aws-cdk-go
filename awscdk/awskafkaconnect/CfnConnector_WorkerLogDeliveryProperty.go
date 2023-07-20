@@ -32,12 +32,20 @@ package awskafkaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html
+//
 type CfnConnector_WorkerLogDeliveryProperty struct {
 	// Details about delivering logs to Amazon CloudWatch Logs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-cloudwatchlogs
+	//
 	CloudWatchLogs interface{} `field:"optional" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
 	// Details about delivering logs to Amazon Kinesis Data Firehose.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-firehose
+	//
 	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
 	// Details about delivering logs to Amazon S3.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-s3
+	//
 	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 }
 

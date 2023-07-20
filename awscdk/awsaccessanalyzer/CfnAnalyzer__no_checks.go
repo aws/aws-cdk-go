@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnAnalyzer) validateSetArchiveRulesParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnalyzer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAnalyzer) validateSetTypeParameters(val *string) error {
 	return nil
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::NotebookInstance`.
+// The `AWS::SageMaker::NotebookInstance` resource creates an Amazon SageMaker notebook instance.
 //
-// The `AWS::SageMaker::NotebookInstance` resource creates an Amazon SageMaker notebook instance. A notebook instance is a machine learning (ML) compute instance running on a Jupyter notebook. For more information, see [Use Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html) .
+// A notebook instance is a machine learning (ML) compute instance running on a Jupyter notebook. For more information, see [Use Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,21 +52,19 @@ import (
 //   	VolumeSizeInGb: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html
+//
 type CfnNotebookInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A list of Amazon Elastic Inference (EI) instance types to associate with the notebook instance.
-	//
-	// Currently, only one instance type can be associated with a notebook instance. For more information, see [Using Elastic Inference in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) .
-	//
-	// *Valid Values:* `ml.eia1.medium | ml.eia1.large | ml.eia1.xlarge | ml.eia2.medium | ml.eia2.large | ml.eia2.xlarge` .
 	AcceleratorTypes() *[]*string
 	SetAcceleratorTypes(val *[]*string)
 	// An array of up to three Git repositories associated with the notebook instance.
-	//
-	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see [Associating Git Repositories with SageMaker Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html) .
 	AdditionalCodeRepositories() *[]*string
 	SetAdditionalCodeRepositories(val *[]*string)
+	AttrId() *string
 	// The name of the notebook instance, such as `MyNotebookInstance` .
 	AttrNotebookInstanceName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -79,33 +77,21 @@ type CfnNotebookInstance interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Git repository associated with the notebook instance as its default code repository.
-	//
-	// This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see [Associating Git Repositories with SageMaker Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html) .
 	DefaultCodeRepository() *string
 	SetDefaultCodeRepository(val *string)
 	// Sets whether SageMaker provides internet access to the notebook instance.
-	//
-	// If you set this to `Disabled` this notebook instance is able to access resources only in your VPC, and is not be able to connect to SageMaker training and endpoint services unless you configure a NAT Gateway in your VPC.
-	//
-	// For more information, see [Notebook Instances Are Internet-Enabled by Default](https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access) . You can set the value of this parameter to `Disabled` only if you set a value for the `SubnetId` parameter.
 	DirectInternetAccess() *string
 	SetDirectInternetAccess(val *string)
 	// Information on the IMDS configuration of the notebook instance.
 	InstanceMetadataServiceConfiguration() interface{}
 	SetInstanceMetadataServiceConfiguration(val interface{})
 	// The type of ML compute instance to launch for the notebook instance.
-	//
-	// > Expect some interruption of service if this parameter is changed as CloudFormation stops a notebook instance and starts it up again to update it.
 	InstanceType() *string
 	SetInstanceType(val *string)
 	// The Amazon Resource Name (ARN) of a AWS Key Management Service key that SageMaker uses to encrypt data on the storage volume attached to your notebook instance.
-	//
-	// The KMS key you provide must be enabled. For information, see [Enabling and Disabling Keys](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html) in the *AWS Key Management Service Developer Guide* .
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The name of a lifecycle configuration to associate with the notebook instance.
-	//
-	// For information about lifecycle configurations, see [Customize a Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html) in the *Amazon SageMaker Developer Guide* .
 	LifecycleConfigName() *string
 	SetLifecycleConfigName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -132,20 +118,14 @@ type CfnNotebookInstance interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// When you send any requests to AWS resources from the notebook instance, SageMaker assumes this role to perform tasks on your behalf.
-	//
-	// You must grant this role necessary permissions so SageMaker can perform these tasks. The policy must allow the SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see [SageMaker Roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html) .
-	//
-	// > To be able to pass this role to SageMaker, the caller of this API must have the `iam:PassRole` permission.
 	RoleArn() *string
 	SetRoleArn(val *string)
-	// Whether root access is enabled or disabled for users of the notebook instance. The default value is `Enabled` .
+	// Whether root access is enabled or disabled for users of the notebook instance.
 	//
-	// > Lifecycle configurations need root access to be able to set up a notebook instance. Because of this, lifecycle configurations associated with a notebook instance always run with root access even if you disable root access for users.
+	// The default value is `Enabled` .
 	RootAccess() *string
 	SetRootAccess(val *string)
 	// The VPC security group IDs, in the form sg-xxxxxxxx.
-	//
-	// The security groups must be for the same VPC as specified in the subnet.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
@@ -155,12 +135,11 @@ type CfnNotebookInstance interface {
 	// The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance.
 	SubnetId() *string
 	SetSubnetId(val *string)
-	// A list of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Resource Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) and [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what) .
-	//
-	// You can add tags later by using the `CreateTags` API.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -175,10 +154,6 @@ type CfnNotebookInstance interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The size, in GB, of the ML storage volume to attach to the notebook instance.
-	//
-	// The default value is 5 GB.
-	//
-	// > Expect some interruption of service if this parameter is changed as CloudFormation stops a notebook instance and starts it up again to update it.
 	VolumeSizeInGb() *float64
 	SetVolumeSizeInGb(val *float64)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -312,6 +287,7 @@ type CfnNotebookInstance interface {
 type jsiiProxy_CfnNotebookInstance struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNotebookInstance) AcceleratorTypes() *[]*string {
@@ -329,6 +305,16 @@ func (j *jsiiProxy_CfnNotebookInstance) AdditionalCodeRepositories() *[]*string 
 	_jsii_.Get(
 		j,
 		"additionalCodeRepositories",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNotebookInstance) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -554,6 +540,16 @@ func (j *jsiiProxy_CfnNotebookInstance) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNotebookInstance) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNotebookInstance) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -585,7 +581,6 @@ func (j *jsiiProxy_CfnNotebookInstance) VolumeSizeInGb() *float64 {
 }
 
 
-// Create a new `AWS::SageMaker::NotebookInstance`.
 func NewCfnNotebookInstance(scope constructs.Construct, id *string, props *CfnNotebookInstanceProps) CfnNotebookInstance {
 	_init_.Initialize()
 
@@ -603,7 +598,6 @@ func NewCfnNotebookInstance(scope constructs.Construct, id *string, props *CfnNo
 	return &j
 }
 
-// Create a new `AWS::SageMaker::NotebookInstance`.
 func NewCfnNotebookInstance_Override(c CfnNotebookInstance, scope constructs.Construct, id *string, props *CfnNotebookInstanceProps) {
 	_init_.Initialize()
 
@@ -731,6 +725,17 @@ func (j *jsiiProxy_CfnNotebookInstance)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNotebookInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

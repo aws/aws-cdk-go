@@ -27,6 +27,8 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
+//
 type CfnKeyspaceProps struct {
 	// The name of the keyspace to be created.
 	//
@@ -35,6 +37,8 @@ type CfnKeyspaceProps struct {
 	// *Length constraints:* Minimum length of 3. Maximum length of 255.
 	//
 	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+	//
 	KeyspaceName *string `field:"optional" json:"keyspaceName" yaml:"keyspaceName"`
 	// Specifies the `ReplicationStrategy` of a keyspace. The options are:.
 	//
@@ -42,10 +46,14 @@ type CfnKeyspaceProps struct {
 	// - `MULTI_REGION` for a multi-Region keyspace
 	//
 	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-replicationspecification
+	//
 	ReplicationSpecification interface{} `field:"optional" json:"replicationSpecification" yaml:"replicationSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

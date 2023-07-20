@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTFleetWise::Fleet`.
-//
 // Creates a fleet that represents a group of vehicles.
 //
 // > You must create both a signal catalog and vehicles before you can create a fleet.
@@ -36,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-fleet.html
+//
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the created fleet.
 	AttrArn() *string
 	// The time the fleet was created in seconds since epoch (January 1, 1970 at midnight UTC time).
@@ -84,8 +85,11 @@ type CfnFleet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// (Optional) Metadata that can be used to manage the fleet.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// (Optional) Metadata that can be used to manage the fleet.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +234,7 @@ type CfnFleet interface {
 type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFleet) AttrArn() *string {
@@ -382,6 +387,16 @@ func (j *jsiiProxy_CfnFleet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -403,7 +418,6 @@ func (j *jsiiProxy_CfnFleet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTFleetWise::Fleet`.
 func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) CfnFleet {
 	_init_.Initialize()
 
@@ -421,7 +435,6 @@ func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) C
 	return &j
 }
 
-// Create a new `AWS::IoTFleetWise::Fleet`.
 func NewCfnFleet_Override(c CfnFleet, scope constructs.Construct, id *string, props *CfnFleetProps) {
 	_init_.Initialize()
 
@@ -458,6 +471,17 @@ func (j *jsiiProxy_CfnFleet)SetSignalCatalogArn(val *string) {
 	_jsii_.Set(
 		j,
 		"signalCatalogArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

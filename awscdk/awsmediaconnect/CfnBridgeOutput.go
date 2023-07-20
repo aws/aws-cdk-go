@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConnect::BridgeOutput`.
-//
 // Adds outputs to an existing bridge.
 //
 // Example:
@@ -29,6 +27,8 @@ import (
 //   		Ttl: jsii.Number(123),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html
 //
 type CfnBridgeOutput interface {
 	awscdk.CfnResource
@@ -56,8 +56,6 @@ type CfnBridgeOutput interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The network output name.
-	//
-	// This name is used to reference the output and must be unique among outputs in this bridge.
 	Name() *string
 	SetName(val *string)
 	// Add a network output to an existing bridge.
@@ -351,7 +349,6 @@ func (j *jsiiProxy_CfnBridgeOutput) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::MediaConnect::BridgeOutput`.
 func NewCfnBridgeOutput(scope constructs.Construct, id *string, props *CfnBridgeOutputProps) CfnBridgeOutput {
 	_init_.Initialize()
 
@@ -369,7 +366,6 @@ func NewCfnBridgeOutput(scope constructs.Construct, id *string, props *CfnBridge
 	return &j
 }
 
-// Create a new `AWS::MediaConnect::BridgeOutput`.
 func NewCfnBridgeOutput_Override(c CfnBridgeOutput, scope constructs.Construct, id *string, props *CfnBridgeOutputProps) {
 	_init_.Initialize()
 

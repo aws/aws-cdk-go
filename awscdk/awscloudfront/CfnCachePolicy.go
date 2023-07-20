@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::CachePolicy`.
-//
 // A cache policy.
 //
 // When it's attached to a cache behavior, the cache policy determines the following:
@@ -66,6 +64,8 @@ import (
 //   		Comment: jsii.String("comment"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
 //
 type CfnCachePolicy interface {
 	awscdk.CfnResource
@@ -386,7 +386,6 @@ func (j *jsiiProxy_CfnCachePolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudFront::CachePolicy`.
 func NewCfnCachePolicy(scope constructs.Construct, id *string, props *CfnCachePolicyProps) CfnCachePolicy {
 	_init_.Initialize()
 
@@ -404,7 +403,6 @@ func NewCfnCachePolicy(scope constructs.Construct, id *string, props *CfnCachePo
 	return &j
 }
 
-// Create a new `AWS::CloudFront::CachePolicy`.
 func NewCfnCachePolicy_Override(c CfnCachePolicy, scope constructs.Construct, id *string, props *CfnCachePolicyProps) {
 	_init_.Initialize()
 

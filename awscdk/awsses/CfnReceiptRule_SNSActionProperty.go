@@ -21,16 +21,22 @@ package awsses
 //   	TopicArn: jsii.String("topicArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html
+//
 type CfnReceiptRule_SNSActionProperty struct {
 	// The encoding to use for the email within the Amazon SNS notification.
 	//
 	// UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-encoding
+	//
 	Encoding *string `field:"optional" json:"encoding" yaml:"encoding"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify.
 	//
 	// You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) operation in Amazon SNS.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-topicarn
+	//
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

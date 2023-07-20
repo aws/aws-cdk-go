@@ -80,9 +80,6 @@ type DatabaseClusterProps struct {
 	// The DB parameter group to associate with the instance.
 	// Experimental.
 	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
-	// The port the Neptune cluster will listen on.
-	// Experimental.
-	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.

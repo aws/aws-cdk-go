@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SecretsManager::SecretTargetAttachment`.
+// The `AWS::SecretsManager::SecretTargetAttachment` resource completes the final link between a Secrets Manager secret and the associated database by adding the database connection information to the secret JSON.
 //
-// The `AWS::SecretsManager::SecretTargetAttachment` resource completes the final link between a Secrets Manager secret and the associated database by adding the database connection information to the secret JSON. If you want to turn on automatic rotation for a database credential secret, the secret must contain the database connection information. For more information, see [JSON structure of Secrets Manager database credential secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html) .
+// If you want to turn on automatic rotation for a database credential secret, the secret must contain the database connection information. For more information, see [JSON structure of Secrets Manager database credential secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html) .
 //
 // For Amazon RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html) .
 //
@@ -26,9 +26,12 @@ import (
 //   	TargetType: jsii.String("targetType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
+//
 type CfnSecretTargetAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -56,8 +59,6 @@ type CfnSecretTargetAttachment interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN or name of the secret.
-	//
-	// To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID.
 	SecretId() *string
 	SetSecretId(val *string)
 	// The stack in which this element is defined.
@@ -68,14 +69,6 @@ type CfnSecretTargetAttachment interface {
 	TargetId() *string
 	SetTargetId(val *string)
 	// A string that defines the type of service or database associated with the secret.
-	//
-	// This value instructs Secrets Manager how to update the secret with the details of the service or database. This value must be one of the following:
-	//
-	// - AWS::RDS::DBInstance
-	// - AWS::RDS::DBCluster
-	// - AWS::Redshift::Cluster
-	// - AWS::DocDB::DBInstance
-	// - AWS::DocDB::DBCluster.
 	TargetType() *string
 	SetTargetType(val *string)
 	// Deprecated.
@@ -224,6 +217,16 @@ type jsiiProxy_CfnSecretTargetAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnSecretTargetAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecretTargetAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -355,7 +358,6 @@ func (j *jsiiProxy_CfnSecretTargetAttachment) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::SecretsManager::SecretTargetAttachment`.
 func NewCfnSecretTargetAttachment(scope constructs.Construct, id *string, props *CfnSecretTargetAttachmentProps) CfnSecretTargetAttachment {
 	_init_.Initialize()
 
@@ -373,7 +375,6 @@ func NewCfnSecretTargetAttachment(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::SecretsManager::SecretTargetAttachment`.
 func NewCfnSecretTargetAttachment_Override(c CfnSecretTargetAttachment, scope constructs.Construct, id *string, props *CfnSecretTargetAttachmentProps) {
 	_init_.Initialize()
 

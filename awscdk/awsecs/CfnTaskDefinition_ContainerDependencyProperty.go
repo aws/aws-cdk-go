@@ -19,6 +19,8 @@ package awsecs
 //   	ContainerName: jsii.String("containerName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html
+//
 type CfnTaskDefinition_ContainerDependencyProperty struct {
 	// The dependency condition of the container. The following are the available conditions and their behavior:.
 	//
@@ -26,8 +28,12 @@ type CfnTaskDefinition_ContainerDependencyProperty struct {
 	// - `COMPLETE` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
 	// - `SUCCESS` - This condition is the same as `COMPLETE` , but it also requires that the container exits with a `zero` status. This condition can't be set on an essential container.
 	// - `HEALTHY` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
+	//
 	Condition *string `field:"optional" json:"condition" yaml:"condition"`
 	// The name of a container.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername
+	//
 	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 }
 

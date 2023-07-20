@@ -16,16 +16,23 @@ package awssagemaker
 //   	SuccessTopic: jsii.String("successTopic"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html
+//
 type CfnEndpointConfig_AsyncInferenceNotificationConfigProperty struct {
 	// Amazon SNS topic to post a notification to when an inference fails.
 	//
 	// If no topic is provided, no notification is sent on failure.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-errortopic
+	//
 	ErrorTopic *string `field:"optional" json:"errorTopic" yaml:"errorTopic"`
-	// `CfnEndpointConfig.AsyncInferenceNotificationConfigProperty.IncludeInferenceResponseIn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-includeinferenceresponsein
+	//
 	IncludeInferenceResponseIn *[]*string `field:"optional" json:"includeInferenceResponseIn" yaml:"includeInferenceResponseIn"`
 	// Amazon SNS topic to post a notification to when an inference completes successfully.
 	//
 	// If no topic is provided, no notification is sent on success.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-successtopic
+	//
 	SuccessTopic *string `field:"optional" json:"successTopic" yaml:"successTopic"`
 }
 

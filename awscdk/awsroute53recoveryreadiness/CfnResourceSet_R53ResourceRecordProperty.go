@@ -13,10 +13,16 @@ package awsroute53recoveryreadiness
 //   	RecordSetId: jsii.String("recordSetId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html
+//
 type CfnResourceSet_R53ResourceRecordProperty struct {
 	// The DNS target domain name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname
+	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The Amazon Route 53 Resource Record Set ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid
+	//
 	RecordSetId *string `field:"optional" json:"recordSetId" yaml:"recordSetId"`
 }
 

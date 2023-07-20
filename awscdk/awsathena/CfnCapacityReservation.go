@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Athena::CapacityReservation`.
-//
 // Specifies a capacity reservation with the provided name and number of requested data processing units.
 //
 // Example:
@@ -40,6 +38,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.html
+//
 type CfnCapacityReservation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -54,8 +54,6 @@ type CfnCapacityReservation interface {
 	// The status of the capacity reservation.
 	AttrStatus() *string
 	// Assigns Athena workgroups (and hence their queries) to capacity reservations.
-	//
-	// A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
 	CapacityAssignmentConfiguration() interface{}
 	SetCapacityAssignmentConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -92,9 +90,8 @@ type CfnCapacityReservation interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to the capacity reservation.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The number of data processing units requested.
 	TargetDpus() *float64
 	SetTargetDpus(val *float64)
@@ -394,8 +391,8 @@ func (j *jsiiProxy_CfnCapacityReservation) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnCapacityReservation) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -435,7 +432,6 @@ func (j *jsiiProxy_CfnCapacityReservation) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::Athena::CapacityReservation`.
 func NewCfnCapacityReservation(scope constructs.Construct, id *string, props *CfnCapacityReservationProps) CfnCapacityReservation {
 	_init_.Initialize()
 
@@ -453,7 +449,6 @@ func NewCfnCapacityReservation(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::Athena::CapacityReservation`.
 func NewCfnCapacityReservation_Override(c CfnCapacityReservation, scope constructs.Construct, id *string, props *CfnCapacityReservationProps) {
 	_init_.Initialize()
 
@@ -482,6 +477,17 @@ func (j *jsiiProxy_CfnCapacityReservation)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservation)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

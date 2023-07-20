@@ -41,24 +41,44 @@ package awssecurityhub
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html
+//
 type CfnAutomationRule_AutomationRulesFindingFieldsUpdateProperty struct {
 	// The rule action updates the `Confidence` field of a finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-confidence
+	//
 	Confidence *float64 `field:"optional" json:"confidence" yaml:"confidence"`
 	// The rule action updates the `Criticality` field of a finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-criticality
+	//
 	Criticality *float64 `field:"optional" json:"criticality" yaml:"criticality"`
 	// The rule action will update the `Note` field of a finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-note
+	//
 	Note interface{} `field:"optional" json:"note" yaml:"note"`
 	// The rule action will update the `RelatedFindings` field of a finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-relatedfindings
+	//
 	RelatedFindings interface{} `field:"optional" json:"relatedFindings" yaml:"relatedFindings"`
 	// The rule action will update the `Severity` field of a finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-severity
+	//
 	Severity interface{} `field:"optional" json:"severity" yaml:"severity"`
 	// The rule action updates the `Types` field of a finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-types
+	//
 	Types *[]*string `field:"optional" json:"types" yaml:"types"`
 	// The rule action updates the `UserDefinedFields` field of a finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-userdefinedfields
+	//
 	UserDefinedFields interface{} `field:"optional" json:"userDefinedFields" yaml:"userDefinedFields"`
 	// The rule action updates the `VerificationState` field of a finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-verificationstate
+	//
 	VerificationState *string `field:"optional" json:"verificationState" yaml:"verificationState"`
 	// The rule action will update the `Workflow` field of a finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-workflow
+	//
 	Workflow interface{} `field:"optional" json:"workflow" yaml:"workflow"`
 }
 

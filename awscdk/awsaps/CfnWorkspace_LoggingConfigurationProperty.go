@@ -12,8 +12,12 @@ package awsaps
 //   	LogGroupArn: jsii.String("logGroupArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html
+//
 type CfnWorkspace_LoggingConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the CloudWatch log group the logs are emitted to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html#cfn-aps-workspace-loggingconfiguration-loggrouparn
+	//
 	LogGroupArn *string `field:"optional" json:"logGroupArn" yaml:"logGroupArn"`
 }
 

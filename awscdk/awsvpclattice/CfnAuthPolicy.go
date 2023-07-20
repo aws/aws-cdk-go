@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VpcLattice::AuthPolicy`.
+// Creates or updates the auth policy.
 //
-// Creates or updates the auth policy. The policy string in JSON must not contain newlines or blank lines.
+// The policy string in JSON must not contain newlines or blank lines.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,6 +24,8 @@ import (
 //   	Policy: policy,
 //   	ResourceIdentifier: jsii.String("resourceIdentifier"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-authpolicy.html
 //
 type CfnAuthPolicy interface {
 	awscdk.CfnResource
@@ -345,7 +347,6 @@ func (j *jsiiProxy_CfnAuthPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::VpcLattice::AuthPolicy`.
 func NewCfnAuthPolicy(scope constructs.Construct, id *string, props *CfnAuthPolicyProps) CfnAuthPolicy {
 	_init_.Initialize()
 
@@ -363,7 +364,6 @@ func NewCfnAuthPolicy(scope constructs.Construct, id *string, props *CfnAuthPoli
 	return &j
 }
 
-// Create a new `AWS::VpcLattice::AuthPolicy`.
 func NewCfnAuthPolicy_Override(c CfnAuthPolicy, scope constructs.Construct, id *string, props *CfnAuthPolicyProps) {
 	_init_.Initialize()
 

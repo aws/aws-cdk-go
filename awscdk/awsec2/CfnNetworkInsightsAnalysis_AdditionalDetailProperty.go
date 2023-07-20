@@ -25,14 +25,24 @@ package awsec2
 //   	ServiceName: jsii.String("serviceName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html
+//
 type CfnNetworkInsightsAnalysis_AdditionalDetailProperty struct {
 	// The additional detail code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html#cfn-ec2-networkinsightsanalysis-additionaldetail-additionaldetailtype
+	//
 	AdditionalDetailType *string `field:"optional" json:"additionalDetailType" yaml:"additionalDetailType"`
 	// The path component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html#cfn-ec2-networkinsightsanalysis-additionaldetail-component
+	//
 	Component interface{} `field:"optional" json:"component" yaml:"component"`
 	// The load balancers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html#cfn-ec2-networkinsightsanalysis-additionaldetail-loadbalancers
+	//
 	LoadBalancers interface{} `field:"optional" json:"loadBalancers" yaml:"loadBalancers"`
 	// The name of the VPC endpoint service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html#cfn-ec2-networkinsightsanalysis-additionaldetail-servicename
+	//
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 

@@ -2,27 +2,22 @@ package awsec2
 
 
 // Example:
-//   // Stack 1
-//   var stack1 stack
-//   var stack2 stack
+//   var vpc vpc
 //
 //
-//   sg1 := ec2.NewSecurityGroup(stack1, jsii.String("SG1"), &SecurityGroupProps{
-//   	AllowAllOutbound: jsii.Boolean(false),
-//   	 // if this is `true` then no egress rule will be created
-//   	Vpc: Vpc,
+//   sg1 := ec2.NewSecurityGroup(this, jsii.String("sg1"), &SecurityGroupProps{
+//   	Vpc: vpc,
+//   })
+//   sg2 := ec2.NewSecurityGroup(this, jsii.String("sg2"), &SecurityGroupProps{
+//   	Vpc: vpc,
 //   })
 //
-//   // Stack 2
-//   sg2 := ec2.NewSecurityGroup(stack2, jsii.String("SG2"), &SecurityGroupProps{
-//   	AllowAllOutbound: jsii.Boolean(false),
-//   	 // if this is `true` then no egress rule will be created
-//   	Vpc: Vpc,
+//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+//   	SecurityGroup: sg1,
 //   })
 //
-//   // `connections.allowTo` on `sg1` since we want the
-//   // rules to be created in Stack1
-//   sg1.connections.AllowTo(sg2, ec2.Port_Tcp(jsii.Number(3333)))
+//   launchTemplate.AddSecurityGroup(sg2)
 //
 type SecurityGroupProps struct {
 	// The VPC in which to create the security group.

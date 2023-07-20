@@ -13,13 +13,19 @@ package awscodestarnotifications
 //   	TargetType: jsii.String("targetType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html
+//
 type CfnNotificationRule_TargetProperty struct {
 	// The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targetaddress
+	//
 	TargetAddress *string `field:"required" json:"targetAddress" yaml:"targetAddress"`
 	// The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
 	//
 	// - Amazon Simple Notification Service topics are specified as `SNS` .
 	// - AWS Chatbot clients are specified as `AWSChatbotSlack` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targettype
+	//
 	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`
 }
 

@@ -14,10 +14,14 @@ package awsgroundstation
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html
+//
 type CfnDataflowEndpointGroup_ConnectionDetailsProperty struct {
-	// `CfnDataflowEndpointGroup.ConnectionDetailsProperty.Mtu`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html#cfn-groundstation-dataflowendpointgroup-connectiondetails-mtu
+	//
 	Mtu *float64 `field:"optional" json:"mtu" yaml:"mtu"`
-	// `CfnDataflowEndpointGroup.ConnectionDetailsProperty.SocketAddress`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html#cfn-groundstation-dataflowendpointgroup-connectiondetails-socketaddress
+	//
 	SocketAddress interface{} `field:"optional" json:"socketAddress" yaml:"socketAddress"`
 }
 

@@ -17,6 +17,8 @@ package awsemrserverless
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-networkconfiguration.html
+//
 type CfnApplication_NetworkConfigurationProperty struct {
 	// The array of security group Ids for customer VPC connectivity.
 	//
@@ -25,6 +27,8 @@ type CfnApplication_NetworkConfigurationProperty struct {
 	// *Maximum* : 32
 	//
 	// *Pattern* : `^[-0-9a-zA-Z]+`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-networkconfiguration.html#cfn-emrserverless-application-networkconfiguration-securitygroupids
+	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The array of subnet Ids for customer VPC connectivity.
 	//
@@ -33,6 +37,8 @@ type CfnApplication_NetworkConfigurationProperty struct {
 	// *Maximum* : 32
 	//
 	// *Pattern* : `^[-0-9a-zA-Z]+`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-networkconfiguration.html#cfn-emrserverless-application-networkconfiguration-subnetids
+	//
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 

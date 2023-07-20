@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGateway`.
-//
 // Specifies a transit gateway.
 //
 // You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks. After the transit gateway enters the `available` state, you can attach your VPCs and VPN connections to the transit gateway.
@@ -48,12 +46,13 @@ import (
 //   	VpnEcmpSupport: jsii.String("vpnEcmpSupport"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html
+//
 type CfnTransitGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-	//
-	// The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
 	AmazonSideAsn() *float64
 	SetAmazonSideAsn(val *float64)
 	// The ID of the default association route table.
@@ -62,8 +61,6 @@ type CfnTransitGateway interface {
 	// The ID of the transit gateway.
 	AttrId() *string
 	// Enable or disable automatic acceptance of attachment requests.
-	//
-	// Disabled by default.
 	AutoAcceptSharedAttachments() *string
 	SetAutoAcceptSharedAttachments(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -76,21 +73,15 @@ type CfnTransitGateway interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Enable or disable automatic association with the default association route table.
-	//
-	// Enabled by default.
 	DefaultRouteTableAssociation() *string
 	SetDefaultRouteTableAssociation(val *string)
 	// Enable or disable automatic propagation of routes to the default propagation route table.
-	//
-	// Enabled by default.
 	DefaultRouteTablePropagation() *string
 	SetDefaultRouteTablePropagation(val *string)
 	// The description of the transit gateway.
 	Description() *string
 	SetDescription(val *string)
 	// Enable or disable DNS support.
-	//
-	// Enabled by default.
 	DnsSupport() *string
 	SetDnsSupport(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -120,8 +111,11 @@ type CfnTransitGateway interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the transit gateway.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the transit gateway.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The transit gateway CIDR blocks.
 	TransitGatewayCidrBlocks() *[]*string
 	SetTransitGatewayCidrBlocks(val *[]*string)
@@ -139,8 +133,6 @@ type CfnTransitGateway interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Enable or disable Equal Cost Multipath Protocol support.
-	//
-	// Enabled by default.
 	VpnEcmpSupport() *string
 	SetVpnEcmpSupport(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -274,6 +266,7 @@ type CfnTransitGateway interface {
 type jsiiProxy_CfnTransitGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTransitGateway) AmazonSideAsn() *float64 {
@@ -466,6 +459,16 @@ func (j *jsiiProxy_CfnTransitGateway) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGateway) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGateway) TransitGatewayCidrBlocks() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -507,7 +510,6 @@ func (j *jsiiProxy_CfnTransitGateway) VpnEcmpSupport() *string {
 }
 
 
-// Create a new `AWS::EC2::TransitGateway`.
 func NewCfnTransitGateway(scope constructs.Construct, id *string, props *CfnTransitGatewayProps) CfnTransitGateway {
 	_init_.Initialize()
 
@@ -525,7 +527,6 @@ func NewCfnTransitGateway(scope constructs.Construct, id *string, props *CfnTran
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGateway`.
 func NewCfnTransitGateway_Override(c CfnTransitGateway, scope constructs.Construct, id *string, props *CfnTransitGatewayProps) {
 	_init_.Initialize()
 
@@ -604,6 +605,17 @@ func (j *jsiiProxy_CfnTransitGateway)SetPropagationDefaultRouteTableId(val *stri
 	_jsii_.Set(
 		j,
 		"propagationDefaultRouteTableId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

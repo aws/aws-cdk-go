@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSM::Document`.
+// The `AWS::SSM::Document` resource creates a Systems Manager (SSM) document in AWS Systems Manager .
 //
-// The `AWS::SSM::Document` resource creates a Systems Manager (SSM) document in AWS Systems Manager . This document defines the actions that Systems Manager performs on your AWS resources.
+// This document defines the actions that Systems Manager performs on your AWS resources.
 //
 // > This resource does not support CloudFormation drift detection.
 //
@@ -55,9 +55,12 @@ import (
 //   	VersionName: jsii.String("versionName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
+//
 type CfnDocument interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A list of key-value pairs that describe attachments to a version of a document.
 	Attachments() interface{}
 	SetAttachments(val interface{})
@@ -67,10 +70,6 @@ type CfnDocument interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The content for the new SSM document in JSON or YAML.
-	//
-	// For more information about the schemas for SSM document content, see [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) in the *AWS Systems Manager User Guide* .
-	//
-	// > This parameter also supports `String` data types.
 	Content() interface{}
 	SetContent(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -78,13 +77,9 @@ type CfnDocument interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specify the document format for the request.
-	//
-	// JSON is the default format.
 	DocumentFormat() *string
 	SetDocumentFormat(val *string)
 	// The type of document to create.
-	//
-	// *Allowed Values* : `ApplicationConfigurationSchema` | `Automation` | `Automation.ChangeTemplate` | `Command` | `DeploymentStrategy` | `Package` | `Policy` | `Session`
 	DocumentType() *string
 	SetDocumentType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -98,12 +93,6 @@ type CfnDocument interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A name for the SSM document.
-	//
-	// > You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
-	// >
-	// > - `aws`
-	// > - `amazon`
-	// > - `amzn`.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -114,21 +103,18 @@ type CfnDocument interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A list of SSM documents required by a document.
-	//
-	// This parameter is used exclusively by AWS AppConfig . When a user creates an AWS AppConfig configuration in an SSM document, the user must also specify a required document for validation purposes. In this case, an `ApplicationConfiguration` document requires an `ApplicationConfigurationSchema` document for validation purposes. For more information, see [What is AWS AppConfig ?](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .
 	Requires() interface{}
 	SetRequires(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// AWS CloudFormation resource tags to apply to the document.
-	//
-	// Use tags to help you identify and categorize resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// AWS CloudFormation resource tags to apply to the document.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Specify a target type to define the kinds of resources the document can run on.
-	//
-	// For example, to run a document on EC2 instances, specify the following value: `/AWS::EC2::Instance` . If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide* .
 	TargetType() *string
 	SetTargetType(val *string)
 	// Deprecated.
@@ -145,13 +131,9 @@ type CfnDocument interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// If the document resource you specify in your template already exists, this parameter determines whether a new version of the existing document is created, or the existing document is replaced.
-	//
-	// `Replace` is the default method. If you specify `NewVersion` for the `UpdateMethod` parameter, and the `Name` of the document does not match an existing resource, a new document is created. When you specify `NewVersion` , the default version of the document is changed to the newly created version.
 	UpdateMethod() *string
 	SetUpdateMethod(val *string)
 	// An optional field specifying the version of the artifact you are creating with the document.
-	//
-	// For example, `Release12.1` . This value is unique across all versions of a document, and can't be changed.
 	VersionName() *string
 	SetVersionName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -285,6 +267,7 @@ type CfnDocument interface {
 type jsiiProxy_CfnDocument struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDocument) Attachments() interface{} {
@@ -437,6 +420,16 @@ func (j *jsiiProxy_CfnDocument) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDocument) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDocument) TargetType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -488,7 +481,6 @@ func (j *jsiiProxy_CfnDocument) VersionName() *string {
 }
 
 
-// Create a new `AWS::SSM::Document`.
 func NewCfnDocument(scope constructs.Construct, id *string, props *CfnDocumentProps) CfnDocument {
 	_init_.Initialize()
 
@@ -506,7 +498,6 @@ func NewCfnDocument(scope constructs.Construct, id *string, props *CfnDocumentPr
 	return &j
 }
 
-// Create a new `AWS::SSM::Document`.
 func NewCfnDocument_Override(c CfnDocument, scope constructs.Construct, id *string, props *CfnDocumentProps) {
 	_init_.Initialize()
 
@@ -570,6 +561,17 @@ func (j *jsiiProxy_CfnDocument)SetRequires(val interface{}) {
 	_jsii_.Set(
 		j,
 		"requires",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDocument)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

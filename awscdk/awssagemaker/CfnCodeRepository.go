@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::CodeRepository`.
+// Creates a Git repository as a resource in your SageMaker account.
 //
-// Creates a Git repository as a resource in your SageMaker account. You can associate the repository with notebook instances so that you can use Git source control for the notebooks you create. The Git repository is a resource in your SageMaker account, so it can be associated with more than one notebook instance, and it persists independently from the lifecycle of any notebook instances it is associated with.
+// You can associate the repository with notebook instances so that you can use Git source control for the notebooks you create. The Git repository is a resource in your SageMaker account, so it can be associated with more than one notebook instance, and it persists independently from the lifecycle of any notebook instances it is associated with.
 //
 // The repository can be hosted either in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
 //
@@ -39,11 +39,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html
+//
 type CfnCodeRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the code repository, such as `myCodeRepo` .
 	AttrCodeRepositoryName() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -80,8 +84,11 @@ type CfnCodeRepository interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// List of tags for Code Repository.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// List of tags for Code Repository.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +233,7 @@ type CfnCodeRepository interface {
 type jsiiProxy_CfnCodeRepository struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCodeRepository) AttrCodeRepositoryName() *string {
@@ -233,6 +241,16 @@ func (j *jsiiProxy_CfnCodeRepository) AttrCodeRepositoryName() *string {
 	_jsii_.Get(
 		j,
 		"attrCodeRepositoryName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCodeRepository) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -348,6 +366,16 @@ func (j *jsiiProxy_CfnCodeRepository) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCodeRepository) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCodeRepository) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -369,7 +397,6 @@ func (j *jsiiProxy_CfnCodeRepository) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::SageMaker::CodeRepository`.
 func NewCfnCodeRepository(scope constructs.Construct, id *string, props *CfnCodeRepositoryProps) CfnCodeRepository {
 	_init_.Initialize()
 
@@ -387,7 +414,6 @@ func NewCfnCodeRepository(scope constructs.Construct, id *string, props *CfnCode
 	return &j
 }
 
-// Create a new `AWS::SageMaker::CodeRepository`.
 func NewCfnCodeRepository_Override(c CfnCodeRepository, scope constructs.Construct, id *string, props *CfnCodeRepositoryProps) {
 	_init_.Initialize()
 
@@ -413,6 +439,17 @@ func (j *jsiiProxy_CfnCodeRepository)SetGitConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"gitConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCodeRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

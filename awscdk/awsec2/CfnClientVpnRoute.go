@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::ClientVpnRoute`.
+// Specifies a network route to add to a Client VPN endpoint.
 //
-// Specifies a network route to add to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traffic to specific resources or networks.
+// Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traffic to specific resources or networks.
 //
 // A target network association must be created before you can specify a route. If you're setting up all the components of a Client VPN endpoint at the same time, you must use the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the `AWS::EC2::ClientVpnTargetNetworkAssociation` resource.
 //
@@ -29,9 +29,12 @@ import (
 //   	Description: jsii.String("description"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html
+//
 type CfnClientVpnRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -47,12 +50,9 @@ type CfnClientVpnRoute interface {
 	// A brief description of the route.
 	Description() *string
 	SetDescription(val *string)
-	// The IPv4 address range, in CIDR notation, of the route destination. For example:.
+	// The IPv4 address range, in CIDR notation, of the route destination.
 	//
-	// - To add a route for Internet access, enter `0.0.0.0/0`
-	// - To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range
-	// - To add a route for an on-premises network, enter the AWS Site-to-Site VPN connection's IPv4 CIDR range
-	// - To add a route for the local network, enter the client CIDR range.
+	// For example:.
 	DestinationCidrBlock() *string
 	SetDestinationCidrBlock(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -77,10 +77,6 @@ type CfnClientVpnRoute interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The ID of the subnet through which you want to route traffic.
-	//
-	// The specified subnet must be an existing target network of the Client VPN endpoint.
-	//
-	// Alternatively, if you're adding a route for the local network, specify `local` .
 	TargetVpcSubnetId() *string
 	SetTargetVpcSubnetId(val *string)
 	// Deprecated.
@@ -229,6 +225,16 @@ type jsiiProxy_CfnClientVpnRoute struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnClientVpnRoute) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientVpnRoute) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -370,7 +376,6 @@ func (j *jsiiProxy_CfnClientVpnRoute) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::EC2::ClientVpnRoute`.
 func NewCfnClientVpnRoute(scope constructs.Construct, id *string, props *CfnClientVpnRouteProps) CfnClientVpnRoute {
 	_init_.Initialize()
 
@@ -388,7 +393,6 @@ func NewCfnClientVpnRoute(scope constructs.Construct, id *string, props *CfnClie
 	return &j
 }
 
-// Create a new `AWS::EC2::ClientVpnRoute`.
 func NewCfnClientVpnRoute_Override(c CfnClientVpnRoute, scope constructs.Construct, id *string, props *CfnClientVpnRouteProps) {
 	_init_.Initialize()
 

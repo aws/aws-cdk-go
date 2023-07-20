@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::VdmAttributes`.
-//
 // The Virtual Deliverability Manager (VDM) attributes that apply to your Amazon SES account.
 //
 // Example:
@@ -27,9 +25,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html
+//
 type CfnVdmAttributes interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Unique identifier for this resource.
 	AttrVdmAttributesResourceId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -344,7 +345,6 @@ func (j *jsiiProxy_CfnVdmAttributes) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::SES::VdmAttributes`.
 func NewCfnVdmAttributes(scope constructs.Construct, id *string, props *CfnVdmAttributesProps) CfnVdmAttributes {
 	_init_.Initialize()
 
@@ -362,7 +362,6 @@ func NewCfnVdmAttributes(scope constructs.Construct, id *string, props *CfnVdmAt
 	return &j
 }
 
-// Create a new `AWS::SES::VdmAttributes`.
 func NewCfnVdmAttributes_Override(c CfnVdmAttributes, scope constructs.Construct, id *string, props *CfnVdmAttributesProps) {
 	_init_.Initialize()
 

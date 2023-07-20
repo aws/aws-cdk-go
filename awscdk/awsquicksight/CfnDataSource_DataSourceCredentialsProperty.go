@@ -115,16 +115,24 @@ package awsquicksight
 //   	SecretArn: jsii.String("secretArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html
+//
 type CfnDataSource_DataSourceCredentialsProperty struct {
 	// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
 	//
 	// When `CopySourceArn` is not null, the credential pair from the data source in the ARN is used as the credentials for the `DataSourceCredentials` structure.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-copysourcearn
+	//
 	CopySourceArn *string `field:"optional" json:"copySourceArn" yaml:"copySourceArn"`
 	// Credential pair.
 	//
 	// For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-credentialpair
+	//
 	CredentialPair interface{} `field:"optional" json:"credentialPair" yaml:"credentialPair"`
 	// The Amazon Resource Name (ARN) of the secret associated with the data source in AWS Secrets Manager .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-secretarn
+	//
 	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
 }
 

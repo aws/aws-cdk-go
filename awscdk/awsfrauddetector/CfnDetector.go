@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FraudDetector::Detector`.
-//
 // Manages a detector and associated detector versions.
 //
 // Example:
@@ -139,12 +137,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html
+//
 type CfnDetector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The models to associate with this detector.
-	//
-	// You must provide the ARNs of all the models you want to associate.
 	AssociatedModels() interface{}
 	SetAssociatedModels(val interface{})
 	// The detector ARN.
@@ -153,8 +152,11 @@ type CfnDetector interface {
 	AttrCreatedTime() *string
 	// The name of the detector.
 	AttrDetectorVersionId() *string
+	// The ARN of the event type.
 	AttrEventTypeArn() *string
+	// The time when the event type was created.
 	AttrEventTypeCreatedTime() *string
+	// The time when the event type was last updated.
 	AttrEventTypeLastUpdatedTime() *string
 	// Timestamp of when detector was last updated.
 	AttrLastUpdatedTime() *string
@@ -174,10 +176,6 @@ type CfnDetector interface {
 	DetectorId() *string
 	SetDetectorId(val *string)
 	// The status of the detector version.
-	//
-	// If a value is not provided for this property, AWS CloudFormation assumes `DRAFT` status.
-	//
-	// Valid values: `ACTIVE | DRAFT`.
 	DetectorVersionStatus() *string
 	SetDetectorVersionStatus(val *string)
 	// The event type associated with this detector.
@@ -201,14 +199,6 @@ type CfnDetector interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The rule execution mode for the rules included in the detector version.
-	//
-	// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
-	//
-	// You can define and edit the rule mode at the detector version level, when it is in draft status.
-	//
-	// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
-	//
-	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 	RuleExecutionMode() *string
 	SetRuleExecutionMode(val *string)
 	// The rules to include in the detector version.
@@ -218,10 +208,11 @@ type CfnDetector interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -366,6 +357,7 @@ type CfnDetector interface {
 type jsiiProxy_CfnDetector struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDetector) AssociatedModels() interface{} {
@@ -598,6 +590,16 @@ func (j *jsiiProxy_CfnDetector) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDetector) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDetector) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -619,7 +621,6 @@ func (j *jsiiProxy_CfnDetector) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::FraudDetector::Detector`.
 func NewCfnDetector(scope constructs.Construct, id *string, props *CfnDetectorProps) CfnDetector {
 	_init_.Initialize()
 
@@ -637,7 +638,6 @@ func NewCfnDetector(scope constructs.Construct, id *string, props *CfnDetectorPr
 	return &j
 }
 
-// Create a new `AWS::FraudDetector::Detector`.
 func NewCfnDetector_Override(c CfnDetector, scope constructs.Construct, id *string, props *CfnDetectorProps) {
 	_init_.Initialize()
 
@@ -712,6 +712,17 @@ func (j *jsiiProxy_CfnDetector)SetRules(val interface{}) {
 	_jsii_.Set(
 		j,
 		"rules",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDetector)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

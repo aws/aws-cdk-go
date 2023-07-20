@@ -23,14 +23,24 @@ package awsrekognition
 //   	Width: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html
+//
 type CfnStreamProcessor_BoundingBoxProperty struct {
 	// Height of the bounding box as a ratio of the overall image height.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html#cfn-rekognition-streamprocessor-boundingbox-height
+	//
 	Height *float64 `field:"required" json:"height" yaml:"height"`
 	// Left coordinate of the bounding box as a ratio of overall image width.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html#cfn-rekognition-streamprocessor-boundingbox-left
+	//
 	Left *float64 `field:"required" json:"left" yaml:"left"`
 	// Top coordinate of the bounding box as a ratio of overall image height.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html#cfn-rekognition-streamprocessor-boundingbox-top
+	//
 	Top *float64 `field:"required" json:"top" yaml:"top"`
 	// Width of the bounding box as a ratio of the overall image width.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html#cfn-rekognition-streamprocessor-boundingbox-width
+	//
 	Width *float64 `field:"required" json:"width" yaml:"width"`
 }
 

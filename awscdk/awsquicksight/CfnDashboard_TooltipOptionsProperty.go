@@ -48,17 +48,25 @@ package awsquicksight
 //   	TooltipVisibility: jsii.String("tooltipVisibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tooltipoptions.html
+//
 type CfnDashboard_TooltipOptionsProperty struct {
 	// The setup for the detailed tooltip.
 	//
 	// The tooltip setup is always saved. The display type is decided based on the tooltip type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tooltipoptions.html#cfn-quicksight-dashboard-tooltipoptions-fieldbasedtooltip
+	//
 	FieldBasedTooltip interface{} `field:"optional" json:"fieldBasedTooltip" yaml:"fieldBasedTooltip"`
 	// The selected type for the tooltip. Choose one of the following options:.
 	//
 	// - `BASIC` : A basic tooltip.
 	// - `DETAILED` : A detailed tooltip.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tooltipoptions.html#cfn-quicksight-dashboard-tooltipoptions-selectedtooltiptype
+	//
 	SelectedTooltipType *string `field:"optional" json:"selectedTooltipType" yaml:"selectedTooltipType"`
 	// Determines whether or not the tooltip is visible.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tooltipoptions.html#cfn-quicksight-dashboard-tooltipoptions-tooltipvisibility
+	//
 	TooltipVisibility *string `field:"optional" json:"tooltipVisibility" yaml:"tooltipVisibility"`
 }
 

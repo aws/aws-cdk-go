@@ -20,6 +20,8 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html
+//
 type CfnBot_SlotValueSelectionSettingProperty struct {
 	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
 	//
@@ -29,12 +31,18 @@ type CfnBot_SlotValueSelectionSettingProperty struct {
 	// - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 	//
 	// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-resolutionstrategy
+	//
 	ResolutionStrategy *string `field:"required" json:"resolutionStrategy" yaml:"resolutionStrategy"`
 	// Provides settings that enable advanced recognition settings for slot values.
 	//
 	// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-advancedrecognitionsetting
+	//
 	AdvancedRecognitionSetting interface{} `field:"optional" json:"advancedRecognitionSetting" yaml:"advancedRecognitionSetting"`
 	// A regular expression used to validate the value of a slot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-regexfilter
+	//
 	RegexFilter interface{} `field:"optional" json:"regexFilter" yaml:"regexFilter"`
 }
 

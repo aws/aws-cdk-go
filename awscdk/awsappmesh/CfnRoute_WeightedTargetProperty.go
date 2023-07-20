@@ -18,12 +18,20 @@ package awsappmesh
 //   	Port: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html
+//
 type CfnRoute_WeightedTargetProperty struct {
 	// The virtual node to associate with the weighted target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-virtualnode
+	//
 	VirtualNode *string `field:"required" json:"virtualNode" yaml:"virtualNode"`
 	// The relative weight of the weighted target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-weight
+	//
 	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
 	// The targeted port of the weighted object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

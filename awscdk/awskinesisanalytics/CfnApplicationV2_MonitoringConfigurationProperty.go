@@ -18,16 +18,24 @@ package awskinesisanalytics
 //   	MetricsLevel: jsii.String("metricsLevel"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html
+//
 type CfnApplicationV2_MonitoringConfigurationProperty struct {
 	// Describes whether to use the default CloudWatch logging configuration for an application.
 	//
 	// You must set this property to `CUSTOM` in order to set the `LogLevel` or `MetricsLevel` parameters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html#cfn-kinesisanalyticsv2-application-monitoringconfiguration-configurationtype
+	//
 	ConfigurationType *string `field:"required" json:"configurationType" yaml:"configurationType"`
 	// Describes the verbosity of the CloudWatch Logs for an application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html#cfn-kinesisanalyticsv2-application-monitoringconfiguration-loglevel
+	//
 	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
 	// Describes the granularity of the CloudWatch Logs for an application.
 	//
 	// The `Parallelism` level is not recommended for applications with a Parallelism over 64 due to excessive costs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html#cfn-kinesisanalyticsv2-application-monitoringconfiguration-metricslevel
+	//
 	MetricsLevel *string `field:"optional" json:"metricsLevel" yaml:"metricsLevel"`
 }
 

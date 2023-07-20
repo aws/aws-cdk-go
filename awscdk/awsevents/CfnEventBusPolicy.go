@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Events::EventBusPolicy`.
+// Running `PutPermission` permits the specified AWS account or AWS organization to put events to the specified *event bus* .
 //
-// Running `PutPermission` permits the specified AWS account or AWS organization to put events to the specified *event bus* . Amazon EventBridge (CloudWatch Events) rules in your account are triggered by these events arriving to an event bus in your account.
+// Amazon EventBridge (CloudWatch Events) rules in your account are triggered by these events arriving to an event bus in your account.
 //
 // For another account to send events to your account, that external account must have an EventBridge rule with your account's event bus as a target.
 //
@@ -43,24 +43,21 @@ import (
 //   	Statement: statement,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html
+//
 type CfnEventBusPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The action that you are enabling the other account to perform.
 	Action() *string
 	SetAction(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
-	//
-	// For more information about AWS Organizations, see [What Is AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the *AWS Organizations User Guide* .
-	//
-	// If you specify `Condition` with an AWS organization ID, and specify "*" as the value for `Principal` , you grant permission to all the accounts in the named organization.
-	//
-	// The `Condition` is a JSON string which must contain `Type` , `Key` , and `Value` fields.
 	Condition() interface{}
 	SetCondition(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -68,8 +65,6 @@ type CfnEventBusPolicy interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the event bus associated with the rule.
-	//
-	// If you omit this, the default event bus is used.
 	EventBusName() *string
 	SetEventBusName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -85,10 +80,6 @@ type CfnEventBusPolicy interface {
 	// The tree node.
 	Node() constructs.Node
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus.
-	//
-	// Specify "*" to permit any account to put events to your default event bus.
-	//
-	// If you specify "*" without specifying `Condition` , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an `account` field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
 	Principal() *string
 	SetPrincipal(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -101,15 +92,9 @@ type CfnEventBusPolicy interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A JSON string that describes the permission policy statement.
-	//
-	// You can include a `Policy` parameter in the request instead of using the `StatementId` , `Action` , `Principal` , or `Condition` parameters.
 	Statement() interface{}
 	SetStatement(val interface{})
 	// An identifier string for the external account that you are granting permissions to.
-	//
-	// If you later want to revoke the permission for this external account, specify this `StatementId` when you run [RemovePermission](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html) .
-	//
-	// > Each `StatementId` must be unique.
 	StatementId() *string
 	SetStatementId(val *string)
 	// Deprecated.
@@ -268,6 +253,16 @@ func (j *jsiiProxy_CfnEventBusPolicy) Action() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventBusPolicy) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventBusPolicy) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -419,7 +414,6 @@ func (j *jsiiProxy_CfnEventBusPolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Events::EventBusPolicy`.
 func NewCfnEventBusPolicy(scope constructs.Construct, id *string, props *CfnEventBusPolicyProps) CfnEventBusPolicy {
 	_init_.Initialize()
 
@@ -437,7 +431,6 @@ func NewCfnEventBusPolicy(scope constructs.Construct, id *string, props *CfnEven
 	return &j
 }
 
-// Create a new `AWS::Events::EventBusPolicy`.
 func NewCfnEventBusPolicy_Override(c CfnEventBusPolicy, scope constructs.Construct, id *string, props *CfnEventBusPolicyProps) {
 	_init_.Initialize()
 
@@ -484,9 +477,6 @@ func (j *jsiiProxy_CfnEventBusPolicy)SetPrincipal(val *string) {
 }
 
 func (j *jsiiProxy_CfnEventBusPolicy)SetStatement(val interface{}) {
-	if err := j.validateSetStatementParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"statement",

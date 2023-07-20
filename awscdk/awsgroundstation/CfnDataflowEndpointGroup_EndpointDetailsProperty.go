@@ -50,12 +50,19 @@ package awsgroundstation
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html
+//
 type CfnDataflowEndpointGroup_EndpointDetailsProperty struct {
-	// `CfnDataflowEndpointGroup.EndpointDetailsProperty.AwsGroundStationAgentEndpoint`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-awsgroundstationagentendpoint
+	//
 	AwsGroundStationAgentEndpoint interface{} `field:"optional" json:"awsGroundStationAgentEndpoint" yaml:"awsGroundStationAgentEndpoint"`
 	// Information about the endpoint such as name and the endpoint address.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
+	//
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The role ARN, and IDs for security groups and subnets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
+	//
 	SecurityDetails interface{} `field:"optional" json:"securityDetails" yaml:"securityDetails"`
 }
 

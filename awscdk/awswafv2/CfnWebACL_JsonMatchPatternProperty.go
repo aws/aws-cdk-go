@@ -19,10 +19,14 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+//
 type CfnWebACL_JsonMatchPatternProperty struct {
 	// Match all of the elements. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
 	//
 	// You must specify either this setting or the `IncludedPaths` setting, but not both.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+	//
 	All interface{} `field:"optional" json:"all" yaml:"all"`
 	// Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
 	//
@@ -31,6 +35,8 @@ type CfnWebACL_JsonMatchPatternProperty struct {
 	// You must specify either this setting or the `All` setting, but not both.
 	//
 	// > Don't use this option to include all paths. Instead, use the `All` setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
+	//
 	IncludedPaths *[]*string `field:"optional" json:"includedPaths" yaml:"includedPaths"`
 }
 

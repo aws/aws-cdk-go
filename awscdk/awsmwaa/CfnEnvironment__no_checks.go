@@ -80,10 +80,6 @@ func validateCfnEnvironment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnEnvironment) validateSetAirflowConfigurationOptionsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnEnvironment) validateSetLoggingConfigurationParameters(val interface{}) error {
 	return nil
 }

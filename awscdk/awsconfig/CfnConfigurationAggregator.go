@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Config::ConfigurationAggregator`.
-//
 // The details about the configuration aggregator, including information about source accounts, regions, and metadata of the aggregator.
 //
 // Example:
@@ -50,9 +48,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html
+//
 type CfnConfigurationAggregator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Provides a list of source accounts and regions to be aggregated.
 	AccountAggregationSources() interface{}
 	SetAccountAggregationSources(val interface{})
@@ -94,8 +95,11 @@ type CfnConfigurationAggregator interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of tag object.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of tag object.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -240,6 +244,7 @@ type CfnConfigurationAggregator interface {
 type jsiiProxy_CfnConfigurationAggregator struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnConfigurationAggregator) AccountAggregationSources() interface{} {
@@ -372,6 +377,16 @@ func (j *jsiiProxy_CfnConfigurationAggregator) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigurationAggregator) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationAggregator) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -393,7 +408,6 @@ func (j *jsiiProxy_CfnConfigurationAggregator) UpdatedProperties() *map[string]i
 }
 
 
-// Create a new `AWS::Config::ConfigurationAggregator`.
 func NewCfnConfigurationAggregator(scope constructs.Construct, id *string, props *CfnConfigurationAggregatorProps) CfnConfigurationAggregator {
 	_init_.Initialize()
 
@@ -411,7 +425,6 @@ func NewCfnConfigurationAggregator(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::Config::ConfigurationAggregator`.
 func NewCfnConfigurationAggregator_Override(c CfnConfigurationAggregator, scope constructs.Construct, id *string, props *CfnConfigurationAggregatorProps) {
 	_init_.Initialize()
 
@@ -448,6 +461,17 @@ func (j *jsiiProxy_CfnConfigurationAggregator)SetOrganizationAggregationSource(v
 	_jsii_.Set(
 		j,
 		"organizationAggregationSource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationAggregator)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -12,8 +12,12 @@ package awsappflow
 //   	LambdaArn: jsii.String("lambdaArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-lambdaconnectorprovisioningconfig.html
+//
 type CfnConnector_LambdaConnectorProvisioningConfigProperty struct {
 	// Lambda ARN of the connector being registered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-lambdaconnectorprovisioningconfig.html#cfn-appflow-connector-lambdaconnectorprovisioningconfig-lambdaarn
+	//
 	LambdaArn *string `field:"required" json:"lambdaArn" yaml:"lambdaArn"`
 }
 

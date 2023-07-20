@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnRouteResponse) validateSetApiIdParameters(val *string) err
 	return nil
 }
 
-func (j *jsiiProxy_CfnRouteResponse) validateSetResponseModelsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnRouteResponse) validateSetResponseParametersParameters(val interface{}) error {
 	return nil
 }

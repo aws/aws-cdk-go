@@ -12,8 +12,12 @@ package awsappflow
 //   	ApiSecretKey: jsii.String("apiSecretKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html
+//
 type CfnConnectorProfile_TrendmicroConnectorProfileCredentialsProperty struct {
 	// The Secret Access Key portion of the credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
+	//
 	ApiSecretKey *string `field:"required" json:"apiSecretKey" yaml:"apiSecretKey"`
 }
 

@@ -41,20 +41,32 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html
+//
 type CfnIdentityProviderConfigProps struct {
 	// The cluster that the configuration is associated to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-clustername
+	//
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The type of the identity provider configuration.
 	//
 	// The only type available is `oidc` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The name of the configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-identityproviderconfigname
+	//
 	IdentityProviderConfigName *string `field:"optional" json:"identityProviderConfigName" yaml:"identityProviderConfigName"`
 	// An object representing an OpenID Connect (OIDC) identity provider configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-oidc
+	//
 	Oidc interface{} `field:"optional" json:"oidc" yaml:"oidc"`
 	// The metadata to apply to the provider configuration to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value. You define both.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

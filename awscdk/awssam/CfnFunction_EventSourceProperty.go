@@ -7,7 +7,7 @@ package awssam
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   eventSourceProperty := &EventSourceProperty{
-//   	Properties: &S3EventProperty{
+//   	Properties: &AlexaSkillEventProperty{
 //   		Variables: map[string]*string{
 //   			"variablesKey": jsii.String("variables"),
 //   		},
@@ -15,10 +15,14 @@ package awssam
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventsource.html
+//
 type CfnFunction_EventSourceProperty struct {
-	// `CfnFunction.EventSourceProperty.Properties`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventsource.html#cfn-serverless-function-eventsource-properties
+	//
 	Properties interface{} `field:"required" json:"properties" yaml:"properties"`
-	// `CfnFunction.EventSourceProperty.Type`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-eventsource.html#cfn-serverless-function-eventsource-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

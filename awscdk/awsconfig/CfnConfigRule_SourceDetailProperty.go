@@ -18,8 +18,12 @@ package awsconfig
 //   	MaximumExecutionFrequency: jsii.String("maximumExecutionFrequency"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-sourcedetail.html
+//
 type CfnConfigRule_SourceDetailProperty struct {
 	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-sourcedetail.html#cfn-config-configrule-sourcedetail-eventsource
+	//
 	EventSource *string `field:"required" json:"eventSource" yaml:"eventSource"`
 	// The type of notification that triggers AWS Config to run an evaluation for a rule.
 	//
@@ -31,6 +35,8 @@ type CfnConfigRule_SourceDetailProperty struct {
 	// - `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
 	//
 	// If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for `ConfigurationItemChangeNotification` and one for `OversizedConfigurationItemChangeNotification` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-sourcedetail.html#cfn-config-configrule-sourcedetail-messagetype
+	//
 	MessageType *string `field:"required" json:"messageType" yaml:"messageType"`
 	// The frequency at which you want AWS Config to run evaluations for a custom rule with a periodic trigger.
 	//
@@ -39,6 +45,8 @@ type CfnConfigRule_SourceDetailProperty struct {
 	// > By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
 	// >
 	// > Based on the valid value you choose, AWS Config runs evaluations once for each valid value. For example, if you choose `Three_Hours` , AWS Config runs evaluations once every three hours. In this case, `Three_Hours` is the frequency of this rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-sourcedetail.html#cfn-config-configrule-sourcedetail-maximumexecutionfrequency
+	//
 	MaximumExecutionFrequency *string `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 }
 

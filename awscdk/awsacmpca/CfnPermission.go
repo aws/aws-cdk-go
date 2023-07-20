@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ACMPCA::Permission`.
-//
 // Grants permissions to the AWS Certificate Manager ( ACM ) service principal ( `acm.amazonaws.com` ) to perform [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) , [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html) , and [ListPermissions](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html) actions on a CA. These actions are needed for the ACM principal to renew private PKI certificates requested through ACM and residing in the same AWS account as the CA.
 //
 // **About permissions** - If the private CA and the certificates it issues reside in the same account, you can use `AWS::ACMPCA::Permission` to grant permissions for ACM to carry out automatic certificate renewals.
@@ -35,12 +33,12 @@ import (
 //   	SourceAccount: jsii.String("sourceAccount"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html
+//
 type CfnPermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The private CA actions that can be performed by the designated AWS service.
-	//
-	// Supported actions are `IssueCertificate` , `GetCertificate` , and `ListPermissions` .
 	Actions() *[]*string
 	SetActions(val *[]*string)
 	// The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
@@ -68,8 +66,6 @@ type CfnPermission interface {
 	// The tree node.
 	Node() constructs.Node
 	// The AWS service or entity that holds the permission.
-	//
-	// At this time, the only valid principal is `acm.amazonaws.com` .
 	Principal() *string
 	SetPrincipal(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -371,7 +367,6 @@ func (j *jsiiProxy_CfnPermission) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ACMPCA::Permission`.
 func NewCfnPermission(scope constructs.Construct, id *string, props *CfnPermissionProps) CfnPermission {
 	_init_.Initialize()
 
@@ -389,7 +384,6 @@ func NewCfnPermission(scope constructs.Construct, id *string, props *CfnPermissi
 	return &j
 }
 
-// Create a new `AWS::ACMPCA::Permission`.
 func NewCfnPermission_Override(c CfnPermission, scope constructs.Construct, id *string, props *CfnPermissionProps) {
 	_init_.Initialize()
 

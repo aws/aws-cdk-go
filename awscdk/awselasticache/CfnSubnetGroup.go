@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElastiCache::SubnetGroup`.
+// Creates a cache subnet group.
 //
-// Creates a cache subnet group. For more information about cache subnet groups, go to Cache Subnet Groups in the *Amazon ElastiCache User Guide* or go to [CreateCacheSubnetGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html) in the *Amazon ElastiCache API Reference Guide* .
+// For more information about cache subnet groups, go to Cache Subnet Groups in the *Amazon ElastiCache User Guide* or go to [CreateCacheSubnetGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html) in the *Amazon ElastiCache API Reference Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,14 +34,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html
+//
 type CfnSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The name for the cache subnet group. This value is stored as a lowercase string.
+	awscdk.ITaggable
+	// The name for the cache subnet group.
 	//
-	// Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
-	//
-	// Example: `mysubnetgroup`.
+	// This value is stored as a lowercase string.
 	CacheSubnetGroupName() *string
 	SetCacheSubnetGroupName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -80,10 +81,11 @@ type CfnSubnetGroup interface {
 	// The EC2 subnet IDs for the cache subnet group.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// A tag that can be added to an ElastiCache subnet group.
-	//
-	// Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A tag that can be added to an ElastiCache subnet group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +230,7 @@ type CfnSubnetGroup interface {
 type jsiiProxy_CfnSubnetGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSubnetGroup) CacheSubnetGroupName() *string {
@@ -350,6 +353,16 @@ func (j *jsiiProxy_CfnSubnetGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubnetGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubnetGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -371,7 +384,6 @@ func (j *jsiiProxy_CfnSubnetGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ElastiCache::SubnetGroup`.
 func NewCfnSubnetGroup(scope constructs.Construct, id *string, props *CfnSubnetGroupProps) CfnSubnetGroup {
 	_init_.Initialize()
 
@@ -389,7 +401,6 @@ func NewCfnSubnetGroup(scope constructs.Construct, id *string, props *CfnSubnetG
 	return &j
 }
 
-// Create a new `AWS::ElastiCache::SubnetGroup`.
 func NewCfnSubnetGroup_Override(c CfnSubnetGroup, scope constructs.Construct, id *string, props *CfnSubnetGroupProps) {
 	_init_.Initialize()
 
@@ -426,6 +437,17 @@ func (j *jsiiProxy_CfnSubnetGroup)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubnetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -12,6 +12,8 @@ package awswisdom
 //   	TemplateUri: jsii.String("templateUri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html
+//
 type CfnKnowledgeBase_RenderingConfigurationProperty struct {
 	// A URI template containing exactly one variable in `${variableName}` format.
 	//
@@ -22,6 +24,8 @@ type CfnKnowledgeBase_RenderingConfigurationProperty struct {
 	// - Zendesk: `id` , `title` , `updated_at` , or `draft`
 	//
 	// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html#cfn-wisdom-knowledgebase-renderingconfiguration-templateuri
+	//
 	TemplateUri *string `field:"optional" json:"templateUri" yaml:"templateUri"`
 }
 

@@ -14,8 +14,12 @@ package awslambda
 //   	Size: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-ephemeralstorage.html
+//
 type CfnFunction_EphemeralStorageProperty struct {
 	// The size of the function's `/tmp` directory.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-ephemeralstorage.html#cfn-lambda-function-ephemeralstorage-size
+	//
 	Size *float64 `field:"required" json:"size" yaml:"size"`
 }
 

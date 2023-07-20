@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::DocumentationVersion`.
+// The `AWS::ApiGateway::DocumentationVersion` resource creates a snapshot of the documentation for an API.
 //
-// The `AWS::ApiGateway::DocumentationVersion` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide* .
+// For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,6 +25,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html
 //
 type CfnDocumentationVersion interface {
 	awscdk.CfnResource
@@ -345,7 +347,6 @@ func (j *jsiiProxy_CfnDocumentationVersion) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::ApiGateway::DocumentationVersion`.
 func NewCfnDocumentationVersion(scope constructs.Construct, id *string, props *CfnDocumentationVersionProps) CfnDocumentationVersion {
 	_init_.Initialize()
 
@@ -363,7 +364,6 @@ func NewCfnDocumentationVersion(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::DocumentationVersion`.
 func NewCfnDocumentationVersion_Override(c CfnDocumentationVersion, scope constructs.Construct, id *string, props *CfnDocumentationVersionProps) {
 	_init_.Initialize()
 

@@ -8,26 +8,38 @@ import (
 // Creates a data protection policy for CloudWatch Logs log groups.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import kinesisfirehose "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+//   import destinations "github.com/aws/aws-cdk-go/awscdkkinesisfirehosedestinationsalpha"
 //
-//   var bucket bucket
-//   var dataIdentifier dataIdentifier
-//   var logGroup logGroup
 //
-//   dataProtectionPolicy := awscdk.Aws_logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
-//   	Identifiers: []*dataIdentifier{
-//   		dataIdentifier,
+//   logGroupDestination := logs.NewLogGroup(this, jsii.String("LogGroupLambdaAudit"), &LogGroupProps{
+//   	LogGroupName: jsii.String("auditDestinationForCDK"),
+//   })
+//
+//   bucket := s3.NewBucket(this, jsii.String("audit-bucket"))
+//   s3Destination := destinations.NewS3Bucket(bucket)
+//
+//   deliveryStream := kinesisfirehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+//   	Destinations: []iDestination{
+//   		s3Destination,
 //   	},
+//   })
 //
-//   	// the properties below are optional
-//   	DeliveryStreamNameAuditDestination: jsii.String("deliveryStreamNameAuditDestination"),
-//   	Description: jsii.String("description"),
-//   	LogGroupAuditDestination: logGroup,
-//   	Name: jsii.String("name"),
+//   dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
+//   	Name: jsii.String("data protection policy"),
+//   	Description: jsii.String("policy description"),
+//   	Identifiers: []dataIdentifier{
+//   		logs.*dataIdentifier_DRIVERSLICENSE_US(),
+//   		logs.NewDataIdentifier(jsii.String("EmailAddress")),
+//   	},
+//   	LogGroupAuditDestination: logGroupDestination,
 //   	S3BucketAuditDestination: bucket,
+//   	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,
+//   })
+//
+//   logs.NewLogGroup(this, jsii.String("LogGroupLambda"), &LogGroupProps{
+//   	LogGroupName: jsii.String("cdkIntegLogGroup"),
+//   	DataProtectionPolicy: dataProtectionPolicy,
 //   })
 //
 type DataProtectionPolicy interface {

@@ -11,10 +11,14 @@ package awssam
 //   	TableName: jsii.String("tableName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-tablestreamsampt.html
+//
 type CfnFunction_TableStreamSAMPTProperty struct {
-	// `CfnFunction.TableStreamSAMPTProperty.StreamName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-tablestreamsampt.html#cfn-serverless-function-tablestreamsampt-streamname
+	//
 	StreamName *string `field:"required" json:"streamName" yaml:"streamName"`
-	// `CfnFunction.TableStreamSAMPTProperty.TableName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-tablestreamsampt.html#cfn-serverless-function-tablestreamsampt-tablename
+	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 

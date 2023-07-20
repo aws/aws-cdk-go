@@ -16,10 +16,16 @@ package awsquicksight
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericequalitydrilldownfilter.html
+//
 type CfnAnalysis_NumericEqualityDrillDownFilterProperty struct {
 	// The column that the filter is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericequalitydrilldownfilter.html#cfn-quicksight-analysis-numericequalitydrilldownfilter-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// The value of the double input numeric drill down filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericequalitydrilldownfilter.html#cfn-quicksight-analysis-numericequalitydrilldownfilter-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

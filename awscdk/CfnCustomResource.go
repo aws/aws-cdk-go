@@ -7,8 +7,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::CustomResource`.
-//
 // In a CloudFormation template, you use the `AWS::CloudFormation::CustomResource` or `Custom:: *String*` resource type to specify custom resources.
 //
 // Custom resources provide a way for you to write custom provisioning logic in CloudFormation template and have CloudFormation run it during a stack operation, such as when you create, update or delete a stack. For more information, see [Custom resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) .
@@ -24,9 +22,12 @@ import (
 //   	ServiceToken: jsii.String("serviceToken"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html
+//
 type CfnCustomResource interface {
 	CfnResource
 	IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -54,12 +55,6 @@ type CfnCustomResource interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// > Only one property is defined by AWS for a custom resource: `ServiceToken` .
-	//
-	// All other properties are defined by the service provider.
-	//
-	// The service token that was given to the template developer by the service provider to access the service, such as an Amazon SNS topic ARN or Lambda function ARN. The service token must be from the same Region in which you are creating the stack.
-	//
-	// Updates aren't supported.
 	ServiceToken() *string
 	SetServiceToken(val *string)
 	// The stack in which this element is defined.
@@ -212,6 +207,16 @@ type jsiiProxy_CfnCustomResource struct {
 	jsiiProxy_IInspectable
 }
 
+func (j *jsiiProxy_CfnCustomResource) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomResource) CfnOptions() ICfnResourceOptions {
 	var returns ICfnResourceOptions
 	_jsii_.Get(
@@ -323,7 +328,6 @@ func (j *jsiiProxy_CfnCustomResource) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::CloudFormation::CustomResource`.
 func NewCfnCustomResource(scope constructs.Construct, id *string, props *CfnCustomResourceProps) CfnCustomResource {
 	_init_.Initialize()
 
@@ -341,7 +345,6 @@ func NewCfnCustomResource(scope constructs.Construct, id *string, props *CfnCust
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::CustomResource`.
 func NewCfnCustomResource_Override(c CfnCustomResource, scope constructs.Construct, id *string, props *CfnCustomResourceProps) {
 	_init_.Initialize()
 

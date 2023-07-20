@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) validateSetPropertiesParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnPublicDnsNamespace) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPublicDnsNamespaceParameters(scope constructs.Construct, id *string, props *CfnPublicDnsNamespaceProps) error {
 	return nil
 }

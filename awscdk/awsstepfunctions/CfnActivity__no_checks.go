@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnActivity) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnActivity) validateSetTagsRawParameters(val *[]*CfnActivity_TagsEntryProperty) error {
+	return nil
+}
+
 func validateNewCfnActivityParameters(scope constructs.Construct, id *string, props *CfnActivityProps) error {
 	return nil
 }

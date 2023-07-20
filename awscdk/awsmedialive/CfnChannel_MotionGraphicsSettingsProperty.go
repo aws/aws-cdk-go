@@ -15,8 +15,12 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html
+//
 type CfnChannel_MotionGraphicsSettingsProperty struct {
 	// Settings to configure the motion graphics overlay to use an HTML asset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html#cfn-medialive-channel-motiongraphicssettings-htmlmotiongraphicssettings
+	//
 	HtmlMotionGraphicsSettings interface{} `field:"optional" json:"htmlMotionGraphicsSettings" yaml:"htmlMotionGraphicsSettings"`
 }
 

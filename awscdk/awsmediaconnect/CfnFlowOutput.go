@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConnect::FlowOutput`.
+// The AWS::MediaConnect::FlowOutput resource defines the destination address, protocol, and port that AWS Elemental MediaConnect sends the ingested video to.
 //
-// The AWS::MediaConnect::FlowOutput resource defines the destination address, protocol, and port that AWS Elemental MediaConnect sends the ingested video to. Each flow can have up to 50 outputs. An output can have the same protocol or a different protocol from the source. The following protocols are supported: RIST, RTP, RTP-FEC, SRT-listener, SRT-caller, Zixi pull, Zixi push, and Fujitsu-QoS. CDI and ST 2110 JPEG XS protocols are not currently supported by AWS CloudFormation.
+// Each flow can have up to 50 outputs. An output can have the same protocol or a different protocol from the source. The following protocols are supported: RIST, RTP, RTP-FEC, SRT-listener, SRT-caller, Zixi pull, Zixi push, and Fujitsu-QoS. CDI and ST 2110 JPEG XS protocols are not currently supported by AWS CloudFormation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -48,6 +48,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html
+//
 type CfnFlowOutput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -59,8 +61,6 @@ type CfnFlowOutput interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The range of IP addresses that are allowed to initiate output requests to this flow.
-	//
-	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	CidrAllowList() *[]*string
 	SetCidrAllowList(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -68,8 +68,6 @@ type CfnFlowOutput interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A description of the output.
-	//
-	// This description is not visible outside of the current AWS account even if the account grants entitlements to other accounts.
 	Description() *string
 	SetDescription(val *string)
 	// The IP address where you want to send the output.
@@ -92,13 +90,9 @@ type CfnFlowOutput interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum latency in milliseconds.
-	//
-	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
 	MaxLatency() *float64
 	SetMaxLatency(val *float64)
 	// The minimum latency in milliseconds for SRT-based streams.
-	//
-	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
 	MinLatency() *float64
 	SetMinLatency(val *float64)
 	// The name of the VPC interface.
@@ -118,8 +112,6 @@ type CfnFlowOutput interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The identifier that is assigned to the Zixi receiver.
-	//
-	// This parameter applies only to outputs that use Zixi pull.
 	RemoteId() *string
 	SetRemoteId(val *string)
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -130,8 +122,6 @@ type CfnFlowOutput interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The stream ID that you want to use for this transport.
-	//
-	// This parameter applies only to Zixi and SRT caller-based streams.
 	StreamId() *string
 	SetStreamId(val *string)
 	// Deprecated.
@@ -534,7 +524,6 @@ func (j *jsiiProxy_CfnFlowOutput) VpcInterfaceAttachment() interface{} {
 }
 
 
-// Create a new `AWS::MediaConnect::FlowOutput`.
 func NewCfnFlowOutput(scope constructs.Construct, id *string, props *CfnFlowOutputProps) CfnFlowOutput {
 	_init_.Initialize()
 
@@ -552,7 +541,6 @@ func NewCfnFlowOutput(scope constructs.Construct, id *string, props *CfnFlowOutp
 	return &j
 }
 
-// Create a new `AWS::MediaConnect::FlowOutput`.
 func NewCfnFlowOutput_Override(c CfnFlowOutput, scope constructs.Construct, id *string, props *CfnFlowOutputProps) {
 	_init_.Initialize()
 

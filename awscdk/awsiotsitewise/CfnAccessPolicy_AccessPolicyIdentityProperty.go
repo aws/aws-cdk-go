@@ -20,12 +20,20 @@ package awsiotsitewise
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
+//
 type CfnAccessPolicy_AccessPolicyIdentityProperty struct {
 	// An IAM role identity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
+	//
 	IamRole interface{} `field:"optional" json:"iamRole" yaml:"iamRole"`
 	// An IAM user identity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
+	//
 	IamUser interface{} `field:"optional" json:"iamUser" yaml:"iamUser"`
 	// The IAM Identity Center user to which this access policy maps.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
+	//
 	User interface{} `field:"optional" json:"user" yaml:"user"`
 }
 

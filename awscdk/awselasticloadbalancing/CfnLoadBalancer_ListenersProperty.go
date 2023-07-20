@@ -23,14 +23,22 @@ package awselasticloadbalancing
 //   	SslCertificateId: jsii.String("sslCertificateId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-listeners.html
+//
 type CfnLoadBalancer_ListenersProperty struct {
 	// The port on which the instance is listening.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-listeners.html#cfn-elasticloadbalancing-loadbalancer-listeners-instanceport
+	//
 	InstancePort *string `field:"required" json:"instancePort" yaml:"instancePort"`
 	// The port on which the load balancer is listening.
 	//
 	// On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-listeners.html#cfn-elasticloadbalancing-loadbalancer-listeners-loadbalancerport
+	//
 	LoadBalancerPort *string `field:"required" json:"loadBalancerPort" yaml:"loadBalancerPort"`
 	// The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-listeners.html#cfn-elasticloadbalancing-loadbalancer-listeners-protocol
+	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
 	//
@@ -39,10 +47,16 @@ type CfnLoadBalancer_ListenersProperty struct {
 	// If there is another listener with the same `InstancePort` whose `InstanceProtocol` is secure, (HTTPS or SSL), the listener's `InstanceProtocol` must also be secure.
 	//
 	// If there is another listener with the same `InstancePort` whose `InstanceProtocol` is HTTP or TCP, the listener's `InstanceProtocol` must be HTTP or TCP.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-listeners.html#cfn-elasticloadbalancing-loadbalancer-listeners-instanceprotocol
+	//
 	InstanceProtocol *string `field:"optional" json:"instanceProtocol" yaml:"instanceProtocol"`
 	// The names of the policies to associate with the listener.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-listeners.html#cfn-elasticloadbalancing-loadbalancer-listeners-policynames
+	//
 	PolicyNames *[]*string `field:"optional" json:"policyNames" yaml:"policyNames"`
 	// The Amazon Resource Name (ARN) of the server certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-listeners.html#cfn-elasticloadbalancing-loadbalancer-listeners-sslcertificateid
+	//
 	SslCertificateId *string `field:"optional" json:"sslCertificateId" yaml:"sslCertificateId"`
 }
 

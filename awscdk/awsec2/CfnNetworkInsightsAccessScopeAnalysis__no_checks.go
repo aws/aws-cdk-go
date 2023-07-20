@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateSetNetworkInsi
 	return nil
 }
 
+func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnNetworkInsightsAccessScopeAnalysisParameters(scope constructs.Construct, id *string, props *CfnNetworkInsightsAccessScopeAnalysisProps) error {
 	return nil
 }

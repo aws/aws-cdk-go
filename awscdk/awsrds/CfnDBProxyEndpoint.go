@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::DBProxyEndpoint`.
+// The `AWS::RDS::DBProxyEndpoint` resource creates or updates a DB proxy endpoint.
 //
-// The `AWS::RDS::DBProxyEndpoint` resource creates or updates a DB proxy endpoint. You can use custom proxy endpoints to access a proxy through a different VPC than the proxy's default VPC.
+// You can use custom proxy endpoints to access a proxy through a different VPC than the proxy's default VPC.
 //
 // For more information about RDS Proxy, see [AWS::RDS::DBProxy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html) .
 //
@@ -39,6 +39,8 @@ import (
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html
 //
 type CfnDBProxyEndpoint interface {
 	awscdk.CfnResource
@@ -93,8 +95,6 @@ type CfnDBProxyEndpoint interface {
 	Tags() *[]*CfnDBProxyEndpoint_TagFormatProperty
 	SetTags(val *[]*CfnDBProxyEndpoint_TagFormatProperty)
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	//
-	// Valid Values: `READ_WRITE | READ_ONLY`.
 	TargetRole() *string
 	SetTargetRole(val *string)
 	// Deprecated.
@@ -111,13 +111,9 @@ type CfnDBProxyEndpoint interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The VPC security group IDs for the DB proxy endpoint that you create.
-	//
-	// You can specify a different set of security group IDs than for the original DB proxy. The default is the default security group for the VPC.
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
 	// The VPC subnet IDs for the DB proxy endpoint that you create.
-	//
-	// You can specify a different set of subnet IDs than for the original DB proxy.
 	VpcSubnetIds() *[]*string
 	SetVpcSubnetIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -454,7 +450,6 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) VpcSubnetIds() *[]*string {
 }
 
 
-// Create a new `AWS::RDS::DBProxyEndpoint`.
 func NewCfnDBProxyEndpoint(scope constructs.Construct, id *string, props *CfnDBProxyEndpointProps) CfnDBProxyEndpoint {
 	_init_.Initialize()
 
@@ -472,7 +467,6 @@ func NewCfnDBProxyEndpoint(scope constructs.Construct, id *string, props *CfnDBP
 	return &j
 }
 
-// Create a new `AWS::RDS::DBProxyEndpoint`.
 func NewCfnDBProxyEndpoint_Override(c CfnDBProxyEndpoint, scope constructs.Construct, id *string, props *CfnDBProxyEndpointProps) {
 	_init_.Initialize()
 

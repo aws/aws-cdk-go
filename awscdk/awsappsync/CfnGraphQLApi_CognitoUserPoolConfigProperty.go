@@ -14,14 +14,22 @@ package awsappsync
 //   	UserPoolId: jsii.String("userPoolId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html
+//
 type CfnGraphQLApi_CognitoUserPoolConfigProperty struct {
 	// A regular expression for validating the incoming Amazon Cognito user pool app client ID.
 	//
 	// If this value isn't set, no filtering is applied.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-appidclientregex
+	//
 	AppIdClientRegex *string `field:"optional" json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// The AWS Region in which the user pool was created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-awsregion
+	//
 	AwsRegion *string `field:"optional" json:"awsRegion" yaml:"awsRegion"`
 	// The user pool ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-userpoolid
+	//
 	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 

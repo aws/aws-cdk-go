@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Comprehend::Flywheel`.
+// A flywheel is an AWS resource that orchestrates the ongoing training of a model for custom classification or custom entity recognition.
 //
-// A flywheel is an AWS resource that orchestrates the ongoing training of a model for custom classification or custom entity recognition. You can create a flywheel to start with an existing trained model, or Comprehend can create and train a new model.
+// You can create a flywheel to start with an existing trained model, or Comprehend can create and train a new model.
 //
 // When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training data and test data for all versions of the model.
 //
@@ -75,9 +75,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html
+//
 type CfnFlywheel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Number (ARN) of the active model version.
 	ActiveModelArn() *string
 	SetActiveModelArn(val *string)
@@ -128,10 +131,11 @@ type CfnFlywheel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags associated with the endpoint being created.
-	//
-	// A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags associated with the endpoint being created.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Configuration about the model associated with a flywheel.
 	TaskConfig() interface{}
 	SetTaskConfig(val interface{})
@@ -279,6 +283,7 @@ type CfnFlywheel interface {
 type jsiiProxy_CfnFlywheel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFlywheel) ActiveModelArn() *string {
@@ -441,6 +446,16 @@ func (j *jsiiProxy_CfnFlywheel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlywheel) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlywheel) TaskConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -472,7 +487,6 @@ func (j *jsiiProxy_CfnFlywheel) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Comprehend::Flywheel`.
 func NewCfnFlywheel(scope constructs.Construct, id *string, props *CfnFlywheelProps) CfnFlywheel {
 	_init_.Initialize()
 
@@ -490,7 +504,6 @@ func NewCfnFlywheel(scope constructs.Construct, id *string, props *CfnFlywheelPr
 	return &j
 }
 
-// Create a new `AWS::Comprehend::Flywheel`.
 func NewCfnFlywheel_Override(c CfnFlywheel, scope constructs.Construct, id *string, props *CfnFlywheelProps) {
 	_init_.Initialize()
 
@@ -557,6 +570,17 @@ func (j *jsiiProxy_CfnFlywheel)SetModelType(val *string) {
 	_jsii_.Set(
 		j,
 		"modelType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlywheel)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

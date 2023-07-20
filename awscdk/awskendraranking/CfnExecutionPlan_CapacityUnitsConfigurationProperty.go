@@ -14,10 +14,14 @@ package awskendraranking
 //   	RescoreCapacityUnits: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendraranking-executionplan-capacityunitsconfiguration.html
+//
 type CfnExecutionPlan_CapacityUnitsConfigurationProperty struct {
 	// The amount of extra capacity for your rescore execution plan.
 	//
 	// A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendraranking-executionplan-capacityunitsconfiguration.html#cfn-kendraranking-executionplan-capacityunitsconfiguration-rescorecapacityunits
+	//
 	RescoreCapacityUnits *float64 `field:"required" json:"rescoreCapacityUnits" yaml:"rescoreCapacityUnits"`
 }
 

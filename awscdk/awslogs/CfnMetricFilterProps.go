@@ -33,16 +33,26 @@ package awslogs
 //   	FilterName: jsii.String("filterName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
+//
 type CfnMetricFilterProps struct {
 	// A filter pattern for extracting metric data out of ingested log events.
 	//
 	// For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-filterpattern
+	//
 	FilterPattern *string `field:"required" json:"filterPattern" yaml:"filterPattern"`
 	// The name of an existing log group that you want to associate with this metric filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-loggroupname
+	//
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The metric transformations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-metrictransformations
+	//
 	MetricTransformations interface{} `field:"required" json:"metricTransformations" yaml:"metricTransformations"`
 	// The name of the metric filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-filtername
+	//
 	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 }
 

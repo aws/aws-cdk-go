@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::Instance`.
-//
-// *This is a preview release for Amazon Connect . It is subject to change.*
+// *This is a preview release for Amazon Connect . It is subject to change.*.
 //
 // Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis.
 //
@@ -40,6 +38,8 @@ import (
 //   	DirectoryId: jsii.String("directoryId"),
 //   	InstanceAlias: jsii.String("instanceAlias"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html
 //
 type CfnInstance interface {
 	awscdk.CfnResource
@@ -75,8 +75,6 @@ type CfnInstance interface {
 	IdentityManagementType() *string
 	SetIdentityManagementType(val *string)
 	// The alias of instance.
-	//
-	// `InstanceAlias` is only required when `IdentityManagementType` is `CONNECT_MANAGED` or `SAML` . `InstanceAlias` is not required when `IdentityManagementType` is `EXISTING_DIRECTORY` .
 	InstanceAlias() *string
 	SetInstanceAlias(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -437,7 +435,6 @@ func (j *jsiiProxy_CfnInstance) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Connect::Instance`.
 func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstanceProps) CfnInstance {
 	_init_.Initialize()
 
@@ -455,7 +452,6 @@ func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstancePr
 	return &j
 }
 
-// Create a new `AWS::Connect::Instance`.
 func NewCfnInstance_Override(c CfnInstance, scope constructs.Construct, id *string, props *CfnInstanceProps) {
 	_init_.Initialize()
 

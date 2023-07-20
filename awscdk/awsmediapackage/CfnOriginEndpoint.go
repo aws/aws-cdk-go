@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaPackage::OriginEndpoint`.
-//
 // Create an endpoint on an AWS Elemental MediaPackage channel.
 //
 // An endpoint represents a single delivery point of a channel, and defines content output handling through various components, such as packaging protocols, DRM and encryption integration, and more.
@@ -44,6 +42,8 @@ import (
 //   				// the properties below are optional
 //   				CertificateArn: jsii.String("certificateArn"),
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //
@@ -95,6 +95,8 @@ import (
 //   				// the properties below are optional
 //   				CertificateArn: jsii.String("certificateArn"),
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //
@@ -140,6 +142,8 @@ import (
 //   				// the properties below are optional
 //   				CertificateArn: jsii.String("certificateArn"),
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //
@@ -176,6 +180,8 @@ import (
 //   				// the properties below are optional
 //   				CertificateArn: jsii.String("certificateArn"),
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //   		},
@@ -201,9 +207,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
+//
 type CfnOriginEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The endpoint's unique system-generated resource name, based on the AWS record.
 	AttrArn() *string
 	// URL for the key provider’s key retrieval API endpoint.
@@ -238,8 +247,6 @@ type CfnOriginEndpoint interface {
 	HlsPackage() interface{}
 	SetHlsPackage(val interface{})
 	// The manifest ID is required and must be unique within the OriginEndpoint.
-	//
-	// The ID can't be changed after the endpoint is created.
 	Id() *string
 	SetId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -261,11 +268,6 @@ type CfnOriginEndpoint interface {
 	// The tree node.
 	Node() constructs.Node
 	// Controls video origination from this endpoint.
-	//
-	// Valid values:
-	//
-	// - `ALLOW` - enables this endpoint to serve content to requesting devices.
-	// - `DENY` - prevents this endpoint from serving content. Denying origination is helpful for harvesting live-to-VOD assets. For more information about harvesting and origination, see [Live-to-VOD Requirements](https://docs.aws.amazon.com/mediapackage/latest/ug/ltov-reqmts.html) .
 	Origination() *string
 	SetOrigination(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -278,15 +280,14 @@ type CfnOriginEndpoint interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Maximum duration (seconds) of content to retain for startover playback.
-	//
-	// Omit this attribute or enter `0` to indicate that startover playback is disabled for this endpoint.
 	StartoverWindowSeconds() *float64
 	SetStartoverWindowSeconds(val *float64)
-	// The tags to assign to the endpoint.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to assign to the endpoint.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Minimum duration (seconds) of delay to enforce on the playback of live content.
-	//
-	// Omit this attribute or enter `0` to indicate that there is no time delay in effect for this endpoint.
 	TimeDelaySeconds() *float64
 	SetTimeDelaySeconds(val *float64)
 	// Deprecated.
@@ -436,6 +437,7 @@ type CfnOriginEndpoint interface {
 type jsiiProxy_CfnOriginEndpoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnOriginEndpoint) AttrArn() *string {
@@ -658,6 +660,16 @@ func (j *jsiiProxy_CfnOriginEndpoint) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOriginEndpoint) TimeDelaySeconds() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -699,7 +711,6 @@ func (j *jsiiProxy_CfnOriginEndpoint) Whitelist() *[]*string {
 }
 
 
-// Create a new `AWS::MediaPackage::OriginEndpoint`.
 func NewCfnOriginEndpoint(scope constructs.Construct, id *string, props *CfnOriginEndpointProps) CfnOriginEndpoint {
 	_init_.Initialize()
 
@@ -717,7 +728,6 @@ func NewCfnOriginEndpoint(scope constructs.Construct, id *string, props *CfnOrig
 	return &j
 }
 
-// Create a new `AWS::MediaPackage::OriginEndpoint`.
 func NewCfnOriginEndpoint_Override(c CfnOriginEndpoint, scope constructs.Construct, id *string, props *CfnOriginEndpointProps) {
 	_init_.Initialize()
 
@@ -833,6 +843,17 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetStartoverWindowSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"startoverWindowSeconds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

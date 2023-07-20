@@ -13,10 +13,16 @@ package awsquicksight
 //   	To: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-percentvisiblerange.html
+//
 type CfnAnalysis_PercentVisibleRangeProperty struct {
 	// The lower bound of the range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-percentvisiblerange.html#cfn-quicksight-analysis-percentvisiblerange-from
+	//
 	From *float64 `field:"optional" json:"from" yaml:"from"`
 	// The top bound of the range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-percentvisiblerange.html#cfn-quicksight-analysis-percentvisiblerange-to
+	//
 	To *float64 `field:"optional" json:"to" yaml:"to"`
 }
 

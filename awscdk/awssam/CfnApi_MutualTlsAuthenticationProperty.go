@@ -11,10 +11,14 @@ package awssam
 //   	TruststoreVersion: jsii.String("truststoreVersion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-mutualtlsauthentication.html
+//
 type CfnApi_MutualTlsAuthenticationProperty struct {
-	// `CfnApi.MutualTlsAuthenticationProperty.TruststoreUri`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-mutualtlsauthentication.html#cfn-serverless-api-mutualtlsauthentication-truststoreuri
+	//
 	TruststoreUri *string `field:"optional" json:"truststoreUri" yaml:"truststoreUri"`
-	// `CfnApi.MutualTlsAuthenticationProperty.TruststoreVersion`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-mutualtlsauthentication.html#cfn-serverless-api-mutualtlsauthentication-truststoreversion
+	//
 	TruststoreVersion *string `field:"optional" json:"truststoreVersion" yaml:"truststoreVersion"`
 }
 

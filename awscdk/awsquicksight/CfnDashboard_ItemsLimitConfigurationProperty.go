@@ -13,15 +13,21 @@ package awsquicksight
 //   	OtherCategories: jsii.String("otherCategories"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-itemslimitconfiguration.html
+//
 type CfnDashboard_ItemsLimitConfigurationProperty struct {
 	// The limit on how many items of a field are showed in the chart.
 	//
 	// For example, the number of slices that are displayed in a pie chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-itemslimitconfiguration.html#cfn-quicksight-dashboard-itemslimitconfiguration-itemslimit
+	//
 	ItemsLimit *float64 `field:"optional" json:"itemsLimit" yaml:"itemsLimit"`
 	// The `Show other` of an axis in the chart. Choose one of the following options:.
 	//
 	// - `INCLUDE`
 	// - `EXCLUDE`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-itemslimitconfiguration.html#cfn-quicksight-dashboard-itemslimitconfiguration-othercategories
+	//
 	OtherCategories *string `field:"optional" json:"otherCategories" yaml:"otherCategories"`
 }
 

@@ -14,8 +14,12 @@ package awsacmpca
 //   	CpsUri: jsii.String("cpsUri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html
+//
 type CfnCertificate_QualifierProperty struct {
 	// Contains a pointer to a certification practice statement (CPS) published by the CA.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
+	//
 	CpsUri *string `field:"required" json:"cpsUri" yaml:"cpsUri"`
 }
 

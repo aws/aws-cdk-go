@@ -28,16 +28,24 @@ package awselasticbeanstalk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-application.html
+//
 type CfnApplicationProps struct {
 	// A name for the Elastic Beanstalk application.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-application.html#cfn-elasticbeanstalk-application-applicationname
+	//
 	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 	// Your description of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-application.html#cfn-elasticbeanstalk-application-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-application.html#cfn-elasticbeanstalk-application-resourcelifecycleconfig
+	//
 	ResourceLifecycleConfig interface{} `field:"optional" json:"resourceLifecycleConfig" yaml:"resourceLifecycleConfig"`
 }
 

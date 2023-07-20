@@ -75,10 +75,16 @@ package awspinpoint
 //   	Layout: jsii.String("layout"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html
+//
 type CfnCampaign_CampaignInAppMessageProperty struct {
 	// An array that contains configurtion information about the in-app message for the campaign, including title and body text, text colors, background colors, image URLs, and button configurations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-content
+	//
 	Content interface{} `field:"optional" json:"content" yaml:"content"`
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-customconfig
+	//
 	CustomConfig interface{} `field:"optional" json:"customConfig" yaml:"customConfig"`
 	// A string that describes how the in-app message will appear. You can specify one of the following:.
 	//
@@ -88,6 +94,8 @@ type CfnCampaign_CampaignInAppMessageProperty struct {
 	// - `MOBILE_FEED` – a message that appears in a window in front of the page.
 	// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
 	// - `CAROUSEL` – a scrollable layout of up to five unique messages.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-layout
+	//
 	Layout *string `field:"optional" json:"layout" yaml:"layout"`
 }
 

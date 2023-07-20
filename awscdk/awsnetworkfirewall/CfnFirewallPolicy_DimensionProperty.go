@@ -18,8 +18,12 @@ package awsnetworkfirewall
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimension.html
+//
 type CfnFirewallPolicy_DimensionProperty struct {
 	// The value to use in the custom metric dimension.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimension.html#cfn-networkfirewall-firewallpolicy-dimension-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

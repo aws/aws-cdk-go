@@ -29,8 +29,12 @@ package awswafregional
 //   	TargetStringBase64: jsii.String("targetStringBase64"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html
+//
 type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// The part of a web request that you want AWS WAF to inspect, such as a specific header or a query string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-fieldtomatch
+	//
 	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Within the portion of a web request that you want to search (for example, in the query string, if any), specify where you want AWS WAF to search.
 	//
@@ -60,6 +64,8 @@ type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// *ENDS_WITH*
 	//
 	// The value of `TargetString` must appear at the end of the specified part of the web request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-positionalconstraint
+	//
 	PositionalConstraint *string `field:"required" json:"positionalConstraint" yaml:"positionalConstraint"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF .
 	//
@@ -112,6 +118,8 @@ type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// *NONE*
 	//
 	// Specify `NONE` if you don't want to perform any text transformations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-texttransformation
+	//
 	TextTransformation *string `field:"required" json:"textTransformation" yaml:"textTransformation"`
 	// The value that you want AWS WAF to search for.
 	//
@@ -130,6 +138,8 @@ type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// - `ALL_QUERY_ARGS` : Similar to `SINGLE_QUERY_ARG` , but instead of inspecting a single parameter, AWS WAF inspects all parameters within the query string for the value or regex pattern that you specify in `TargetString` .
 	//
 	// If `TargetString` includes alphabetic characters A-Z and a-z, note that the value is case sensitive.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstring
+	//
 	TargetString *string `field:"optional" json:"targetString" yaml:"targetString"`
 	// The base64-encoded value that AWS WAF searches for. AWS CloudFormation sends this value to AWS WAF without encoding it.
 	//
@@ -138,6 +148,8 @@ type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// AWS WAF searches for this value in a specific part of web requests, which you define in the `FieldToMatch` property.
 	//
 	// Valid values depend on the Type value in the `FieldToMatch` property. For example, for a `METHOD` type, you must specify HTTP methods such as `DELETE, GET, HEAD, OPTIONS, PATCH, POST` , and `PUT` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstringbase64
+	//
 	TargetStringBase64 *string `field:"optional" json:"targetStringBase64" yaml:"targetStringBase64"`
 }
 

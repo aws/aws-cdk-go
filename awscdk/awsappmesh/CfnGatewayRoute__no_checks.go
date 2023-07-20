@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnGatewayRoute) validateSetSpecParameters(val interface{}) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnGatewayRoute) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGatewayRoute) validateSetVirtualGatewayNameParameters(val *string) error {
 	return nil
 }

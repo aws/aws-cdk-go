@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpenSearchServerless::SecurityConfig`.
+// Specifies a security configuration for OpenSearch Serverless.
 //
-// Specifies a security configuration for OpenSearch Serverless. For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html) .
+// For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,6 +31,8 @@ import (
 //   	},
 //   	Type: jsii.String("type"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html
 //
 type CfnSecurityConfig interface {
 	awscdk.CfnResource
@@ -79,8 +81,6 @@ type CfnSecurityConfig interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The type of security configuration.
-	//
-	// Currently the only option is `saml` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -380,7 +380,6 @@ func (j *jsiiProxy_CfnSecurityConfig) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::OpenSearchServerless::SecurityConfig`.
 func NewCfnSecurityConfig(scope constructs.Construct, id *string, props *CfnSecurityConfigProps) CfnSecurityConfig {
 	_init_.Initialize()
 
@@ -398,7 +397,6 @@ func NewCfnSecurityConfig(scope constructs.Construct, id *string, props *CfnSecu
 	return &j
 }
 
-// Create a new `AWS::OpenSearchServerless::SecurityConfig`.
 func NewCfnSecurityConfig_Override(c CfnSecurityConfig, scope constructs.Construct, id *string, props *CfnSecurityConfigProps) {
 	_init_.Initialize()
 

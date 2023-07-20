@@ -14,8 +14,12 @@ package awsservicediscovery
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-publicdnspropertiesmutable.html
+//
 type CfnPublicDnsNamespace_PublicDnsPropertiesMutableProperty struct {
 	// Start of Authority (SOA) record for the hosted zone for the public DNS namespace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-publicdnspropertiesmutable.html#cfn-servicediscovery-publicdnsnamespace-publicdnspropertiesmutable-soa
+	//
 	Soa interface{} `field:"optional" json:"soa" yaml:"soa"`
 }
 

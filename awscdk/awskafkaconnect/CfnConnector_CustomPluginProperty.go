@@ -13,10 +13,16 @@ package awskafkaconnect
 //   	Revision: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html
+//
 type CfnConnector_CustomPluginProperty struct {
 	// The Amazon Resource Name (ARN) of the custom plugin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html#cfn-kafkaconnect-connector-customplugin-custompluginarn
+	//
 	CustomPluginArn *string `field:"required" json:"customPluginArn" yaml:"customPluginArn"`
 	// The revision of the custom plugin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html#cfn-kafkaconnect-connector-customplugin-revision
+	//
 	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 }
 

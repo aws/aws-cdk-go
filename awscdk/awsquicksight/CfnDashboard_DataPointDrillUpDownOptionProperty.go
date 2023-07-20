@@ -12,8 +12,12 @@ package awsquicksight
 //   	AvailabilityStatus: jsii.String("availabilityStatus"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapointdrillupdownoption.html
+//
 type CfnDashboard_DataPointDrillUpDownOptionProperty struct {
 	// The status of the drill down options of data points.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapointdrillupdownoption.html#cfn-quicksight-dashboard-datapointdrillupdownoption-availabilitystatus
+	//
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::UserPoolUICustomizationAttachment`.
-//
 // The `AWS::Cognito::UserPoolUICustomizationAttachment` resource sets the UI customization information for a user pool's built-in app UI.
 //
 // You can specify app UI customization settings for a single client (with a specific `clientId` ) or for all clients (by setting the `clientId` to `ALL` ). If you specify `ALL` , the default configuration is used for every client that has had no UI customization set previously. If you specify UI customization settings for a particular client, it no longer falls back to the `ALL` configuration.
@@ -32,17 +30,18 @@ import (
 //   	Css: jsii.String("css"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html
+//
 type CfnUserPoolUICustomizationAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// The client ID for the client app.
-	//
-	// You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
 	ClientId() *string
 	SetClientId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -222,6 +221,16 @@ type jsiiProxy_CfnUserPoolUICustomizationAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -353,7 +362,6 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) UserPoolId() *string {
 }
 
 
-// Create a new `AWS::Cognito::UserPoolUICustomizationAttachment`.
 func NewCfnUserPoolUICustomizationAttachment(scope constructs.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) CfnUserPoolUICustomizationAttachment {
 	_init_.Initialize()
 
@@ -371,7 +379,6 @@ func NewCfnUserPoolUICustomizationAttachment(scope constructs.Construct, id *str
 	return &j
 }
 
-// Create a new `AWS::Cognito::UserPoolUICustomizationAttachment`.
 func NewCfnUserPoolUICustomizationAttachment_Override(c CfnUserPoolUICustomizationAttachment, scope constructs.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) {
 	_init_.Initialize()
 

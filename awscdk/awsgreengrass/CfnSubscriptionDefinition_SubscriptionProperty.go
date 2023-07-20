@@ -19,20 +19,30 @@ package awsgreengrass
 //   	Target: jsii.String("target"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html
+//
 type CfnSubscriptionDefinition_SubscriptionProperty struct {
 	// A descriptive or arbitrary ID for the subscription.
 	//
 	// This value must be unique within the subscription definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html#cfn-greengrass-subscriptiondefinition-subscription-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The originator of the message.
 	//
 	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html#cfn-greengrass-subscriptiondefinition-subscription-source
+	//
 	Source *string `field:"required" json:"source" yaml:"source"`
 	// The MQTT topic used to route the message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html#cfn-greengrass-subscriptiondefinition-subscription-subject
+	//
 	Subject *string `field:"required" json:"subject" yaml:"subject"`
 	// The destination of the message.
 	//
 	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html#cfn-greengrass-subscriptiondefinition-subscription-target
+	//
 	Target *string `field:"required" json:"target" yaml:"target"`
 }
 

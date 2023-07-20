@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::StepFunctions::StateMachine`.
+// Provisions a state machine.
 //
-// Provisions a state machine. A state machine consists of a collection of states that can do work ( `Task` states), determine to which states to transition next ( `Choice` states), stop an execution with an error ( `Fail` states), and so on. State machines are specified using a JSON-based, structured language.
+// A state machine consists of a collection of states that can do work ( `Task` states), determine to which states to transition next ( `Choice` states), stop an execution with an error ( `Fail` states), and so on. State machines are specified using a JSON-based, structured language.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -60,9 +60,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
+//
 type CfnStateMachine interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the ARN of the resource.
 	AttrArn() *string
 	// Returns the name of the state machine. For example:.
@@ -91,30 +94,18 @@ type CfnStateMachine interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Amazon States Language definition of the state machine.
-	//
-	// The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The name of the S3 bucket where the state machine definition is stored.
-	//
-	// The state machine definition must be a JSON or YAML file.
 	DefinitionS3Location() interface{}
 	SetDefinitionS3Location(val interface{})
 	// The Amazon States Language definition of the state machine.
-	//
-	// The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	DefinitionString() *string
 	SetDefinitionString(val *string)
 	// A map (string to string) that specifies the mappings for placeholder variables in the state machine definition.
-	//
-	// This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
-	//
-	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
 	DefinitionSubstitutions() interface{}
 	SetDefinitionSubstitutions(val interface{})
 	// Defines what execution history events are logged and where they are logged.
-	//
-	// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -142,27 +133,16 @@ type CfnStateMachine interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name of the state machine.
-	//
-	// A name must *not* contain:
-	//
-	// - white space
-	// - brackets `< > { } [ ]`
-	// - wildcard characters `? *`
-	// - special characters `" # % \ ^ | ~ ` $ & , ; : /`
-	// - control characters ( `U+0000-001F` , `U+007F-009F` )
-	//
-	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	StateMachineName() *string
 	SetStateMachineName(val *string)
 	// Determines whether a `STANDARD` or `EXPRESS` state machine is created.
-	//
-	// The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
 	StateMachineType() *string
 	SetStateMachineType(val *string)
-	// The list of tags to add to a resource.
-	//
-	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of tags to add to a resource.
+	TagsRaw() *[]*CfnStateMachine_TagsEntryProperty
+	SetTagsRaw(val *[]*CfnStateMachine_TagsEntryProperty)
 	// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
 	TracingConfiguration() interface{}
 	SetTracingConfiguration(val interface{})
@@ -310,6 +290,7 @@ type CfnStateMachine interface {
 type jsiiProxy_CfnStateMachine struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStateMachine) AttrArn() *string {
@@ -512,6 +493,16 @@ func (j *jsiiProxy_CfnStateMachine) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStateMachine) TagsRaw() *[]*CfnStateMachine_TagsEntryProperty {
+	var returns *[]*CfnStateMachine_TagsEntryProperty
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStateMachine) TracingConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -543,7 +534,6 @@ func (j *jsiiProxy_CfnStateMachine) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::StepFunctions::StateMachine`.
 func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateMachineProps) CfnStateMachine {
 	_init_.Initialize()
 
@@ -561,7 +551,6 @@ func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateM
 	return &j
 }
 
-// Create a new `AWS::StepFunctions::StateMachine`.
 func NewCfnStateMachine_Override(c CfnStateMachine, scope constructs.Construct, id *string, props *CfnStateMachineProps) {
 	_init_.Initialize()
 
@@ -573,9 +562,6 @@ func NewCfnStateMachine_Override(c CfnStateMachine, scope constructs.Construct, 
 }
 
 func (j *jsiiProxy_CfnStateMachine)SetDefinition(val interface{}) {
-	if err := j.validateSetDefinitionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"definition",
@@ -647,6 +633,17 @@ func (j *jsiiProxy_CfnStateMachine)SetStateMachineType(val *string) {
 	_jsii_.Set(
 		j,
 		"stateMachineType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStateMachine)SetTagsRaw(val *[]*CfnStateMachine_TagsEntryProperty) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

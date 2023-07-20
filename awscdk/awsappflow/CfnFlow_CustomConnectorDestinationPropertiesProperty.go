@@ -26,16 +26,28 @@ package awsappflow
 //   	WriteOperationType: jsii.String("writeOperationType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html
+//
 type CfnFlow_CustomConnectorDestinationPropertiesProperty struct {
 	// The entity specified in the custom connector as a destination in the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-entityname
+	//
 	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
 	// The custom properties that are specific to the connector when it's used as a destination in the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-customproperties
+	//
 	CustomProperties interface{} `field:"optional" json:"customProperties" yaml:"customProperties"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-errorhandlingconfig
+	//
 	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-idfieldnames
+	//
 	IdFieldNames *[]*string `field:"optional" json:"idFieldNames" yaml:"idFieldNames"`
 	// Specifies the type of write operation to be performed in the custom connector when it's used as destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-writeoperationtype
+	//
 	WriteOperationType *string `field:"optional" json:"writeOperationType" yaml:"writeOperationType"`
 }
 

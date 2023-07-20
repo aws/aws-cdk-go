@@ -13,10 +13,16 @@ package awsglue
 //   	DatabaseName: jsii.String("databaseName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
+//
 type CfnDatabase_DatabaseIdentifierProperty struct {
 	// The ID of the Data Catalog in which the database resides.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+	//
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the catalog database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+	//
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 }
 

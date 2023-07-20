@@ -31,10 +31,16 @@ package awsiotanalytics
 //   	EntryName: jsii.String("entryName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html
+//
 type CfnDataset_DatasetContentDeliveryRuleProperty struct {
 	// The destination to which dataset contents are delivered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html#cfn-iotanalytics-dataset-datasetcontentdeliveryrule-destination
+	//
 	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
 	// The name of the dataset content delivery rules entry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html#cfn-iotanalytics-dataset-datasetcontentdeliveryrule-entryname
+	//
 	EntryName *string `field:"optional" json:"entryName" yaml:"entryName"`
 }
 

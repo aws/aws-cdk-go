@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnTable) validateSetStreamSpecificationParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTable) validateSetTimeToLiveSpecificationParameters(val interface{}) error {
 	return nil
 }

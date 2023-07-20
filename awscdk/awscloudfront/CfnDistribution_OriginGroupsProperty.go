@@ -35,10 +35,16 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html
+//
 type CfnDistribution_OriginGroupsProperty struct {
 	// The number of origin groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
+	//
 	Quantity *float64 `field:"required" json:"quantity" yaml:"quantity"`
 	// The items (origin groups) in a distribution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
+	//
 	Items interface{} `field:"optional" json:"items" yaml:"items"`
 }
 

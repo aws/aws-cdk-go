@@ -15,10 +15,16 @@ package awsappmesh
 //   	MaxPendingRequests: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html
+//
 type CfnVirtualGateway_VirtualGatewayHttpConnectionPoolProperty struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxconnections
+	//
 	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 	// Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxpendingrequests
+	//
 	MaxPendingRequests *float64 `field:"optional" json:"maxPendingRequests" yaml:"maxPendingRequests"`
 }
 

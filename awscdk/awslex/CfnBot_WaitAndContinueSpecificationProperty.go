@@ -199,16 +199,26 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html
+//
 type CfnBot_WaitAndContinueSpecificationProperty struct {
 	// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-continueresponse
+	//
 	ContinueResponse interface{} `field:"required" json:"continueResponse" yaml:"continueResponse"`
 	// The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-waitingresponse
+	//
 	WaitingResponse interface{} `field:"required" json:"waitingResponse" yaml:"waitingResponse"`
 	// Specifies whether the bot will wait for a user to respond.
 	//
 	// When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-isactive
+	//
 	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
 	// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-stillwaitingresponse
+	//
 	StillWaitingResponse interface{} `field:"optional" json:"stillWaitingResponse" yaml:"stillWaitingResponse"`
 }
 

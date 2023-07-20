@@ -12,12 +12,17 @@ package awsdlm
 //   	IntervalUnit: jsii.String("intervalUnit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retentionarchivetier.html
+//
 type CfnLifecyclePolicy_RetentionArchiveTierProperty struct {
-	// `CfnLifecyclePolicy.RetentionArchiveTierProperty.Count`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retentionarchivetier.html#cfn-dlm-lifecyclepolicy-retentionarchivetier-count
+	//
 	Count *float64 `field:"optional" json:"count" yaml:"count"`
-	// `CfnLifecyclePolicy.RetentionArchiveTierProperty.Interval`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retentionarchivetier.html#cfn-dlm-lifecyclepolicy-retentionarchivetier-interval
+	//
 	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
-	// `CfnLifecyclePolicy.RetentionArchiveTierProperty.IntervalUnit`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retentionarchivetier.html#cfn-dlm-lifecyclepolicy-retentionarchivetier-intervalunit
+	//
 	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
 }
 

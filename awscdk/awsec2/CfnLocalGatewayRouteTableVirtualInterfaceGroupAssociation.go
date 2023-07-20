@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`.
-//
 // Describes an association between a local gateway route table and a virtual interface group.
 //
 // Example:
@@ -31,9 +29,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html
+//
 type CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the local gateway.
 	AttrLocalGatewayId() *string
 	// The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.
@@ -80,8 +81,11 @@ type CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags assigned to the association.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags assigned to the association.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +230,7 @@ type CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation interface {
 type jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) AttrLocalGatewayId() *string {
@@ -388,6 +393,16 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) Ta
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -409,7 +424,6 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) Up
 }
 
 
-// Create a new `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`.
 func NewCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationProps) CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation {
 	_init_.Initialize()
 
@@ -427,7 +441,6 @@ func NewCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation(scope construc
 	return &j
 }
 
-// Create a new `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`.
 func NewCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_Override(c CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation, scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationProps) {
 	_init_.Initialize()
 
@@ -456,6 +469,17 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation)Set
 	_jsii_.Set(
 		j,
 		"localGatewayVirtualInterfaceGroupId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

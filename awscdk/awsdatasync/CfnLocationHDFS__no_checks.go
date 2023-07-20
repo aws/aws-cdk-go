@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnLocationHDFS) validateSetQopConfigurationParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationHDFS) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLocationHDFSParameters(scope constructs.Construct, id *string, props *CfnLocationHDFSProps) error {
 	return nil
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Omics::RunGroup`.
-//
 // Creates a run group.
 //
 // Example:
@@ -28,9 +26,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html
+//
 type CfnRunGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The run group's ARN.
 	AttrArn() *string
 	// When the run group was created.
@@ -79,8 +80,11 @@ type CfnRunGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags for the group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags for the group.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -225,6 +229,7 @@ type CfnRunGroup interface {
 type jsiiProxy_CfnRunGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRunGroup) AttrArn() *string {
@@ -387,6 +392,16 @@ func (j *jsiiProxy_CfnRunGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRunGroup) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRunGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -408,7 +423,6 @@ func (j *jsiiProxy_CfnRunGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Omics::RunGroup`.
 func NewCfnRunGroup(scope constructs.Construct, id *string, props *CfnRunGroupProps) CfnRunGroup {
 	_init_.Initialize()
 
@@ -426,7 +440,6 @@ func NewCfnRunGroup(scope constructs.Construct, id *string, props *CfnRunGroupPr
 	return &j
 }
 
-// Create a new `AWS::Omics::RunGroup`.
 func NewCfnRunGroup_Override(c CfnRunGroup, scope constructs.Construct, id *string, props *CfnRunGroupProps) {
 	_init_.Initialize()
 
@@ -465,6 +478,14 @@ func (j *jsiiProxy_CfnRunGroup)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRunGroup)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

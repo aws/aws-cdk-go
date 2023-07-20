@@ -23,16 +23,26 @@ package awselasticbeanstalk
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html
+//
 type CfnConfigurationTemplate_ConfigurationOptionSettingProperty struct {
 	// A unique namespace that identifies the option's associated AWS resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-namespace
+	//
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The name of the configuration option.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-optionname
+	//
 	OptionName *string `field:"required" json:"optionName" yaml:"optionName"`
 	// A unique resource name for the option setting.
 	//
 	// Use it for a time–based scaling configuration option.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-resourcename
+	//
 	ResourceName *string `field:"optional" json:"resourceName" yaml:"resourceName"`
 	// The current value for the configuration option.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

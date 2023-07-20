@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53RecoveryReadiness::ReadinessCheck`.
+// Creates a readiness check in Amazon Route 53 Application Recovery Controller.
 //
-// Creates a readiness check in Amazon Route 53 Application Recovery Controller. A readiness check continually monitors a resource set in your application, such as a set of Amazon Aurora instances, that Route 53 ARC is auditing recovery readiness for. The audits run once every minute on every resource that's associated with a readiness check.
+// A readiness check continually monitors a resource set in your application, such as a set of Amazon Aurora instances, that Route 53 ARC is auditing recovery readiness for. The audits run once every minute on every resource that's associated with a readiness check.
 //
 // Every resource type has a set of rules associated with it that Route 53 ARC uses to audit resources for readiness. For more information, see [Readiness rules descriptions](https://docs.aws.amazon.com/r53recovery/latest/dg/recovery-readiness.rules-resources.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
 //
@@ -33,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html
+//
 type CfnReadinessCheck interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the readiness check.
 	AttrReadinessCheckArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -74,8 +77,11 @@ type CfnReadinessCheck interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of tags associated with a resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A collection of tags associated with a resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -220,6 +226,7 @@ type CfnReadinessCheck interface {
 type jsiiProxy_CfnReadinessCheck struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnReadinessCheck) AttrReadinessCheckArn() *string {
@@ -342,6 +349,16 @@ func (j *jsiiProxy_CfnReadinessCheck) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReadinessCheck) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReadinessCheck) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -363,7 +380,6 @@ func (j *jsiiProxy_CfnReadinessCheck) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Route53RecoveryReadiness::ReadinessCheck`.
 func NewCfnReadinessCheck(scope constructs.Construct, id *string, props *CfnReadinessCheckProps) CfnReadinessCheck {
 	_init_.Initialize()
 
@@ -381,7 +397,6 @@ func NewCfnReadinessCheck(scope constructs.Construct, id *string, props *CfnRead
 	return &j
 }
 
-// Create a new `AWS::Route53RecoveryReadiness::ReadinessCheck`.
 func NewCfnReadinessCheck_Override(c CfnReadinessCheck, scope constructs.Construct, id *string, props *CfnReadinessCheckProps) {
 	_init_.Initialize()
 
@@ -404,6 +419,17 @@ func (j *jsiiProxy_CfnReadinessCheck)SetResourceSetName(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceSetName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnReadinessCheck)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

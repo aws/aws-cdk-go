@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECR::RegistryPolicy`.
-//
 // The `AWS::ECR::RegistryPolicy` resource creates or updates the permissions policy for a private registry.
 //
 // A private registry policy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide* .
@@ -25,6 +23,8 @@ import (
 //   cfnRegistryPolicy := awscdk.Aws_ecr.NewCfnRegistryPolicy(this, jsii.String("MyCfnRegistryPolicy"), &CfnRegistryPolicyProps{
 //   	PolicyText: policyText,
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html
 //
 type CfnRegistryPolicy interface {
 	awscdk.CfnResource
@@ -331,7 +331,6 @@ func (j *jsiiProxy_CfnRegistryPolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::ECR::RegistryPolicy`.
 func NewCfnRegistryPolicy(scope constructs.Construct, id *string, props *CfnRegistryPolicyProps) CfnRegistryPolicy {
 	_init_.Initialize()
 
@@ -349,7 +348,6 @@ func NewCfnRegistryPolicy(scope constructs.Construct, id *string, props *CfnRegi
 	return &j
 }
 
-// Create a new `AWS::ECR::RegistryPolicy`.
 func NewCfnRegistryPolicy_Override(c CfnRegistryPolicy, scope constructs.Construct, id *string, props *CfnRegistryPolicyProps) {
 	_init_.Initialize()
 

@@ -13,10 +13,16 @@ package awsrds
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionsetting.html
+//
 type CfnOptionGroup_OptionSettingProperty struct {
 	// The name of the option that has settings that you can set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionsetting.html#cfn-rds-optiongroup-optionsetting-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The current value of the option setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionsetting.html#cfn-rds-optiongroup-optionsetting-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

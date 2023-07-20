@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnExtensionAssociation) validateSetParametersParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnExtensionAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnExtensionAssociationParameters(scope constructs.Construct, id *string, props *CfnExtensionAssociationProps) error {
 	return nil
 }

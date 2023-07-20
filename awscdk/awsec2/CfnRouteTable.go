@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::RouteTable`.
+// Specifies a route table for the specified VPC.
 //
-// Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+// After you create a route table, you can add routes and associate the table with a subnet.
 //
 // For more information, see [Route Tables](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html) in the *Amazon VPC User Guide* .
 //
@@ -32,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html
+//
 type CfnRouteTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the route table.
 	AttrRouteTableId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -67,8 +70,11 @@ type CfnRouteTable interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Any tags assigned to the route table.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags assigned to the route table.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -216,6 +222,7 @@ type CfnRouteTable interface {
 type jsiiProxy_CfnRouteTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRouteTable) AttrRouteTableId() *string {
@@ -318,6 +325,16 @@ func (j *jsiiProxy_CfnRouteTable) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRouteTable) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRouteTable) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -349,7 +366,6 @@ func (j *jsiiProxy_CfnRouteTable) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::RouteTable`.
 func NewCfnRouteTable(scope constructs.Construct, id *string, props *CfnRouteTableProps) CfnRouteTable {
 	_init_.Initialize()
 
@@ -367,7 +383,6 @@ func NewCfnRouteTable(scope constructs.Construct, id *string, props *CfnRouteTab
 	return &j
 }
 
-// Create a new `AWS::EC2::RouteTable`.
 func NewCfnRouteTable_Override(c CfnRouteTable, scope constructs.Construct, id *string, props *CfnRouteTableProps) {
 	_init_.Initialize()
 
@@ -375,6 +390,17 @@ func NewCfnRouteTable_Override(c CfnRouteTable, scope constructs.Construct, id *
 		"aws-cdk-lib.aws_ec2.CfnRouteTable",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnRouteTable)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
+		val,
 	)
 }
 

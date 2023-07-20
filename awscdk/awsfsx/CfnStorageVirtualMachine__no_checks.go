@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) validateSetNameParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnStorageVirtualMachine) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnStorageVirtualMachineParameters(scope constructs.Construct, id *string, props *CfnStorageVirtualMachineProps) error {
 	return nil
 }

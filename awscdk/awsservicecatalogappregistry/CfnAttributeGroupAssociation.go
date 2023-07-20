@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`.
+// Associates an attribute group with an application to augment the application's metadata with the group's attributes.
 //
-// Associates an attribute group with an application to augment the application's metadata with the group's attributes. This feature enables applications to be described with user-defined details that are machine-readable, such as third-party integrations.
+// This feature enables applications to be described with user-defined details that are machine-readable, such as third-party integrations.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	Application: jsii.String("application"),
 //   	AttributeGroup: jsii.String("attributeGroup"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html
 //
 type CfnAttributeGroupAssociation interface {
 	awscdk.CfnResource
@@ -365,7 +367,6 @@ func (j *jsiiProxy_CfnAttributeGroupAssociation) UpdatedProperties() *map[string
 }
 
 
-// Create a new `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`.
 func NewCfnAttributeGroupAssociation(scope constructs.Construct, id *string, props *CfnAttributeGroupAssociationProps) CfnAttributeGroupAssociation {
 	_init_.Initialize()
 
@@ -383,7 +384,6 @@ func NewCfnAttributeGroupAssociation(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`.
 func NewCfnAttributeGroupAssociation_Override(c CfnAttributeGroupAssociation, scope constructs.Construct, id *string, props *CfnAttributeGroupAssociationProps) {
 	_init_.Initialize()
 

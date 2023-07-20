@@ -1,6 +1,8 @@
 package awsappflow
 
 
+// Configurations of metadata catalog of the flow.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,8 +16,12 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-metadatacatalogconfig.html
+//
 type CfnFlow_MetadataCatalogConfigProperty struct {
-	// `CfnFlow.MetadataCatalogConfigProperty.GlueDataCatalog`.
+	// Trigger settings of the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-metadatacatalogconfig.html#cfn-appflow-flow-metadatacatalogconfig-gluedatacatalog
+	//
 	GlueDataCatalog interface{} `field:"optional" json:"glueDataCatalog" yaml:"glueDataCatalog"`
 }
 

@@ -37,6 +37,9 @@ package awscleanrooms
 //   			},
 //
 //   			// the properties below are optional
+//   			AllowedJoinOperators: []*string{
+//   				jsii.String("allowedJoinOperators"),
+//   			},
 //   			JoinRequired: jsii.String("joinRequired"),
 //   		},
 //   		List: &AnalysisRuleListProperty{
@@ -46,12 +49,21 @@ package awscleanrooms
 //   			ListColumns: []*string{
 //   				jsii.String("listColumns"),
 //   			},
+//
+//   			// the properties below are optional
+//   			AllowedJoinOperators: []*string{
+//   				jsii.String("allowedJoinOperators"),
+//   			},
 //   		},
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html
+//
 type CfnConfiguredTable_ConfiguredTableAnalysisRulePolicyProperty struct {
 	// Controls on the query specifications that can be run on a configured table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicy-v1
+	//
 	V1 interface{} `field:"required" json:"v1" yaml:"v1"`
 }
 

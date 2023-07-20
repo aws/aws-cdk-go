@@ -80,6 +80,10 @@ func validateCfnTopicRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTopicRule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTopicRule) validateSetTopicRulePayloadParameters(val interface{}) error {
 	return nil
 }

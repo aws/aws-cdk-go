@@ -19,10 +19,16 @@ package awss3
 //   	Sses3: sses3,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+//
 type CfnStorageLens_EncryptionProperty struct {
 	// Specifies the use of AWS Key Management Service keys (SSE-KMS) to encrypt the S3 Storage Lens metrics export file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html#cfn-s3-storagelens-encryption-ssekms
+	//
 	Ssekms interface{} `field:"optional" json:"ssekms" yaml:"ssekms"`
 	// Specifies the use of an Amazon S3-managed key (SSE-S3) to encrypt the S3 Storage Lens metrics export file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html#cfn-s3-storagelens-encryption-sses3
+	//
 	Sses3 interface{} `field:"optional" json:"sses3" yaml:"sses3"`
 }
 

@@ -16,12 +16,17 @@ package awssam
 //   	InputPath: jsii.String("inputPath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cloudwatcheventevent.html
+//
 type CfnFunction_CloudWatchEventEventProperty struct {
-	// `CfnFunction.CloudWatchEventEventProperty.Pattern`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cloudwatcheventevent.html#cfn-serverless-function-cloudwatcheventevent-pattern
+	//
 	Pattern interface{} `field:"required" json:"pattern" yaml:"pattern"`
-	// `CfnFunction.CloudWatchEventEventProperty.Input`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cloudwatcheventevent.html#cfn-serverless-function-cloudwatcheventevent-input
+	//
 	Input *string `field:"optional" json:"input" yaml:"input"`
-	// `CfnFunction.CloudWatchEventEventProperty.InputPath`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cloudwatcheventevent.html#cfn-serverless-function-cloudwatcheventevent-inputpath
+	//
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 }
 

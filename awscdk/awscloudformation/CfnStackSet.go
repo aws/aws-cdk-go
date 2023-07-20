@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::StackSet`.
+// The `AWS::CloudFormation::StackSet` enables you to provision stacks into AWS accounts and across Regions by using a single CloudFormation template.
 //
-// The `AWS::CloudFormation::StackSet` enables you to provision stacks into AWS accounts and across Regions by using a single CloudFormation template. In the stack set, you specify the template to use, in addition to any parameters and capabilities that the template requires.
+// In the stack set, you specify the template to use, in addition to any parameters and capabilities that the template requires.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -87,18 +87,13 @@ import (
 //   	TemplateUrl: jsii.String("templateUrl"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
+//
 type CfnStackSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set.
-	//
-	// Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
-	//
-	// Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see [Prerequisites: Granting Permissions for Stack Set Operations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) in the *AWS CloudFormation User Guide* .
-	//
-	// *Minimum* : `20`
-	//
-	// *Maximum* : `2048`.
 	AdministrationRoleArn() *string
 	SetAdministrationRoleArn(val *string)
 	// The ID of the stack that you're creating.
@@ -107,22 +102,9 @@ type CfnStackSet interface {
 	AutoDeployment() interface{}
 	SetAutoDeployment(val interface{})
 	// [Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.
-	//
-	// By default, `SELF` is specified. Use `SELF` for stack sets with self-managed permissions.
-	//
-	// - To create a stack set with service-managed permissions while signed in to the management account, specify `SELF` .
-	// - To create a stack set with service-managed permissions while signed in to a delegated administrator account, specify `DELEGATED_ADMIN` .
-	//
-	// Your AWS account must be registered as a delegated admin in the management account. For more information, see [Register a delegated administrator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html) in the *AWS CloudFormation User Guide* .
-	//
-	// Stack sets with service-managed permissions are created in the management account, including stack sets that are created by delegated administrators.
-	//
-	// *Valid Values* : `SELF` | `DELEGATED_ADMIN`.
 	CallAs() *string
 	SetCallAs(val *string)
 	// The capabilities that are allowed in the stack set.
-	//
-	// Some stack set templates might include resources that can affect permissions in your AWS account —for example, by creating new AWS Identity and Access Management ( IAM ) users. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities) .
 	Capabilities() *[]*string
 	SetCapabilities(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -135,21 +117,9 @@ type CfnStackSet interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A description of the stack set.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `1024`.
 	Description() *string
 	SetDescription(val *string)
 	// The name of the IAM execution role to use to create the stack set.
-	//
-	// If you don't specify an execution role, AWS CloudFormation uses the `AWSCloudFormationStackSetExecutionRole` role for the stack set operation.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `64`
-	//
-	// *Pattern* : `[a-zA-Z_0-9+=,.@-]+`
 	ExecutionRoleName() *string
 	SetExecutionRoleName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -163,14 +133,6 @@ type CfnStackSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
-	//
-	// When active, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
-	//
-	// > If there are already running or queued operations, StackSets queues all incoming operations even if they are non-conflicting.
-	// >
-	// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
-	//
-	// When inactive (default), StackSets performs one operation at a time in request order.
 	ManagedExecution() interface{}
 	SetManagedExecution(val interface{})
 	// The tree node.
@@ -182,9 +144,6 @@ type CfnStackSet interface {
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Describes how the IAM roles required for stack set operations are created.
-	//
-	// - With `SELF_MANAGED` permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see [Grant Self-Managed Stack Set Permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html) .
-	// - With `SERVICE_MANAGED` permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations . For more information, see [Grant Service-Managed Stack Set Permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html) .
 	PermissionModel() *string
 	SetPermissionModel(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -200,38 +159,17 @@ type CfnStackSet interface {
 	StackInstancesGroup() interface{}
 	SetStackInstancesGroup(val interface{})
 	// The name to associate with the stack set.
-	//
-	// The name must be unique in the Region where you create your stack set.
-	//
-	// *Maximum* : `128`
-	//
-	// *Pattern* : `^[a-zA-Z][a-zA-Z0-9-]{0,127}$`
-	//
-	// > The `StackSetName` property is required.
 	StackSetName() *string
 	SetStackSetName(val *string)
-	// The key-value pairs to associate with this stack set and the stacks created from it.
-	//
-	// AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key-value pairs to associate with this stack set and the stacks created from it.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
-	//
-	// You must include either `TemplateURL` or `TemplateBody` in a StackSet, but you can't use both. Dynamic references in the `TemplateBody` may not work correctly in all cases. It's recommended to pass templates containing dynamic references through `TemplateUrl` instead.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `51200`.
 	TemplateBody() *string
 	SetTemplateBody(val *string)
 	// Location of file containing the template body.
-	//
-	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket.
-	//
-	// You must include either `TemplateURL` or `TemplateBody` in a StackSet, but you can't use both.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `1024`.
 	TemplateUrl() *string
 	SetTemplateUrl(val *string)
 	// Deprecated.
@@ -378,6 +316,7 @@ type CfnStackSet interface {
 type jsiiProxy_CfnStackSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStackSet) AdministrationRoleArn() *string {
@@ -600,6 +539,16 @@ func (j *jsiiProxy_CfnStackSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStackSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStackSet) TemplateBody() *string {
 	var returns *string
 	_jsii_.Get(
@@ -641,7 +590,6 @@ func (j *jsiiProxy_CfnStackSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudFormation::StackSet`.
 func NewCfnStackSet(scope constructs.Construct, id *string, props *CfnStackSetProps) CfnStackSet {
 	_init_.Initialize()
 
@@ -659,7 +607,6 @@ func NewCfnStackSet(scope constructs.Construct, id *string, props *CfnStackSetPr
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::StackSet`.
 func NewCfnStackSet_Override(c CfnStackSet, scope constructs.Construct, id *string, props *CfnStackSetProps) {
 	_init_.Initialize()
 
@@ -722,9 +669,6 @@ func (j *jsiiProxy_CfnStackSet)SetExecutionRoleName(val *string) {
 }
 
 func (j *jsiiProxy_CfnStackSet)SetManagedExecution(val interface{}) {
-	if err := j.validateSetManagedExecutionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"managedExecution",
@@ -783,6 +727,17 @@ func (j *jsiiProxy_CfnStackSet)SetStackSetName(val *string) {
 	_jsii_.Set(
 		j,
 		"stackSetName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStackSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -66,6 +66,8 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html
+//
 type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// The actions to take on a packet if it doesn't match any of the stateless rules in the policy.
 	//
@@ -74,6 +76,8 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
 	//
 	// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", “customActionName”]` . For information about compatibility, see the custom action descriptions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
+	//
 	StatelessDefaultActions *[]*string `field:"required" json:"statelessDefaultActions" yaml:"statelessDefaultActions"`
 	// The actions to take on a fragmented packet if it doesn't match any of the stateless rules in the policy.
 	//
@@ -82,8 +86,12 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
 	//
 	// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", “customActionName”]` . For information about compatibility, see the custom action descriptions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
+	//
 	StatelessFragmentDefaultActions *[]*string `field:"required" json:"statelessFragmentDefaultActions" yaml:"statelessFragmentDefaultActions"`
 	// Contains variables that you can use to override default Suricata settings in your firewall policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-policyvariables
+	//
 	PolicyVariables interface{} `field:"optional" json:"policyVariables" yaml:"policyVariables"`
 	// The default actions to take on a packet that doesn't match any stateful rules.
 	//
@@ -97,22 +105,32 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// - aws:alert_established
 	//
 	// For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefuldefaultactions
+	//
 	StatefulDefaultActions *[]*string `field:"optional" json:"statefulDefaultActions" yaml:"statefulDefaultActions"`
 	// Additional options governing how Network Firewall handles stateful rules.
 	//
 	// The stateful rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulengineoptions
+	//
 	StatefulEngineOptions interface{} `field:"optional" json:"statefulEngineOptions" yaml:"statefulEngineOptions"`
 	// References to the stateful rule groups that are used in the policy.
 	//
 	// These define the inspection criteria in stateful rules.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
+	//
 	StatefulRuleGroupReferences interface{} `field:"optional" json:"statefulRuleGroupReferences" yaml:"statefulRuleGroupReferences"`
 	// The custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions` setting.
 	//
 	// You name each custom action that you define, and then you can use it by name in your default actions specifications.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
+	//
 	StatelessCustomActions interface{} `field:"optional" json:"statelessCustomActions" yaml:"statelessCustomActions"`
 	// References to the stateless rule groups that are used in the policy.
 	//
 	// These define the matching criteria in stateless rules.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
+	//
 	StatelessRuleGroupReferences interface{} `field:"optional" json:"statelessRuleGroupReferences" yaml:"statelessRuleGroupReferences"`
 }
 

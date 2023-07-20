@@ -108,14 +108,20 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html
+//
 type CfnEC2Fleet_FleetLaunchTemplateConfigRequestProperty struct {
 	// The launch template to use.
 	//
 	// You must specify either the launch template ID or launch template name in the request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification
+	//
 	LaunchTemplateSpecification interface{} `field:"optional" json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
 	// Any parameters that you specify override the same parameters in the launch template.
 	//
 	// For fleets of type `request` and `maintain` , a maximum of 300 items is allowed across all launch templates.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides
+	//
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 }
 

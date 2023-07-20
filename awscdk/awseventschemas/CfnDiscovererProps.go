@@ -22,14 +22,24 @@ package awseventschemas
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html
+//
 type CfnDiscovererProps struct {
 	// The ARN of the event bus.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-sourcearn
+	//
 	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
 	// Allows for the discovery of the event schemas that are sent to the event bus from another account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-crossaccount
+	//
 	CrossAccount interface{} `field:"optional" json:"crossAccount" yaml:"crossAccount"`
 	// A description for the discoverer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Tags associated with the resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-tags
+	//
 	Tags *[]*CfnDiscoverer_TagsEntryProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

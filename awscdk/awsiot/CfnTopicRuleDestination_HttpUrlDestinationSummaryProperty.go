@@ -12,8 +12,12 @@ package awsiot
 //   	ConfirmationUrl: jsii.String("confirmationUrl"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
+//
 type CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty struct {
 	// The URL used to confirm the HTTP topic rule destination URL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
+	//
 	ConfirmationUrl *string `field:"optional" json:"confirmationUrl" yaml:"confirmationUrl"`
 }
 

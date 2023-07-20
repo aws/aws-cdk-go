@@ -26,8 +26,12 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failovercondition.html
+//
 type CfnChannel_FailoverConditionProperty struct {
 	// Settings for a specific failover condition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failovercondition.html#cfn-medialive-channel-failovercondition-failoverconditionsettings
+	//
 	FailoverConditionSettings interface{} `field:"optional" json:"failoverConditionSettings" yaml:"failoverConditionSettings"`
 }
 

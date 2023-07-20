@@ -15,12 +15,18 @@ package awspipes
 //   	DeviceType: jsii.String("deviceType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsinferenceacceleratoroverride.html
+//
 type CfnPipe_EcsInferenceAcceleratorOverrideProperty struct {
 	// The Elastic Inference accelerator device name to override for the task.
 	//
 	// This parameter must match a `deviceName` specified in the task definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsinferenceacceleratoroverride.html#cfn-pipes-pipe-ecsinferenceacceleratoroverride-devicename
+	//
 	DeviceName *string `field:"optional" json:"deviceName" yaml:"deviceName"`
 	// The Elastic Inference accelerator type to use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsinferenceacceleratoroverride.html#cfn-pipes-pipe-ecsinferenceacceleratoroverride-devicetype
+	//
 	DeviceType *string `field:"optional" json:"deviceType" yaml:"deviceType"`
 }
 

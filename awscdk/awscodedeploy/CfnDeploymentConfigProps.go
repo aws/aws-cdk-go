@@ -30,14 +30,20 @@ package awscodedeploy
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html
+//
 type CfnDeploymentConfigProps struct {
 	// The destination platform type for the deployment ( `Lambda` , `Server` , or `ECS` ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-computeplatform
+	//
 	ComputePlatform *string `field:"optional" json:"computePlatform" yaml:"computePlatform"`
 	// A name for the deployment configuration.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-deploymentconfigname
+	//
 	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 	// The minimum number of healthy instances that should be available at any time during the deployment.
 	//
@@ -53,8 +59,12 @@ type CfnDeploymentConfigProps struct {
 	// For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
 	//
 	// For more information about instance health, see [CodeDeploy Instance Health](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html) in the AWS CodeDeploy User Guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts
+	//
 	MinimumHealthyHosts interface{} `field:"optional" json:"minimumHealthyHosts" yaml:"minimumHealthyHosts"`
 	// The configuration that specifies how the deployment traffic is routed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-trafficroutingconfig
+	//
 	TrafficRoutingConfig interface{} `field:"optional" json:"trafficRoutingConfig" yaml:"trafficRoutingConfig"`
 }
 

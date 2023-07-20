@@ -12,8 +12,12 @@ package awskinesisanalytics
 //   	RecordRowPath: jsii.String("recordRowPath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-jsonmappingparameters.html
+//
 type CfnApplicationReferenceDataSource_JSONMappingParametersProperty struct {
 	// Path to the top-level parent that contains the records.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-jsonmappingparameters.html#cfn-kinesisanalytics-applicationreferencedatasource-jsonmappingparameters-recordrowpath
+	//
 	RecordRowPath *string `field:"required" json:"recordRowPath" yaml:"recordRowPath"`
 }
 

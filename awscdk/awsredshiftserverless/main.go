@@ -21,6 +21,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "adminUsername", GoGetter: "AdminUsername"},
 			_jsii_.MemberProperty{JsiiProperty: "adminUserPassword", GoGetter: "AdminUserPassword"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrNamespace", GoGetter: "AttrNamespace"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNamespaceAdminUsername", GoGetter: "AttrNamespaceAdminUsername"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNamespaceCreationDate", GoGetter: "AttrNamespaceCreationDate"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNamespaceDbName", GoGetter: "AttrNamespaceDbName"},
@@ -59,6 +60,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -68,6 +70,7 @@ func init() {
 			j := jsiiProxy_CfnNamespace{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
 	)
@@ -91,9 +94,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrWorkgroup", GoGetter: "AttrWorkgroup"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkgroupBaseCapacity", GoGetter: "AttrWorkgroupBaseCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkgroupConfigParameters", GoGetter: "AttrWorkgroupConfigParameters"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkgroupCreationDate", GoGetter: "AttrWorkgroupCreationDate"},
+			_jsii_.MemberProperty{JsiiProperty: "attrWorkgroupEndpoint", GoGetter: "AttrWorkgroupEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkgroupEndpointAddress", GoGetter: "AttrWorkgroupEndpointAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkgroupEndpointPort", GoGetter: "AttrWorkgroupEndpointPort"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkgroupEndpointVpcEndpoints", GoGetter: "AttrWorkgroupEndpointVpcEndpoints"},
@@ -133,6 +138,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetIds", GoGetter: "SubnetIds"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -143,6 +149,7 @@ func init() {
 			j := jsiiProxy_CfnWorkgroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
 	)

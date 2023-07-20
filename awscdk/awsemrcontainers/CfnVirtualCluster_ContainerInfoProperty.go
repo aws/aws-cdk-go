@@ -14,8 +14,12 @@ package awsemrcontainers
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerinfo.html
+//
 type CfnVirtualCluster_ContainerInfoProperty struct {
 	// The information about the Amazon EKS cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerinfo.html#cfn-emrcontainers-virtualcluster-containerinfo-eksinfo
+	//
 	EksInfo interface{} `field:"required" json:"eksInfo" yaml:"eksInfo"`
 }
 

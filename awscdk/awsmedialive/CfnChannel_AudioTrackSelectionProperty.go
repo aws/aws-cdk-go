@@ -21,10 +21,15 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html
+//
 type CfnChannel_AudioTrackSelectionProperty struct {
-	// `CfnChannel.AudioTrackSelectionProperty.DolbyEDecode`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html#cfn-medialive-channel-audiotrackselection-dolbyedecode
+	//
 	DolbyEDecode interface{} `field:"optional" json:"dolbyEDecode" yaml:"dolbyEDecode"`
 	// Selects one or more unique audio tracks from within a source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html#cfn-medialive-channel-audiotrackselection-tracks
+	//
 	Tracks interface{} `field:"optional" json:"tracks" yaml:"tracks"`
 }
 

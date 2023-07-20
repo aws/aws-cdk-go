@@ -123,6 +123,7 @@ below) and supply the intended destination:
 
 ```go
 import destinations "github.com/aws/aws-cdk-go/awscdk"
+
 var fn function
 var logGroup logGroup
 
@@ -374,39 +375,38 @@ Each policy may consist of a log group, S3 bucket, and/or Firehose delivery stre
 Example:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws-samples/dummy/awscdkawss3"
-import "github.com/aws-samples/dummy/awscdklogs"
-import kinesisfirehose "github.com/aws-samples/dummy/awscdkawskinesisfirehose"
+import kinesisfirehose "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+import destinations "github.com/aws/aws-cdk-go/awscdkkinesisfirehosedestinationsalpha"
 
 
-logGroupDestination := awscdklogs.NewLogGroup(this, jsii.String("LogGroupLambdaAudit"), map[string]*string{
-	"logGroupName": jsii.String("auditDestinationForCDK"),
+logGroupDestination := logs.NewLogGroup(this, jsii.String("LogGroupLambdaAudit"), &LogGroupProps{
+	LogGroupName: jsii.String("auditDestinationForCDK"),
 })
 
-s3Destination := awscdkawss3.NewBucket(this, jsii.String("audit-bucket-id"))
+bucket := s3.NewBucket(this, jsii.String("audit-bucket"))
+s3Destination := destinations.NewS3Bucket(bucket)
 
-deliveryStream := firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), map[string][]interface{}{
-	"destinations": []interface{}{
+deliveryStream := kinesisfirehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
 		s3Destination,
 	},
 })
 
-dataProtectionPolicy := NewDataProtectionPolicy(map[string]interface{}{
-	"name": jsii.String("data protection policy"),
-	"description": jsii.String("policy description"),
-	"identifiers": []interface{}{
-		DataIdentifier_DRIVERSLICENSE_US,
-		NewDataIdentifier(jsii.String("EmailAddress")),
+dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
+	Name: jsii.String("data protection policy"),
+	Description: jsii.String("policy description"),
+	Identifiers: []dataIdentifier{
+		logs.*dataIdentifier_DRIVERSLICENSE_US(),
+		logs.NewDataIdentifier(jsii.String("EmailAddress")),
 	},
-	"logGroupAuditDestination": logGroupDestination,
-	"s3BucketAuditDestination": s3Destination,
-	"deliveryStreamAuditDestination": deliveryStream.deliveryStreamName,
+	LogGroupAuditDestination: logGroupDestination,
+	S3BucketAuditDestination: bucket,
+	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,
 })
 
-awscdklogs.NewLogGroup(this, jsii.String("LogGroupLambda"), map[string]interface{}{
-	"logGroupName": jsii.String("cdkIntegLogGroup"),
-	"dataProtectionPolicy": dataProtectionPolicy,
+logs.NewLogGroup(this, jsii.String("LogGroupLambda"), &LogGroupProps{
+	LogGroupName: jsii.String("cdkIntegLogGroup"),
+	DataProtectionPolicy: dataProtectionPolicy,
 })
 ```
 

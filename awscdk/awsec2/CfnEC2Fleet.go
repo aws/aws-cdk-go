@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::EC2Fleet`.
+// Specifies the configuration information to launch a fleet--or group--of instances.
 //
-// Specifies the configuration information to launch a fleet--or group--of instances. An EC2 Fleet can launch multiple instance types across multiple Availability Zones, using the On-Demand Instance, Reserved Instance, and Spot Instance purchasing models together. Using EC2 Fleet, you can define separate On-Demand and Spot capacity targets, specify the instance types that work best for your applications, and specify how Amazon EC2 should distribute your fleet capacity within each purchasing model. For more information, see [Launching an EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html) in the *Amazon EC2 User Guide for Linux Instances* .
+// An EC2 Fleet can launch multiple instance types across multiple Availability Zones, using the On-Demand Instance, Reserved Instance, and Spot Instance purchasing models together. Using EC2 Fleet, you can define separate On-Demand and Spot capacity targets, specify the instance types that work best for your applications, and specify how Amazon EC2 should distribute your fleet capacity within each purchasing model. For more information, see [Launching an EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html) in the *Amazon EC2 User Guide for Linux Instances* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -174,6 +174,8 @@ import (
 //   	ValidUntil: jsii.String("validUntil"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
+//
 type CfnEC2Fleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -192,8 +194,6 @@ type CfnEC2Fleet interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
-	//
-	// Supported only for fleets of type `maintain` .
 	ExcessCapacityTerminationPolicy() *string
 	SetExcessCapacityTerminationPolicy(val *string)
 	// The configuration for the EC2 Fleet.
@@ -220,8 +220,6 @@ type CfnEC2Fleet interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances.
-	//
-	// Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
 	ReplaceUnhealthyInstances() interface{}
 	SetReplaceUnhealthyInstances(val interface{})
 	// Describes the configuration of Spot Instances in an EC2 Fleet.
@@ -231,11 +229,9 @@ type CfnEC2Fleet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tagging your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+	// The key-value pair for tagging the EC2 Fleet request on creation.
 	//
-	// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
-	//
-	// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
+	// For more information, see [Tagging your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 	TagSpecifications() interface{}
 	SetTagSpecifications(val interface{})
 	// The number of units to request.
@@ -244,13 +240,9 @@ type CfnEC2Fleet interface {
 	// Indicates whether running instances should be terminated when the EC2 Fleet expires.
 	TerminateInstancesWithExpiration() interface{}
 	SetTerminateInstancesWithExpiration(val interface{})
-	// The fleet type. The default value is `maintain` .
+	// The fleet type.
 	//
-	// - `maintain` - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
-	// - `request` - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
-	// - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
-	//
-	// For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
+	// The default value is `maintain` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -267,13 +259,9 @@ type CfnEC2Fleet interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z).
-	//
-	// The default is to start fulfilling the request immediately.
 	ValidFrom() *string
 	SetValidFrom(val *string)
 	// The end date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z).
-	//
-	// At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
 	ValidUntil() *string
 	SetValidUntil(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -640,7 +628,6 @@ func (j *jsiiProxy_CfnEC2Fleet) ValidUntil() *string {
 }
 
 
-// Create a new `AWS::EC2::EC2Fleet`.
 func NewCfnEC2Fleet(scope constructs.Construct, id *string, props *CfnEC2FleetProps) CfnEC2Fleet {
 	_init_.Initialize()
 
@@ -658,7 +645,6 @@ func NewCfnEC2Fleet(scope constructs.Construct, id *string, props *CfnEC2FleetPr
 	return &j
 }
 
-// Create a new `AWS::EC2::EC2Fleet`.
 func NewCfnEC2Fleet_Override(c CfnEC2Fleet, scope constructs.Construct, id *string, props *CfnEC2FleetProps) {
 	_init_.Initialize()
 

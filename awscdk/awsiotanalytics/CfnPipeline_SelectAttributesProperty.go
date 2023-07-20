@@ -18,12 +18,20 @@ package awsiotanalytics
 //   	Next: jsii.String("next"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html
+//
 type CfnPipeline_SelectAttributesProperty struct {
 	// A list of the attributes to select from the message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-attributes
+	//
 	Attributes *[]*string `field:"required" json:"attributes" yaml:"attributes"`
 	// The name of the 'selectAttributes' activity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The next activity in the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-next
+	//
 	Next *string `field:"optional" json:"next" yaml:"next"`
 }
 

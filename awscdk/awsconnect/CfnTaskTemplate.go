@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::TaskTemplate`.
-//
 // Specifies a task template for a Amazon Connect instance.
 //
 // Example:
@@ -60,9 +58,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html
+//
 type CfnTaskTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the task template.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -74,13 +75,9 @@ type CfnTaskTemplate interface {
 	ClientToken() *string
 	SetClientToken(val *string)
 	// Constraints that are applicable to the fields listed.
-	//
-	// The values can be represented in either JSON or YAML format. For an example of the JSON configuration, see *Examples* at the bottom of this page.
 	Constraints() interface{}
 	SetConstraints(val interface{})
 	// The Amazon Resource Name (ARN) of the flow that runs by default when a task is created by referencing this template.
-	//
-	// `ContactFlowArn` is not required when there is a field with `fieldType` = `QUICK_CONNECT` .
 	ContactFlowArn() *string
 	SetContactFlowArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -94,8 +91,6 @@ type CfnTaskTemplate interface {
 	Description() *string
 	SetDescription(val *string)
 	// Fields that are part of the template.
-	//
-	// A template requires at least one field that has type `Name` .
 	Fields() interface{}
 	SetFields(val interface{})
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
@@ -128,8 +123,11 @@ type CfnTaskTemplate interface {
 	// The status of the task template.
 	Status() *string
 	SetStatus(val *string)
-	// The tags used to organize, track, or control access for this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -274,6 +272,7 @@ type CfnTaskTemplate interface {
 type jsiiProxy_CfnTaskTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTaskTemplate) AttrArn() *string {
@@ -466,6 +465,16 @@ func (j *jsiiProxy_CfnTaskTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTaskTemplate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTaskTemplate) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -487,7 +496,6 @@ func (j *jsiiProxy_CfnTaskTemplate) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Connect::TaskTemplate`.
 func NewCfnTaskTemplate(scope constructs.Construct, id *string, props *CfnTaskTemplateProps) CfnTaskTemplate {
 	_init_.Initialize()
 
@@ -505,7 +513,6 @@ func NewCfnTaskTemplate(scope constructs.Construct, id *string, props *CfnTaskTe
 	return &j
 }
 
-// Create a new `AWS::Connect::TaskTemplate`.
 func NewCfnTaskTemplate_Override(c CfnTaskTemplate, scope constructs.Construct, id *string, props *CfnTaskTemplateProps) {
 	_init_.Initialize()
 
@@ -525,9 +532,6 @@ func (j *jsiiProxy_CfnTaskTemplate)SetClientToken(val *string) {
 }
 
 func (j *jsiiProxy_CfnTaskTemplate)SetConstraints(val interface{}) {
-	if err := j.validateSetConstraintsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"constraints",
@@ -596,6 +600,17 @@ func (j *jsiiProxy_CfnTaskTemplate)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTaskTemplate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

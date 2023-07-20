@@ -21,6 +21,8 @@ package awsmediapackage
 //   			// the properties below are optional
 //   			CertificateArn: jsii.String("certificateArn"),
 //   			EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   				PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   				PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   			},
 //   		},
 //
@@ -56,20 +58,32 @@ package awsmediapackage
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html
+//
 type CfnOriginEndpoint_CmafPackageProperty struct {
 	// Parameters for encrypting content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
+	//
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// A list of HLS manifest configurations that are available from this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
+	//
 	HlsManifests interface{} `field:"optional" json:"hlsManifests" yaml:"hlsManifests"`
 	// Duration (in seconds) of each segment.
 	//
 	// Actual segments are rounded to the nearest multiple of the source segment duration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
+	//
 	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 	// An optional custom string that is prepended to the name of each segment.
 	//
 	// If not specified, the segment prefix defaults to the ChannelId.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
+	//
 	SegmentPrefix *string `field:"optional" json:"segmentPrefix" yaml:"segmentPrefix"`
 	// Limitations for outputs from the endpoint, based on the video bitrate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
+	//
 	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 }
 

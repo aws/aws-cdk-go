@@ -24,16 +24,28 @@ package awsroute53recoveryreadiness
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html
+//
 type CfnResourceSet_DNSTargetResourceProperty struct {
 	// The domain name that acts as an ingress point to a portion of the customer application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
+	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
+	//
 	HostedZoneArn *string `field:"optional" json:"hostedZoneArn" yaml:"hostedZoneArn"`
 	// The Amazon Route 53 record set ID that uniquely identifies a DNS record, given a name and a type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
+	//
 	RecordSetId *string `field:"optional" json:"recordSetId" yaml:"recordSetId"`
 	// The type of DNS record of the target resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
+	//
 	RecordType *string `field:"optional" json:"recordType" yaml:"recordType"`
 	// The target resource that the Route 53 record points to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
+	//
 	TargetResource interface{} `field:"optional" json:"targetResource" yaml:"targetResource"`
 }
 

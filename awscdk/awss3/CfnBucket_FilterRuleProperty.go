@@ -13,12 +13,18 @@ package awss3
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-filterrule.html
+//
 type CfnBucket_FilterRuleProperty struct {
 	// The object key name prefix or suffix identifying one or more objects to which the filtering rule applies.
 	//
 	// The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-filterrule.html#cfn-s3-bucket-filterrule-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value that the filter searches for in object key names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-filterrule.html#cfn-s3-bucket-filterrule-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

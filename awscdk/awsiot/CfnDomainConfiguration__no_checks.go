@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnDomainConfiguration) validateSetAuthorizerConfigParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomainConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomainConfiguration) validateSetTlsConfigParameters(val interface{}) error {
 	return nil
 }

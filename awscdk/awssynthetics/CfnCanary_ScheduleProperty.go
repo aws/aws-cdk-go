@@ -15,6 +15,8 @@ package awssynthetics
 //   	DurationInSeconds: jsii.String("durationInSeconds"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
+//
 type CfnCanary_ScheduleProperty struct {
 	// A `rate` expression or a `cron` expression that defines how often the canary is to run.
 	//
@@ -25,10 +27,14 @@ type CfnCanary_ScheduleProperty struct {
 	// Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
 	//
 	// Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
+	//
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value.
 	//
 	// If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
+	//
 	DurationInSeconds *string `field:"optional" json:"durationInSeconds" yaml:"durationInSeconds"`
 }
 

@@ -29,16 +29,26 @@ package awsiot
 //   	Qos: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html
+//
 type CfnTopicRule_RepublishActionProperty struct {
 	// The ARN of the IAM role that grants access.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the MQTT topic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
+	//
 	Topic *string `field:"required" json:"topic" yaml:"topic"`
 	// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-headers
+	//
 	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
 	// The Quality of Service (QoS) level to use when republishing messages.
 	//
 	// The default value is 0.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
+	//
 	Qos *float64 `field:"optional" json:"qos" yaml:"qos"`
 }
 

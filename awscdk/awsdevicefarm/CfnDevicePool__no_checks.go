@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnDevicePool) validateSetRulesParameters(val interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnDevicePool) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDevicePoolParameters(scope constructs.Construct, id *string, props *CfnDevicePoolProps) error {
 	return nil
 }

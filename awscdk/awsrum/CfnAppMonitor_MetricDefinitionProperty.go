@@ -40,30 +40,44 @@ package awsrum
 //   	ValueKey: jsii.String("valueKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html
+//
 type CfnAppMonitor_MetricDefinitionProperty struct {
 	// The name of the metric that is defined in this structure.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// This field is a map of field paths to dimension names.
 	//
 	// It defines the dimensions to associate with this metric in CloudWatch . The value of this field is used only if the metric destination is `CloudWatch` . If the metric destination is `Evidently` , the value of `DimensionKeys` is ignored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-dimensionkeys
+	//
 	DimensionKeys interface{} `field:"optional" json:"dimensionKeys" yaml:"dimensionKeys"`
 	// The pattern that defines the metric.
 	//
 	// RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
 	//
 	// If the metrics destination is `CloudWatch` and the event also matches a value in `DimensionKeys` , then the metric is published with the specified dimensions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-eventpattern
+	//
 	EventPattern *string `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// If you are creating a custom metric instead of an extended metrics, use this parameter to define the metric namespace for that custom metric.
 	//
 	// Do not specify this parameter if you are creating an extended metric.
 	//
 	// You can't use any string that starts with `AWS/` for your namespace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-namespace
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// Use this field only if you are sending this metric to CloudWatch .
 	//
 	// It defines the CloudWatch metric unit that this metric is measured in.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-unitlabel
+	//
 	UnitLabel *string `field:"optional" json:"unitLabel" yaml:"unitLabel"`
 	// The field within the event object that the metric value is sourced from.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-valuekey
+	//
 	ValueKey *string `field:"optional" json:"valueKey" yaml:"valueKey"`
 }
 

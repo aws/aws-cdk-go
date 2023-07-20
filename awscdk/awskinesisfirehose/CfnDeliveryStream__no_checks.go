@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetSplunkDestinationConfigurationP
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDeliveryStreamParameters(scope constructs.Construct, id *string, props *CfnDeliveryStreamProps) error {
 	return nil
 }

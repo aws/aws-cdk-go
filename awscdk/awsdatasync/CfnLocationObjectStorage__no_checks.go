@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnLocationObjectStorage) validateSetAgentArnsParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationObjectStorage) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLocationObjectStorageParameters(scope constructs.Construct, id *string, props *CfnLocationObjectStorageProps) error {
 	return nil
 }

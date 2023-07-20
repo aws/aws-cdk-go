@@ -20,12 +20,18 @@ package awsbudgets
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html
+//
 type CfnBudgetsAction_SubscriberProperty struct {
 	// The address that AWS sends budget notifications to, either an SNS topic or an email.
 	//
 	// When you create a subscriber, the value of `Address` can't contain line breaks.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-address
+	//
 	Address *string `field:"required" json:"address" yaml:"address"`
 	// The type of notification that AWS sends to a subscriber.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

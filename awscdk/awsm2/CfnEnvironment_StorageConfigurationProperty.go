@@ -19,10 +19,16 @@ package awsm2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-storageconfiguration.html
+//
 type CfnEnvironment_StorageConfigurationProperty struct {
 	// Defines the storage configuration for an Amazon EFS file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-storageconfiguration.html#cfn-m2-environment-storageconfiguration-efs
+	//
 	Efs interface{} `field:"optional" json:"efs" yaml:"efs"`
 	// Defines the storage configuration for an Amazon FSx file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-storageconfiguration.html#cfn-m2-environment-storageconfiguration-fsx
+	//
 	Fsx interface{} `field:"optional" json:"fsx" yaml:"fsx"`
 }
 

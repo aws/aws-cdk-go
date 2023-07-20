@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDecoderManifest) validateSetSignalDecodersParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnDecoderManifest) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDecoderManifestParameters(scope constructs.Construct, id *string, props *CfnDecoderManifestProps) error {
 	return nil
 }

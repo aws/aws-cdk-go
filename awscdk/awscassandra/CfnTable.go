@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cassandra::Table`.
+// You can use the `AWS::Cassandra::Table` resource to create a new table in Amazon Keyspaces (for Apache Cassandra).
 //
-// You can use the `AWS::Cassandra::Table` resource to create a new table in Amazon Keyspaces (for Apache Cassandra). For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide* .
+// For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -72,15 +72,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
+//
 type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The billing mode for the table, which determines how you'll be charged for reads and writes:.
-	//
-	// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
-	// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
-	//
-	// If you don't specify a value for this property, then the table will use on-demand mode.
 	BillingMode() interface{}
 	SetBillingMode(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -89,12 +87,6 @@ type CfnTable interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Enables client-side timestamps for the table.
-	//
-	// By default, the setting is disabled. You can enable client-side timestamps with the following option:
-	//
-	// - `status: "enabled"`
-	//
-	// After client-side timestamps are enabled for a table, you can't disable this setting.
 	ClientSideTimestampsEnabled() interface{}
 	SetClientSideTimestampsEnabled(val interface{})
 	// One or more columns that determine how the table data is sorted.
@@ -105,25 +97,12 @@ type CfnTable interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The default Time To Live (TTL) value for all rows in a table in seconds.
-	//
-	// The maximum configurable value is 630,720,000 seconds, which is the equivalent of 20 years. By default, the TTL value for a table is 0, which means data does not expire.
-	//
-	// For more information, see [Setting the default TTL value for a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl) in the *Amazon Keyspaces Developer Guide* .
 	DefaultTimeToLive() *float64
 	SetDefaultTimeToLive(val *float64)
 	// The encryption at rest options for the table.
-	//
-	// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces.
-	// - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
-	//
-	// > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
-	//
-	// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
 	EncryptionSpecification() interface{}
 	SetEncryptionSpecification(val interface{})
 	// The name of the keyspace to create the table in.
-	//
-	// The keyspace must already exist.
 	KeyspaceName() *string
 	SetKeyspaceName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -139,13 +118,9 @@ type CfnTable interface {
 	// The tree node.
 	Node() constructs.Node
 	// One or more columns that uniquely identify every row in the table.
-	//
-	// Every table must have a partition key.
 	PartitionKeyColumns() interface{}
 	SetPartitionKeyColumns(val interface{})
 	// Specifies if point-in-time recovery is enabled or disabled for the table.
-	//
-	// The options are `PointInTimeRecoveryEnabled=true` and `PointInTimeRecoveryEnabled=false` . If not specified, the default is `PointInTimeRecoveryEnabled=false` .
 	PointInTimeRecoveryEnabled() interface{}
 	SetPointInTimeRecoveryEnabled(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -154,8 +129,6 @@ type CfnTable interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// One or more columns that are not part of the primary key - that is, columns that are *not* defined as partition key columns or clustering key columns.
-	//
-	// You can add regular columns to existing tables by adding them to the template.
 	RegularColumns() interface{}
 	SetRegularColumns(val interface{})
 	// The stack in which this element is defined.
@@ -163,20 +136,13 @@ type CfnTable interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name of the table to be created.
-	//
-	// The table name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// > If you specify a name, you can't perform updates that require replacing this resource. You can perform updates that require no interruption or some interruption. If you must replace the resource, specify a new name.
-	//
-	// *Length constraints:* Minimum length of 3. Maximum length of 255.
-	//
-	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`.
 	TableName() *string
 	SetTableName(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -321,6 +287,7 @@ type CfnTable interface {
 type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTable) BillingMode() interface{} {
@@ -513,6 +480,16 @@ func (j *jsiiProxy_CfnTable) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -534,7 +511,6 @@ func (j *jsiiProxy_CfnTable) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Cassandra::Table`.
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
@@ -552,7 +528,6 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 	return &j
 }
 
-// Create a new `AWS::Cassandra::Table`.
 func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 
@@ -663,6 +638,17 @@ func (j *jsiiProxy_CfnTable)SetTableName(val *string) {
 	_jsii_.Set(
 		j,
 		"tableName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

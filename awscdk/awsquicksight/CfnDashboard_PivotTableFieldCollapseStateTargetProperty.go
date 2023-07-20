@@ -18,12 +18,18 @@ package awsquicksight
 //   	FieldId: jsii.String("fieldId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablefieldcollapsestatetarget.html
+//
 type CfnDashboard_PivotTableFieldCollapseStateTargetProperty struct {
 	// The data path of the pivot table's header.
 	//
 	// Used to set the collapse state.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablefieldcollapsestatetarget.html#cfn-quicksight-dashboard-pivottablefieldcollapsestatetarget-fielddatapathvalues
+	//
 	FieldDataPathValues interface{} `field:"optional" json:"fieldDataPathValues" yaml:"fieldDataPathValues"`
 	// The field ID of the pivot table that the collapse state needs to be set to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablefieldcollapsestatetarget.html#cfn-quicksight-dashboard-pivottablefieldcollapsestatetarget-fieldid
+	//
 	FieldId *string `field:"optional" json:"fieldId" yaml:"fieldId"`
 }
 

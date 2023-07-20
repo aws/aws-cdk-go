@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTFleetWise::Vehicle`.
+// Creates a vehicle, which is an instance of a vehicle model (model manifest).
 //
-// Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.
+// Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.
 //
 // > If you have an existing AWS IoT thing, you can use AWS IoT FleetWise to create a vehicle and collect data from your thing.
 //
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html
+//
 type CfnVehicle interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// (Optional) An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
 	AssociationBehavior() *string
 	SetAssociationBehavior(val *string)
@@ -51,8 +54,6 @@ type CfnVehicle interface {
 	// The time the vehicle was created in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
 	// (Optional) Static information about a vehicle in a key-value pair.
-	//
-	// For example: `"engine Type"` : `"v6"`.
 	Attributes() interface{}
 	SetAttributes(val interface{})
 	// The time the vehicle was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).
@@ -96,8 +97,11 @@ type CfnVehicle interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// (Optional) Metadata which can be used to manage the vehicle.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// (Optional) Metadata which can be used to manage the vehicle.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -242,6 +246,7 @@ type CfnVehicle interface {
 type jsiiProxy_CfnVehicle struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVehicle) AssociationBehavior() *string {
@@ -414,6 +419,16 @@ func (j *jsiiProxy_CfnVehicle) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVehicle) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVehicle) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -435,7 +450,6 @@ func (j *jsiiProxy_CfnVehicle) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTFleetWise::Vehicle`.
 func NewCfnVehicle(scope constructs.Construct, id *string, props *CfnVehicleProps) CfnVehicle {
 	_init_.Initialize()
 
@@ -453,7 +467,6 @@ func NewCfnVehicle(scope constructs.Construct, id *string, props *CfnVehicleProp
 	return &j
 }
 
-// Create a new `AWS::IoTFleetWise::Vehicle`.
 func NewCfnVehicle_Override(c CfnVehicle, scope constructs.Construct, id *string, props *CfnVehicleProps) {
 	_init_.Initialize()
 
@@ -512,6 +525,17 @@ func (j *jsiiProxy_CfnVehicle)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVehicle)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

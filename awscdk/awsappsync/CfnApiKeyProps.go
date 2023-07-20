@@ -17,16 +17,26 @@ package awsappsync
 //   	Expires: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html
+//
 type CfnApiKeyProps struct {
 	// Unique AWS AppSync GraphQL API ID for this API key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apiid
+	//
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The API key ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apikeyid
+	//
 	ApiKeyId *string `field:"optional" json:"apiKeyId" yaml:"apiKeyId"`
 	// Unique description of your API key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The time after which the API key expires.
 	//
 	// The date is represented as seconds since the epoch, rounded down to the nearest hour.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-expires
+	//
 	Expires *float64 `field:"optional" json:"expires" yaml:"expires"`
 }
 

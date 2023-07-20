@@ -16,12 +16,20 @@ package awspersonalize
 //   	Domain: jsii.String("domain"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html
+//
 type CfnSchemaProps struct {
 	// The name of the schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html#cfn-personalize-schema-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html#cfn-personalize-schema-schema
+	//
 	Schema *string `field:"required" json:"schema" yaml:"schema"`
 	// The domain of a schema that you created for a dataset in a Domain dataset group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html#cfn-personalize-schema-domain
+	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 }
 

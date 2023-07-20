@@ -36,16 +36,26 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.html
+//
 type CfnBucket_WebsiteConfigurationProperty struct {
 	// The name of the error document for the website.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.html#cfn-s3-bucket-websiteconfiguration-errordocument
+	//
 	ErrorDocument *string `field:"optional" json:"errorDocument" yaml:"errorDocument"`
 	// The name of the index document for the website.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.html#cfn-s3-bucket-websiteconfiguration-indexdocument
+	//
 	IndexDocument *string `field:"optional" json:"indexDocument" yaml:"indexDocument"`
 	// The redirect behavior for every request to this bucket's website endpoint.
 	//
 	// > If you specify this property, you can't specify any other property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.html#cfn-s3-bucket-websiteconfiguration-redirectallrequeststo
+	//
 	RedirectAllRequestsTo interface{} `field:"optional" json:"redirectAllRequestsTo" yaml:"redirectAllRequestsTo"`
 	// Rules that define when a redirect is applied and the redirect behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.html#cfn-s3-bucket-websiteconfiguration-routingrules
+	//
 	RoutingRules interface{} `field:"optional" json:"routingRules" yaml:"routingRules"`
 }
 

@@ -18,8 +18,12 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html
+//
 type CfnBotAlias_AudioLogDestinationProperty struct {
 	// The S3 bucket location where audio logs are stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html#cfn-lex-botalias-audiologdestination-s3bucket
+	//
 	S3Bucket interface{} `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 }
 

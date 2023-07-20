@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::RealtimeLogConfig`.
-//
 // A real-time log configuration.
 //
 // Example:
@@ -35,6 +33,8 @@ import (
 //   	SamplingRate: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+//
 type CfnRealtimeLogConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -55,10 +55,6 @@ type CfnRealtimeLogConfig interface {
 	EndPoints() interface{}
 	SetEndPoints(val interface{})
 	// A list of fields that are included in each real-time log record.
-	//
-	// In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-	//
-	// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
 	Fields() *[]*string
 	SetFields(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -82,8 +78,6 @@ type CfnRealtimeLogConfig interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The sampling rate for this real-time log configuration.
-	//
-	// The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. The sampling rate is an integer between 1 and 100, inclusive.
 	SamplingRate() *float64
 	SetSamplingRate(val *float64)
 	// The stack in which this element is defined.
@@ -387,7 +381,6 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::CloudFront::RealtimeLogConfig`.
 func NewCfnRealtimeLogConfig(scope constructs.Construct, id *string, props *CfnRealtimeLogConfigProps) CfnRealtimeLogConfig {
 	_init_.Initialize()
 
@@ -405,7 +398,6 @@ func NewCfnRealtimeLogConfig(scope constructs.Construct, id *string, props *CfnR
 	return &j
 }
 
-// Create a new `AWS::CloudFront::RealtimeLogConfig`.
 func NewCfnRealtimeLogConfig_Override(c CfnRealtimeLogConfig, scope constructs.Construct, id *string, props *CfnRealtimeLogConfigProps) {
 	_init_.Initialize()
 

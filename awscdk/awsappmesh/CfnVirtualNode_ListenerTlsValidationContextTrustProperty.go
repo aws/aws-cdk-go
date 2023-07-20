@@ -17,10 +17,16 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontexttrust.html
+//
 type CfnVirtualNode_ListenerTlsValidationContextTrustProperty struct {
 	// An object that represents a Transport Layer Security (TLS) validation context trust for a local file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-listenertlsvalidationcontexttrust-file
+	//
 	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a listener's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-listenertlsvalidationcontexttrust-sds
+	//
 	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 

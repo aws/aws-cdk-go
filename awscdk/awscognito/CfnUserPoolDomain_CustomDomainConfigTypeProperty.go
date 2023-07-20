@@ -12,10 +12,14 @@ package awscognito
 //   	CertificateArn: jsii.String("certificateArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html
+//
 type CfnUserPoolDomain_CustomDomainConfigTypeProperty struct {
 	// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate.
 	//
 	// You use this certificate for the subdomain of your custom domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html#cfn-cognito-userpooldomain-customdomainconfigtype-certificatearn
+	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 }
 

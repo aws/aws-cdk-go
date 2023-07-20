@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::RoleAlias`.
-//
 // Specifies a role alias.
 //
 // Requires permission to access the [CreateRoleAlias](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-rolealias.html
+//
 type CfnRoleAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The role alias ARN.
 	AttrRoleAliasArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -78,10 +79,11 @@ type CfnRoleAlias interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +228,7 @@ type CfnRoleAlias interface {
 type jsiiProxy_CfnRoleAlias struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRoleAlias) AttrRoleAliasArn() *string {
@@ -358,6 +361,16 @@ func (j *jsiiProxy_CfnRoleAlias) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRoleAlias) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRoleAlias) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -379,7 +392,6 @@ func (j *jsiiProxy_CfnRoleAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::RoleAlias`.
 func NewCfnRoleAlias(scope constructs.Construct, id *string, props *CfnRoleAliasProps) CfnRoleAlias {
 	_init_.Initialize()
 
@@ -397,7 +409,6 @@ func NewCfnRoleAlias(scope constructs.Construct, id *string, props *CfnRoleAlias
 	return &j
 }
 
-// Create a new `AWS::IoT::RoleAlias`.
 func NewCfnRoleAlias_Override(c CfnRoleAlias, scope constructs.Construct, id *string, props *CfnRoleAliasProps) {
 	_init_.Initialize()
 
@@ -431,6 +442,17 @@ func (j *jsiiProxy_CfnRoleAlias)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRoleAlias)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

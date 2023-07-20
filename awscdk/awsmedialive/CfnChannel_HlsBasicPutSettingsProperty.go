@@ -17,16 +17,26 @@ package awsmedialive
 //   	RestartDelay: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html
+//
 type CfnChannel_HlsBasicPutSettingsProperty struct {
 	// The number of seconds to wait before retrying a connection to the CDN if the connection is lost.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-connectionretryinterval
+	//
 	ConnectionRetryInterval *float64 `field:"optional" json:"connectionRetryInterval" yaml:"connectionRetryInterval"`
 	// The size, in seconds, of the file cache for streaming outputs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-filecacheduration
+	//
 	FilecacheDuration *float64 `field:"optional" json:"filecacheDuration" yaml:"filecacheDuration"`
 	// The number of retry attempts that MediaLive makes before the channel is put into an error state.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-numretries
+	//
 	NumRetries *float64 `field:"optional" json:"numRetries" yaml:"numRetries"`
 	// If a streaming output fails, the number of seconds to wait until a restart is initiated.
 	//
 	// A value of 0 means never restart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-restartdelay
+	//
 	RestartDelay *float64 `field:"optional" json:"restartDelay" yaml:"restartDelay"`
 }
 

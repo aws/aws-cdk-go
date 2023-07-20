@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::ConnectorDefinition`.
+// The `AWS::Greengrass::ConnectorDefinition` resource represents a connector definition for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::ConnectorDefinition` resource represents a connector definition for AWS IoT Greengrass . Connector definitions are used to organize your connector definition versions.
+// Connector definitions are used to organize your connector definition versions.
 //
 // Connector definitions can reference multiple connector definition versions. All connector definition versions must be associated with a connector definition. Each connector definition version can contain one or more connectors.
 //
@@ -45,9 +45,12 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html
+//
 type CfnConnectorDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `ConnectorDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/connectors/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
 	// The ID of the `ConnectorDefinition` , such as `1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
@@ -66,10 +69,6 @@ type CfnConnectorDefinition interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The connector definition version to include when the connector definition is created.
-	//
-	// A connector definition version contains a list of [`connector`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html) property types.
-	//
-	// > To associate a connector definition version after the connector definition is created, create an [`AWS::Greengrass::ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html) resource and specify the ID of this connector definition.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -96,17 +95,11 @@ type CfnConnectorDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Application-specific metadata to attach to the connector definition.
-	//
-	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
-	//
-	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
-	//
-	// ```json
-	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
-	// }
-	// ```.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Application-specific metadata to attach to the connector definition.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -251,6 +244,7 @@ type CfnConnectorDefinition interface {
 type jsiiProxy_CfnConnectorDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnConnectorDefinition) AttrArn() *string {
@@ -403,6 +397,16 @@ func (j *jsiiProxy_CfnConnectorDefinition) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnectorDefinition) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnectorDefinition) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -424,7 +428,6 @@ func (j *jsiiProxy_CfnConnectorDefinition) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::Greengrass::ConnectorDefinition`.
 func NewCfnConnectorDefinition(scope constructs.Construct, id *string, props *CfnConnectorDefinitionProps) CfnConnectorDefinition {
 	_init_.Initialize()
 
@@ -442,7 +445,6 @@ func NewCfnConnectorDefinition(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::Greengrass::ConnectorDefinition`.
 func NewCfnConnectorDefinition_Override(c CfnConnectorDefinition, scope constructs.Construct, id *string, props *CfnConnectorDefinitionProps) {
 	_init_.Initialize()
 
@@ -471,6 +473,14 @@ func (j *jsiiProxy_CfnConnectorDefinition)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnectorDefinition)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

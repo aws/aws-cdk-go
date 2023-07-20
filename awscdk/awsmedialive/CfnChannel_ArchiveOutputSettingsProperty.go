@@ -80,16 +80,24 @@ package awsmedialive
 //   	NameModifier: jsii.String("nameModifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html
+//
 type CfnChannel_ArchiveOutputSettingsProperty struct {
 	// The settings that are specific to the container type of the file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html#cfn-medialive-channel-archiveoutputsettings-containersettings
+	//
 	ContainerSettings interface{} `field:"optional" json:"containerSettings" yaml:"containerSettings"`
 	// The output file extension.
 	//
 	// If excluded, this is auto-selected from the container type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html#cfn-medialive-channel-archiveoutputsettings-extension
+	//
 	Extension *string `field:"optional" json:"extension" yaml:"extension"`
 	// A string that is concatenated to the end of the destination file name.
 	//
 	// The string is required for multiple outputs of the same type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html#cfn-medialive-channel-archiveoutputsettings-namemodifier
+	//
 	NameModifier *string `field:"optional" json:"nameModifier" yaml:"nameModifier"`
 }
 

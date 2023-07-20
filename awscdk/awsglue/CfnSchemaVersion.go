@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::SchemaVersion`.
-//
 // The `AWS::Glue::SchemaVersion` is an AWS Glue resource type that manages schema versions of schemas in the AWS Glue Schema Registry.
 //
 // Example:
@@ -27,9 +25,12 @@ import (
 //   	SchemaDefinition: jsii.String("schemaDefinition"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+//
 type CfnSchemaVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Represents the version ID associated with the schema version.
 	AttrVersionId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -344,7 +345,6 @@ func (j *jsiiProxy_CfnSchemaVersion) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Glue::SchemaVersion`.
 func NewCfnSchemaVersion(scope constructs.Construct, id *string, props *CfnSchemaVersionProps) CfnSchemaVersion {
 	_init_.Initialize()
 
@@ -362,7 +362,6 @@ func NewCfnSchemaVersion(scope constructs.Construct, id *string, props *CfnSchem
 	return &j
 }
 
-// Create a new `AWS::Glue::SchemaVersion`.
 func NewCfnSchemaVersion_Override(c CfnSchemaVersion, scope constructs.Construct, id *string, props *CfnSchemaVersionProps) {
 	_init_.Initialize()
 

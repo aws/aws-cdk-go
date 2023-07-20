@@ -21,8 +21,12 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3keyfilter.html
+//
 type CfnBucket_S3KeyFilterProperty struct {
 	// A list of containers for the key-value pair that defines the criteria for the filter rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3keyfilter.html#cfn-s3-bucket-s3keyfilter-rules
+	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 

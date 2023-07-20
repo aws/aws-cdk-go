@@ -16,8 +16,12 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-ipset.html
+//
 type CfnFirewallPolicy_IPSetProperty struct {
 	// The list of IP addresses and address ranges, in CIDR notation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-ipset.html#cfn-networkfirewall-firewallpolicy-ipset-definition
+	//
 	Definition *[]*string `field:"optional" json:"definition" yaml:"definition"`
 }
 

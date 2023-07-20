@@ -49,6 +49,8 @@ package awselasticloadbalancingv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html
+//
 type CfnListenerRule_RuleConditionProperty struct {
 	// The field in the HTTP request. The following are the possible values:.
 	//
@@ -58,30 +60,44 @@ type CfnListenerRule_RuleConditionProperty struct {
 	// - `path-pattern`
 	// - `query-string`
 	// - `source-ip`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-field
+	//
 	Field *string `field:"optional" json:"field" yaml:"field"`
 	// Information for a host header condition.
 	//
 	// Specify only when `Field` is `host-header` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
+	//
 	HostHeaderConfig interface{} `field:"optional" json:"hostHeaderConfig" yaml:"hostHeaderConfig"`
 	// Information for an HTTP header condition.
 	//
 	// Specify only when `Field` is `http-header` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
+	//
 	HttpHeaderConfig interface{} `field:"optional" json:"httpHeaderConfig" yaml:"httpHeaderConfig"`
 	// Information for an HTTP method condition.
 	//
 	// Specify only when `Field` is `http-request-method` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
+	//
 	HttpRequestMethodConfig interface{} `field:"optional" json:"httpRequestMethodConfig" yaml:"httpRequestMethodConfig"`
 	// Information for a path pattern condition.
 	//
 	// Specify only when `Field` is `path-pattern` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
+	//
 	PathPatternConfig interface{} `field:"optional" json:"pathPatternConfig" yaml:"pathPatternConfig"`
 	// Information for a query string condition.
 	//
 	// Specify only when `Field` is `query-string` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
+	//
 	QueryStringConfig interface{} `field:"optional" json:"queryStringConfig" yaml:"queryStringConfig"`
 	// Information for a source IP condition.
 	//
 	// Specify only when `Field` is `source-ip` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
+	//
 	SourceIpConfig interface{} `field:"optional" json:"sourceIpConfig" yaml:"sourceIpConfig"`
 	// The condition value.
 	//
@@ -101,6 +117,8 @@ type CfnListenerRule_RuleConditionProperty struct {
 	// - & (using &amp;)
 	// - * (matches 0 or more characters)
 	// - ? (matches exactly 1 character)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-values
+	//
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

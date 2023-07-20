@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::VpcAttachment`.
-//
 // Creates a VPC attachment on an edge location of a core network.
 //
 // Example:
@@ -48,9 +46,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html
+//
 type CfnVpcAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the VPC attachment.
 	AttrAttachmentId() *string
 	// The policy rule number associated with the attachment.
@@ -104,7 +105,7 @@ type CfnVpcAttachment interface {
 	// Options for creating the VPC attachment.
 	Options() interface{}
 	SetOptions(val interface{})
-	// `AWS::NetworkManager::VpcAttachment.ProposedSegmentChange`.
+	// The attachment to move from one segment to another.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -119,8 +120,11 @@ type CfnVpcAttachment interface {
 	// The subnet ARNs.
 	SubnetArns() *[]*string
 	SetSubnetArns(val *[]*string)
-	// The tags associated with the VPC attachment.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags associated with the VPC attachment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -268,6 +272,7 @@ type CfnVpcAttachment interface {
 type jsiiProxy_CfnVpcAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVpcAttachment) AttrAttachmentId() *string {
@@ -510,6 +515,16 @@ func (j *jsiiProxy_CfnVpcAttachment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVpcAttachment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVpcAttachment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -541,7 +556,6 @@ func (j *jsiiProxy_CfnVpcAttachment) VpcArn() *string {
 }
 
 
-// Create a new `AWS::NetworkManager::VpcAttachment`.
 func NewCfnVpcAttachment(scope constructs.Construct, id *string, props *CfnVpcAttachmentProps) CfnVpcAttachment {
 	_init_.Initialize()
 
@@ -559,7 +573,6 @@ func NewCfnVpcAttachment(scope constructs.Construct, id *string, props *CfnVpcAt
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::VpcAttachment`.
 func NewCfnVpcAttachment_Override(c CfnVpcAttachment, scope constructs.Construct, id *string, props *CfnVpcAttachmentProps) {
 	_init_.Initialize()
 
@@ -610,6 +623,17 @@ func (j *jsiiProxy_CfnVpcAttachment)SetSubnetArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcAttachment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

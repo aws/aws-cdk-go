@@ -15,12 +15,18 @@ package awscloudwatch
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-dimension.html
+//
 type CfnAlarm_DimensionProperty struct {
 	// The name of the dimension, from 1–255 characters in length.
 	//
 	// This dimension name must have been included when the metric was published.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-dimension.html#cfn-cloudwatch-alarm-dimension-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value for the dimension, from 1–255 characters in length.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-dimension.html#cfn-cloudwatch-alarm-dimension-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

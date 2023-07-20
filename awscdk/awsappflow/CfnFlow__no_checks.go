@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceFlowConfigParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlow) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlow) validateSetTasksParameters(val interface{}) error {
 	return nil
 }

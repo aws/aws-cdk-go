@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTFleetWise::SignalCatalog`.
-//
 // Creates a collection of standardized signals that can be reused to create vehicle models.
 //
 // Example:
@@ -88,9 +86,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html
+//
 type CfnSignalCatalog interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the signal catalog.
 	AttrArn() *string
 	// The time the signal catalog was created in seconds since epoch (January 1, 1970 at midnight UTC time).
@@ -149,8 +150,11 @@ type CfnSignalCatalog interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// (Optional) Metadata that can be used to manage the signal catalog.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// (Optional) Metadata that can be used to manage the signal catalog.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -295,6 +299,7 @@ type CfnSignalCatalog interface {
 type jsiiProxy_CfnSignalCatalog struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSignalCatalog) AttrArn() *string {
@@ -507,6 +512,16 @@ func (j *jsiiProxy_CfnSignalCatalog) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSignalCatalog) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSignalCatalog) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -528,7 +543,6 @@ func (j *jsiiProxy_CfnSignalCatalog) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::IoTFleetWise::SignalCatalog`.
 func NewCfnSignalCatalog(scope constructs.Construct, id *string, props *CfnSignalCatalogProps) CfnSignalCatalog {
 	_init_.Initialize()
 
@@ -546,7 +560,6 @@ func NewCfnSignalCatalog(scope constructs.Construct, id *string, props *CfnSigna
 	return &j
 }
 
-// Create a new `AWS::IoTFleetWise::SignalCatalog`.
 func NewCfnSignalCatalog_Override(c CfnSignalCatalog, scope constructs.Construct, id *string, props *CfnSignalCatalogProps) {
 	_init_.Initialize()
 
@@ -591,6 +604,17 @@ func (j *jsiiProxy_CfnSignalCatalog)SetNodes(val interface{}) {
 	_jsii_.Set(
 		j,
 		"nodes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSignalCatalog)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -77,12 +77,16 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html
+//
 type CfnAppProps struct {
 	// The name for an Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern:* (?s).+
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The personal access token for a GitHub repository for an Amplify app.
 	//
@@ -95,44 +99,64 @@ type CfnAppProps struct {
 	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
+	//
 	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// Sets the configuration for your automatic branch creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
+	//
 	AutoBranchCreationConfig interface{} `field:"optional" json:"autoBranchCreationConfig" yaml:"autoBranchCreationConfig"`
 	// The credentials for basic authorization for an Amplify app.
 	//
 	// You must base64-encode the authorization credentials and provide them in the format `user:password` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
+	//
 	BasicAuthConfig interface{} `field:"optional" json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for an Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
 	//
 	// *Pattern:* (?s).+
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
+	//
 	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// The custom HTTP headers for an Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 0. Maximum length of 25000.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
+	//
 	CustomHeaders *string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
+	//
 	CustomRules interface{} `field:"optional" json:"customRules" yaml:"customRules"`
 	// The description for an Amplify app.
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+	//
 	EnableBranchAutoDeletion interface{} `field:"optional" json:"enableBranchAutoDeletion" yaml:"enableBranchAutoDeletion"`
 	// The environment variables map for an Amplify app.
 	//
 	// For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
+	//
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 0. Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
+	//
 	IamServiceRole *string `field:"optional" json:"iamServiceRole" yaml:"iamServiceRole"`
 	// The OAuth token for a third-party source control system for an Amplify app.
 	//
@@ -147,16 +171,24 @@ type CfnAppProps struct {
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
+	//
 	OauthToken *string `field:"optional" json:"oauthToken" yaml:"oauthToken"`
 	// The platform for the Amplify app.
 	//
 	// For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-platform
+	//
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// The repository for an Amplify app.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
+	//
 	Repository *string `field:"optional" json:"repository" yaml:"repository"`
 	// The tag for an Amplify app.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

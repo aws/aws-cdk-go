@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::FlowLog`.
+// Specifies a VPC flow log that captures IP traffic for a specified network interface, subnet, or VPC.
 //
-// Specifies a VPC flow log that captures IP traffic for a specified network interface, subnet, or VPC. To view the log data, use Amazon CloudWatch Logs (CloudWatch Logs) to help troubleshoot connection issues. For example, you can use a flow log to investigate why certain traffic isn't reaching an instance, which can help you diagnose overly restrictive security group rules. For more information, see [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) in the *Amazon VPC User Guide* .
+// To view the log data, use Amazon CloudWatch Logs (CloudWatch Logs) to help troubleshoot connection issues. For example, you can use a flow log to investigate why certain traffic isn't reaching an instance, which can help you diagnose overly restrictive security group rules. For more information, see [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) in the *Amazon VPC User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,9 +41,12 @@ import (
 //   	TrafficType: jsii.String("trafficType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
+//
 type CfnFlowLog interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the flow log.
 	//
 	// For example, `fl-123456abc123abc1` .
@@ -58,49 +61,25 @@ type CfnFlowLog interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
-	//
-	// This parameter is required if the destination type is `cloud-watch-logs` and unsupported otherwise.
 	DeliverLogsPermissionArn() *string
 	SetDeliverLogsPermissionArn(val *string)
-	// The destination options. The following options are supported:.
+	// The destination options.
 	//
-	// - `FileFormat` - The format for the flow log ( `plain-text` | `parquet` ). The default is `plain-text` .
-	// - `HiveCompatiblePartitions` - Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3 ( `true` | `false` ). The default is `false` .
-	// - `PerHourPartition` - Indicates whether to partition the flow log per hour ( `true` | `false` ). The default is `false` .
+	// The following options are supported:.
 	DestinationOptions() interface{}
 	SetDestinationOptions(val interface{})
-	// The destination for the flow log data. The meaning of this parameter depends on the destination type.
+	// The destination for the flow log data.
 	//
-	// - If the destination type is `cloud-watch-logs` , specify the ARN of a CloudWatch Logs log group. For example:
-	//
-	// arn:aws:logs: *region* : *account_id* :log-group: *my_group*
-	//
-	// Alternatively, use the `LogGroupName` parameter.
-	// - If the destination type is `s3` , specify the ARN of an S3 bucket. For example:
-	//
-	// arn:aws:s3::: *my_bucket* / *my_subfolder* /
-	//
-	// The subfolder is optional. Note that you can't use `AWSLogs` as a subfolder name.
-	// - If the destination type is `kinesis-data-firehose` , specify the ARN of a Kinesis Data Firehose delivery stream. For example:
-	//
-	// arn:aws:firehose: *region* : *account_id* :deliverystream: *my_stream*.
+	// The meaning of this parameter depends on the destination type.
 	LogDestination() *string
 	SetLogDestination(val *string)
 	// The type of destination for the flow log data.
-	//
-	// Default: `cloud-watch-logs`.
 	LogDestinationType() *string
 	SetLogDestinationType(val *string)
 	// The fields to include in the flow log record, in the order in which they should appear.
-	//
-	// If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must include at least one field. For more information about the available fields, see [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records) in the *Amazon VPC User Guide* or [Transit Gateway Flow Log records](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records) in the *AWS Transit Gateway Guide* .
-	//
-	// Specify the fields using the `${field-id}` format, separated by spaces.
 	LogFormat() *string
 	SetLogFormat(val *string)
 	// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.
-	//
-	// This parameter is valid only if the destination type is `cloud-watch-logs` .
 	LogGroupName() *string
 	SetLogGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -114,12 +93,6 @@ type CfnFlowLog interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-	//
-	// The possible values are 60 seconds (1 minute) or 600 seconds (10 minutes). This parameter must be 60 seconds for transit gateway resource types.
-	//
-	// When a network interface is attached to a [Nitro-based instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) , the aggregation interval is always 60 seconds or less, regardless of the value that you specify.
-	//
-	// Default: 600.
 	MaxAggregationInterval() *float64
 	SetMaxAggregationInterval(val *float64)
 	// The tree node.
@@ -130,8 +103,6 @@ type CfnFlowLog interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ID of the resource to monitor.
-	//
-	// For example, if the resource type is `VPC` , specify the ID of the VPC.
 	ResourceId() *string
 	SetResourceId(val *string)
 	// The type of resource to monitor.
@@ -141,11 +112,12 @@ type CfnFlowLog interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to apply to the flow logs.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to apply to the flow logs.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic).
-	//
-	// This parameter is not supported for transit gateway resource types. It is required for the other resource types.
 	TrafficType() *string
 	SetTrafficType(val *string)
 	// Deprecated.
@@ -292,6 +264,7 @@ type CfnFlowLog interface {
 type jsiiProxy_CfnFlowLog struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFlowLog) AttrId() *string {
@@ -484,6 +457,16 @@ func (j *jsiiProxy_CfnFlowLog) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowLog) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowLog) TrafficType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -515,7 +498,6 @@ func (j *jsiiProxy_CfnFlowLog) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::FlowLog`.
 func NewCfnFlowLog(scope constructs.Construct, id *string, props *CfnFlowLogProps) CfnFlowLog {
 	_init_.Initialize()
 
@@ -533,7 +515,6 @@ func NewCfnFlowLog(scope constructs.Construct, id *string, props *CfnFlowLogProp
 	return &j
 }
 
-// Create a new `AWS::EC2::FlowLog`.
 func NewCfnFlowLog_Override(c CfnFlowLog, scope constructs.Construct, id *string, props *CfnFlowLogProps) {
 	_init_.Initialize()
 
@@ -553,9 +534,6 @@ func (j *jsiiProxy_CfnFlowLog)SetDeliverLogsPermissionArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnFlowLog)SetDestinationOptions(val interface{}) {
-	if err := j.validateSetDestinationOptionsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"destinationOptions",
@@ -621,6 +599,17 @@ func (j *jsiiProxy_CfnFlowLog)SetResourceType(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowLog)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

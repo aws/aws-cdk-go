@@ -16,8 +16,12 @@ package awss3
 //   	IsEnabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
+//
 type CfnStorageLens_ActivityMetricsProperty struct {
 	// A property that indicates whether the activity metrics is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+	//
 	IsEnabled interface{} `field:"optional" json:"isEnabled" yaml:"isEnabled"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Panorama::ApplicationInstance`.
-//
 // Creates an application instance and deploys it to a device.
 //
 // Example:
@@ -40,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html
+//
 type CfnApplicationInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of an application instance to replace with the new instance.
 	ApplicationInstanceIdToReplace() *string
 	SetApplicationInstanceIdToReplace(val *string)
@@ -110,8 +111,11 @@ type CfnApplicationInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags for the application instance.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags for the application instance.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -256,6 +260,7 @@ type CfnApplicationInstance interface {
 type jsiiProxy_CfnApplicationInstance struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnApplicationInstance) ApplicationInstanceIdToReplace() *string {
@@ -498,6 +503,16 @@ func (j *jsiiProxy_CfnApplicationInstance) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplicationInstance) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplicationInstance) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -519,7 +534,6 @@ func (j *jsiiProxy_CfnApplicationInstance) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::Panorama::ApplicationInstance`.
 func NewCfnApplicationInstance(scope constructs.Construct, id *string, props *CfnApplicationInstanceProps) CfnApplicationInstance {
 	_init_.Initialize()
 
@@ -537,7 +551,6 @@ func NewCfnApplicationInstance(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::Panorama::ApplicationInstance`.
 func NewCfnApplicationInstance_Override(c CfnApplicationInstance, scope constructs.Construct, id *string, props *CfnApplicationInstanceProps) {
 	_init_.Initialize()
 
@@ -609,6 +622,17 @@ func (j *jsiiProxy_CfnApplicationInstance)SetRuntimeRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"runtimeRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplicationInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

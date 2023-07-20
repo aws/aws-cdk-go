@@ -17,18 +17,32 @@ package awsquicksight
 //   	WordScaling: jsii.String("wordScaling"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-wordcloudoptions.html
+//
 type CfnDashboard_WordCloudOptionsProperty struct {
 	// The cloud layout options (fluid, normal) of a word cloud.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-wordcloudoptions.html#cfn-quicksight-dashboard-wordcloudoptions-cloudlayout
+	//
 	CloudLayout *string `field:"optional" json:"cloudLayout" yaml:"cloudLayout"`
 	// The length limit of each word from 1-100.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-wordcloudoptions.html#cfn-quicksight-dashboard-wordcloudoptions-maximumstringlength
+	//
 	MaximumStringLength *float64 `field:"optional" json:"maximumStringLength" yaml:"maximumStringLength"`
 	// The word casing options (lower_case, existing_case) for the words in a word cloud.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-wordcloudoptions.html#cfn-quicksight-dashboard-wordcloudoptions-wordcasing
+	//
 	WordCasing *string `field:"optional" json:"wordCasing" yaml:"wordCasing"`
 	// The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-wordcloudoptions.html#cfn-quicksight-dashboard-wordcloudoptions-wordorientation
+	//
 	WordOrientation *string `field:"optional" json:"wordOrientation" yaml:"wordOrientation"`
 	// The word padding options (none, small, medium, large) for the words in a word cloud.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-wordcloudoptions.html#cfn-quicksight-dashboard-wordcloudoptions-wordpadding
+	//
 	WordPadding *string `field:"optional" json:"wordPadding" yaml:"wordPadding"`
 	// The word scaling options (emphasize, normal) for the words in a word cloud.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-wordcloudoptions.html#cfn-quicksight-dashboard-wordcloudoptions-wordscaling
+	//
 	WordScaling *string `field:"optional" json:"wordScaling" yaml:"wordScaling"`
 }
 

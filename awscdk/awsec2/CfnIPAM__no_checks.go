@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnIPAM) validateSetOperatingRegionsParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnIPAM) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnIPAMParameters(scope constructs.Construct, id *string, props *CfnIPAMProps) error {
 	return nil
 }

@@ -25,16 +25,22 @@ package awsconnect
 //   	DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html
+//
 type CfnEvaluationForm_EvaluationFormSingleSelectQuestionAutomationProperty struct {
 	// The automation options of the single select question.
 	//
 	// *Minimum* : 1
 	//
 	// *Maximum* : 20.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-options
+	//
 	Options interface{} `field:"required" json:"options" yaml:"options"`
 	// The identifier of the default answer option, when none of the automation options match the criteria.
 	//
 	// *Length Constraints* : Minimum length of 1. Maximum length of 40.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-defaultoptionrefid
+	//
 	DefaultOptionRefId *string `field:"optional" json:"defaultOptionRefId" yaml:"defaultOptionRefId"`
 }
 

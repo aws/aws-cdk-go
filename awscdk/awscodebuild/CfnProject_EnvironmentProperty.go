@@ -32,6 +32,8 @@ package awscodebuild
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html
+//
 type CfnProject_EnvironmentProperty struct {
 	// The type of compute environment.
 	//
@@ -42,6 +44,8 @@ type CfnProject_EnvironmentProperty struct {
 	// - `BUILD_GENERAL1_LARGE` : Use up to 15 GB memory and 8 vCPUs for builds.
 	//
 	// For more information, see [Build Environment Compute Types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide.*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-computetype
+	//
 	ComputeType *string `field:"required" json:"computeType" yaml:"computeType"`
 	// The image tag or image digest that identifies the Docker image to use for this build project.
 	//
@@ -51,6 +55,8 @@ type CfnProject_EnvironmentProperty struct {
 	// - For an image digest: `<registry>/<repository>@<digest>` . For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use `<registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf` .
 	//
 	// For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-available.html) in the *AWS CodeBuild user guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-image
+	//
 	Image *string `field:"required" json:"image" yaml:"image"`
 	// The type of build environment to use for related builds.
 	//
@@ -61,12 +67,18 @@ type CfnProject_EnvironmentProperty struct {
 	// - The environment types `WINDOWS_CONTAINER` and `WINDOWS_SERVER_2019_CONTAINER` are available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), and EU (Ireland).
 	//
 	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project.
 	//
 	// For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-certificate
+	//
 	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
 	// A set of environment variables to make available to builds for this build project.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-environmentvariables
+	//
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:.
 	//
@@ -74,6 +86,8 @@ type CfnProject_EnvironmentProperty struct {
 	// - `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role.
 	//
 	// When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-imagepullcredentialstype
+	//
 	ImagePullCredentialsType *string `field:"optional" json:"imagePullCredentialsType" yaml:"imagePullCredentialsType"`
 	// Enables running the Docker daemon inside a Docker container.
 	//
@@ -92,11 +106,15 @@ type CfnProject_EnvironmentProperty struct {
 	// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
 	//
 	// `- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-privilegedmode
+	//
 	PrivilegedMode interface{} `field:"optional" json:"privilegedMode" yaml:"privilegedMode"`
 	// `RegistryCredential` is a property of the [AWS::CodeBuild::Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment) property that specifies information about credentials that provide access to a private Docker registry. When this is set:.
 	//
 	// - `imagePullCredentialsType` must be set to `SERVICE_ROLE` .
 	// - images cannot be curated or an Amazon ECR image.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-registrycredential
+	//
 	RegistryCredential interface{} `field:"optional" json:"registryCredential" yaml:"registryCredential"`
 }
 

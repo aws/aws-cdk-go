@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdkbatchalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -19,7 +18,6 @@ import (
 //   // The values are placeholders you should change.
 //   import batch_alpha "github.com/aws/aws-cdk-go/awscdkbatchalpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
@@ -51,7 +49,7 @@ import (
 //   	LinuxParameters: linuxParameters,
 //   	Logging: logDriver,
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
-//   	Secrets: map[string]iSecret{
+//   	Secrets: map[string]*secret{
 //   		"secretsKey": secret,
 //   	},
 //   	User: jsii.String("user"),
@@ -124,7 +122,7 @@ type EcsFargateContainerDefinition interface {
 	// Allows your job definitions
 	// to reference the secret by the environment variable name defined in this property.
 	// Experimental.
-	Secrets() *map[string]awssecretsmanager.ISecret
+	Secrets() *map[string]Secret
 	// The user name to use inside the container.
 	// Experimental.
 	User() *string
@@ -288,8 +286,8 @@ func (j *jsiiProxy_EcsFargateContainerDefinition) ReadonlyRootFilesystem() *bool
 	return returns
 }
 
-func (j *jsiiProxy_EcsFargateContainerDefinition) Secrets() *map[string]awssecretsmanager.ISecret {
-	var returns *map[string]awssecretsmanager.ISecret
+func (j *jsiiProxy_EcsFargateContainerDefinition) Secrets() *map[string]Secret {
+	var returns *map[string]Secret
 	_jsii_.Get(
 		j,
 		"secrets",

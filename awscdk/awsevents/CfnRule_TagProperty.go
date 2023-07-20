@@ -17,12 +17,18 @@ package awsevents
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-tag.html
+//
 type CfnRule_TagProperty struct {
 	// A string you can use to assign a value.
 	//
 	// The combination of tag keys and values can help you organize and categorize your resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-tag.html#cfn-events-rule-tag-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value for the specified tag key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-tag.html#cfn-events-rule-tag-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

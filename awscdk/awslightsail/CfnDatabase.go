@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::Database`.
-//
 // The `AWS::Lightsail::Database` resource specifies an Amazon Lightsail database.
 //
 // Example:
@@ -54,9 +52,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html
+//
 type CfnDatabase interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 	AttrDatabaseArn() *string
 	// The Availability Zone for the database.
@@ -88,70 +89,12 @@ type CfnDatabase interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The meaning of this parameter differs according to the database engine you use.
-	//
-	// *MySQL*
-	//
-	// The name of the database to create when the Lightsail database resource is created. If this parameter isn't specified, no database is created in the database resource.
-	//
-	// Constraints:
-	//
-	// - Must contain 1-64 letters or numbers.
-	// - Must begin with a letter. Subsequent characters can be letters, underscores, or numbers (0-9).
-	// - Can't be a word reserved by the specified database engine.
-	//
-	// For more information about reserved words in MySQL, see the Keywords and Reserved Words articles for [MySQL 5.6](https://docs.aws.amazon.com/https://dev.mysql.com/doc/refman/5.6/en/keywords.html) , [MySQL 5.7](https://docs.aws.amazon.com/https://dev.mysql.com/doc/refman/5.7/en/keywords.html) , and [MySQL 8.0](https://docs.aws.amazon.com/https://dev.mysql.com/doc/refman/8.0/en/keywords.html) .
-	//
-	// *PostgreSQL*
-	//
-	// The name of the database to create when the Lightsail database resource is created. If this parameter isn't specified, a database named `postgres` is created in the database resource.
-	//
-	// Constraints:
-	//
-	// - Must contain 1-63 letters or numbers.
-	// - Must begin with a letter. Subsequent characters can be letters, underscores, or numbers (0-9).
-	// - Can't be a word reserved by the specified database engine.
-	//
-	// For more information about reserved words in PostgreSQL, see the SQL Key Words articles for [PostgreSQL 9.6](https://docs.aws.amazon.com/https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html) , [PostgreSQL 10](https://docs.aws.amazon.com/https://www.postgresql.org/docs/10/sql-keywords-appendix.html) , [PostgreSQL 11](https://docs.aws.amazon.com/https://www.postgresql.org/docs/11/sql-keywords-appendix.html) , and [PostgreSQL 12](https://docs.aws.amazon.com/https://www.postgresql.org/docs/12/sql-keywords-appendix.html) .
 	MasterDatabaseName() *string
 	SetMasterDatabaseName(val *string)
 	// The name for the primary user.
-	//
-	// *MySQL*
-	//
-	// Constraints:
-	//
-	// - Required for MySQL.
-	// - Must be 1-16 letters or numbers. Can contain underscores.
-	// - First character must be a letter.
-	// - Can't be a reserved word for the chosen database engine.
-	//
-	// For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and Reserved Words articles for [MySQL 5.6](https://docs.aws.amazon.com/https://dev.mysql.com/doc/refman/5.6/en/keywords.html) , [MySQL 5.7](https://docs.aws.amazon.com/https://dev.mysql.com/doc/refman/5.7/en/keywords.html) , or [MySQL 8.0](https://docs.aws.amazon.com/https://dev.mysql.com/doc/refman/8.0/en/keywords.html) .
-	//
-	// *PostgreSQL*
-	//
-	// Constraints:
-	//
-	// - Required for PostgreSQL.
-	// - Must be 1-63 letters or numbers. Can contain underscores.
-	// - First character must be a letter.
-	// - Can't be a reserved word for the chosen database engine.
-	//
-	// For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and Reserved Words articles for [PostgreSQL 9.6](https://docs.aws.amazon.com/https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html) , [PostgreSQL 10](https://docs.aws.amazon.com/https://www.postgresql.org/docs/10/sql-keywords-appendix.html) , [PostgreSQL 11](https://docs.aws.amazon.com/https://www.postgresql.org/docs/11/sql-keywords-appendix.html) , and [PostgreSQL 12](https://docs.aws.amazon.com/https://www.postgresql.org/docs/12/sql-keywords-appendix.html) .
 	MasterUsername() *string
 	SetMasterUsername(val *string)
 	// The password for the primary user of the database.
-	//
-	// The password can include any printable ASCII character except the following: /, ", or @. It cannot contain spaces.
-	//
-	// > The `MasterUserPassword` and `RotateMasterUserPassword` parameters cannot be used together in the same template.
-	//
-	// *MySQL*
-	//
-	// Constraints: Must contain 8-41 characters.
-	//
-	// *PostgreSQL*
-	//
-	// Constraints: Must contain 8-128 characters.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
 	// The tree node.
@@ -160,8 +103,6 @@ type CfnDatabase interface {
 	PreferredBackupWindow() *string
 	SetPreferredBackupWindow(val *string)
 	// The weekly time range during which system maintenance can occur for the database, formatted as follows: `ddd:hh24:mi-ddd:hh24:mi` .
-	//
-	// For example, `Tue:17:00-Tue:17:30` .
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	// A Boolean value indicating whether the database is accessible to anyone on the internet.
@@ -185,20 +126,17 @@ type CfnDatabase interface {
 	RelationalDatabaseParameters() interface{}
 	SetRelationalDatabaseParameters(val interface{})
 	// A Boolean value indicating whether to change the primary user password to a new, strong password generated by Lightsail .
-	//
-	// > The `RotateMasterUserPassword` and `MasterUserPassword` parameters cannot be used together in the same template.
 	RotateMasterUserPassword() interface{}
 	SetRotateMasterUserPassword(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
-	//
-	// > The `Value` of `Tags` is optional for Lightsail resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -343,6 +281,7 @@ type CfnDatabase interface {
 type jsiiProxy_CfnDatabase struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDatabase) AttrDatabaseArn() *string {
@@ -585,6 +524,16 @@ func (j *jsiiProxy_CfnDatabase) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDatabase) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDatabase) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -606,7 +555,6 @@ func (j *jsiiProxy_CfnDatabase) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lightsail::Database`.
 func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabaseProps) CfnDatabase {
 	_init_.Initialize()
 
@@ -624,7 +572,6 @@ func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabasePr
 	return &j
 }
 
-// Create a new `AWS::Lightsail::Database`.
 func NewCfnDatabase_Override(c CfnDatabase, scope constructs.Construct, id *string, props *CfnDatabaseProps) {
 	_init_.Initialize()
 
@@ -770,6 +717,17 @@ func (j *jsiiProxy_CfnDatabase)SetRotateMasterUserPassword(val interface{}) {
 	_jsii_.Set(
 		j,
 		"rotateMasterUserPassword",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDatabase)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

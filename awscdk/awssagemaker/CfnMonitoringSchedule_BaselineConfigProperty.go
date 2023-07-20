@@ -17,10 +17,16 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
+//
 type CfnMonitoringSchedule_BaselineConfigProperty struct {
 	// The Amazon S3 URI for the constraints resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
+	//
 	ConstraintsResource interface{} `field:"optional" json:"constraintsResource" yaml:"constraintsResource"`
 	// The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
+	//
 	StatisticsResource interface{} `field:"optional" json:"statisticsResource" yaml:"statisticsResource"`
 }
 

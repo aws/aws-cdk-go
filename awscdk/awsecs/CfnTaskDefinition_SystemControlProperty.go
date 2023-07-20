@@ -20,10 +20,16 @@ package awsecs
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html
+//
 type CfnTaskDefinition_SystemControlProperty struct {
 	// The namespaced kernel parameter to set a `value` for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-namespace
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The value for the namespaced kernel parameter that's specified in `namespace` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

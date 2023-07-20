@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
-//
 // The AWS::Route53Resolver::ResolverQueryLoggingConfig resource is a complex type that contains settings for one query logging configuration.
 //
 // Example:
@@ -22,6 +20,8 @@ import (
 //   	DestinationArn: jsii.String("destinationArn"),
 //   	Name: jsii.String("name"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
 //
 type CfnResolverQueryLoggingConfig interface {
 	awscdk.CfnResource
@@ -437,7 +437,6 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfig) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
 func NewCfnResolverQueryLoggingConfig(scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) CfnResolverQueryLoggingConfig {
 	_init_.Initialize()
 
@@ -455,7 +454,6 @@ func NewCfnResolverQueryLoggingConfig(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
 func NewCfnResolverQueryLoggingConfig_Override(c CfnResolverQueryLoggingConfig, scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) {
 	_init_.Initialize()
 

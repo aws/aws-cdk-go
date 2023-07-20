@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayConnect`.
+// Creates a Connect attachment from a specified transit gateway attachment.
 //
-// Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.
+// A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.
 //
 // A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism.
 //
@@ -35,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html
+//
 type CfnTransitGatewayConnect interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The creation time.
 	AttrCreationTime() *string
 	// The state of the attachment.
@@ -68,8 +71,6 @@ type CfnTransitGatewayConnect interface {
 	// The tree node.
 	Node() constructs.Node
 	// The Connect attachment options.
-	//
-	// - protocol (gre).
 	Options() interface{}
 	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -81,8 +82,11 @@ type CfnTransitGatewayConnect interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the attachment.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the attachment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ID of the attachment from which the Connect attachment was created.
 	TransportTransitGatewayAttachmentId() *string
 	SetTransportTransitGatewayAttachmentId(val *string)
@@ -230,6 +234,7 @@ type CfnTransitGatewayConnect interface {
 type jsiiProxy_CfnTransitGatewayConnect struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTransitGatewayConnect) AttrCreationTime() *string {
@@ -372,6 +377,16 @@ func (j *jsiiProxy_CfnTransitGatewayConnect) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayConnect) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayConnect) TransportTransitGatewayAttachmentId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -403,7 +418,6 @@ func (j *jsiiProxy_CfnTransitGatewayConnect) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayConnect`.
 func NewCfnTransitGatewayConnect(scope constructs.Construct, id *string, props *CfnTransitGatewayConnectProps) CfnTransitGatewayConnect {
 	_init_.Initialize()
 
@@ -421,7 +435,6 @@ func NewCfnTransitGatewayConnect(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayConnect`.
 func NewCfnTransitGatewayConnect_Override(c CfnTransitGatewayConnect, scope constructs.Construct, id *string, props *CfnTransitGatewayConnectProps) {
 	_init_.Initialize()
 
@@ -439,6 +452,17 @@ func (j *jsiiProxy_CfnTransitGatewayConnect)SetOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"options",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayConnect)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

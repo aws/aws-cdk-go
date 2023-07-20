@@ -30,14 +30,24 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html
+//
 type CfnVirtualNode_VirtualNodeConnectionPoolProperty struct {
 	// An object that represents a type of connection pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-grpc
+	//
 	Grpc interface{} `field:"optional" json:"grpc" yaml:"grpc"`
 	// An object that represents a type of connection pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http
+	//
 	Http interface{} `field:"optional" json:"http" yaml:"http"`
 	// An object that represents a type of connection pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http2
+	//
 	Http2 interface{} `field:"optional" json:"http2" yaml:"http2"`
 	// An object that represents a type of connection pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-tcp
+	//
 	Tcp interface{} `field:"optional" json:"tcp" yaml:"tcp"`
 }
 

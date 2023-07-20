@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RAM::ResourceShare`.
+// Creates a resource share.
 //
-// Creates a resource share. You can provide a list of the Amazon Resource Names (ARNs) for the resources that you want to share, a list of principals you want to share the resources with, and the permissions to grant those principals.
+// You can provide a list of the Amazon Resource Names (ARNs) for the resources that you want to share, a list of principals you want to share the resources with, and the permissions to grant those principals.
 //
 // > Sharing a resource makes it available for use by principals outside of the AWS account that created the resource. Sharing doesn't change any permissions or quotas that apply to the resource in the account that created it.
 //
@@ -42,16 +42,18 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html
+//
 type CfnResourceShare interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share.
-	//
-	// A value of `true` lets you share with individual AWS accounts that are *not* in your organization. A value of `false` only has meaning if your account is a member of an AWS Organization. The default value is `true` .
 	AllowExternalPrincipals() interface{}
 	SetAllowExternalPrincipals(val interface{})
 	// The Amazon Resource Name (ARN) of the resource share.
 	AttrArn() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -79,15 +81,9 @@ type CfnResourceShare interface {
 	// Specifies the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
 	PermissionArns() *[]*string
 	SetPermissionArns(val *[]*string)
-	// Specifies the principals to associate with the resource share. The possible values are:.
+	// Specifies the principals to associate with the resource share.
 	//
-	// - An AWS account ID
-	// - An Amazon Resource Name (ARN) of an organization in AWS Organizations
-	// - An ARN of an organizational unit (OU) in AWS Organizations
-	// - An ARN of an IAM role
-	// - An ARN of an IAM user
-	//
-	// > Not all resource types can be shared with IAM roles and users. For more information, see the column *Can share with IAM roles and users* in the tables on [Shareable AWS resources](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html) in the *AWS Resource Access Manager User Guide* .
+	// The possible values are:.
 	Principals() *[]*string
 	SetPrincipals(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -102,10 +98,11 @@ type CfnResourceShare interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies one or more tags to attach to the resource share itself.
-	//
-	// It doesn't attach the tags to the resources associated with the resource share.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies one or more tags to attach to the resource share itself.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -250,6 +247,7 @@ type CfnResourceShare interface {
 type jsiiProxy_CfnResourceShare struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnResourceShare) AllowExternalPrincipals() interface{} {
@@ -267,6 +265,16 @@ func (j *jsiiProxy_CfnResourceShare) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceShare) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -402,6 +410,16 @@ func (j *jsiiProxy_CfnResourceShare) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceShare) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceShare) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -423,7 +441,6 @@ func (j *jsiiProxy_CfnResourceShare) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::RAM::ResourceShare`.
 func NewCfnResourceShare(scope constructs.Construct, id *string, props *CfnResourceShareProps) CfnResourceShare {
 	_init_.Initialize()
 
@@ -441,7 +458,6 @@ func NewCfnResourceShare(scope constructs.Construct, id *string, props *CfnResou
 	return &j
 }
 
-// Create a new `AWS::RAM::ResourceShare`.
 func NewCfnResourceShare_Override(c CfnResourceShare, scope constructs.Construct, id *string, props *CfnResourceShareProps) {
 	_init_.Initialize()
 
@@ -494,6 +510,17 @@ func (j *jsiiProxy_CfnResourceShare)SetResourceArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"resourceArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceShare)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

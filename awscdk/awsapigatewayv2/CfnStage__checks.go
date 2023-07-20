@@ -252,23 +252,7 @@ func (j *jsiiProxy_CfnStage) validateSetDefaultRouteSettingsParameters(val inter
 	return nil
 }
 
-func (j *jsiiProxy_CfnStage) validateSetRouteSettingsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnStage) validateSetStageNameParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnStage) validateSetStageVariablesParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}

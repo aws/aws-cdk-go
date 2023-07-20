@@ -80,6 +80,10 @@ func validateCfnReadinessCheck_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnReadinessCheck) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnReadinessCheckParameters(scope constructs.Construct, id *string, props *CfnReadinessCheckProps) error {
 	return nil
 }

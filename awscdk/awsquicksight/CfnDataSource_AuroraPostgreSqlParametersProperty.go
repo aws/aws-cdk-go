@@ -14,12 +14,20 @@ package awsquicksight
 //   	Port: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html
+//
 type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
 	// The Amazon Aurora PostgreSQL database to connect to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database
+	//
 	Database *string `field:"required" json:"database" yaml:"database"`
 	// The Amazon Aurora PostgreSQL-Compatible host to connect to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host
+	//
 	Host *string `field:"required" json:"host" yaml:"host"`
 	// The port that Amazon Aurora PostgreSQL is listening on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
+	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 

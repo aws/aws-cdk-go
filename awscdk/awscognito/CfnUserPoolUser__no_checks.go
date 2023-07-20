@@ -80,10 +80,6 @@ func validateCfnUserPoolUser_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnUserPoolUser) validateSetClientMetadataParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnUserPoolUser) validateSetForceAliasCreationParameters(val interface{}) error {
 	return nil
 }

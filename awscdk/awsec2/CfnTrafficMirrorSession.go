@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TrafficMirrorSession`.
-//
 // Creates a Traffic Mirror session.
 //
 // A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it to the session to define a subset of the traffic to mirror, for example all TCP traffic.
@@ -42,9 +40,13 @@ import (
 //   	VirtualNetworkId: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html
+//
 type CfnTrafficMirrorSession interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -73,10 +75,6 @@ type CfnTrafficMirrorSession interface {
 	// The tree node.
 	Node() constructs.Node
 	// The number of bytes in each packet to mirror.
-	//
-	// These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.
-	//
-	// If you do not want to mirror the entire packet, use the `PacketLength` parameter to specify the number of bytes in each packet to mirror.
 	PacketLength() *float64
 	SetPacketLength(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -85,18 +83,17 @@ type CfnTrafficMirrorSession interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions.
-	//
-	// The first session with a matching filter is the one that mirrors the packets.
-	//
-	// Valid values are 1-32766.
 	SessionNumber() *float64
 	SetSessionNumber(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to assign to a Traffic Mirror session.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to assign to a Traffic Mirror session.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ID of the Traffic Mirror filter.
 	TrafficMirrorFilterId() *string
 	SetTrafficMirrorFilterId(val *string)
@@ -117,8 +114,6 @@ type CfnTrafficMirrorSession interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The VXLAN ID for the Traffic Mirror session.
-	//
-	// For more information about the VXLAN protocol, see [RFC 7348](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7348) . If you do not specify a `VirtualNetworkId` , an account-wide unique id is chosen at random.
 	VirtualNetworkId() *float64
 	SetVirtualNetworkId(val *float64)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -252,6 +247,17 @@ type CfnTrafficMirrorSession interface {
 type jsiiProxy_CfnTrafficMirrorSession struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnTrafficMirrorSession) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnTrafficMirrorSession) CfnOptions() awscdk.ICfnResourceOptions {
@@ -384,6 +390,16 @@ func (j *jsiiProxy_CfnTrafficMirrorSession) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrafficMirrorSession) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrafficMirrorSession) TrafficMirrorFilterId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -435,7 +451,6 @@ func (j *jsiiProxy_CfnTrafficMirrorSession) VirtualNetworkId() *float64 {
 }
 
 
-// Create a new `AWS::EC2::TrafficMirrorSession`.
 func NewCfnTrafficMirrorSession(scope constructs.Construct, id *string, props *CfnTrafficMirrorSessionProps) CfnTrafficMirrorSession {
 	_init_.Initialize()
 
@@ -453,7 +468,6 @@ func NewCfnTrafficMirrorSession(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::EC2::TrafficMirrorSession`.
 func NewCfnTrafficMirrorSession_Override(c CfnTrafficMirrorSession, scope constructs.Construct, id *string, props *CfnTrafficMirrorSessionProps) {
 	_init_.Initialize()
 
@@ -498,6 +512,17 @@ func (j *jsiiProxy_CfnTrafficMirrorSession)SetSessionNumber(val *float64) {
 	_jsii_.Set(
 		j,
 		"sessionNumber",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrafficMirrorSession)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

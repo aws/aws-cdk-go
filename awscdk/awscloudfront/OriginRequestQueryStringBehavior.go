@@ -96,6 +96,27 @@ func OriginRequestQueryStringBehavior_AllowList(queryStrings ...*string) OriginR
 	return returns
 }
 
+// All query strings except the provided `queryStrings` are included in requests that CloudFront sends to the origin.
+func OriginRequestQueryStringBehavior_DenyList(queryStrings ...*string) OriginRequestQueryStringBehavior {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range queryStrings {
+		args = append(args, a)
+	}
+
+	var returns OriginRequestQueryStringBehavior
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.OriginRequestQueryStringBehavior",
+		"denyList",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 // Query strings in viewer requests are not included in requests that CloudFront sends to the origin.
 //
 // Any query strings that are listed in a CachePolicy are still included in origin requests.

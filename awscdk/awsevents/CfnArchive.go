@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Events::Archive`.
+// Creates an archive of events with the specified settings.
 //
-// Creates an archive of events with the specified settings. When you create an archive, incoming events might not immediately start being sent to the archive. Allow a short period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.
+// When you create an archive, incoming events might not immediately start being sent to the archive. Allow a short period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,6 +29,8 @@ import (
 //   	EventPattern: eventPattern,
 //   	RetentionDays: jsii.Number(123),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
 //
 type CfnArchive interface {
 	awscdk.CfnResource
@@ -71,8 +73,6 @@ type CfnArchive interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The number of days to retain events for.
-	//
-	// Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays() *float64
 	SetRetentionDays(val *float64)
 	// The ARN of the event bus that sends events to the archive.
@@ -389,7 +389,6 @@ func (j *jsiiProxy_CfnArchive) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Events::Archive`.
 func NewCfnArchive(scope constructs.Construct, id *string, props *CfnArchiveProps) CfnArchive {
 	_init_.Initialize()
 
@@ -407,7 +406,6 @@ func NewCfnArchive(scope constructs.Construct, id *string, props *CfnArchiveProp
 	return &j
 }
 
-// Create a new `AWS::Events::Archive`.
 func NewCfnArchive_Override(c CfnArchive, scope constructs.Construct, id *string, props *CfnArchiveProps) {
 	_init_.Initialize()
 
@@ -435,9 +433,6 @@ func (j *jsiiProxy_CfnArchive)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnArchive)SetEventPattern(val interface{}) {
-	if err := j.validateSetEventPatternParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"eventPattern",

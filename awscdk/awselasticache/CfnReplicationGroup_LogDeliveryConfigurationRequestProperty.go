@@ -22,16 +22,26 @@ package awselasticache
 //   	LogType: jsii.String("logType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html
+//
 type CfnReplicationGroup_LogDeliveryConfigurationRequestProperty struct {
 	// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationdetails
+	//
 	DestinationDetails interface{} `field:"required" json:"destinationDetails" yaml:"destinationDetails"`
 	// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
 	//
 	// Valid values are either `cloudwatch-logs` or `kinesis-firehose` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationtype
+	//
 	DestinationType *string `field:"required" json:"destinationType" yaml:"destinationType"`
 	// Valid values are either `json` or `text` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logformat
+	//
 	LogFormat *string `field:"required" json:"logFormat" yaml:"logFormat"`
 	// Valid value is either `slow-log` , which refers to [slow-log](https://docs.aws.amazon.com/https://redis.io/commands/slowlog) or `engine-log` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logtype
+	//
 	LogType *string `field:"required" json:"logType" yaml:"logType"`
 }
 

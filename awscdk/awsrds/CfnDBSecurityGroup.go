@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::DBSecurityGroup`.
-//
 // The `AWS::RDS::DBSecurityGroup` resource creates or updates an Amazon RDS DB security group.
 //
 // > EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see [Migrate from EC2-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in the *Amazon EC2 User Guide* , the blog [EC2-Classic Networking is Retiring – Here’s How to Prepare](https://docs.aws.amazon.com/aws/ec2-classic-is-retiring-heres-how-to-prepare/) , and [Moving a DB instance not in a VPC into a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html) in the *Amazon RDS User Guide* .
@@ -41,9 +39,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsecuritygroup.html
+//
 type CfnDBSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -56,9 +58,9 @@ type CfnDBSecurityGroup interface {
 	// Ingress rules to be applied to the DB security group.
 	DbSecurityGroupIngress() interface{}
 	SetDbSecurityGroupIngress(val interface{})
-	// The identifier of an Amazon VPC. This property indicates the VPC that this DB security group belongs to.
+	// The identifier of an Amazon VPC.
 	//
-	// > The `EC2VpcId` property is for backward compatibility with older regions, and is no longer recommended for providing security information to an RDS DB instance.
+	// This property indicates the VPC that this DB security group belongs to.
 	Ec2VpcId() *string
 	SetEc2VpcId(val *string)
 	// Provides the description of the DB security group.
@@ -85,8 +87,11 @@ type CfnDBSecurityGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An optional array of key-value pairs to apply to this DB security group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An optional array of key-value pairs to apply to this DB security group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -231,6 +236,17 @@ type CfnDBSecurityGroup interface {
 type jsiiProxy_CfnDBSecurityGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDBSecurityGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDBSecurityGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -353,6 +369,16 @@ func (j *jsiiProxy_CfnDBSecurityGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBSecurityGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBSecurityGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -374,7 +400,6 @@ func (j *jsiiProxy_CfnDBSecurityGroup) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::RDS::DBSecurityGroup`.
 func NewCfnDBSecurityGroup(scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) CfnDBSecurityGroup {
 	_init_.Initialize()
 
@@ -392,7 +417,6 @@ func NewCfnDBSecurityGroup(scope constructs.Construct, id *string, props *CfnDBS
 	return &j
 }
 
-// Create a new `AWS::RDS::DBSecurityGroup`.
 func NewCfnDBSecurityGroup_Override(c CfnDBSecurityGroup, scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) {
 	_init_.Initialize()
 
@@ -429,6 +453,17 @@ func (j *jsiiProxy_CfnDBSecurityGroup)SetGroupDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"groupDescription",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBSecurityGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

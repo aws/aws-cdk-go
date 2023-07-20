@@ -14,12 +14,17 @@ package awssam
 //   	DefaultAuthorizer: jsii.String("defaultAuthorizer"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-auth.html
+//
 type CfnApi_AuthProperty struct {
-	// `CfnApi.AuthProperty.AddDefaultAuthorizerToCorsPreflight`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-auth.html#cfn-serverless-api-auth-adddefaultauthorizertocorspreflight
+	//
 	AddDefaultAuthorizerToCorsPreflight interface{} `field:"optional" json:"addDefaultAuthorizerToCorsPreflight" yaml:"addDefaultAuthorizerToCorsPreflight"`
-	// `CfnApi.AuthProperty.Authorizers`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-auth.html#cfn-serverless-api-auth-authorizers
+	//
 	Authorizers interface{} `field:"optional" json:"authorizers" yaml:"authorizers"`
-	// `CfnApi.AuthProperty.DefaultAuthorizer`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-auth.html#cfn-serverless-api-auth-defaultauthorizer
+	//
 	DefaultAuthorizer *string `field:"optional" json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
 }
 

@@ -18,8 +18,12 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-inferencespecification.html
+//
 type CfnModelCard_InferenceSpecificationProperty struct {
-	// `CfnModelCard.InferenceSpecificationProperty.Containers`.
+	// Contains inference related information which were used to create model package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-inferencespecification.html#cfn-sagemaker-modelcard-inferencespecification-containers
+	//
 	Containers interface{} `field:"required" json:"containers" yaml:"containers"`
 }
 

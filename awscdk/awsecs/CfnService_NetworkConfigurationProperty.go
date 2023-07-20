@@ -10,22 +10,24 @@ package awsecs
 //
 //   networkConfigurationProperty := &NetworkConfigurationProperty{
 //   	AwsvpcConfiguration: &AwsVpcConfigurationProperty{
-//   		Subnets: []*string{
-//   			jsii.String("subnets"),
-//   		},
-//
-//   		// the properties below are optional
 //   		AssignPublicIp: jsii.String("assignPublicIp"),
 //   		SecurityGroups: []*string{
 //   			jsii.String("securityGroups"),
 //   		},
+//   		Subnets: []*string{
+//   			jsii.String("subnets"),
+//   		},
 //   	},
 //   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html
 //
 type CfnService_NetworkConfigurationProperty struct {
 	// The VPC subnets and security groups that are associated with a task.
 	//
 	// > All specified subnets and security groups must be from the same VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
+	//
 	AwsvpcConfiguration interface{} `field:"optional" json:"awsvpcConfiguration" yaml:"awsvpcConfiguration"`
 }
 

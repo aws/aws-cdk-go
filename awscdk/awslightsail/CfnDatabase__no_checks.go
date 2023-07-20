@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnDatabase) validateSetRotateMasterUserPasswordParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnDatabase) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDatabaseParameters(scope constructs.Construct, id *string, props *CfnDatabaseProps) error {
 	return nil
 }

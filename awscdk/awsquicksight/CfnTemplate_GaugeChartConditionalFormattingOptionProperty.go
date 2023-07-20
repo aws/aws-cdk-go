@@ -80,10 +80,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartconditionalformattingoption.html
+//
 type CfnTemplate_GaugeChartConditionalFormattingOptionProperty struct {
 	// The options that determine the presentation of the arc of a `GaugeChartVisual` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartconditionalformattingoption.html#cfn-quicksight-template-gaugechartconditionalformattingoption-arc
+	//
 	Arc interface{} `field:"optional" json:"arc" yaml:"arc"`
 	// The conditional formatting for the primary value of a `GaugeChartVisual` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartconditionalformattingoption.html#cfn-quicksight-template-gaugechartconditionalformattingoption-primaryvalue
+	//
 	PrimaryValue interface{} `field:"optional" json:"primaryValue" yaml:"primaryValue"`
 }
 

@@ -18,6 +18,8 @@ package awscloudformation
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
+//
 type CfnStackSet_DeploymentTargetsProperty struct {
 	// Limit deployment targets to individual accounts or include additional accounts with provided OUs.
 	//
@@ -29,14 +31,20 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	//
 	// This is the default value if `AccountFilterType` is not provided. This enables user to update an entire OU and individual accounts from a different OU in one request, which used to be two separate requests.
 	// - `NONE` : Deploys to all the accounts in specified organizational units (OU).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountfiltertype
+	//
 	AccountFilterType *string `field:"optional" json:"accountFilterType" yaml:"accountFilterType"`
 	// The names of one or more AWS accounts for which you want to deploy stack set updates.
 	//
 	// *Pattern* : `^[0-9]{12}$`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+	//
 	Accounts *[]*string `field:"optional" json:"accounts" yaml:"accounts"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	//
 	// *Pattern* : `^(ou-[a-z0-9]{4,32}-[a-z0-9]{8,32}|r-[a-z0-9]{4,32})$`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+	//
 	OrganizationalUnitIds *[]*string `field:"optional" json:"organizationalUnitIds" yaml:"organizationalUnitIds"`
 }
 

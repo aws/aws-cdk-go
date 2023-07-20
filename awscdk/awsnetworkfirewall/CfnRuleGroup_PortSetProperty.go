@@ -14,8 +14,12 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html
+//
 type CfnRuleGroup_PortSetProperty struct {
 	// The set of port ranges.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
+	//
 	Definition *[]*string `field:"optional" json:"definition" yaml:"definition"`
 }
 

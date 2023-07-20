@@ -12,6 +12,8 @@ package awsdatasync
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html
+//
 type CfnLocationSMB_MountOptionsProperty struct {
 	// By default, DataSync automatically chooses an SMB protocol version based on negotiation with your SMB file server.
 	//
@@ -28,6 +30,8 @@ type CfnLocationSMB_MountOptionsProperty struct {
 	// - `SMB1` : Restricts the protocol negotiation to only SMB version 1.0.
 	//
 	// > The `SMB1` option isn't available when [creating an Amazon FSx for NetApp ONTAP location](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

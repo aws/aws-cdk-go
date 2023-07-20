@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RUM::AppMonitor`.
+// Creates a CloudWatch RUM app monitor, which you can use to collect telemetry data from your application and send it to CloudWatch RUM.
 //
-// Creates a CloudWatch RUM app monitor, which you can use to collect telemetry data from your application and send it to CloudWatch RUM. The data includes performance and reliability information such as page load time, client-side errors, and user behavior.
+// The data includes performance and reliability information such as page load time, client-side errors, and user behavior.
 //
 // After you create an app monitor, sign in to the CloudWatch RUM console to get the JavaScript code snippet to add to your web application. For more information, see [How do I find a code snippet that I've already generated?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html)
 //
@@ -79,14 +79,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html
+//
 type CfnAppMonitor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A structure that contains much of the configuration data for the app monitor.
-	//
-	// If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
-	//
-	// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
 	AppMonitorConfiguration() interface{}
 	SetAppMonitorConfiguration(val interface{})
 	// The ID of the app monitor, such as `123456ab-1234-4ca9-9d2f-a1b2c3456789` .
@@ -101,20 +100,12 @@ type CfnAppMonitor interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specifies whether this app monitor allows the web client to define and send custom events.
-	//
-	// If you omit this parameter, custom events are `DISABLED` .
 	CustomEvents() interface{}
 	SetCustomEvents(val interface{})
 	// Data collected by CloudWatch RUM is kept by RUM for 30 days and then deleted.
-	//
-	// This parameter specifies whether CloudWatch RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.
-	//
-	// If you omit this parameter, the default is `false` .
 	CwLogEnabled() interface{}
 	SetCwLogEnabled(val interface{})
 	// The top-level internet domain name for which your application has administrative authority.
-	//
-	// This parameter is required.
 	Domain() *string
 	SetDomain(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -128,8 +119,6 @@ type CfnAppMonitor interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A name for the app monitor.
-	//
-	// This parameter is required.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -143,16 +132,11 @@ type CfnAppMonitor interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Assigns one or more tags (key-value pairs) to the app monitor.
-	//
-	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-	//
-	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-	//
-	// You can associate as many as 50 tags with an app monitor.
-	//
-	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Assigns one or more tags (key-value pairs) to the app monitor.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -297,6 +281,7 @@ type CfnAppMonitor interface {
 type jsiiProxy_CfnAppMonitor struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAppMonitor) AppMonitorConfiguration() interface{} {
@@ -449,6 +434,16 @@ func (j *jsiiProxy_CfnAppMonitor) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAppMonitor) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAppMonitor) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -470,7 +465,6 @@ func (j *jsiiProxy_CfnAppMonitor) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::RUM::AppMonitor`.
 func NewCfnAppMonitor(scope constructs.Construct, id *string, props *CfnAppMonitorProps) CfnAppMonitor {
 	_init_.Initialize()
 
@@ -488,7 +482,6 @@ func NewCfnAppMonitor(scope constructs.Construct, id *string, props *CfnAppMonit
 	return &j
 }
 
-// Create a new `AWS::RUM::AppMonitor`.
 func NewCfnAppMonitor_Override(c CfnAppMonitor, scope constructs.Construct, id *string, props *CfnAppMonitorProps) {
 	_init_.Initialize()
 
@@ -550,6 +543,17 @@ func (j *jsiiProxy_CfnAppMonitor)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppMonitor)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

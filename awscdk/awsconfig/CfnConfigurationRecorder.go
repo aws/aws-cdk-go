@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Config::ConfigurationRecorder`.
+// The AWS::Config::ConfigurationRecorder resource describes the AWS resource types for which AWS Config records configuration changes.
 //
-// The AWS::Config::ConfigurationRecorder resource describes the AWS resource types for which AWS Config records configuration changes. The configuration recorder stores the configurations of the supported resources in your account as configuration items.
+// The configuration recorder stores the configurations of the supported resources in your account as configuration items.
 //
 // > To enable AWS Config , you must create a configuration recorder and a delivery channel. AWS Config uses the delivery channel to deliver the configuration changes to your Amazon S3 bucket or Amazon SNS topic. For more information, see [AWS::Config::DeliveryChannel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html) .
 //
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
+//
 type CfnConfigurationRecorder interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -63,19 +66,11 @@ type CfnConfigurationRecorder interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A name for the configuration recorder.
-	//
-	// If you don't specify a name, AWS CloudFormation CloudFormation generates a unique physical ID and uses that ID for the configuration recorder name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// > After you create a configuration recorder, you cannot rename it. If you don't want a name that AWS CloudFormation generates, specify a value for this property.
-	//
-	// Updates are not supported.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Indicates whether to record configurations for all supported resources or for a list of resource types.
-	//
-	// The resource types that you list must be supported by AWS Config .
 	RecordingGroup() interface{}
 	SetRecordingGroup(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -84,8 +79,6 @@ type CfnConfigurationRecorder interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the IAM (IAM) role that is used to make read or write requests to the delivery channel that you specify and to get configuration details for supported AWS resources.
-	//
-	// For more information, see [Permissions for the IAM Role Assigned](https://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) to AWS Config in the AWS Config Developer Guide.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -238,6 +231,16 @@ type jsiiProxy_CfnConfigurationRecorder struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnConfigurationRecorder) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationRecorder) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -369,7 +372,6 @@ func (j *jsiiProxy_CfnConfigurationRecorder) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::Config::ConfigurationRecorder`.
 func NewCfnConfigurationRecorder(scope constructs.Construct, id *string, props *CfnConfigurationRecorderProps) CfnConfigurationRecorder {
 	_init_.Initialize()
 
@@ -387,7 +389,6 @@ func NewCfnConfigurationRecorder(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::Config::ConfigurationRecorder`.
 func NewCfnConfigurationRecorder_Override(c CfnConfigurationRecorder, scope constructs.Construct, id *string, props *CfnConfigurationRecorderProps) {
 	_init_.Initialize()
 

@@ -26,20 +26,32 @@ package awsfis
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html
+//
 type CfnExperimentTemplate_ExperimentTemplateActionProperty struct {
 	// The ID of the action.
 	//
 	// The format of the action ID is: aws: *service-name* : *action-type* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-actionid
+	//
 	ActionId *string `field:"required" json:"actionId" yaml:"actionId"`
 	// A description for the action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The parameters for the action, if applicable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The name of the action that must be completed before the current action starts.
 	//
 	// Omit this parameter to run the action at the start of the experiment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter
+	//
 	StartAfter *[]*string `field:"optional" json:"startAfter" yaml:"startAfter"`
 	// The targets for the action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets
+	//
 	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
 }
 

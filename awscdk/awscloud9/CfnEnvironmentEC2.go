@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cloud9::EnvironmentEC2`.
+// The `AWS::Cloud9::EnvironmentEC2` resource creates an Amazon EC2 development environment in AWS Cloud9 .
 //
-// The `AWS::Cloud9::EnvironmentEC2` resource creates an Amazon EC2 development environment in AWS Cloud9 . For more information, see [Creating an Environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment.html) in the *AWS Cloud9 User Guide* .
+// For more information, see [Creating an Environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment.html) in the *AWS Cloud9 User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,11 +43,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html
+//
 type CfnEnvironmentEC2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the development environment, such as `arn:aws:cloud9:us-east-2:123456789012:environment:2bc3642873c342e485f7e0c561234567` .
 	AttrArn() *string
+	AttrId() *string
 	// The name of the environment.
 	AttrName() *string
 	// The number of minutes until the running instance is shut down after the environment was last used.
@@ -59,8 +63,6 @@ type CfnEnvironmentEC2 interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The connection type used for connecting to an Amazon EC2 environment.
-	//
-	// Valid values are `CONNECT_SSH` (default) and `CONNECT_SSM` (connected through AWS Systems Manager ).
 	ConnectionType() *string
 	SetConnectionType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -71,22 +73,6 @@ type CfnEnvironmentEC2 interface {
 	Description() *string
 	SetDescription(val *string)
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
-	//
-	// To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS Systems Manager path.
-	//
-	// The default AMI is used if the parameter isn't explicitly assigned a value in the request.
-	//
-	// *AMI aliases*
-	//
-	// - *Amazon Linux (default): `amazonlinux-1-x86_64`*
-	// - Amazon Linux 2: `amazonlinux-2-x86_64`
-	// - Ubuntu 18.04: `ubuntu-18.04-x86_64`
-	//
-	// *SSM paths*
-	//
-	// - *Amazon Linux (default): `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`*
-	// - Amazon Linux 2: `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-	// - Ubuntu 18.04: `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
 	ImageId() *string
 	SetImageId(val *string)
 	// The type of instance to connect to the environment (for example, `t2.micro` ).
@@ -108,8 +94,6 @@ type CfnEnvironmentEC2 interface {
 	// The tree node.
 	Node() constructs.Node
 	// The Amazon Resource Name (ARN) of the environment owner.
-	//
-	// This ARN can be the ARN of any AWS Identity and Access Management principal. If this value is not specified, the ARN defaults to this environment's creator.
 	OwnerArn() *string
 	SetOwnerArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -127,8 +111,11 @@ type CfnEnvironmentEC2 interface {
 	// The ID of the subnet in Amazon Virtual Private Cloud (Amazon VPC) that AWS Cloud9 will use to communicate with the Amazon Elastic Compute Cloud (Amazon EC2) instance.
 	SubnetId() *string
 	SetSubnetId(val *string)
-	// An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -273,6 +260,7 @@ type CfnEnvironmentEC2 interface {
 type jsiiProxy_CfnEnvironmentEC2 struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEnvironmentEC2) AttrArn() *string {
@@ -280,6 +268,16 @@ func (j *jsiiProxy_CfnEnvironmentEC2) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironmentEC2) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -475,6 +473,16 @@ func (j *jsiiProxy_CfnEnvironmentEC2) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironmentEC2) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironmentEC2) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -496,7 +504,6 @@ func (j *jsiiProxy_CfnEnvironmentEC2) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Cloud9::EnvironmentEC2`.
 func NewCfnEnvironmentEC2(scope constructs.Construct, id *string, props *CfnEnvironmentEC2Props) CfnEnvironmentEC2 {
 	_init_.Initialize()
 
@@ -514,7 +521,6 @@ func NewCfnEnvironmentEC2(scope constructs.Construct, id *string, props *CfnEnvi
 	return &j
 }
 
-// Create a new `AWS::Cloud9::EnvironmentEC2`.
 func NewCfnEnvironmentEC2_Override(c CfnEnvironmentEC2, scope constructs.Construct, id *string, props *CfnEnvironmentEC2Props) {
 	_init_.Initialize()
 
@@ -599,6 +605,17 @@ func (j *jsiiProxy_CfnEnvironmentEC2)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironmentEC2)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

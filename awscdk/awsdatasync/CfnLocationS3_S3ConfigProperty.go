@@ -14,8 +14,12 @@ package awsdatasync
 //   	BucketAccessRoleArn: jsii.String("bucketAccessRoleArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html
+//
 type CfnLocationS3_S3ConfigProperty struct {
 	// The ARN of the IAM role for accessing the S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
+	//
 	BucketAccessRoleArn *string `field:"required" json:"bucketAccessRoleArn" yaml:"bucketAccessRoleArn"`
 }
 

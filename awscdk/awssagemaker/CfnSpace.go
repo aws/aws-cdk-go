@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::Space`.
-//
 // Creates a space used for real time collaboration in a Domain.
 //
 // Example:
@@ -56,9 +54,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html
+//
 type CfnSpace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The space's Amazon Resource Name (ARN).
 	AttrSpaceArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -100,10 +101,11 @@ type CfnSpace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -248,6 +250,7 @@ type CfnSpace interface {
 type jsiiProxy_CfnSpace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSpace) AttrSpaceArn() *string {
@@ -380,6 +383,16 @@ func (j *jsiiProxy_CfnSpace) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSpace) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSpace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -401,7 +414,6 @@ func (j *jsiiProxy_CfnSpace) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SageMaker::Space`.
 func NewCfnSpace(scope constructs.Construct, id *string, props *CfnSpaceProps) CfnSpace {
 	_init_.Initialize()
 
@@ -419,7 +431,6 @@ func NewCfnSpace(scope constructs.Construct, id *string, props *CfnSpaceProps) C
 	return &j
 }
 
-// Create a new `AWS::SageMaker::Space`.
 func NewCfnSpace_Override(c CfnSpace, scope constructs.Construct, id *string, props *CfnSpaceProps) {
 	_init_.Initialize()
 
@@ -459,6 +470,17 @@ func (j *jsiiProxy_CfnSpace)SetSpaceSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"spaceSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSpace)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

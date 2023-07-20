@@ -12,8 +12,12 @@ package awsfms
 //   	FirewallDeploymentModel: jsii.String("firewallDeploymentModel"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html
+//
 type CfnPolicy_ThirdPartyFirewallPolicyProperty struct {
 	// Defines the deployment model to use for the third-party firewall policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html#cfn-fms-policy-thirdpartyfirewallpolicy-firewalldeploymentmodel
+	//
 	FirewallDeploymentModel *string `field:"required" json:"firewallDeploymentModel" yaml:"firewallDeploymentModel"`
 }
 

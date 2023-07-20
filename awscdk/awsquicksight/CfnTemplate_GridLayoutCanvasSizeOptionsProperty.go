@@ -17,8 +17,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gridlayoutcanvassizeoptions.html
+//
 type CfnTemplate_GridLayoutCanvasSizeOptionsProperty struct {
 	// The options that determine the sizing of the canvas used in a grid layout.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gridlayoutcanvassizeoptions.html#cfn-quicksight-template-gridlayoutcanvassizeoptions-screencanvassizeoptions
+	//
 	ScreenCanvasSizeOptions interface{} `field:"optional" json:"screenCanvasSizeOptions" yaml:"screenCanvasSizeOptions"`
 }
 

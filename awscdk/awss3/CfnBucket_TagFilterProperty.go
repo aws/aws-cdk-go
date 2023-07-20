@@ -13,10 +13,16 @@ package awss3
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html
+//
 type CfnBucket_TagFilterProperty struct {
 	// The tag key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The tag value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VpcLattice::AccessLogSubscription`.
+// Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose.
 //
-// Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network. For more information, see [Access logs](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-access-logs.html) in the *Amazon VPC Lattice User Guide* .
+// The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network. For more information, see [Access logs](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-access-logs.html) in the *Amazon VPC Lattice User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,9 +31,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-accesslogsubscription.html
+//
 type CfnAccessLogSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the access log subscription.
 	AttrArn() *string
 	// The ID of the access log subscription.
@@ -52,8 +55,6 @@ type CfnAccessLogSubscription interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) of the destination.
-	//
-	// The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
 	DestinationArn() *string
 	SetDestinationArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,8 +81,11 @@ type CfnAccessLogSubscription interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the access log subscription.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the access log subscription.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +230,7 @@ type CfnAccessLogSubscription interface {
 type jsiiProxy_CfnAccessLogSubscription struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAccessLogSubscription) AttrArn() *string {
@@ -378,6 +383,16 @@ func (j *jsiiProxy_CfnAccessLogSubscription) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessLogSubscription) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessLogSubscription) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -399,7 +414,6 @@ func (j *jsiiProxy_CfnAccessLogSubscription) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::VpcLattice::AccessLogSubscription`.
 func NewCfnAccessLogSubscription(scope constructs.Construct, id *string, props *CfnAccessLogSubscriptionProps) CfnAccessLogSubscription {
 	_init_.Initialize()
 
@@ -417,7 +431,6 @@ func NewCfnAccessLogSubscription(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::VpcLattice::AccessLogSubscription`.
 func NewCfnAccessLogSubscription_Override(c CfnAccessLogSubscription, scope constructs.Construct, id *string, props *CfnAccessLogSubscriptionProps) {
 	_init_.Initialize()
 
@@ -443,6 +456,17 @@ func (j *jsiiProxy_CfnAccessLogSubscription)SetResourceIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccessLogSubscription)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

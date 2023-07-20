@@ -39,31 +39,47 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html
+//
 type CfnResolverEndpointProps struct {
 	// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:.
 	//
 	// - `INBOUND` : allows DNS queries to your VPC from your network
 	// - `OUTBOUND` : allows DNS queries from your VPC to your network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-direction
+	//
 	Direction *string `field:"required" json:"direction" yaml:"direction"`
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
 	//
 	// The subnet ID uniquely identifies a VPC.
 	//
 	// > Even though the minimum is 1, Route 53 requires that you create at least two.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-ipaddresses
+	//
 	IpAddresses interface{} `field:"required" json:"ipAddresses" yaml:"ipAddresses"`
 	// The ID of one or more security groups that control access to this VPC.
 	//
 	// The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-securitygroupids
+	//
 	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::Route53Resolver::ResolverEndpoint.OutpostArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-outpostarn
+	//
 	OutpostArn *string `field:"optional" json:"outpostArn" yaml:"outpostArn"`
-	// `AWS::Route53Resolver::ResolverEndpoint.PreferredInstanceType`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-preferredinstancetype
+	//
 	PreferredInstanceType *string `field:"optional" json:"preferredInstanceType" yaml:"preferredInstanceType"`
 	// The Resolver endpoint IP address type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-resolverendpointtype
+	//
 	ResolverEndpointType *string `field:"optional" json:"resolverEndpointType" yaml:"resolverEndpointType"`
 	// Route 53 Resolver doesn't support updating tags through CloudFormation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

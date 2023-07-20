@@ -21,6 +21,8 @@ package awsshield
 //   	ProactiveEngagementStatus: jsii.String("proactiveEngagementStatus"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-proactiveengagement.html
+//
 type CfnProactiveEngagementProps struct {
 	// The list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support, plus any relevant notes.
 	//
@@ -32,6 +34,8 @@ type CfnProactiveEngagementProps struct {
 	//
 	// - This is a hotline that's staffed 24x7x365. Please work with the responding analyst and they will get the appropriate person on the call.
 	// - Please contact the secondary phone number if the hotline doesn't respond within 5 minutes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-proactiveengagement.html#cfn-shield-proactiveengagement-emergencycontactlist
+	//
 	EmergencyContactList interface{} `field:"required" json:"emergencyContactList" yaml:"emergencyContactList"`
 	// Specifies whether proactive engagement is enabled or disabled.
 	//
@@ -40,6 +44,8 @@ type CfnProactiveEngagementProps struct {
 	// `ENABLED` - The Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
 	//
 	// `DISABLED` - The SRT will not proactively notify contacts about escalations or to initiate proactive customer support.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-proactiveengagement.html#cfn-shield-proactiveengagement-proactiveengagementstatus
+	//
 	ProactiveEngagementStatus *string `field:"required" json:"proactiveEngagementStatus" yaml:"proactiveEngagementStatus"`
 }
 

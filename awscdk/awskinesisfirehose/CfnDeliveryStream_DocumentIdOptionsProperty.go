@@ -10,8 +10,11 @@ package awskinesisfirehose
 //   	DefaultDocumentIdFormat: jsii.String("defaultDocumentIdFormat"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-documentidoptions.html
+//
 type CfnDeliveryStream_DocumentIdOptionsProperty struct {
-	// `CfnDeliveryStream.DocumentIdOptionsProperty.DefaultDocumentIdFormat`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-documentidoptions.html#cfn-kinesisfirehose-deliverystream-documentidoptions-defaultdocumentidformat
+	//
 	DefaultDocumentIdFormat *string `field:"required" json:"defaultDocumentIdFormat" yaml:"defaultDocumentIdFormat"`
 }
 

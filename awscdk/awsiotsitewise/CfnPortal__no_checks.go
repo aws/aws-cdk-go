@@ -80,10 +80,6 @@ func validateCfnPortal_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnPortal) validateSetAlarmsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPortal) validateSetPortalContactEmailParameters(val *string) error {
 	return nil
 }
@@ -93,6 +89,10 @@ func (j *jsiiProxy_CfnPortal) validateSetPortalNameParameters(val *string) error
 }
 
 func (j *jsiiProxy_CfnPortal) validateSetRoleArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnPortal) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

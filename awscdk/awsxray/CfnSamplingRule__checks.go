@@ -203,6 +203,54 @@ func (j *jsiiProxy_CfnSamplingRule) validateSetSamplingRuleParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnSamplingRule) validateSetSamplingRuleRecordParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnSamplingRule_SamplingRuleRecordProperty:
+		val := val.(*CfnSamplingRule_SamplingRuleRecordProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnSamplingRule_SamplingRuleRecordProperty:
+		val_ := val.(CfnSamplingRule_SamplingRuleRecordProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSamplingRule_SamplingRuleRecordProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnSamplingRule) validateSetSamplingRuleUpdateParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnSamplingRule_SamplingRuleUpdateProperty:
+		val := val.(*CfnSamplingRule_SamplingRuleUpdateProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnSamplingRule_SamplingRuleUpdateProperty:
+		val_ := val.(CfnSamplingRule_SamplingRuleUpdateProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSamplingRule_SamplingRuleUpdateProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnSamplingRuleParameters(scope constructs.Construct, id *string, props *CfnSamplingRuleProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -10,8 +10,11 @@ package awsbudgets
 //   	BudgetAdjustmentPeriod: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-historicaloptions.html
+//
 type CfnBudget_HistoricalOptionsProperty struct {
-	// `CfnBudget.HistoricalOptionsProperty.BudgetAdjustmentPeriod`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-historicaloptions.html#cfn-budgets-budget-historicaloptions-budgetadjustmentperiod
+	//
 	BudgetAdjustmentPeriod *float64 `field:"required" json:"budgetAdjustmentPeriod" yaml:"budgetAdjustmentPeriod"`
 }
 

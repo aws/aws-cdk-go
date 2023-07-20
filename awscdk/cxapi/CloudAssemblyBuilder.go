@@ -10,16 +10,15 @@ import (
 // Can be used to build a cloud assembly.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cloudAssemblyBuilder cloudAssemblyBuilder
+//   var cloudAssemblyBuilder_ cloudAssemblyBuilder
 //
 //   cloudAssemblyBuilder := awscdk.Cx_api.NewCloudAssemblyBuilder(jsii.String("outdir"), &CloudAssemblyBuilderProps{
 //   	AssetOutdir: jsii.String("assetOutdir"),
-//   	ParentBuilder: cloudAssemblyBuilder,
+//   	ParentBuilder: cloudAssemblyBuilder_,
 //   })
 //
 type CloudAssemblyBuilder interface {

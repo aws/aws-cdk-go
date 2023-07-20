@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::TagOptionAssociation`.
-//
 // Associate the specified TagOption with the specified portfolio or product.
 //
 // Example:
@@ -23,9 +21,12 @@ import (
 //   	TagOptionId: jsii.String("tagOptionId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html
+//
 type CfnTagOptionAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -208,6 +209,16 @@ type jsiiProxy_CfnTagOptionAssociation struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnTagOptionAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTagOptionAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -329,7 +340,6 @@ func (j *jsiiProxy_CfnTagOptionAssociation) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::ServiceCatalog::TagOptionAssociation`.
 func NewCfnTagOptionAssociation(scope constructs.Construct, id *string, props *CfnTagOptionAssociationProps) CfnTagOptionAssociation {
 	_init_.Initialize()
 
@@ -347,7 +357,6 @@ func NewCfnTagOptionAssociation(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::TagOptionAssociation`.
 func NewCfnTagOptionAssociation_Override(c CfnTagOptionAssociation, scope constructs.Construct, id *string, props *CfnTagOptionAssociationProps) {
 	_init_.Initialize()
 

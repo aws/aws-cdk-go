@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnSpace) validateSetSpaceSettingsParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnSpace) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSpaceParameters(scope constructs.Construct, id *string, props *CfnSpaceProps) error {
 	return nil
 }

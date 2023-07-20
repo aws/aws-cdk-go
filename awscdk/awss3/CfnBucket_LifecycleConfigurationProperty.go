@@ -75,8 +75,12 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html
+//
 type CfnBucket_LifecycleConfigurationProperty struct {
 	// A lifecycle rule for individual objects in an Amazon S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html#cfn-s3-bucket-lifecycleconfiguration-rules
+	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 

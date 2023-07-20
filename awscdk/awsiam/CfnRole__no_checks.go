@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnRole) validateSetPoliciesParameters(val interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnRole) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnRoleParameters(scope constructs.Construct, id *string, props *CfnRoleProps) error {
 	return nil
 }

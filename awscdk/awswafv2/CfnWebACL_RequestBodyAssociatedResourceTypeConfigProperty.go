@@ -18,12 +18,16 @@ package awswafv2
 //   	DefaultSizeInspectionLimit: jsii.String("defaultSizeInspectionLimit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestbodyassociatedresourcetypeconfig.html
+//
 type CfnWebACL_RequestBodyAssociatedResourceTypeConfigProperty struct {
 	// Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection.
 	//
 	// This applies to statements in the web ACL that inspect the body or JSON body.
 	//
 	// Default: `16 KB (16,384 kilobytes)`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestbodyassociatedresourcetypeconfig.html#cfn-wafv2-webacl-requestbodyassociatedresourcetypeconfig-defaultsizeinspectionlimit
+	//
 	DefaultSizeInspectionLimit *string `field:"required" json:"defaultSizeInspectionLimit" yaml:"defaultSizeInspectionLimit"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::Thing`.
-//
 // Use the `AWS::IoT::Thing` resource to declare an AWS IoT thing.
 //
 // For information about working with things, see [How AWS IoT Works](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html) and [Device Registry for AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html) in the *AWS IoT Developer Guide* .
@@ -29,14 +27,14 @@ import (
 //   	ThingName: jsii.String("thingName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
+//
 type CfnThing interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
 	AttrArn() *string
 	// A string that contains up to three key value pairs.
-	//
-	// Maximum length of 800. Duplicates not allowed.
 	AttributePayload() interface{}
 	SetAttributePayload(val interface{})
 	// The Id of this thing.
@@ -72,8 +70,6 @@ type CfnThing interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name of the thing to update.
-	//
-	// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
 	ThingName() *string
 	SetThingName(val *string)
 	// Deprecated.
@@ -363,7 +359,6 @@ func (j *jsiiProxy_CfnThing) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::Thing`.
 func NewCfnThing(scope constructs.Construct, id *string, props *CfnThingProps) CfnThing {
 	_init_.Initialize()
 
@@ -381,7 +376,6 @@ func NewCfnThing(scope constructs.Construct, id *string, props *CfnThingProps) C
 	return &j
 }
 
-// Create a new `AWS::IoT::Thing`.
 func NewCfnThing_Override(c CfnThing, scope constructs.Construct, id *string, props *CfnThingProps) {
 	_init_.Initialize()
 

@@ -17,8 +17,12 @@ package awsappflow
 //   	IncludeDeletedRecords: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html
+//
 type CfnFlow_SalesforceSourcePropertiesProperty struct {
 	// The object specified in the Salesforce flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data from Salesforce.
 	//
@@ -31,10 +35,16 @@ type CfnFlow_SalesforceSourcePropertiesProperty struct {
 	//
 	// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
 	// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail wituh a timed out error.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-datatransferapi
+	//
 	DataTransferApi *string `field:"optional" json:"dataTransferApi" yaml:"dataTransferApi"`
 	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-enabledynamicfieldupdate
+	//
 	EnableDynamicFieldUpdate interface{} `field:"optional" json:"enableDynamicFieldUpdate" yaml:"enableDynamicFieldUpdate"`
 	// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-includedeletedrecords
+	//
 	IncludeDeletedRecords interface{} `field:"optional" json:"includeDeletedRecords" yaml:"includeDeletedRecords"`
 }
 

@@ -14,8 +14,12 @@ package awss3
 //   	AccelerationStatus: jsii.String("accelerationStatus"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html
+//
 type CfnBucket_AccelerateConfigurationProperty struct {
 	// Specifies the transfer acceleration status of the bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html#cfn-s3-bucket-accelerateconfiguration-accelerationstatus
+	//
 	AccelerationStatus *string `field:"required" json:"accelerationStatus" yaml:"accelerationStatus"`
 }
 

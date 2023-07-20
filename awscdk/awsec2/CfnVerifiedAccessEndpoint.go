@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VerifiedAccessEndpoint`.
+// An AWS Verified Access endpoint specifies the application that AWS Verified Access provides access to.
 //
-// An AWS Verified Access endpoint specifies the application that AWS Verified Access provides access to. It must be attached to an AWS Verified Access group. An AWS Verified Access endpoint must also have an attached access policy before you attached it to a group.
+// It must be attached to an AWS Verified Access group. An AWS Verified Access endpoint must also have an attached access policy before you attached it to a group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -54,9 +54,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html
+//
 type CfnVerifiedAccessEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The DNS name for users to reach your application.
 	ApplicationDomain() *string
 	SetApplicationDomain(val *string)
@@ -96,8 +99,6 @@ type CfnVerifiedAccessEndpoint interface {
 	EndpointDomainPrefix() *string
 	SetEndpointDomainPrefix(val *string)
 	// The type of AWS Verified Access endpoint.
-	//
-	// Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
 	EndpointType() *string
 	SetEndpointType(val *string)
 	// The load balancer details if creating the AWS Verified Access endpoint as `load-balancer` type.
@@ -136,8 +137,11 @@ type CfnVerifiedAccessEndpoint interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -285,6 +289,7 @@ type CfnVerifiedAccessEndpoint interface {
 type jsiiProxy_CfnVerifiedAccessEndpoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint) ApplicationDomain() *string {
@@ -557,6 +562,16 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -588,7 +603,6 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) VerifiedAccessGroupId() *string {
 }
 
 
-// Create a new `AWS::EC2::VerifiedAccessEndpoint`.
 func NewCfnVerifiedAccessEndpoint(scope constructs.Construct, id *string, props *CfnVerifiedAccessEndpointProps) CfnVerifiedAccessEndpoint {
 	_init_.Initialize()
 
@@ -606,7 +620,6 @@ func NewCfnVerifiedAccessEndpoint(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::EC2::VerifiedAccessEndpoint`.
 func NewCfnVerifiedAccessEndpoint_Override(c CfnVerifiedAccessEndpoint, scope constructs.Construct, id *string, props *CfnVerifiedAccessEndpointProps) {
 	_init_.Initialize()
 
@@ -725,6 +738,17 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetSecurityGroupIds(val *[]*string)
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

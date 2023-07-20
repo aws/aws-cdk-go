@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnLocationFSxONTAP) validateSetStorageVirtualMachineArnParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationFSxONTAP) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLocationFSxONTAPParameters(scope constructs.Construct, id *string, props *CfnLocationFSxONTAPProps) error {
 	return nil
 }

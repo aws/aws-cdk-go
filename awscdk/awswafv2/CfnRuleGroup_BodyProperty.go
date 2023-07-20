@@ -14,6 +14,8 @@ package awswafv2
 //   	OversizeHandling: jsii.String("oversizeHandling"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-body.html
+//
 type CfnRuleGroup_BodyProperty struct {
 	// What AWS WAF should do if the body is larger than AWS WAF can inspect.
 	//
@@ -30,6 +32,8 @@ type CfnRuleGroup_BodyProperty struct {
 	// You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit.
 	//
 	// Default: `CONTINUE`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-body.html#cfn-wafv2-rulegroup-body-oversizehandling
+	//
 	OversizeHandling *string `field:"optional" json:"oversizeHandling" yaml:"oversizeHandling"`
 }
 

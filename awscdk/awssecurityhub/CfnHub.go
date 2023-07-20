@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SecurityHub::Hub`.
+// The `AWS::SecurityHub::Hub` resource specifies the enablement of the AWS Security Hub service in your AWS account .
 //
-// The `AWS::SecurityHub::Hub` resource specifies the enablement of the AWS Security Hub service in your AWS account . The service is enabled in the current AWS Region or the specified Region. You create a separate `Hub` resource in each Region in which you want to enable Security Hub .
+// The service is enabled in the current AWS Region or the specified Region. You create a separate `Hub` resource in each Region in which you want to enable Security Hub .
 //
 // When you use this resource to enable Security Hub , default security standards are enabled. To disable default standards, set the `EnableDefaultStandards` property to `false` . You can use the [`AWS::SecurityHub::Standard`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html) resource to enable additional standards.
 //
@@ -33,12 +33,14 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hub.html
+//
 type CfnHub interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Whether to automatically enable new controls when they are added to standards that are enabled.
-	//
-	// By default, this is set to `true` , and new controls are enabled automatically. To not automatically enable new controls, set this to `false` .
 	AutoEnableControls() interface{}
 	SetAutoEnableControls(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -47,12 +49,6 @@ type CfnHub interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specifies whether an account has consolidated control findings turned on or off.
-	//
-	// If the value for this field is set to `SECURITY_CONTROL` , Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.
-	//
-	// If the value for this field is set to `STANDARD_CONTROL` , Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
-	//
-	// The value for this field in a member account matches the value in the administrator account. For accounts that aren't part of an organization, the default value of this field is `SECURITY_CONTROL` if you enabled Security Hub on or after February 23, 2023.
 	ControlFindingGenerator() *string
 	SetControlFindingGenerator(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -60,10 +56,6 @@ type CfnHub interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
-	//
-	// If you don't provide a value for `EnableDefaultStandards` , it is set to `true` , and the designated standards are automatically enabled in each AWS Region where you enable Security Hub . If you don't want to enable the designated standards, set `EnableDefaultStandards` to `false` .
-	//
-	// Currently, the automatically enabled standards are the Center for Internet Security (CIS) AWS Foundations Benchmark v1.2.0 and AWS Foundational Security Best Practices (FSBP).
 	EnableDefaultStandards() interface{}
 	SetEnableDefaultStandards(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -87,10 +79,11 @@ type CfnHub interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -235,6 +228,17 @@ type CfnHub interface {
 type jsiiProxy_CfnHub struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnHub) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnHub) AutoEnableControls() interface{} {
@@ -357,6 +361,16 @@ func (j *jsiiProxy_CfnHub) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHub) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHub) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -378,7 +392,6 @@ func (j *jsiiProxy_CfnHub) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SecurityHub::Hub`.
 func NewCfnHub(scope constructs.Construct, id *string, props *CfnHubProps) CfnHub {
 	_init_.Initialize()
 
@@ -396,7 +409,6 @@ func NewCfnHub(scope constructs.Construct, id *string, props *CfnHubProps) CfnHu
 	return &j
 }
 
-// Create a new `AWS::SecurityHub::Hub`.
 func NewCfnHub_Override(c CfnHub, scope constructs.Construct, id *string, props *CfnHubProps) {
 	_init_.Initialize()
 
@@ -433,6 +445,14 @@ func (j *jsiiProxy_CfnHub)SetEnableDefaultStandards(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enableDefaultStandards",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHub)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

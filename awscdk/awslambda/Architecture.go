@@ -21,6 +21,8 @@ type Architecture interface {
 	DockerPlatform() *string
 	// The name of the architecture as recognized by the AWS Lambda service APIs.
 	Name() *string
+	// Returns a string representation of the architecture using the name.
+	ToString() *string
 }
 
 // The jsii proxy struct for Architecture
@@ -89,6 +91,19 @@ func Architecture_X86_64() Architecture {
 		"X86_64",
 		&returns,
 	)
+	return returns
+}
+
+func (a *jsiiProxy_Architecture) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
 	return returns
 }
 

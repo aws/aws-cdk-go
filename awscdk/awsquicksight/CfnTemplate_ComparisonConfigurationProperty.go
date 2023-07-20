@@ -55,14 +55,20 @@ package awsquicksight
 //   	ComparisonMethod: jsii.String("comparisonMethod"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-comparisonconfiguration.html
+//
 type CfnTemplate_ComparisonConfigurationProperty struct {
 	// The format of the comparison.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-comparisonconfiguration.html#cfn-quicksight-template-comparisonconfiguration-comparisonformat
+	//
 	ComparisonFormat interface{} `field:"optional" json:"comparisonFormat" yaml:"comparisonFormat"`
 	// The method of the comparison. Choose from the following options:.
 	//
 	// - `DIFFERENCE`
 	// - `PERCENT_DIFFERENCE`
 	// - `PERCENT`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-comparisonconfiguration.html#cfn-quicksight-template-comparisonconfiguration-comparisonmethod
+	//
 	ComparisonMethod *string `field:"optional" json:"comparisonMethod" yaml:"comparisonMethod"`
 }
 

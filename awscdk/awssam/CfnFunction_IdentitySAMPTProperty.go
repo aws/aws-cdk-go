@@ -10,8 +10,11 @@ package awssam
 //   	IdentityName: jsii.String("identityName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-identitysampt.html
+//
 type CfnFunction_IdentitySAMPTProperty struct {
-	// `CfnFunction.IdentitySAMPTProperty.IdentityName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-identitysampt.html#cfn-serverless-function-identitysampt-identityname
+	//
 	IdentityName *string `field:"required" json:"identityName" yaml:"identityName"`
 }
 

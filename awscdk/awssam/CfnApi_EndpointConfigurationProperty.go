@@ -13,10 +13,14 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-endpointconfiguration.html
+//
 type CfnApi_EndpointConfigurationProperty struct {
-	// `CfnApi.EndpointConfigurationProperty.Type`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-endpointconfiguration.html#cfn-serverless-api-endpointconfiguration-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
-	// `CfnApi.EndpointConfigurationProperty.VpcEndpointIds`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-api-endpointconfiguration.html#cfn-serverless-api-endpointconfiguration-vpcendpointids
+	//
 	VpcEndpointIds *[]*string `field:"optional" json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::IPAMPoolCidr`.
-//
 // A CIDR provisioned to an IPAM pool.
 //
 // Example:
@@ -26,6 +24,8 @@ import (
 //   	NetmaskLength: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampoolcidr.html
+//
 type CfnIPAMPoolCidr interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -39,8 +39,6 @@ type CfnIPAMPoolCidr interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The CIDR provisioned to the IPAM pool.
-	//
-	// A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
 	Cidr() *string
 	SetCidr(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -61,8 +59,6 @@ type CfnIPAMPoolCidr interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The netmask length of the CIDR you'd like to provision to a pool.
-	//
-	// Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. "NetmaskLength" or "Cidr" is required.
 	NetmaskLength() *float64
 	SetNetmaskLength(val *float64)
 	// The tree node.
@@ -373,7 +369,6 @@ func (j *jsiiProxy_CfnIPAMPoolCidr) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::EC2::IPAMPoolCidr`.
 func NewCfnIPAMPoolCidr(scope constructs.Construct, id *string, props *CfnIPAMPoolCidrProps) CfnIPAMPoolCidr {
 	_init_.Initialize()
 
@@ -391,7 +386,6 @@ func NewCfnIPAMPoolCidr(scope constructs.Construct, id *string, props *CfnIPAMPo
 	return &j
 }
 
-// Create a new `AWS::EC2::IPAMPoolCidr`.
 func NewCfnIPAMPoolCidr_Override(c CfnIPAMPoolCidr, scope constructs.Construct, id *string, props *CfnIPAMPoolCidrProps) {
 	_init_.Initialize()
 

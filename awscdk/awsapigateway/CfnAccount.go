@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::Account`.
+// The `AWS::ApiGateway::Account` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs.
 //
-// The `AWS::ApiGateway::Account` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one `AWS::ApiGateway::Account` resource per region per account.
+// To avoid overwriting other roles, you should only have one `AWS::ApiGateway::Account` resource per region per account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,6 +21,8 @@ import (
 //   cfnAccount := awscdk.Aws_apigateway.NewCfnAccount(this, jsii.String("MyCfnAccount"), &CfnAccountProps{
 //   	CloudWatchRoleArn: jsii.String("cloudWatchRoleArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
 //
 type CfnAccount interface {
 	awscdk.CfnResource
@@ -329,7 +331,6 @@ func (j *jsiiProxy_CfnAccount) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGateway::Account`.
 func NewCfnAccount(scope constructs.Construct, id *string, props *CfnAccountProps) CfnAccount {
 	_init_.Initialize()
 
@@ -347,7 +348,6 @@ func NewCfnAccount(scope constructs.Construct, id *string, props *CfnAccountProp
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::Account`.
 func NewCfnAccount_Override(c CfnAccount, scope constructs.Construct, id *string, props *CfnAccountProps) {
 	_init_.Initialize()
 

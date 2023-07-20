@@ -14,14 +14,22 @@ package awsiot
 //   	TargetType: jsii.String("targetType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html
+//
 type CfnResourceSpecificLoggingProps struct {
 	// The default log level.Valid Values: `DEBUG | INFO | ERROR | WARN | DISABLED`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html#cfn-iot-resourcespecificlogging-loglevel
+	//
 	LogLevel *string `field:"required" json:"logLevel" yaml:"logLevel"`
 	// The target name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html#cfn-iot-resourcespecificlogging-targetname
+	//
 	TargetName *string `field:"required" json:"targetName" yaml:"targetName"`
 	// The target type.
 	//
 	// Valid Values: `DEFAULT | THING_GROUP`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html#cfn-iot-resourcespecificlogging-targettype
+	//
 	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`
 }
 

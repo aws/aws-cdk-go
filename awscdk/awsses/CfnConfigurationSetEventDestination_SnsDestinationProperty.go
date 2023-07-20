@@ -14,12 +14,16 @@ package awsses
 //   	TopicArn: jsii.String("topicArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-snsdestination.html
+//
 type CfnConfigurationSetEventDestination_SnsDestinationProperty struct {
 	// The ARN of the Amazon SNS topic for email sending events.
 	//
 	// You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-snsdestination.html#cfn-ses-configurationseteventdestination-snsdestination-topicarn
+	//
 	TopicArn *string `field:"required" json:"topicArn" yaml:"topicArn"`
 }
 

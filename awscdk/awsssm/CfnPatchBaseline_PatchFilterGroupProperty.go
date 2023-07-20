@@ -21,8 +21,12 @@ package awsssm
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html
+//
 type CfnPatchBaseline_PatchFilterGroupProperty struct {
 	// The set of patch filters that make up the group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters
+	//
 	PatchFilters interface{} `field:"optional" json:"patchFilters" yaml:"patchFilters"`
 }
 

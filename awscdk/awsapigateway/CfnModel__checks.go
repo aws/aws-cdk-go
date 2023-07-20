@@ -187,14 +187,6 @@ func (j *jsiiProxy_CfnModel) validateSetRestApiIdParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnModel) validateSetSchemaParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnModelParameters(scope constructs.Construct, id *string, props *CfnModelProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

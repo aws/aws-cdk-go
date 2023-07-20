@@ -12,8 +12,12 @@ package awsappflow
 //   	InstanceUrl: jsii.String("instanceUrl"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html
+//
 type CfnConnectorProfile_VeevaConnectorProfilePropertiesProperty struct {
 	// The location of the Veeva resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl
+	//
 	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 

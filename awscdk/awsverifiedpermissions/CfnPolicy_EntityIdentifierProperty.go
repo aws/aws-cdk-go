@@ -13,14 +13,20 @@ package awsverifiedpermissions
 //   	EntityType: jsii.String("entityType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-entityidentifier.html
+//
 type CfnPolicy_EntityIdentifierProperty struct {
 	// The identifier of an entity.
 	//
 	// `"entityId":" *identifier* "`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-entityidentifier.html#cfn-verifiedpermissions-policy-entityidentifier-entityid
+	//
 	EntityId *string `field:"required" json:"entityId" yaml:"entityId"`
 	// The type of an entity.
 	//
 	// Example: `"entityType":" *typeName* "`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-entityidentifier.html#cfn-verifiedpermissions-policy-entityidentifier-entitytype
+	//
 	EntityType *string `field:"required" json:"entityType" yaml:"entityType"`
 }
 

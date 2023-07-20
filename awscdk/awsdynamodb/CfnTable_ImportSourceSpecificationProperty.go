@@ -30,16 +30,26 @@ package awsdynamodb
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html
+//
 type CfnTable_ImportSourceSpecificationProperty struct {
 	// The format of the source data.
 	//
 	// Valid values for `ImportFormat` are `CSV` , `DYNAMODB_JSON` or `ION` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html#cfn-dynamodb-table-importsourcespecification-inputformat
+	//
 	InputFormat *string `field:"required" json:"inputFormat" yaml:"inputFormat"`
 	// The S3 bucket that provides the source for the import.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html#cfn-dynamodb-table-importsourcespecification-s3bucketsource
+	//
 	S3BucketSource interface{} `field:"required" json:"s3BucketSource" yaml:"s3BucketSource"`
 	// Type of compression to be used on the input coming from the imported table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html#cfn-dynamodb-table-importsourcespecification-inputcompressiontype
+	//
 	InputCompressionType *string `field:"optional" json:"inputCompressionType" yaml:"inputCompressionType"`
 	// Additional properties that specify how the input is formatted,.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html#cfn-dynamodb-table-importsourcespecification-inputformatoptions
+	//
 	InputFormatOptions interface{} `field:"optional" json:"inputFormatOptions" yaml:"inputFormatOptions"`
 }
 

@@ -28,16 +28,26 @@ package awsforecast
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html
+//
 type CfnDatasetProps struct {
 	// The name of the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-datasetname
+	//
 	DatasetName *string `field:"required" json:"datasetName" yaml:"datasetName"`
 	// The dataset type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-datasettype
+	//
 	DatasetType *string `field:"required" json:"datasetType" yaml:"datasetType"`
 	// The domain associated with the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-domain
+	//
 	Domain *string `field:"required" json:"domain" yaml:"domain"`
 	// The schema for the dataset.
 	//
 	// The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-schema
+	//
 	Schema interface{} `field:"required" json:"schema" yaml:"schema"`
 	// The frequency of data collection. This parameter is required for RELATED_TIME_SERIES datasets.
 	//
@@ -51,12 +61,18 @@ type CfnDatasetProps struct {
 	// - Year - 1
 	//
 	// Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-datafrequency
+	//
 	DataFrequency *string `field:"optional" json:"dataFrequency" yaml:"dataFrequency"`
 	// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-encryptionconfig
+	//
 	EncryptionConfig interface{} `field:"optional" json:"encryptionConfig" yaml:"encryptionConfig"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-tags
+	//
 	Tags *[]*CfnDataset_TagsItemsProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

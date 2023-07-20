@@ -19,8 +19,12 @@ package awsmsk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-openmonitoring.html
+//
 type CfnCluster_OpenMonitoringProperty struct {
 	// Prometheus exporter settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-openmonitoring.html#cfn-msk-cluster-openmonitoring-prometheus
+	//
 	Prometheus interface{} `field:"required" json:"prometheus" yaml:"prometheus"`
 }
 

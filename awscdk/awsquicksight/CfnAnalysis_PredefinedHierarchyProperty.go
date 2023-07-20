@@ -51,12 +51,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-predefinedhierarchy.html
+//
 type CfnAnalysis_PredefinedHierarchyProperty struct {
 	// The list of columns that define the predefined hierarchy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-predefinedhierarchy.html#cfn-quicksight-analysis-predefinedhierarchy-columns
+	//
 	Columns interface{} `field:"required" json:"columns" yaml:"columns"`
 	// The hierarchy ID of the predefined hierarchy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-predefinedhierarchy.html#cfn-quicksight-analysis-predefinedhierarchy-hierarchyid
+	//
 	HierarchyId *string `field:"required" json:"hierarchyId" yaml:"hierarchyId"`
 	// The option that determines the drill down filters for the predefined hierarchy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-predefinedhierarchy.html#cfn-quicksight-analysis-predefinedhierarchy-drilldownfilters
+	//
 	DrillDownFilters interface{} `field:"optional" json:"drillDownFilters" yaml:"drillDownFilters"`
 }
 

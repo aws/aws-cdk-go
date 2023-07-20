@@ -14,8 +14,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-collectiveconstant.html
+//
 type CfnTopic_CollectiveConstantProperty struct {
 	// A list of values for the collective constant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-collectiveconstant.html#cfn-quicksight-topic-collectiveconstant-valuelist
+	//
 	ValueList *[]*string `field:"optional" json:"valueList" yaml:"valueList"`
 }
 

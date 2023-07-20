@@ -13,10 +13,16 @@ package awsservicecatalog
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html
+//
 type CfnCloudFormationProvisionedProduct_ProvisioningParameterProperty struct {
 	// The parameter key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The parameter value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

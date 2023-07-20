@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::LicenseManager::License`.
-//
 // Specifies a granted license.
 //
 // Granted licenses are licenses for products that your organization purchased from AWS Marketplace or directly from a seller who integrated their software with managed entitlements. For more information, see [Granted licenses](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *AWS License Manager User Guide* .
@@ -68,6 +66,8 @@ import (
 //   	ProductSku: jsii.String("productSku"),
 //   	Status: jsii.String("status"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html
 //
 type CfnLicense interface {
 	awscdk.CfnResource
@@ -516,7 +516,6 @@ func (j *jsiiProxy_CfnLicense) Validity() interface{} {
 }
 
 
-// Create a new `AWS::LicenseManager::License`.
 func NewCfnLicense(scope constructs.Construct, id *string, props *CfnLicenseProps) CfnLicense {
 	_init_.Initialize()
 
@@ -534,7 +533,6 @@ func NewCfnLicense(scope constructs.Construct, id *string, props *CfnLicenseProp
 	return &j
 }
 
-// Create a new `AWS::LicenseManager::License`.
 func NewCfnLicense_Override(c CfnLicense, scope constructs.Construct, id *string, props *CfnLicenseProps) {
 	_init_.Initialize()
 

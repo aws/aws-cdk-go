@@ -42,16 +42,28 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html
+//
 type CfnConnectorProfile_CustomConnectorProfileCredentialsProperty struct {
 	// The authentication type that the custom connector uses for authenticating while creating a connector profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-authenticationtype
+	//
 	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
 	// The API keys required for the authentication of the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-apikey
+	//
 	ApiKey interface{} `field:"optional" json:"apiKey" yaml:"apiKey"`
 	// The basic credentials that are required for the authentication of the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-basic
+	//
 	Basic interface{} `field:"optional" json:"basic" yaml:"basic"`
 	// If the connector uses the custom authentication mechanism, this holds the required credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-custom
+	//
 	Custom interface{} `field:"optional" json:"custom" yaml:"custom"`
 	// The OAuth 2.0 credentials required for the authentication of the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-oauth2
+	//
 	Oauth2 interface{} `field:"optional" json:"oauth2" yaml:"oauth2"`
 }
 

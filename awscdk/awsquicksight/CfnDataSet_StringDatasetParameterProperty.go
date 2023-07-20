@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// <p>A parameter created in the dataset of string data type.</p>.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,14 +21,26 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html
+//
 type CfnDataSet_StringDatasetParameterProperty struct {
-	// `CfnDataSet.StringDatasetParameterProperty.Id`.
+	// <p>Identifier of the parameter created in the dataset.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
-	// `CfnDataSet.StringDatasetParameterProperty.Name`.
+	// <p>Name of the parameter created in the dataset.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnDataSet.StringDatasetParameterProperty.ValueType`.
+	// <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-valuetype
+	//
 	ValueType *string `field:"required" json:"valueType" yaml:"valueType"`
-	// `CfnDataSet.StringDatasetParameterProperty.DefaultValues`.
+	// <p>List of default values defined for a given string dataset parameter type.
+	//
+	// Currently only static values are supported.</p>
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-defaultvalues
+	//
 	DefaultValues interface{} `field:"optional" json:"defaultValues" yaml:"defaultValues"`
 }
 

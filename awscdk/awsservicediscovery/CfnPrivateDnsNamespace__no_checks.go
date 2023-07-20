@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) validateSetPropertiesParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnPrivateDnsNamespace) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPrivateDnsNamespace) validateSetVpcParameters(val *string) error {
 	return nil
 }

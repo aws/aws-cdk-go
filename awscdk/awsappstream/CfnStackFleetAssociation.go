@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::StackFleetAssociation`.
-//
 // The `AWS::AppStream::StackFleetAssociation` resource associates the specified fleet with the specified stack for Amazon AppStream 2.0.
 //
 // Example:
@@ -23,9 +21,12 @@ import (
 //   	StackName: jsii.String("stackName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html
+//
 type CfnStackFleetAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -36,8 +37,6 @@ type CfnStackFleetAssociation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the fleet.
-	//
-	// To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	FleetName() *string
 	SetFleetName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -62,8 +61,6 @@ type CfnStackFleetAssociation interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name of the stack.
-	//
-	// To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	StackName() *string
 	SetStackName(val *string)
 	// Deprecated.
@@ -212,6 +209,16 @@ type jsiiProxy_CfnStackFleetAssociation struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnStackFleetAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStackFleetAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -333,7 +340,6 @@ func (j *jsiiProxy_CfnStackFleetAssociation) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::AppStream::StackFleetAssociation`.
 func NewCfnStackFleetAssociation(scope constructs.Construct, id *string, props *CfnStackFleetAssociationProps) CfnStackFleetAssociation {
 	_init_.Initialize()
 
@@ -351,7 +357,6 @@ func NewCfnStackFleetAssociation(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::AppStream::StackFleetAssociation`.
 func NewCfnStackFleetAssociation_Override(c CfnStackFleetAssociation, scope constructs.Construct, id *string, props *CfnStackFleetAssociationProps) {
 	_init_.Initialize()
 

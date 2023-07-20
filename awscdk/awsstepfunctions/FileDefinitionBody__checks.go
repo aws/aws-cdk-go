@@ -44,9 +44,6 @@ func validateFileDefinitionBody_FromFileParameters(path *string, options *awss3a
 		return fmt.Errorf("parameter path is required, but nil was provided")
 	}
 
-	if options == nil {
-		return fmt.Errorf("parameter options is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

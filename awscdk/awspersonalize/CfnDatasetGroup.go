@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Personalize::DatasetGroup`.
+// A dataset group is a collection of related datasets (Interactions, User, and Item).
 //
-// A dataset group is a collection of related datasets (Interactions, User, and Item). You create a dataset group by calling [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html) . You then create a dataset and add it to a dataset group by calling [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html) . The dataset group is used to create and train a solution by calling [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) . A dataset group can contain only one of each type of dataset.
+// You create a dataset group by calling [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html) . You then create a dataset and add it to a dataset group by calling [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html) . The dataset group is used to create and train a solution by calling [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) . A dataset group can contain only one of each type of dataset.
 //
 // You can specify an AWS Key Management Service (KMS) key to encrypt the datasets in the group.
 //
@@ -28,6 +28,8 @@ import (
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	RoleArn: jsii.String("roleArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html
 //
 type CfnDatasetGroup interface {
 	awscdk.CfnResource
@@ -373,7 +375,6 @@ func (j *jsiiProxy_CfnDatasetGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Personalize::DatasetGroup`.
 func NewCfnDatasetGroup(scope constructs.Construct, id *string, props *CfnDatasetGroupProps) CfnDatasetGroup {
 	_init_.Initialize()
 
@@ -391,7 +392,6 @@ func NewCfnDatasetGroup(scope constructs.Construct, id *string, props *CfnDatase
 	return &j
 }
 
-// Create a new `AWS::Personalize::DatasetGroup`.
 func NewCfnDatasetGroup_Override(c CfnDatasetGroup, scope constructs.Construct, id *string, props *CfnDatasetGroupProps) {
 	_init_.Initialize()
 

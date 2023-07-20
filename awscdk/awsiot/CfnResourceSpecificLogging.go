@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::ResourceSpecificLogging`.
-//
 // Configure resource-specific logging.
 //
 // Example:
@@ -23,6 +21,8 @@ import (
 //   	TargetName: jsii.String("targetName"),
 //   	TargetType: jsii.String("targetType"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html
 //
 type CfnResourceSpecificLogging interface {
 	awscdk.CfnResource
@@ -66,8 +66,6 @@ type CfnResourceSpecificLogging interface {
 	TargetName() *string
 	SetTargetName(val *string)
 	// The target type.
-	//
-	// Valid Values: `DEFAULT | THING_GROUP`.
 	TargetType() *string
 	SetTargetType(val *string)
 	// Deprecated.
@@ -357,7 +355,6 @@ func (j *jsiiProxy_CfnResourceSpecificLogging) UpdatedProperties() *map[string]i
 }
 
 
-// Create a new `AWS::IoT::ResourceSpecificLogging`.
 func NewCfnResourceSpecificLogging(scope constructs.Construct, id *string, props *CfnResourceSpecificLoggingProps) CfnResourceSpecificLogging {
 	_init_.Initialize()
 
@@ -375,7 +372,6 @@ func NewCfnResourceSpecificLogging(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::IoT::ResourceSpecificLogging`.
 func NewCfnResourceSpecificLogging_Override(c CfnResourceSpecificLogging, scope constructs.Construct, id *string, props *CfnResourceSpecificLoggingProps) {
 	_init_.Initialize()
 

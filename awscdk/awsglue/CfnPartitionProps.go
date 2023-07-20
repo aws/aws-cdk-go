@@ -77,16 +77,26 @@ package awsglue
 //   	TableName: jsii.String("tableName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html
+//
 type CfnPartitionProps struct {
 	// The AWS account ID of the catalog in which the partion is to be created.
 	//
 	// > To specify the account ID, you can use the `Ref` intrinsic function with the `AWS::AccountId` pseudo parameter. For example: `!Ref AWS::AccountId`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-catalogid
+	//
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The name of the catalog database in which to create the partition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-databasename
+	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The structure used to create and update a partition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-partitioninput
+	//
 	PartitionInput interface{} `field:"required" json:"partitionInput" yaml:"partitionInput"`
 	// The name of the metadata table in which the partition is to be created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-tablename
+	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 

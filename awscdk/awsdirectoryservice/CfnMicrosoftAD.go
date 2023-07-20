@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DirectoryService::MicrosoftAD`.
+// The `AWS::DirectoryService::MicrosoftAD` resource specifies a Microsoft Active Directory in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials.
 //
-// The `AWS::DirectoryService::MicrosoftAD` resource specifies a Microsoft Active Directory in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials. For more information, see [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) in the *AWS Directory Service Admin Guide* .
+// For more information, see [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) in the *AWS Directory Service Admin Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,6 +35,8 @@ import (
 //   	ShortName: jsii.String("shortName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html
+//
 type CfnMicrosoftAD interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -44,16 +46,13 @@ type CfnMicrosoftAD interface {
 	AttrAlias() *string
 	// The IP addresses of the DNS servers for the directory, such as `[ "192.0.2.1", "192.0.2.2" ]` .
 	AttrDnsIpAddresses() *[]*string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specifies an alias for a directory and assigns the alias to the directory.
-	//
-	// The alias is used to construct the access URL for the directory, such as `http://<alias>.awsapps.com` . By default, AWS CloudFormation does not create an alias.
-	//
-	// > After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
 	CreateAlias() interface{}
 	SetCreateAlias(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -61,13 +60,9 @@ type CfnMicrosoftAD interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// AWS Managed Microsoft AD is available in two editions: `Standard` and `Enterprise` .
-	//
-	// `Enterprise` is the default.
 	Edition() *string
 	SetEdition(val *string)
 	// Whether to enable single sign-on for a Microsoft Active Directory in AWS .
-	//
-	// Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately. If you don't specify a value, AWS CloudFormation disables single sign-on by default.
 	EnableSso() interface{}
 	SetEnableSso(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -86,8 +81,6 @@ type CfnMicrosoftAD interface {
 	// The tree node.
 	Node() constructs.Node
 	// The password for the default administrative user named `Admin` .
-	//
-	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
 	Password() *string
 	SetPassword(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -96,8 +89,6 @@ type CfnMicrosoftAD interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The NetBIOS name for your domain, such as `CORP` .
-	//
-	// If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, `CORP` for the directory DNS `corp.example.com` .
 	ShortName() *string
 	SetShortName(val *string)
 	// The stack in which this element is defined.
@@ -268,6 +259,16 @@ func (j *jsiiProxy_CfnMicrosoftAD) AttrDnsIpAddresses() *[]*string {
 	_jsii_.Get(
 		j,
 		"attrDnsIpAddresses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMicrosoftAD) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -444,7 +445,6 @@ func (j *jsiiProxy_CfnMicrosoftAD) VpcSettings() interface{} {
 }
 
 
-// Create a new `AWS::DirectoryService::MicrosoftAD`.
 func NewCfnMicrosoftAD(scope constructs.Construct, id *string, props *CfnMicrosoftADProps) CfnMicrosoftAD {
 	_init_.Initialize()
 
@@ -462,7 +462,6 @@ func NewCfnMicrosoftAD(scope constructs.Construct, id *string, props *CfnMicroso
 	return &j
 }
 
-// Create a new `AWS::DirectoryService::MicrosoftAD`.
 func NewCfnMicrosoftAD_Override(c CfnMicrosoftAD, scope constructs.Construct, id *string, props *CfnMicrosoftADProps) {
 	_init_.Initialize()
 

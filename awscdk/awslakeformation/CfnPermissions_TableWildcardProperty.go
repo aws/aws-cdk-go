@@ -11,6 +11,8 @@ package awslakeformation
 //   tableWildcardProperty := &TableWildcardProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html
+//
 type CfnPermissions_TableWildcardProperty struct {
 }
 

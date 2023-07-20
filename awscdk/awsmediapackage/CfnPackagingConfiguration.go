@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaPackage::PackagingConfiguration`.
-//
 // Creates a packaging configuration in a packaging group.
 //
 // The packaging configuration represents a single delivery point for an asset. It determines the format and setting for the egressing content. Specify only one package format per configuration, such as `HlsPackage` .
@@ -52,6 +50,8 @@ import (
 //
 //   				// the properties below are optional
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //   		},
@@ -85,6 +85,8 @@ import (
 //
 //   				// the properties below are optional
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //   		},
@@ -123,6 +125,8 @@ import (
 //
 //   				// the properties below are optional
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //
@@ -157,6 +161,8 @@ import (
 //
 //   				// the properties below are optional
 //   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   				},
 //   			},
 //   		},
@@ -170,9 +176,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html
+//
 type CfnPackagingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) for the packaging configuration.
 	//
 	// You can get this from the response to any request to the packaging configuration.
@@ -225,8 +234,11 @@ type CfnPackagingConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to assign to the packaging configuration.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to assign to the packaging configuration.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -371,6 +383,7 @@ type CfnPackagingConfiguration interface {
 type jsiiProxy_CfnPackagingConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPackagingConfiguration) AttrArn() *string {
@@ -533,6 +546,16 @@ func (j *jsiiProxy_CfnPackagingConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPackagingConfiguration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPackagingConfiguration) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -554,7 +577,6 @@ func (j *jsiiProxy_CfnPackagingConfiguration) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::MediaPackage::PackagingConfiguration`.
 func NewCfnPackagingConfiguration(scope constructs.Construct, id *string, props *CfnPackagingConfigurationProps) CfnPackagingConfiguration {
 	_init_.Initialize()
 
@@ -572,7 +594,6 @@ func NewCfnPackagingConfiguration(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::MediaPackage::PackagingConfiguration`.
 func NewCfnPackagingConfiguration_Override(c CfnPackagingConfiguration, scope constructs.Construct, id *string, props *CfnPackagingConfigurationProps) {
 	_init_.Initialize()
 
@@ -645,6 +666,17 @@ func (j *jsiiProxy_CfnPackagingConfiguration)SetPackagingGroupId(val *string) {
 	_jsii_.Set(
 		j,
 		"packagingGroupId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPackagingConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

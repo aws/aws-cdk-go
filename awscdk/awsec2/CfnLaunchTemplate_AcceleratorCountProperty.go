@@ -13,14 +13,20 @@ package awsec2
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratorcount.html
+//
 type CfnLaunchTemplate_AcceleratorCountProperty struct {
 	// The maximum number of accelerators.
 	//
 	// To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratorcount.html#cfn-ec2-launchtemplate-acceleratorcount-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of accelerators.
 	//
 	// To specify no minimum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratorcount.html#cfn-ec2-launchtemplate-acceleratorcount-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

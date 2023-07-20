@@ -10,8 +10,11 @@ package awssam
 //   	QueueName: jsii.String("queueName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-queuesampt.html
+//
 type CfnFunction_QueueSAMPTProperty struct {
-	// `CfnFunction.QueueSAMPTProperty.QueueName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-queuesampt.html#cfn-serverless-function-queuesampt-queuename
+	//
 	QueueName *string `field:"required" json:"queueName" yaml:"queueName"`
 }
 

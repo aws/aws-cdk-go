@@ -13,10 +13,16 @@ package awscustomerprofiles
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-threshold.html
+//
 type CfnCalculatedAttributeDefinition_ThresholdProperty struct {
 	// The operator of the threshold.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-threshold.html#cfn-customerprofiles-calculatedattributedefinition-threshold-operator
+	//
 	Operator *string `field:"required" json:"operator" yaml:"operator"`
 	// The value of the threshold.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-threshold.html#cfn-customerprofiles-calculatedattributedefinition-threshold-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

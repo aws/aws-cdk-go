@@ -17,18 +17,28 @@ package awsapigatewayv2
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html
+//
 type CfnApi_BodyS3LocationProperty struct {
 	// The S3 bucket that contains the OpenAPI definition to import.
 	//
 	// Required if you specify a `BodyS3Location` for an API.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-bucket
+	//
 	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
 	// The Etag of the S3 object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-etag
+	//
 	Etag *string `field:"optional" json:"etag" yaml:"etag"`
 	// The key of the S3 object.
 	//
 	// Required if you specify a `BodyS3Location` for an API.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The version of the S3 object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-version
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

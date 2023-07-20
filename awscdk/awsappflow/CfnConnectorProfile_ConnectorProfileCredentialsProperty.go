@@ -164,42 +164,79 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html
+//
 type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	// The connector-specific credentials required when using Amplitude.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
+	//
 	Amplitude interface{} `field:"optional" json:"amplitude" yaml:"amplitude"`
 	// The connector-specific profile credentials that are required when using the custom connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-customconnector
+	//
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The connector-specific credentials required when using Datadog.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
+	//
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`
 	// The connector-specific credentials required when using Dynatrace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
+	//
 	Dynatrace interface{} `field:"optional" json:"dynatrace" yaml:"dynatrace"`
 	// The connector-specific credentials required when using Google Analytics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
+	//
 	GoogleAnalytics interface{} `field:"optional" json:"googleAnalytics" yaml:"googleAnalytics"`
 	// The connector-specific credentials required when using Infor Nexus.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
+	//
 	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific credentials required when using Marketo.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
+	//
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
-	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.Pardot`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-pardot
+	//
 	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`
 	// The connector-specific credentials required when using Amazon Redshift.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
+	//
 	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`
 	// The connector-specific credentials required when using Salesforce.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
+	//
 	Salesforce interface{} `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The connector-specific profile credentials required when using SAPOData.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-sapodata
+	//
 	SapoData interface{} `field:"optional" json:"sapoData" yaml:"sapoData"`
 	// The connector-specific credentials required when using ServiceNow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
+	//
 	ServiceNow interface{} `field:"optional" json:"serviceNow" yaml:"serviceNow"`
 	// The connector-specific credentials required when using Singular.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
+	//
 	Singular interface{} `field:"optional" json:"singular" yaml:"singular"`
 	// The connector-specific credentials required when using Slack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
+	//
 	Slack interface{} `field:"optional" json:"slack" yaml:"slack"`
 	// The connector-specific credentials required when using Snowflake.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
+	//
 	Snowflake interface{} `field:"optional" json:"snowflake" yaml:"snowflake"`
 	// The connector-specific credentials required when using Trend Micro.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
+	//
 	Trendmicro interface{} `field:"optional" json:"trendmicro" yaml:"trendmicro"`
 	// The connector-specific credentials required when using Veeva.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
+	//
 	Veeva interface{} `field:"optional" json:"veeva" yaml:"veeva"`
 	// The connector-specific credentials required when using Zendesk.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
+	//
 	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 

@@ -13,10 +13,16 @@ package awsquicksight
 //   	VerticalOverflowVisibility: jsii.String("verticalOverflowVisibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablepaginatedreportoptions.html
+//
 type CfnAnalysis_PivotTablePaginatedReportOptionsProperty struct {
 	// The visibility of the repeating header rows on each page.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablepaginatedreportoptions.html#cfn-quicksight-analysis-pivottablepaginatedreportoptions-overflowcolumnheadervisibility
+	//
 	OverflowColumnHeaderVisibility *string `field:"optional" json:"overflowColumnHeaderVisibility" yaml:"overflowColumnHeaderVisibility"`
 	// The visibility of the printing table overflow across pages.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablepaginatedreportoptions.html#cfn-quicksight-analysis-pivottablepaginatedreportoptions-verticaloverflowvisibility
+	//
 	VerticalOverflowVisibility *string `field:"optional" json:"verticalOverflowVisibility" yaml:"verticalOverflowVisibility"`
 }
 

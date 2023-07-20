@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetOpenIdConnectConfigParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) validateSetUserPoolConfigParameters(val interface{}) error {
 	return nil
 }

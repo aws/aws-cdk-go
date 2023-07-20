@@ -22,12 +22,18 @@ package awsecs
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html
+//
 type CfnTaskDefinition_EnvironmentFileProperty struct {
 	// The file type to use.
 	//
 	// The only supported value is `s3` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

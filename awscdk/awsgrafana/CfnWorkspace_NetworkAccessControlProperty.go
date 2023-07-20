@@ -27,6 +27,8 @@ package awsgrafana
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-networkaccesscontrol.html
+//
 type CfnWorkspace_NetworkAccessControlProperty struct {
 	// An array of prefix list IDs.
 	//
@@ -35,6 +37,8 @@ type CfnWorkspace_NetworkAccessControlProperty struct {
 	// Prefix list IDs have the format `pl- *1a2b3c4d*` .
 	//
 	// For more information about prefix lists, see [Group CIDR blocks using managed prefix lists](https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html) in the *Amazon Virtual Private Cloud User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-networkaccesscontrol.html#cfn-grafana-workspace-networkaccesscontrol-prefixlistids
+	//
 	PrefixListIds *[]*string `field:"optional" json:"prefixListIds" yaml:"prefixListIds"`
 	// An array of Amazon VPC endpoint IDs for the workspace.
 	//
@@ -45,6 +49,8 @@ type CfnWorkspace_NetworkAccessControlProperty struct {
 	// For more information about creating an interface VPC endpoint, see [Interface VPC endpoints](https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints) in the *Amazon Managed Grafana User Guide* .
 	//
 	// > The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the `com.amazonaws.[region].grafana-workspace` service endpoint). Other VPC endpoints are ignored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-networkaccesscontrol.html#cfn-grafana-workspace-networkaccesscontrol-vpceids
+	//
 	VpceIds *[]*string `field:"optional" json:"vpceIds" yaml:"vpceIds"`
 }
 

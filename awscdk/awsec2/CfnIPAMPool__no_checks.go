@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnIPAMPool) validateSetPubliclyAdvertisableParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnIPAMPool) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnIPAMPoolParameters(scope constructs.Construct, id *string, props *CfnIPAMPoolProps) error {
 	return nil
 }

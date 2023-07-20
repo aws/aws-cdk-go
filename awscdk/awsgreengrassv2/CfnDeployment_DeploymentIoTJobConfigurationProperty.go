@@ -34,18 +34,26 @@ package awsgreengrassv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html
+//
 type CfnDeployment_DeploymentIoTJobConfigurationProperty struct {
 	// The stop configuration for the job.
 	//
 	// This configuration defines when and how to stop a job rollout.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html#cfn-greengrassv2-deployment-deploymentiotjobconfiguration-abortconfig
+	//
 	AbortConfig interface{} `field:"optional" json:"abortConfig" yaml:"abortConfig"`
 	// The rollout configuration for the job.
 	//
 	// This configuration defines the rate at which the job rolls out to the fleet of target devices.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html#cfn-greengrassv2-deployment-deploymentiotjobconfiguration-jobexecutionsrolloutconfig
+	//
 	JobExecutionsRolloutConfig interface{} `field:"optional" json:"jobExecutionsRolloutConfig" yaml:"jobExecutionsRolloutConfig"`
 	// The timeout configuration for the job.
 	//
 	// This configuration defines the amount of time each device has to complete the job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html#cfn-greengrassv2-deployment-deploymentiotjobconfiguration-timeoutconfig
+	//
 	TimeoutConfig interface{} `field:"optional" json:"timeoutConfig" yaml:"timeoutConfig"`
 }
 

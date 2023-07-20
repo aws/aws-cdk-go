@@ -14,8 +14,12 @@ package awsappmesh
 //   	SecretName: jsii.String("secretName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextsdstrust.html
+//
 type CfnVirtualNode_TlsValidationContextSdsTrustProperty struct {
 	// A reference to an object that represents the name of the secret for a Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextsdstrust.html#cfn-appmesh-virtualnode-tlsvalidationcontextsdstrust-secretname
+	//
 	SecretName *string `field:"required" json:"secretName" yaml:"secretName"`
 }
 

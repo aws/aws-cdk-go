@@ -90,24 +90,42 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html
+//
 type CfnResponsePlanProps struct {
 	// Details used to create an incident when using this response plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
+	//
 	IncidentTemplate interface{} `field:"required" json:"incidentTemplate" yaml:"incidentTemplate"`
 	// The name of the response plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The actions that the response plan starts at the beginning of an incident.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
+	//
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// The AWS Chatbot chat channel used for collaboration during an incident.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
+	//
 	ChatChannel interface{} `field:"optional" json:"chatChannel" yaml:"chatChannel"`
 	// The human readable name of the response plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
+	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
+	//
 	Engagements *[]*string `field:"optional" json:"engagements" yaml:"engagements"`
 	// Information about third-party services integrated into the response plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-integrations
+	//
 	Integrations interface{} `field:"optional" json:"integrations" yaml:"integrations"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

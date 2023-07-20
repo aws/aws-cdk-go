@@ -12,10 +12,14 @@ package awsdynamodb
 //   	StreamArn: jsii.String("streamArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html
+//
 type CfnTable_KinesisStreamSpecificationProperty struct {
 	// The ARN for a specific Kinesis data stream.
 	//
 	// Length Constraints: Minimum length of 37. Maximum length of 1024.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html#cfn-dynamodb-table-kinesisstreamspecification-streamarn
+	//
 	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 }
 

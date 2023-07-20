@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::Pipeline`.
+// The `AWS::SageMaker::Pipeline` resource creates shell scripts that run when you create and/or start a SageMaker Pipeline.
 //
-// The `AWS::SageMaker::Pipeline` resource creates shell scripts that run when you create and/or start a SageMaker Pipeline. For information about SageMaker Pipelines, see [SageMaker Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines.html) in the *Amazon SageMaker Developer Guide* .
+// For information about SageMaker Pipelines, see [SageMaker Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines.html) in the *Amazon SageMaker Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html
+//
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -62,12 +65,9 @@ type CfnPipeline interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::SageMaker::Pipeline.ParallelismConfiguration`.
 	ParallelismConfiguration() interface{}
 	SetParallelismConfiguration(val interface{})
 	// The definition of the pipeline.
-	//
-	// This can be either a JSON string or an Amazon S3 location.
 	PipelineDefinition() interface{}
 	SetPipelineDefinition(val interface{})
 	// The description of the pipeline.
@@ -91,8 +91,11 @@ type CfnPipeline interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags of the pipeline.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags of the pipeline.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -237,6 +240,7 @@ type CfnPipeline interface {
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPipeline) CfnOptions() awscdk.ICfnResourceOptions {
@@ -389,6 +393,16 @@ func (j *jsiiProxy_CfnPipeline) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipeline) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipeline) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -410,7 +424,6 @@ func (j *jsiiProxy_CfnPipeline) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SageMaker::Pipeline`.
 func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
@@ -428,7 +441,6 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 	return &j
 }
 
-// Create a new `AWS::SageMaker::Pipeline`.
 func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
@@ -440,9 +452,6 @@ func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *stri
 }
 
 func (j *jsiiProxy_CfnPipeline)SetParallelismConfiguration(val interface{}) {
-	if err := j.validateSetParallelismConfigurationParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parallelismConfiguration",
@@ -495,6 +504,17 @@ func (j *jsiiProxy_CfnPipeline)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

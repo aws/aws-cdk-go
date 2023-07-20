@@ -18,14 +18,22 @@ package awsapigateway
 //   	UseStageCache: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html
+//
 type CfnDeployment_CanarySettingProperty struct {
 	// The percent (0-100) of traffic diverted to a canary deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic
+	//
 	PercentTraffic *float64 `field:"optional" json:"percentTraffic" yaml:"percentTraffic"`
 	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary.
 	//
 	// These stage variables are represented as a string-to-string map between stage variable names and their values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides
+	//
 	StageVariableOverrides interface{} `field:"optional" json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
 	// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache
+	//
 	UseStageCache interface{} `field:"optional" json:"useStageCache" yaml:"useStageCache"`
 }
 

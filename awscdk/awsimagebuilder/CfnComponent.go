@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ImageBuilder::Component`.
+// Creates a new component that can be used to build, validate, test, and assess your image.
 //
-// Creates a new component that can be used to build, validate, test, and assess your image. The component is based on a YAML document that you specify using exactly one of the following methods:
+// The component is based on a YAML document that you specify using exactly one of the following methods:
 //
 // - Inline, using the `data` property in the request body.
 // - A URL that points to a YAML document file stored in Amazon S3, using the `uri` property in the request body.
@@ -40,9 +40,12 @@ import (
 //   	Uri: jsii.String("uri"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html
+//
 type CfnComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the component.
 	//
 	// The following pattern is applied: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:\d{12}|aws):(?:image-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\d+)\.(?:x|\d+)\.(?:x|\d+))(?:/\d+)?)?$` .
@@ -63,8 +66,6 @@ type CfnComponent interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The change description of the component.
-	//
-	// Describes what change has been made in this version, or what makes this version different from other versions of this component.
 	ChangeDescription() *string
 	SetChangeDescription(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -72,8 +73,6 @@ type CfnComponent interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Component `data` contains inline YAML document content for the component.
-	//
-	// Alternatively, you can specify the `uri` of a YAML document file stored in Amazon S3. However, you cannot specify both properties.
 	Data() *string
 	SetData(val *string)
 	// Describes the contents of the component.
@@ -110,12 +109,13 @@ type CfnComponent interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The operating system (OS) version supported by the component.
-	//
-	// If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.
 	SupportedOsVersions() *[]*string
 	SetSupportedOsVersions(val *[]*string)
-	// The tags that apply to the component.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags that apply to the component.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -130,15 +130,9 @@ type CfnComponent interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The `uri` of a YAML component document file.
-	//
-	// This must be an S3 URL ( `s3://bucket/key` ), and the requester must have permission to access the S3 bucket it points to. If you use Amazon S3, you can specify component content up to your service quota.
-	//
-	// Alternatively, you can specify the YAML document inline, using the component `data` property. You cannot specify both properties.
 	Uri() *string
 	SetUri(val *string)
 	// The component version.
-	//
-	// For example, `1.0.0` .
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -272,6 +266,7 @@ type CfnComponent interface {
 type jsiiProxy_CfnComponent struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnComponent) AttrArn() *string {
@@ -474,6 +469,16 @@ func (j *jsiiProxy_CfnComponent) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComponent) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComponent) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -515,7 +520,6 @@ func (j *jsiiProxy_CfnComponent) Version() *string {
 }
 
 
-// Create a new `AWS::ImageBuilder::Component`.
 func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponentProps) CfnComponent {
 	_init_.Initialize()
 
@@ -533,7 +537,6 @@ func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponent
 	return &j
 }
 
-// Create a new `AWS::ImageBuilder::Component`.
 func NewCfnComponent_Override(c CfnComponent, scope constructs.Construct, id *string, props *CfnComponentProps) {
 	_init_.Initialize()
 
@@ -602,6 +605,14 @@ func (j *jsiiProxy_CfnComponent)SetSupportedOsVersions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"supportedOsVersions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComponent)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

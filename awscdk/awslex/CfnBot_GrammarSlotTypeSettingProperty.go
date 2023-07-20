@@ -18,8 +18,12 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesetting.html
+//
 type CfnBot_GrammarSlotTypeSettingProperty struct {
 	// The source of the grammar used to create the slot type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesetting.html#cfn-lex-bot-grammarslottypesetting-source
+	//
 	Source interface{} `field:"optional" json:"source" yaml:"source"`
 }
 

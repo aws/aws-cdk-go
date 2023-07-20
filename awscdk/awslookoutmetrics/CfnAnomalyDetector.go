@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::LookoutMetrics::AnomalyDetector`.
-//
 // The `AWS::LookoutMetrics::AnomalyDetector` type creates an anomaly detector.
 //
 // Example:
@@ -125,6 +123,8 @@ import (
 //   	AnomalyDetectorName: jsii.String("anomalyDetectorName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html
 //
 type CfnAnomalyDetector interface {
 	awscdk.CfnResource
@@ -485,7 +485,6 @@ func (j *jsiiProxy_CfnAnomalyDetector) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::LookoutMetrics::AnomalyDetector`.
 func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) CfnAnomalyDetector {
 	_init_.Initialize()
 
@@ -503,7 +502,6 @@ func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAno
 	return &j
 }
 
-// Create a new `AWS::LookoutMetrics::AnomalyDetector`.
 func NewCfnAnomalyDetector_Override(c CfnAnomalyDetector, scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) {
 	_init_.Initialize()
 

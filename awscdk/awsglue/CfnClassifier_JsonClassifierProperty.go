@@ -15,12 +15,18 @@ package awsglue
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html
+//
 type CfnClassifier_JsonClassifierProperty struct {
 	// A `JsonPath` string defining the JSON data for the classifier to classify.
 	//
 	// AWS Glue supports a subset of `JsonPath` , as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-jsonpath
+	//
 	JsonPath *string `field:"required" json:"jsonPath" yaml:"jsonPath"`
 	// The name of the classifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

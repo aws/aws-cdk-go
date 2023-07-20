@@ -12,8 +12,12 @@ package awsmsk
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityscram.html
+//
 type CfnCluster_VpcConnectivityScramProperty struct {
 	// SASL/SCRAM authentication is enabled or not.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityscram.html#cfn-msk-cluster-vpcconnectivityscram-enabled
+	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

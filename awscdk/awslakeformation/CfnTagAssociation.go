@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::LakeFormation::TagAssociation`.
+// The `AWS::LakeFormation::TagAssociation` resource represents an assignment of an LF-tag to a Data Catalog resource (database, table, or column).
 //
-// The `AWS::LakeFormation::TagAssociation` resource represents an assignment of an LF-tag to a Data Catalog resource (database, table, or column). During a stack operation, CloudFormation calls AWS Lake Formation `AddLFTagsToResource` API to create a `TagAssociation` resource and calls the `RemoveLFTagsToResource` API to delete it.
+// During a stack operation, CloudFormation calls AWS Lake Formation `AddLFTagsToResource` API to create a `TagAssociation` resource and calls the `RemoveLFTagsToResource` API to delete it.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -56,6 +56,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html
+//
 type CfnTagAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -99,8 +101,6 @@ type CfnTagAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// UTF-8 string (valid values: `DATABASE | TABLE` ).
-	//
-	// The resource for which the LF-tag policy applies.
 	Resource() interface{}
 	SetResource(val interface{})
 	// The stack in which this element is defined.
@@ -394,7 +394,6 @@ func (j *jsiiProxy_CfnTagAssociation) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::LakeFormation::TagAssociation`.
 func NewCfnTagAssociation(scope constructs.Construct, id *string, props *CfnTagAssociationProps) CfnTagAssociation {
 	_init_.Initialize()
 
@@ -412,7 +411,6 @@ func NewCfnTagAssociation(scope constructs.Construct, id *string, props *CfnTagA
 	return &j
 }
 
-// Create a new `AWS::LakeFormation::TagAssociation`.
 func NewCfnTagAssociation_Override(c CfnTagAssociation, scope constructs.Construct, id *string, props *CfnTagAssociationProps) {
 	_init_.Initialize()
 

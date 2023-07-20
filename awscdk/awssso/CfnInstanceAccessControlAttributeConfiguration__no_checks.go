@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateSetAc
 	return nil
 }
 
+func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateSetInstanceAccessControlAttributeConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateSetInstanceArnParameters(val *string) error {
 	return nil
 }

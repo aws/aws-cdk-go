@@ -32,6 +32,8 @@ package awscloudtrail
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html
+//
 type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// A field in a CloudTrail event record on which to filter events to be logged.
 	//
@@ -167,20 +169,34 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When resources.type equals `AWS::VerifiedPermissions::PolicyStore` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:verifiedpermissions:<region>:<account_ID>:policy-store/<policy_store_UUID>`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-field
+	//
 	Field *string `field:"required" json:"field" yaml:"field"`
 	// An operator that includes events that match the last few characters of the event record field specified as the value of `Field` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-endswith
+	//
 	EndsWith *[]*string `field:"optional" json:"endsWith" yaml:"endsWith"`
 	// An operator that includes events that match the exact value of the event record field specified as the value of `Field` .
 	//
 	// This is the only valid operator that you can use with the `readOnly` , `eventCategory` , and `resources.type` fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-equals
+	//
 	EqualTo *[]*string `field:"optional" json:"equalTo" yaml:"equalTo"`
 	// An operator that excludes events that match the last few characters of the event record field specified as the value of `Field` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notendswith
+	//
 	NotEndsWith *[]*string `field:"optional" json:"notEndsWith" yaml:"notEndsWith"`
 	// An operator that excludes events that match the exact value of the event record field specified as the value of `Field` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notequals
+	//
 	NotEquals *[]*string `field:"optional" json:"notEquals" yaml:"notEquals"`
 	// An operator that excludes events that match the first few characters of the event record field specified as the value of `Field` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notstartswith
+	//
 	NotStartsWith *[]*string `field:"optional" json:"notStartsWith" yaml:"notStartsWith"`
 	// An operator that includes events that match the first few characters of the event record field specified as the value of `Field` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-startswith
+	//
 	StartsWith *[]*string `field:"optional" json:"startsWith" yaml:"startsWith"`
 }
 

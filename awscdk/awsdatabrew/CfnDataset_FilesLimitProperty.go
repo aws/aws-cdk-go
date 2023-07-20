@@ -16,16 +16,24 @@ package awsdatabrew
 //   	OrderedBy: jsii.String("orderedBy"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html
+//
 type CfnDataset_FilesLimitProperty struct {
 	// The number of Amazon S3 files to select.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+	//
 	MaxFiles *float64 `field:"required" json:"maxFiles" yaml:"maxFiles"`
 	// A criteria to use for Amazon S3 files sorting before their selection.
 	//
 	// By default uses DESCENDING order, i.e. most recent files are selected first. Anotherpossible value is ASCENDING.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+	//
 	Order *string `field:"optional" json:"order" yaml:"order"`
 	// A criteria to use for Amazon S3 files sorting before their selection.
 	//
 	// By default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it's the only allowed value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+	//
 	OrderedBy *string `field:"optional" json:"orderedBy" yaml:"orderedBy"`
 }
 

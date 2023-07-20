@@ -1,6 +1,8 @@
 package awshealthlake
 
 
+// The time that a Data Store was created.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,10 +13,16 @@ package awshealthlake
 //   	Seconds: jsii.String("seconds"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-createdat.html
+//
 type CfnFHIRDatastore_CreatedAtProperty struct {
-	// `CfnFHIRDatastore.CreatedAtProperty.Nanos`.
+	// Nanoseconds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-createdat.html#cfn-healthlake-fhirdatastore-createdat-nanos
+	//
 	Nanos *float64 `field:"required" json:"nanos" yaml:"nanos"`
-	// `CfnFHIRDatastore.CreatedAtProperty.Seconds`.
+	// Seconds since epoch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-createdat.html#cfn-healthlake-fhirdatastore-createdat-seconds
+	//
 	Seconds *string `field:"required" json:"seconds" yaml:"seconds"`
 }
 

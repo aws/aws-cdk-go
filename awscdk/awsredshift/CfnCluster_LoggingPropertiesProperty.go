@@ -15,6 +15,8 @@ package awsredshift
 //   	S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html
+//
 type CfnCluster_LoggingPropertiesProperty struct {
 	// The name of an existing S3 bucket where the log files are to be stored.
 	//
@@ -22,6 +24,8 @@ type CfnCluster_LoggingPropertiesProperty struct {
 	//
 	// - Must be in the same region as the cluster
 	// - The cluster must have read bucket and put object permissions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The prefix applied to the log file names.
 	//
@@ -35,6 +39,8 @@ type CfnCluster_LoggingPropertiesProperty struct {
 	// - x27
 	// - x5c
 	// - x7f or larger.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-s3keyprefix
+	//
 	S3KeyPrefix *string `field:"optional" json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 }
 

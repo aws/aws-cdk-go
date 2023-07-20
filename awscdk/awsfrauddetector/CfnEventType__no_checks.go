@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnEventType) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventType) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEventTypeParameters(scope constructs.Construct, id *string, props *CfnEventTypeProps) error {
 	return nil
 }

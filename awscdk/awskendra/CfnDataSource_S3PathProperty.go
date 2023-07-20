@@ -13,10 +13,16 @@ package awskendra
 //   	Key: jsii.String("key"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html
+//
 type CfnDataSource_S3PathProperty struct {
 	// The name of the S3 bucket that contains the file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The name of the file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 }
 

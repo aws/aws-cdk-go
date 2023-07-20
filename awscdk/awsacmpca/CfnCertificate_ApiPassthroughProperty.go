@@ -117,12 +117,18 @@ package awsacmpca
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html
+//
 type CfnCertificate_ApiPassthroughProperty struct {
 	// Specifies X.509 extension information for a certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions
+	//
 	Extensions interface{} `field:"optional" json:"extensions" yaml:"extensions"`
 	// Contains information about the certificate subject.
 	//
 	// The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject
+	//
 	Subject interface{} `field:"optional" json:"subject" yaml:"subject"`
 }
 

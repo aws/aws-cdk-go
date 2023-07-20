@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::Dimension`.
+// Use the `AWS::IoT::Dimension` to limit the scope of a metric used in a security profile for AWS IoT Device Defender .
 //
-// Use the `AWS::IoT::Dimension` to limit the scope of a metric used in a security profile for AWS IoT Device Defender . For example, using a `TOPIC_FILTER` dimension, you can narrow down the scope of the metric to only MQTT topics where the name matches the pattern specified in the dimension. For API reference, see [CreateDimension](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateDimension.html) and for general information, see [Scoping metrics in security profiles using dimensions](https://docs.aws.amazon.com/iot/latest/developerguide/scoping-security-behavior.html) .
+// For example, using a `TOPIC_FILTER` dimension, you can narrow down the scope of the metric to only MQTT topics where the name matches the pattern specified in the dimension. For API reference, see [CreateDimension](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateDimension.html) and for general information, see [Scoping metrics in security profiles using dimensions](https://docs.aws.amazon.com/iot/latest/developerguide/scoping-security-behavior.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html
+//
 type CfnDimension interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the dimension.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -73,15 +76,14 @@ type CfnDimension interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies the value or list of values for the dimension.
-	//
-	// For `TOPIC_FILTER` dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
 	StringValues() *[]*string
 	SetStringValues(val *[]*string)
-	// Metadata that can be used to manage the dimension.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that can be used to manage the dimension.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Specifies the type of dimension.
-	//
-	// Supported types: `TOPIC_FILTER.`
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -228,6 +230,7 @@ type CfnDimension interface {
 type jsiiProxy_CfnDimension struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDimension) AttrArn() *string {
@@ -350,6 +353,16 @@ func (j *jsiiProxy_CfnDimension) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDimension) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDimension) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -381,7 +394,6 @@ func (j *jsiiProxy_CfnDimension) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::Dimension`.
 func NewCfnDimension(scope constructs.Construct, id *string, props *CfnDimensionProps) CfnDimension {
 	_init_.Initialize()
 
@@ -399,7 +411,6 @@ func NewCfnDimension(scope constructs.Construct, id *string, props *CfnDimension
 	return &j
 }
 
-// Create a new `AWS::IoT::Dimension`.
 func NewCfnDimension_Override(c CfnDimension, scope constructs.Construct, id *string, props *CfnDimensionProps) {
 	_init_.Initialize()
 
@@ -425,6 +436,17 @@ func (j *jsiiProxy_CfnDimension)SetStringValues(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"stringValues",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDimension)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

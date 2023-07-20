@@ -7,15 +7,17 @@ import (
 // Properties of a LaunchTemplate.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   sg1 := ec2.NewSecurityGroup(stack, jsii.String("sg1"), &SecurityGroupProps{
+//   var vpc vpc
+//
+//
+//   sg1 := ec2.NewSecurityGroup(this, jsii.String("sg1"), &SecurityGroupProps{
 //   	Vpc: vpc,
 //   })
-//   sg2 := ec2.NewSecurityGroup(stack, jsii.String("sg2"), &SecurityGroupProps{
+//   sg2 := ec2.NewSecurityGroup(this, jsii.String("sg2"), &SecurityGroupProps{
 //   	Vpc: vpc,
 //   })
 //
-//   launchTemplate := ec2.NewLaunchTemplate(stack, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
 //   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
 //   	SecurityGroup: sg1,
 //   })
@@ -23,6 +25,8 @@ import (
 //   launchTemplate.AddSecurityGroup(sg2)
 //
 type LaunchTemplateProps struct {
+	// Whether instances should have a public IP addresses associated with them.
+	AssociatePublicIpAddress *bool `field:"optional" json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
 	// Each instance that is launched has an associated root device volume,
@@ -83,6 +87,10 @@ type LaunchTemplateProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-instancemetadatatags
 	//
 	InstanceMetadataTags *bool `field:"optional" json:"instanceMetadataTags" yaml:"instanceMetadataTags"`
+	// The instance profile used to pass role information to EC2 instances.
+	//
+	// Note: You can provide an instanceProfile or a role, but not both.
+	InstanceProfile awsiam.IInstanceProfile `field:"optional" json:"instanceProfile" yaml:"instanceProfile"`
 	// Type of instance to launch.
 	InstanceType InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// Name of SSH keypair to grant access to instance.
@@ -99,7 +107,8 @@ type LaunchTemplateProps struct {
 	RequireImdsv2 *bool `field:"optional" json:"requireImdsv2" yaml:"requireImdsv2"`
 	// An IAM role to associate with the instance profile that is used by instances.
 	//
-	// The role must be assumable by the service principal `ec2.amazonaws.com`:
+	// The role must be assumable by the service principal `ec2.amazonaws.com`.
+	// Note: You can provide an instanceProfile or a role, but not both.
 	//
 	// Example:
 	//   role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{

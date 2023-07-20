@@ -309,6 +309,16 @@ func (j *jsiiProxy_CfnFirewall) validateSetSubnetMappingsParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnFirewall) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFirewall) validateSetVpcIdParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

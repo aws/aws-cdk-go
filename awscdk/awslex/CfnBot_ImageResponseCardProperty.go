@@ -26,22 +26,32 @@ package awslex
 //   	Subtitle: jsii.String("subtitle"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html
+//
 type CfnBot_ImageResponseCardProperty struct {
 	// The title to display on the response card.
 	//
 	// The format of the title is determined by the platform displaying the response card.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// A list of buttons that should be displayed on the response card.
 	//
 	// The arrangement of the buttons is determined by the platform that displays the button.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-buttons
+	//
 	Buttons interface{} `field:"optional" json:"buttons" yaml:"buttons"`
 	// The URL of an image to display on the response card.
 	//
 	// The image URL must be publicly available so that the platform displaying the response card has access to the image.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-imageurl
+	//
 	ImageUrl *string `field:"optional" json:"imageUrl" yaml:"imageUrl"`
 	// The subtitle to display on the response card.
 	//
 	// The format of the subtitle is determined by the platform displaying the response card.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-subtitle
+	//
 	Subtitle *string `field:"optional" json:"subtitle" yaml:"subtitle"`
 }
 

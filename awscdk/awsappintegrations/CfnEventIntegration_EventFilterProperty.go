@@ -12,8 +12,12 @@ package awsappintegrations
 //   	Source: jsii.String("source"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html
+//
 type CfnEventIntegration_EventFilterProperty struct {
 	// The source of the events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html#cfn-appintegrations-eventintegration-eventfilter-source
+	//
 	Source *string `field:"required" json:"source" yaml:"source"`
 }
 

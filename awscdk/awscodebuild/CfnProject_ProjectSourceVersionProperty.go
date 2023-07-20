@@ -15,10 +15,14 @@ package awscodebuild
 //   	SourceVersion: jsii.String("sourceVersion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectsourceversion.html
+//
 type CfnProject_ProjectSourceVersionProperty struct {
 	// An identifier for a source in the build project.
 	//
 	// The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectsourceversion.html#cfn-codebuild-project-projectsourceversion-sourceidentifier
+	//
 	SourceIdentifier *string `field:"required" json:"sourceIdentifier" yaml:"sourceIdentifier"`
 	// The source version for the corresponding source identifier. If specified, must be one of:.
 	//
@@ -28,6 +32,8 @@ type CfnProject_ProjectSourceVersionProperty struct {
 	// - For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
 	//
 	// For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectsourceversion.html#cfn-codebuild-project-projectsourceversion-sourceversion
+	//
 	SourceVersion *string `field:"optional" json:"sourceVersion" yaml:"sourceVersion"`
 }
 

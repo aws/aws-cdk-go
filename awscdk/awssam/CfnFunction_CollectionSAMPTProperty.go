@@ -10,8 +10,11 @@ package awssam
 //   	CollectionId: jsii.String("collectionId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-collectionsampt.html
+//
 type CfnFunction_CollectionSAMPTProperty struct {
-	// `CfnFunction.CollectionSAMPTProperty.CollectionId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-collectionsampt.html#cfn-serverless-function-collectionsampt-collectionid
+	//
 	CollectionId *string `field:"required" json:"collectionId" yaml:"collectionId"`
 }
 

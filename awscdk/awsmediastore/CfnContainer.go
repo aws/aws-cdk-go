@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaStore::Container`.
+// The AWS::MediaStore::Container resource specifies a storage container to hold objects.
 //
-// The AWS::MediaStore::Container resource specifies a storage container to hold objects. A container is similar to a bucket in Amazon S3.
+// A container is similar to a bucket in Amazon S3.
 //
 // When you create a container using AWS CloudFormation , the template manages data for five API actions: creating a container, setting access logging, updating the default container policy, adding a cross-origin resource sharing (CORS) policy, and adding an object lifecycle policy.
 //
@@ -63,35 +63,29 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html
+//
 type CfnContainer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The state of access logging on the container.
-	//
-	// This value is `false` by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to `true` , indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.
 	AccessLoggingEnabled() interface{}
 	SetAccessLoggingEnabled(val interface{})
 	// The DNS endpoint of the container.
 	//
 	// Use the endpoint to identify the specific container when sending requests to the data plane. The service assigns this value when the container is created. Once the value has been assigned, it does not change.
 	AttrEndpoint() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// The name for the container.
-	//
-	// The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named `movies` in every region, as long as you don’t have an existing container with that name.
 	ContainerName() *string
 	SetContainerName(val *string)
 	// Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests.
-	//
-	// For example, you might want to enable a request whose origin is http://www.example.com to access your AWS Elemental MediaStore container at my.example.container.com by using the browser's XMLHttpRequest capability.
-	//
-	// To enable CORS on a container, you attach a CORS policy to the container. In the CORS policy, you configure rules that identify origins and the HTTP methods that can be executed on your container. The policy can contain up to 398,000 characters. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.
-	//
-	// To learn more about CORS, see [Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore](https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html) .
 	CorsPolicy() interface{}
 	SetCorsPolicy(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -99,10 +93,6 @@ type CfnContainer interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Writes an object lifecycle policy to a container.
-	//
-	// If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.
-	//
-	// For information about how to construct an object lifecycle policy, see [Components of an Object Lifecycle Policy](https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html) .
 	LifecyclePolicy() *string
 	SetLifecyclePolicy(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -115,16 +105,11 @@ type CfnContainer interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::MediaStore::Container.MetricPolicy`.
 	MetricPolicy() interface{}
 	SetMetricPolicy(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Creates an access policy for the specified container to restrict the users and clients that can access it.
-	//
-	// For information about the data that is included in an access policy, see the [AWS Identity and Access Management User Guide](https://docs.aws.amazon.com/iam/) .
-	//
-	// For this release of the REST API, you can create only one policy for a container. If you enter `PutContainerPolicy` twice, the second command modifies the existing policy.
 	Policy() *string
 	SetPolicy(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -136,8 +121,10 @@ type CfnContainer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::MediaStore::Container.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -282,6 +269,7 @@ type CfnContainer interface {
 type jsiiProxy_CfnContainer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnContainer) AccessLoggingEnabled() interface{} {
@@ -299,6 +287,16 @@ func (j *jsiiProxy_CfnContainer) AttrEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainer) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -444,6 +442,16 @@ func (j *jsiiProxy_CfnContainer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContainer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContainer) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -465,7 +473,6 @@ func (j *jsiiProxy_CfnContainer) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MediaStore::Container`.
 func NewCfnContainer(scope constructs.Construct, id *string, props *CfnContainerProps) CfnContainer {
 	_init_.Initialize()
 
@@ -483,7 +490,6 @@ func NewCfnContainer(scope constructs.Construct, id *string, props *CfnContainer
 	return &j
 }
 
-// Create a new `AWS::MediaStore::Container`.
 func NewCfnContainer_Override(c CfnContainer, scope constructs.Construct, id *string, props *CfnContainerProps) {
 	_init_.Initialize()
 
@@ -550,6 +556,17 @@ func (j *jsiiProxy_CfnContainer)SetPolicy(val *string) {
 	_jsii_.Set(
 		j,
 		"policy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContainer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

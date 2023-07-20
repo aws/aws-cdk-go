@@ -13,13 +13,19 @@ package awsquicksight
 //   	ValueWhenUnsetOption: jsii.String("valueWhenUnsetOption"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringvaluewhenunsetconfiguration.html
+//
 type CfnTemplate_StringValueWhenUnsetConfigurationProperty struct {
 	// A custom value that's used when the value of a parameter isn't set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringvaluewhenunsetconfiguration.html#cfn-quicksight-template-stringvaluewhenunsetconfiguration-customvalue
+	//
 	CustomValue *string `field:"optional" json:"customValue" yaml:"customValue"`
 	// The built-in options for default values. The value can be one of the following:.
 	//
 	// - `RECOMMENDED` : The recommended value.
 	// - `NULL` : The `NULL` value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringvaluewhenunsetconfiguration.html#cfn-quicksight-template-stringvaluewhenunsetconfiguration-valuewhenunsetoption
+	//
 	ValueWhenUnsetOption *string `field:"optional" json:"valueWhenUnsetOption" yaml:"valueWhenUnsetOption"`
 }
 

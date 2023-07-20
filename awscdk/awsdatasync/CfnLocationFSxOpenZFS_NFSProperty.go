@@ -14,8 +14,12 @@ package awsdatasync
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-nfs.html
+//
 type CfnLocationFSxOpenZFS_NFSProperty struct {
 	// Represents the mount options that are available for DataSync to access an NFS location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-nfs.html#cfn-datasync-locationfsxopenzfs-nfs-mountoptions
+	//
 	MountOptions interface{} `field:"required" json:"mountOptions" yaml:"mountOptions"`
 }
 

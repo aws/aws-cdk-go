@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Evidently::Segment`.
+// Creates or updates a *segment* of your audience.
 //
-// Creates or updates a *segment* of your audience. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+// A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
 //
 // Using a segment in an experiment limits that experiment to evaluate only the users who match the segment criteria. Using one or more segments in a launch allow you to define different traffic splits for the different audience segments.
 //
@@ -38,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-segment.html
+//
 type CfnSegment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the segment.
 	//
 	// For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`.
@@ -73,8 +76,6 @@ type CfnSegment interface {
 	// The tree node.
 	Node() constructs.Node
 	// The pattern to use for the segment.
-	//
-	// For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
 	Pattern() *string
 	SetPattern(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -86,16 +87,11 @@ type CfnSegment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Assigns one or more tags (key-value pairs) to the feature.
-	//
-	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-	//
-	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-	//
-	// You can associate as many as 50 tags with a feature.
-	//
-	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Assigns one or more tags (key-value pairs) to the feature.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -240,6 +236,7 @@ type CfnSegment interface {
 type jsiiProxy_CfnSegment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSegment) AttrArn() *string {
@@ -372,6 +369,16 @@ func (j *jsiiProxy_CfnSegment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSegment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSegment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -393,7 +400,6 @@ func (j *jsiiProxy_CfnSegment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Evidently::Segment`.
 func NewCfnSegment(scope constructs.Construct, id *string, props *CfnSegmentProps) CfnSegment {
 	_init_.Initialize()
 
@@ -411,7 +417,6 @@ func NewCfnSegment(scope constructs.Construct, id *string, props *CfnSegmentProp
 	return &j
 }
 
-// Create a new `AWS::Evidently::Segment`.
 func NewCfnSegment_Override(c CfnSegment, scope constructs.Construct, id *string, props *CfnSegmentProps) {
 	_init_.Initialize()
 
@@ -445,6 +450,17 @@ func (j *jsiiProxy_CfnSegment)SetPattern(val *string) {
 	_jsii_.Set(
 		j,
 		"pattern",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSegment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

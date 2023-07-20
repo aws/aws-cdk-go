@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) validateSetEngineVersionParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnCustomDBEngineVersion) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCustomDBEngineVersionParameters(scope constructs.Construct, id *string, props *CfnCustomDBEngineVersionProps) error {
 	return nil
 }

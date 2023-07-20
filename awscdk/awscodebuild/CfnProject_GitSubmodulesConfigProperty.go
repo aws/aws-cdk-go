@@ -12,8 +12,12 @@ package awscodebuild
 //   	FetchSubmodules: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-gitsubmodulesconfig.html
+//
 type CfnProject_GitSubmodulesConfigProperty struct {
 	// Set to true to fetch Git submodules for your AWS CodeBuild build project.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-gitsubmodulesconfig.html#cfn-codebuild-project-gitsubmodulesconfig-fetchsubmodules
+	//
 	FetchSubmodules interface{} `field:"required" json:"fetchSubmodules" yaml:"fetchSubmodules"`
 }
 

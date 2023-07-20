@@ -12,8 +12,12 @@ package awsmsk
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-iam.html
+//
 type CfnCluster_IamProperty struct {
 	// SASL/IAM authentication is enabled or not.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-iam.html#cfn-msk-cluster-iam-enabled
+	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

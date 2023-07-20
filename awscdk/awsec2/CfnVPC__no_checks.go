@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnVPC) validateSetEnableDnsSupportParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPC) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnVPCParameters(scope constructs.Construct, id *string, props *CfnVPCProps) error {
 	return nil
 }

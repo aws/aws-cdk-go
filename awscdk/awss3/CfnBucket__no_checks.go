@@ -140,6 +140,10 @@ func (j *jsiiProxy_CfnBucket) validateSetReplicationConfigurationParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnBucket) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnBucket) validateSetVersioningConfigurationParameters(val interface{}) error {
 	return nil
 }

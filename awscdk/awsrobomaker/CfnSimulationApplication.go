@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RoboMaker::SimulationApplication`.
-//
 // The `AWS::RoboMaker::SimulationApplication` resource creates an AWS RoboMaker simulation application.
 //
 // Example:
@@ -52,9 +50,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html
+//
 type CfnSimulationApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the simulation application.
 	AttrArn() *string
 	// The current revision id.
@@ -110,8 +111,11 @@ type CfnSimulationApplication interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A map that contains tag keys and tag values that are attached to the simulation application.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A map that contains tag keys and tag values that are attached to the simulation application.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -256,6 +260,7 @@ type CfnSimulationApplication interface {
 type jsiiProxy_CfnSimulationApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSimulationApplication) AttrArn() *string {
@@ -438,6 +443,16 @@ func (j *jsiiProxy_CfnSimulationApplication) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSimulationApplication) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSimulationApplication) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -459,7 +474,6 @@ func (j *jsiiProxy_CfnSimulationApplication) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::RoboMaker::SimulationApplication`.
 func NewCfnSimulationApplication(scope constructs.Construct, id *string, props *CfnSimulationApplicationProps) CfnSimulationApplication {
 	_init_.Initialize()
 
@@ -477,7 +491,6 @@ func NewCfnSimulationApplication(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::RoboMaker::SimulationApplication`.
 func NewCfnSimulationApplication_Override(c CfnSimulationApplication, scope constructs.Construct, id *string, props *CfnSimulationApplicationProps) {
 	_init_.Initialize()
 
@@ -552,6 +565,14 @@ func (j *jsiiProxy_CfnSimulationApplication)SetSources(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sources",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSimulationApplication)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

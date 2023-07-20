@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::GCMChannel`.
+// A *channel* is a type of platform that you can deliver messages to.
 //
-// A *channel* is a type of platform that you can deliver messages to. You can use the GCM channel to send push notification messages to the Firebase Cloud Messaging (FCM) service, which replaced the Google Cloud Messaging (GCM) service. Before you use Amazon Pinpoint to send notifications to FCM, you have to enable the GCM channel for an Amazon Pinpoint application.
+// You can use the GCM channel to send push notification messages to the Firebase Cloud Messaging (FCM) service, which replaced the Google Cloud Messaging (GCM) service. Before you use Amazon Pinpoint to send notifications to FCM, you have to enable the GCM channel for an Amazon Pinpoint application.
 //
 // The GCMChannel resource represents the status and authentication settings of the GCM channel for an application.
 //
@@ -28,6 +28,8 @@ import (
 //   	Enabled: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html
+//
 type CfnGCMChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -37,6 +39,7 @@ type CfnGCMChannel interface {
 	// The unique identifier for the Amazon Pinpoint application that the GCM channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -236,6 +239,16 @@ func (j *jsiiProxy_CfnGCMChannel) ApplicationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGCMChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGCMChannel) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -347,7 +360,6 @@ func (j *jsiiProxy_CfnGCMChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Pinpoint::GCMChannel`.
 func NewCfnGCMChannel(scope constructs.Construct, id *string, props *CfnGCMChannelProps) CfnGCMChannel {
 	_init_.Initialize()
 
@@ -365,7 +377,6 @@ func NewCfnGCMChannel(scope constructs.Construct, id *string, props *CfnGCMChann
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::GCMChannel`.
 func NewCfnGCMChannel_Override(c CfnGCMChannel, scope constructs.Construct, id *string, props *CfnGCMChannelProps) {
 	_init_.Initialize()
 

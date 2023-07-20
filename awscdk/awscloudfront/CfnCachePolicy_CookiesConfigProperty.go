@@ -17,6 +17,8 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
+//
 type CfnCachePolicy_CookiesConfigProperty struct {
 	// Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
 	//
@@ -26,8 +28,12 @@ type CfnCachePolicy_CookiesConfigProperty struct {
 	// - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in the cache key and in requests that CloudFront sends to the origin.
 	// - `allExcept` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** for those that are listed in the `CookieNames` type, which are not included.
 	// - `all` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
+	//
 	CookieBehavior *string `field:"required" json:"cookieBehavior" yaml:"cookieBehavior"`
 	// Contains a list of cookie names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
+	//
 	Cookies *[]*string `field:"optional" json:"cookies" yaml:"cookies"`
 }
 

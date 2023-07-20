@@ -44,8 +44,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionsetparametersoperation.html
+//
 type CfnTemplate_CustomActionSetParametersOperationProperty struct {
 	// The parameter that determines the value configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionsetparametersoperation.html#cfn-quicksight-template-customactionsetparametersoperation-parametervalueconfigurations
+	//
 	ParameterValueConfigurations interface{} `field:"required" json:"parameterValueConfigurations" yaml:"parameterValueConfigurations"`
 }
 

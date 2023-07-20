@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppMesh::VirtualService`.
-//
 // Creates a virtual service within a service mesh.
 //
 // A virtual service is an abstraction of a real service that is provided by a virtual node directly or indirectly by means of a virtual router. Dependent services call your virtual service by its `virtualServiceName` , and those requests are routed to the virtual node or virtual router that is specified as the provider for the virtual service.
@@ -46,11 +44,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html
+//
 type CfnVirtualService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the virtual service.
 	AttrArn() *string
+	AttrId() *string
 	// The name of the service mesh that the virtual service resides in.
 	AttrMeshName() *string
 	// The AWS IAM account ID of the service mesh owner.
@@ -88,8 +90,6 @@ type CfnVirtualService interface {
 	MeshName() *string
 	SetMeshName(val *string)
 	// The AWS IAM account ID of the service mesh owner.
-	//
-	// If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
 	MeshOwner() *string
 	SetMeshOwner(val *string)
 	// The tree node.
@@ -106,10 +106,11 @@ type CfnVirtualService interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Optional metadata that you can apply to the virtual service to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Optional metadata that you can apply to the virtual service to assist with categorization and organization.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -257,6 +258,7 @@ type CfnVirtualService interface {
 type jsiiProxy_CfnVirtualService struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVirtualService) AttrArn() *string {
@@ -264,6 +266,16 @@ func (j *jsiiProxy_CfnVirtualService) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVirtualService) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -439,6 +451,16 @@ func (j *jsiiProxy_CfnVirtualService) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVirtualService) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVirtualService) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -470,7 +492,6 @@ func (j *jsiiProxy_CfnVirtualService) VirtualServiceName() *string {
 }
 
 
-// Create a new `AWS::AppMesh::VirtualService`.
 func NewCfnVirtualService(scope constructs.Construct, id *string, props *CfnVirtualServiceProps) CfnVirtualService {
 	_init_.Initialize()
 
@@ -488,7 +509,6 @@ func NewCfnVirtualService(scope constructs.Construct, id *string, props *CfnVirt
 	return &j
 }
 
-// Create a new `AWS::AppMesh::VirtualService`.
 func NewCfnVirtualService_Override(c CfnVirtualService, scope constructs.Construct, id *string, props *CfnVirtualServiceProps) {
 	_init_.Initialize()
 
@@ -525,6 +545,17 @@ func (j *jsiiProxy_CfnVirtualService)SetSpec(val interface{}) {
 	_jsii_.Set(
 		j,
 		"spec",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVirtualService)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

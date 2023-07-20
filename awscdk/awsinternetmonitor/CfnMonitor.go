@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::InternetMonitor::Monitor`.
+// The `AWS::InternetMonitor::Monitor` resource is an Internet Monitor resource type that contains information about how you create a monitor in Amazon CloudWatch Internet Monitor.
 //
-// The `AWS::InternetMonitor::Monitor` resource is an Internet Monitor resource type that contains information about how you create a monitor in Amazon CloudWatch Internet Monitor. A monitor in Internet Monitor provides visibility into performance and availability between your applications hosted on AWS and your end users, using a traffic profile that it creates based on the application resources that you add: Virtual Private Clouds (VPCs), Amazon CloudFront distributions, or WorkSpaces directories.
+// A monitor in Internet Monitor provides visibility into performance and availability between your applications hosted on AWS and your end users, using a traffic profile that it creates based on the application resources that you add: Virtual Private Clouds (VPCs), Amazon CloudFront distributions, or WorkSpaces directories.
 //
 // Internet Monitor also alerts you to internet issues that impact your application in the city-networks (geographies and networks) where your end users use it. With Internet Monitor, you can quickly pinpoint the locations and providers that are affected, so that you can address the issue.
 //
@@ -26,6 +26,10 @@ import (
 //   	MonitorName: jsii.String("monitorName"),
 //
 //   	// the properties below are optional
+//   	HealthEventsConfig: &HealthEventsConfigProperty{
+//   		AvailabilityScoreThreshold: jsii.Number(123),
+//   		PerformanceScoreThreshold: jsii.Number(123),
+//   	},
 //   	InternetMeasurementsLogDelivery: &InternetMeasurementsLogDeliveryProperty{
 //   		S3Config: &S3ConfigProperty{
 //   			BucketName: jsii.String("bucketName"),
@@ -53,9 +57,12 @@ import (
 //   	TrafficPercentageToMonitor: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html
+//
 type CfnMonitor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The time when the monitor was created.
 	AttrCreatedAt() *string
 	// The last time that the monitor was modified.
@@ -77,9 +84,9 @@ type CfnMonitor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	HealthEventsConfig() interface{}
+	SetHealthEventsConfig(val interface{})
 	// Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket.
-	//
-	// Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
 	InternetMeasurementsLogDelivery() interface{}
 	SetInternetMeasurementsLogDelivery(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -93,15 +100,9 @@ type CfnMonitor interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum number of city-networks to monitor for your resources.
-	//
-	// A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
-	//
-	// For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
 	MaxCityNetworksToMonitor() *float64
 	SetMaxCityNetworksToMonitor(val *float64)
 	// The name of the monitor.
-	//
-	// A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
 	MonitorName() *string
 	SetMonitorName(val *string)
 	// The tree node.
@@ -115,10 +116,6 @@ type CfnMonitor interface {
 	Resources() *[]*string
 	SetResources(val *[]*string)
 	// The resources to add to a monitor, which you provide as a set of Amazon Resource Names (ARNs).
-	//
-	// You can add a combination of Virtual Private Clouds (VPCs) and Amazon CloudFront distributions, or you can add WorkSpaces directories. You can't add all three types of resources.
-	//
-	// > If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
 	ResourcesToAdd() *[]*string
 	SetResourcesToAdd(val *[]*string)
 	// The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs).
@@ -129,15 +126,14 @@ type CfnMonitor interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The status of a monitor.
-	//
-	// The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
 	Status() *string
 	SetStatus(val *string)
-	// The tags for a monitor, listed as a set of *key:value* pairs.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for a monitor, listed as a set of *key:value* pairs.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The percentage of the internet-facing traffic for your application that you want to monitor.
-	//
-	// You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
 	TrafficPercentageToMonitor() *float64
 	SetTrafficPercentageToMonitor(val *float64)
 	// Deprecated.
@@ -284,6 +280,7 @@ type CfnMonitor interface {
 type jsiiProxy_CfnMonitor struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMonitor) AttrCreatedAt() *string {
@@ -371,6 +368,16 @@ func (j *jsiiProxy_CfnMonitor) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMonitor) HealthEventsConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"healthEventsConfig",
 		&returns,
 	)
 	return returns
@@ -496,6 +503,16 @@ func (j *jsiiProxy_CfnMonitor) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMonitor) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMonitor) TrafficPercentageToMonitor() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -527,7 +544,6 @@ func (j *jsiiProxy_CfnMonitor) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::InternetMonitor::Monitor`.
 func NewCfnMonitor(scope constructs.Construct, id *string, props *CfnMonitorProps) CfnMonitor {
 	_init_.Initialize()
 
@@ -545,7 +561,6 @@ func NewCfnMonitor(scope constructs.Construct, id *string, props *CfnMonitorProp
 	return &j
 }
 
-// Create a new `AWS::InternetMonitor::Monitor`.
 func NewCfnMonitor_Override(c CfnMonitor, scope constructs.Construct, id *string, props *CfnMonitorProps) {
 	_init_.Initialize()
 
@@ -553,6 +568,17 @@ func NewCfnMonitor_Override(c CfnMonitor, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_internetmonitor.CfnMonitor",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnMonitor)SetHealthEventsConfig(val interface{}) {
+	if err := j.validateSetHealthEventsConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"healthEventsConfig",
+		val,
 	)
 }
 
@@ -614,6 +640,17 @@ func (j *jsiiProxy_CfnMonitor)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMonitor)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

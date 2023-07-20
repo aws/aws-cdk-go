@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Config::AggregationAuthorization`.
-//
 // An object that represents the authorizations granted to aggregator accounts and regions.
 //
 // Example:
@@ -31,9 +29,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html
+//
 type CfnAggregationAuthorization interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the aggregation object.
 	AttrAggregationAuthorizationArn() *string
 	// The 12-digit account ID of the account authorized to aggregate data.
@@ -72,8 +73,11 @@ type CfnAggregationAuthorization interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of tag object.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of tag object.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -218,6 +222,7 @@ type CfnAggregationAuthorization interface {
 type jsiiProxy_CfnAggregationAuthorization struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAggregationAuthorization) AttrAggregationAuthorizationArn() *string {
@@ -340,6 +345,16 @@ func (j *jsiiProxy_CfnAggregationAuthorization) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAggregationAuthorization) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAggregationAuthorization) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -361,7 +376,6 @@ func (j *jsiiProxy_CfnAggregationAuthorization) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::Config::AggregationAuthorization`.
 func NewCfnAggregationAuthorization(scope constructs.Construct, id *string, props *CfnAggregationAuthorizationProps) CfnAggregationAuthorization {
 	_init_.Initialize()
 
@@ -379,7 +393,6 @@ func NewCfnAggregationAuthorization(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::Config::AggregationAuthorization`.
 func NewCfnAggregationAuthorization_Override(c CfnAggregationAuthorization, scope constructs.Construct, id *string, props *CfnAggregationAuthorizationProps) {
 	_init_.Initialize()
 
@@ -408,6 +421,17 @@ func (j *jsiiProxy_CfnAggregationAuthorization)SetAuthorizedAwsRegion(val *strin
 	_jsii_.Set(
 		j,
 		"authorizedAwsRegion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAggregationAuthorization)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

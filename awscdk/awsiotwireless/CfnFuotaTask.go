@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTWireless::FuotaTask`.
-//
 // A FUOTA task.
 //
 // Example:
@@ -43,9 +41,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html
+//
 type CfnFuotaTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the multicast group to associate with a FUOTA task.
 	AssociateMulticastGroup() *string
 	SetAssociateMulticastGroup(val *string)
@@ -111,10 +112,11 @@ type CfnFuotaTask interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags are an array of key-value pairs to attach to the specified resource.
-	//
-	// Tags can have a minimum of 0 and a maximum of 50 items.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -259,6 +261,7 @@ type CfnFuotaTask interface {
 type jsiiProxy_CfnFuotaTask struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFuotaTask) AssociateMulticastGroup() *string {
@@ -481,6 +484,16 @@ func (j *jsiiProxy_CfnFuotaTask) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFuotaTask) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFuotaTask) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -502,7 +515,6 @@ func (j *jsiiProxy_CfnFuotaTask) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTWireless::FuotaTask`.
 func NewCfnFuotaTask(scope constructs.Construct, id *string, props *CfnFuotaTaskProps) CfnFuotaTask {
 	_init_.Initialize()
 
@@ -520,7 +532,6 @@ func NewCfnFuotaTask(scope constructs.Construct, id *string, props *CfnFuotaTask
 	return &j
 }
 
-// Create a new `AWS::IoTWireless::FuotaTask`.
 func NewCfnFuotaTask_Override(c CfnFuotaTask, scope constructs.Construct, id *string, props *CfnFuotaTaskProps) {
 	_init_.Initialize()
 
@@ -608,6 +619,17 @@ func (j *jsiiProxy_CfnFuotaTask)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFuotaTask)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFRegional::RegexPatternSet`.
+// The `RegexPatternSet` specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as `B[a@]dB[o0]t` .
 //
-// The `RegexPatternSet` specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as `B[a@]dB[o0]t` . You can then configure AWS WAF to reject those requests.
+// You can then configure AWS WAF to reject those requests.
 //
 // Note that you can only create regex pattern sets using a AWS CloudFormation template. To add the regex pattern sets created through AWS CloudFormation to a RegexMatchSet, use the AWS WAF console, API, or command line interface (CLI). For more information, see [UpdateRegexMatchSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_UpdateRegexMatchSet.html) .
 //
@@ -27,9 +27,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-regexpatternset.html
+//
 type CfnRegexPatternSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -50,8 +53,6 @@ type CfnRegexPatternSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A friendly name or description of the `RegexPatternSet` .
-	//
-	// You can't change `Name` after you create a `RegexPatternSet` .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -214,6 +215,16 @@ type jsiiProxy_CfnRegexPatternSet struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnRegexPatternSet) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRegexPatternSet) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -335,7 +346,6 @@ func (j *jsiiProxy_CfnRegexPatternSet) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::WAFRegional::RegexPatternSet`.
 func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) CfnRegexPatternSet {
 	_init_.Initialize()
 
@@ -353,7 +363,6 @@ func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnReg
 	return &j
 }
 
-// Create a new `AWS::WAFRegional::RegexPatternSet`.
 func NewCfnRegexPatternSet_Override(c CfnRegexPatternSet, scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) {
 	_init_.Initialize()
 

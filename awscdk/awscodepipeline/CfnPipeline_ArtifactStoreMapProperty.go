@@ -26,12 +26,18 @@ package awscodepipeline
 //   	Region: jsii.String("region"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html
+//
 type CfnPipeline_ArtifactStoreMapProperty struct {
 	// Represents information about the S3 bucket where artifacts are stored for the pipeline.
 	//
 	// > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-artifactstore
+	//
 	ArtifactStore interface{} `field:"required" json:"artifactStore" yaml:"artifactStore"`
 	// The action declaration's AWS Region, such as us-east-1.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-region
+	//
 	Region *string `field:"required" json:"region" yaml:"region"`
 }
 

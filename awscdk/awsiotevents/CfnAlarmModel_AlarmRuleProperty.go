@@ -16,8 +16,12 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmrule.html
+//
 type CfnAlarmModel_AlarmRuleProperty struct {
 	// A rule that compares an input property value to a threshold value with a comparison operator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmrule.html#cfn-iotevents-alarmmodel-alarmrule-simplerule
+	//
 	SimpleRule interface{} `field:"optional" json:"simpleRule" yaml:"simpleRule"`
 }
 

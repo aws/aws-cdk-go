@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnDataSource) validateSetSslPropertiesParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSource) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSource) validateSetVpcConnectionPropertiesParameters(val interface{}) error {
 	return nil
 }

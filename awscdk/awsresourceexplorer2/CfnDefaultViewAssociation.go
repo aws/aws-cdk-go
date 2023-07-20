@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ResourceExplorer2::DefaultViewAssociation`.
+// Sets the specified view as the default for the AWS Region in which you call this operation.
 //
-// Sets the specified view as the default for the AWS Region in which you call this operation. If a user makes a search query that doesn't explicitly specify the view to use, Resource Explorer chooses this default view automatically for searches performed in this AWS Region .
+// If a user makes a search query that doesn't explicitly specify the view to use, Resource Explorer chooses this default view automatically for searches performed in this AWS Region .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,6 +21,8 @@ import (
 //   cfnDefaultViewAssociation := awscdk.Aws_resourceexplorer2.NewCfnDefaultViewAssociation(this, jsii.String("MyCfnDefaultViewAssociation"), &CfnDefaultViewAssociationProps{
 //   	ViewArn: jsii.String("viewArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-defaultviewassociation.html
 //
 type CfnDefaultViewAssociation interface {
 	awscdk.CfnResource
@@ -75,8 +77,6 @@ type CfnDefaultViewAssociation interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation.
-	//
-	// The specified view must already exist in the specified Region.
 	ViewArn() *string
 	SetViewArn(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -333,7 +333,6 @@ func (j *jsiiProxy_CfnDefaultViewAssociation) ViewArn() *string {
 }
 
 
-// Create a new `AWS::ResourceExplorer2::DefaultViewAssociation`.
 func NewCfnDefaultViewAssociation(scope constructs.Construct, id *string, props *CfnDefaultViewAssociationProps) CfnDefaultViewAssociation {
 	_init_.Initialize()
 
@@ -351,7 +350,6 @@ func NewCfnDefaultViewAssociation(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::ResourceExplorer2::DefaultViewAssociation`.
 func NewCfnDefaultViewAssociation_Override(c CfnDefaultViewAssociation, scope constructs.Construct, id *string, props *CfnDefaultViewAssociationProps) {
 	_init_.Initialize()
 

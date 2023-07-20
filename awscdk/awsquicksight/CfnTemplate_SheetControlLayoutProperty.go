@@ -37,8 +37,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetcontrollayout.html
+//
 type CfnTemplate_SheetControlLayoutProperty struct {
 	// The configuration that determines the elements and canvas size options of sheet control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetcontrollayout.html#cfn-quicksight-template-sheetcontrollayout-configuration
+	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::FleetMetric`.
-//
 // Use the `AWS::IoT::FleetMetric` resource to declare a fleet metric.
 //
 // Example:
@@ -43,9 +41,12 @@ import (
 //   	Unit: jsii.String("unit"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html
+//
 type CfnFleetMetric interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The field to aggregate.
 	AggregationField() *string
 	SetAggregationField(val *string)
@@ -91,8 +92,6 @@ type CfnFleetMetric interface {
 	// The tree node.
 	Node() constructs.Node
 	// The time in seconds between fleet metric emissions.
-	//
-	// Range [60(1 min), 86400(1 day)] and must be multiple of 60.
 	Period() *float64
 	SetPeriod(val *float64)
 	// The search query string.
@@ -110,11 +109,12 @@ type CfnFleetMetric interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata which can be used to manage the fleet metric.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata which can be used to manage the fleet metric.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Used to support unit transformation such as milliseconds to seconds.
-	//
-	// Must be a unit supported by CW metric. Default to null.
 	Unit() *string
 	SetUnit(val *string)
 	// Deprecated.
@@ -261,6 +261,7 @@ type CfnFleetMetric interface {
 type jsiiProxy_CfnFleetMetric struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFleetMetric) AggregationField() *string {
@@ -473,6 +474,16 @@ func (j *jsiiProxy_CfnFleetMetric) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleetMetric) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleetMetric) Unit() *string {
 	var returns *string
 	_jsii_.Get(
@@ -504,7 +515,6 @@ func (j *jsiiProxy_CfnFleetMetric) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::FleetMetric`.
 func NewCfnFleetMetric(scope constructs.Construct, id *string, props *CfnFleetMetricProps) CfnFleetMetric {
 	_init_.Initialize()
 
@@ -522,7 +532,6 @@ func NewCfnFleetMetric(scope constructs.Construct, id *string, props *CfnFleetMe
 	return &j
 }
 
-// Create a new `AWS::IoT::FleetMetric`.
 func NewCfnFleetMetric_Override(c CfnFleetMetric, scope constructs.Construct, id *string, props *CfnFleetMetricProps) {
 	_init_.Initialize()
 
@@ -599,6 +608,17 @@ func (j *jsiiProxy_CfnFleetMetric)SetQueryVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"queryVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleetMetric)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

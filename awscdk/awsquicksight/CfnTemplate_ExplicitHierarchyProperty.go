@@ -51,12 +51,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-explicithierarchy.html
+//
 type CfnTemplate_ExplicitHierarchyProperty struct {
 	// The list of columns that define the explicit hierarchy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-explicithierarchy.html#cfn-quicksight-template-explicithierarchy-columns
+	//
 	Columns interface{} `field:"required" json:"columns" yaml:"columns"`
 	// The hierarchy ID of the explicit hierarchy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-explicithierarchy.html#cfn-quicksight-template-explicithierarchy-hierarchyid
+	//
 	HierarchyId *string `field:"required" json:"hierarchyId" yaml:"hierarchyId"`
 	// The option that determines the drill down filters for the explicit hierarchy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-explicithierarchy.html#cfn-quicksight-template-explicithierarchy-drilldownfilters
+	//
 	DrillDownFilters interface{} `field:"optional" json:"drillDownFilters" yaml:"drillDownFilters"`
 }
 

@@ -87,14 +87,22 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html
+//
 type CfnConfigProps struct {
 	// Object containing the parameters of a config.
 	//
 	// Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
+	//
 	ConfigData interface{} `field:"required" json:"configData" yaml:"configData"`
 	// The name of the config object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Tags assigned to a resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

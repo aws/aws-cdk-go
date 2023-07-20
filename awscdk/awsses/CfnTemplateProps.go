@@ -19,8 +19,12 @@ package awsses
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html
+//
 type CfnTemplateProps struct {
 	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html#cfn-ses-template-template
+	//
 	Template interface{} `field:"optional" json:"template" yaml:"template"`
 }
 

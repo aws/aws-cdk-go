@@ -20,10 +20,16 @@ package awsimagebuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+//
 type CfnContainerRecipe_ComponentConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+	//
 	ComponentArn *string `field:"optional" json:"componentArn" yaml:"componentArn"`
-	// `CfnContainerRecipe.ComponentConfigurationProperty.Parameters`.
+	// A group of parameter settings that are used to configure the component for a specific recipe.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

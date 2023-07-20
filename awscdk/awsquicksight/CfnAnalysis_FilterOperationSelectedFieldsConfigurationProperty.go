@@ -23,16 +23,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filteroperationselectedfieldsconfiguration.html
+//
 type CfnAnalysis_FilterOperationSelectedFieldsConfigurationProperty struct {
 	// The selected columns of a dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filteroperationselectedfieldsconfiguration.html#cfn-quicksight-analysis-filteroperationselectedfieldsconfiguration-selectedcolumns
+	//
 	SelectedColumns interface{} `field:"optional" json:"selectedColumns" yaml:"selectedColumns"`
 	// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
 	//
 	// Valid values are defined as follows:
 	//
 	// - `ALL_FIELDS` : Applies the filter operation to all fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filteroperationselectedfieldsconfiguration.html#cfn-quicksight-analysis-filteroperationselectedfieldsconfiguration-selectedfieldoptions
+	//
 	SelectedFieldOptions *string `field:"optional" json:"selectedFieldOptions" yaml:"selectedFieldOptions"`
 	// Chooses the fields that are filtered in `CustomActionFilterOperation` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filteroperationselectedfieldsconfiguration.html#cfn-quicksight-analysis-filteroperationselectedfieldsconfiguration-selectedfields
+	//
 	SelectedFields *[]*string `field:"optional" json:"selectedFields" yaml:"selectedFields"`
 }
 

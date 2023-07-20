@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppMesh::VirtualGateway`.
-//
 // Creates a virtual gateway.
 //
 // A virtual gateway allows resources outside your mesh to communicate to resources that are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual node, which represents an Envoy running with an application, a virtual gateway represents Envoy deployed by itself.
@@ -174,11 +172,15 @@ import (
 //   	VirtualGatewayName: jsii.String("virtualGatewayName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html
+//
 type CfnVirtualGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the virtual gateway.
 	AttrArn() *string
+	AttrId() *string
 	// The name of the service mesh that the virtual gateway resides in.
 	AttrMeshName() *string
 	// The AWS IAM account ID of the service mesh owner.
@@ -216,8 +218,6 @@ type CfnVirtualGateway interface {
 	MeshName() *string
 	SetMeshName(val *string)
 	// The AWS IAM account ID of the service mesh owner.
-	//
-	// If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
 	MeshOwner() *string
 	SetMeshOwner(val *string)
 	// The tree node.
@@ -234,10 +234,11 @@ type CfnVirtualGateway interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Optional metadata that you can apply to the virtual gateway to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Optional metadata that you can apply to the virtual gateway to assist with categorization and organization.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -385,6 +386,7 @@ type CfnVirtualGateway interface {
 type jsiiProxy_CfnVirtualGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVirtualGateway) AttrArn() *string {
@@ -392,6 +394,16 @@ func (j *jsiiProxy_CfnVirtualGateway) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVirtualGateway) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -567,6 +579,16 @@ func (j *jsiiProxy_CfnVirtualGateway) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVirtualGateway) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVirtualGateway) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -598,7 +620,6 @@ func (j *jsiiProxy_CfnVirtualGateway) VirtualGatewayName() *string {
 }
 
 
-// Create a new `AWS::AppMesh::VirtualGateway`.
 func NewCfnVirtualGateway(scope constructs.Construct, id *string, props *CfnVirtualGatewayProps) CfnVirtualGateway {
 	_init_.Initialize()
 
@@ -616,7 +637,6 @@ func NewCfnVirtualGateway(scope constructs.Construct, id *string, props *CfnVirt
 	return &j
 }
 
-// Create a new `AWS::AppMesh::VirtualGateway`.
 func NewCfnVirtualGateway_Override(c CfnVirtualGateway, scope constructs.Construct, id *string, props *CfnVirtualGatewayProps) {
 	_init_.Initialize()
 
@@ -653,6 +673,17 @@ func (j *jsiiProxy_CfnVirtualGateway)SetSpec(val interface{}) {
 	_jsii_.Set(
 		j,
 		"spec",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVirtualGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

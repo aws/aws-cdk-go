@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnProtection) validateSetResourceArnParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnProtection) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnProtectionParameters(scope constructs.Construct, id *string, props *CfnProtectionProps) error {
 	return nil
 }

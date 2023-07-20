@@ -17,14 +17,20 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html
+//
 type CfnStreamingDistribution_TrustedSignersProperty struct {
 	// This field is `true` if any of the AWS accounts in the list are configured as trusted signers.
 	//
 	// If not, this field is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled
+	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 	//
 	// If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is `self` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers
+	//
 	AwsAccountNumbers *[]*string `field:"optional" json:"awsAccountNumbers" yaml:"awsAccountNumbers"`
 }
 

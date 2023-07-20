@@ -13,15 +13,17 @@ import (
 // This represents an EC2 LaunchTemplate.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   sg1 := ec2.NewSecurityGroup(stack, jsii.String("sg1"), &SecurityGroupProps{
+//   var vpc vpc
+//
+//
+//   sg1 := ec2.NewSecurityGroup(this, jsii.String("sg1"), &SecurityGroupProps{
 //   	Vpc: vpc,
 //   })
-//   sg2 := ec2.NewSecurityGroup(stack, jsii.String("sg2"), &SecurityGroupProps{
+//   sg2 := ec2.NewSecurityGroup(this, jsii.String("sg2"), &SecurityGroupProps{
 //   	Vpc: vpc,
 //   })
 //
-//   launchTemplate := ec2.NewLaunchTemplate(stack, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
 //   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
 //   	SecurityGroup: sg1,
 //   })

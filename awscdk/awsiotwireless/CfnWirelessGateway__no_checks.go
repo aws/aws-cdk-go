@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnWirelessGateway) validateSetLoRaWanParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnWirelessGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnWirelessGatewayParameters(scope constructs.Construct, id *string, props *CfnWirelessGatewayProps) error {
 	return nil
 }

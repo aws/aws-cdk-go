@@ -30,20 +30,28 @@ package awsroute53
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
+//
 type CfnHostedZoneProps struct {
 	// A complex type that contains an optional comment.
 	//
 	// If you don't want to specify a comment, omit the `HostedZoneConfig` and `Comment` elements.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
+	//
 	HostedZoneConfig interface{} `field:"optional" json:"hostedZoneConfig" yaml:"hostedZoneConfig"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//
 	// For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing and Cost Management User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+	//
 	HostedZoneTags *[]*CfnHostedZone_HostedZoneTagProperty `field:"optional" json:"hostedZoneTags" yaml:"hostedZoneTags"`
 	// The name of the domain.
 	//
 	// Specify a fully qualified domain name, for example, *www.example.com* . The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
 	//
 	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of `NameServers` that are returned by the `Fn::GetAtt` intrinsic function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Creates a configuration for DNS query logging.
 	//
@@ -95,10 +103,14 @@ type CfnHostedZoneProps struct {
 	// - **Log File Format** - For a list of the values in each query log and the format of each value, see [Logging DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html) in the *Amazon Route 53 Developer Guide* .
 	// - **Pricing** - For information about charges for query logs, see [Amazon CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
 	// - **How to Stop Logging** - If you want Route 53 to stop sending query logs to CloudWatch Logs, delete the query logging configuration. For more information, see [DeleteQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
+	//
 	QueryLoggingConfig interface{} `field:"optional" json:"queryLoggingConfig" yaml:"queryLoggingConfig"`
 	// *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
 	//
 	// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+	//
 	Vpcs interface{} `field:"optional" json:"vpcs" yaml:"vpcs"`
 }
 

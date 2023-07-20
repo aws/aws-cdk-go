@@ -15,10 +15,16 @@ package awsmedialive
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiohlsrenditionselection.html
+//
 type CfnChannel_AudioHlsRenditionSelectionProperty struct {
 	// Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiohlsrenditionselection.html#cfn-medialive-channel-audiohlsrenditionselection-groupid
+	//
 	GroupId *string `field:"optional" json:"groupId" yaml:"groupId"`
 	// Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiohlsrenditionselection.html#cfn-medialive-channel-audiohlsrenditionselection-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

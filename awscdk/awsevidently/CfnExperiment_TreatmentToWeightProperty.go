@@ -13,12 +13,18 @@ package awsevidently
 //   	Treatment: jsii.String("treatment"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmenttoweight.html
+//
 type CfnExperiment_TreatmentToWeightProperty struct {
 	// The portion of experiment traffic to allocate to this treatment.
 	//
 	// Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmenttoweight.html#cfn-evidently-experiment-treatmenttoweight-splitweight
+	//
 	SplitWeight *float64 `field:"required" json:"splitWeight" yaml:"splitWeight"`
 	// The name of the treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmenttoweight.html#cfn-evidently-experiment-treatmenttoweight-treatment
+	//
 	Treatment *string `field:"required" json:"treatment" yaml:"treatment"`
 }
 

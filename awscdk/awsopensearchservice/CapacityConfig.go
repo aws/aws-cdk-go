@@ -22,6 +22,11 @@ type CapacityConfig struct {
 	MasterNodeInstanceType *string `field:"optional" json:"masterNodeInstanceType" yaml:"masterNodeInstanceType"`
 	// The number of instances to use for the master node.
 	MasterNodes *float64 `field:"optional" json:"masterNodes" yaml:"masterNodes"`
+	// Indicates whether Multi-AZ with Standby deployment option is enabled.
+	//
+	// For more information, see [Multi-AZ with Standby]
+	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby)
+	MultiAzWithStandbyEnabled *bool `field:"optional" json:"multiAzWithStandbyEnabled" yaml:"multiAzWithStandbyEnabled"`
 	// The instance type for your UltraWarm node, such as `ultrawarm1.medium.search`. For valid values, see [UltraWarm Storage Limits] (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#limits-ultrawarm) in the Amazon OpenSearch Service Developer Guide.
 	WarmInstanceType *string `field:"optional" json:"warmInstanceType" yaml:"warmInstanceType"`
 	// The number of UltraWarm nodes (instances) to use in the Amazon OpenSearch Service domain.

@@ -14,10 +14,14 @@ package awsemr
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-placementtype.html
+//
 type CfnCluster_PlacementTypeProperty struct {
 	// The Amazon EC2 Availability Zone for the cluster.
 	//
 	// `AvailabilityZone` is used for uniform instance groups, while `AvailabilityZones` (plural) is used for instance fleets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-placementtype.html#cfn-emr-cluster-placementtype-availabilityzone
+	//
 	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 }
 

@@ -16,12 +16,17 @@ package awssam
 //   	WorkingDirectory: jsii.String("workingDirectory"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-imageconfig.html
+//
 type CfnFunction_ImageConfigProperty struct {
-	// `CfnFunction.ImageConfigProperty.Command`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-imageconfig.html#cfn-serverless-function-imageconfig-command
+	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
-	// `CfnFunction.ImageConfigProperty.EntryPoint`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-imageconfig.html#cfn-serverless-function-imageconfig-entrypoint
+	//
 	EntryPoint *[]*string `field:"optional" json:"entryPoint" yaml:"entryPoint"`
-	// `CfnFunction.ImageConfigProperty.WorkingDirectory`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-imageconfig.html#cfn-serverless-function-imageconfig-workingdirectory
+	//
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 

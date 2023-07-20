@@ -25,14 +25,22 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-segment.html
+//
 type CfnSegmentProps struct {
 	// A name for the segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-segment.html#cfn-evidently-segment-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// An optional description for this segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-segment.html#cfn-evidently-segment-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The pattern to use for the segment.
 	//
 	// For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-segment.html#cfn-evidently-segment-pattern
+	//
 	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
 	// Assigns one or more tags (key-value pairs) to the feature.
 	//
@@ -43,6 +51,8 @@ type CfnSegmentProps struct {
 	// You can associate as many as 50 tags with a feature.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-segment.html#cfn-evidently-segment-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

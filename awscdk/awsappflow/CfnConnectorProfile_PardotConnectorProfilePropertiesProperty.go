@@ -14,12 +14,18 @@ package awsappflow
 //   	IsSandboxEnvironment: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofileproperties.html
+//
 type CfnConnectorProfile_PardotConnectorProfilePropertiesProperty struct {
-	// `CfnConnectorProfile.PardotConnectorProfilePropertiesProperty.BusinessUnitId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofileproperties.html#cfn-appflow-connectorprofile-pardotconnectorprofileproperties-businessunitid
+	//
 	BusinessUnitId *string `field:"required" json:"businessUnitId" yaml:"businessUnitId"`
-	// `CfnConnectorProfile.PardotConnectorProfilePropertiesProperty.InstanceUrl`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofileproperties.html#cfn-appflow-connectorprofile-pardotconnectorprofileproperties-instanceurl
+	//
 	InstanceUrl *string `field:"optional" json:"instanceUrl" yaml:"instanceUrl"`
-	// `CfnConnectorProfile.PardotConnectorProfilePropertiesProperty.IsSandboxEnvironment`.
+	// Indicates whether the connector profile applies to a demo or production environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofileproperties.html#cfn-appflow-connectorprofile-pardotconnectorprofileproperties-issandboxenvironment
+	//
 	IsSandboxEnvironment interface{} `field:"optional" json:"isSandboxEnvironment" yaml:"isSandboxEnvironment"`
 }
 

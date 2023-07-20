@@ -12,8 +12,12 @@ package awss3outposts
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html
+//
 type CfnEndpoint_NetworkInterfaceProperty struct {
 	// The ID for the network interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html#cfn-s3outposts-endpoint-networkinterface-networkinterfaceid
+	//
 	NetworkInterfaceId *string `field:"required" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 }
 

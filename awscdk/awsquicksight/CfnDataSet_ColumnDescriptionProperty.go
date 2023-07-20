@@ -12,8 +12,12 @@ package awsquicksight
 //   	Text: jsii.String("text"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html
+//
 type CfnDataSet_ColumnDescriptionProperty struct {
 	// The text of a description for a column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text
+	//
 	Text *string `field:"optional" json:"text" yaml:"text"`
 }
 

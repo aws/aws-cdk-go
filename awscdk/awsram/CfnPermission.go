@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RAM::Permission`.
+// Creates a customer managed permission for a specified resource type that you can attach to resource shares.
 //
-// Creates a customer managed permission for a specified resource type that you can attach to resource shares. It is created in the AWS Region in which you call the operation.
+// It is created in the AWS Region in which you call the operation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-permission.html
+//
 type CfnPermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the new permission.
 	AttrArn() *string
 	// Specifies whether this permission is the default for new resource shares that include resources of the associated resource type.
@@ -68,19 +71,11 @@ type CfnPermission interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Specifies the name of the customer managed permission.
-	//
-	// The name must be unique within the AWS Region .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// A string in JSON format string that contains the following elements of a resource-based policy:.
-	//
-	// - *Effect* : must be set to `ALLOW` .
-	// - *Action* : specifies the actions that are allowed by this customer managed permission. The list must contain only actions that are supported by the specified resource type. For a list of all actions supported by each resource type, see [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) in the *AWS Identity and Access Management User Guide* .
-	// - *Condition* : (optional) specifies conditional parameters that must evaluate to true when a user attempts an action for that action to be allowed. For more information about the Condition element, see [IAM policies: Condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *AWS Identity and Access Management User Guide* .
-	//
-	// This template can't include either the `Resource` or `Principal` elements. Those are both filled in by AWS RAM when it instantiates the resource-based policy on each resource shared using this managed permission. The `Resource` comes from the ARN of the specific resource that you are sharing. The `Principal` comes from the list of identities added to the resource share.
 	PolicyTemplate() interface{}
 	SetPolicyTemplate(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -89,16 +84,17 @@ type CfnPermission interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Specifies the name of the resource type that this customer managed permission applies to.
-	//
-	// The format is `*<service-code>* : *<resource-type>*` and is not case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the string `ec2:subnet` . To see the list of valid values for this parameter, query the [ListResourceTypes](https://docs.aws.amazon.com/ram/latest/APIReference/API_ListResourceTypes.html) operation.
 	ResourceType() *string
 	SetResourceType(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies a list of one or more tag key and value pairs to attach to the permission.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies a list of one or more tag key and value pairs to attach to the permission.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -243,6 +239,7 @@ type CfnPermission interface {
 type jsiiProxy_CfnPermission struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPermission) AttrArn() *string {
@@ -405,6 +402,16 @@ func (j *jsiiProxy_CfnPermission) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPermission) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPermission) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -426,7 +433,6 @@ func (j *jsiiProxy_CfnPermission) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::RAM::Permission`.
 func NewCfnPermission(scope constructs.Construct, id *string, props *CfnPermissionProps) CfnPermission {
 	_init_.Initialize()
 
@@ -444,7 +450,6 @@ func NewCfnPermission(scope constructs.Construct, id *string, props *CfnPermissi
 	return &j
 }
 
-// Create a new `AWS::RAM::Permission`.
 func NewCfnPermission_Override(c CfnPermission, scope constructs.Construct, id *string, props *CfnPermissionProps) {
 	_init_.Initialize()
 
@@ -484,6 +489,17 @@ func (j *jsiiProxy_CfnPermission)SetResourceType(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPermission)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

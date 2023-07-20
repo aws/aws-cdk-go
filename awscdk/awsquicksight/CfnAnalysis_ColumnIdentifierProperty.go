@@ -13,10 +13,16 @@ package awsquicksight
 //   	DataSetIdentifier: jsii.String("dataSetIdentifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnidentifier.html
+//
 type CfnAnalysis_ColumnIdentifierProperty struct {
 	// The name of the column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnidentifier.html#cfn-quicksight-analysis-columnidentifier-columnname
+	//
 	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// The data set that the column belongs to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnidentifier.html#cfn-quicksight-analysis-columnidentifier-datasetidentifier
+	//
 	DataSetIdentifier *string `field:"required" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
 }
 

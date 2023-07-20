@@ -16,6 +16,8 @@ package awsecs
 //   	Namespace: jsii.String("namespace"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-serviceconnectdefaults.html
+//
 type CfnCluster_ServiceConnectDefaultsProperty struct {
 	// The namespace name or full Amazon Resource Name (ARN) of the AWS Cloud Map namespace that's used when you create a service and don't specify a Service Connect configuration.
 	//
@@ -28,6 +30,8 @@ type CfnCluster_ServiceConnectDefaultsProperty struct {
 	// If you update the service with an empty string `""` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in AWS Cloud Map and must be deleted separately.
 	//
 	// For more information about AWS Cloud Map , see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *AWS Cloud Map Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-serviceconnectdefaults.html#cfn-ecs-cluster-serviceconnectdefaults-namespace
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 

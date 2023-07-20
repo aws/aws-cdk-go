@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnEventBusPolicy) validateSetConditionParameters(val interfa
 	return nil
 }
 
-func (j *jsiiProxy_CfnEventBusPolicy) validateSetStatementParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnEventBusPolicy) validateSetStatementIdParameters(val *string) error {
 	return nil
 }

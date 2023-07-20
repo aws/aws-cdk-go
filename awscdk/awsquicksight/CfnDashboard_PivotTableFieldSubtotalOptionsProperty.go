@@ -12,8 +12,12 @@ package awsquicksight
 //   	FieldId: jsii.String("fieldId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablefieldsubtotaloptions.html
+//
 type CfnDashboard_PivotTableFieldSubtotalOptionsProperty struct {
 	// The field ID of the subtotal options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablefieldsubtotaloptions.html#cfn-quicksight-dashboard-pivottablefieldsubtotaloptions-fieldid
+	//
 	FieldId *string `field:"optional" json:"fieldId" yaml:"fieldId"`
 }
 

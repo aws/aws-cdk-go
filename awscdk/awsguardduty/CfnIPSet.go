@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GuardDuty::IPSet`.
+// The `AWS::GuardDuty::IPSet` resource specifies a new `IPSet` .
 //
-// The `AWS::GuardDuty::IPSet` resource specifies a new `IPSet` . An `IPSet` is a list of trusted IP addresses from which secure communication is allowed with AWS infrastructure and applications.
+// An `IPSet` is a list of trusted IP addresses from which secure communication is allowed with AWS infrastructure and applications.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,12 +34,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html
+//
 type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Indicates whether or not GuardDuty uses the `IPSet` .
 	Activate() interface{}
 	SetActivate(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -69,8 +73,6 @@ type CfnIPSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The user-friendly name to identify the IPSet.
-	//
-	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,12 +86,11 @@ type CfnIPSet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to be added to a new IP set resource.
-	//
-	// Each tag consists of a key and an optional value, both of which you define.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to be added to a new IP set resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +235,7 @@ type CfnIPSet interface {
 type jsiiProxy_CfnIPSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIPSet) Activate() interface{} {
@@ -241,6 +243,16 @@ func (j *jsiiProxy_CfnIPSet) Activate() interface{} {
 	_jsii_.Get(
 		j,
 		"activate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPSet) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -376,6 +388,16 @@ func (j *jsiiProxy_CfnIPSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPSet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -397,7 +419,6 @@ func (j *jsiiProxy_CfnIPSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GuardDuty::IPSet`.
 func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
 	_init_.Initialize()
 
@@ -415,7 +436,6 @@ func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) C
 	return &j
 }
 
-// Create a new `AWS::GuardDuty::IPSet`.
 func NewCfnIPSet_Override(c CfnIPSet, scope constructs.Construct, id *string, props *CfnIPSetProps) {
 	_init_.Initialize()
 
@@ -474,6 +494,17 @@ func (j *jsiiProxy_CfnIPSet)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

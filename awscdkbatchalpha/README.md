@@ -522,7 +522,7 @@ jobDefn.Container.AddVolume(batch.EcsVolume_Efs(&EfsVolumeOptions{
 
 ### Secrets
 
-You can expose SecretsManager Secret ARNs to your container as environment variables.
+You can expose SecretsManager Secret ARNs or SSM Parameters to your container as environment variables.
 The following example defines the `MY_SECRET_ENV_VAR` environment variable that contains the
 ARN of the Secret defined by `mySecret`:
 
@@ -537,8 +537,8 @@ jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefini
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
 		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 		Cpu: jsii.Number(256),
-		Secrets: map[string]*iSecret{
-			"MY_SECRET_ENV_VAR": mySecret,
+		Secrets: map[string]secret{
+			"MY_SECRET_ENV_VAR": batch.*secret_fromSecretsManager(mySecret),
 		},
 	}),
 })

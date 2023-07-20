@@ -15,13 +15,14 @@ import (
 // You can also specify a custom image using the static method:
 //
 // - LinuxBuildImage.fromEcrRepository(repo[, tag])
+// - LinuxBuildImage.fromDockerRegistry(image[, { secretsManagerCredentials }])
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   linuxArmBuildImage := awscdk.Aws_codebuild.LinuxArmBuildImage_AMAZON_LINUX_2_STANDARD_1_0()
+//   linuxArmBuildImage := awscdk.Aws_codebuild.LinuxArmBuildImage_FromCodeBuildImageId(jsii.String("id"))
 //
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html
 //
@@ -132,6 +133,25 @@ func LinuxArmBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 		"aws-cdk-lib.aws_codebuild.LinuxArmBuildImage",
 		"fromCodeBuildImageId",
 		[]interface{}{id},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns: a x86-64 Linux build image from a Docker Hub image.
+func LinuxArmBuildImage_FromDockerRegistry(name *string, options *DockerImageOptions) IBuildImage {
+	_init_.Initialize()
+
+	if err := validateLinuxArmBuildImage_FromDockerRegistryParameters(name, options); err != nil {
+		panic(err)
+	}
+	var returns IBuildImage
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.LinuxArmBuildImage",
+		"fromDockerRegistry",
+		[]interface{}{name, options},
 		&returns,
 	)
 

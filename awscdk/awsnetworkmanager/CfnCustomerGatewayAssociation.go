@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::CustomerGatewayAssociation`.
+// Specifies an association between a customer gateway, a device, and optionally, a link.
 //
-// Specifies an association between a customer gateway, a device, and optionally, a link. If you specify a link, it must be associated with the specified device. The customer gateway must be connected to a VPN attachment on a transit gateway that's registered in your global network.
+// If you specify a link, it must be associated with the specified device. The customer gateway must be connected to a VPN attachment on a transit gateway that's registered in your global network.
 //
 // You cannot associate a customer gateway with more than one device and link.
 //
@@ -28,6 +28,8 @@ import (
 //   	// the properties below are optional
 //   	LinkId: jsii.String("linkId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html
 //
 type CfnCustomerGatewayAssociation interface {
 	awscdk.CfnResource
@@ -361,7 +363,6 @@ func (j *jsiiProxy_CfnCustomerGatewayAssociation) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::NetworkManager::CustomerGatewayAssociation`.
 func NewCfnCustomerGatewayAssociation(scope constructs.Construct, id *string, props *CfnCustomerGatewayAssociationProps) CfnCustomerGatewayAssociation {
 	_init_.Initialize()
 
@@ -379,7 +380,6 @@ func NewCfnCustomerGatewayAssociation(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::CustomerGatewayAssociation`.
 func NewCfnCustomerGatewayAssociation_Override(c CfnCustomerGatewayAssociation, scope constructs.Construct, id *string, props *CfnCustomerGatewayAssociationProps) {
 	_init_.Initialize()
 

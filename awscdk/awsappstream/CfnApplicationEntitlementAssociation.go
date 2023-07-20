@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::ApplicationEntitlementAssociation`.
-//
 // Associates an application to an entitlement.
 //
 // Example:
@@ -23,6 +21,8 @@ import (
 //   	EntitlementName: jsii.String("entitlementName"),
 //   	StackName: jsii.String("stackName"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationentitlementassociation.html
 //
 type CfnApplicationEntitlementAssociation interface {
 	awscdk.CfnResource
@@ -343,7 +343,6 @@ func (j *jsiiProxy_CfnApplicationEntitlementAssociation) UpdatedProperties() *ma
 }
 
 
-// Create a new `AWS::AppStream::ApplicationEntitlementAssociation`.
 func NewCfnApplicationEntitlementAssociation(scope constructs.Construct, id *string, props *CfnApplicationEntitlementAssociationProps) CfnApplicationEntitlementAssociation {
 	_init_.Initialize()
 
@@ -361,7 +360,6 @@ func NewCfnApplicationEntitlementAssociation(scope constructs.Construct, id *str
 	return &j
 }
 
-// Create a new `AWS::AppStream::ApplicationEntitlementAssociation`.
 func NewCfnApplicationEntitlementAssociation_Override(c CfnApplicationEntitlementAssociation, scope constructs.Construct, id *string, props *CfnApplicationEntitlementAssociationProps) {
 	_init_.Initialize()
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodePipeline::Pipeline`.
+// The `AWS::CodePipeline::Pipeline` resource creates a CodePipeline pipeline that describes how software changes go through a release process.
 //
-// The `AWS::CodePipeline::Pipeline` resource creates a CodePipeline pipeline that describes how software changes go through a release process. For more information, see [What Is CodePipeline?](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) in the *AWS CodePipeline User Guide* .
+// For more information, see [What Is CodePipeline?](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) in the *AWS CodePipeline User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -106,21 +106,19 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html
+//
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The S3 bucket where artifacts for the pipeline are stored.
-	//
-	// > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
 	ArtifactStore() interface{}
 	SetArtifactStore(val interface{})
 	// A mapping of `artifactStore` objects and their corresponding AWS Regions.
-	//
-	// There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
-	//
-	// > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
 	ArtifactStores() interface{}
 	SetArtifactStores(val interface{})
+	AttrId() *string
 	// The version of the pipeline.
 	//
 	// > A new pipeline is always assigned a version number of 1. This number increments when a pipeline is updated.
@@ -170,8 +168,11 @@ type CfnPipeline interface {
 	// Represents information about a stage and its definition.
 	Stages() interface{}
 	SetStages(val interface{})
-	// Specifies the tags applied to the pipeline.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies the tags applied to the pipeline.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -316,6 +317,7 @@ type CfnPipeline interface {
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPipeline) ArtifactStore() interface{} {
@@ -333,6 +335,16 @@ func (j *jsiiProxy_CfnPipeline) ArtifactStores() interface{} {
 	_jsii_.Get(
 		j,
 		"artifactStores",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPipeline) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -488,6 +500,16 @@ func (j *jsiiProxy_CfnPipeline) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipeline) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipeline) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -509,7 +531,6 @@ func (j *jsiiProxy_CfnPipeline) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CodePipeline::Pipeline`.
 func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
@@ -527,7 +548,6 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 	return &j
 }
 
-// Create a new `AWS::CodePipeline::Pipeline`.
 func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
@@ -608,6 +628,17 @@ func (j *jsiiProxy_CfnPipeline)SetStages(val interface{}) {
 	_jsii_.Set(
 		j,
 		"stages",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

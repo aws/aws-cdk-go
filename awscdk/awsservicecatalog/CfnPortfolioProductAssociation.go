@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::PortfolioProductAssociation`.
-//
 // Associates the specified product with the specified portfolio.
 //
 // A delegated admin is authorized to invoke this command.
@@ -29,15 +27,15 @@ import (
 //   	SourcePortfolioId: jsii.String("sourcePortfolioId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioproductassociation.html
+//
 type CfnPortfolioProductAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -233,6 +231,16 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation) AcceptLanguage() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortfolioProductAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortfolioProductAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -364,7 +372,6 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation) UpdatedProperties() *map[stri
 }
 
 
-// Create a new `AWS::ServiceCatalog::PortfolioProductAssociation`.
 func NewCfnPortfolioProductAssociation(scope constructs.Construct, id *string, props *CfnPortfolioProductAssociationProps) CfnPortfolioProductAssociation {
 	_init_.Initialize()
 
@@ -382,7 +389,6 @@ func NewCfnPortfolioProductAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::PortfolioProductAssociation`.
 func NewCfnPortfolioProductAssociation_Override(c CfnPortfolioProductAssociation, scope constructs.Construct, id *string, props *CfnPortfolioProductAssociationProps) {
 	_init_.Initialize()
 

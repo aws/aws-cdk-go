@@ -12,8 +12,12 @@ package awsmsk
 //   	EnabledInBroker: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-jmxexporter.html
+//
 type CfnCluster_JmxExporterProperty struct {
 	// Indicates whether you want to enable or disable the JMX Exporter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-jmxexporter.html#cfn-msk-cluster-jmxexporter-enabledinbroker
+	//
 	EnabledInBroker interface{} `field:"required" json:"enabledInBroker" yaml:"enabledInBroker"`
 }
 

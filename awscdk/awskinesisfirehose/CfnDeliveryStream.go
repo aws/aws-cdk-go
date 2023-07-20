@@ -9,22 +9,22 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::KinesisFirehose::DeliveryStream`.
+// The `AWS::KinesisFirehose::DeliveryStream` resource specifies an Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivery stream that delivers real-time streaming data to an Amazon Simple Storage Service (Amazon S3), Amazon Redshift, or Amazon Elasticsearch Service (Amazon ES) destination.
 //
-// The `AWS::KinesisFirehose::DeliveryStream` resource specifies an Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivery stream that delivers real-time streaming data to an Amazon Simple Storage Service (Amazon S3), Amazon Redshift, or Amazon Elasticsearch Service (Amazon ES) destination. For more information, see [Creating an Amazon Kinesis Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the *Amazon Kinesis Data Firehose Developer Guide* .
+// For more information, see [Creating an Amazon Kinesis Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the *Amazon Kinesis Data Firehose Developer Guide* .
 //
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
+//
 type CfnDeliveryStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::KinesisFirehose::DeliveryStream.AmazonOpenSearchServerlessDestinationConfiguration`.
+	awscdk.ITaggable
 	AmazonOpenSearchServerlessDestinationConfiguration() interface{}
 	SetAmazonOpenSearchServerlessDestinationConfiguration(val interface{})
 	// The destination in Amazon OpenSearch Service.
-	//
-	// You can specify only one destination.
 	AmazonopensearchserviceDestinationConfiguration() interface{}
 	SetAmazonopensearchserviceDestinationConfiguration(val interface{})
 	// The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
@@ -44,29 +44,18 @@ type CfnDeliveryStream interface {
 	// The name of the delivery stream.
 	DeliveryStreamName() *string
 	SetDeliveryStreamName(val *string)
-	// The delivery stream type. This can be one of the following values:.
+	// The delivery stream type.
 	//
-	// - `DirectPut` : Provider applications access the delivery stream directly.
-	// - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
+	// This can be one of the following values:.
 	DeliveryStreamType() *string
 	SetDeliveryStreamType(val *string)
 	// An Amazon ES destination for the delivery stream.
-	//
-	// Conditional. You must specify only one destination configuration.
-	//
-	// If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
 	ElasticsearchDestinationConfiguration() interface{}
 	SetElasticsearchDestinationConfiguration(val interface{})
 	// An Amazon S3 destination for the delivery stream.
-	//
-	// Conditional. You must specify only one destination configuration.
-	//
-	// If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
 	ExtendedS3DestinationConfiguration() interface{}
 	SetExtendedS3DestinationConfiguration(val interface{})
 	// Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination.
-	//
-	// You can specify only one destination.
 	HttpEndpointDestinationConfiguration() interface{}
 	SetHttpEndpointDestinationConfiguration(val interface{})
 	// When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
@@ -85,10 +74,6 @@ type CfnDeliveryStream interface {
 	// The tree node.
 	Node() constructs.Node
 	// An Amazon Redshift destination for the delivery stream.
-	//
-	// Conditional. You must specify only one destination configuration.
-	//
-	// If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
 	RedshiftDestinationConfiguration() interface{}
 	SetRedshiftDestinationConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -97,10 +82,6 @@ type CfnDeliveryStream interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-	//
-	// Conditional. You must specify only one destination configuration.
-	//
-	// If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
 	S3DestinationConfiguration() interface{}
 	SetS3DestinationConfiguration(val interface{})
 	// The configuration of a destination in Splunk for the delivery stream.
@@ -110,12 +91,11 @@ type CfnDeliveryStream interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A set of tags to assign to the delivery stream.
-	//
-	// A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
-	//
-	// You can specify up to 50 tags when creating a delivery stream.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A set of tags to assign to the delivery stream.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -260,6 +240,7 @@ type CfnDeliveryStream interface {
 type jsiiProxy_CfnDeliveryStream struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDeliveryStream) AmazonOpenSearchServerlessDestinationConfiguration() interface{} {
@@ -482,6 +463,16 @@ func (j *jsiiProxy_CfnDeliveryStream) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -503,7 +494,6 @@ func (j *jsiiProxy_CfnDeliveryStream) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::KinesisFirehose::DeliveryStream`.
 func NewCfnDeliveryStream(scope constructs.Construct, id *string, props *CfnDeliveryStreamProps) CfnDeliveryStream {
 	_init_.Initialize()
 
@@ -521,7 +511,6 @@ func NewCfnDeliveryStream(scope constructs.Construct, id *string, props *CfnDeli
 	return &j
 }
 
-// Create a new `AWS::KinesisFirehose::DeliveryStream`.
 func NewCfnDeliveryStream_Override(c CfnDeliveryStream, scope constructs.Construct, id *string, props *CfnDeliveryStreamProps) {
 	_init_.Initialize()
 
@@ -654,6 +643,17 @@ func (j *jsiiProxy_CfnDeliveryStream)SetSplunkDestinationConfiguration(val inter
 	_jsii_.Set(
 		j,
 		"splunkDestinationConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

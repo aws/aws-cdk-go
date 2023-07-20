@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::ResolverEndpoint`.
-//
-// Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:
+// Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:.
 //
 // - An *inbound Resolver endpoint* forwards DNS queries to the DNS service for a VPC from your network.
 // - An *outbound Resolver endpoint* forwards DNS queries from the DNS service for a VPC to your network.
@@ -52,9 +50,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html
+//
 type CfnResolverEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the resolver endpoint, such as `arn:aws:route53resolver:us-east-1:123456789012:resolver-endpoint/resolver-endpoint-a1bzhi` .
 	AttrArn() *string
 	// Indicates whether the resolver endpoint allows inbound or outbound DNS queries.
@@ -83,16 +84,9 @@ type CfnResolverEndpoint interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:.
-	//
-	// - `INBOUND` : allows DNS queries to your VPC from your network
-	// - `OUTBOUND` : allows DNS queries from your VPC to your network.
 	Direction() *string
 	SetDirection(val *string)
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
-	//
-	// The subnet ID uniquely identifies a VPC.
-	//
-	// > Even though the minimum is 1, Route 53 requires that you create at least two.
 	IpAddresses() interface{}
 	SetIpAddresses(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -110,10 +104,8 @@ type CfnResolverEndpoint interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Route53Resolver::ResolverEndpoint.OutpostArn`.
 	OutpostArn() *string
 	SetOutpostArn(val *string)
-	// `AWS::Route53Resolver::ResolverEndpoint.PreferredInstanceType`.
 	PreferredInstanceType() *string
 	SetPreferredInstanceType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -125,16 +117,17 @@ type CfnResolverEndpoint interface {
 	ResolverEndpointType() *string
 	SetResolverEndpointType(val *string)
 	// The ID of one or more security groups that control access to this VPC.
-	//
-	// The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Route 53 Resolver doesn't support updating tags through CloudFormation.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Route 53 Resolver doesn't support updating tags through CloudFormation.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -279,6 +272,7 @@ type CfnResolverEndpoint interface {
 type jsiiProxy_CfnResolverEndpoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnResolverEndpoint) AttrArn() *string {
@@ -531,6 +525,16 @@ func (j *jsiiProxy_CfnResolverEndpoint) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -552,7 +556,6 @@ func (j *jsiiProxy_CfnResolverEndpoint) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::Route53Resolver::ResolverEndpoint`.
 func NewCfnResolverEndpoint(scope constructs.Construct, id *string, props *CfnResolverEndpointProps) CfnResolverEndpoint {
 	_init_.Initialize()
 
@@ -570,7 +573,6 @@ func NewCfnResolverEndpoint(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::ResolverEndpoint`.
 func NewCfnResolverEndpoint_Override(c CfnResolverEndpoint, scope constructs.Construct, id *string, props *CfnResolverEndpointProps) {
 	_init_.Initialize()
 
@@ -642,6 +644,17 @@ func (j *jsiiProxy_CfnResolverEndpoint)SetSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

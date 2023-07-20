@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::Distribution`.
-//
 // A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 //
 // Example:
@@ -25,9 +23,12 @@ import (
 //   cfnDistribution := myDistribution.Node.defaultChild.(cfnDistribution)
 //   cfnDistribution.OverrideLogicalId(jsii.String("MyDistributionCFDistribution3H55TI9Q"))
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
+//
 type CfnDistribution interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
 	AttrDomainName() *string
 	// The identifier for the distribution, for example `EDFDVBD632BHDS5` .
@@ -65,8 +66,11 @@ type CfnDistribution interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A complex type that contains zero or more `Tag` elements.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A complex type that contains zero or more `Tag` elements.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -211,6 +215,7 @@ type CfnDistribution interface {
 type jsiiProxy_CfnDistribution struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDistribution) AttrDomainName() *string {
@@ -333,6 +338,16 @@ func (j *jsiiProxy_CfnDistribution) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDistribution) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDistribution) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -354,7 +369,6 @@ func (j *jsiiProxy_CfnDistribution) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::CloudFront::Distribution`.
 func NewCfnDistribution(scope constructs.Construct, id *string, props *CfnDistributionProps) CfnDistribution {
 	_init_.Initialize()
 
@@ -372,7 +386,6 @@ func NewCfnDistribution(scope constructs.Construct, id *string, props *CfnDistri
 	return &j
 }
 
-// Create a new `AWS::CloudFront::Distribution`.
 func NewCfnDistribution_Override(c CfnDistribution, scope constructs.Construct, id *string, props *CfnDistributionProps) {
 	_init_.Initialize()
 
@@ -390,6 +403,17 @@ func (j *jsiiProxy_CfnDistribution)SetDistributionConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"distributionConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDistribution)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

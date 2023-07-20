@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCertificate) validateSetDomainNameParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnCertificate) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCertificateParameters(scope constructs.Construct, id *string, props *CfnCertificateProps) error {
 	return nil
 }

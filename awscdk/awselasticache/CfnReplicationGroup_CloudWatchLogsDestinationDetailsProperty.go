@@ -14,8 +14,12 @@ package awselasticache
 //   	LogGroup: jsii.String("logGroup"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html
+//
 type CfnReplicationGroup_CloudWatchLogsDestinationDetailsProperty struct {
 	// The name of the CloudWatch Logs log group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html#cfn-elasticache-replicationgroup-cloudwatchlogsdestinationdetails-loggroup
+	//
 	LogGroup *string `field:"required" json:"logGroup" yaml:"logGroup"`
 }
 

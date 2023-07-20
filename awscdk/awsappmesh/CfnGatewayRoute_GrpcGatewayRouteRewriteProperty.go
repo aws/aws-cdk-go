@@ -14,8 +14,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html
+//
 type CfnGatewayRoute_GrpcGatewayRouteRewriteProperty struct {
 	// The host name of the gateway route to rewrite.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html#cfn-appmesh-gatewayroute-grpcgatewayrouterewrite-hostname
+	//
 	Hostname interface{} `field:"optional" json:"hostname" yaml:"hostname"`
 }
 

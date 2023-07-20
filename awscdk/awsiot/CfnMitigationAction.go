@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::MitigationAction`.
+// Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask.
 //
-// Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. For API reference, see [CreateMitigationAction](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateMitigationAction.html) and for general information, see [Mitigation actions](https://docs.aws.amazon.com/iot/latest/developerguide/dd-mitigation-actions.html) .
+// For API reference, see [CreateMitigationAction](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateMitigationAction.html) and for general information, see [Mitigation actions](https://docs.aws.amazon.com/iot/latest/developerguide/dd-mitigation-actions.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,15 +57,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html
+//
 type CfnMitigationAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The friendly name of the mitigation action.
 	ActionName() *string
 	SetActionName(val *string)
 	// The set of parameters for this mitigation action.
-	//
-	// The parameters vary, depending on the kind of action you apply.
 	ActionParams() interface{}
 	SetActionParams(val interface{})
 	// The Amazon Resource Name (ARN) of the mitigation action.
@@ -105,8 +106,11 @@ type CfnMitigationAction interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that can be used to manage the mitigation action.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that can be used to manage the mitigation action.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -251,6 +255,7 @@ type CfnMitigationAction interface {
 type jsiiProxy_CfnMitigationAction struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMitigationAction) ActionName() *string {
@@ -393,6 +398,16 @@ func (j *jsiiProxy_CfnMitigationAction) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMitigationAction) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMitigationAction) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -414,7 +429,6 @@ func (j *jsiiProxy_CfnMitigationAction) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::IoT::MitigationAction`.
 func NewCfnMitigationAction(scope constructs.Construct, id *string, props *CfnMitigationActionProps) CfnMitigationAction {
 	_init_.Initialize()
 
@@ -432,7 +446,6 @@ func NewCfnMitigationAction(scope constructs.Construct, id *string, props *CfnMi
 	return &j
 }
 
-// Create a new `AWS::IoT::MitigationAction`.
 func NewCfnMitigationAction_Override(c CfnMitigationAction, scope constructs.Construct, id *string, props *CfnMitigationActionProps) {
 	_init_.Initialize()
 
@@ -469,6 +482,17 @@ func (j *jsiiProxy_CfnMitigationAction)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMitigationAction)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Backup::Framework`.
+// Creates a framework with one or more controls.
 //
-// Creates a framework with one or more controls. A framework is a collection of controls that you can use to evaluate your backup practices. By using pre-built customizable controls to define your policies, you can evaluate whether your backup practices comply with your policies and which resources are not yet in compliance.
+// A framework is a collection of controls that you can use to evaluate your backup practices. By using pre-built customizable controls to define your policies, you can evaluate whether your backup practices comply with your policies and which resources are not yet in compliance.
 //
 // For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/bam-cfn-integration.html#bam-cfn-frameworks-template) .
 //
@@ -49,6 +49,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-framework.html
+//
 type CfnFramework interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -74,16 +76,12 @@ type CfnFramework interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Contains detailed information about all of the controls of a framework.
-	//
-	// Each framework must contain at least one control.
 	FrameworkControls() interface{}
 	SetFrameworkControls(val interface{})
 	// An optional description of the framework with a maximum 1,024 characters.
 	FrameworkDescription() *string
 	SetFrameworkDescription(val *string)
 	// The unique name of a framework.
-	//
-	// This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
 	FrameworkName() *string
 	SetFrameworkName(val *string)
 	// A list of tags with which to tag your framework.
@@ -437,7 +435,6 @@ func (j *jsiiProxy_CfnFramework) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Backup::Framework`.
 func NewCfnFramework(scope constructs.Construct, id *string, props *CfnFrameworkProps) CfnFramework {
 	_init_.Initialize()
 
@@ -455,7 +452,6 @@ func NewCfnFramework(scope constructs.Construct, id *string, props *CfnFramework
 	return &j
 }
 
-// Create a new `AWS::Backup::Framework`.
 func NewCfnFramework_Override(c CfnFramework, scope constructs.Construct, id *string, props *CfnFrameworkProps) {
 	_init_.Initialize()
 

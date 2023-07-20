@@ -7,9 +7,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::ResourceDefaultVersion`.
+// Specifies the default version of a resource.
 //
-// Specifies the default version of a resource. The default version of a resource will be used in CloudFormation operations.
+// The default version of a resource will be used in CloudFormation operations.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,6 +21,8 @@ import (
 //   	TypeVersionArn: jsii.String("typeVersionArn"),
 //   	VersionId: jsii.String("versionId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html
 //
 type CfnResourceDefaultVersion interface {
 	CfnResource
@@ -58,13 +60,9 @@ type CfnResourceDefaultVersion interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() Stack
 	// The name of the resource.
-	//
-	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
 	TypeName() *string
 	SetTypeName(val *string)
 	// The Amazon Resource Name (ARN) of the resource version.
-	//
-	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
 	TypeVersionArn() *string
 	SetTypeVersionArn(val *string)
 	// Deprecated.
@@ -81,10 +79,6 @@ type CfnResourceDefaultVersion interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of a specific version of the resource.
-	//
-	// The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the resource version when it's registered.
-	//
-	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
 	VersionId() *string
 	SetVersionId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -361,7 +355,6 @@ func (j *jsiiProxy_CfnResourceDefaultVersion) VersionId() *string {
 }
 
 
-// Create a new `AWS::CloudFormation::ResourceDefaultVersion`.
 func NewCfnResourceDefaultVersion(scope constructs.Construct, id *string, props *CfnResourceDefaultVersionProps) CfnResourceDefaultVersion {
 	_init_.Initialize()
 
@@ -379,7 +372,6 @@ func NewCfnResourceDefaultVersion(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::ResourceDefaultVersion`.
 func NewCfnResourceDefaultVersion_Override(c CfnResourceDefaultVersion, scope constructs.Construct, id *string, props *CfnResourceDefaultVersionProps) {
 	_init_.Initialize()
 

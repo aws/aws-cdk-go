@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NetworkInsightsAccessScopeAnalysis`.
-//
 // Describes a Network Access Scope analysis.
 //
 // Example:
@@ -30,9 +28,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscopeanalysis.html
+//
 type CfnNetworkInsightsAccessScopeAnalysis interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The number of network interfaces analyzed.
 	AttrAnalyzedEniCount() *float64
 	// The end date of the analysis.
@@ -82,8 +83,11 @@ type CfnNetworkInsightsAccessScopeAnalysis interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +232,7 @@ type CfnNetworkInsightsAccessScopeAnalysis interface {
 type jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) AttrAnalyzedEniCount() *float64 {
@@ -410,6 +415,16 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) Tags() awscdk.TagManag
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -431,7 +446,6 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) UpdatedProperties() *m
 }
 
 
-// Create a new `AWS::EC2::NetworkInsightsAccessScopeAnalysis`.
 func NewCfnNetworkInsightsAccessScopeAnalysis(scope constructs.Construct, id *string, props *CfnNetworkInsightsAccessScopeAnalysisProps) CfnNetworkInsightsAccessScopeAnalysis {
 	_init_.Initialize()
 
@@ -449,7 +463,6 @@ func NewCfnNetworkInsightsAccessScopeAnalysis(scope constructs.Construct, id *st
 	return &j
 }
 
-// Create a new `AWS::EC2::NetworkInsightsAccessScopeAnalysis`.
 func NewCfnNetworkInsightsAccessScopeAnalysis_Override(c CfnNetworkInsightsAccessScopeAnalysis, scope constructs.Construct, id *string, props *CfnNetworkInsightsAccessScopeAnalysisProps) {
 	_init_.Initialize()
 
@@ -467,6 +480,17 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis)SetNetworkInsightsAcces
 	_jsii_.Set(
 		j,
 		"networkInsightsAccessScopeId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

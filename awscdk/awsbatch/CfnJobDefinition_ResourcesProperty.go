@@ -14,10 +14,14 @@ package awsbatch
 //   	Requests: requests,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resources.html
+//
 type CfnJobDefinition_ResourcesProperty struct {
-	// `CfnJobDefinition.ResourcesProperty.Limits`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resources.html#cfn-batch-jobdefinition-resources-limits
+	//
 	Limits interface{} `field:"optional" json:"limits" yaml:"limits"`
-	// `CfnJobDefinition.ResourcesProperty.Requests`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resources.html#cfn-batch-jobdefinition-resources-requests
+	//
 	Requests interface{} `field:"optional" json:"requests" yaml:"requests"`
 }
 

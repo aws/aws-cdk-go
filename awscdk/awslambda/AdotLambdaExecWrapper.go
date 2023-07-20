@@ -26,5 +26,7 @@ const (
 	AdotLambdaExecWrapper_PROXY_HANDLER AdotLambdaExecWrapper = "PROXY_HANDLER"
 	// Wrapping streaming handlers (implementing RequestStreamHandler), enabling HTTP context propagation for HTTP requests.
 	AdotLambdaExecWrapper_STREAM_HANDLER AdotLambdaExecWrapper = "STREAM_HANDLER"
+	// Wrapping python lambda handlers see https://aws-otel.github.io/docs/getting-started/lambda/lambda-python.
+	AdotLambdaExecWrapper_INSTRUMENT_HANDLER AdotLambdaExecWrapper = "INSTRUMENT_HANDLER"
 )
 

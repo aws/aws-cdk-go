@@ -1,6 +1,8 @@
 package awspersonalize
 
 
+// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,10 +15,16 @@ package awspersonalize
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-automlconfig.html
+//
 type CfnSolution_AutoMLConfigProperty struct {
-	// `CfnSolution.AutoMLConfigProperty.MetricName`.
+	// The metric to optimize.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-automlconfig.html#cfn-personalize-solution-automlconfig-metricname
+	//
 	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
-	// `CfnSolution.AutoMLConfigProperty.RecipeList`.
+	// The list of candidate recipes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-automlconfig.html#cfn-personalize-solution-automlconfig-recipelist
+	//
 	RecipeList *[]*string `field:"optional" json:"recipeList" yaml:"recipeList"`
 }
 

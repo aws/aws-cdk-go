@@ -26,28 +26,41 @@ package awssagemaker
 //   	ProbabilityIndex: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html
+//
 type CfnEndpointConfig_ClarifyInferenceConfigProperty struct {
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.ContentTemplate`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-contenttemplate
+	//
 	ContentTemplate *string `field:"optional" json:"contentTemplate" yaml:"contentTemplate"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.FeatureHeaders`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-featureheaders
+	//
 	FeatureHeaders *[]*string `field:"optional" json:"featureHeaders" yaml:"featureHeaders"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.FeaturesAttribute`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-featuresattribute
+	//
 	FeaturesAttribute *string `field:"optional" json:"featuresAttribute" yaml:"featuresAttribute"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.FeatureTypes`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-featuretypes
+	//
 	FeatureTypes *[]*string `field:"optional" json:"featureTypes" yaml:"featureTypes"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.LabelAttribute`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-labelattribute
+	//
 	LabelAttribute *string `field:"optional" json:"labelAttribute" yaml:"labelAttribute"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.LabelHeaders`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-labelheaders
+	//
 	LabelHeaders *[]*string `field:"optional" json:"labelHeaders" yaml:"labelHeaders"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.LabelIndex`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-labelindex
+	//
 	LabelIndex *float64 `field:"optional" json:"labelIndex" yaml:"labelIndex"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.MaxPayloadInMB`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-maxpayloadinmb
+	//
 	MaxPayloadInMb *float64 `field:"optional" json:"maxPayloadInMb" yaml:"maxPayloadInMb"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.MaxRecordCount`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-maxrecordcount
+	//
 	MaxRecordCount *float64 `field:"optional" json:"maxRecordCount" yaml:"maxRecordCount"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.ProbabilityAttribute`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-probabilityattribute
+	//
 	ProbabilityAttribute *string `field:"optional" json:"probabilityAttribute" yaml:"probabilityAttribute"`
-	// `CfnEndpointConfig.ClarifyInferenceConfigProperty.ProbabilityIndex`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-probabilityindex
+	//
 	ProbabilityIndex *float64 `field:"optional" json:"probabilityIndex" yaml:"probabilityIndex"`
 }
 

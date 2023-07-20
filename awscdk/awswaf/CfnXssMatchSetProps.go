@@ -23,10 +23,16 @@ package awswaf
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html
+//
 type CfnXssMatchSetProps struct {
 	// The name, if any, of the `XssMatchSet` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html#cfn-waf-xssmatchset-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html#cfn-waf-xssmatchset-xssmatchtuples
+	//
 	XssMatchTuples interface{} `field:"required" json:"xssMatchTuples" yaml:"xssMatchTuples"`
 }
 

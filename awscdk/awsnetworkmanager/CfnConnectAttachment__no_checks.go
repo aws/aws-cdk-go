@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnConnectAttachment) validateSetProposedSegmentChangeParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnectAttachment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnectAttachment) validateSetTransportAttachmentIdParameters(val *string) error {
 	return nil
 }

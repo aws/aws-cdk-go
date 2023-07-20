@@ -44,15 +44,23 @@ package awsquicksight
 //   	TooltipTitleType: jsii.String("tooltipTitleType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fieldbasedtooltip.html
+//
 type CfnAnalysis_FieldBasedTooltipProperty struct {
 	// The visibility of `Show aggregations` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fieldbasedtooltip.html#cfn-quicksight-analysis-fieldbasedtooltip-aggregationvisibility
+	//
 	AggregationVisibility *string `field:"optional" json:"aggregationVisibility" yaml:"aggregationVisibility"`
 	// The fields configuration in the tooltip.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fieldbasedtooltip.html#cfn-quicksight-analysis-fieldbasedtooltip-tooltipfields
+	//
 	TooltipFields interface{} `field:"optional" json:"tooltipFields" yaml:"tooltipFields"`
 	// The type for the >tooltip title. Choose one of the following options:.
 	//
 	// - `NONE` : Doesn't use the primary value as the title.
 	// - `PRIMARY_VALUE` : Uses primary value as the title.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fieldbasedtooltip.html#cfn-quicksight-analysis-fieldbasedtooltip-tooltiptitletype
+	//
 	TooltipTitleType *string `field:"optional" json:"tooltipTitleType" yaml:"tooltipTitleType"`
 }
 

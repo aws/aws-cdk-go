@@ -30,6 +30,8 @@ package awssagemaker
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricgroup.html
+//
 type CfnModelCard_MetricGroupProperty struct {
 	// A list of metric objects. The `MetricDataItems` list can have one of the following values:.
 	//
@@ -39,8 +41,12 @@ type CfnModelCard_MetricGroupProperty struct {
 	// - `linear_graph_metric`
 	//
 	// For more information about the metric schema, see the definition section of the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricgroup.html#cfn-sagemaker-modelcard-metricgroup-metricdata
+	//
 	MetricData interface{} `field:"required" json:"metricData" yaml:"metricData"`
 	// The metric group name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricgroup.html#cfn-sagemaker-modelcard-metricgroup-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

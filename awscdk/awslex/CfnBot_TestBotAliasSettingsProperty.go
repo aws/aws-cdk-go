@@ -60,16 +60,26 @@ package awslex
 //   	SentimentAnalysisSettings: sentimentAnalysisSettings,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html
+//
 type CfnBot_TestBotAliasSettingsProperty struct {
 	// Specifies settings that are unique to a locale.
 	//
 	// For example, you can use a different Lambda function depending on the bot's locale.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-botaliaslocalesettings
+	//
 	BotAliasLocaleSettings interface{} `field:"optional" json:"botAliasLocaleSettings" yaml:"botAliasLocaleSettings"`
 	// Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-conversationlogsettings
+	//
 	ConversationLogSettings interface{} `field:"optional" json:"conversationLogSettings" yaml:"conversationLogSettings"`
 	// Specifies a description for the test bot alias.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-sentimentanalysissettings
+	//
 	SentimentAnalysisSettings interface{} `field:"optional" json:"sentimentAnalysisSettings" yaml:"sentimentAnalysisSettings"`
 }
 

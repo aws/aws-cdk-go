@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::Stack`.
-//
 // The `AWS::CloudFormation::Stack` resource nests a stack as a resource in a top-level template.
 //
 // You can add output values from a nested stack within the containing template. You use the [GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) function with the nested stack's logical name and the name of the output value in the nested stack in the format `Outputs. *NestedStackOutputName*` .
@@ -45,9 +43,13 @@ import (
 //   	TimeoutInMinutes: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html
+//
 type CfnStack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -70,19 +72,9 @@ type CfnStack interface {
 	// The tree node.
 	Node() constructs.Node
 	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events.
-	//
-	// You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 	NotificationArns() *[]*string
 	SetNotificationArns(val *[]*string)
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created.
-	//
-	// Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
-	//
-	// > If you use the `Ref` function to pass a parameter value to a nested stack, comma-delimited list parameters must be of type `String` . In other words, you can't pass values that are of type `CommaDelimitedList` to nested stacks.
-	//
-	// Conditional. Required if the nested stack requires input parameters.
-	//
-	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -94,22 +86,15 @@ type CfnStack interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key-value pairs to associate with this stack.
-	//
-	// AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs to associate with this stack.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Location of file containing the template body.
-	//
-	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket. For more information, see [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) .
-	//
-	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
 	TemplateUrl() *string
 	SetTemplateUrl(val *string)
 	// The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state.
-	//
-	// The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
-	//
-	// Updates aren't supported.
 	TimeoutInMinutes() *float64
 	SetTimeoutInMinutes(val *float64)
 	// Deprecated.
@@ -256,6 +241,17 @@ type CfnStack interface {
 type jsiiProxy_CfnStack struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnStack) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnStack) CfnOptions() awscdk.ICfnResourceOptions {
@@ -368,6 +364,16 @@ func (j *jsiiProxy_CfnStack) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStack) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStack) TemplateUrl() *string {
 	var returns *string
 	_jsii_.Get(
@@ -409,7 +415,6 @@ func (j *jsiiProxy_CfnStack) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudFormation::Stack`.
 func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) CfnStack {
 	_init_.Initialize()
 
@@ -427,7 +432,6 @@ func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) C
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::Stack`.
 func NewCfnStack_Override(c CfnStack, scope constructs.Construct, id *string, props *CfnStackProps) {
 	_init_.Initialize()
 
@@ -453,6 +457,17 @@ func (j *jsiiProxy_CfnStack)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStack)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

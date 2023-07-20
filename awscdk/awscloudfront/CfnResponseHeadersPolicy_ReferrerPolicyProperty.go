@@ -15,8 +15,12 @@ package awscloudfront
 //   	ReferrerPolicy: jsii.String("referrerPolicy"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-referrerpolicy.html
+//
 type CfnResponseHeadersPolicy_ReferrerPolicyProperty struct {
 	// A Boolean that determines whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-referrerpolicy.html#cfn-cloudfront-responseheaderspolicy-referrerpolicy-override
+	//
 	Override interface{} `field:"required" json:"override" yaml:"override"`
 	// The value of the `Referrer-Policy` HTTP response header. Valid values are:.
 	//
@@ -30,6 +34,8 @@ type CfnResponseHeadersPolicy_ReferrerPolicyProperty struct {
 	// - `unsafe-url`
 	//
 	// For more information about these values, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-referrerpolicy.html#cfn-cloudfront-responseheaderspolicy-referrerpolicy-referrerpolicy
+	//
 	ReferrerPolicy *string `field:"required" json:"referrerPolicy" yaml:"referrerPolicy"`
 }
 

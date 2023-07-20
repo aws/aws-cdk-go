@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DMS::ReplicationSubnetGroup`.
+// The `AWS::DMS::ReplicationSubnetGroup` resource creates an AWS DMS replication subnet group.
 //
-// The `AWS::DMS::ReplicationSubnetGroup` resource creates an AWS DMS replication subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same AWS Region .
+// Subnet groups must contain at least two subnets in two different Availability Zones in the same AWS Region .
 //
 // > Resource creation fails if the `dms-vpc-role` AWS Identity and Access Management ( IAM ) role doesn't already exist. For more information, see [Creating the IAM Roles to Use With the AWS CLI and AWS DMS API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.APIRole.html) in the *AWS Database Migration Service User Guide* .
 //
@@ -36,9 +36,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html
+//
 type CfnReplicationSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -69,8 +73,6 @@ type CfnReplicationSubnetGroup interface {
 	ReplicationSubnetGroupDescription() *string
 	SetReplicationSubnetGroupDescription(val *string)
 	// The identifier for the replication subnet group.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the identifier.
 	ReplicationSubnetGroupIdentifier() *string
 	SetReplicationSubnetGroupIdentifier(val *string)
 	// The stack in which this element is defined.
@@ -80,8 +82,11 @@ type CfnReplicationSubnetGroup interface {
 	// One or more subnet IDs to be assigned to the subnet group.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// One or more tags to be assigned to the subnet group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more tags to be assigned to the subnet group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +231,17 @@ type CfnReplicationSubnetGroup interface {
 type jsiiProxy_CfnReplicationSubnetGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnReplicationSubnetGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnReplicationSubnetGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -348,6 +364,16 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReplicationSubnetGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReplicationSubnetGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -369,7 +395,6 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::DMS::ReplicationSubnetGroup`.
 func NewCfnReplicationSubnetGroup(scope constructs.Construct, id *string, props *CfnReplicationSubnetGroupProps) CfnReplicationSubnetGroup {
 	_init_.Initialize()
 
@@ -387,7 +412,6 @@ func NewCfnReplicationSubnetGroup(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::DMS::ReplicationSubnetGroup`.
 func NewCfnReplicationSubnetGroup_Override(c CfnReplicationSubnetGroup, scope constructs.Construct, id *string, props *CfnReplicationSubnetGroupProps) {
 	_init_.Initialize()
 
@@ -424,6 +448,17 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnReplicationSubnetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

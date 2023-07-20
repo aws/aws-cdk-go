@@ -14,16 +14,24 @@ package awsiotsitewise
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html
+//
 type CfnAssetModel_AssetModelHierarchyProperty struct {
 	// The Id of the asset model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-childassetmodelid
+	//
 	ChildAssetModelId *string `field:"required" json:"childAssetModelId" yaml:"childAssetModelId"`
 	// The `LogicalID` of the asset model hierarchy. This ID is a `hierarchyLogicalId` .
 	//
-	// The maximum length is 256 characters, with the pattern `[^\ u0000-\ u001F\ u007F]+`.
+	// The maximum length is 256 characters, with the pattern `[^\u0000-\u001F\u007F]+`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-logicalid
+	//
 	LogicalId *string `field:"required" json:"logicalId" yaml:"logicalId"`
 	// The name of the asset model hierarchy.
 	//
-	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
+	// The maximum length is 256 characters with the pattern `[^\u0000-\u001F\u007F]+` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

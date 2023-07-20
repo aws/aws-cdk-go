@@ -42,10 +42,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapsortconfiguration.html
+//
 type CfnTemplate_TreeMapSortConfigurationProperty struct {
 	// The limit on the number of groups that are displayed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapsortconfiguration.html#cfn-quicksight-template-treemapsortconfiguration-treemapgroupitemslimitconfiguration
+	//
 	TreeMapGroupItemsLimitConfiguration interface{} `field:"optional" json:"treeMapGroupItemsLimitConfiguration" yaml:"treeMapGroupItemsLimitConfiguration"`
 	// The sort configuration of group by fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapsortconfiguration.html#cfn-quicksight-template-treemapsortconfiguration-treemapsort
+	//
 	TreeMapSort interface{} `field:"optional" json:"treeMapSort" yaml:"treeMapSort"`
 }
 

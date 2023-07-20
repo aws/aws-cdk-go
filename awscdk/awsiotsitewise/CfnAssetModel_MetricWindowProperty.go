@@ -17,8 +17,12 @@ package awsiotsitewise
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
+//
 type CfnAssetModel_MetricWindowProperty struct {
 	// The tumbling time interval window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
+	//
 	Tumbling interface{} `field:"optional" json:"tumbling" yaml:"tumbling"`
 }
 

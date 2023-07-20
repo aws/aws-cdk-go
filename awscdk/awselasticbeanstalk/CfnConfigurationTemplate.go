@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElasticBeanstalk::ConfigurationTemplate`.
-//
 // Specify an AWS Elastic Beanstalk configuration template by using the AWS::ElasticBeanstalk::ConfigurationTemplate resource in an AWS CloudFormation template.
 //
 // The AWS::ElasticBeanstalk::ConfigurationTemplate resource is an AWS Elastic Beanstalk resource type that specifies an Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk application. You define application configuration settings in a configuration template. You can then use the configuration template to deploy different versions of the application with the same configuration settings.
@@ -46,12 +44,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html
+//
 type CfnConfigurationTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The name of the Elastic Beanstalk application to associate with this configuration template.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	// The name of the configuration template.
 	AttrTemplateName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -66,8 +67,6 @@ type CfnConfigurationTemplate interface {
 	Description() *string
 	SetDescription(val *string)
 	// The ID of an environment whose settings you want to use to create the configuration template.
-	//
-	// You must specify `EnvironmentId` if you don't specify `PlatformArn` , `SolutionStackName` , or `SourceConfiguration` .
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -83,15 +82,9 @@ type CfnConfigurationTemplate interface {
 	// The tree node.
 	Node() constructs.Node
 	// Option values for the Elastic Beanstalk configuration, such as the instance type.
-	//
-	// If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the *AWS Elastic Beanstalk Developer Guide* .
 	OptionSettings() interface{}
 	SetOptionSettings(val interface{})
 	// The Amazon Resource Name (ARN) of the custom platform.
-	//
-	// For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the *AWS Elastic Beanstalk Developer Guide* .
-	//
-	// > If you specify `PlatformArn` , then don't specify `SolutionStackName` .
 	PlatformArn() *string
 	SetPlatformArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -100,23 +93,9 @@ type CfnConfigurationTemplate interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses.
-	//
-	// For example, `64bit Amazon Linux 2013.09 running Tomcat 7 Java 7` . A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the *AWS Elastic Beanstalk Developer Guide* .
-	//
-	// You must specify `SolutionStackName` if you don't specify `PlatformArn` , `EnvironmentId` , or `SourceConfiguration` .
-	//
-	// Use the [`ListAvailableSolutionStacks`](https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html) API to obtain a list of available solution stacks.
 	SolutionStackName() *string
 	SetSolutionStackName(val *string)
 	// An Elastic Beanstalk configuration template to base this one on.
-	//
-	// If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.
-	//
-	// Values specified in `OptionSettings` override any values obtained from the `SourceConfiguration` .
-	//
-	// You must specify `SourceConfiguration` if you don't specify `PlatformArn` , `EnvironmentId` , or `SolutionStackName` .
-	//
-	// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name.
 	SourceConfiguration() interface{}
 	SetSourceConfiguration(val interface{})
 	// The stack in which this element is defined.
@@ -450,7 +429,6 @@ func (j *jsiiProxy_CfnConfigurationTemplate) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::ElasticBeanstalk::ConfigurationTemplate`.
 func NewCfnConfigurationTemplate(scope constructs.Construct, id *string, props *CfnConfigurationTemplateProps) CfnConfigurationTemplate {
 	_init_.Initialize()
 
@@ -468,7 +446,6 @@ func NewCfnConfigurationTemplate(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::ElasticBeanstalk::ConfigurationTemplate`.
 func NewCfnConfigurationTemplate_Override(c CfnConfigurationTemplate, scope constructs.Construct, id *string, props *CfnConfigurationTemplateProps) {
 	_init_.Initialize()
 

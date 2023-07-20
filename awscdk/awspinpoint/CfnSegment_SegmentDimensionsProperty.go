@@ -77,20 +77,34 @@ package awspinpoint
 //   	UserAttributes: userAttributes,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html
+//
 type CfnSegment_SegmentDimensionsProperty struct {
 	// One or more custom attributes to use as criteria for the segment.
 	//
 	// For more information see [AttributeDimension](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments.html#apps-application-id-segments-model-attributedimension)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-attributes
+	//
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The behavior-based criteria, such as how recently users have used your app, for the segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-behavior
+	//
 	Behavior interface{} `field:"optional" json:"behavior" yaml:"behavior"`
 	// The demographic-based criteria, such as device platform, for the segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-demographic
+	//
 	Demographic interface{} `field:"optional" json:"demographic" yaml:"demographic"`
 	// The location-based criteria, such as region or GPS coordinates, for the segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-location
+	//
 	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// One or more custom metrics to use as criteria for the segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-metrics
+	//
 	Metrics interface{} `field:"optional" json:"metrics" yaml:"metrics"`
 	// One or more custom user attributes to use as criteria for the segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-userattributes
+	//
 	UserAttributes interface{} `field:"optional" json:"userAttributes" yaml:"userAttributes"`
 }
 

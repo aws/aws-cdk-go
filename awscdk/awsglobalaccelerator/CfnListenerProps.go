@@ -22,12 +22,20 @@ package awsglobalaccelerator
 //   	ClientAffinity: jsii.String("clientAffinity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
+//
 type CfnListenerProps struct {
 	// The Amazon Resource Name (ARN) of your accelerator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+	//
 	AcceleratorArn *string `field:"required" json:"acceleratorArn" yaml:"acceleratorArn"`
 	// The list of port ranges for the connections from clients to the accelerator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
+	//
 	PortRanges interface{} `field:"required" json:"portRanges" yaml:"portRanges"`
 	// The protocol for the connections from clients to the accelerator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request.
 	//
@@ -38,6 +46,8 @@ type CfnListenerProps struct {
 	// If you want a given client to always be routed to the same endpoint, set client affinity to `SOURCE_IP` instead. When you use the `SOURCE_IP` setting, Global Accelerator uses the "two-tuple" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.
 	//
 	// The default value is `NONE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+	//
 	ClientAffinity *string `field:"optional" json:"clientAffinity" yaml:"clientAffinity"`
 }
 

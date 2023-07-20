@@ -36,18 +36,28 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html
+//
 type CfnComponent_ComponentDataConfigurationProperty struct {
 	// The name of the data model to use to bind data to a component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-model
+	//
 	Model *string `field:"required" json:"model" yaml:"model"`
 	// A list of IDs to use to bind data to a component.
 	//
 	// Use this property to bind specifically chosen data, rather than data retrieved from a query.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-identifiers
+	//
 	Identifiers *[]*string `field:"optional" json:"identifiers" yaml:"identifiers"`
 	// Represents the conditional logic to use when binding data to a component.
 	//
 	// Use this property to retrieve only a subset of the data in a collection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-predicate
+	//
 	Predicate interface{} `field:"optional" json:"predicate" yaml:"predicate"`
 	// Describes how to sort the component's properties.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-sort
+	//
 	Sort interface{} `field:"optional" json:"sort" yaml:"sort"`
 }
 

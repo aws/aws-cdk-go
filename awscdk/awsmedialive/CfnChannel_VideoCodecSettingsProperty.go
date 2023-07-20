@@ -164,14 +164,24 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html
+//
 type CfnChannel_VideoCodecSettingsProperty struct {
 	// The settings for the video codec in a frame capture output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-framecapturesettings
+	//
 	FrameCaptureSettings interface{} `field:"optional" json:"frameCaptureSettings" yaml:"frameCaptureSettings"`
 	// The settings for the H.264 codec in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-h264settings
+	//
 	H264Settings interface{} `field:"optional" json:"h264Settings" yaml:"h264Settings"`
 	// Settings for video encoded with the H265 codec.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-h265settings
+	//
 	H265Settings interface{} `field:"optional" json:"h265Settings" yaml:"h265Settings"`
 	// Settings for video encoded with the MPEG-2 codec.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-mpeg2settings
+	//
 	Mpeg2Settings interface{} `field:"optional" json:"mpeg2Settings" yaml:"mpeg2Settings"`
 }
 

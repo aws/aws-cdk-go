@@ -44,12 +44,18 @@ package awssecurityhub
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html
+//
 type CfnAutomationRule_AutomationRulesActionProperty struct {
 	// Specifies that the automation rule action is an update to a finding field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html#cfn-securityhub-automationrule-automationrulesaction-findingfieldsupdate
+	//
 	FindingFieldsUpdate interface{} `field:"required" json:"findingFieldsUpdate" yaml:"findingFieldsUpdate"`
 	// Specifies that the rule action should update the `Types` finding field.
 	//
 	// The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html#cfn-securityhub-automationrule-automationrulesaction-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

@@ -367,6 +367,16 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetStoppingConditionParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnModelBiasJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnModelBiasJobDefinitionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

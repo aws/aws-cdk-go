@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::ClientVpnAuthorizationRule`.
+// Specifies an ingress authorization rule to add to a Client VPN endpoint.
 //
-// Specifies an ingress authorization rule to add to a Client VPN endpoint. Ingress authorization rules act as firewall rules that grant access to networks. You must configure ingress authorization rules to enable clients to access resources in AWS or on-premises networks.
+// Ingress authorization rules act as firewall rules that grant access to networks. You must configure ingress authorization rules to enable clients to access resources in AWS or on-premises networks.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,17 +28,16 @@ import (
 //   	Description: jsii.String("description"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html
+//
 type CfnClientVpnAuthorizationRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group.
-	//
-	// Required if `AuthorizeAllGroups` is `false` or not specified.
 	AccessGroupId() *string
 	SetAccessGroupId(val *string)
+	AttrId() *string
 	// Indicates whether to grant access to all clients.
-	//
-	// Specify `true` to grant all clients who successfully establish a VPN connection access to the network. Must be set to `true` if `AccessGroupId` is not specified.
 	AuthorizeAllGroups() interface{}
 	SetAuthorizeAllGroups(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -236,6 +235,16 @@ func (j *jsiiProxy_CfnClientVpnAuthorizationRule) AccessGroupId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClientVpnAuthorizationRule) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientVpnAuthorizationRule) AuthorizeAllGroups() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -377,7 +386,6 @@ func (j *jsiiProxy_CfnClientVpnAuthorizationRule) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::EC2::ClientVpnAuthorizationRule`.
 func NewCfnClientVpnAuthorizationRule(scope constructs.Construct, id *string, props *CfnClientVpnAuthorizationRuleProps) CfnClientVpnAuthorizationRule {
 	_init_.Initialize()
 
@@ -395,7 +403,6 @@ func NewCfnClientVpnAuthorizationRule(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::EC2::ClientVpnAuthorizationRule`.
 func NewCfnClientVpnAuthorizationRule_Override(c CfnClientVpnAuthorizationRule, scope constructs.Construct, id *string, props *CfnClientVpnAuthorizationRuleProps) {
 	_init_.Initialize()
 

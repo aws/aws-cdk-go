@@ -15,6 +15,9 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DataBundles: []*string{
+//   		jsii.String("dataBundles"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	FederationMode: jsii.String("federationMode"),
 //   	FederationParameters: &FederationParametersProperty{
@@ -44,20 +47,41 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html
+//
 type CfnEnvironmentProps struct {
 	// The name of the FinSpace environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// ARNs of FinSpace Data Bundles to install.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-databundles
+	//
+	// Deprecated: this property has been deprecated.
+	DataBundles *[]*string `field:"optional" json:"dataBundles" yaml:"dataBundles"`
 	// The description of the FinSpace environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The authentication mode for the environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
+	//
 	FederationMode *string `field:"optional" json:"federationMode" yaml:"federationMode"`
 	// Configuration information when authentication mode is FEDERATED.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
+	//
 	FederationParameters interface{} `field:"optional" json:"federationParameters" yaml:"federationParameters"`
 	// The KMS key id used to encrypt in the FinSpace environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Configuration information for the superuser.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-superuserparameters
+	//
 	SuperuserParameters interface{} `field:"optional" json:"superuserParameters" yaml:"superuserParameters"`
-	// `AWS::FinSpace::Environment.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

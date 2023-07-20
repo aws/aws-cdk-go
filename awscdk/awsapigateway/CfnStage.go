@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::Stage`.
-//
 // The `AWS::ApiGateway::Stage` resource creates a stage for a deployment.
 //
 // Example:
@@ -67,9 +65,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html
+//
 type CfnStage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Access log settings, including the access log format and access log destination ARN.
 	AccessLogSetting() interface{}
 	SetAccessLogSetting(val interface{})
@@ -77,8 +78,6 @@ type CfnStage interface {
 	CacheClusterEnabled() interface{}
 	SetCacheClusterEnabled(val interface{})
 	// The stage's cache capacity in GB.
-	//
-	// For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
 	CacheClusterSize() *string
 	SetCacheClusterSize(val *string)
 	// Settings for the canary deployment in this stage.
@@ -116,8 +115,6 @@ type CfnStage interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A map that defines the method settings for a Stage resource.
-	//
-	// Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\* /\*` for overriding all methods in the stage.
 	MethodSettings() interface{}
 	SetMethodSettings(val interface{})
 	// The tree node.
@@ -135,14 +132,13 @@ type CfnStage interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway.
-	//
-	// Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 	StageName() *string
 	SetStageName(val *string)
-	// The collection of tags.
-	//
-	// Each tag element is associated with a given resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The collection of tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled() interface{}
 	SetTracingEnabled(val interface{})
@@ -160,8 +156,6 @@ type CfnStage interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
-	//
-	// Variable names are limited to alphanumeric characters. Values must match the following regular expression: `[A-Za-z0-9-._~:/?#&=,]+` .
 	Variables() interface{}
 	SetVariables(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -295,6 +289,7 @@ type CfnStage interface {
 type jsiiProxy_CfnStage struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStage) AccessLogSetting() interface{} {
@@ -497,6 +492,16 @@ func (j *jsiiProxy_CfnStage) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStage) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStage) TracingEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -538,7 +543,6 @@ func (j *jsiiProxy_CfnStage) Variables() interface{} {
 }
 
 
-// Create a new `AWS::ApiGateway::Stage`.
 func NewCfnStage(scope constructs.Construct, id *string, props *CfnStageProps) CfnStage {
 	_init_.Initialize()
 
@@ -556,7 +560,6 @@ func NewCfnStage(scope constructs.Construct, id *string, props *CfnStageProps) C
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::Stage`.
 func NewCfnStage_Override(c CfnStage, scope constructs.Construct, id *string, props *CfnStageProps) {
 	_init_.Initialize()
 
@@ -666,6 +669,17 @@ func (j *jsiiProxy_CfnStage)SetStageName(val *string) {
 	_jsii_.Set(
 		j,
 		"stageName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStage)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

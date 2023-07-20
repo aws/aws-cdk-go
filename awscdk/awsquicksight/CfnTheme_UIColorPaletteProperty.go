@@ -29,38 +29,72 @@ package awsquicksight
 //   	WarningForeground: jsii.String("warningForeground"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html
+//
 type CfnTheme_UIColorPaletteProperty struct {
 	// This color is that applies to selected states and buttons.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accent
+	//
 	Accent *string `field:"optional" json:"accent" yaml:"accent"`
 	// The foreground color that applies to any text or other elements that appear over the accent color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accentforeground
+	//
 	AccentForeground *string `field:"optional" json:"accentForeground" yaml:"accentForeground"`
 	// The color that applies to error messages.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-danger
+	//
 	Danger *string `field:"optional" json:"danger" yaml:"danger"`
 	// The foreground color that applies to any text or other elements that appear over the error color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dangerforeground
+	//
 	DangerForeground *string `field:"optional" json:"dangerForeground" yaml:"dangerForeground"`
 	// The color that applies to the names of fields that are identified as dimensions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimension
+	//
 	Dimension *string `field:"optional" json:"dimension" yaml:"dimension"`
 	// The foreground color that applies to any text or other elements that appear over the dimension color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimensionforeground
+	//
 	DimensionForeground *string `field:"optional" json:"dimensionForeground" yaml:"dimensionForeground"`
 	// The color that applies to the names of fields that are identified as measures.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measure
+	//
 	Measure *string `field:"optional" json:"measure" yaml:"measure"`
 	// The foreground color that applies to any text or other elements that appear over the measure color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measureforeground
+	//
 	MeasureForeground *string `field:"optional" json:"measureForeground" yaml:"measureForeground"`
 	// The background color that applies to visuals and other high emphasis UI.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primarybackground
+	//
 	PrimaryBackground *string `field:"optional" json:"primaryBackground" yaml:"primaryBackground"`
 	// The color of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primaryforeground
+	//
 	PrimaryForeground *string `field:"optional" json:"primaryForeground" yaml:"primaryForeground"`
 	// The background color that applies to the sheet background and sheet controls.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondarybackground
+	//
 	SecondaryBackground *string `field:"optional" json:"secondaryBackground" yaml:"secondaryBackground"`
 	// The foreground color that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondaryforeground
+	//
 	SecondaryForeground *string `field:"optional" json:"secondaryForeground" yaml:"secondaryForeground"`
 	// The color that applies to success messages, for example the check mark for a successful download.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-success
+	//
 	Success *string `field:"optional" json:"success" yaml:"success"`
 	// The foreground color that applies to any text or other elements that appear over the success color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-successforeground
+	//
 	SuccessForeground *string `field:"optional" json:"successForeground" yaml:"successForeground"`
 	// This color that applies to warning and informational messages.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warning
+	//
 	Warning *string `field:"optional" json:"warning" yaml:"warning"`
 	// The foreground color that applies to any text or other elements that appear over the warning color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warningforeground
+	//
 	WarningForeground *string `field:"optional" json:"warningForeground" yaml:"warningForeground"`
 }
 

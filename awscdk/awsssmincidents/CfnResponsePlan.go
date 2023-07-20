@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSMIncidents::ResponsePlan`.
-//
 // The `AWS::SSMIncidents::ResponsePlan` resource specifies the details of the response plan that are used when creating an incident.
 //
 // Example:
@@ -97,12 +95,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html
+//
 type CfnResponsePlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The actions that the response plan starts at the beginning of an incident.
 	Actions() interface{}
 	SetActions(val interface{})
+	// The ARN of the response plan.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -152,10 +154,11 @@ type CfnResponsePlan interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -300,6 +303,7 @@ type CfnResponsePlan interface {
 type jsiiProxy_CfnResponsePlan struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnResponsePlan) Actions() interface{} {
@@ -472,6 +476,16 @@ func (j *jsiiProxy_CfnResponsePlan) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResponsePlan) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResponsePlan) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -493,7 +507,6 @@ func (j *jsiiProxy_CfnResponsePlan) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::SSMIncidents::ResponsePlan`.
 func NewCfnResponsePlan(scope constructs.Construct, id *string, props *CfnResponsePlanProps) CfnResponsePlan {
 	_init_.Initialize()
 
@@ -511,7 +524,6 @@ func NewCfnResponsePlan(scope constructs.Construct, id *string, props *CfnRespon
 	return &j
 }
 
-// Create a new `AWS::SSMIncidents::ResponsePlan`.
 func NewCfnResponsePlan_Override(c CfnResponsePlan, scope constructs.Construct, id *string, props *CfnResponsePlanProps) {
 	_init_.Initialize()
 
@@ -589,6 +601,17 @@ func (j *jsiiProxy_CfnResponsePlan)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResponsePlan)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

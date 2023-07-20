@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnAlarmModel) validateSetRoleArnParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnAlarmModel) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAlarmModelParameters(scope constructs.Construct, id *string, props *CfnAlarmModelProps) error {
 	return nil
 }

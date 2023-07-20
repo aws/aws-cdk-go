@@ -15,8 +15,12 @@ package awsquicksight
 //   	SimpleNumericalAggregation: jsii.String("simpleNumericalAggregation"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericalaggregationfunction.html
+//
 type CfnDashboard_NumericalAggregationFunctionProperty struct {
 	// An aggregation based on the percentile of values in a dimension or measure.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericalaggregationfunction.html#cfn-quicksight-dashboard-numericalaggregationfunction-percentileaggregation
+	//
 	PercentileAggregation interface{} `field:"optional" json:"percentileAggregation" yaml:"percentileAggregation"`
 	// Built-in aggregation functions for numerical values.
 	//
@@ -31,6 +35,8 @@ type CfnDashboard_NumericalAggregationFunctionProperty struct {
 	// - `STDEV` : The standard deviation of a dimension or measure.
 	// - `STDEVP` : The partitioned standard deviation of a dimension or measure.
 	// - `MEDIAN` : The median value of a dimension or measure.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericalaggregationfunction.html#cfn-quicksight-dashboard-numericalaggregationfunction-simplenumericalaggregation
+	//
 	SimpleNumericalAggregation *string `field:"optional" json:"simpleNumericalAggregation" yaml:"simpleNumericalAggregation"`
 }
 

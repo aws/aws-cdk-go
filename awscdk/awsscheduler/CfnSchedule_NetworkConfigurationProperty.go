@@ -22,10 +22,14 @@ package awsscheduler
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-networkconfiguration.html
+//
 type CfnSchedule_NetworkConfigurationProperty struct {
 	// Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used.
 	//
 	// This structure is relevant only for ECS tasks that use the awsvpc network mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-networkconfiguration.html#cfn-scheduler-schedule-networkconfiguration-awsvpcconfiguration
+	//
 	AwsvpcConfiguration interface{} `field:"optional" json:"awsvpcConfiguration" yaml:"awsvpcConfiguration"`
 }
 

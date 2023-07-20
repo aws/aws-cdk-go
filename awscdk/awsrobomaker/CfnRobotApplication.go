@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RoboMaker::RobotApplication`.
-//
 // The `AWS::RoboMaker::RobotApplication` resource creates an AWS RoboMaker robot application.
 //
 // Example:
@@ -42,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html
+//
 type CfnRobotApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the robot application.
 	AttrArn() *string
 	// The current revision id.
@@ -94,8 +95,11 @@ type CfnRobotApplication interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A map that contains tag keys and tag values that are attached to the robot application.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A map that contains tag keys and tag values that are attached to the robot application.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -240,6 +244,7 @@ type CfnRobotApplication interface {
 type jsiiProxy_CfnRobotApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRobotApplication) AttrArn() *string {
@@ -402,6 +407,16 @@ func (j *jsiiProxy_CfnRobotApplication) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRobotApplication) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRobotApplication) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -423,7 +438,6 @@ func (j *jsiiProxy_CfnRobotApplication) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::RoboMaker::RobotApplication`.
 func NewCfnRobotApplication(scope constructs.Construct, id *string, props *CfnRobotApplicationProps) CfnRobotApplication {
 	_init_.Initialize()
 
@@ -441,7 +455,6 @@ func NewCfnRobotApplication(scope constructs.Construct, id *string, props *CfnRo
 	return &j
 }
 
-// Create a new `AWS::RoboMaker::RobotApplication`.
 func NewCfnRobotApplication_Override(c CfnRobotApplication, scope constructs.Construct, id *string, props *CfnRobotApplicationProps) {
 	_init_.Initialize()
 
@@ -494,6 +507,14 @@ func (j *jsiiProxy_CfnRobotApplication)SetSources(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sources",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRobotApplication)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

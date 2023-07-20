@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IAM::InstanceProfile`.
-//
 // Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) .
 //
 // For information about the number of instance profiles you can create, see [IAM object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide* .
@@ -29,6 +27,8 @@ import (
 //   	InstanceProfileName: jsii.String("instanceProfileName"),
 //   	Path: jsii.String("path"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
 //
 type CfnInstanceProfile interface {
 	awscdk.CfnResource
@@ -49,8 +49,6 @@ type CfnInstanceProfile interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the instance profile to create.
-	//
-	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	InstanceProfileName() *string
 	SetInstanceProfileName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -66,12 +64,6 @@ type CfnInstanceProfile interface {
 	// The tree node.
 	Node() constructs.Node
 	// The path to the instance profile.
-	//
-	// For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
-	//
-	// This parameter is optional. If it is not included, it defaults to a slash (/).
-	//
-	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
 	Path() *string
 	SetPath(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -80,8 +72,6 @@ type CfnInstanceProfile interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The name of the role to associate with the instance profile.
-	//
-	// Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
 	Roles() *[]*string
 	SetRoles(val *[]*string)
 	// The stack in which this element is defined.
@@ -375,7 +365,6 @@ func (j *jsiiProxy_CfnInstanceProfile) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::IAM::InstanceProfile`.
 func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnInstanceProfileProps) CfnInstanceProfile {
 	_init_.Initialize()
 
@@ -393,7 +382,6 @@ func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnIns
 	return &j
 }
 
-// Create a new `AWS::IAM::InstanceProfile`.
 func NewCfnInstanceProfile_Override(c CfnInstanceProfile, scope constructs.Construct, id *string, props *CfnInstanceProfileProps) {
 	_init_.Initialize()
 

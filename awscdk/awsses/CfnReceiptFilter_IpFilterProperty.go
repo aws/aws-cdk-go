@@ -15,12 +15,18 @@ package awsses
 //   	Policy: jsii.String("policy"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html
+//
 type CfnReceiptFilter_IpFilterProperty struct {
 	// A single IP address or a range of IP addresses to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation.
 	//
 	// An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see [RFC 2317](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc2317) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-cidr
+	//
 	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// Indicates whether to block or allow incoming mail from the specified IP addresses.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-policy
+	//
 	Policy *string `field:"required" json:"policy" yaml:"policy"`
 }
 

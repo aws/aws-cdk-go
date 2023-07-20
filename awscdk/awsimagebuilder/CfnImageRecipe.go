@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ImageBuilder::ImageRecipe`.
+// An Image Builder image recipe is a document that defines the base image and the components to be applied to the base image to produce the desired configuration for the output image.
 //
-// An Image Builder image recipe is a document that defines the base image and the components to be applied to the base image to produce the desired configuration for the output image. You can use an image recipe to duplicate builds. Image Builder image recipes can be shared, branched, and edited using the console wizard, the AWS CLI , or the API. You can use image recipes with your version control software to maintain shareable versioned image recipes.
+// You can use an image recipe to duplicate builds. Image Builder image recipes can be shared, branched, and edited using the console wizard, the AWS CLI , or the API. You can use image recipes with your version control software to maintain shareable versioned image recipes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -67,12 +67,13 @@ import (
 //   	WorkingDirectory: jsii.String("workingDirectory"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
+//
 type CfnImageRecipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration.
-	//
-	// Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI.
 	AdditionalInstanceConfiguration() interface{}
 	SetAdditionalInstanceConfiguration(val interface{})
 	// Returns the Amazon Resource Name (ARN) of the image recipe.
@@ -90,8 +91,6 @@ type CfnImageRecipe interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The components of the image recipe.
-	//
-	// Components are orchestration documents that define a sequence of steps for downloading, installing, configuring, and testing software packages. They also define validation and security hardening steps. A component is defined using a YAML document format.
 	Components() interface{}
 	SetComponents(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -117,8 +116,6 @@ type CfnImageRecipe interface {
 	// The tree node.
 	Node() constructs.Node
 	// The parent image of the image recipe.
-	//
-	// The string must be either an Image ARN or an AMI ID.
 	ParentImage() *string
 	SetParentImage(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -130,8 +127,11 @@ type CfnImageRecipe interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags of the image recipe.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags of the image recipe.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -282,6 +282,7 @@ type CfnImageRecipe interface {
 type jsiiProxy_CfnImageRecipe struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnImageRecipe) AdditionalInstanceConfiguration() interface{} {
@@ -454,6 +455,16 @@ func (j *jsiiProxy_CfnImageRecipe) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImageRecipe) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImageRecipe) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -495,7 +506,6 @@ func (j *jsiiProxy_CfnImageRecipe) WorkingDirectory() *string {
 }
 
 
-// Create a new `AWS::ImageBuilder::ImageRecipe`.
 func NewCfnImageRecipe(scope constructs.Construct, id *string, props *CfnImageRecipeProps) CfnImageRecipe {
 	_init_.Initialize()
 
@@ -513,7 +523,6 @@ func NewCfnImageRecipe(scope constructs.Construct, id *string, props *CfnImageRe
 	return &j
 }
 
-// Create a new `AWS::ImageBuilder::ImageRecipe`.
 func NewCfnImageRecipe_Override(c CfnImageRecipe, scope constructs.Construct, id *string, props *CfnImageRecipeProps) {
 	_init_.Initialize()
 
@@ -583,6 +592,14 @@ func (j *jsiiProxy_CfnImageRecipe)SetParentImage(val *string) {
 	_jsii_.Set(
 		j,
 		"parentImage",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageRecipe)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

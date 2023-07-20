@@ -12,10 +12,14 @@ package awsiot
 //   	Statistic: jsii.String("statistic"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html
+//
 type CfnSecurityProfile_StatisticalThresholdProperty struct {
 	// The percentile that resolves to a threshold value by which compliance with a behavior is determined.
 	//
 	// Metrics are collected over the specified period ( `durationSeconds` ) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below ( `comparisonOperator` ) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html#cfn-iot-securityprofile-statisticalthreshold-statistic
+	//
 	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 }
 

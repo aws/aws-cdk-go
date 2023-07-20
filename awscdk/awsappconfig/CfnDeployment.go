@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppConfig::Deployment`.
+// The `AWS::AppConfig::Deployment` resource starts a deployment.
 //
-// The `AWS::AppConfig::Deployment` resource starts a deployment. Starting a deployment in AWS AppConfig calls the `StartDeployment` API action. This call includes the IDs of the AWS AppConfig application, the environment, the configuration profile, and (optionally) the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
+// Starting a deployment in AWS AppConfig calls the `StartDeployment` API action. This call includes the IDs of the AWS AppConfig application, the environment, the configuration profile, and (optionally) the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
 //
 // AWS AppConfig monitors the distribution to all hosts and reports status. If a distribution fails, then AWS AppConfig rolls back the configuration.
 //
@@ -48,12 +48,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html
+//
 type CfnDeployment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The application ID.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -63,8 +66,6 @@ type CfnDeployment interface {
 	ConfigurationProfileId() *string
 	SetConfigurationProfileId(val *string)
 	// The configuration version to deploy.
-	//
-	// If deploying an AWS AppConfig hosted configuration version, you can specify either the version number or version label. For all other configurations, you must specify the version number.
 	ConfigurationVersion() *string
 	SetConfigurationVersion(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -81,8 +82,6 @@ type CfnDeployment interface {
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
 	// The AWS KMS key identifier (key ID, key alias, or key ARN).
-	//
-	// AWS AppConfig uses this ID to encrypt the configuration data using a customer managed key.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -107,8 +106,6 @@ type CfnDeployment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Metadata to assign to the deployment.
-	//
-	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 	Tags() *[]*CfnDeployment_TagsProperty
 	SetTags(val *[]*CfnDeployment_TagsProperty)
 	// Deprecated.
@@ -262,6 +259,16 @@ func (j *jsiiProxy_CfnDeployment) ApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"applicationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeployment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -438,7 +445,6 @@ func (j *jsiiProxy_CfnDeployment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppConfig::Deployment`.
 func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeploymentProps) CfnDeployment {
 	_init_.Initialize()
 
@@ -456,7 +462,6 @@ func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeployme
 	return &j
 }
 
-// Create a new `AWS::AppConfig::Deployment`.
 func NewCfnDeployment_Override(c CfnDeployment, scope constructs.Construct, id *string, props *CfnDeploymentProps) {
 	_init_.Initialize()
 

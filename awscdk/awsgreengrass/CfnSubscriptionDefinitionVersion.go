@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::SubscriptionDefinitionVersion`.
+// The `AWS::Greengrass::SubscriptionDefinitionVersion` resource represents a subscription definition version for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::SubscriptionDefinitionVersion` resource represents a subscription definition version for AWS IoT Greengrass . A subscription definition version contains a list of subscriptions.
+// A subscription definition version contains a list of subscriptions.
 //
 // > To create a subscription definition version, you must specify the ID of the subscription definition that you want to associate with the version. For information about creating a subscription definition, see [`AWS::Greengrass::SubscriptionDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html) .
 // >
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html
+//
 type CfnSubscriptionDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -68,8 +71,6 @@ type CfnSubscriptionDefinitionVersion interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The ID of the subscription definition associated with this version.
-	//
-	// This value is a GUID.
 	SubscriptionDefinitionId() *string
 	SetSubscriptionDefinitionId(val *string)
 	// The subscriptions in this version.
@@ -221,6 +222,16 @@ type jsiiProxy_CfnSubscriptionDefinitionVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -342,7 +353,6 @@ func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) UpdatedProperties() *map[st
 }
 
 
-// Create a new `AWS::Greengrass::SubscriptionDefinitionVersion`.
 func NewCfnSubscriptionDefinitionVersion(scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionVersionProps) CfnSubscriptionDefinitionVersion {
 	_init_.Initialize()
 
@@ -360,7 +370,6 @@ func NewCfnSubscriptionDefinitionVersion(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Create a new `AWS::Greengrass::SubscriptionDefinitionVersion`.
 func NewCfnSubscriptionDefinitionVersion_Override(c CfnSubscriptionDefinitionVersion, scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionVersionProps) {
 	_init_.Initialize()
 

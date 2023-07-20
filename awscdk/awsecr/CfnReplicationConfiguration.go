@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECR::ReplicationConfiguration`.
+// The `AWS::ECR::ReplicationConfiguration` resource creates or updates the replication configuration for a private registry.
 //
-// The `AWS::ECR::ReplicationConfiguration` resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide* .
+// The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide* .
 //
 // > When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see `AWS::ECR::RegistryPolicy` .
 //
@@ -42,6 +42,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html
 //
 type CfnReplicationConfiguration interface {
 	awscdk.CfnResource
@@ -348,7 +350,6 @@ func (j *jsiiProxy_CfnReplicationConfiguration) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::ECR::ReplicationConfiguration`.
 func NewCfnReplicationConfiguration(scope constructs.Construct, id *string, props *CfnReplicationConfigurationProps) CfnReplicationConfiguration {
 	_init_.Initialize()
 
@@ -366,7 +367,6 @@ func NewCfnReplicationConfiguration(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::ECR::ReplicationConfiguration`.
 func NewCfnReplicationConfiguration_Override(c CfnReplicationConfiguration, scope constructs.Construct, id *string, props *CfnReplicationConfigurationProps) {
 	_init_.Initialize()
 

@@ -12,8 +12,12 @@ package awsquicksight
 //   	DisableSsl: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html
+//
 type CfnDataSource_SslPropertiesProperty struct {
 	// A Boolean option to control whether SSL should be disabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
+	//
 	DisableSsl interface{} `field:"optional" json:"disableSsl" yaml:"disableSsl"`
 }
 

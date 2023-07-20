@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Omics::Workflow`.
-//
 // Creates a workflow.
 //
 // Example:
@@ -36,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html
+//
 type CfnWorkflow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN for the workflow.
 	AttrArn() *string
 	// When the workflow was created.
@@ -100,8 +101,11 @@ type CfnWorkflow interface {
 	// A storage capacity for the workflow in gigabytes.
 	StorageCapacity() *float64
 	SetStorageCapacity(val *float64)
-	// Tags for the workflow.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags for the workflow.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,6 +250,7 @@ type CfnWorkflow interface {
 type jsiiProxy_CfnWorkflow struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnWorkflow) AttrArn() *string {
@@ -458,6 +463,16 @@ func (j *jsiiProxy_CfnWorkflow) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -479,7 +494,6 @@ func (j *jsiiProxy_CfnWorkflow) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Omics::Workflow`.
 func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowProps) CfnWorkflow {
 	_init_.Initialize()
 
@@ -497,7 +511,6 @@ func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowPr
 	return &j
 }
 
-// Create a new `AWS::Omics::Workflow`.
 func NewCfnWorkflow_Override(c CfnWorkflow, scope constructs.Construct, id *string, props *CfnWorkflowProps) {
 	_init_.Initialize()
 
@@ -563,6 +576,14 @@ func (j *jsiiProxy_CfnWorkflow)SetStorageCapacity(val *float64) {
 	_jsii_.Set(
 		j,
 		"storageCapacity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

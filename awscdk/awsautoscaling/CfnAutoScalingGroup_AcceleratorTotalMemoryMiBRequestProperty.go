@@ -13,10 +13,16 @@ package awsautoscaling
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html
+//
 type CfnAutoScalingGroup_AcceleratorTotalMemoryMiBRequestProperty struct {
 	// The memory maximum in MiB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html#cfn-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The memory minimum in MiB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html#cfn-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

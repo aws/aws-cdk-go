@@ -18,8 +18,12 @@ package awstimestream
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html
+//
 type CfnScheduledQuery_ErrorReportConfigurationProperty struct {
 	// The S3 configuration for the error reports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html#cfn-timestream-scheduledquery-errorreportconfiguration-s3configuration
+	//
 	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
 }
 

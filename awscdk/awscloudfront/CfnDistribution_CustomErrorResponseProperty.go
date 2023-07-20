@@ -22,14 +22,20 @@ package awscloudfront
 //   	ResponsePagePath: jsii.String("responsePagePath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html
+//
 type CfnDistribution_CustomErrorResponseProperty struct {
 	// The HTTP status code for which you want to specify a custom error page and/or a caching duration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode
+	//
 	ErrorCode *float64 `field:"required" json:"errorCode" yaml:"errorCode"`
 	// The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in `ErrorCode` .
 	//
 	// When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
 	//
 	// For more information, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl
+	//
 	ErrorCachingMinTtl *float64 `field:"optional" json:"errorCachingMinTtl" yaml:"errorCachingMinTtl"`
 	// The HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
 	//
@@ -40,6 +46,8 @@ type CfnDistribution_CustomErrorResponseProperty struct {
 	// - You might want to return a `200` status code (OK) and static website so your customers don't know that your website is down.
 	//
 	// If you specify a value for `ResponseCode` , you must also specify a value for `ResponsePagePath` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode
+	//
 	ResponseCode *float64 `field:"optional" json:"responseCode" yaml:"responseCode"`
 	// The path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by `ErrorCode` , for example, `/4xx-errors/403-forbidden.html` . If you want to store your objects and your custom error pages in different locations, your distribution must include a cache behavior for which the following is true:.
 	//
@@ -49,6 +57,8 @@ type CfnDistribution_CustomErrorResponseProperty struct {
 	// If you specify a value for `ResponsePagePath` , you must also specify a value for `ResponseCode` .
 	//
 	// We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath
+	//
 	ResponsePagePath *string `field:"optional" json:"responsePagePath" yaml:"responsePagePath"`
 }
 

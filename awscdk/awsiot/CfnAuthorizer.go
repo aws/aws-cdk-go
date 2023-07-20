@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::Authorizer`.
-//
 // Specifies an authorizer.
 //
 // Example:
@@ -38,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
+//
 type CfnAuthorizer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the authorizer.
 	AttrArn() *string
 	// The authorizer's Lambda function ARN.
@@ -59,8 +60,6 @@ type CfnAuthorizer interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections.
-	//
-	// The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
 	EnableCachingForHttp() interface{}
 	SetEnableCachingForHttp(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -88,18 +87,13 @@ type CfnAuthorizer interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The status of the authorizer.
-	//
-	// Valid values: `ACTIVE` | `INACTIVE`.
 	Status() *string
 	SetStatus(val *string)
-	// Metadata which can be used to manage the custom authorizer.
-	//
-	// > For URI Request parameters use format: ...key1=value1&key2=value2...
-	// >
-	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
-	// >
-	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata which can be used to manage the custom authorizer.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The key used to extract the token from the HTTP headers.
 	TokenKeyName() *string
 	SetTokenKeyName(val *string)
@@ -250,6 +244,7 @@ type CfnAuthorizer interface {
 type jsiiProxy_CfnAuthorizer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAuthorizer) AttrArn() *string {
@@ -402,6 +397,16 @@ func (j *jsiiProxy_CfnAuthorizer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAuthorizer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAuthorizer) TokenKeyName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -443,7 +448,6 @@ func (j *jsiiProxy_CfnAuthorizer) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::Authorizer`.
 func NewCfnAuthorizer(scope constructs.Construct, id *string, props *CfnAuthorizerProps) CfnAuthorizer {
 	_init_.Initialize()
 
@@ -461,7 +465,6 @@ func NewCfnAuthorizer(scope constructs.Construct, id *string, props *CfnAuthoriz
 	return &j
 }
 
-// Create a new `AWS::IoT::Authorizer`.
 func NewCfnAuthorizer_Override(c CfnAuthorizer, scope constructs.Construct, id *string, props *CfnAuthorizerProps) {
 	_init_.Initialize()
 
@@ -517,6 +520,17 @@ func (j *jsiiProxy_CfnAuthorizer)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAuthorizer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

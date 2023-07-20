@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnMulticastGroup) validateSetLoRaWanParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnMulticastGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMulticastGroupParameters(scope constructs.Construct, id *string, props *CfnMulticastGroupProps) error {
 	return nil
 }

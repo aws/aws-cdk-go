@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::OptionGroup`.
-//
 // The `AWS::RDS::OptionGroup` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
 //
 // Example:
@@ -54,9 +52,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
+//
 type CfnOptionGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -67,20 +68,6 @@ type CfnOptionGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specifies the name of the engine that this option group should be associated with.
-	//
-	// Valid Values:
-	//
-	// - `mariadb`
-	// - `mysql`
-	// - `oracle-ee`
-	// - `oracle-ee-cdb`
-	// - `oracle-se2`
-	// - `oracle-se2-cdb`
-	// - `postgres`
-	// - `sqlserver-ee`
-	// - `sqlserver-se`
-	// - `sqlserver-ex`
-	// - `sqlserver-web`.
 	EngineName() *string
 	SetEngineName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -105,18 +92,6 @@ type CfnOptionGroup interface {
 	OptionGroupDescription() *string
 	SetOptionGroupDescription(val *string)
 	// The name of the option group to be created.
-	//
-	// Constraints:
-	//
-	// - Must be 1 to 255 letters, numbers, or hyphens
-	// - First character must be a letter
-	// - Can't end with a hyphen or contain two consecutive hyphens
-	//
-	// Example: `myoptiongroup`
-	//
-	// If you don't specify a value for `OptionGroupName` property, a name is automatically created for the option group.
-	//
-	// > This value is stored as a lowercase string.
 	OptionGroupName() *string
 	SetOptionGroupName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -128,8 +103,11 @@ type CfnOptionGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An optional array of key-value pairs to apply to this option group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An optional array of key-value pairs to apply to this option group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -274,6 +252,7 @@ type CfnOptionGroup interface {
 type jsiiProxy_CfnOptionGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnOptionGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -416,6 +395,16 @@ func (j *jsiiProxy_CfnOptionGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOptionGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOptionGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -437,7 +426,6 @@ func (j *jsiiProxy_CfnOptionGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::RDS::OptionGroup`.
 func NewCfnOptionGroup(scope constructs.Construct, id *string, props *CfnOptionGroupProps) CfnOptionGroup {
 	_init_.Initialize()
 
@@ -455,7 +443,6 @@ func NewCfnOptionGroup(scope constructs.Construct, id *string, props *CfnOptionG
 	return &j
 }
 
-// Create a new `AWS::RDS::OptionGroup`.
 func NewCfnOptionGroup_Override(c CfnOptionGroup, scope constructs.Construct, id *string, props *CfnOptionGroupProps) {
 	_init_.Initialize()
 
@@ -514,6 +501,17 @@ func (j *jsiiProxy_CfnOptionGroup)SetOptionGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"optionGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOptionGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

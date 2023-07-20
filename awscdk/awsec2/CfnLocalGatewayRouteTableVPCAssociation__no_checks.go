@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateSetLocalGate
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateSetVpcIdParameters(val *string) error {
 	return nil
 }

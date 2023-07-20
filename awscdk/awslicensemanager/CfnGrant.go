@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::LicenseManager::Grant`.
-//
 // Specifies a grant.
 //
 // A grant shares the use of license entitlements with specific AWS accounts . For more information, see [Granted licenses](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *AWS License Manager User Guide* .
@@ -32,6 +30,8 @@ import (
 //   	},
 //   	Status: jsii.String("status"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html
 //
 type CfnGrant interface {
 	awscdk.CfnResource
@@ -73,13 +73,9 @@ type CfnGrant interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):.
+	// The grant principals.
 	//
-	// - An AWS account, which includes only the account specified.
-	//
-	// - An organizational unit (OU), which includes all accounts in the OU.
-	//
-	// - An organization, which will include all accounts across your organization.
+	// You can specify one of the following as an Amazon Resource Name (ARN):.
 	Principals() *[]*string
 	SetPrincipals(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -421,7 +417,6 @@ func (j *jsiiProxy_CfnGrant) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::LicenseManager::Grant`.
 func NewCfnGrant(scope constructs.Construct, id *string, props *CfnGrantProps) CfnGrant {
 	_init_.Initialize()
 
@@ -439,7 +434,6 @@ func NewCfnGrant(scope constructs.Construct, id *string, props *CfnGrantProps) C
 	return &j
 }
 
-// Create a new `AWS::LicenseManager::Grant`.
 func NewCfnGrant_Override(c CfnGrant, scope constructs.Construct, id *string, props *CfnGrantProps) {
 	_init_.Initialize()
 

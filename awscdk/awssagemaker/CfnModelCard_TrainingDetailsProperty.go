@@ -61,12 +61,20 @@ package awssagemaker
 //   	TrainingObservations: jsii.String("trainingObservations"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html
+//
 type CfnModelCard_TrainingDetailsProperty struct {
 	// The function that is optimized during model training.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html#cfn-sagemaker-modelcard-trainingdetails-objectivefunction
+	//
 	ObjectiveFunction interface{} `field:"optional" json:"objectiveFunction" yaml:"objectiveFunction"`
 	// Details about any associated training jobs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html#cfn-sagemaker-modelcard-trainingdetails-trainingjobdetails
+	//
 	TrainingJobDetails interface{} `field:"optional" json:"trainingJobDetails" yaml:"trainingJobDetails"`
 	// Any observations about training.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html#cfn-sagemaker-modelcard-trainingdetails-trainingobservations
+	//
 	TrainingObservations *string `field:"optional" json:"trainingObservations" yaml:"trainingObservations"`
 }
 

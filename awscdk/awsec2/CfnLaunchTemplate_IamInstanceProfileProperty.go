@@ -19,10 +19,16 @@ package awsec2
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-iaminstanceprofile.html
+//
 type CfnLaunchTemplate_IamInstanceProfileProperty struct {
 	// The Amazon Resource Name (ARN) of the instance profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-iaminstanceprofile.html#cfn-ec2-launchtemplate-iaminstanceprofile-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The name of the instance profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-iaminstanceprofile.html#cfn-ec2-launchtemplate-iaminstanceprofile-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

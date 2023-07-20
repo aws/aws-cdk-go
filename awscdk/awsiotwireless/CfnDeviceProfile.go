@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTWireless::DeviceProfile`.
-//
 // Creates a new device profile.
 //
 // Example:
@@ -51,9 +49,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html
+//
 type CfnDeviceProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the device profile created.
 	AttrArn() *string
 	// The ID of the device profile created.
@@ -94,10 +95,11 @@ type CfnDeviceProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags are an array of key-value pairs to attach to the specified resource.
-	//
-	// Tags can have a minimum of 0 and a maximum of 50 items.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -242,6 +244,7 @@ type CfnDeviceProfile interface {
 type jsiiProxy_CfnDeviceProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDeviceProfile) AttrArn() *string {
@@ -374,6 +377,16 @@ func (j *jsiiProxy_CfnDeviceProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeviceProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeviceProfile) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -395,7 +408,6 @@ func (j *jsiiProxy_CfnDeviceProfile) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::IoTWireless::DeviceProfile`.
 func NewCfnDeviceProfile(scope constructs.Construct, id *string, props *CfnDeviceProfileProps) CfnDeviceProfile {
 	_init_.Initialize()
 
@@ -413,7 +425,6 @@ func NewCfnDeviceProfile(scope constructs.Construct, id *string, props *CfnDevic
 	return &j
 }
 
-// Create a new `AWS::IoTWireless::DeviceProfile`.
 func NewCfnDeviceProfile_Override(c CfnDeviceProfile, scope constructs.Construct, id *string, props *CfnDeviceProfileProps) {
 	_init_.Initialize()
 
@@ -439,6 +450,17 @@ func (j *jsiiProxy_CfnDeviceProfile)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeviceProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

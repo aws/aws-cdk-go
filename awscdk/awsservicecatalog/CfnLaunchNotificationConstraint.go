@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::LaunchNotificationConstraint`.
-//
 // Specifies a notification constraint.
 //
 // Example:
@@ -30,15 +28,15 @@ import (
 //   	Description: jsii.String("description"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html
+//
 type CfnLaunchNotificationConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -237,6 +235,16 @@ func (j *jsiiProxy_CfnLaunchNotificationConstraint) AcceptLanguage() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLaunchNotificationConstraint) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLaunchNotificationConstraint) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -378,7 +386,6 @@ func (j *jsiiProxy_CfnLaunchNotificationConstraint) UpdatedProperties() *map[str
 }
 
 
-// Create a new `AWS::ServiceCatalog::LaunchNotificationConstraint`.
 func NewCfnLaunchNotificationConstraint(scope constructs.Construct, id *string, props *CfnLaunchNotificationConstraintProps) CfnLaunchNotificationConstraint {
 	_init_.Initialize()
 
@@ -396,7 +403,6 @@ func NewCfnLaunchNotificationConstraint(scope constructs.Construct, id *string, 
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::LaunchNotificationConstraint`.
 func NewCfnLaunchNotificationConstraint_Override(c CfnLaunchNotificationConstraint, scope constructs.Construct, id *string, props *CfnLaunchNotificationConstraintProps) {
 	_init_.Initialize()
 

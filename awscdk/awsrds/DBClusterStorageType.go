@@ -4,7 +4,6 @@ package awsrds
 // The storage type to be associated with the DB cluster.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -12,7 +11,7 @@ package awsrds
 //   		Version: rds.AuroraPostgresEngineVersion_VER_15_2(),
 //   	}),
 //   	Credentials: rds.Credentials_FromUsername(jsii.String("adminuser"), &CredentialsFromUsernameOptions{
-//   		Password: cdk.secretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
+//   		Password: awscdk.SecretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
 //   	}),
 //   	InstanceProps: &InstanceProps{
 //   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_X2G, ec2.InstanceSize_XLARGE),

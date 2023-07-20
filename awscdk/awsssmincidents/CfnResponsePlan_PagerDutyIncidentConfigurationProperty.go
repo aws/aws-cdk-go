@@ -12,8 +12,12 @@ package awsssmincidents
 //   	ServiceId: jsii.String("serviceId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-pagerdutyincidentconfiguration.html
+//
 type CfnResponsePlan_PagerDutyIncidentConfigurationProperty struct {
 	// The ID of the PagerDuty service that the response plan associates with an incident when it launches.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-pagerdutyincidentconfiguration.html#cfn-ssmincidents-responseplan-pagerdutyincidentconfiguration-serviceid
+	//
 	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
 }
 

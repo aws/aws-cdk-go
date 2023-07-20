@@ -38,34 +38,56 @@ import (
 //   	Vendor: jsii.String("vendor"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html
+//
 type CfnDeviceProps struct {
 	// The ID of the global network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
+	//
 	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
-	// `AWS::NetworkManager::Device.AWSLocation`.
+	// The Amazon Web Services location of the device, if applicable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-awslocation
+	//
 	AwsLocation interface{} `field:"optional" json:"awsLocation" yaml:"awsLocation"`
 	// A description of the device.
 	//
 	// Constraints: Maximum length of 256 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The site location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
+	//
 	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// The model of the device.
 	//
 	// Constraints: Maximum length of 128 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
+	//
 	Model *string `field:"optional" json:"model" yaml:"model"`
 	// The serial number of the device.
 	//
 	// Constraints: Maximum length of 128 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
+	//
 	SerialNumber *string `field:"optional" json:"serialNumber" yaml:"serialNumber"`
 	// The site ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
+	//
 	SiteId *string `field:"optional" json:"siteId" yaml:"siteId"`
 	// The tags for the device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The device type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The vendor of the device.
 	//
 	// Constraints: Maximum length of 128 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
+	//
 	Vendor *string `field:"optional" json:"vendor" yaml:"vendor"`
 }
 

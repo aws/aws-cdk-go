@@ -14,46 +14,38 @@ package awsamplifyuibuilder
 //
 //   predicateProperty := &predicateProperty{
 //   	And: []interface{}{
-//   		&predicateProperty{
-//   			And: []interface{}{
-//   				predicateProperty_,
-//   			},
-//   			Field: jsii.String("field"),
-//   			Operand: jsii.String("operand"),
-//   			Operator: jsii.String("operator"),
-//   			Or: []interface{}{
-//   				predicateProperty_,
-//   			},
-//   		},
+//   		predicateProperty_,
 //   	},
 //   	Field: jsii.String("field"),
 //   	Operand: jsii.String("operand"),
 //   	Operator: jsii.String("operator"),
 //   	Or: []interface{}{
-//   		&predicateProperty{
-//   			And: []interface{}{
-//   				predicateProperty_,
-//   			},
-//   			Field: jsii.String("field"),
-//   			Operand: jsii.String("operand"),
-//   			Operator: jsii.String("operator"),
-//   			Or: []interface{}{
-//   				predicateProperty_,
-//   			},
-//   		},
+//   		predicateProperty_,
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html
+//
 type CfnComponent_PredicateProperty struct {
 	// A list of predicates to combine logically.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-and
+	//
 	And interface{} `field:"optional" json:"and" yaml:"and"`
 	// The field to query.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-field
+	//
 	Field *string `field:"optional" json:"field" yaml:"field"`
 	// The value to use when performing the evaluation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operand
+	//
 	Operand *string `field:"optional" json:"operand" yaml:"operand"`
 	// The operator to use to perform the evaluation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operator
+	//
 	Operator *string `field:"optional" json:"operator" yaml:"operator"`
 	// A list of predicates to combine logically.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-or
+	//
 	Or interface{} `field:"optional" json:"or" yaml:"or"`
 }
 

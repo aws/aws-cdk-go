@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GameLift::MatchmakingConfiguration`.
+// The `AWS::GameLift::MatchmakingConfiguration` resource defines a new matchmaking configuration for use with FlexMatch.
 //
-// The `AWS::GameLift::MatchmakingConfiguration` resource defines a new matchmaking configuration for use with FlexMatch. Whether you're using FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking configuration sets out rules for matching players and forming teams. If you're using GameLift hosting, it also defines how to start game sessions for each match. Your matchmaking system can use multiple configurations to handle different game scenarios. All matchmaking requests identify the matchmaking configuration to use and provide player attributes that are consistent with that configuration.
+// Whether you're using FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking configuration sets out rules for matching players and forming teams. If you're using GameLift hosting, it also defines how to start game sessions for each match. Your matchmaking system can use multiple configurations to handle different game scenarios. All matchmaking requests identify the matchmaking configuration to use and provide player attributes that are consistent with that configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -50,29 +50,27 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html
+//
 type CfnMatchmakingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A flag that determines whether a match that was created with this configuration must be accepted by the matched players.
-	//
-	// To require acceptance, set to `TRUE` . With this option enabled, matchmaking tickets use the status `REQUIRES_ACCEPTANCE` to indicate when a completed potential match is waiting for player acceptance.
 	AcceptanceRequired() interface{}
 	SetAcceptanceRequired(val interface{})
 	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 	AcceptanceTimeoutSeconds() *float64
 	SetAcceptanceTimeoutSeconds(val *float64)
 	// The number of player slots in a match to keep open for future players.
-	//
-	// For example, if the configuration's rule set specifies a match for a single 10-person team, and the additional player count is set to 2, 10 players will be selected for the match and 2 more player slots will be open for future players. This parameter is not used if `FlexMatchMode` is set to `STANDALONE` .
 	AdditionalPlayerCount() *float64
 	SetAdditionalPlayerCount(val *float64)
 	// The unique Amazon Resource Name (ARN) for the `MatchmakingConfiguration` .
 	AttrArn() *string
+	AttrId() *string
 	// The `MatchmakingConfiguration` name, which is unique.
 	AttrName() *string
 	// The method used to backfill game sessions that are created with this matchmaking configuration.
-	//
-	// Specify `MANUAL` when your game manages backfill requests manually or does not use the match backfill feature. Specify `AUTOMATIC` to have GameLift create a `StartMatchBackfill` request whenever a game session has one or more open slots. Learn more about manual and automatic backfill in [Backfill Existing Games with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html) . Automatic backfill is not available when `FlexMatchMode` is set to `STANDALONE` .
 	BackfillMode() *string
 	SetBackfillMode(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -91,19 +89,12 @@ type CfnMatchmakingConfiguration interface {
 	Description() *string
 	SetDescription(val *string)
 	// Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
-	//
-	// - *STANDALONE* - FlexMatch forms matches and returns match information, including players and team assignments, in a [MatchmakingSucceeded](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded) event.
-	// - *WITH_QUEUE* - FlexMatch forms matches and uses the specified Amazon GameLift queue to start a game session for the match.
 	FlexMatchMode() *string
 	SetFlexMatchMode(val *string)
 	// A set of custom properties for a game session, formatted as key-value pairs.
-	//
-	// These properties are passed to a game server process with a request to start a new game session. See [Start a Game Session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession) . This parameter is not used if `FlexMatchMode` is set to `STANDALONE` .
 	GameProperties() interface{}
 	SetGameProperties(val interface{})
 	// A set of custom game session properties, formatted as a single string value.
-	//
-	// This data is passed to a game server process with a request to start a new game session. See [Start a Game Session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession) . This parameter is not used if `FlexMatchMode` is set to `STANDALONE` .
 	GameSessionData() *string
 	SetGameSessionData(val *string)
 	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Format is `arn:aws:gamelift:<region>::gamesessionqueue/<queue name>` . Queues can be located in any Region. Queues are used to start new Amazon GameLift-hosted game sessions for matches that are created with this matchmaking configuration. If `FlexMatchMode` is set to `STANDALONE` , do not set this parameter.
@@ -120,15 +111,11 @@ type CfnMatchmakingConfiguration interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A unique identifier for the matchmaking configuration.
-	//
-	// This name is used to identify the configuration associated with a matchmaking request or ticket.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// An SNS topic ARN that is set up to receive matchmaking notifications.
-	//
-	// See [Setting up notifications for matchmaking](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html) for more information.
 	NotificationTarget() *string
 	SetNotificationTarget(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -137,23 +124,20 @@ type CfnMatchmakingConfiguration interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
-	//
-	// Requests that fail due to timing out can be resubmitted as needed.
 	RequestTimeoutSeconds() *float64
 	SetRequestTimeoutSeconds(val *float64)
 	// A unique identifier for the matchmaking rule set to use with this configuration.
-	//
-	// You can use either the rule set name or ARN value. A matchmaking configuration can only use rule sets that are defined in the same Region.
 	RuleSetName() *string
 	SetRuleSetName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of labels to assign to the new matchmaking configuration resource.
-	//
-	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of labels to assign to the new matchmaking configuration resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -298,6 +282,7 @@ type CfnMatchmakingConfiguration interface {
 type jsiiProxy_CfnMatchmakingConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMatchmakingConfiguration) AcceptanceRequired() interface{} {
@@ -335,6 +320,16 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMatchmakingConfiguration) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -550,6 +545,16 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMatchmakingConfiguration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMatchmakingConfiguration) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -571,7 +576,6 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::GameLift::MatchmakingConfiguration`.
 func NewCfnMatchmakingConfiguration(scope constructs.Construct, id *string, props *CfnMatchmakingConfigurationProps) CfnMatchmakingConfiguration {
 	_init_.Initialize()
 
@@ -589,7 +593,6 @@ func NewCfnMatchmakingConfiguration(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::GameLift::MatchmakingConfiguration`.
 func NewCfnMatchmakingConfiguration_Override(c CfnMatchmakingConfiguration, scope constructs.Construct, id *string, props *CfnMatchmakingConfigurationProps) {
 	_init_.Initialize()
 
@@ -723,6 +726,17 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration)SetRuleSetName(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleSetName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -16,8 +16,12 @@ package awsmedialive
 //   	Resolution: jsii.String("resolution"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cdiinputspecification.html
+//
 type CfnChannel_CdiInputSpecificationProperty struct {
 	// Maximum CDI input resolution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cdiinputspecification.html#cfn-medialive-channel-cdiinputspecification-resolution
+	//
 	Resolution *string `field:"optional" json:"resolution" yaml:"resolution"`
 }
 

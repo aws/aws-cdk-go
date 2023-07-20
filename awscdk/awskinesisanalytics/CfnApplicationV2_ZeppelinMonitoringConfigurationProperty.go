@@ -14,10 +14,14 @@ package awskinesisanalytics
 //   	LogLevel: jsii.String("logLevel"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html
+//
 type CfnApplicationV2_ZeppelinMonitoringConfigurationProperty struct {
 	// The verbosity of the CloudWatch Logs for an application.
 	//
 	// You can set it to `INFO` , `WARN` , `ERROR` , or `DEBUG` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration-loglevel
+	//
 	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
 }
 

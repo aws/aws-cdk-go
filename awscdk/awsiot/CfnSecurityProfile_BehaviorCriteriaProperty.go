@@ -37,6 +37,8 @@ package awsiot
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html
+//
 type CfnSecurityProfile_BehaviorCriteriaProperty struct {
 	// The operator that relates the thing measured ( `metric` ) to the criteria (containing a `value` or `statisticalThreshold` ).
 	//
@@ -46,24 +48,38 @@ type CfnSecurityProfile_BehaviorCriteriaProperty struct {
 	// - `number-list` : `in-set` and `not-in-set`
 	// - `ip-address-list` : `in-cidr-set` and `not-in-cidr-set`
 	// - `number` : `less-than` , `less-than-equals` , `greater-than` , and `greater-than-equals`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
+	//
 	ComparisonOperator *string `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs.
 	//
 	// If not specified, the default is 1.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
+	//
 	ConsecutiveDatapointsToAlarm *float64 `field:"optional" json:"consecutiveDatapointsToAlarm" yaml:"consecutiveDatapointsToAlarm"`
 	// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared.
 	//
 	// If not specified, the default is 1.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
+	//
 	ConsecutiveDatapointsToClear *float64 `field:"optional" json:"consecutiveDatapointsToClear" yaml:"consecutiveDatapointsToClear"`
 	// Use this to specify the time duration over which the behavior is evaluated, for those criteria that have a time dimension (for example, `NUM_MESSAGES_SENT` ).
 	//
 	// For a `statisticalThreshhold` metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank. Cannot be used with list-based metric datatypes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
+	//
 	DurationSeconds *float64 `field:"optional" json:"durationSeconds" yaml:"durationSeconds"`
 	// The confidence level of the detection model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
+	//
 	MlDetectionConfig interface{} `field:"optional" json:"mlDetectionConfig" yaml:"mlDetectionConfig"`
 	// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
+	//
 	StatisticalThreshold interface{} `field:"optional" json:"statisticalThreshold" yaml:"statisticalThreshold"`
 	// The value to be compared with the `metric` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value
+	//
 	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

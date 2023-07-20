@@ -22,12 +22,18 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettings.html
+//
 type CfnBotAlias_BotAliasLocaleSettingsProperty struct {
 	// Determines whether the locale is enabled for the bot.
 	//
 	// If the value is `false` , the locale isn't available for use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettings.html#cfn-lex-botalias-botaliaslocalesettings-enabled
+	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// Specifies the Lambda function that should be used in the locale.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettings.html#cfn-lex-botalias-botaliaslocalesettings-codehookspecification
+	//
 	CodeHookSpecification interface{} `field:"optional" json:"codeHookSpecification" yaml:"codeHookSpecification"`
 }
 

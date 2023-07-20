@@ -15,16 +15,22 @@ package awsscheduler
 //   	MaximumWindowInMinutes: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-flexibletimewindow.html
+//
 type CfnSchedule_FlexibleTimeWindowProperty struct {
 	// Determines whether the schedule is invoked within a flexible time window.
 	//
 	// *Allowed Values* : `OFF` | `FLEXIBLE`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-flexibletimewindow.html#cfn-scheduler-schedule-flexibletimewindow-mode
+	//
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
 	// The maximum time window during which a schedule can be invoked.
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1440`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-flexibletimewindow.html#cfn-scheduler-schedule-flexibletimewindow-maximumwindowinminutes
+	//
 	MaximumWindowInMinutes *float64 `field:"optional" json:"maximumWindowInMinutes" yaml:"maximumWindowInMinutes"`
 }
 

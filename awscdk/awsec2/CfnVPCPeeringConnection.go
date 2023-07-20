@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPCPeeringConnection`.
+// Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection.
 //
-// Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to a different AWS account and can be in a different Region than the requester VPC.
+// The accepter VPC can belong to a different AWS account and can be in a different Region than the requester VPC.
 //
 // The requester VPC and accepter VPC cannot have overlapping CIDR blocks. If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of `failed` .
 //
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html
+//
 type CfnVPCPeeringConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the peering connection.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -67,23 +70,15 @@ type CfnVPCPeeringConnection interface {
 	// The tree node.
 	Node() constructs.Node
 	// The AWS account ID of the owner of the accepter VPC.
-	//
-	// Default: Your AWS account ID.
 	PeerOwnerId() *string
 	SetPeerOwnerId(val *string)
 	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
-	//
-	// Default: The Region in which you make the request.
 	PeerRegion() *string
 	SetPeerRegion(val *string)
 	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
-	//
-	// This is required when you are peering a VPC in a different AWS account.
 	PeerRoleArn() *string
 	SetPeerRoleArn(val *string)
 	// The ID of the VPC with which you are creating the VPC peering connection.
-	//
-	// You must specify this parameter in the request.
 	PeerVpcId() *string
 	SetPeerVpcId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -95,8 +90,11 @@ type CfnVPCPeeringConnection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Any tags assigned to the resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags assigned to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -244,6 +242,7 @@ type CfnVPCPeeringConnection interface {
 type jsiiProxy_CfnVPCPeeringConnection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVPCPeeringConnection) AttrId() *string {
@@ -386,6 +385,16 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCPeeringConnection) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCPeeringConnection) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -417,7 +426,6 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::VPCPeeringConnection`.
 func NewCfnVPCPeeringConnection(scope constructs.Construct, id *string, props *CfnVPCPeeringConnectionProps) CfnVPCPeeringConnection {
 	_init_.Initialize()
 
@@ -435,7 +443,6 @@ func NewCfnVPCPeeringConnection(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::EC2::VPCPeeringConnection`.
 func NewCfnVPCPeeringConnection_Override(c CfnVPCPeeringConnection, scope constructs.Construct, id *string, props *CfnVPCPeeringConnectionProps) {
 	_init_.Initialize()
 
@@ -477,6 +484,17 @@ func (j *jsiiProxy_CfnVPCPeeringConnection)SetPeerVpcId(val *string) {
 	_jsii_.Set(
 		j,
 		"peerVpcId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCPeeringConnection)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

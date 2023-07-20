@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnDeviceProfile) validateSetLoRaWanParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeviceProfile) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDeviceProfileParameters(scope constructs.Construct, id *string, props *CfnDeviceProfileProps) error {
 	return nil
 }

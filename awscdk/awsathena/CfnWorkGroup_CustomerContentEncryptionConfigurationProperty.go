@@ -14,8 +14,12 @@ package awsathena
 //   	KmsKey: jsii.String("kmsKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html
+//
 type CfnWorkGroup_CustomerContentEncryptionConfigurationProperty struct {
 	// The KMS key that is used to encrypt the user's data stores in Athena.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html#cfn-athena-workgroup-customercontentencryptionconfiguration-kmskey
+	//
 	KmsKey *string `field:"required" json:"kmsKey" yaml:"kmsKey"`
 }
 

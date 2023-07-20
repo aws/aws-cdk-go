@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lex::BotAlias`.
-//
 // > Amazon Lex V2 is the only supported version in AWS CloudFormation .
 //
 // Specifies an alias for the specified version of a bot. Use an alias to enable you to change the version of a bot without updating applications that use the bot.
@@ -83,6 +81,8 @@ import (
 //   	SentimentAnalysisSettings: sentimentAnalysisSettings,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html
+//
 type CfnBotAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -95,18 +95,12 @@ type CfnBotAlias interface {
 	// When the status is Available the alias is ready for use with your bot.
 	AttrBotAliasStatus() *string
 	// Specifies settings that are unique to a locale.
-	//
-	// For example, you can use different Lambda function depending on the bot's locale.
 	BotAliasLocaleSettings() interface{}
 	SetBotAliasLocaleSettings(val interface{})
 	// The name of the bot alias.
 	BotAliasName() *string
 	SetBotAliasName(val *string)
 	// An array of key-value pairs to apply to this resource.
-	//
-	// You can only add tags when you specify an alias.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	BotAliasTags() interface{}
 	SetBotAliasTags(val interface{})
 	// The unique identifier of the bot.
@@ -121,8 +115,6 @@ type CfnBotAlias interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specifies whether Amazon Lex logs text and audio for conversations with the bot.
-	//
-	// When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 	ConversationLogSettings() interface{}
 	SetConversationLogSettings(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -513,7 +505,6 @@ func (j *jsiiProxy_CfnBotAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lex::BotAlias`.
 func NewCfnBotAlias(scope constructs.Construct, id *string, props *CfnBotAliasProps) CfnBotAlias {
 	_init_.Initialize()
 
@@ -531,7 +522,6 @@ func NewCfnBotAlias(scope constructs.Construct, id *string, props *CfnBotAliasPr
 	return &j
 }
 
-// Create a new `AWS::Lex::BotAlias`.
 func NewCfnBotAlias_Override(c CfnBotAlias, scope constructs.Construct, id *string, props *CfnBotAliasProps) {
 	_init_.Initialize()
 
@@ -614,9 +604,6 @@ func (j *jsiiProxy_CfnBotAlias)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnBotAlias)SetSentimentAnalysisSettings(val interface{}) {
-	if err := j.validateSetSentimentAnalysisSettingsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"sentimentAnalysisSettings",

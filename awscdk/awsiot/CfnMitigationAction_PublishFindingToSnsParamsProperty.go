@@ -14,8 +14,12 @@ package awsiot
 //   	TopicArn: jsii.String("topicArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html
+//
 type CfnMitigationAction_PublishFindingToSnsParamsProperty struct {
 	// The ARN of the topic to which you want to publish the findings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html#cfn-iot-mitigationaction-publishfindingtosnsparams-topicarn
+	//
 	TopicArn *string `field:"required" json:"topicArn" yaml:"topicArn"`
 }
 

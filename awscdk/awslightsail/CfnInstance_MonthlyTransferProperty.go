@@ -12,8 +12,12 @@ package awslightsail
 //   	GbPerMonthAllocated: jsii.String("gbPerMonthAllocated"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html
+//
 type CfnInstance_MonthlyTransferProperty struct {
 	// The amount of allocated monthly data transfer (in GB) for an instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html#cfn-lightsail-instance-monthlytransfer-gbpermonthallocated
+	//
 	GbPerMonthAllocated *string `field:"optional" json:"gbPerMonthAllocated" yaml:"gbPerMonthAllocated"`
 }
 

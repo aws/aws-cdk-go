@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnApplication) validateSetReleaseLabelParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetTypeParameters(val *string) error {
 	return nil
 }

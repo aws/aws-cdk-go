@@ -14,16 +14,23 @@ package awssam
 //   	IpV6: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-route53configuration.html
+//
 type CfnHttpApi_Route53ConfigurationProperty struct {
-	// `CfnHttpApi.Route53ConfigurationProperty.DistributedDomainName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-route53configuration.html#cfn-serverless-httpapi-route53configuration-distributeddomainname
+	//
 	DistributedDomainName *string `field:"optional" json:"distributedDomainName" yaml:"distributedDomainName"`
-	// `CfnHttpApi.Route53ConfigurationProperty.EvaluateTargetHealth`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-route53configuration.html#cfn-serverless-httpapi-route53configuration-evaluatetargethealth
+	//
 	EvaluateTargetHealth interface{} `field:"optional" json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
-	// `CfnHttpApi.Route53ConfigurationProperty.HostedZoneId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-route53configuration.html#cfn-serverless-httpapi-route53configuration-hostedzoneid
+	//
 	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
-	// `CfnHttpApi.Route53ConfigurationProperty.HostedZoneName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-route53configuration.html#cfn-serverless-httpapi-route53configuration-hostedzonename
+	//
 	HostedZoneName *string `field:"optional" json:"hostedZoneName" yaml:"hostedZoneName"`
-	// `CfnHttpApi.Route53ConfigurationProperty.IpV6`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-route53configuration.html#cfn-serverless-httpapi-route53configuration-ipv6
+	//
 	IpV6 interface{} `field:"optional" json:"ipV6" yaml:"ipV6"`
 }
 

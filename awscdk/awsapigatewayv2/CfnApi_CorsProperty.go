@@ -27,30 +27,44 @@ package awsapigatewayv2
 //   	MaxAge: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html
+//
 type CfnApi_CorsProperty struct {
 	// Specifies whether credentials are included in the CORS request.
 	//
 	// Supported only for HTTP APIs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowcredentials
+	//
 	AllowCredentials interface{} `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// Represents a collection of allowed headers.
 	//
 	// Supported only for HTTP APIs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowheaders
+	//
 	AllowHeaders *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// Represents a collection of allowed HTTP methods.
 	//
 	// Supported only for HTTP APIs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowmethods
+	//
 	AllowMethods *[]*string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
 	// Represents a collection of allowed origins.
 	//
 	// Supported only for HTTP APIs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-alloworigins
+	//
 	AllowOrigins *[]*string `field:"optional" json:"allowOrigins" yaml:"allowOrigins"`
 	// Represents a collection of exposed headers.
 	//
 	// Supported only for HTTP APIs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-exposeheaders
+	//
 	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// The number of seconds that the browser should cache preflight request results.
 	//
 	// Supported only for HTTP APIs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-maxage
+	//
 	MaxAge *float64 `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 

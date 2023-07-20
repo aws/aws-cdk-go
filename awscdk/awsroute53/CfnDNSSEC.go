@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53::DNSSEC`.
-//
 // The `AWS::Route53::DNSSEC` resource is used to enable DNSSEC signing in a hosted zone.
 //
 // Example:
@@ -21,6 +19,8 @@ import (
 //   cfnDNSSEC := awscdk.Aws_route53.NewCfnDNSSEC(this, jsii.String("MyCfnDNSSEC"), &CfnDNSSECProps{
 //   	HostedZoneId: jsii.String("hostedZoneId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html
 //
 type CfnDNSSEC interface {
 	awscdk.CfnResource
@@ -35,8 +35,6 @@ type CfnDNSSEC interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A unique string (ID) that is used to identify a hosted zone.
-	//
-	// For example: `Z00001111A1ABCaaABC11` .
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -317,7 +315,6 @@ func (j *jsiiProxy_CfnDNSSEC) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Route53::DNSSEC`.
 func NewCfnDNSSEC(scope constructs.Construct, id *string, props *CfnDNSSECProps) CfnDNSSEC {
 	_init_.Initialize()
 
@@ -335,7 +332,6 @@ func NewCfnDNSSEC(scope constructs.Construct, id *string, props *CfnDNSSECProps)
 	return &j
 }
 
-// Create a new `AWS::Route53::DNSSEC`.
 func NewCfnDNSSEC_Override(c CfnDNSSEC, scope constructs.Construct, id *string, props *CfnDNSSECProps) {
 	_init_.Initialize()
 

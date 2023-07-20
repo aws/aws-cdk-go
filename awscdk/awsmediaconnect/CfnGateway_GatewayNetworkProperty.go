@@ -13,14 +13,20 @@ package awsmediaconnect
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-gateway-gatewaynetwork.html
+//
 type CfnGateway_GatewayNetworkProperty struct {
 	// A unique IP address range to use for this network.
 	//
 	// These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-gateway-gatewaynetwork.html#cfn-mediaconnect-gateway-gatewaynetwork-cidrblock
+	//
 	CidrBlock *string `field:"required" json:"cidrBlock" yaml:"cidrBlock"`
 	// The name of the network.
 	//
 	// This name is used to reference the network and must be unique among networks in this gateway.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-gateway-gatewaynetwork.html#cfn-mediaconnect-gateway-gatewaynetwork-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

@@ -32,16 +32,26 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html
+//
 type CfnContactListProps struct {
 	// The name of the contact list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-contactlistname
+	//
 	ContactListName *string `field:"optional" json:"contactListName" yaml:"contactListName"`
 	// A description of what the contact list is about.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The tags associated with a contact list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// An interest group, theme, or label within a list.
 	//
 	// A contact list can have multiple topics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-topics
+	//
 	Topics interface{} `field:"optional" json:"topics" yaml:"topics"`
 }
 

@@ -25,8 +25,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html
+//
 type CfnVirtualNode_AccessLogProperty struct {
 	// The file object to send virtual node access logs to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html#cfn-appmesh-virtualnode-accesslog-file
+	//
 	File interface{} `field:"optional" json:"file" yaml:"file"`
 }
 

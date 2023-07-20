@@ -27,14 +27,22 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html
+//
 type CfnDataSet_S3SourceProperty struct {
 	// The Amazon Resource Name (ARN) for the data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn
+	//
 	DataSourceArn *string `field:"required" json:"dataSourceArn" yaml:"dataSourceArn"`
 	// A physical table type for an S3 data source.
 	//
 	// > For files that aren't JSON, only `STRING` data types are supported in input columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
+	//
 	InputColumns interface{} `field:"required" json:"inputColumns" yaml:"inputColumns"`
 	// Information about the format for the S3 source file or files.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings
+	//
 	UploadSettings interface{} `field:"optional" json:"uploadSettings" yaml:"uploadSettings"`
 }
 

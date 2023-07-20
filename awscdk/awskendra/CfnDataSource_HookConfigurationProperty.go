@@ -33,18 +33,26 @@ package awskendra
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html
+//
 type CfnDataSource_HookConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion.
 	//
 	// For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-lambdaarn
+	//
 	LambdaArn *string `field:"required" json:"lambdaArn" yaml:"lambdaArn"`
 	// Stores the original, raw documents or the structured, parsed documents before and after altering them.
 	//
 	// For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-s3bucket
+	//
 	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The condition used for when a Lambda function should be invoked.
 	//
 	// For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-invocationcondition
+	//
 	InvocationCondition interface{} `field:"optional" json:"invocationCondition" yaml:"invocationCondition"`
 }
 

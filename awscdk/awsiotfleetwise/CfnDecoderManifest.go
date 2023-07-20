@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTFleetWise::DecoderManifest`.
-//
-// Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:
+// Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:.
 //
 // - Every signal decoder has a unique name.
 // - Each signal decoder is associated with a network interface.
@@ -98,9 +96,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html
+//
 type CfnDecoderManifest interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the decoder manifest.
 	AttrArn() *string
 	// The time the decoder manifest was created in seconds since epoch (January 1, 1970 at midnight UTC time).
@@ -153,12 +154,13 @@ type CfnDecoderManifest interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// (Optional) The state of the decoder manifest.
-	//
-	// If the status is `ACTIVE` , the decoder manifest can't be edited. If the status is marked `DRAFT` , you can edit the decoder manifest.
 	Status() *string
 	SetStatus(val *string)
-	// (Optional) Metadata that can be used to manage the decoder manifest.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// (Optional) Metadata that can be used to manage the decoder manifest.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -303,6 +305,7 @@ type CfnDecoderManifest interface {
 type jsiiProxy_CfnDecoderManifest struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDecoderManifest) AttrArn() *string {
@@ -485,6 +488,16 @@ func (j *jsiiProxy_CfnDecoderManifest) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDecoderManifest) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDecoderManifest) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -506,7 +519,6 @@ func (j *jsiiProxy_CfnDecoderManifest) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::IoTFleetWise::DecoderManifest`.
 func NewCfnDecoderManifest(scope constructs.Construct, id *string, props *CfnDecoderManifestProps) CfnDecoderManifest {
 	_init_.Initialize()
 
@@ -524,7 +536,6 @@ func NewCfnDecoderManifest(scope constructs.Construct, id *string, props *CfnDec
 	return &j
 }
 
-// Create a new `AWS::IoTFleetWise::DecoderManifest`.
 func NewCfnDecoderManifest_Override(c CfnDecoderManifest, scope constructs.Construct, id *string, props *CfnDecoderManifestProps) {
 	_init_.Initialize()
 
@@ -591,6 +602,17 @@ func (j *jsiiProxy_CfnDecoderManifest)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDecoderManifest)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

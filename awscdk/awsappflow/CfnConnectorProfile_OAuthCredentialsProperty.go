@@ -19,16 +19,27 @@ package awsappflow
 //   	RefreshToken: jsii.String("refreshToken"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html
+//
 type CfnConnectorProfile_OAuthCredentialsProperty struct {
 	// The access token used to access protected SAPOData resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-accesstoken
+	//
 	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// The identifier for the desired client.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-clientid
+	//
 	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-clientsecret
+	//
 	ClientSecret *string `field:"optional" json:"clientSecret" yaml:"clientSecret"`
-	// `CfnConnectorProfile.OAuthCredentialsProperty.ConnectorOAuthRequest`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-connectoroauthrequest
+	//
 	ConnectorOAuthRequest interface{} `field:"optional" json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 	// The refresh token used to refresh expired access token.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-refreshtoken
+	//
 	RefreshToken *string `field:"optional" json:"refreshToken" yaml:"refreshToken"`
 }
 

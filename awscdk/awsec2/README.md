@@ -415,6 +415,24 @@ beforehand.
 This can be useful for configuring routing using a combination of gateways:
 for more information see [Routing](#routing) below.
 
+### Disabling the creation of the default internet gateway
+
+If you need to control the creation of the internet gateway explicitly,
+you can disable the creation of the default one using the `createInternetGateway`
+property:
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+	CreateInternetGateway: jsii.Boolean(false),
+	SubnetConfiguration: []subnetConfiguration{
+		&subnetConfiguration{
+			SubnetType: ec2.SubnetType_PUBLIC,
+			Name: jsii.String("Public"),
+		},
+	},
+})
+```
+
 #### Routing
 
 It's possible to add routes to any subnets using the `addRoute()` method. If for
@@ -2079,17 +2097,25 @@ Launch templates enable you to store launch parameters so that you do not have t
 an instance. For information on Launch Templates please see the
 [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html).
 
-The following demonstrates how to create a launch template with an Amazon Machine Image, and security group.
+The following demonstrates how to create a launch template with an Amazon Machine Image, security group, and an instance profile.
 
 ```go
 var vpc vpc
 
+
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
+})
+instanceProfile := iam.NewInstanceProfile(this, jsii.String("InstanceProfile"), &InstanceProfileProps{
+	Role: Role,
+})
 
 template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
 	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
 	SecurityGroup: ec2.NewSecurityGroup(this, jsii.String("LaunchTemplateSG"), &SecurityGroupProps{
 		Vpc: vpc,
 	}),
+	InstanceProfile: InstanceProfile,
 })
 ```
 
@@ -2108,20 +2134,30 @@ ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
 And the following demonstrates how to add one or more security groups to launch template.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-sg1 := ec2.NewSecurityGroup(stack, jsii.String("sg1"), &SecurityGroupProps{
+var vpc vpc
+
+
+sg1 := ec2.NewSecurityGroup(this, jsii.String("sg1"), &SecurityGroupProps{
 	Vpc: vpc,
 })
-sg2 := ec2.NewSecurityGroup(stack, jsii.String("sg2"), &SecurityGroupProps{
+sg2 := ec2.NewSecurityGroup(this, jsii.String("sg2"), &SecurityGroupProps{
 	Vpc: vpc,
 })
 
-launchTemplate := ec2.NewLaunchTemplate(stack, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
 	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
 	SecurityGroup: sg1,
 })
 
 launchTemplate.AddSecurityGroup(sg2)
+```
+
+To use [AWS Systems Manager parameters instead of AMI IDs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/using-systems-manager-parameters.html) in launch templates and resolve the AMI IDs at instance launch time:
+
+```go
+launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+	MachineImage: ec2.MachineImage_ResolveSsmParameterAtLaunch(jsii.String("parameterName")),
+})
 ```
 
 ## Detailed Monitoring

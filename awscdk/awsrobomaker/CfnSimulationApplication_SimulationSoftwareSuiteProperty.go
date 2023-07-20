@@ -15,14 +15,20 @@ package awsrobomaker
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html
+//
 type CfnSimulationApplication_SimulationSoftwareSuiteProperty struct {
 	// The name of the simulation software suite.
 	//
 	// `SimulationRuntime` is the only supported value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The version of the simulation software suite.
 	//
 	// Not applicable for `SimulationRuntime` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

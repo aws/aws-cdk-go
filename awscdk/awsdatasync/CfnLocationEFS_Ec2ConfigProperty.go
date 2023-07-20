@@ -15,8 +15,12 @@ package awsdatasync
 //   	SubnetArn: jsii.String("subnetArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html
+//
 type CfnLocationEFS_Ec2ConfigProperty struct {
 	// Specifies the Amazon Resource Names (ARNs) of the security groups associated with an Amazon EFS file system's mount target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-securitygrouparns
+	//
 	SecurityGroupArns *[]*string `field:"required" json:"securityGroupArns" yaml:"securityGroupArns"`
 	// Specifies the ARN of a subnet where DataSync creates the [network interfaces](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces) for managing traffic during your transfer.
 	//
@@ -26,6 +30,8 @@ type CfnLocationEFS_Ec2ConfigProperty struct {
 	// - In the same Availability Zone as at least one mount target for the Amazon EFS file system.
 	//
 	// > You don't need to specify a subnet that includes a file system mount target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-subnetarn
+	//
 	SubnetArn *string `field:"required" json:"subnetArn" yaml:"subnetArn"`
 }
 

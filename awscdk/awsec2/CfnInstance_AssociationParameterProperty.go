@@ -17,10 +17,16 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-associationparameter.html
+//
 type CfnInstance_AssociationParameterProperty struct {
 	// The name of an input parameter that is in the associated SSM document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-associationparameter.html#cfn-ec2-instance-associationparameter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of an input parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-associationparameter.html#cfn-ec2-instance-associationparameter-value
+	//
 	Value *[]*string `field:"required" json:"value" yaml:"value"`
 }
 

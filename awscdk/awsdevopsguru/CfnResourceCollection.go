@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DevOpsGuru::ResourceCollection`.
+// A collection of AWS resources supported by DevOps Guru.
 //
-// A collection of AWS resources supported by DevOps Guru. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks.
+// The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,6 +35,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
 //
 type CfnResourceCollection interface {
 	awscdk.CfnResource
@@ -343,7 +345,6 @@ func (j *jsiiProxy_CfnResourceCollection) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::DevOpsGuru::ResourceCollection`.
 func NewCfnResourceCollection(scope constructs.Construct, id *string, props *CfnResourceCollectionProps) CfnResourceCollection {
 	_init_.Initialize()
 
@@ -361,7 +362,6 @@ func NewCfnResourceCollection(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::DevOpsGuru::ResourceCollection`.
 func NewCfnResourceCollection_Override(c CfnResourceCollection, scope constructs.Construct, id *string, props *CfnResourceCollectionProps) {
 	_init_.Initialize()
 

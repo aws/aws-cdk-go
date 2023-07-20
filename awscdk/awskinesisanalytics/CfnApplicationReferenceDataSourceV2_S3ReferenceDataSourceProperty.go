@@ -15,10 +15,16 @@ package awskinesisanalytics
 //   	FileKey: jsii.String("fileKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource.html
+//
 type CfnApplicationReferenceDataSourceV2_S3ReferenceDataSourceProperty struct {
 	// The Amazon Resource Name (ARN) of the S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource-bucketarn
+	//
 	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
 	// The object key name containing the reference data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource-filekey
+	//
 	FileKey *string `field:"required" json:"fileKey" yaml:"fileKey"`
 }
 

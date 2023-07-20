@@ -15,8 +15,11 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3keyfilter.html
+//
 type CfnFunction_S3KeyFilterProperty struct {
-	// `CfnFunction.S3KeyFilterProperty.Rules`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-s3keyfilter.html#cfn-serverless-function-s3keyfilter-rules
+	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 

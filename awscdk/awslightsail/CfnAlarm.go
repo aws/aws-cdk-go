@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::Alarm`.
-//
 // The `AWS::Lightsail::Alarm` resource specifies an alarm that can be used to monitor a single metric for one of your Lightsail resources.
 //
 // Example:
@@ -38,6 +36,8 @@ import (
 //   	TreatMissingData: jsii.String("treatMissingData"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html
+//
 type CfnAlarm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -63,8 +63,6 @@ type CfnAlarm interface {
 	ComparisonOperator() *string
 	SetComparisonOperator(val *string)
 	// The contact protocols for the alarm, such as `Email` , `SMS` (text messaging), or both.
-	//
-	// *Allowed Values* : `Email` | `SMS`.
 	ContactProtocols() *[]*string
 	SetContactProtocols(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -99,10 +97,6 @@ type CfnAlarm interface {
 	NotificationEnabled() interface{}
 	SetNotificationEnabled(val interface{})
 	// The alarm states that trigger a notification.
-	//
-	// > To specify the `OK` and `INSUFFICIENT_DATA` values, you must also specify `ContactProtocols` values. Otherwise, the `OK` and `INSUFFICIENT_DATA` values will not take effect and the stack will drift.
-	//
-	// *Allowed Values* : `OK` | `ALARM` | `INSUFFICIENT_DATA`.
 	NotificationTriggers() *[]*string
 	SetNotificationTriggers(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -118,13 +112,6 @@ type CfnAlarm interface {
 	Threshold() *float64
 	SetThreshold(val *float64)
 	// Specifies how the alarm handles missing data points.
-	//
-	// An alarm can treat missing data in the following ways:
-	//
-	// - `breaching` - Assumes the missing data is not within the threshold. Missing data counts towards the number of times that the metric is not within the threshold.
-	// - `notBreaching` - Assumes the missing data is within the threshold. Missing data does not count towards the number of times that the metric is not within the threshold.
-	// - `ignore` - Ignores the missing data. Maintains the current alarm state.
-	// - `missing` - Missing data is treated as missing.
 	TreatMissingData() *string
 	SetTreatMissingData(val *string)
 	// Deprecated.
@@ -504,7 +491,6 @@ func (j *jsiiProxy_CfnAlarm) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lightsail::Alarm`.
 func NewCfnAlarm(scope constructs.Construct, id *string, props *CfnAlarmProps) CfnAlarm {
 	_init_.Initialize()
 
@@ -522,7 +508,6 @@ func NewCfnAlarm(scope constructs.Construct, id *string, props *CfnAlarmProps) C
 	return &j
 }
 
-// Create a new `AWS::Lightsail::Alarm`.
 func NewCfnAlarm_Override(c CfnAlarm, scope constructs.Construct, id *string, props *CfnAlarmProps) {
 	_init_.Initialize()
 

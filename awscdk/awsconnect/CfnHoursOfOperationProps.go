@@ -39,20 +39,34 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html
+//
 type CfnHoursOfOperationProps struct {
 	// Configuration information for the hours of operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-config
+	//
 	Config interface{} `field:"required" json:"config" yaml:"config"`
 	// The Amazon Resource Name (ARN) for the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-instancearn
+	//
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name for the hours of operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The time zone for the hours of operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-timezone
+	//
 	TimeZone *string `field:"required" json:"timeZone" yaml:"timeZone"`
 	// The description for the hours of operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The tags used to organize, track, or control access for this resource.
 	//
 	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

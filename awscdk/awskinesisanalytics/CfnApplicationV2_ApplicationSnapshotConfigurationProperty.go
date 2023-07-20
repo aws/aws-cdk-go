@@ -12,8 +12,12 @@ package awskinesisanalytics
 //   	SnapshotsEnabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html
+//
 type CfnApplicationV2_ApplicationSnapshotConfigurationProperty struct {
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html#cfn-kinesisanalyticsv2-application-applicationsnapshotconfiguration-snapshotsenabled
+	//
 	SnapshotsEnabled interface{} `field:"required" json:"snapshotsEnabled" yaml:"snapshotsEnabled"`
 }
 

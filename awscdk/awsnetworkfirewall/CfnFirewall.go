@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkFirewall::Firewall`.
-//
 // Use the `Firewall` to provide stateful, managed, network firewall and intrusion detection and prevention filtering for your VPCs in Amazon VPC .
 //
 // The firewall defines the configuration settings for an AWS Network Firewall firewall. The settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall AWS resource.
@@ -46,9 +44,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html
+//
 type CfnFirewall interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall.
 	//
 	// The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
@@ -67,26 +68,18 @@ type CfnFirewall interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A flag indicating whether it is possible to delete the firewall.
-	//
-	// A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
 	DeleteProtection() interface{}
 	SetDeleteProtection(val interface{})
 	// A description of the firewall.
 	Description() *string
 	SetDescription(val *string)
 	// The descriptive name of the firewall.
-	//
-	// You can't change the name of a firewall after you create it.
 	FirewallName() *string
 	SetFirewallName(val *string)
 	// The Amazon Resource Name (ARN) of the firewall policy.
-	//
-	// The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
 	FirewallPolicyArn() *string
 	SetFirewallPolicyArn(val *string)
 	// A setting indicating whether the firewall is protected against a change to the firewall policy association.
-	//
-	// Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	FirewallPolicyChangeProtection() interface{}
 	SetFirewallPolicyChangeProtection(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -111,19 +104,16 @@ type CfnFirewall interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A setting indicating whether the firewall is protected against changes to the subnet associations.
-	//
-	// Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection() interface{}
 	SetSubnetChangeProtection(val interface{})
 	// The public subnets that Network Firewall is using for the firewall.
-	//
-	// Each subnet must belong to a different Availability Zone.
 	SubnetMappings() interface{}
 	SetSubnetMappings(val interface{})
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -138,8 +128,6 @@ type CfnFirewall interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The unique identifier of the VPC where the firewall is in use.
-	//
-	// You can't change the VPC of a firewall after you create the firewall.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -273,6 +261,7 @@ type CfnFirewall interface {
 type jsiiProxy_CfnFirewall struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFirewall) AttrEndpointIds() *[]*string {
@@ -465,6 +454,16 @@ func (j *jsiiProxy_CfnFirewall) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFirewall) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFirewall) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -496,7 +495,6 @@ func (j *jsiiProxy_CfnFirewall) VpcId() *string {
 }
 
 
-// Create a new `AWS::NetworkFirewall::Firewall`.
 func NewCfnFirewall(scope constructs.Construct, id *string, props *CfnFirewallProps) CfnFirewall {
 	_init_.Initialize()
 
@@ -514,7 +512,6 @@ func NewCfnFirewall(scope constructs.Construct, id *string, props *CfnFirewallPr
 	return &j
 }
 
-// Create a new `AWS::NetworkFirewall::Firewall`.
 func NewCfnFirewall_Override(c CfnFirewall, scope constructs.Construct, id *string, props *CfnFirewallProps) {
 	_init_.Initialize()
 
@@ -595,6 +592,17 @@ func (j *jsiiProxy_CfnFirewall)SetSubnetMappings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"subnetMappings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewall)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

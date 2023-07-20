@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnRepository) validateSetRepositoryNameParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnRepository) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRepository) validateSetTriggersParameters(val interface{}) error {
 	return nil
 }

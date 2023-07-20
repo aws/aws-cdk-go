@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::LocalGatewayRoute`.
-//
-// Creates a static route for the specified local gateway route table. You must specify one of the following targets:
+// Creates a static route for the specified local gateway route table. You must specify one of the following targets:.
 //
 // - `LocalGatewayVirtualInterfaceGroupId`
 // - `NetworkInterfaceId`.
@@ -29,6 +27,8 @@ import (
 //   	LocalGatewayVirtualInterfaceGroupId: jsii.String("localGatewayVirtualInterfaceGroupId"),
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html
 //
 type CfnLocalGatewayRoute interface {
 	awscdk.CfnResource
@@ -386,7 +386,6 @@ func (j *jsiiProxy_CfnLocalGatewayRoute) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::EC2::LocalGatewayRoute`.
 func NewCfnLocalGatewayRoute(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteProps) CfnLocalGatewayRoute {
 	_init_.Initialize()
 
@@ -404,7 +403,6 @@ func NewCfnLocalGatewayRoute(scope constructs.Construct, id *string, props *CfnL
 	return &j
 }
 
-// Create a new `AWS::EC2::LocalGatewayRoute`.
 func NewCfnLocalGatewayRoute_Override(c CfnLocalGatewayRoute, scope constructs.Construct, id *string, props *CfnLocalGatewayRouteProps) {
 	_init_.Initialize()
 

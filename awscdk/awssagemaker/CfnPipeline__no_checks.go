@@ -80,10 +80,6 @@ func validateCfnPipeline_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnPipeline) validateSetParallelismConfigurationParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPipeline) validateSetPipelineDefinitionParameters(val interface{}) error {
 	return nil
 }
@@ -93,6 +89,10 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineNameParameters(val *string) e
 }
 
 func (j *jsiiProxy_CfnPipeline) validateSetRoleArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnPipeline) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

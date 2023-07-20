@@ -81,10 +81,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tablecellconditionalformatting.html
+//
 type CfnDashboard_TableCellConditionalFormattingProperty struct {
 	// The field ID of the cell for conditional formatting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tablecellconditionalformatting.html#cfn-quicksight-dashboard-tablecellconditionalformatting-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The text format of the cell for conditional formatting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tablecellconditionalformatting.html#cfn-quicksight-dashboard-tablecellconditionalformatting-textformat
+	//
 	TextFormat interface{} `field:"optional" json:"textFormat" yaml:"textFormat"`
 }
 

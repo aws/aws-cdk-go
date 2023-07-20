@@ -20,8 +20,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-cascadingcontrolconfiguration.html
+//
 type CfnAnalysis_CascadingControlConfigurationProperty struct {
 	// A list of source controls that determine the values that are used in the current control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-cascadingcontrolconfiguration.html#cfn-quicksight-analysis-cascadingcontrolconfiguration-sourcecontrols
+	//
 	SourceControls interface{} `field:"optional" json:"sourceControls" yaml:"sourceControls"`
 }
 

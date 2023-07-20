@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnFileSystem) validateSetSubnetIdsParameters(val *[]*string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnFileSystem) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFileSystem) validateSetWindowsConfigurationParameters(val interface{}) error {
 	return nil
 }

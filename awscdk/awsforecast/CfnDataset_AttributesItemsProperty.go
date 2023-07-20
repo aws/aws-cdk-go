@@ -11,10 +11,16 @@ package awsforecast
 //   	AttributeType: jsii.String("attributeType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-attributesitems.html
+//
 type CfnDataset_AttributesItemsProperty struct {
-	// `CfnDataset.AttributesItemsProperty.AttributeName`.
+	// Name of the dataset field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-attributesitems.html#cfn-forecast-dataset-attributesitems-attributename
+	//
 	AttributeName *string `field:"optional" json:"attributeName" yaml:"attributeName"`
-	// `CfnDataset.AttributesItemsProperty.AttributeType`.
+	// Data type of the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-attributesitems.html#cfn-forecast-dataset-attributesitems-attributetype
+	//
 	AttributeType *string `field:"optional" json:"attributeType" yaml:"attributeType"`
 }
 

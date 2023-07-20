@@ -22,16 +22,24 @@ package awsecs
 //   	Rollback: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentalarms.html
+//
 type CfnService_DeploymentAlarmsProperty struct {
 	// One or more CloudWatch alarm names.
 	//
 	// Use a "," to separate the alarms.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentalarms.html#cfn-ecs-service-deploymentalarms-alarmnames
+	//
 	AlarmNames *[]*string `field:"required" json:"alarmNames" yaml:"alarmNames"`
 	// Determines whether to use the CloudWatch alarm option in the service deployment process.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentalarms.html#cfn-ecs-service-deploymentalarms-enable
+	//
 	Enable interface{} `field:"required" json:"enable" yaml:"enable"`
 	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails.
 	//
 	// If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentalarms.html#cfn-ecs-service-deploymentalarms-rollback
+	//
 	Rollback interface{} `field:"required" json:"rollback" yaml:"rollback"`
 }
 

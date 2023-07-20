@@ -30,12 +30,18 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimaldefaultvalues.html
+//
 type CfnAnalysis_DecimalDefaultValuesProperty struct {
 	// The dynamic value of the `DecimalDefaultValues` .
 	//
 	// Different defaults are displayed according to users, groups, and values mapping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimaldefaultvalues.html#cfn-quicksight-analysis-decimaldefaultvalues-dynamicvalue
+	//
 	DynamicValue interface{} `field:"optional" json:"dynamicValue" yaml:"dynamicValue"`
 	// The static values of the `DecimalDefaultValues` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimaldefaultvalues.html#cfn-quicksight-analysis-decimaldefaultvalues-staticvalues
+	//
 	StaticValues interface{} `field:"optional" json:"staticValues" yaml:"staticValues"`
 }
 

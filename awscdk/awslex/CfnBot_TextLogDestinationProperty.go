@@ -15,8 +15,12 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogdestination.html
+//
 type CfnBot_TextLogDestinationProperty struct {
 	// Defines the Amazon CloudWatch Logs log group where text and metadata logs are delivered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogdestination.html#cfn-lex-bot-textlogdestination-cloudwatch
+	//
 	CloudWatch interface{} `field:"required" json:"cloudWatch" yaml:"cloudWatch"`
 }
 

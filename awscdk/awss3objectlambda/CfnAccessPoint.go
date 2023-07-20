@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3ObjectLambda::AccessPoint`.
-//
 // The `AWS::S3ObjectLambda::AccessPoint` resource specifies an Object Lambda Access Point used to access a bucket.
 //
 // Example:
@@ -43,9 +41,13 @@ import (
 //   	Name: jsii.String("name"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html
+//
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The alias of the Object Lambda Access Point.
+	AttrAlias() awscdk.IResolvable
 	// The status of the Object Lambda Access Point alias.
 	//
 	// Valid Values: `PROVISIONING` | `READY` .
@@ -58,10 +60,35 @@ type CfnAccessPoint interface {
 	AttrArn() *string
 	// The date and time when the specified Object Lambda Access Point was created.
 	AttrCreationDate() *string
+	AttrPolicyStatus() awscdk.IResolvable
+	// Specifies whether the Object lambda Access Point Policy is Public or not.
+	//
+	// Object lambda Access Points are private by default.
 	AttrPolicyStatusIsPublic() awscdk.IResolvable
+	// The Public Access Block Configuration is used to block policies that would allow public access to this Object lambda Access Point.
+	//
+	// All public access to Object lambda Access Points are blocked by default, and any policy that would give public access to them will be also blocked. This behavior cannot be changed for Object lambda Access Points.
+	AttrPublicAccessBlockConfiguration() awscdk.IResolvable
+	// Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point.
+	//
+	// Setting this element to TRUE causes the following behavior:
+	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	//  - PUT Object calls fail if the request includes a public ACL.
+	// . - PUT Bucket calls fail if the request includes a public ACL.
+	// Enabling this setting doesn't affect existing policies or ACLs.
 	AttrPublicAccessBlockConfigurationBlockPublicAcls() awscdk.IResolvable
+	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account.
+	//
+	// Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 	AttrPublicAccessBlockConfigurationBlockPublicPolicy() awscdk.IResolvable
+	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account.
+	//
+	// Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 	AttrPublicAccessBlockConfigurationIgnorePublicAcls() awscdk.IResolvable
+	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
+	//
+	// Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 	AttrPublicAccessBlockConfigurationRestrictPublicBuckets() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -245,6 +272,16 @@ type jsiiProxy_CfnAccessPoint struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnAccessPoint) AttrAlias() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrAlias",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessPoint) AttrAliasStatus() *string {
 	var returns *string
 	_jsii_.Get(
@@ -285,11 +322,31 @@ func (j *jsiiProxy_CfnAccessPoint) AttrCreationDate() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessPoint) AttrPolicyStatus() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrPolicyStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessPoint) AttrPolicyStatusIsPublic() awscdk.IResolvable {
 	var returns awscdk.IResolvable
 	_jsii_.Get(
 		j,
 		"attrPolicyStatusIsPublic",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccessPoint) AttrPublicAccessBlockConfiguration() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrPublicAccessBlockConfiguration",
 		&returns,
 	)
 	return returns
@@ -456,7 +513,6 @@ func (j *jsiiProxy_CfnAccessPoint) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::S3ObjectLambda::AccessPoint`.
 func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
@@ -474,7 +530,6 @@ func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessP
 	return &j
 }
 
-// Create a new `AWS::S3ObjectLambda::AccessPoint`.
 func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 

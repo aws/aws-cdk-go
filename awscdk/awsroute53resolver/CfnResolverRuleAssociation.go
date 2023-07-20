@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::ResolverRuleAssociation`.
-//
 // In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html) , [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html) , or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
 //
 // Example:
@@ -25,6 +23,8 @@ import (
 //   	// the properties below are optional
 //   	Name: jsii.String("name"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html
 //
 type CfnResolverRuleAssociation interface {
 	awscdk.CfnResource
@@ -393,7 +393,6 @@ func (j *jsiiProxy_CfnResolverRuleAssociation) VpcId() *string {
 }
 
 
-// Create a new `AWS::Route53Resolver::ResolverRuleAssociation`.
 func NewCfnResolverRuleAssociation(scope constructs.Construct, id *string, props *CfnResolverRuleAssociationProps) CfnResolverRuleAssociation {
 	_init_.Initialize()
 
@@ -411,7 +410,6 @@ func NewCfnResolverRuleAssociation(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::ResolverRuleAssociation`.
 func NewCfnResolverRuleAssociation_Override(c CfnResolverRuleAssociation, scope constructs.Construct, id *string, props *CfnResolverRuleAssociationProps) {
 	_init_.Initialize()
 

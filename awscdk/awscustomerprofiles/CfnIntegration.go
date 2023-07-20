@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CustomerProfiles::Integration`.
-//
 // Specifies an Amazon Connect Customer Profiles Integration.
 //
 // Example:
@@ -120,9 +118,12 @@ import (
 //   	Uri: jsii.String("uri"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html
+//
 type CfnIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The timestamp of when the integration was created.
 	AttrCreatedAt() *string
 	// The timestamp of when the integration was most recently edited.
@@ -169,8 +170,11 @@ type CfnIntegration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -318,6 +322,7 @@ type CfnIntegration interface {
 type jsiiProxy_CfnIntegration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIntegration) AttrCreatedAt() *string {
@@ -470,6 +475,16 @@ func (j *jsiiProxy_CfnIntegration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIntegration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIntegration) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -501,7 +516,6 @@ func (j *jsiiProxy_CfnIntegration) Uri() *string {
 }
 
 
-// Create a new `AWS::CustomerProfiles::Integration`.
 func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegrationProps) CfnIntegration {
 	_init_.Initialize()
 
@@ -519,7 +533,6 @@ func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegra
 	return &j
 }
 
-// Create a new `AWS::CustomerProfiles::Integration`.
 func NewCfnIntegration_Override(c CfnIntegration, scope constructs.Construct, id *string, props *CfnIntegrationProps) {
 	_init_.Initialize()
 
@@ -567,6 +580,17 @@ func (j *jsiiProxy_CfnIntegration)SetObjectTypeNames(val interface{}) {
 	_jsii_.Set(
 		j,
 		"objectTypeNames",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIntegration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

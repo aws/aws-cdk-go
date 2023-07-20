@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnLocationFSxWindows) validateSetSecurityGroupArnsParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationFSxWindows) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationFSxWindows) validateSetUserParameters(val *string) error {
 	return nil
 }

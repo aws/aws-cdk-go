@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lambda::Version`.
-//
 // The `AWS::Lambda::Version` resource creates a [version](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html) from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change.
 //
 // Example:
@@ -29,9 +27,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
+//
 type CfnVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The version number.
 	AttrVersion() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -40,8 +41,6 @@ type CfnVersion interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Only publish a version if the hash value matches the value that's specified.
-	//
-	// Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
 	CodeSha256() *string
 	SetCodeSha256(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -49,17 +48,9 @@ type CfnVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A description for the version to override the description in the function configuration.
-	//
-	// Updates are not supported for this property.
 	Description() *string
 	SetDescription(val *string)
 	// The name of the Lambda function.
-	//
-	// **Name formats** - *Function name* - `MyFunction` .
-	// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
-	// - *Partial ARN* - `123456789012:function:MyFunction` .
-	//
-	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -75,8 +66,6 @@ type CfnVersion interface {
 	// The tree node.
 	Node() constructs.Node
 	// Specifies a provisioned concurrency configuration for a function's version.
-	//
-	// Updates are not supported for this property.
 	ProvisionedConcurrencyConfig() interface{}
 	SetProvisionedConcurrencyConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -234,6 +223,16 @@ type jsiiProxy_CfnVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVersion) AttrVersion() *string {
 	var returns *string
 	_jsii_.Get(
@@ -385,7 +384,6 @@ func (j *jsiiProxy_CfnVersion) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lambda::Version`.
 func NewCfnVersion(scope constructs.Construct, id *string, props *CfnVersionProps) CfnVersion {
 	_init_.Initialize()
 
@@ -403,7 +401,6 @@ func NewCfnVersion(scope constructs.Construct, id *string, props *CfnVersionProp
 	return &j
 }
 
-// Create a new `AWS::Lambda::Version`.
 func NewCfnVersion_Override(c CfnVersion, scope constructs.Construct, id *string, props *CfnVersionProps) {
 	_init_.Initialize()
 

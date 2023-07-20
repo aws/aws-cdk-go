@@ -17,12 +17,18 @@ package awsevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandtarget.html
+//
 type CfnRule_RunCommandTargetProperty struct {
 	// Can be either `tag:` *tag-key* or `InstanceIds` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// If `Key` is `tag:` *tag-key* , `Values` is a list of tag values.
 	//
 	// If `Key` is `InstanceIds` , `Values` is a list of Amazon EC2 instance IDs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-values
+	//
 	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 

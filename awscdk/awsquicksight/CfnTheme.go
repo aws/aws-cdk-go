@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QuickSight::Theme`.
-//
 // Creates a theme.
 //
 // A *theme* is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide* .
@@ -98,9 +96,12 @@ import (
 //   	VersionDescription: jsii.String("versionDescription"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html
+//
 type CfnTheme interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the theme.
 	AttrArn() *string
 	// The time the theme was created.
@@ -109,8 +110,15 @@ type CfnTheme interface {
 	AttrLastUpdatedTime() *string
 	// Theme type.
 	AttrType() *string
+	// The version of the theme.
+	AttrVersion() awscdk.IResolvable
 	AttrVersionArn() *string
 	AttrVersionBaseThemeId() *string
+	AttrVersionConfiguration() awscdk.IResolvable
+	AttrVersionConfigurationDataColorPalette() awscdk.IResolvable
+	AttrVersionConfigurationSheet() awscdk.IResolvable
+	AttrVersionConfigurationTypography() awscdk.IResolvable
+	AttrVersionConfigurationUiColorPalette() awscdk.IResolvable
 	AttrVersionCreatedTime() *string
 	AttrVersionDescription() *string
 	AttrVersionErrors() awscdk.IResolvable
@@ -120,8 +128,6 @@ type CfnTheme interface {
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
 	// The ID of the theme that a custom theme will inherit from.
-	//
-	// All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	BaseThemeId() *string
 	SetBaseThemeId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -163,11 +169,12 @@ type CfnTheme interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// An ID for the theme that you want to create.
-	//
-	// The theme ID is unique per AWS Region in each AWS account.
 	ThemeId() *string
 	SetThemeId(val *string)
 	// Deprecated.
@@ -184,8 +191,6 @@ type CfnTheme interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A description of the first version of the theme that you're creating.
-	//
-	// Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -319,6 +324,7 @@ type CfnTheme interface {
 type jsiiProxy_CfnTheme struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTheme) AttrArn() *string {
@@ -361,6 +367,16 @@ func (j *jsiiProxy_CfnTheme) AttrType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTheme) AttrVersion() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTheme) AttrVersionArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -376,6 +392,56 @@ func (j *jsiiProxy_CfnTheme) AttrVersionBaseThemeId() *string {
 	_jsii_.Get(
 		j,
 		"attrVersionBaseThemeId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTheme) AttrVersionConfiguration() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVersionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTheme) AttrVersionConfigurationDataColorPalette() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVersionConfigurationDataColorPalette",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTheme) AttrVersionConfigurationSheet() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVersionConfigurationSheet",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTheme) AttrVersionConfigurationTypography() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVersionConfigurationTypography",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTheme) AttrVersionConfigurationUiColorPalette() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVersionConfigurationUiColorPalette",
 		&returns,
 	)
 	return returns
@@ -571,6 +637,16 @@ func (j *jsiiProxy_CfnTheme) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTheme) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTheme) ThemeId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -612,7 +688,6 @@ func (j *jsiiProxy_CfnTheme) VersionDescription() *string {
 }
 
 
-// Create a new `AWS::QuickSight::Theme`.
 func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
@@ -630,7 +705,6 @@ func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) C
 	return &j
 }
 
-// Create a new `AWS::QuickSight::Theme`.
 func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 
@@ -692,6 +766,17 @@ func (j *jsiiProxy_CfnTheme)SetPermissions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"permissions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTheme)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

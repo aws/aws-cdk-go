@@ -13,12 +13,18 @@ package awslakeformation
 //   	S3Resource: jsii.String("s3Resource"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html
+//
 type CfnPermissions_DataLocationResourceProperty struct {
 	// The identifier for the Data Catalog .
 	//
 	// By default, it is the account ID of the caller.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-catalogid
+	//
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-s3resource
+	//
 	S3Resource *string `field:"optional" json:"s3Resource" yaml:"s3Resource"`
 }
 

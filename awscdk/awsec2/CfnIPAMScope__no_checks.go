@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnIPAMScope) validateSetIpamIdParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnIPAMScope) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnIPAMScopeParameters(scope constructs.Construct, id *string, props *CfnIPAMScopeProps) error {
 	return nil
 }

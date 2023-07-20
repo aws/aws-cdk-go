@@ -4,19 +4,24 @@ package awsevents
 // Properties to define an event bus.
 //
 // Example:
-//   bus := events.NewEventBus(this, jsii.String("bus"), &EventBusProps{
-//   	EventBusName: jsii.String("MyCustomEventBus"),
+//   import events "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   myEventBus := events.NewEventBus(this, jsii.String("EventBus"), &EventBusProps{
+//   	EventBusName: jsii.String("MyEventBus1"),
 //   })
 //
-//   bus.archive(jsii.String("MyArchive"), &BaseArchiveProps{
-//   	ArchiveName: jsii.String("MyCustomEventBusArchive"),
-//   	Description: jsii.String("MyCustomerEventBus Archive"),
-//   	EventPattern: &EventPattern{
-//   		Account: []*string{
-//   			awscdk.*stack_Of(this).Account,
+//   tasks.NewEventBridgePutEvents(this, jsii.String("Send an event to EventBridge"), &EventBridgePutEventsProps{
+//   	Entries: []eventBridgePutEventsEntry{
+//   		&eventBridgePutEventsEntry{
+//   			Detail: sfn.TaskInput_FromObject(map[string]interface{}{
+//   				"Message": jsii.String("Hello from Step Functions!"),
+//   			}),
+//   			EventBus: myEventBus,
+//   			DetailType: jsii.String("MessageFromStepFunctions"),
+//   			Source: jsii.String("step.functions"),
 //   		},
 //   	},
-//   	Retention: awscdk.Duration_Days(jsii.Number(365)),
 //   })
 //
 type EventBusProps struct {

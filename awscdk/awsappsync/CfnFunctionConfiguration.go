@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppSync::FunctionConfiguration`.
+// The `AWS::AppSync::FunctionConfiguration` resource defines the functions in GraphQL APIs to perform certain operations.
 //
-// The `AWS::AppSync::FunctionConfiguration` resource defines the functions in GraphQL APIs to perform certain operations. You can use pipeline resolvers to attach functions. For more information, see [Pipeline Resolvers](https://docs.aws.amazon.com/appsync/latest/devguide/pipeline-resolvers.html) in the *AWS AppSync Developer Guide* .
+// You can use pipeline resolvers to attach functions. For more information, see [Pipeline Resolvers](https://docs.aws.amazon.com/appsync/latest/devguide/pipeline-resolvers.html) in the *AWS AppSync Developer Guide* .
 //
 // > When you submit an update, AWS CloudFormation updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the AWS CloudFormation template. Changing the Amazon S3 file content without changing a property value will not result in an update operation.
 // >
@@ -52,6 +52,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html
+//
 type CfnFunctionConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -64,6 +66,7 @@ type CfnFunctionConfiguration interface {
 	AttrFunctionArn() *string
 	// The unique ID of this function.
 	AttrFunctionId() *string
+	AttrId() *string
 	// The name of the function.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -72,8 +75,6 @@ type CfnFunctionConfiguration interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The `resolver` code that contains the request and response functions.
-	//
-	// When code is used, the `runtime` is required. The runtime value must be `APPSYNC_JS` .
 	Code() *string
 	SetCode(val *string)
 	// The Amazon S3 endpoint.
@@ -90,8 +91,6 @@ type CfnFunctionConfiguration interface {
 	Description() *string
 	SetDescription(val *string)
 	// The version of the request mapping template.
-	//
-	// Currently, only the 2018-05-29 version of the template is supported.
 	FunctionVersion() *string
 	SetFunctionVersion(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -118,26 +117,18 @@ type CfnFunctionConfiguration interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The `Function` request mapping template.
-	//
-	// Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate() *string
 	SetRequestMappingTemplate(val *string)
 	// Describes a Sync configuration for a resolver.
-	//
-	// Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
 	RequestMappingTemplateS3Location() *string
 	SetRequestMappingTemplateS3Location(val *string)
 	// The `Function` response mapping template.
 	ResponseMappingTemplate() *string
 	SetResponseMappingTemplate(val *string)
 	// The location of a response mapping template in an Amazon S3 bucket.
-	//
-	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 	ResponseMappingTemplateS3Location() *string
 	SetResponseMappingTemplateS3Location(val *string)
 	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function.
-	//
-	// Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 	Runtime() interface{}
 	SetRuntime(val interface{})
 	// The stack in which this element is defined.
@@ -145,8 +136,6 @@ type CfnFunctionConfiguration interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Describes a Sync configuration for a resolver.
-	//
-	// Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 	SyncConfig() interface{}
 	SetSyncConfig(val interface{})
 	// Deprecated.
@@ -330,6 +319,16 @@ func (j *jsiiProxy_CfnFunctionConfiguration) AttrFunctionId() *string {
 	_jsii_.Get(
 		j,
 		"attrFunctionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunctionConfiguration) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -576,7 +575,6 @@ func (j *jsiiProxy_CfnFunctionConfiguration) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::AppSync::FunctionConfiguration`.
 func NewCfnFunctionConfiguration(scope constructs.Construct, id *string, props *CfnFunctionConfigurationProps) CfnFunctionConfiguration {
 	_init_.Initialize()
 
@@ -594,7 +592,6 @@ func NewCfnFunctionConfiguration(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::AppSync::FunctionConfiguration`.
 func NewCfnFunctionConfiguration_Override(c CfnFunctionConfiguration, scope constructs.Construct, id *string, props *CfnFunctionConfigurationProps) {
 	_init_.Initialize()
 

@@ -33,18 +33,30 @@ package awscustomerprofiles
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html
+//
 type CfnIntegration_TaskProperty struct {
 	// The source fields to which a particular task is applied.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-sourcefields
+	//
 	SourceFields *[]*string `field:"required" json:"sourceFields" yaml:"sourceFields"`
 	// Specifies the particular task implementation that Amazon AppFlow performs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-tasktype
+	//
 	TaskType *string `field:"required" json:"taskType" yaml:"taskType"`
 	// The operation to be performed on the provided source fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator
+	//
 	ConnectorOperator interface{} `field:"optional" json:"connectorOperator" yaml:"connectorOperator"`
 	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-destinationfield
+	//
 	DestinationField *string `field:"optional" json:"destinationField" yaml:"destinationField"`
 	// A map used to store task-related information.
 	//
 	// The service looks for particular information based on the TaskType.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties
+	//
 	TaskProperties interface{} `field:"optional" json:"taskProperties" yaml:"taskProperties"`
 }
 

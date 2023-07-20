@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::BillingConductor::CustomLineItem`.
+// Creates a custom line item that can be used to create a one-time or recurring, fixed or percentage-based charge that you can apply to a single billing group.
 //
-// Creates a custom line item that can be used to create a one-time or recurring, fixed or percentage-based charge that you can apply to a single billing group. You can apply custom line items to the current or previous billing period. You can create either a fee or a discount custom line item.
+// You can apply custom line items to the current or previous billing period. You can create either a fee or a discount custom line item.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,9 +52,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html
+//
 type CfnCustomLineItem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) that references the billing group where the custom line item applies to.
 	AttrArn() *string
 	// The number of resources that are associated to the custom line item.
@@ -85,13 +88,9 @@ type CfnCustomLineItem interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The charge details of a custom line item.
-	//
-	// It should contain only one of `Flat` or `Percentage` .
 	CustomLineItemChargeDetails() interface{}
 	SetCustomLineItemChargeDetails(val interface{})
 	// The custom line item's description.
-	//
-	// This is shown on the Bills page in association with the charge value.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -118,8 +117,11 @@ type CfnCustomLineItem interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A map that contains tag keys and tag values that are attached to a custom line item.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A map that contains tag keys and tag values that are attached to a custom line item.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -264,6 +266,7 @@ type CfnCustomLineItem interface {
 type jsiiProxy_CfnCustomLineItem struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCustomLineItem) AttrArn() *string {
@@ -466,6 +469,16 @@ func (j *jsiiProxy_CfnCustomLineItem) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomLineItem) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomLineItem) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -487,7 +500,6 @@ func (j *jsiiProxy_CfnCustomLineItem) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::BillingConductor::CustomLineItem`.
 func NewCfnCustomLineItem(scope constructs.Construct, id *string, props *CfnCustomLineItemProps) CfnCustomLineItem {
 	_init_.Initialize()
 
@@ -505,7 +517,6 @@ func NewCfnCustomLineItem(scope constructs.Construct, id *string, props *CfnCust
 	return &j
 }
 
-// Create a new `AWS::BillingConductor::CustomLineItem`.
 func NewCfnCustomLineItem_Override(c CfnCustomLineItem, scope constructs.Construct, id *string, props *CfnCustomLineItemProps) {
 	_init_.Initialize()
 
@@ -564,6 +575,17 @@ func (j *jsiiProxy_CfnCustomLineItem)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomLineItem)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

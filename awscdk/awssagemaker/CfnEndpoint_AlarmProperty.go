@@ -12,8 +12,12 @@ package awssagemaker
 //   	AlarmName: jsii.String("alarmName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html
+//
 type CfnEndpoint_AlarmProperty struct {
 	// The name of a CloudWatch alarm in your account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html#cfn-sagemaker-endpoint-alarm-alarmname
+	//
 	AlarmName *string `field:"required" json:"alarmName" yaml:"alarmName"`
 }
 

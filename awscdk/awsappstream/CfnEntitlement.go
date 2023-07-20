@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::Entitlement`.
+// Creates an entitlement to control access, based on user attributes, to specific applications within a stack.
 //
-// Creates an entitlement to control access, based on user attributes, to specific applications within a stack. Entitlements apply to SAML 2.0 federated user identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all applications in a stack. Entitlements don't apply to the desktop stream view application or to applications managed by a dynamic app provider using the Dynamic Application Framework.
+// Entitlements apply to SAML 2.0 federated user identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all applications in a stack. Entitlements don't apply to the desktop stream view application or to applications managed by a dynamic app provider using the Dynamic Application Framework.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,6 +32,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html
 //
 type CfnEntitlement interface {
 	awscdk.CfnResource
@@ -402,7 +404,6 @@ func (j *jsiiProxy_CfnEntitlement) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppStream::Entitlement`.
 func NewCfnEntitlement(scope constructs.Construct, id *string, props *CfnEntitlementProps) CfnEntitlement {
 	_init_.Initialize()
 
@@ -420,7 +421,6 @@ func NewCfnEntitlement(scope constructs.Construct, id *string, props *CfnEntitle
 	return &j
 }
 
-// Create a new `AWS::AppStream::Entitlement`.
 func NewCfnEntitlement_Override(c CfnEntitlement, scope constructs.Construct, id *string, props *CfnEntitlementProps) {
 	_init_.Initialize()
 

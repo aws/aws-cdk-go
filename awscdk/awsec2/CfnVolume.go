@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::Volume`.
+// Specifies an Amazon Elastic Block Store (Amazon EBS) volume.
 //
-// Specifies an Amazon Elastic Block Store (Amazon EBS) volume. You can attach the volume to an instance in the same Availability Zone using [AWS::EC2::VolumeAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html) .
+// You can attach the volume to an instance in the same Availability Zone using [AWS::EC2::VolumeAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html) .
 //
 // When you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.
 //
@@ -57,19 +57,18 @@ import (
 //   	VolumeType: jsii.String("volumeType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html
+//
 type CfnVolume interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the volume.
 	AttrVolumeId() *string
 	// Indicates whether the volume is auto-enabled for I/O operations.
-	//
-	// By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
 	AutoEnableIo() interface{}
 	SetAutoEnableIo(val interface{})
 	// The ID of the Availability Zone in which to create the volume.
-	//
-	// For example, `us-east-1a` .
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -82,39 +81,12 @@ type CfnVolume interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether the volume should be encrypted.
-	//
-	// The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon Elastic Compute Cloud User Guide* .
-	//
-	// Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
 	Encrypted() interface{}
 	SetEncrypted(val interface{})
 	// The number of I/O operations per second (IOPS).
-	//
-	// For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-	//
-	// The following are the supported values for each volume type:
-	//
-	// - `gp3` : 3,000-16,000 IOPS
-	// - `io1` : 100-64,000 IOPS
-	// - `io2` : 100-64,000 IOPS
-	//
-	// `io1` and `io2` volumes support up to 64,000 IOPS only on [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families support performance up to 32,000 IOPS.
-	//
-	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
 	Iops() *float64
 	SetIops(val *float64)
 	// The identifier of the AWS KMS key to use for Amazon EBS encryption.
-	//
-	// If `KmsKeyId` is specified, the encrypted state must be `true` .
-	//
-	// If you omit this property and your account is enabled for encryption by default, or *Encrypted* is set to `true` , then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the AWS managed key .
-	//
-	// Alternatively, if you want to specify a different key, you can specify one of the following:
-	//
-	// - Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
-	// - Key alias. Specify the alias for the key, prefixed with `alias/` . For example, for a key with the alias `my_cmk` , use `alias/my_cmk` . Or to specify the AWS managed key , use `alias/aws/ebs` .
-	// - Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
-	// - Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -128,8 +100,6 @@ type CfnVolume interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Indicates whether Amazon EBS Multi-Attach is enabled.
-	//
-	// AWS CloudFormation does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
 	MultiAttachEnabled() interface{}
 	SetMultiAttachEnabled(val interface{})
 	// The tree node.
@@ -143,33 +113,21 @@ type CfnVolume interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The size of the volume, in GiBs.
-	//
-	// You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
-	//
-	// The following are the supported volumes sizes for each volume type:
-	//
-	// - `gp2` and `gp3` : 1-16,384
-	// - `io1` and `io2` : 4-16,384
-	// - `st1` and `sc1` : 125-16,384
-	// - `standard` : 1-1,024.
 	Size() *float64
 	SetSize(val *float64)
 	// The snapshot from which to create the volume.
-	//
-	// You must specify either a snapshot ID or a volume size.
 	SnapshotId() *string
 	SetSnapshotId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to apply to the volume during creation.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to apply to the volume during creation.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
-	//
-	// This parameter is valid only for `gp3` volumes. The default value is 125.
-	//
-	// Valid Range: Minimum value of 125. Maximum value of 1000.
 	Throughput() *float64
 	SetThroughput(val *float64)
 	// Deprecated.
@@ -185,17 +143,9 @@ type CfnVolume interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The volume type. This parameter can be one of the following values:.
+	// The volume type.
 	//
-	// - General Purpose SSD: `gp2` | `gp3`
-	// - Provisioned IOPS SSD: `io1` | `io2`
-	// - Throughput Optimized HDD: `st1`
-	// - Cold HDD: `sc1`
-	// - Magnetic: `standard`
-	//
-	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	//
-	// Default: `gp2`.
+	// This parameter can be one of the following values:.
 	VolumeType() *string
 	SetVolumeType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -329,6 +279,7 @@ type CfnVolume interface {
 type jsiiProxy_CfnVolume struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVolume) AttrVolumeId() *string {
@@ -521,6 +472,16 @@ func (j *jsiiProxy_CfnVolume) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVolume) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVolume) Throughput() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -562,7 +523,6 @@ func (j *jsiiProxy_CfnVolume) VolumeType() *string {
 }
 
 
-// Create a new `AWS::EC2::Volume`.
 func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps) CfnVolume {
 	_init_.Initialize()
 
@@ -580,7 +540,6 @@ func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps)
 	return &j
 }
 
-// Create a new `AWS::EC2::Volume`.
 func NewCfnVolume_Override(c CfnVolume, scope constructs.Construct, id *string, props *CfnVolumeProps) {
 	_init_.Initialize()
 
@@ -671,6 +630,17 @@ func (j *jsiiProxy_CfnVolume)SetSnapshotId(val *string) {
 	_jsii_.Set(
 		j,
 		"snapshotId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVolume)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

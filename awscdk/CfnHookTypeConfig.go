@@ -7,8 +7,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::HookTypeConfig`.
-//
 // The `HookTypeConfig` resource specifies the configuration of a hook.
 //
 // Example:
@@ -25,6 +23,8 @@ import (
 //   	TypeName: jsii.String("typeName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html
+//
 type CfnHookTypeConfig interface {
 	CfnResource
 	IInspectable
@@ -36,13 +36,9 @@ type CfnHookTypeConfig interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Specifies the activated hook type configuration, in this AWS account and AWS Region .
-	//
-	// You must specify either `TypeName` and `Configuration` or `TypeARN` and `Configuration` .
 	Configuration() *string
 	SetConfiguration(val *string)
 	// Specifies the activated hook type configuration, in this AWS account and AWS Region .
-	//
-	// Defaults to `default` alias. Hook types currently support default configuration alias.
 	ConfigurationAlias() *string
 	SetConfigurationAlias(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -71,15 +67,9 @@ type CfnHookTypeConfig interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() Stack
 	// The Amazon Resource Number (ARN) for the hook to set `Configuration` for.
-	//
-	// You must specify either `TypeName` and `Configuration` or `TypeARN` and `Configuration` .
 	TypeArn() *string
 	SetTypeArn(val *string)
 	// The unique name for your hook.
-	//
-	// Specifies a three-part namespace for your hook, with a recommended pattern of `Organization::Service::Hook` .
-	//
-	// You must specify either `TypeName` and `Configuration` or `TypeARN` and `Configuration` .
 	TypeName() *string
 	SetTypeName(val *string)
 	// Deprecated.
@@ -379,7 +369,6 @@ func (j *jsiiProxy_CfnHookTypeConfig) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::CloudFormation::HookTypeConfig`.
 func NewCfnHookTypeConfig(scope constructs.Construct, id *string, props *CfnHookTypeConfigProps) CfnHookTypeConfig {
 	_init_.Initialize()
 
@@ -397,7 +386,6 @@ func NewCfnHookTypeConfig(scope constructs.Construct, id *string, props *CfnHook
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::HookTypeConfig`.
 func NewCfnHookTypeConfig_Override(c CfnHookTypeConfig, scope constructs.Construct, id *string, props *CfnHookTypeConfigProps) {
 	_init_.Initialize()
 

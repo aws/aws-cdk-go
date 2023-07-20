@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::SpotFleet`.
-//
 // Specifies a Spot Fleet request.
 //
 // The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.
@@ -335,6 +333,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
+//
 type CfnSpotFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -640,7 +640,6 @@ func (j *jsiiProxy_CfnSpotFleet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::SpotFleet`.
 func NewCfnSpotFleet(scope constructs.Construct, id *string, props *CfnSpotFleetProps) CfnSpotFleet {
 	_init_.Initialize()
 
@@ -658,7 +657,6 @@ func NewCfnSpotFleet(scope constructs.Construct, id *string, props *CfnSpotFleet
 	return &j
 }
 
-// Create a new `AWS::EC2::SpotFleet`.
 func NewCfnSpotFleet_Override(c CfnSpotFleet, scope constructs.Construct, id *string, props *CfnSpotFleetProps) {
 	_init_.Initialize()
 

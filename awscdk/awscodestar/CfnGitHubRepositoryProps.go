@@ -29,30 +29,47 @@ package awscodestar
 //   	RepositoryDescription: jsii.String("repositoryDescription"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html
+//
 type CfnGitHubRepositoryProps struct {
 	// The name of the repository you want to create in GitHub with AWS CloudFormation stack creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryname
+	//
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 	// The GitHub user name for the owner of the GitHub repository to be created.
 	//
 	// If this repository should be owned by a GitHub organization, provide its name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryowner
+	//
 	RepositoryOwner *string `field:"required" json:"repositoryOwner" yaml:"repositoryOwner"`
 	// Information about code to be committed to a repository after it is created in an AWS CloudFormation stack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-code
+	//
 	Code interface{} `field:"optional" json:"code" yaml:"code"`
-	// `AWS::CodeStar::GitHubRepository.ConnectionArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-connectionarn
+	//
 	ConnectionArn *string `field:"optional" json:"connectionArn" yaml:"connectionArn"`
 	// Indicates whether to enable issues for the GitHub repository.
 	//
 	// You can use GitHub issues to track information and bugs for your repository.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-enableissues
+	//
 	EnableIssues interface{} `field:"optional" json:"enableIssues" yaml:"enableIssues"`
 	// Indicates whether the GitHub repository is a private repository.
 	//
 	// If so, you choose who can see and commit to this repository.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-isprivate
+	//
 	IsPrivate interface{} `field:"optional" json:"isPrivate" yaml:"isPrivate"`
 	// The GitHub user's personal access token for the GitHub repository.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryaccesstoken
+	//
 	RepositoryAccessToken *string `field:"optional" json:"repositoryAccessToken" yaml:"repositoryAccessToken"`
 	// A comment or description about the new repository.
 	//
 	// This description is displayed in GitHub after the repository is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositorydescription
+	//
 	RepositoryDescription *string `field:"optional" json:"repositoryDescription" yaml:"repositoryDescription"`
 }
 

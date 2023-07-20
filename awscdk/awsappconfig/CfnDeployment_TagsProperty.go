@@ -15,12 +15,18 @@ package awsappconfig
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deployment-tags.html
+//
 type CfnDeployment_TagsProperty struct {
 	// The key-value string map.
 	//
 	// The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deployment-tags.html#cfn-appconfig-deployment-tags-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The tag value can be up to 256 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deployment-tags.html#cfn-appconfig-deployment-tags-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

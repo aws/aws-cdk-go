@@ -16,12 +16,20 @@ package awskinesisanalyticsv2
 //   	ObjectVersion: jsii.String("objectVersion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html
+//
 type CfnApplication_S3ContentLocationProperty struct {
 	// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-bucketarn
+	//
 	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
 	// The file key for the object containing the application code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-filekey
+	//
 	FileKey *string `field:"required" json:"fileKey" yaml:"fileKey"`
 	// The version of the object containing the application code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-objectversion
+	//
 	ObjectVersion *string `field:"optional" json:"objectVersion" yaml:"objectVersion"`
 }
 

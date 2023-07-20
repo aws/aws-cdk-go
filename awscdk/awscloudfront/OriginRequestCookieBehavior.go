@@ -96,6 +96,27 @@ func OriginRequestCookieBehavior_AllowList(cookies ...*string) OriginRequestCook
 	return returns
 }
 
+// All cookies except the provided `cookies` are included in requests that CloudFront sends to the origin.
+func OriginRequestCookieBehavior_DenyList(cookies ...*string) OriginRequestCookieBehavior {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range cookies {
+		args = append(args, a)
+	}
+
+	var returns OriginRequestCookieBehavior
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.OriginRequestCookieBehavior",
+		"denyList",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 // Cookies in viewer requests are not included in requests that CloudFront sends to the origin.
 //
 // Any cookies that are listed in a CachePolicy are still included in origin requests.

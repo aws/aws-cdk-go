@@ -24,14 +24,22 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html
+//
 type CfnTrafficMirrorFilterProps struct {
 	// The description of the Traffic Mirror filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The network service traffic that is associated with the Traffic Mirror filter.
 	//
 	// Valid values are `amazon-dns` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-networkservices
+	//
 	NetworkServices *[]*string `field:"optional" json:"networkServices" yaml:"networkServices"`
 	// The tags to assign to a Traffic Mirror filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

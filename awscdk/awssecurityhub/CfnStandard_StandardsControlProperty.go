@@ -17,12 +17,18 @@ package awssecurityhub
 //   	Reason: jsii.String("reason"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-standard-standardscontrol.html
+//
 type CfnStandard_StandardsControlProperty struct {
 	// The Amazon Resource Name (ARN) of the control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-standard-standardscontrol.html#cfn-securityhub-standard-standardscontrol-standardscontrolarn
+	//
 	StandardsControlArn *string `field:"required" json:"standardsControlArn" yaml:"standardsControlArn"`
 	// A user-defined reason for changing a control's enablement status in a specified standard.
 	//
 	// If you are disabling a control, then this property is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-standard-standardscontrol.html#cfn-securityhub-standard-standardscontrol-reason
+	//
 	Reason *string `field:"optional" json:"reason" yaml:"reason"`
 }
 

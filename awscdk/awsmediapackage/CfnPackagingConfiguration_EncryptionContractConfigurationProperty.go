@@ -15,8 +15,20 @@ package awsmediapackage
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   encryptionContractConfigurationProperty := &EncryptionContractConfigurationProperty{
+//   	PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   	PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html
+//
 type CfnPackagingConfiguration_EncryptionContractConfigurationProperty struct {
+	// A collection of audio encryption presets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html#cfn-mediapackage-packagingconfiguration-encryptioncontractconfiguration-presetspeke20audio
+	//
+	PresetSpeke20Audio *string `field:"required" json:"presetSpeke20Audio" yaml:"presetSpeke20Audio"`
+	// A collection of video encryption presets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html#cfn-mediapackage-packagingconfiguration-encryptioncontractconfiguration-presetspeke20video
+	//
+	PresetSpeke20Video *string `field:"required" json:"presetSpeke20Video" yaml:"presetSpeke20Video"`
 }
 

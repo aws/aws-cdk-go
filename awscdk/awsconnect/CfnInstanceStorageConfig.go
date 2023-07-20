@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::InstanceStorageConfig`.
-//
 // The storage configuration for the instance.
 //
 // Example:
@@ -51,6 +49,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html
 //
 type CfnInstanceStorageConfig interface {
 	awscdk.CfnResource
@@ -96,8 +96,6 @@ type CfnInstanceStorageConfig interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A valid resource type.
-	//
-	// Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`.
 	ResourceType() *string
 	SetResourceType(val *string)
 	// The S3 bucket configuration.
@@ -437,7 +435,6 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::Connect::InstanceStorageConfig`.
 func NewCfnInstanceStorageConfig(scope constructs.Construct, id *string, props *CfnInstanceStorageConfigProps) CfnInstanceStorageConfig {
 	_init_.Initialize()
 
@@ -455,7 +452,6 @@ func NewCfnInstanceStorageConfig(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::Connect::InstanceStorageConfig`.
 func NewCfnInstanceStorageConfig_Override(c CfnInstanceStorageConfig, scope constructs.Construct, id *string, props *CfnInstanceStorageConfigProps) {
 	_init_.Initialize()
 

@@ -13,6 +13,8 @@ package awsmedialive
 //   embeddedDestinationSettingsProperty := &EmbeddedDestinationSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddeddestinationsettings.html
+//
 type CfnChannel_EmbeddedDestinationSettingsProperty struct {
 }
 

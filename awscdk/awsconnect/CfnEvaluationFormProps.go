@@ -111,8 +111,12 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html
+//
 type CfnEvaluationFormProps struct {
 	// The identifier of the Amazon Connect instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-instancearn
+	//
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// Items that are part of the evaluation form.
 	//
@@ -121,22 +125,34 @@ type CfnEvaluationFormProps struct {
 	// *Minimum size* : 1
 	//
 	// *Maximum size* : 100.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-items
+	//
 	Items interface{} `field:"required" json:"items" yaml:"items"`
 	// The status of the evaluation form.
 	//
 	// *Allowed values* : `DRAFT` | `ACTIVE`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-status
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 	// A title of the evaluation form.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// The description of the evaluation form.
 	//
 	// *Length Constraints* : Minimum length of 0. Maximum length of 1024.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A scoring strategy of the evaluation form.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-scoringstrategy
+	//
 	ScoringStrategy interface{} `field:"optional" json:"scoringStrategy" yaml:"scoringStrategy"`
 	// The tags used to organize, track, or control access for this resource.
 	//
 	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

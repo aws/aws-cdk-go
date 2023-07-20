@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NimbleStudio::LaunchProfile`.
+// The `AWS::NimbleStudio::LaunchProfile` resource represents access permissions for a set of studio components, including types of workstations, render farms, and shared file systems.
 //
-// The `AWS::NimbleStudio::LaunchProfile` resource represents access permissions for a set of studio components, including types of workstations, render farms, and shared file systems. Launch profiles are shared with studio users to give them access to the set of studio components.
+// Launch profiles are shared with studio users to give them access to the set of studio components.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -73,9 +73,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html
+//
 type CfnLaunchProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique identifier for the launch profile resource.
 	AttrLaunchProfileId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -94,8 +97,6 @@ type CfnLaunchProfile interface {
 	Ec2SubnetIds() *[]*string
 	SetEc2SubnetIds(val *[]*string)
 	// The version number of the protocol that is used by the launch profile.
-	//
-	// The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersions() *[]*string
 	SetLaunchProfileProtocolVersions(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -129,14 +130,13 @@ type CfnLaunchProfile interface {
 	StudioComponentIds() *[]*string
 	SetStudioComponentIds(val *[]*string)
 	// The unique identifier for a studio resource.
-	//
-	// In Nimble Studio , all other resources are contained in a studio resource.
 	StudioId() *string
 	SetStudioId(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -281,6 +281,7 @@ type CfnLaunchProfile interface {
 type jsiiProxy_CfnLaunchProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLaunchProfile) AttrLaunchProfileId() *string {
@@ -453,6 +454,16 @@ func (j *jsiiProxy_CfnLaunchProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLaunchProfile) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLaunchProfile) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -474,7 +485,6 @@ func (j *jsiiProxy_CfnLaunchProfile) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::NimbleStudio::LaunchProfile`.
 func NewCfnLaunchProfile(scope constructs.Construct, id *string, props *CfnLaunchProfileProps) CfnLaunchProfile {
 	_init_.Initialize()
 
@@ -492,7 +502,6 @@ func NewCfnLaunchProfile(scope constructs.Construct, id *string, props *CfnLaunc
 	return &j
 }
 
-// Create a new `AWS::NimbleStudio::LaunchProfile`.
 func NewCfnLaunchProfile_Override(c CfnLaunchProfile, scope constructs.Construct, id *string, props *CfnLaunchProfileProps) {
 	_init_.Initialize()
 
@@ -573,6 +582,14 @@ func (j *jsiiProxy_CfnLaunchProfile)SetStudioId(val *string) {
 	_jsii_.Set(
 		j,
 		"studioId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLaunchProfile)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

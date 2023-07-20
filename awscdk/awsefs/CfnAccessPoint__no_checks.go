@@ -80,6 +80,10 @@ func validateCfnAccessPoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAccessPoint) validateSetAccessPointTagsRawParameters(val *[]*CfnAccessPoint_AccessPointTagProperty) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAccessPoint) validateSetFileSystemIdParameters(val *string) error {
 	return nil
 }

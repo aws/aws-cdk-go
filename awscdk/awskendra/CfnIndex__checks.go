@@ -311,6 +311,16 @@ func (j *jsiiProxy_CfnIndex) validateSetServerSideEncryptionConfigurationParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnIndex) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnIndex) validateSetUserTokenConfigurationsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

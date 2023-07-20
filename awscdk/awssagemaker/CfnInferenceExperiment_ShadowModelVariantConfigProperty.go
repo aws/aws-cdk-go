@@ -13,10 +13,16 @@ package awssagemaker
 //   	ShadowModelVariantName: jsii.String("shadowModelVariantName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodelvariantconfig.html
+//
 type CfnInferenceExperiment_ShadowModelVariantConfigProperty struct {
 	// The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodelvariantconfig.html#cfn-sagemaker-inferenceexperiment-shadowmodelvariantconfig-samplingpercentage
+	//
 	SamplingPercentage *float64 `field:"required" json:"samplingPercentage" yaml:"samplingPercentage"`
 	// The name of the shadow variant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodelvariantconfig.html#cfn-sagemaker-inferenceexperiment-shadowmodelvariantconfig-shadowmodelvariantname
+	//
 	ShadowModelVariantName *string `field:"required" json:"shadowModelVariantName" yaml:"shadowModelVariantName"`
 }
 

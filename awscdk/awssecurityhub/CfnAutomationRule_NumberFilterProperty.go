@@ -14,12 +14,20 @@ package awssecurityhub
 //   	Lte: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-numberfilter.html
+//
 type CfnAutomationRule_NumberFilterProperty struct {
 	// The equal-to condition to be applied to a single field when querying for findings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-numberfilter.html#cfn-securityhub-automationrule-numberfilter-eq
+	//
 	Eq *float64 `field:"optional" json:"eq" yaml:"eq"`
 	// The greater-than-equal condition to be applied to a single field when querying for findings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-numberfilter.html#cfn-securityhub-automationrule-numberfilter-gte
+	//
 	Gte *float64 `field:"optional" json:"gte" yaml:"gte"`
 	// The less-than-equal condition to be applied to a single field when querying for findings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-numberfilter.html#cfn-securityhub-automationrule-numberfilter-lte
+	//
 	Lte *float64 `field:"optional" json:"lte" yaml:"lte"`
 }
 

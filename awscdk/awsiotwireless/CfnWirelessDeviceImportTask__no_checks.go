@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask) validateSetSidewalkParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnWirelessDeviceImportTask) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnWirelessDeviceImportTaskParameters(scope constructs.Construct, id *string, props *CfnWirelessDeviceImportTaskProps) error {
 	return nil
 }

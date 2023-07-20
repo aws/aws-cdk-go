@@ -8,27 +8,25 @@ import (
 // Options for creating a provisioned instance.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"),
-//   Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   	Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
-//   }),
-//   Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
-//    // Optional - will default to 'admin' username and generated password
-//   Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+//   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
+//   	}),
+//   	ServerlessV2MinCapacity: jsii.Number(6.5),
+//   	ServerlessV2MaxCapacity: jsii.Number(64),
 //   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
-//   			PromotionTier: jsii.Number(1),
+//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
+//   			ScaleWithWriter: jsii.Boolean(true),
 //   		}),
-//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader2")),
+//   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),
 //   	},
-//   	VpcSubnets: map[string]subnetType{
-//   		"subnetType": ec2.*subnetType_PRIVATE_WITH_EGRESS,
-//   	},
-//   	Vpc: *Vpc,
-//   }),
+//   	Vpc: Vpc,
+//   })
 //
 type ProvisionedClusterInstanceProps struct {
 	// Whether to allow upgrade of major version for the DB instance.
@@ -61,13 +59,10 @@ type ProvisionedClusterInstanceProps struct {
 	// Only used for migrating existing clusters from using `instanceProps` to `writer` and `readers`.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // existing cluster
 	//   var vpc vpc
 	//
-	//   var vpc vpc
-	//
-	//   cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
+	//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 	//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
 	//   	}),
@@ -87,7 +82,8 @@ type ProvisionedClusterInstanceProps struct {
 	//   	"instanceType": ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 	//   	"isFromLegacyInstanceProps": jsii.Boolean(true),
 	//   }
-	//   cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
+	//
+	//   myCluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	//   	Engine: rds.DatabaseClusterEngine_*AuroraMysql(&AuroraMysqlClusterEngineProps{
 	//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
 	//   	}),
@@ -95,14 +91,14 @@ type ProvisionedClusterInstanceProps struct {
 	//   		SubnetType: ec2.SubnetType_PUBLIC,
 	//   	},
 	//   	Vpc: Vpc,
-	//   	Writer: clusterInstance_Provisioned(jsii.String("Instance1"), map[string]interface{}{
-	//   		(SpreadAssignment ...instanceProps
-	//   				instanceProps),
+	//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance1"), &ProvisionedClusterInstanceProps{
+	//   		InstanceType: instanceProps.instanceType,
+	//   		IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
 	//   	}),
 	//   	Readers: []iClusterInstance{
-	//   		*clusterInstance_*Provisioned(jsii.String("Instance2"), map[string]interface{}{
-	//   			(SpreadAssignment ...instanceProps
-	//   					instanceProps),
+	//   		rds.ClusterInstance_*Provisioned(jsii.String("Instance2"), &ProvisionedClusterInstanceProps{
+	//   			InstanceType: instanceProps.instanceType,
+	//   			IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
 	//   		}),
 	//   	},
 	//   })

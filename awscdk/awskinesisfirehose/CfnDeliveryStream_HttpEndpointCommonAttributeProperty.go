@@ -15,10 +15,16 @@ package awskinesisfirehose
 //   	AttributeValue: jsii.String("attributeValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html
+//
 type CfnDeliveryStream_HttpEndpointCommonAttributeProperty struct {
 	// The name of the HTTP endpoint common attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributename
+	//
 	AttributeName *string `field:"required" json:"attributeName" yaml:"attributeName"`
 	// The value of the HTTP endpoint common attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributevalue
+	//
 	AttributeValue *string `field:"required" json:"attributeValue" yaml:"attributeValue"`
 }
 

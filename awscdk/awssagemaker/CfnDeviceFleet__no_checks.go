@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnDeviceFleet) validateSetRoleArnParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeviceFleet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDeviceFleetParameters(scope constructs.Construct, id *string, props *CfnDeviceFleetProps) error {
 	return nil
 }

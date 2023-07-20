@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EMR::Step`.
+// Use `Step` to specify a cluster (job flow) step, which runs only on the master node.
 //
-// Use `Step` to specify a cluster (job flow) step, which runs only on the master node. Steps are used to submit data processing jobs to a cluster.
+// Steps are used to submit data processing jobs to a cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,14 +39,15 @@ import (
 //   	Name: jsii.String("name"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
+//
 type CfnStep interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// This specifies what action to take when the cluster step fails.
-	//
-	// Possible values are `CANCEL_AND_WAIT` and `CONTINUE` .
 	ActionOnFailure() *string
 	SetActionOnFailure(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -57,8 +58,6 @@ type CfnStep interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The `HadoopJarStepConfig` property type specifies a job flow step consisting of a JAR file whose main function will be executed.
-	//
-	// The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
 	HadoopJarStep() interface{}
 	SetHadoopJarStep(val interface{})
 	// A string that uniquely identifies the cluster (job flow).
@@ -244,6 +243,16 @@ func (j *jsiiProxy_CfnStep) ActionOnFailure() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStep) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStep) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -375,7 +384,6 @@ func (j *jsiiProxy_CfnStep) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EMR::Step`.
 func NewCfnStep(scope constructs.Construct, id *string, props *CfnStepProps) CfnStep {
 	_init_.Initialize()
 
@@ -393,7 +401,6 @@ func NewCfnStep(scope constructs.Construct, id *string, props *CfnStepProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::EMR::Step`.
 func NewCfnStep_Override(c CfnStep, scope constructs.Construct, id *string, props *CfnStepProps) {
 	_init_.Initialize()
 

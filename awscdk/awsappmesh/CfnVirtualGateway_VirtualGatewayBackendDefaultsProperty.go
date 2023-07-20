@@ -54,8 +54,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html
+//
 type CfnVirtualGateway_VirtualGatewayBackendDefaultsProperty struct {
 	// A reference to an object that represents a client policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html#cfn-appmesh-virtualgateway-virtualgatewaybackenddefaults-clientpolicy
+	//
 	ClientPolicy interface{} `field:"optional" json:"clientPolicy" yaml:"clientPolicy"`
 }
 

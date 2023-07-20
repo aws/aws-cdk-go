@@ -15,14 +15,20 @@ package awssam
 //   	ValidateParameters: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-requestmodel.html
+//
 type CfnFunction_RequestModelProperty struct {
-	// `CfnFunction.RequestModelProperty.Model`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-requestmodel.html#cfn-serverless-function-requestmodel-model
+	//
 	Model *string `field:"required" json:"model" yaml:"model"`
-	// `CfnFunction.RequestModelProperty.Required`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-requestmodel.html#cfn-serverless-function-requestmodel-required
+	//
 	Required interface{} `field:"optional" json:"required" yaml:"required"`
-	// `CfnFunction.RequestModelProperty.ValidateBody`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-requestmodel.html#cfn-serverless-function-requestmodel-validatebody
+	//
 	ValidateBody interface{} `field:"optional" json:"validateBody" yaml:"validateBody"`
-	// `CfnFunction.RequestModelProperty.ValidateParameters`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-requestmodel.html#cfn-serverless-function-requestmodel-validateparameters
+	//
 	ValidateParameters interface{} `field:"optional" json:"validateParameters" yaml:"validateParameters"`
 }
 

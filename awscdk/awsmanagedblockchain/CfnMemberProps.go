@@ -47,14 +47,24 @@ package awsmanagedblockchain
 //   	NetworkId: jsii.String("networkId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html
+//
 type CfnMemberProps struct {
 	// Configuration properties of the member.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-memberconfiguration
+	//
 	MemberConfiguration interface{} `field:"required" json:"memberConfiguration" yaml:"memberConfiguration"`
 	// The unique identifier of the invitation to join the network sent to the account that creates the member.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-invitationid
+	//
 	InvitationId *string `field:"optional" json:"invitationId" yaml:"invitationId"`
 	// Configuration properties of the network to which the member belongs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-networkconfiguration
+	//
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The unique identifier of the network to which the member belongs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-networkid
+	//
 	NetworkId *string `field:"optional" json:"networkId" yaml:"networkId"`
 }
 

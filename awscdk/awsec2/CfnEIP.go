@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::EIP`.
-//
 // Specifies an Elastic IP (EIP) address and can, optionally, associate it with an Amazon EC2 instance.
 //
 // You can allocate an Elastic IP address from an address pool owned by AWS or from an address pool created from a public IPv4 address range that you have brought to AWS for use with your AWS resources using bring your own IP addresses (BYOIP). For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in the *Amazon EC2 User Guide* .
@@ -30,9 +28,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html
+//
 type CfnEIP interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC.
 	//
 	// This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
@@ -49,13 +50,9 @@ type CfnEIP interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The network ( `vpc` ).
-	//
-	// If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
 	Domain() *string
 	SetDomain(val *string)
 	// The ID of the instance.
-	//
-	// > Updates to the `InstanceId` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
 	InstanceId() *string
 	SetInstanceId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -69,21 +66,11 @@ type CfnEIP interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
-	//
-	// Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
-	//
-	// Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
-	//
-	// You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic, you receive an `InvalidParameterCombination` error.
 	NetworkBorderGroup() *string
 	SetNetworkBorderGroup(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The ID of an address pool that you own.
-	//
-	// Use this parameter to let Amazon EC2 select an address from the address pool.
-	//
-	// > Updates to the `PublicIpv4Pool` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
 	PublicIpv4Pool() *string
 	SetPublicIpv4Pool(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -95,13 +82,12 @@ type CfnEIP interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Any tags assigned to the Elastic IP address.
-	//
-	// > Updates to the `Tags` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags assigned to the Elastic IP address.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The Elastic IP address you are accepting for transfer.
-	//
-	// You can only accept one transferred address. For more information on Elastic IP address transfers, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro) in the *Amazon Virtual Private Cloud User Guide* .
 	TransferAddress() *string
 	SetTransferAddress(val *string)
 	// Deprecated.
@@ -248,6 +234,7 @@ type CfnEIP interface {
 type jsiiProxy_CfnEIP struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnEIP) AttrAllocationId() *string {
@@ -400,6 +387,16 @@ func (j *jsiiProxy_CfnEIP) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEIP) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEIP) TransferAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -431,7 +428,6 @@ func (j *jsiiProxy_CfnEIP) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::EIP`.
 func NewCfnEIP(scope constructs.Construct, id *string, props *CfnEIPProps) CfnEIP {
 	_init_.Initialize()
 
@@ -449,7 +445,6 @@ func NewCfnEIP(scope constructs.Construct, id *string, props *CfnEIPProps) CfnEI
 	return &j
 }
 
-// Create a new `AWS::EC2::EIP`.
 func NewCfnEIP_Override(c CfnEIP, scope constructs.Construct, id *string, props *CfnEIPProps) {
 	_init_.Initialize()
 
@@ -488,6 +483,17 @@ func (j *jsiiProxy_CfnEIP)SetPublicIpv4Pool(val *string) {
 	_jsii_.Set(
 		j,
 		"publicIpv4Pool",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEIP)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

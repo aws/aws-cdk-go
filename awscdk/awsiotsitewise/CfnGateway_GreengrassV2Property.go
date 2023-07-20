@@ -14,8 +14,12 @@ package awsiotsitewise
 //   	CoreDeviceThingName: jsii.String("coreDeviceThingName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html
+//
 type CfnGateway_GreengrassV2Property struct {
 	// The name of the AWS IoT thing for your AWS IoT Greengrass V2 core device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html#cfn-iotsitewise-gateway-greengrassv2-coredevicethingname
+	//
 	CoreDeviceThingName *string `field:"required" json:"coreDeviceThingName" yaml:"coreDeviceThingName"`
 }
 

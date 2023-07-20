@@ -17,6 +17,8 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
+//
 type CfnCachePolicy_QueryStringsConfigProperty struct {
 	// Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
 	//
@@ -26,8 +28,12 @@ type CfnCachePolicy_QueryStringsConfigProperty struct {
 	// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in the cache key and in requests that CloudFront sends to the origin.
 	// - `allExcept` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** those that are listed in the `QueryStringNames` type, which are not included.
 	// - `all` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
+	//
 	QueryStringBehavior *string `field:"required" json:"queryStringBehavior" yaml:"queryStringBehavior"`
 	// Contains a list of query string names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
+	//
 	QueryStrings *[]*string `field:"optional" json:"queryStrings" yaml:"queryStrings"`
 }
 

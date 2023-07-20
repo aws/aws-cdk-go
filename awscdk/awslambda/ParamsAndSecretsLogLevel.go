@@ -4,20 +4,19 @@ package awslambda
 // Logging levels for the Parametes and Secrets Extension.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import sm "github.com/aws/aws-cdk-go/awscdk"
 //   import ssm "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   secret := sm.NewSecret(stack, jsii.String("Secret"))
-//   parameter := ssm.NewStringParameter(stack, jsii.String("Parameter"), &StringParameterProps{
+//   secret := sm.NewSecret(this, jsii.String("Secret"))
+//   parameter := ssm.NewStringParameter(this, jsii.String("Parameter"), &StringParameterProps{
 //   	ParameterName: jsii.String("mySsmParameterName"),
 //   	StringValue: jsii.String("mySsmParameterValue"),
 //   })
 //
 //   paramsAndSecrets := lambda.ParamsAndSecretsLayerVersion_FromVersion(lambda.ParamsAndSecretsVersions_V1_0_103, &ParamsAndSecretsOptions{
 //   	CacheSize: jsii.Number(500),
-//   	LogLevel: lamabda.paramsAndSecretsLogLevel_DEBUG,
+//   	LogLevel: lambda.ParamsAndSecretsLogLevel_DEBUG,
 //   })
 //
 //   lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{

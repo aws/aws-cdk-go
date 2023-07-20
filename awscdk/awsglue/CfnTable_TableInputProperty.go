@@ -86,28 +86,44 @@ package awsglue
 //   	ViewOriginalText: jsii.String("viewOriginalText"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html
+//
 type CfnTable_TableInputProperty struct {
 	// A description of the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The table name.
 	//
 	// For Hive compatibility, this is folded to lowercase when it is stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The table owner.
 	//
 	// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner
+	//
 	Owner *string `field:"optional" json:"owner" yaml:"owner"`
 	// These key-value pairs define properties associated with the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
 	//
 	// When you create a table used by Amazon Athena, and you do not specify any `partitionKeys` , you must at least set the value of `partitionKeys` to an empty list. For example:
 	//
 	// `"PartitionKeys": []`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys
+	//
 	PartitionKeys interface{} `field:"optional" json:"partitionKeys" yaml:"partitionKeys"`
 	// The retention time for this table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention
+	//
 	Retention *float64 `field:"optional" json:"retention" yaml:"retention"`
 	// A storage descriptor containing information about the physical storage of this table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor
+	//
 	StorageDescriptor interface{} `field:"optional" json:"storageDescriptor" yaml:"storageDescriptor"`
 	// The type of this table.
 	//
@@ -117,16 +133,24 @@ type CfnTable_TableInputProperty struct {
 	//
 	// - **EXTERNAL_TABLE** - Hive compatible attribute - indicates a non-Hive managed table.
 	// - **GOVERNED** - Used by AWS Lake Formation . The AWS Glue Data Catalog understands `GOVERNED` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
+	//
 	TableType *string `field:"optional" json:"tableType" yaml:"tableType"`
 	// A `TableIdentifier` structure that describes a target table for resource linking.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+	//
 	TargetTable interface{} `field:"optional" json:"targetTable" yaml:"targetTable"`
 	// Included for Apache Hive compatibility.
 	//
 	// Not used in the normal course of AWS Glue operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
+	//
 	ViewExpandedText *string `field:"optional" json:"viewExpandedText" yaml:"viewExpandedText"`
 	// Included for Apache Hive compatibility.
 	//
 	// Not used in the normal course of AWS Glue operations. If the table is a `VIRTUAL_VIEW` , certain Athena configuration encoded in base64.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
+	//
 	ViewOriginalText *string `field:"optional" json:"viewOriginalText" yaml:"viewOriginalText"`
 }
 

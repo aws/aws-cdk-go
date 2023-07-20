@@ -13,10 +13,16 @@ package awsdatabrew
 //   	ValueReference: jsii.String("valueReference"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-substitutionvalue.html
+//
 type CfnRuleset_SubstitutionValueProperty struct {
 	// Value or column name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-substitutionvalue.html#cfn-databrew-ruleset-substitutionvalue-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// Variable name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-substitutionvalue.html#cfn-databrew-ruleset-substitutionvalue-valuereference
+	//
 	ValueReference *string `field:"required" json:"valueReference" yaml:"valueReference"`
 }
 

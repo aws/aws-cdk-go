@@ -38,16 +38,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-smallmultiplesoptions.html
+//
 type CfnAnalysis_SmallMultiplesOptionsProperty struct {
 	// Sets the maximum number of visible columns to display in the grid of small multiples panels.
 	//
 	// The default is `Auto` , which automatically adjusts the columns in the grid to fit the overall layout and size of the given chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-smallmultiplesoptions.html#cfn-quicksight-analysis-smallmultiplesoptions-maxvisiblecolumns
+	//
 	MaxVisibleColumns *float64 `field:"optional" json:"maxVisibleColumns" yaml:"maxVisibleColumns"`
 	// Sets the maximum number of visible rows to display in the grid of small multiples panels.
 	//
 	// The default value is `Auto` , which automatically adjusts the rows in the grid to fit the overall layout and size of the given chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-smallmultiplesoptions.html#cfn-quicksight-analysis-smallmultiplesoptions-maxvisiblerows
+	//
 	MaxVisibleRows *float64 `field:"optional" json:"maxVisibleRows" yaml:"maxVisibleRows"`
 	// Configures the display options for each small multiples panel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-smallmultiplesoptions.html#cfn-quicksight-analysis-smallmultiplesoptions-panelconfiguration
+	//
 	PanelConfiguration interface{} `field:"optional" json:"panelConfiguration" yaml:"panelConfiguration"`
 }
 

@@ -36,6 +36,8 @@ package awsguardduty
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html
+//
 type CfnFilter_FindingCriteriaProperty struct {
 	// Represents a map of finding properties that match specified conditions and values when querying findings.
 	//
@@ -96,8 +98,12 @@ type CfnFilter_FindingCriteriaProperty struct {
 	// - updatedAt
 	//
 	// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html#cfn-guardduty-filter-findingcriteria-criterion
+	//
 	Criterion interface{} `field:"optional" json:"criterion" yaml:"criterion"`
 	// Specifies the condition to be applied to a single field when filtering through findings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html#cfn-guardduty-filter-findingcriteria-itemtype
+	//
 	ItemType interface{} `field:"optional" json:"itemType" yaml:"itemType"`
 }
 

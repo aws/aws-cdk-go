@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Evidently::Experiment`.
+// Creates or updates an Evidently *experiment* .
 //
-// Creates or updates an Evidently *experiment* . Before you create an experiment, you must create the feature to use for the experiment.
+// Before you create an experiment, you must create the feature to use for the experiment.
 //
 // An experiment helps you make feature design decisions based on evidence and data. An experiment can test as many as five variations at once. Evidently collects experiment data and analyzes it by statistical methods, and provides clear recommendations about which variations perform better.
 //
@@ -77,9 +77,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html
+//
 type CfnExperiment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the experiment.
 	//
 	// For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`.
@@ -107,8 +110,6 @@ type CfnExperiment interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal.
-	//
-	// You can use up to three metrics in an experiment.
 	MetricGoals() interface{}
 	SetMetricGoals(val interface{})
 	// A name for the new experiment.
@@ -117,16 +118,12 @@ type CfnExperiment interface {
 	// The tree node.
 	Node() constructs.Node
 	// A structure that contains the configuration of which variation to use as the "control" version.
-	//
-	// The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
 	OnlineAbConfig() interface{}
 	SetOnlineAbConfig(val interface{})
 	// The name or the ARN of the project where this experiment is to be created.
 	Project() *string
 	SetProject(val *string)
 	// When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served.
-	//
-	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
 	RandomizationSalt() *string
 	SetRandomizationSalt(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -135,41 +132,26 @@ type CfnExperiment interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Set this to `true` to remove the segment that is associated with this experiment.
-	//
-	// You can't use this parameter if the experiment is currently running.
 	RemoveSegment() interface{}
 	SetRemoveSegment(val interface{})
 	// A structure that you can use to start and stop the experiment.
 	RunningStatus() interface{}
 	SetRunningStatus(val interface{})
 	// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent.
-	//
-	// The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
-	//
-	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
 	SamplingRate() *float64
 	SetSamplingRate(val *float64)
 	// Specifies an audience *segment* to use in the experiment.
-	//
-	// When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
-	//
-	// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
 	Segment() *string
 	SetSegment(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Assigns one or more tags (key-value pairs) to the experiment.
-	//
-	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-	//
-	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-	//
-	// You can associate as many as 50 tags with an experiment.
-	//
-	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Assigns one or more tags (key-value pairs) to the experiment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// An array of structures that describe the configuration of each feature variation used in the experiment.
 	Treatments() interface{}
 	SetTreatments(val interface{})
@@ -317,6 +299,7 @@ type CfnExperiment interface {
 type jsiiProxy_CfnExperiment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnExperiment) AttrArn() *string {
@@ -519,6 +502,16 @@ func (j *jsiiProxy_CfnExperiment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnExperiment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnExperiment) Treatments() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -550,7 +543,6 @@ func (j *jsiiProxy_CfnExperiment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Evidently::Experiment`.
 func NewCfnExperiment(scope constructs.Construct, id *string, props *CfnExperimentProps) CfnExperiment {
 	_init_.Initialize()
 
@@ -568,7 +560,6 @@ func NewCfnExperiment(scope constructs.Construct, id *string, props *CfnExperime
 	return &j
 }
 
-// Create a new `AWS::Evidently::Experiment`.
 func NewCfnExperiment_Override(c CfnExperiment, scope constructs.Construct, id *string, props *CfnExperimentProps) {
 	_init_.Initialize()
 
@@ -673,6 +664,17 @@ func (j *jsiiProxy_CfnExperiment)SetSegment(val *string) {
 	_jsii_.Set(
 		j,
 		"segment",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnExperiment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

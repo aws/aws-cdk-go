@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnRotation) validateSetStartTimeParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnRotation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRotation) validateSetTimeZoneIdParameters(val *string) error {
 	return nil
 }

@@ -19,22 +19,32 @@ package awslakeformation
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tablewithcolumnsresource.html
+//
 type CfnTagAssociation_TableWithColumnsResourceProperty struct {
 	// A wildcard object representing every table under a database.
 	//
 	// At least one of TableResource$Name or TableResource$TableWildcard is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tablewithcolumnsresource.html#cfn-lakeformation-tagassociation-tablewithcolumnsresource-catalogid
+	//
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The list of column names for the table.
 	//
 	// At least one of `ColumnNames` or `ColumnWildcard` is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tablewithcolumnsresource.html#cfn-lakeformation-tagassociation-tablewithcolumnsresource-columnnames
+	//
 	ColumnNames *[]*string `field:"required" json:"columnNames" yaml:"columnNames"`
 	// The name of the database for the table with columns resource.
 	//
 	// Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tablewithcolumnsresource.html#cfn-lakeformation-tagassociation-tablewithcolumnsresource-databasename
+	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The name of the table resource.
 	//
 	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tablewithcolumnsresource.html#cfn-lakeformation-tagassociation-tablewithcolumnsresource-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

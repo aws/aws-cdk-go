@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnGraph) validateSetAutoEnableMembersParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnGraph) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnGraphParameters(scope constructs.Construct, id *string, props *CfnGraphProps) error {
 	return nil
 }

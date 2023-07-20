@@ -15,14 +15,20 @@ package awsopensearchservice
 //   	Minutes: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-windowstarttime.html
+//
 type CfnDomain_WindowStartTimeProperty struct {
 	// The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time.
 	//
 	// For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-windowstarttime.html#cfn-opensearchservice-domain-windowstarttime-hours
+	//
 	Hours *float64 `field:"required" json:"hours" yaml:"hours"`
 	// The start minute of the window, in UTC.
 	//
 	// The minimum value is 0 and the maximum value is 59.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-windowstarttime.html#cfn-opensearchservice-domain-windowstarttime-minutes
+	//
 	Minutes *float64 `field:"required" json:"minutes" yaml:"minutes"`
 }
 

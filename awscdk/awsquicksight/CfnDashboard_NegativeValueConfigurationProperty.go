@@ -12,8 +12,12 @@ package awsquicksight
 //   	DisplayMode: jsii.String("displayMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-negativevalueconfiguration.html
+//
 type CfnDashboard_NegativeValueConfigurationProperty struct {
 	// Determines the display mode of the negative value configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-negativevalueconfiguration.html#cfn-quicksight-dashboard-negativevalueconfiguration-displaymode
+	//
 	DisplayMode *string `field:"required" json:"displayMode" yaml:"displayMode"`
 }
 

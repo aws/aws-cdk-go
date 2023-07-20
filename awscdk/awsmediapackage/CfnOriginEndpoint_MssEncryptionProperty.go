@@ -20,12 +20,18 @@ package awsmediapackage
 //   		// the properties below are optional
 //   		CertificateArn: jsii.String("certificateArn"),
 //   		EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   			PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   			PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   		},
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html
+//
 type CfnOriginEndpoint_MssEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
+	//
 	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 }
 

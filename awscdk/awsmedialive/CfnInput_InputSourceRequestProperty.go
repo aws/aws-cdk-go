@@ -16,16 +16,24 @@ package awsmedialive
 //   	Username: jsii.String("username"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html
+//
 type CfnInput_InputSourceRequestProperty struct {
 	// The password parameter that holds the password for accessing the upstream system.
 	//
 	// The password parameter applies only if the upstream system requires credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-passwordparam
+	//
 	PasswordParam *string `field:"optional" json:"passwordParam" yaml:"passwordParam"`
 	// For a pull input, the URL where MediaLive pulls the source content from.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-url
+	//
 	Url *string `field:"optional" json:"url" yaml:"url"`
 	// The user name to connect to the upstream system.
 	//
 	// The user name applies only if the upstream system requires credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-username
+	//
 	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 

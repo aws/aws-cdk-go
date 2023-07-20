@@ -15,16 +15,22 @@ package awsapprunner
 //   	VpcConnectorArn: jsii.String("vpcConnectorArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html
+//
 type CfnService_EgressConfigurationProperty struct {
 	// The type of egress configuration.
 	//
 	// Set to `DEFAULT` for access to resources hosted on public networks.
 	//
 	// Set to `VPC` to associate your service to a custom VPC specified by `VpcConnectorArn` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-egresstype
+	//
 	EgressType *string `field:"required" json:"egressType" yaml:"egressType"`
 	// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service.
 	//
 	// Only valid when `EgressType = VPC` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-vpcconnectorarn
+	//
 	VpcConnectorArn *string `field:"optional" json:"vpcConnectorArn" yaml:"vpcConnectorArn"`
 }
 

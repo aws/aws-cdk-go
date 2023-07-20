@@ -16,12 +16,20 @@ package awseks
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html
+//
 type CfnNodegroup_TaintProperty struct {
 	// The effect of the taint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-effect
+	//
 	Effect *string `field:"optional" json:"effect" yaml:"effect"`
 	// The key of the taint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value of the taint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

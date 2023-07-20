@@ -18,17 +18,25 @@ package awsglue
 //   	SchemaVersionNumber: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html
+//
 type CfnTable_SchemaReferenceProperty struct {
 	// A structure that contains schema identity fields.
 	//
 	// Either this or the `SchemaVersionId` has to be
 	// provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+	//
 	SchemaId interface{} `field:"optional" json:"schemaId" yaml:"schemaId"`
 	// The unique ID assigned to a version of the schema.
 	//
 	// Either this or the `SchemaId` has to be provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionid
+	//
 	SchemaVersionId *string `field:"optional" json:"schemaVersionId" yaml:"schemaVersionId"`
 	// The version number of the schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+	//
 	SchemaVersionNumber *float64 `field:"optional" json:"schemaVersionNumber" yaml:"schemaVersionNumber"`
 }
 

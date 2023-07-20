@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::SmsTemplate`.
+// Creates a message template that you can use in messages that are sent through the SMS channel.
 //
-// Creates a message template that you can use in messages that are sent through the SMS channel. A *message template* is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
+// A *message template* is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,11 +30,15 @@ import (
 //   	TemplateDescription: jsii.String("templateDescription"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html
+//
 type CfnSmsTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the message template.
 	AttrArn() *string
+	AttrId() *string
 	// The message body to use in text messages that are based on the message template.
 	Body() *string
 	SetBody(val *string)
@@ -48,8 +52,6 @@ type CfnSmsTemplate interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A JSON object that specifies the default values to use for message variables in the message template.
-	//
-	// This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
 	DefaultSubstitutions() *string
 	SetDefaultSubstitutions(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -73,10 +75,11 @@ type CfnSmsTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// A custom description of the message template.
 	TemplateDescription() *string
 	SetTemplateDescription(val *string)
@@ -227,6 +230,7 @@ type CfnSmsTemplate interface {
 type jsiiProxy_CfnSmsTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSmsTemplate) AttrArn() *string {
@@ -234,6 +238,16 @@ func (j *jsiiProxy_CfnSmsTemplate) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSmsTemplate) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -349,6 +363,16 @@ func (j *jsiiProxy_CfnSmsTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSmsTemplate) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSmsTemplate) TemplateDescription() *string {
 	var returns *string
 	_jsii_.Get(
@@ -390,7 +414,6 @@ func (j *jsiiProxy_CfnSmsTemplate) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Pinpoint::SmsTemplate`.
 func NewCfnSmsTemplate(scope constructs.Construct, id *string, props *CfnSmsTemplateProps) CfnSmsTemplate {
 	_init_.Initialize()
 
@@ -408,7 +431,6 @@ func NewCfnSmsTemplate(scope constructs.Construct, id *string, props *CfnSmsTemp
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::SmsTemplate`.
 func NewCfnSmsTemplate_Override(c CfnSmsTemplate, scope constructs.Construct, id *string, props *CfnSmsTemplateProps) {
 	_init_.Initialize()
 
@@ -434,6 +456,14 @@ func (j *jsiiProxy_CfnSmsTemplate)SetDefaultSubstitutions(val *string) {
 	_jsii_.Set(
 		j,
 		"defaultSubstitutions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSmsTemplate)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

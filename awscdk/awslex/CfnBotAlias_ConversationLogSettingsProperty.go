@@ -36,10 +36,16 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html
+//
 type CfnBotAlias_ConversationLogSettingsProperty struct {
 	// The Amazon S3 settings for logging audio to an S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html#cfn-lex-botalias-conversationlogsettings-audiologsettings
+	//
 	AudioLogSettings interface{} `field:"optional" json:"audioLogSettings" yaml:"audioLogSettings"`
 	// The Amazon CloudWatch Logs settings for logging text and metadata.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html#cfn-lex-botalias-conversationlogsettings-textlogsettings
+	//
 	TextLogSettings interface{} `field:"optional" json:"textLogSettings" yaml:"textLogSettings"`
 }
 

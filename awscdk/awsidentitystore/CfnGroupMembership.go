@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IdentityStore::GroupMembership`.
-//
 // Contains the identifiers for a group, a group member, and a `GroupMembership` object in the identity store.
 //
 // Example:
@@ -26,6 +24,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html
+//
 type CfnGroupMembership interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -40,10 +40,10 @@ type CfnGroupMembership interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IdentityStore::GroupMembership.GroupId`.
+	// The unique identifier for a group in the identity store.
 	GroupId() *string
 	SetGroupId(val *string)
-	// `AWS::IdentityStore::GroupMembership.IdentityStoreId`.
+	// The globally unique identifier for the identity store.
 	IdentityStoreId() *string
 	SetIdentityStoreId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -57,8 +57,6 @@ type CfnGroupMembership interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// An object containing the identifier of a group member.
-	//
-	// Setting `MemberId` 's `UserId` field to a specific User's ID indicates we should consider that User as a group member.
 	MemberId() interface{}
 	SetMemberId(val interface{})
 	// The tree node.
@@ -359,7 +357,6 @@ func (j *jsiiProxy_CfnGroupMembership) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::IdentityStore::GroupMembership`.
 func NewCfnGroupMembership(scope constructs.Construct, id *string, props *CfnGroupMembershipProps) CfnGroupMembership {
 	_init_.Initialize()
 
@@ -377,7 +374,6 @@ func NewCfnGroupMembership(scope constructs.Construct, id *string, props *CfnGro
 	return &j
 }
 
-// Create a new `AWS::IdentityStore::GroupMembership`.
 func NewCfnGroupMembership_Override(c CfnGroupMembership, scope constructs.Construct, id *string, props *CfnGroupMembershipProps) {
 	_init_.Initialize()
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FIS::ExperimentTemplate`.
-//
 // Specifies an experiment template.
 //
 // An experiment template includes the following components:
@@ -39,9 +37,6 @@ import (
 //   			// the properties below are optional
 //   			Value: jsii.String("value"),
 //   		},
-//   	},
-//   	Tags: map[string]*string{
-//   		"tagsKey": jsii.String("tags"),
 //   	},
 //   	Targets: map[string]interface{}{
 //   		"targetsKey": &ExperimentTemplateTargetProperty{
@@ -94,11 +89,17 @@ import (
 //   		CloudWatchLogsConfiguration: cloudWatchLogsConfiguration,
 //   		S3Configuration: s3Configuration,
 //   	},
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
 //
 type CfnExperimentTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The actions for the experiment.
 	Actions() interface{}
 	SetActions(val interface{})
@@ -146,8 +147,11 @@ type CfnExperimentTemplate interface {
 	// The stop conditions.
 	StopConditions() interface{}
 	SetStopConditions(val interface{})
-	// The tags to apply to the experiment template.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to apply to the experiment template.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The targets for the experiment.
 	Targets() interface{}
 	SetTargets(val interface{})
@@ -295,6 +299,7 @@ type CfnExperimentTemplate interface {
 type jsiiProxy_CfnExperimentTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnExperimentTemplate) Actions() interface{} {
@@ -447,6 +452,16 @@ func (j *jsiiProxy_CfnExperimentTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnExperimentTemplate) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnExperimentTemplate) Targets() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -478,7 +493,6 @@ func (j *jsiiProxy_CfnExperimentTemplate) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::FIS::ExperimentTemplate`.
 func NewCfnExperimentTemplate(scope constructs.Construct, id *string, props *CfnExperimentTemplateProps) CfnExperimentTemplate {
 	_init_.Initialize()
 
@@ -496,7 +510,6 @@ func NewCfnExperimentTemplate(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::FIS::ExperimentTemplate`.
 func NewCfnExperimentTemplate_Override(c CfnExperimentTemplate, scope constructs.Construct, id *string, props *CfnExperimentTemplateProps) {
 	_init_.Initialize()
 
@@ -558,6 +571,14 @@ func (j *jsiiProxy_CfnExperimentTemplate)SetStopConditions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"stopConditions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnExperimentTemplate)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

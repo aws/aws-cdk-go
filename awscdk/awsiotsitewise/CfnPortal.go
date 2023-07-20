@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTSiteWise::Portal`.
+// Creates a portal, which can contain projects and dashboards.
 //
-// Creates a portal, which can contain projects and dashboards. Before you can create a portal, you must enable IAM Identity Center . AWS IoT SiteWise Monitor uses IAM Identity Center to manage user permissions. For more information, see [Enabling IAM Identity Center](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* .
+// Before you can create a portal, you must enable IAM Identity Center . AWS IoT SiteWise Monitor uses IAM Identity Center to manage user permissions. For more information, see [Enabling IAM Identity Center](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* .
 //
 // > Before you can sign in to a new portal, you must add at least one IAM Identity Center user or group to that portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins) in the *AWS IoT SiteWise User Guide* .
 //
@@ -40,12 +40,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
+//
 type CfnPortal interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
-	//
-	// You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see [Monitoring with alarms](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html) in the *AWS IoT SiteWise Application Guide* .
 	Alarms() interface{}
 	SetAlarms(val interface{})
 	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the portal, which has the following format.
@@ -80,18 +81,11 @@ type CfnPortal interface {
 	// The tree node.
 	Node() constructs.Node
 	// The email address that sends alarm notifications.
-	//
-	// > If you use the [AWS IoT Events managed Lambda function](https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html) to manage your emails, you must [verify the sender email address in Amazon SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html) .
 	NotificationSenderEmail() *string
 	SetNotificationSenderEmail(val *string)
-	// The service to use to authenticate users to the portal. Choose from the following options:.
+	// The service to use to authenticate users to the portal.
 	//
-	// - `SSO` – The portal uses AWS IAM Identity Center (successor to AWS Single Sign-On) to authenticate users and manage user permissions. Before you can create a portal that uses IAM Identity Center , you must enable IAM Identity Center . For more information, see [Enabling IAM Identity Center](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* . This option is only available in AWS Regions other than the China Regions.
-	// - `IAM` – The portal uses AWS Identity and Access Management ( IAM ) to authenticate users and manage user permissions.
-	//
-	// You can't change this value after you create a portal.
-	//
-	// Default: `SSO`.
+	// Choose from the following options:.
 	PortalAuthMode() *string
 	SetPortalAuthMode(val *string)
 	// The AWS administrator's contact email address.
@@ -115,10 +109,11 @@ type CfnPortal interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs that contain metadata for the portal.
-	//
-	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs that contain metadata for the portal.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -263,6 +258,7 @@ type CfnPortal interface {
 type jsiiProxy_CfnPortal struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPortal) Alarms() interface{} {
@@ -465,6 +461,16 @@ func (j *jsiiProxy_CfnPortal) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortal) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortal) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -486,7 +492,6 @@ func (j *jsiiProxy_CfnPortal) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTSiteWise::Portal`.
 func NewCfnPortal(scope constructs.Construct, id *string, props *CfnPortalProps) CfnPortal {
 	_init_.Initialize()
 
@@ -504,7 +509,6 @@ func NewCfnPortal(scope constructs.Construct, id *string, props *CfnPortalProps)
 	return &j
 }
 
-// Create a new `AWS::IoTSiteWise::Portal`.
 func NewCfnPortal_Override(c CfnPortal, scope constructs.Construct, id *string, props *CfnPortalProps) {
 	_init_.Initialize()
 
@@ -516,9 +520,6 @@ func NewCfnPortal_Override(c CfnPortal, scope constructs.Construct, id *string, 
 }
 
 func (j *jsiiProxy_CfnPortal)SetAlarms(val interface{}) {
-	if err := j.validateSetAlarmsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"alarms",
@@ -579,6 +580,17 @@ func (j *jsiiProxy_CfnPortal)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPortal)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

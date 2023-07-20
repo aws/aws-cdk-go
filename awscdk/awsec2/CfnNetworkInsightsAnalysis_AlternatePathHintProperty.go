@@ -13,10 +13,16 @@ package awsec2
 //   	ComponentId: jsii.String("componentId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html
+//
 type CfnNetworkInsightsAnalysis_AlternatePathHintProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentarn
+	//
 	ComponentArn *string `field:"optional" json:"componentArn" yaml:"componentArn"`
 	// The ID of the component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentid
+	//
 	ComponentId *string `field:"optional" json:"componentId" yaml:"componentId"`
 }
 

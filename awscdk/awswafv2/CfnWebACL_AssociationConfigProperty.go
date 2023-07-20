@@ -20,12 +20,16 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html
+//
 type CfnWebACL_AssociationConfigProperty struct {
 	// Customizes the maximum size of the request body that your protected CloudFront distributions forward to AWS WAF for inspection.
 	//
 	// The default size is 16 KB (16,384 kilobytes).
 	//
 	// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html#cfn-wafv2-webacl-associationconfig-requestbody
+	//
 	RequestBody interface{} `field:"optional" json:"requestBody" yaml:"requestBody"`
 }
 

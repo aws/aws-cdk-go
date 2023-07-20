@@ -13,10 +13,16 @@ package awsapprunner
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html
+//
 type CfnService_KeyValuePairProperty struct {
 	// The key name string to map to a value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value string to which the key name is mapped.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

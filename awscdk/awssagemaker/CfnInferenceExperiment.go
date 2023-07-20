@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::InferenceExperiment`.
-//
 // Creates an inference experiment using the configurations specified in the request.
 //
 // Use this API to setup and schedule an experiment to compare model variants on a Amazon SageMaker inference endpoint. For more information about inference experiments, see [Shadow tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html) .
@@ -83,15 +81,29 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html
+//
 type CfnInferenceExperiment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// The Amazon Resource Name (ARN) of the inference experiment.
 	AttrArn() *string
+	// The timestamp at which you created the inference experiment.
 	AttrCreationTime() *string
+	// The metadata of the endpoint on which the inference experiment ran.
+	AttrEndpointMetadata() awscdk.IResolvable
+	// The name of the endpoint configuration.
 	AttrEndpointMetadataEndpointConfigName() *string
+	// The name of the endpoint used to run the inference experiment.
 	AttrEndpointMetadataEndpointName() *string
+	// The status of the endpoint.
+	//
+	// For possible values of the status of an endpoint.
 	AttrEndpointMetadataEndpointStatus() *string
+	// The timestamp at which you last modified the inference experiment.
 	AttrLastModifiedTime() *string
+	// The status of the inference experiment.
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -108,10 +120,9 @@ type CfnInferenceExperiment interface {
 	// The description of the inference experiment.
 	Description() *string
 	SetDescription(val *string)
-	// The desired state of the experiment after stopping. The possible states are the following:.
+	// The desired state of the experiment after stopping.
 	//
-	// - `Completed` : The experiment completed successfully
-	// - `Cancelled` : The experiment was canceled.
+	// The possible states are the following:.
 	DesiredState() *string
 	SetDesiredState(val *string)
 	// The name of the endpoint.
@@ -131,8 +142,6 @@ type CfnInferenceExperiment interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// An array of `ModelVariantConfigSummary` objects.
-	//
-	// There is one for each variant in the inference experiment. Each `ModelVariantConfigSummary` object in the array describes the infrastructure configuration for deploying the corresponding variant.
 	ModelVariants() interface{}
 	SetModelVariants(val interface{})
 	// The name of the inference experiment.
@@ -149,13 +158,9 @@ type CfnInferenceExperiment interface {
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The duration for which the inference experiment ran or will run.
-	//
-	// The maximum duration that you can set for an inference experiment is 30 days.
 	Schedule() interface{}
 	SetSchedule(val interface{})
 	// The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests.
-	//
-	// For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
 	ShadowModeConfig() interface{}
 	SetShadowModeConfig(val interface{})
 	// The stack in which this element is defined.
@@ -165,10 +170,11 @@ type CfnInferenceExperiment interface {
 	// The error message for the inference experiment status result.
 	StatusReason() *string
 	SetStatusReason(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of the inference experiment.
 	Type() *string
 	SetType(val *string)
@@ -316,6 +322,7 @@ type CfnInferenceExperiment interface {
 type jsiiProxy_CfnInferenceExperiment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInferenceExperiment) AttrArn() *string {
@@ -333,6 +340,16 @@ func (j *jsiiProxy_CfnInferenceExperiment) AttrCreationTime() *string {
 	_jsii_.Get(
 		j,
 		"attrCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInferenceExperiment) AttrEndpointMetadata() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrEndpointMetadata",
 		&returns,
 	)
 	return returns
@@ -588,6 +605,16 @@ func (j *jsiiProxy_CfnInferenceExperiment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInferenceExperiment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInferenceExperiment) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -619,7 +646,6 @@ func (j *jsiiProxy_CfnInferenceExperiment) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::SageMaker::InferenceExperiment`.
 func NewCfnInferenceExperiment(scope constructs.Construct, id *string, props *CfnInferenceExperimentProps) CfnInferenceExperiment {
 	_init_.Initialize()
 
@@ -637,7 +663,6 @@ func NewCfnInferenceExperiment(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::SageMaker::InferenceExperiment`.
 func NewCfnInferenceExperiment_Override(c CfnInferenceExperiment, scope constructs.Construct, id *string, props *CfnInferenceExperimentProps) {
 	_init_.Initialize()
 
@@ -753,6 +778,17 @@ func (j *jsiiProxy_CfnInferenceExperiment)SetStatusReason(val *string) {
 	_jsii_.Set(
 		j,
 		"statusReason",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInferenceExperiment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

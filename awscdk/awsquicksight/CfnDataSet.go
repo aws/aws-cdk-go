@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QuickSight::DataSet`.
+// Creates a dataset.
 //
-// Creates a dataset. This operation doesn't support datasets that include uploaded files as a source.
+// This operation doesn't support datasets that include uploaded files as a source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -304,16 +304,27 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
+//
 type CfnDataSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the dataset.
 	AttrArn() *string
+	// <p>The amount of SPICE capacity used by this dataset.
+	//
+	// This is 0 if the dataset isn't
+	//             imported into SPICE.</p>
 	AttrConsumedSpiceCapacityInBytes() awscdk.IResolvable
 	// The time this dataset version was created.
 	AttrCreatedTime() *string
 	// The time this dataset version was last updated.
 	AttrLastUpdatedTime() *string
+	// <p>The list of columns after all transforms.
+	//
+	// These columns are available in templates,
+	//             analyses, and dashboards.</p>
 	AttrOutputColumns() awscdk.IResolvable
 	// The AWS account ID.
 	AwsAccountId() *string
@@ -324,8 +335,6 @@ type CfnDataSet interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Groupings of columns that work together in certain Amazon QuickSight features.
-	//
-	// Currently, only geospatial hierarchy is supported.
 	ColumnGroups() interface{}
 	SetColumnGroups(val interface{})
 	// A set of one or more definitions of a `ColumnLevelPermissionRule` .
@@ -336,14 +345,12 @@ type CfnDataSet interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// An ID for the dataset that you want to create.
-	//
-	// This ID is unique per AWS Region for each AWS account.
 	DataSetId() *string
 	SetDataSetId(val *string)
-	// `AWS::QuickSight::DataSet.DatasetParameters`.
+	// <p>The parameters declared in the dataset.</p>.
 	DatasetParameters() interface{}
 	SetDatasetParameters(val interface{})
-	// `AWS::QuickSight::DataSet.DataSetRefreshProperties`.
+	// <p>The dataset refresh properties for the dataset.</p>.
 	DataSetRefreshProperties() interface{}
 	SetDataSetRefreshProperties(val interface{})
 	// The usage configuration to apply to child datasets that reference this dataset as a source.
@@ -356,8 +363,6 @@ type CfnDataSet interface {
 	ImportMode() *string
 	SetImportMode(val *string)
 	// The wait policy to use when creating or updating a Dataset.
-	//
-	// The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
 	IngestionWaitPolicy() interface{}
 	SetIngestionWaitPolicy(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -399,8 +404,11 @@ type CfnDataSet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -545,6 +553,7 @@ type CfnDataSet interface {
 type jsiiProxy_CfnDataSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDataSet) AttrArn() *string {
@@ -847,6 +856,16 @@ func (j *jsiiProxy_CfnDataSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -868,7 +887,6 @@ func (j *jsiiProxy_CfnDataSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::QuickSight::DataSet`.
 func NewCfnDataSet(scope constructs.Construct, id *string, props *CfnDataSetProps) CfnDataSet {
 	_init_.Initialize()
 
@@ -886,7 +904,6 @@ func NewCfnDataSet(scope constructs.Construct, id *string, props *CfnDataSetProp
 	return &j
 }
 
-// Create a new `AWS::QuickSight::DataSet`.
 func NewCfnDataSet_Override(c CfnDataSet, scope constructs.Construct, id *string, props *CfnDataSetProps) {
 	_init_.Initialize()
 
@@ -1057,6 +1074,17 @@ func (j *jsiiProxy_CfnDataSet)SetRowLevelPermissionTagConfiguration(val interfac
 	_jsii_.Set(
 		j,
 		"rowLevelPermissionTagConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

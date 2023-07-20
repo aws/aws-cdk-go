@@ -195,30 +195,6 @@ func (j *jsiiProxy_CfnIntegration) validateSetIntegrationTypeParameters(val *str
 	return nil
 }
 
-func (j *jsiiProxy_CfnIntegration) validateSetRequestParametersParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnIntegration) validateSetRequestTemplatesParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnIntegration) validateSetResponseParametersParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnIntegration) validateSetTlsConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

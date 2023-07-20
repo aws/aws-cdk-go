@@ -15,10 +15,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html
+//
 type CfnAnalysis_IntegerParameterProperty struct {
 	// The name of the integer parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values for the integer parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-values
+	//
 	Values interface{} `field:"required" json:"values" yaml:"values"`
 }
 

@@ -20,8 +20,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html
+//
 type CfnDataSet_CreateColumnsOperationProperty struct {
 	// Calculated columns to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns
+	//
 	Columns interface{} `field:"required" json:"columns" yaml:"columns"`
 }
 

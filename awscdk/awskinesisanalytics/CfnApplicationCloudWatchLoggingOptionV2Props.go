@@ -1,7 +1,7 @@
 package awskinesisanalytics
 
 
-// Properties for defining a `CfnApplicationCloudWatchLoggingOptionV2`.
+// Properties for defining a `CfnApplicationCloudWatchLoggingOption`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,10 +15,16 @@ package awskinesisanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html
+//
 type CfnApplicationCloudWatchLoggingOptionV2Props struct {
 	// The name of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-applicationname
+	//
 	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// Provides a description of Amazon CloudWatch logging options, including the log stream Amazon Resource Name (ARN).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption
+	//
 	CloudWatchLoggingOption interface{} `field:"required" json:"cloudWatchLoggingOption" yaml:"cloudWatchLoggingOption"`
 }
 

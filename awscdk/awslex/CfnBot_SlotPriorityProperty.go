@@ -13,10 +13,16 @@ package awslex
 //   	SlotName: jsii.String("slotName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html
+//
 type CfnBot_SlotPriorityProperty struct {
 	// The priority that Amazon Lex should apply to the slot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html#cfn-lex-bot-slotpriority-priority
+	//
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The name of the slot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html#cfn-lex-bot-slotpriority-slotname
+	//
 	SlotName *string `field:"required" json:"slotName" yaml:"slotName"`
 }
 

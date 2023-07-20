@@ -17,10 +17,16 @@ package awsautoscalingplans
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html
+//
 type CfnScalingPlan_TagFilterProperty struct {
 	// The tag key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html#cfn-autoscalingplans-scalingplan-tagfilter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The tag values (0 to 20).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html#cfn-autoscalingplans-scalingplan-tagfilter-values
+	//
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

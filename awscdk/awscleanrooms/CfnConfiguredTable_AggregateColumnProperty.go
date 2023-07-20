@@ -15,10 +15,16 @@ package awscleanrooms
 //   	Function: jsii.String("function"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-aggregatecolumn.html
+//
 type CfnConfiguredTable_AggregateColumnProperty struct {
 	// Column names in configured table of aggregate columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-aggregatecolumn.html#cfn-cleanrooms-configuredtable-aggregatecolumn-columnnames
+	//
 	ColumnNames *[]*string `field:"required" json:"columnNames" yaml:"columnNames"`
 	// Aggregation function that can be applied to aggregate column in query.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-aggregatecolumn.html#cfn-cleanrooms-configuredtable-aggregatecolumn-function
+	//
 	Function *string `field:"required" json:"function" yaml:"function"`
 }
 

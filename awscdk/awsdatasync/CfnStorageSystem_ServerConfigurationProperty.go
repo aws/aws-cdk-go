@@ -15,10 +15,16 @@ package awsdatasync
 //   	ServerPort: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-serverconfiguration.html
+//
 type CfnStorageSystem_ServerConfigurationProperty struct {
 	// The domain name or IP address of your storage system's management interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-serverconfiguration.html#cfn-datasync-storagesystem-serverconfiguration-serverhostname
+	//
 	ServerHostname *string `field:"required" json:"serverHostname" yaml:"serverHostname"`
 	// The network port for accessing the storage system's management interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-serverconfiguration.html#cfn-datasync-storagesystem-serverconfiguration-serverport
+	//
 	ServerPort *float64 `field:"optional" json:"serverPort" yaml:"serverPort"`
 }
 

@@ -45,20 +45,32 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
+//
 type CfnFlow_TaskProperty struct {
 	// The source fields to which a particular task is applied.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
+	//
 	SourceFields *[]*string `field:"required" json:"sourceFields" yaml:"sourceFields"`
 	// Specifies the particular task implementation that Amazon AppFlow performs.
 	//
 	// *Allowed values* : `Arithmetic` | `Filter` | `Map` | `Map_all` | `Mask` | `Merge` | `Truncate` | `Validate`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
+	//
 	TaskType *string `field:"required" json:"taskType" yaml:"taskType"`
 	// The operation to be performed on the provided source fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
+	//
 	ConnectorOperator interface{} `field:"optional" json:"connectorOperator" yaml:"connectorOperator"`
 	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
+	//
 	DestinationField *string `field:"optional" json:"destinationField" yaml:"destinationField"`
 	// A map used to store task-related information.
 	//
 	// The execution service looks for particular information based on the `TaskType` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
+	//
 	TaskProperties interface{} `field:"optional" json:"taskProperties" yaml:"taskProperties"`
 }
 

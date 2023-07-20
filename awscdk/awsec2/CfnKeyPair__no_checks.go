@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnKeyPair) validateSetKeyNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnKeyPair) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnKeyPairParameters(scope constructs.Construct, id *string, props *CfnKeyPairProps) error {
 	return nil
 }

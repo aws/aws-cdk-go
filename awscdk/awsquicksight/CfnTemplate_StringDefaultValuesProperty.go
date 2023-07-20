@@ -30,12 +30,18 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringdefaultvalues.html
+//
 type CfnTemplate_StringDefaultValuesProperty struct {
 	// The dynamic value of the `StringDefaultValues` .
 	//
 	// Different defaults displayed according to users, groups, and values mapping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringdefaultvalues.html#cfn-quicksight-template-stringdefaultvalues-dynamicvalue
+	//
 	DynamicValue interface{} `field:"optional" json:"dynamicValue" yaml:"dynamicValue"`
 	// The static values of the `DecimalDefaultValues` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringdefaultvalues.html#cfn-quicksight-template-stringdefaultvalues-staticvalues
+	//
 	StaticValues *[]*string `field:"optional" json:"staticValues" yaml:"staticValues"`
 }
 

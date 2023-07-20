@@ -27,12 +27,20 @@ package awsbillingconductor
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html
+//
 type CfnCustomLineItem_CustomLineItemChargeDetailsProperty struct {
 	// The type of the custom line item that indicates whether the charge is a fee or credit.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// A `CustomLineItemFlatChargeDetails` that describes the charge details of a flat custom line item.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-flat
+	//
 	Flat interface{} `field:"optional" json:"flat" yaml:"flat"`
 	// A `CustomLineItemPercentageChargeDetails` that describes the charge details of a percentage custom line item.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-percentage
+	//
 	Percentage interface{} `field:"optional" json:"percentage" yaml:"percentage"`
 }
 

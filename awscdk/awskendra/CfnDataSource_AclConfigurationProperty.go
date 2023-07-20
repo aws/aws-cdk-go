@@ -12,10 +12,14 @@ package awskendra
 //   	AllowedGroupsColumnName: jsii.String("allowedGroupsColumnName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html
+//
 type CfnDataSource_AclConfigurationProperty struct {
 	// A list of groups, separated by semi-colons, that filters a query response based on user context.
 	//
 	// The document is only returned to users that are in one of the groups specified in the `UserContext` field of the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html#cfn-kendra-datasource-aclconfiguration-allowedgroupscolumnname
+	//
 	AllowedGroupsColumnName *string `field:"required" json:"allowedGroupsColumnName" yaml:"allowedGroupsColumnName"`
 }
 

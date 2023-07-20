@@ -12,10 +12,14 @@ package awsmanagedblockchain
 //   	Edition: jsii.String("edition"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html
+//
 type CfnMember_NetworkFabricConfigurationProperty struct {
 	// The edition of Amazon Managed Blockchain that the network uses.
 	//
 	// Valid values are `standard` and `starter` . For more information, see [Amazon Managed Blockchain Pricing](https://docs.aws.amazon.com/managed-blockchain/pricing/)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html#cfn-managedblockchain-member-networkfabricconfiguration-edition
+	//
 	Edition *string `field:"required" json:"edition" yaml:"edition"`
 }
 

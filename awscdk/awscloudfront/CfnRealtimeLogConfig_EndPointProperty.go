@@ -16,12 +16,18 @@ package awscloudfront
 //   	StreamType: jsii.String("streamType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
+//
 type CfnRealtimeLogConfig_EndPointProperty struct {
 	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
+	//
 	KinesisStreamConfig interface{} `field:"required" json:"kinesisStreamConfig" yaml:"kinesisStreamConfig"`
 	// The type of data stream where you are sending real-time log data.
 	//
 	// The only valid value is `Kinesis` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
+	//
 	StreamType *string `field:"required" json:"streamType" yaml:"streamType"`
 }
 

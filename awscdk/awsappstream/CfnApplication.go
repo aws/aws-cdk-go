@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppStream::Application`.
+// This resource creates an application.
 //
-// This resource creates an application. Applications store the details about how to launch applications on streaming instances. This is only supported for Elastic fleets.
+// Applications store the details about how to launch applications on streaming instances. This is only supported for Elastic fleets.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -49,9 +49,12 @@ import (
 //   	WorkingDirectory: jsii.String("workingDirectory"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-application.html
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The app block ARN with which the application should be associated.
 	AppBlockArn() *string
 	SetAppBlockArn(val *string)
@@ -75,16 +78,12 @@ type CfnApplication interface {
 	Description() *string
 	SetDescription(val *string)
 	// The display name of the application.
-	//
-	// This name is visible to users in the application catalog.
 	DisplayName() *string
 	SetDisplayName(val *string)
 	// The icon S3 location of the application.
 	IconS3Location() interface{}
 	SetIconS3Location(val interface{})
 	// The instance families the application supports.
-	//
-	// *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`.
 	InstanceFamilies() *[]*string
 	SetInstanceFamilies(val *[]*string)
 	// The launch parameters of the application.
@@ -104,17 +103,11 @@ type CfnApplication interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the application.
-	//
-	// This name is visible to users when a name is not specified in the DisplayName property.
-	//
-	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The platforms the application supports.
-	//
-	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`.
 	Platforms() *[]*string
 	SetPlatforms(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -126,8 +119,11 @@ type CfnApplication interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags of the application.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags of the application.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -275,6 +271,7 @@ type CfnApplication interface {
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnApplication) AppBlockArn() *string {
@@ -487,6 +484,16 @@ func (j *jsiiProxy_CfnApplication) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -518,7 +525,6 @@ func (j *jsiiProxy_CfnApplication) WorkingDirectory() *string {
 }
 
 
-// Create a new `AWS::AppStream::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -536,7 +542,6 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
-// Create a new `AWS::AppStream::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
@@ -641,6 +646,17 @@ func (j *jsiiProxy_CfnApplication)SetPlatforms(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"platforms",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

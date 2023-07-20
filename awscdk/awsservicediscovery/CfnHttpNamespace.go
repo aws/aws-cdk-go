@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceDiscovery::HttpNamespace`.
+// The `HttpNamespace` resource is an AWS Cloud Map resource type that contains information about an HTTP namespace.
 //
-// The `HttpNamespace` resource is an AWS Cloud Map resource type that contains information about an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a `DiscoverInstances` request but can't be discovered using DNS.
+// Service instances that you register using an HTTP namespace can be discovered using a `DiscoverInstances` request but can't be discovered using DNS.
 //
 // For the current quota on the number of namespaces that you can create using the same AWS account, see [AWS Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the ** .
 //
@@ -33,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html
+//
 type CfnHttpNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the namespace, such as `arn:aws:service-discovery:us-east-1:123456789012:http-namespace/http-namespace-a1bzhi` .
 	AttrArn() *string
 	// The ID of the namespace.
@@ -76,10 +79,11 @@ type CfnHttpNamespace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the namespace.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the namespace.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,6 +228,7 @@ type CfnHttpNamespace interface {
 type jsiiProxy_CfnHttpNamespace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnHttpNamespace) AttrArn() *string {
@@ -356,6 +361,16 @@ func (j *jsiiProxy_CfnHttpNamespace) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHttpNamespace) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHttpNamespace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -377,7 +392,6 @@ func (j *jsiiProxy_CfnHttpNamespace) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::ServiceDiscovery::HttpNamespace`.
 func NewCfnHttpNamespace(scope constructs.Construct, id *string, props *CfnHttpNamespaceProps) CfnHttpNamespace {
 	_init_.Initialize()
 
@@ -395,7 +409,6 @@ func NewCfnHttpNamespace(scope constructs.Construct, id *string, props *CfnHttpN
 	return &j
 }
 
-// Create a new `AWS::ServiceDiscovery::HttpNamespace`.
 func NewCfnHttpNamespace_Override(c CfnHttpNamespace, scope constructs.Construct, id *string, props *CfnHttpNamespaceProps) {
 	_init_.Initialize()
 
@@ -421,6 +434,17 @@ func (j *jsiiProxy_CfnHttpNamespace)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHttpNamespace)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

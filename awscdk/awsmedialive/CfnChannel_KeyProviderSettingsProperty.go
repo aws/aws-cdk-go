@@ -21,8 +21,12 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-keyprovidersettings.html
+//
 type CfnChannel_KeyProviderSettingsProperty struct {
 	// The configuration of static key settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-keyprovidersettings.html#cfn-medialive-channel-keyprovidersettings-statickeysettings
+	//
 	StaticKeySettings interface{} `field:"optional" json:"staticKeySettings" yaml:"staticKeySettings"`
 }
 

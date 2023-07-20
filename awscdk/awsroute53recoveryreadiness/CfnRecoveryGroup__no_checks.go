@@ -80,6 +80,10 @@ func validateCfnRecoveryGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnRecoveryGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnRecoveryGroupParameters(scope constructs.Construct, id *string, props *CfnRecoveryGroupProps) error {
 	return nil
 }

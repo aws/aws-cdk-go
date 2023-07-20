@@ -19,12 +19,18 @@ package awsiam
 //   	PolicyName: jsii.String("policyName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-policy.html
+//
 type CfnUser_PolicyProperty struct {
 	// The entire contents of the policy that defines permissions.
 	//
 	// For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-policy.html#cfn-iam-user-policy-policydocument
+	//
 	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-policy.html#cfn-iam-user-policy-policyname
+	//
 	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 }
 

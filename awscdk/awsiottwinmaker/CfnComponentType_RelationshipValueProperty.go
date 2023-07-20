@@ -13,10 +13,16 @@ package awsiottwinmaker
 //   	TargetEntityId: jsii.String("targetEntityId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-relationshipvalue.html
+//
 type CfnComponentType_RelationshipValueProperty struct {
 	// The target component name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-relationshipvalue.html#cfn-iottwinmaker-componenttype-relationshipvalue-targetcomponentname
+	//
 	TargetComponentName *string `field:"optional" json:"targetComponentName" yaml:"targetComponentName"`
 	// The target entity Id.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-relationshipvalue.html#cfn-iottwinmaker-componenttype-relationshipvalue-targetentityid
+	//
 	TargetEntityId *string `field:"optional" json:"targetEntityId" yaml:"targetEntityId"`
 }
 

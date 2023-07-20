@@ -59,8 +59,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html
+//
 type CfnVirtualNode_BackendProperty struct {
 	// Specifies a virtual service to use as a backend.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html#cfn-appmesh-virtualnode-backend-virtualservice
+	//
 	VirtualService interface{} `field:"optional" json:"virtualService" yaml:"virtualService"`
 }
 

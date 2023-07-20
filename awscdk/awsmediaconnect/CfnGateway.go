@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConnect::Gateway`.
+// The AWS::MediaConnect::Gateway resource is used to create a new gateway.
 //
-// The AWS::MediaConnect::Gateway resource is used to create a new gateway. AWS Elemental MediaConnect Gateway is a feature of MediaConnect that allows the deployment of on-premises resources for transporting live video to and from the AWS Cloud. MediaConnect Gateway allows you to contribute live video to the AWS Cloud from on-premises hardware, as well as distribute live video from the AWS Cloud to your local data center.
+// AWS Elemental MediaConnect Gateway is a feature of MediaConnect that allows the deployment of on-premises resources for transporting live video to and from the AWS Cloud. MediaConnect Gateway allows you to contribute live video to the AWS Cloud from on-premises hardware, as well as distribute live video from the AWS Cloud to your local data center.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,6 +30,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html
 //
 type CfnGateway interface {
 	awscdk.CfnResource
@@ -50,8 +52,6 @@ type CfnGateway interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The range of IP addresses that are allowed to contribute content or initiate output requests for flows communicating with this gateway.
-	//
-	// These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	EgressCidrBlocks() *[]*string
 	SetEgressCidrBlocks(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -65,8 +65,6 @@ type CfnGateway interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the gateway.
-	//
-	// This name can not be modified after the gateway is created.
 	Name() *string
 	SetName(val *string)
 	// The list of networks that you want to add.
@@ -380,7 +378,6 @@ func (j *jsiiProxy_CfnGateway) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MediaConnect::Gateway`.
 func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProps) CfnGateway {
 	_init_.Initialize()
 
@@ -398,7 +395,6 @@ func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProp
 	return &j
 }
 
-// Create a new `AWS::MediaConnect::Gateway`.
 func NewCfnGateway_Override(c CfnGateway, scope constructs.Construct, id *string, props *CfnGatewayProps) {
 	_init_.Initialize()
 

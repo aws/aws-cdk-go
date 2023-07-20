@@ -120,8 +120,12 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmeventactions.html
+//
 type CfnAlarmModel_AlarmEventActionsProperty struct {
 	// Specifies one or more supported actions to receive notifications when the alarm state changes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmeventactions.html#cfn-iotevents-alarmmodel-alarmeventactions-alarmactions
+	//
 	AlarmActions interface{} `field:"optional" json:"alarmActions" yaml:"alarmActions"`
 }
 

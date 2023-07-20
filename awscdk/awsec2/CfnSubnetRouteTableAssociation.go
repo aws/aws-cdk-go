@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::SubnetRouteTableAssociation`.
+// Associates a subnet with a route table.
 //
-// Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html) .
+// The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	RouteTableId: jsii.String("routeTableId"),
 //   	SubnetId: jsii.String("subnetId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html
 //
 type CfnSubnetRouteTableAssociation interface {
 	awscdk.CfnResource
@@ -55,8 +57,6 @@ type CfnSubnetRouteTableAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ID of the route table.
-	//
-	// The physical ID changes when the route table ID is changed.
 	RouteTableId() *string
 	SetRouteTableId(val *string)
 	// The stack in which this element is defined.
@@ -343,7 +343,6 @@ func (j *jsiiProxy_CfnSubnetRouteTableAssociation) UpdatedProperties() *map[stri
 }
 
 
-// Create a new `AWS::EC2::SubnetRouteTableAssociation`.
 func NewCfnSubnetRouteTableAssociation(scope constructs.Construct, id *string, props *CfnSubnetRouteTableAssociationProps) CfnSubnetRouteTableAssociation {
 	_init_.Initialize()
 
@@ -361,7 +360,6 @@ func NewCfnSubnetRouteTableAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Create a new `AWS::EC2::SubnetRouteTableAssociation`.
 func NewCfnSubnetRouteTableAssociation_Override(c CfnSubnetRouteTableAssociation, scope constructs.Construct, id *string, props *CfnSubnetRouteTableAssociationProps) {
 	_init_.Initialize()
 

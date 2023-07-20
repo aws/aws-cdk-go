@@ -15,10 +15,16 @@ package awss3
 //   	Policy: policy,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html
+//
 type CfnMultiRegionAccessPointPolicyProps struct {
 	// The name of the Multi-Region Access Point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+	//
 	MrapName *string `field:"required" json:"mrapName" yaml:"mrapName"`
 	// The access policy associated with the Multi-Region Access Point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+	//
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
 }
 

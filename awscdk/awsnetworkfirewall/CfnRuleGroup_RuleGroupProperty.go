@@ -145,18 +145,28 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html
+//
 type CfnRuleGroup_RuleGroupProperty struct {
 	// The stateful rules or stateless rules for the rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulessource
+	//
 	RulesSource interface{} `field:"required" json:"rulesSource" yaml:"rulesSource"`
 	// The reference sets for the stateful rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-referencesets
+	//
 	ReferenceSets interface{} `field:"optional" json:"referenceSets" yaml:"referenceSets"`
 	// Settings that are available for use in the rules in the rule group.
 	//
 	// You can only use these for stateful rule groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulevariables
+	//
 	RuleVariables interface{} `field:"optional" json:"ruleVariables" yaml:"ruleVariables"`
 	// Additional options governing how Network Firewall handles stateful rules.
 	//
 	// The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-statefulruleoptions
+	//
 	StatefulRuleOptions interface{} `field:"optional" json:"statefulRuleOptions" yaml:"statefulRuleOptions"`
 }
 

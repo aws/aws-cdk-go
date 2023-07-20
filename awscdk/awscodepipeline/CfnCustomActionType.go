@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodePipeline::CustomActionType`.
+// The `AWS::CodePipeline::CustomActionType` resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite.
 //
-// The `AWS::CodePipeline::CustomActionType` resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline. For more information, see [Create and Add a Custom Action in AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html) in the *AWS CodePipeline User Guide* .
+// You can use these custom actions in the stage of a pipeline. For more information, see [Create and Add a Custom Action in AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html) in the *AWS CodePipeline User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -59,9 +59,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
+//
 type CfnCustomActionType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	AttrId() *string
 	// The category of the custom action, such as a build action or a test action.
 	Category() *string
@@ -72,8 +75,6 @@ type CfnCustomActionType interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The configuration properties for the custom action.
-	//
-	// > You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see [Create a Custom Action for a Pipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html) .
 	ConfigurationProperties() interface{}
 	SetConfigurationProperties(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -113,8 +114,11 @@ type CfnCustomActionType interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the custom action.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the custom action.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -262,6 +266,7 @@ type CfnCustomActionType interface {
 type jsiiProxy_CfnCustomActionType struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCustomActionType) AttrId() *string {
@@ -424,6 +429,16 @@ func (j *jsiiProxy_CfnCustomActionType) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomActionType) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomActionType) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -455,7 +470,6 @@ func (j *jsiiProxy_CfnCustomActionType) Version() *string {
 }
 
 
-// Create a new `AWS::CodePipeline::CustomActionType`.
 func NewCfnCustomActionType(scope constructs.Construct, id *string, props *CfnCustomActionTypeProps) CfnCustomActionType {
 	_init_.Initialize()
 
@@ -473,7 +487,6 @@ func NewCfnCustomActionType(scope constructs.Construct, id *string, props *CfnCu
 	return &j
 }
 
-// Create a new `AWS::CodePipeline::CustomActionType`.
 func NewCfnCustomActionType_Override(c CfnCustomActionType, scope constructs.Construct, id *string, props *CfnCustomActionTypeProps) {
 	_init_.Initialize()
 
@@ -546,6 +559,17 @@ func (j *jsiiProxy_CfnCustomActionType)SetSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"settings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomActionType)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

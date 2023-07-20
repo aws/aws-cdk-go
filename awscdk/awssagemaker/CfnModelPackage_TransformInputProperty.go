@@ -22,16 +22,24 @@ package awssagemaker
 //   	SplitType: jsii.String("splitType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transforminput.html
+//
 type CfnModelPackage_TransformInputProperty struct {
 	// Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transforminput.html#cfn-sagemaker-modelpackage-transforminput-datasource
+	//
 	DataSource interface{} `field:"required" json:"dataSource" yaml:"dataSource"`
 	// If your transform data is compressed, specify the compression type.
 	//
 	// Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is `None` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transforminput.html#cfn-sagemaker-modelpackage-transforminput-compressiontype
+	//
 	CompressionType *string `field:"optional" json:"compressionType" yaml:"compressionType"`
 	// The multipurpose internet mail extension (MIME) type of the data.
 	//
 	// Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transforminput.html#cfn-sagemaker-modelpackage-transforminput-contenttype
+	//
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The method to use to split the transform job's data files into smaller batches.
 	//
@@ -45,6 +53,8 @@ type CfnModelPackage_TransformInputProperty struct {
 	// > Some data formats represent a record as a binary payload wrapped with extra padding bytes. When splitting is applied to a binary data format, padding is removed if the value of `BatchStrategy` is set to `SingleRecord` . Padding is not removed if the value of `BatchStrategy` is set to `MultiRecord` .
 	// >
 	// > For more information about `RecordIO` , see [Create a Dataset Using RecordIO](https://docs.aws.amazon.com/https://mxnet.apache.org/api/faq/recordio) in the MXNet documentation. For more information about `TFRecord` , see [Consuming TFRecord data](https://docs.aws.amazon.com/https://www.tensorflow.org/guide/data#consuming_tfrecord_data) in the TensorFlow documentation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transforminput.html#cfn-sagemaker-modelpackage-transforminput-splittype
+	//
 	SplitType *string `field:"optional" json:"splitType" yaml:"splitType"`
 }
 

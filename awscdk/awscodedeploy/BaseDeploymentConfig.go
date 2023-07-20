@@ -10,15 +10,6 @@ import (
 )
 
 // The base class for ServerDeploymentConfig, EcsDeploymentConfig, and LambdaDeploymentConfig deployment configurations.
-//
-// Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   baseDeploymentConfig := awscdk.Aws_codedeploy.BaseDeploymentConfig_FromDeploymentConfigName(this, jsii.String("MyBaseDeploymentConfig"), jsii.String("deploymentConfigName"))
-//
 type BaseDeploymentConfig interface {
 	awscdk.Resource
 	IBaseDeploymentConfig

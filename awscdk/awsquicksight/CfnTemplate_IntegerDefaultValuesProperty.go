@@ -30,12 +30,18 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-integerdefaultvalues.html
+//
 type CfnTemplate_IntegerDefaultValuesProperty struct {
 	// The dynamic value of the `IntegerDefaultValues` .
 	//
 	// Different defaults are displayed according to users, groups, and values mapping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-integerdefaultvalues.html#cfn-quicksight-template-integerdefaultvalues-dynamicvalue
+	//
 	DynamicValue interface{} `field:"optional" json:"dynamicValue" yaml:"dynamicValue"`
 	// The static values of the `IntegerDefaultValues` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-integerdefaultvalues.html#cfn-quicksight-template-integerdefaultvalues-staticvalues
+	//
 	StaticValues interface{} `field:"optional" json:"staticValues" yaml:"staticValues"`
 }
 

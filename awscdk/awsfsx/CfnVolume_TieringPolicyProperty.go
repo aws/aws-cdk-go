@@ -25,10 +25,14 @@ package awsfsx
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-tieringpolicy.html
+//
 type CfnVolume_TieringPolicyProperty struct {
 	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
 	//
 	// Used with the `AUTO` and `SNAPSHOT_ONLY` tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-tieringpolicy.html#cfn-fsx-volume-tieringpolicy-coolingperiod
+	//
 	CoolingPeriod *float64 `field:"optional" json:"coolingPeriod" yaml:"coolingPeriod"`
 	// Specifies the tiering policy used to transition data. Default value is `SNAPSHOT_ONLY` .
 	//
@@ -36,6 +40,8 @@ type CfnVolume_TieringPolicyProperty struct {
 	// - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
 	// - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
 	// - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-tieringpolicy.html#cfn-fsx-volume-tieringpolicy-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

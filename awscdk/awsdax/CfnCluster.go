@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DAX::Cluster`.
+// Creates a DAX cluster.
 //
-// Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.
+// All nodes in the cluster run the same DAX caching software.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,9 +45,12 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the ARN of the DAX cluster. For example:.
 	//
 	// `{ "Fn::GetAtt": [" MyDAXCluster ", "Arn"] }`
@@ -66,9 +69,8 @@ type CfnCluster interface {
 	AttrClusterDiscoveryEndpoint() *string
 	// Returns the endpoint URL of the DAX cluster.
 	AttrClusterDiscoveryEndpointUrl() *string
+	AttrId() *string
 	// The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated.
-	//
-	// If provided, the length of this list must equal the `ReplicationFactor` parameter. If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -76,12 +78,9 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The encryption type of the cluster's endpoint. Available values are:.
+	// The encryption type of the cluster's endpoint.
 	//
-	// - `NONE` - The cluster's endpoint will be unencrypted.
-	// - `TLS` - The cluster's endpoint will be encrypted with Transport Layer Security, and will provide an x509 certificate for authentication.
-	//
-	// The default value is `NONE` .
+	// Available values are:.
 	ClusterEndpointEncryptionType() *string
 	SetClusterEndpointEncryptionType(val *string)
 	// The name of the DAX cluster.
@@ -95,8 +94,6 @@ type CfnCluster interface {
 	Description() *string
 	SetDescription(val *string)
 	// A valid Amazon Resource Name (ARN) that identifies an IAM role.
-	//
-	// At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -112,21 +109,15 @@ type CfnCluster interface {
 	// The tree node.
 	Node() constructs.Node
 	// The node type for the nodes in the cluster.
-	//
-	// (All nodes in a DAX cluster are of the same type.)
 	NodeType() *string
 	SetNodeType(val *string)
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.
-	//
-	// > The Amazon SNS topic owner must be same as the DAX cluster owner.
 	NotificationTopicArn() *string
 	SetNotificationTopicArn(val *string)
 	// The parameter group to be associated with the DAX cluster.
 	ParameterGroupName() *string
 	SetParameterGroupName(val *string)
 	// A range of time when maintenance of DAX cluster software will be performed.
-	//
-	// For example: `sun:01:00-sun:09:00` . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -135,17 +126,9 @@ type CfnCluster interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The number of nodes in the DAX cluster.
-	//
-	// A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set `ReplicationFactor` to a number between 3 (one primary and two read replicas) and 10 (one primary and nine read replicas). `If the AvailabilityZones` parameter is provided, its length must equal the `ReplicationFactor` .
-	//
-	// > AWS recommends that you have at least two read replicas per cluster.
 	ReplicationFactor() *float64
 	SetReplicationFactor(val *float64)
 	// A list of security group IDs to be assigned to each node in the DAX cluster.
-	//
-	// (Each of the security group ID is system-generated.)
-	//
-	// If this parameter is not specified, DAX assigns the default VPC security group to each node.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// Represents the settings used to enable server-side encryption on the cluster.
@@ -156,12 +139,13 @@ type CfnCluster interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name of the subnet group to be used for the replication group.
-	//
-	// > DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.
 	SubnetGroupName() *string
 	SetSubnetGroupName(val *string)
-	// A set of tags to associate with the DAX cluster.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A set of tags to associate with the DAX cluster.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -306,6 +290,7 @@ type CfnCluster interface {
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCluster) AttrArn() *string {
@@ -333,6 +318,16 @@ func (j *jsiiProxy_CfnCluster) AttrClusterDiscoveryEndpointUrl() *string {
 	_jsii_.Get(
 		j,
 		"attrClusterDiscoveryEndpointUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -558,6 +553,16 @@ func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -579,7 +584,6 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DAX::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -597,7 +601,6 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
-// Create a new `AWS::DAX::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -720,6 +723,14 @@ func (j *jsiiProxy_CfnCluster)SetSubnetGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

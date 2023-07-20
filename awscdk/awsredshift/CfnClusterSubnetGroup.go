@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Redshift::ClusterSubnetGroup`.
+// Specifies an Amazon Redshift subnet group.
 //
-// Specifies an Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud ( Amazon VPC ) when creating Amazon Redshift subnet group.
+// You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud ( Amazon VPC ) when creating Amazon Redshift subnet group.
 //
 // For information about subnet groups, go to [Amazon Redshift Cluster Subnet Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html) in the *Amazon Redshift Cluster Management Guide* .
 //
@@ -35,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html
+//
 type CfnClusterSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the cluster subnet group.
 	AttrClusterSubnetGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -74,14 +77,13 @@ type CfnClusterSubnetGroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An array of VPC subnet IDs.
-	//
-	// A maximum of 20 subnets can be modified in a single request.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// Specifies an arbitrary set of tags (key–value pairs) to associate with this subnet group.
-	//
-	// Use tags to manage your resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies an arbitrary set of tags (key–value pairs) to associate with this subnet group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +228,7 @@ type CfnClusterSubnetGroup interface {
 type jsiiProxy_CfnClusterSubnetGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnClusterSubnetGroup) AttrClusterSubnetGroupName() *string {
@@ -348,6 +351,16 @@ func (j *jsiiProxy_CfnClusterSubnetGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClusterSubnetGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClusterSubnetGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -369,7 +382,6 @@ func (j *jsiiProxy_CfnClusterSubnetGroup) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::Redshift::ClusterSubnetGroup`.
 func NewCfnClusterSubnetGroup(scope constructs.Construct, id *string, props *CfnClusterSubnetGroupProps) CfnClusterSubnetGroup {
 	_init_.Initialize()
 
@@ -387,7 +399,6 @@ func NewCfnClusterSubnetGroup(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Redshift::ClusterSubnetGroup`.
 func NewCfnClusterSubnetGroup_Override(c CfnClusterSubnetGroup, scope constructs.Construct, id *string, props *CfnClusterSubnetGroupProps) {
 	_init_.Initialize()
 
@@ -416,6 +427,17 @@ func (j *jsiiProxy_CfnClusterSubnetGroup)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClusterSubnetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

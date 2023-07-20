@@ -13,10 +13,14 @@ package awssam
 //   	AwsIotSqlVersion: jsii.String("awsIotSqlVersion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-iotruleevent.html
+//
 type CfnFunction_IoTRuleEventProperty struct {
-	// `CfnFunction.IoTRuleEventProperty.Sql`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-iotruleevent.html#cfn-serverless-function-iotruleevent-sql
+	//
 	Sql *string `field:"required" json:"sql" yaml:"sql"`
-	// `CfnFunction.IoTRuleEventProperty.AwsIotSqlVersion`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-iotruleevent.html#cfn-serverless-function-iotruleevent-awsiotsqlversion
+	//
 	AwsIotSqlVersion *string `field:"optional" json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
 }
 

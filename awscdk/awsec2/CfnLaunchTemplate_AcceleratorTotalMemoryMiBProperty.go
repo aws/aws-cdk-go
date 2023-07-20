@@ -13,14 +13,20 @@ package awsec2
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html
+//
 type CfnLaunchTemplate_AcceleratorTotalMemoryMiBProperty struct {
 	// The maximum amount of accelerator memory, in MiB.
 	//
 	// To specify no maximum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html#cfn-ec2-launchtemplate-acceleratortotalmemorymib-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of accelerator memory, in MiB.
 	//
 	// To specify no minimum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html#cfn-ec2-launchtemplate-acceleratortotalmemorymib-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

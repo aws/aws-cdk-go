@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::ModelPackage`.
-//
 // A versioned model that can be deployed for SageMaker inference.
 //
 // Example:
@@ -363,15 +361,16 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html
+//
 type CfnModelPackage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// An array of additional Inference Specification objects.
 	AdditionalInferenceSpecifications() interface{}
 	SetAdditionalInferenceSpecifications(val interface{})
 	// An array of additional Inference Specification objects to be added to the existing array.
-	//
-	// The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
 	AdditionalInferenceSpecificationsToAdd() interface{}
 	SetAdditionalInferenceSpecificationsToAdd(val interface{})
 	// A description provided when the model approval is set.
@@ -390,8 +389,6 @@ type CfnModelPackage interface {
 	// - `DELETING` - The model package is in the process of being deleted.
 	AttrModelPackageStatus() *string
 	// Whether the model package is to be certified to be listed on AWS Marketplace.
-	//
-	// For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
 	CertifyForMarketplace() interface{}
 	SetCertifyForMarketplace(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -410,8 +407,6 @@ type CfnModelPackage interface {
 	CustomerMetadataProperties() interface{}
 	SetCustomerMetadataProperties(val interface{})
 	// The machine learning domain of your model package and its components.
-	//
-	// Common machine learning domains include computer vision and natural language processing.
 	Domain() *string
 	SetDomain(val *string)
 	// Represents the drift check baselines that can be used when the model monitor is set using the model package.
@@ -436,11 +431,9 @@ type CfnModelPackage interface {
 	// Metadata properties of the tracking entity, trial, or trial component.
 	MetadataProperties() interface{}
 	SetMetadataProperties(val interface{})
-	// The approval status of the model. This can be one of the following values.
+	// The approval status of the model.
 	//
-	// - `APPROVED` - The model is approved
-	// - `REJECTED` - The model is rejected.
-	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+	// This can be one of the following values.
 	ModelApprovalStatus() *string
 	SetModelApprovalStatus(val *string)
 	// Metrics for the model.
@@ -469,8 +462,6 @@ type CfnModelPackage interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Simple Storage Service path where the sample payload are stored.
-	//
-	// This path must point to a single gzip compressed tar archive (.tar.gz suffix).
 	SamplePayloadUrl() *string
 	SetSamplePayloadUrl(val *string)
 	// A list of algorithms that were used to create a model package.
@@ -480,13 +471,12 @@ type CfnModelPackage interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of the tags associated with the model package.
-	//
-	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of the tags associated with the model package.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The machine learning task your model package accomplishes.
-	//
-	// Common machine learning tasks include object detection and image classification.
 	Task() *string
 	SetTask(val *string)
 	// Deprecated.
@@ -636,6 +626,7 @@ type CfnModelPackage interface {
 type jsiiProxy_CfnModelPackage struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnModelPackage) AdditionalInferenceSpecifications() interface{} {
@@ -958,6 +949,16 @@ func (j *jsiiProxy_CfnModelPackage) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnModelPackage) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnModelPackage) Task() *string {
 	var returns *string
 	_jsii_.Get(
@@ -999,7 +1000,6 @@ func (j *jsiiProxy_CfnModelPackage) ValidationSpecification() interface{} {
 }
 
 
-// Create a new `AWS::SageMaker::ModelPackage`.
 func NewCfnModelPackage(scope constructs.Construct, id *string, props *CfnModelPackageProps) CfnModelPackage {
 	_init_.Initialize()
 
@@ -1017,7 +1017,6 @@ func NewCfnModelPackage(scope constructs.Construct, id *string, props *CfnModelP
 	return &j
 }
 
-// Create a new `AWS::SageMaker::ModelPackage`.
 func NewCfnModelPackage_Override(c CfnModelPackage, scope constructs.Construct, id *string, props *CfnModelPackageProps) {
 	_init_.Initialize()
 
@@ -1214,6 +1213,17 @@ func (j *jsiiProxy_CfnModelPackage)SetSourceAlgorithmSpecification(val interface
 	_jsii_.Set(
 		j,
 		"sourceAlgorithmSpecification",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnModelPackage)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

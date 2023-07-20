@@ -20,6 +20,8 @@ package awscomprehend
 //   	Split: jsii.String("split"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html
+//
 type CfnDocumentClassifier_AugmentedManifestsListItemProperty struct {
 	// The JSON attribute that contains the annotations for your training documents.
 	//
@@ -28,8 +30,12 @@ type CfnDocumentClassifier_AugmentedManifestsListItemProperty struct {
 	// If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.
 	//
 	// If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html#cfn-comprehend-documentclassifier-augmentedmanifestslistitem-attributenames
+	//
 	AttributeNames *[]*string `field:"required" json:"attributeNames" yaml:"attributeNames"`
 	// The Amazon S3 location of the augmented manifest file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html#cfn-comprehend-documentclassifier-augmentedmanifestslistitem-s3uri
+	//
 	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// The purpose of the data you've provided in the augmented manifest.
 	//
@@ -38,6 +44,8 @@ type CfnDocumentClassifier_AugmentedManifestsListItemProperty struct {
 	// TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.
 	//
 	// TEST - all of the documents in the manifest will be used for testing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html#cfn-comprehend-documentclassifier-augmentedmanifestslistitem-split
+	//
 	Split *string `field:"optional" json:"split" yaml:"split"`
 }
 

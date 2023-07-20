@@ -65,6 +65,8 @@ type SsmParameterImageOptions struct {
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// Operating system.
 	Os OperatingSystemType `field:"optional" json:"os" yaml:"os"`
+	// The version of the SSM parameter.
+	ParameterVersion *string `field:"optional" json:"parameterVersion" yaml:"parameterVersion"`
 	// Custom UserData.
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }

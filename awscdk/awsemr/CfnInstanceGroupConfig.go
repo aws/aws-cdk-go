@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EMR::InstanceGroupConfig`.
+// Use `InstanceGroupConfig` to define instance groups for an EMR cluster.
 //
-// Use `InstanceGroupConfig` to define instance groups for an EMR cluster. A cluster can not use both instance groups and instance fleets. For more information, see [Create a Cluster with Instance Fleets or Uniform Instance Groups](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-instance-group-configuration.html) in the *Amazon EMR Management Guide* .
+// A cluster can not use both instance groups and instance fleets. For more information, see [Create a Cluster with Instance Fleets or Uniform Instance Groups](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-instance-group-configuration.html) in the *Amazon EMR Management Guide* .
 //
 // > You can currently only add task instance groups to a cluster with this resource. If you use this resource, CloudFormation waits for the cluster launch to complete before adding the task instance group to the cluster. In order to add task instance groups to the cluster as part of the cluster launch and minimize delays in provisioning task nodes, use the `TaskInstanceGroups` subproperty for the [AWS::EMR::Cluster JobFlowInstancesConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html) property instead. To use this subproperty, see [AWS::EMR::Cluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html) for examples.
 //
@@ -109,17 +109,16 @@ import (
 //   	Name: jsii.String("name"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
+//
 type CfnInstanceGroupConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// `AutoScalingPolicy` is a subproperty of `InstanceGroupConfig` .
-	//
-	// `AutoScalingPolicy` defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) in the *Amazon EMR Management Guide* .
 	AutoScalingPolicy() interface{}
 	SetAutoScalingPolicy(val interface{})
 	// If specified, indicates that the instance group uses Spot Instances.
-	//
-	// This is the maximum price you are willing to pay for Spot Instances. Specify `OnDemandPrice` to set the amount equal to the On-Demand price, or specify an amount in USD.
 	BidPrice() *string
 	SetBidPrice(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -128,8 +127,6 @@ type CfnInstanceGroupConfig interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// > Amazon EMR releases 4.x or later.
-	//
-	// The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 	Configurations() interface{}
 	SetConfigurations(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -146,8 +143,6 @@ type CfnInstanceGroupConfig interface {
 	InstanceCount() *float64
 	SetInstanceCount(val *float64)
 	// The role of the instance group in the cluster.
-	//
-	// *Allowed Values* : TASK.
 	InstanceRole() *string
 	SetInstanceRole(val *string)
 	// The Amazon EC2 instance type for all instances in the instance group.
@@ -327,6 +322,16 @@ type CfnInstanceGroupConfig interface {
 type jsiiProxy_CfnInstanceGroupConfig struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnInstanceGroupConfig) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnInstanceGroupConfig) AutoScalingPolicy() interface{} {
@@ -540,7 +545,6 @@ func (j *jsiiProxy_CfnInstanceGroupConfig) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::EMR::InstanceGroupConfig`.
 func NewCfnInstanceGroupConfig(scope constructs.Construct, id *string, props *CfnInstanceGroupConfigProps) CfnInstanceGroupConfig {
 	_init_.Initialize()
 
@@ -558,7 +562,6 @@ func NewCfnInstanceGroupConfig(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::EMR::InstanceGroupConfig`.
 func NewCfnInstanceGroupConfig_Override(c CfnInstanceGroupConfig, scope constructs.Construct, id *string, props *CfnInstanceGroupConfigProps) {
 	_init_.Initialize()
 

@@ -13,6 +13,8 @@ package awsmedialive
 //   aribDestinationSettingsProperty := &AribDestinationSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aribdestinationsettings.html
+//
 type CfnChannel_AribDestinationSettingsProperty struct {
 }
 

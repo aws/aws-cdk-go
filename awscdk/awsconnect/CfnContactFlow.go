@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::ContactFlow`.
-//
 // Specifies a flow for an Amazon Connect instance.
 //
 // Example:
@@ -35,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html
+//
 type CfnContactFlow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// `Ref` returns the Amazon Resource Name (ARN) of the flow. For example:.
 	//
 	// `{ "Ref": "myFlowArn" }`.
@@ -48,8 +49,6 @@ type CfnContactFlow interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The content of the flow.
-	//
-	// For more information, see [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html) in the *Amazon Connect Administrator Guide* .
 	Content() *string
 	SetContent(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -89,13 +88,12 @@ type CfnContactFlow interface {
 	// The state of the flow.
 	State() *string
 	SetState(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of the flow.
-	//
-	// For descriptions of the available types, see [Choose a flow type](https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types) in the *Amazon Connect Administrator Guide* .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -242,6 +240,7 @@ type CfnContactFlow interface {
 type jsiiProxy_CfnContactFlow struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnContactFlow) AttrContactFlowArn() *string {
@@ -394,6 +393,16 @@ func (j *jsiiProxy_CfnContactFlow) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContactFlow) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContactFlow) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -425,7 +434,6 @@ func (j *jsiiProxy_CfnContactFlow) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Connect::ContactFlow`.
 func NewCfnContactFlow(scope constructs.Construct, id *string, props *CfnContactFlowProps) CfnContactFlow {
 	_init_.Initialize()
 
@@ -443,7 +451,6 @@ func NewCfnContactFlow(scope constructs.Construct, id *string, props *CfnContact
 	return &j
 }
 
-// Create a new `AWS::Connect::ContactFlow`.
 func NewCfnContactFlow_Override(c CfnContactFlow, scope constructs.Construct, id *string, props *CfnContactFlowProps) {
 	_init_.Initialize()
 
@@ -499,6 +506,17 @@ func (j *jsiiProxy_CfnContactFlow)SetState(val *string) {
 	_jsii_.Set(
 		j,
 		"state",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContactFlow)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

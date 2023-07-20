@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnSAMLProvider) validateSetSamlMetadataDocumentParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnSAMLProvider) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSAMLProviderParameters(scope constructs.Construct, id *string, props *CfnSAMLProviderProps) error {
 	return nil
 }

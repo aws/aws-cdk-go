@@ -13,16 +13,22 @@ package awsconnect
 //   	Origin: jsii.String("origin"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html
+//
 type CfnApprovedOriginProps struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `100`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html#cfn-connect-approvedorigin-instanceid
+	//
 	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
 	// Domain name to be added to the allow-list of the instance.
 	//
 	// *Maximum* : `267`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html#cfn-connect-approvedorigin-origin
+	//
 	Origin *string `field:"required" json:"origin" yaml:"origin"`
 }
 

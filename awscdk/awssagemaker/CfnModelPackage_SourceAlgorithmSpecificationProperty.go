@@ -19,8 +19,12 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithmspecification.html
+//
 type CfnModelPackage_SourceAlgorithmSpecificationProperty struct {
 	// A list of the algorithms that were used to create a model package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithmspecification.html#cfn-sagemaker-modelpackage-sourcealgorithmspecification-sourcealgorithms
+	//
 	SourceAlgorithms interface{} `field:"required" json:"sourceAlgorithms" yaml:"sourceAlgorithms"`
 }
 

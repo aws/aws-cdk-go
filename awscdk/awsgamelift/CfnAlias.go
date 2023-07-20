@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GameLift::Alias`.
+// The `AWS::GameLift::Alias` resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
 //
-// The `AWS::GameLift::Alias` resource creates an alias for an Amazon GameLift (GameLift) fleet destination. There are two types of routing strategies for aliases: simple and terminal. A simple alias points to an active fleet. A terminal alias displays a message instead of routing players to an active fleet. For example, a terminal alias might display a URL link that directs players to an upgrade site. You can use aliases to define destinations in a game session queue or when requesting new game sessions.
+// There are two types of routing strategies for aliases: simple and terminal. A simple alias points to an active fleet. A terminal alias displays a message instead of routing players to an active fleet. For example, a terminal alias might display a URL link that directs players to an upgrade site. You can use aliases to define destinations in a game session queue or when requesting new game sessions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,6 +31,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
 //
 type CfnAlias interface {
 	awscdk.CfnResource
@@ -62,8 +64,6 @@ type CfnAlias interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A descriptive label that is associated with an alias.
-	//
-	// Alias names do not need to be unique.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -367,7 +367,6 @@ func (j *jsiiProxy_CfnAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GameLift::Alias`.
 func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) CfnAlias {
 	_init_.Initialize()
 
@@ -385,7 +384,6 @@ func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) C
 	return &j
 }
 
-// Create a new `AWS::GameLift::Alias`.
 func NewCfnAlias_Override(c CfnAlias, scope constructs.Construct, id *string, props *CfnAliasProps) {
 	_init_.Initialize()
 

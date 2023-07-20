@@ -24,10 +24,16 @@ package awspinpoint
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-location.html
+//
 type CfnSegment_LocationProperty struct {
 	// The country or region code, in ISO 3166-1 alpha-2 format, for the segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-location.html#cfn-pinpoint-segment-location-country
+	//
 	Country interface{} `field:"optional" json:"country" yaml:"country"`
 	// The GPS point dimension for the segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-location.html#cfn-pinpoint-segment-location-gpspoint
+	//
 	GpsPoint interface{} `field:"optional" json:"gpsPoint" yaml:"gpsPoint"`
 }
 

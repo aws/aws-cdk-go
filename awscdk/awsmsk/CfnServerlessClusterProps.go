@@ -36,14 +36,21 @@ package awsmsk
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html
+//
 type CfnServerlessClusterProps struct {
-	// `AWS::MSK::ServerlessCluster.ClientAuthentication`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html#cfn-msk-serverlesscluster-clientauthentication
+	//
 	ClientAuthentication interface{} `field:"required" json:"clientAuthentication" yaml:"clientAuthentication"`
-	// `AWS::MSK::ServerlessCluster.ClusterName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html#cfn-msk-serverlesscluster-clustername
+	//
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
-	// `AWS::MSK::ServerlessCluster.VpcConfigs`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html#cfn-msk-serverlesscluster-vpcconfigs
+	//
 	VpcConfigs interface{} `field:"required" json:"vpcConfigs" yaml:"vpcConfigs"`
-	// `AWS::MSK::ServerlessCluster.Tags`.
+	// A key-value pair to associate with a resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html#cfn-msk-serverlesscluster-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

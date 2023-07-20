@@ -22,10 +22,14 @@ package awsecs
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
+//
 type CfnTaskSet_NetworkConfigurationProperty struct {
 	// The VPC subnets and security groups that are associated with a task.
 	//
 	// > All specified subnets and security groups must be from the same VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
+	//
 	AwsVpcConfiguration interface{} `field:"optional" json:"awsVpcConfiguration" yaml:"awsVpcConfiguration"`
 }
 

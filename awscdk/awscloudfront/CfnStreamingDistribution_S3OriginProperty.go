@@ -13,8 +13,12 @@ package awscloudfront
 //   	OriginAccessIdentity: jsii.String("originAccessIdentity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html
+//
 type CfnStreamingDistribution_S3OriginProperty struct {
 	// The DNS name of the Amazon S3 origin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-domainname
+	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The CloudFront origin access identity to associate with the distribution.
 	//
@@ -27,6 +31,8 @@ type CfnStreamingDistribution_S3OriginProperty struct {
 	// To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
 	//
 	// For more information, see [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-originaccessidentity
+	//
 	OriginAccessIdentity *string `field:"required" json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::LocationObjectStorage`.
+// The `AWS::DataSync::LocationObjectStorage` resource specifies an endpoint for a self-managed object storage bucket.
 //
-// The `AWS::DataSync::LocationObjectStorage` resource specifies an endpoint for a self-managed object storage bucket. For more information about self-managed object storage locations, see [Creating a Location for Object Storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html) .
+// For more information about self-managed object storage locations, see [Creating a Location for Object Storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html
+//
 type CfnLocationObjectStorage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Specifies the access key (for example, a user name) if credentials are required to authenticate with the object storage server.
 	AccessKey() *string
 	SetAccessKey(val *string)
@@ -86,20 +89,9 @@ type CfnLocationObjectStorage interface {
 	SecretKey() *string
 	SetSecretKey(val *string)
 	// Specifies a file with the certificates that are used to sign the object storage server's certificate (for example, `file:///home/user/.ssh/storage_sys_certificate.pem` ). The file you specify must include the following:.
-	//
-	// - The certificate of the signing certificate authority (CA)
-	// - Any intermediate certificates
-	// - base64 encoding
-	// - A `.pem` extension
-	//
-	// The file can be up to 32768 bytes (before base64 encoding).
-	//
-	// To use this parameter, configure `ServerProtocol` to `HTTPS` .
 	ServerCertificate() *string
 	SetServerCertificate(val *string)
 	// Specifies the domain name or IP address of the object storage server.
-	//
-	// A DataSync agent uses this hostname to mount the object storage server in a network.
 	ServerHostname() *string
 	SetServerHostname(val *string)
 	// Specifies the port that your object storage server accepts inbound network traffic on (for example, port 443).
@@ -113,14 +105,13 @@ type CfnLocationObjectStorage interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies the object prefix for your object storage server.
-	//
-	// If this is a source location, DataSync only copies objects with this prefix. If this is a destination location, DataSync writes all objects with this prefix.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// Specifies the key-value pair that represents a tag that you want to add to the resource.
-	//
-	// Tags can help you manage, filter, and search for your resources. We recommend creating a name tag for your location.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies the key-value pair that represents a tag that you want to add to the resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -265,6 +256,7 @@ type CfnLocationObjectStorage interface {
 type jsiiProxy_CfnLocationObjectStorage struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocationObjectStorage) AccessKey() *string {
@@ -467,6 +459,16 @@ func (j *jsiiProxy_CfnLocationObjectStorage) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationObjectStorage) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationObjectStorage) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -488,7 +490,6 @@ func (j *jsiiProxy_CfnLocationObjectStorage) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::DataSync::LocationObjectStorage`.
 func NewCfnLocationObjectStorage(scope constructs.Construct, id *string, props *CfnLocationObjectStorageProps) CfnLocationObjectStorage {
 	_init_.Initialize()
 
@@ -506,7 +507,6 @@ func NewCfnLocationObjectStorage(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::DataSync::LocationObjectStorage`.
 func NewCfnLocationObjectStorage_Override(c CfnLocationObjectStorage, scope constructs.Construct, id *string, props *CfnLocationObjectStorageProps) {
 	_init_.Initialize()
 
@@ -588,6 +588,17 @@ func (j *jsiiProxy_CfnLocationObjectStorage)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationObjectStorage)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

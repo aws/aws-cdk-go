@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::ResolverDNSSECConfig`.
-//
 // The `AWS::Route53Resolver::ResolverDNSSECConfig` resource is a complex type that contains information about a configuration for DNSSEC validation.
 //
 // Example:
@@ -21,6 +19,8 @@ import (
 //   cfnResolverDNSSECConfig := awscdk.Aws_route53resolver.NewCfnResolverDNSSECConfig(this, jsii.String("MyCfnResolverDNSSECConfig"), &CfnResolverDNSSECConfigProps{
 //   	ResourceId: jsii.String("resourceId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html
 //
 type CfnResolverDNSSECConfig interface {
 	awscdk.CfnResource
@@ -357,7 +357,6 @@ func (j *jsiiProxy_CfnResolverDNSSECConfig) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::Route53Resolver::ResolverDNSSECConfig`.
 func NewCfnResolverDNSSECConfig(scope constructs.Construct, id *string, props *CfnResolverDNSSECConfigProps) CfnResolverDNSSECConfig {
 	_init_.Initialize()
 
@@ -375,7 +374,6 @@ func NewCfnResolverDNSSECConfig(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::ResolverDNSSECConfig`.
 func NewCfnResolverDNSSECConfig_Override(c CfnResolverDNSSECConfig, scope constructs.Construct, id *string, props *CfnResolverDNSSECConfigProps) {
 	_init_.Initialize()
 

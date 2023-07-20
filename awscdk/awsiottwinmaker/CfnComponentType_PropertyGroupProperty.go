@@ -15,10 +15,16 @@ package awsiottwinmaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertygroup.html
+//
 type CfnComponentType_PropertyGroupProperty struct {
 	// The group type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertygroup.html#cfn-iottwinmaker-componenttype-propertygroup-grouptype
+	//
 	GroupType *string `field:"optional" json:"groupType" yaml:"groupType"`
 	// The property names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertygroup.html#cfn-iottwinmaker-componenttype-propertygroup-propertynames
+	//
 	PropertyNames *[]*string `field:"optional" json:"propertyNames" yaml:"propertyNames"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Timestream::Table`.
+// The CreateTable operation adds a new table to an existing database in your account.
 //
-// The CreateTable operation adds a new table to an existing database in your account. In an AWS account, table names must be at least unique within each Region if they are in the same database. You may have identical table names in the same Region if the tables are in separate databases. While creating the table, you must specify the table name, database name, and the retention properties. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html) . See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html) for details.
+// In an AWS account, table names must be at least unique within each Region if they are in the same database. You may have identical table names in the same Region if the tables are in separate databases. While creating the table, you must specify the table name, database name, and the retention properties. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html) . See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html) for details.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html
+//
 type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The `arn` of the table.
 	AttrArn() *string
 	// The name of the table.
@@ -53,8 +56,6 @@ type CfnTable interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the Timestream database that contains this table.
-	//
-	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
 	DatabaseName() *string
 	SetDatabaseName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,37 +69,6 @@ type CfnTable interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Contains properties to set on the table when enabling magnetic store writes.
-	//
-	// This object has the following attributes:
-	//
-	// - *EnableMagneticStoreWrites* : A `boolean` flag to enable magnetic store writes.
-	// - *MagneticStoreRejectedDataLocation* : The location to write error reports for records rejected, asynchronously, during magnetic store writes. Only `S3Configuration` objects are allowed. The `S3Configuration` object has the following attributes:
-	//
-	// - *BucketName* : The name of the S3 bucket.
-	// - *EncryptionOption* : The encryption option for the S3 location. Valid values are S3 server-side encryption with an S3 managed key ( `SSE_S3` ) or AWS managed key ( `SSE_KMS` ).
-	// - *KmsKeyId* : The AWS KMS key ID to use when encrypting with an AWS managed key.
-	// - *ObjectKeyPrefix* : The prefix to use option for the objects stored in S3.
-	//
-	// Both `BucketName` and `EncryptionOption` are *required* when `S3Configuration` is specified. If you specify `SSE_KMS` as your `EncryptionOption` then `KmsKeyId` is *required* .
-	//
-	// `EnableMagneticStoreWrites` attribute is *required* when `MagneticStoreWriteProperties` is specified. `MagneticStoreRejectedDataLocation` attribute is *required* when `EnableMagneticStoreWrites` is set to `true` .
-	//
-	// See the following examples:
-	//
-	// *JSON*
-	//
-	// ```json
-	// { "Type" : AWS::Timestream::Table", "Properties":{ "DatabaseName":"TestDatabase", "TableName":"TestTable", "MagneticStoreWriteProperties":{ "EnableMagneticStoreWrites":true, "MagneticStoreRejectedDataLocation":{ "S3Configuration":{ "BucketName":"testbucket", "EncryptionOption":"SSE_KMS", "KmsKeyId":"1234abcd-12ab-34cd-56ef-1234567890ab", "ObjectKeyPrefix":"prefix" } } } }
-	// }
-	// ```
-	//
-	// *YAML*
-	//
-	// ```
-	// Type: AWS::Timestream::Table
-	// DependsOn: TestDatabase
-	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" MagneticStoreWriteProperties: EnableMagneticStoreWrites: true MagneticStoreRejectedDataLocation: S3Configuration: BucketName: "testbucket" EncryptionOption: "SSE_KMS" KmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab" ObjectKeyPrefix: "prefix"
-	// ```.
 	MagneticStoreWriteProperties() interface{}
 	SetMagneticStoreWriteProperties(val interface{})
 	// The tree node.
@@ -108,26 +78,9 @@ type CfnTable interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The retention duration for the memory store and magnetic store. This object has the following attributes:.
+	// The retention duration for the memory store and magnetic store.
 	//
-	// - *MemoryStoreRetentionPeriodInHours* : Retention duration for memory store, in hours.
-	// - *MagneticStoreRetentionPeriodInDays* : Retention duration for magnetic store, in days.
-	//
-	// Both attributes are of type `string` . Both attributes are *required* when `RetentionProperties` is specified.
-	//
-	// See the following examples:
-	//
-	// *JSON*
-	//
-	// `{ "Type" : AWS::Timestream::Table", "Properties" : { "DatabaseName" : "TestDatabase", "TableName" : "TestTable", "RetentionProperties" : { "MemoryStoreRetentionPeriodInHours": "24", "MagneticStoreRetentionPeriodInDays": "7" } } }`
-	//
-	// *YAML*
-	//
-	// ```
-	// Type: AWS::Timestream::Table
-	// DependsOn: TestDatabase
-	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" RetentionProperties: MemoryStoreRetentionPeriodInHours: "24" MagneticStoreRetentionPeriodInDays: "7"
-	// ```.
+	// This object has the following attributes:.
 	RetentionProperties() interface{}
 	SetRetentionProperties(val interface{})
 	// The stack in which this element is defined.
@@ -135,12 +88,13 @@ type CfnTable interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name of the Timestream table.
-	//
-	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
 	TableName() *string
 	SetTableName(val *string)
-	// The tags to add to the table.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to add to the table.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -285,6 +239,7 @@ type CfnTable interface {
 type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTable) AttrArn() *string {
@@ -437,6 +392,16 @@ func (j *jsiiProxy_CfnTable) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -458,7 +423,6 @@ func (j *jsiiProxy_CfnTable) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Timestream::Table`.
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
@@ -476,7 +440,6 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 	return &j
 }
 
-// Create a new `AWS::Timestream::Table`.
 func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 
@@ -499,9 +462,6 @@ func (j *jsiiProxy_CfnTable)SetDatabaseName(val *string) {
 }
 
 func (j *jsiiProxy_CfnTable)SetMagneticStoreWriteProperties(val interface{}) {
-	if err := j.validateSetMagneticStoreWritePropertiesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"magneticStoreWriteProperties",
@@ -510,9 +470,6 @@ func (j *jsiiProxy_CfnTable)SetMagneticStoreWriteProperties(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnTable)SetRetentionProperties(val interface{}) {
-	if err := j.validateSetRetentionPropertiesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"retentionProperties",
@@ -524,6 +481,17 @@ func (j *jsiiProxy_CfnTable)SetTableName(val *string) {
 	_jsii_.Set(
 		j,
 		"tableName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

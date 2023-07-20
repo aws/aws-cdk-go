@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateSetPeerTransitGat
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateSetTransitGatewayIdParameters(val *string) error {
 	return nil
 }

@@ -450,52 +450,90 @@ package awspinpoint
 //   	TreatmentName: jsii.String("treatmentName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html
+//
 type CfnCampaignProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the campaign is associated with.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-applicationid
+	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The name of the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The schedule settings for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-schedule
+	//
 	Schedule interface{} `field:"required" json:"schedule" yaml:"schedule"`
 	// The unique identifier for the segment to associate with the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-segmentid
+	//
 	SegmentId *string `field:"required" json:"segmentId" yaml:"segmentId"`
 	// An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-additionaltreatments
+	//
 	AdditionalTreatments interface{} `field:"optional" json:"additionalTreatments" yaml:"additionalTreatments"`
 	// Specifies the Lambda function to use as a code hook for a campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-campaignhook
+	//
 	CampaignHook interface{} `field:"optional" json:"campaignHook" yaml:"campaignHook"`
 	// The delivery configuration settings for sending the treatment through a custom channel.
 	//
 	// This object is required if the `MessageConfiguration` object for the treatment specifies a `CustomMessage` object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-customdeliveryconfiguration
+	//
 	CustomDeliveryConfiguration interface{} `field:"optional" json:"customDeliveryConfiguration" yaml:"customDeliveryConfiguration"`
 	// A custom description of the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-holdoutpercent
+	//
 	HoldoutPercent *float64 `field:"optional" json:"holdoutPercent" yaml:"holdoutPercent"`
 	// Specifies whether to pause the campaign.
 	//
 	// A paused campaign doesn't run unless you resume it by changing this value to `false` . If you restart a campaign, the campaign restarts from the beginning and not at the point you paused it. If a campaign is running it will complete and then pause. Pause only pauses or skips the next run for a recurring future scheduled campaign. A campaign scheduled for immediate can't be paused.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-ispaused
+	//
 	IsPaused interface{} `field:"optional" json:"isPaused" yaml:"isPaused"`
 	// The messaging limits for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-limits
+	//
 	Limits interface{} `field:"optional" json:"limits" yaml:"limits"`
 	// The message configuration settings for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-messageconfiguration
+	//
 	MessageConfiguration interface{} `field:"optional" json:"messageConfiguration" yaml:"messageConfiguration"`
 	// An integer between 1 and 5, inclusive, that represents the priority of the in-app message campaign, where 1 is the highest priority and 5 is the lowest.
 	//
 	// If there are multiple messages scheduled to be displayed at the same time, the priority determines the order in which those messages are displayed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-priority
+	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The version of the segment to associate with the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-segmentversion
+	//
 	SegmentVersion *float64 `field:"optional" json:"segmentVersion" yaml:"segmentVersion"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-tags
+	//
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// The message template to use for the treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-templateconfiguration
+	//
 	TemplateConfiguration interface{} `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 	// A custom description of the default treatment for the campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-treatmentdescription
+	//
 	TreatmentDescription *string `field:"optional" json:"treatmentDescription" yaml:"treatmentDescription"`
 	// A custom name of the default treatment for the campaign, if the campaign has multiple treatments.
 	//
 	// A *treatment* is a variation of a campaign that's used for A/B testing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-treatmentname
+	//
 	TreatmentName *string `field:"optional" json:"treatmentName" yaml:"treatmentName"`
 }
 

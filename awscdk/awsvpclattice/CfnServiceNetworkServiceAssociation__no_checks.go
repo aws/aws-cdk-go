@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnServiceNetworkServiceAssociation) validateSetDnsEntryParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnServiceNetworkServiceAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnServiceNetworkServiceAssociationParameters(scope constructs.Construct, id *string, props *CfnServiceNetworkServiceAssociationProps) error {
 	return nil
 }

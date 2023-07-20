@@ -13,10 +13,16 @@ package awsiot
 //   	ThingName: jsii.String("thingName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
+//
 type CfnThingPrincipalAttachmentProps struct {
 	// The principal, which can be a certificate ARN (as returned from the `CreateCertificate` operation) or an Amazon Cognito ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal
+	//
 	Principal *string `field:"required" json:"principal" yaml:"principal"`
 	// The name of the AWS IoT thing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname
+	//
 	ThingName *string `field:"required" json:"thingName" yaml:"thingName"`
 }
 

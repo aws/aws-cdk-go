@@ -14,6 +14,8 @@ package awsdevicefarm
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-devicepool-rule.html
+//
 type CfnDevicePool_RuleProperty struct {
 	// The rule's stringified attribute. For example, specify the value as `"\"abc\""` .
 	//
@@ -60,12 +62,18 @@ type CfnDevicePool_RuleProperty struct {
 	// Supported operators: `EQUALS`
 	//
 	// Because remote debugging is [no longer supported](https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html) , this filter is ignored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-devicepool-rule.html#cfn-devicefarm-devicepool-rule-attribute
+	//
 	Attribute *string `field:"optional" json:"attribute" yaml:"attribute"`
 	// Specifies how Device Farm compares the rule's attribute to the value.
 	//
 	// For the operators that are supported by each attribute, see the attribute descriptions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-devicepool-rule.html#cfn-devicefarm-devicepool-rule-operator
+	//
 	Operator *string `field:"optional" json:"operator" yaml:"operator"`
 	// The rule's value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-devicepool-rule.html#cfn-devicefarm-devicepool-rule-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

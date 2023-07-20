@@ -12,8 +12,12 @@ package awsconnect
 //   	StreamArn: jsii.String("streamArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisstreamconfig.html
+//
 type CfnInstanceStorageConfig_KinesisStreamConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the data stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisstreamconfig.html#cfn-connect-instancestorageconfig-kinesisstreamconfig-streamarn
+	//
 	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 }
 

@@ -17,6 +17,8 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
+//
 type CfnOriginRequestPolicy_QueryStringsConfigProperty struct {
 	// Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin.
 	//
@@ -26,8 +28,12 @@ type CfnOriginRequestPolicy_QueryStringsConfigProperty struct {
 	// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
 	// - `all` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
 	// - `allExcept` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `QueryStringNames` type, which are not included.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
+	//
 	QueryStringBehavior *string `field:"required" json:"queryStringBehavior" yaml:"queryStringBehavior"`
 	// Contains a list of query string names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
+	//
 	QueryStrings *[]*string `field:"optional" json:"queryStrings" yaml:"queryStrings"`
 }
 

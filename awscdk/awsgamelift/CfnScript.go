@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GameLift::Script`.
+// The `AWS::GameLift::Script` resource creates a new script record for your Realtime Servers script.
 //
-// The `AWS::GameLift::Script` resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
+// Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,9 +39,12 @@ import (
 //   	Version: jsii.String("version"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html
+//
 type CfnScript interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique Amazon Resource Name (ARN) for the script.
 	AttrArn() *string
 	// A unique identifier for a Realtime script.
@@ -66,8 +69,6 @@ type CfnScript interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A descriptive label that is associated with a script.
-	//
-	// Script names do not need to be unique.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -82,14 +83,13 @@ type CfnScript interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored.
-	//
-	// The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the `ObjectVersion` parameter to specify an earlier version.
 	StorageLocation() interface{}
 	SetStorageLocation(val interface{})
-	// A list of labels to assign to the new script resource.
-	//
-	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of labels to assign to the new script resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -104,8 +104,6 @@ type CfnScript interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The version that is associated with a build or script.
-	//
-	// Version strings do not need to be unique.
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -239,6 +237,7 @@ type CfnScript interface {
 type jsiiProxy_CfnScript struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnScript) AttrArn() *string {
@@ -371,6 +370,16 @@ func (j *jsiiProxy_CfnScript) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScript) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScript) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -402,7 +411,6 @@ func (j *jsiiProxy_CfnScript) Version() *string {
 }
 
 
-// Create a new `AWS::GameLift::Script`.
 func NewCfnScript(scope constructs.Construct, id *string, props *CfnScriptProps) CfnScript {
 	_init_.Initialize()
 
@@ -420,7 +428,6 @@ func NewCfnScript(scope constructs.Construct, id *string, props *CfnScriptProps)
 	return &j
 }
 
-// Create a new `AWS::GameLift::Script`.
 func NewCfnScript_Override(c CfnScript, scope constructs.Construct, id *string, props *CfnScriptProps) {
 	_init_.Initialize()
 
@@ -446,6 +453,17 @@ func (j *jsiiProxy_CfnScript)SetStorageLocation(val interface{}) {
 	_jsii_.Set(
 		j,
 		"storageLocation",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScript)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

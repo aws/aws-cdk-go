@@ -49,8 +49,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sectionlayoutconfiguration.html
+//
 type CfnDashboard_SectionLayoutConfigurationProperty struct {
 	// The free-form layout configuration of a section.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sectionlayoutconfiguration.html#cfn-quicksight-dashboard-sectionlayoutconfiguration-freeformlayout
+	//
 	FreeFormLayout interface{} `field:"required" json:"freeFormLayout" yaml:"freeFormLayout"`
 }
 

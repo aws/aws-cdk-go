@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Location::TrackerConsumer`.
+// The `AWS::Location::TrackerConsumer` resource specifies an association between a geofence collection and a tracker resource.
 //
-// The `AWS::Location::TrackerConsumer` resource specifies an association between a geofence collection and a tracker resource. The geofence collection is referred to as the *consumer* of the tracker. This allows the tracker resource to communicate location data to the linked geofence collection.
+// The geofence collection is referred to as the *consumer* of the tracker. This allows the tracker resource to communicate location data to the linked geofence collection.
 //
 // > Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.
 //
@@ -25,6 +25,8 @@ import (
 //   	TrackerName: jsii.String("trackerName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html
+//
 type CfnTrackerConsumer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -34,10 +36,6 @@ type CfnTrackerConsumer interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource.
-	//
-	// Used when you need to specify a resource across all AWS .
-	//
-	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`.
 	ConsumerArn() *string
 	SetConsumerArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -66,12 +64,6 @@ type CfnTrackerConsumer interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name for the tracker resource.
-	//
-	// Requirements:
-	//
-	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
-	// - Must be a unique tracker resource name.
-	// - No spaces allowed. For example, `ExampleTracker` .
 	TrackerName() *string
 	SetTrackerName(val *string)
 	// Deprecated.
@@ -341,7 +333,6 @@ func (j *jsiiProxy_CfnTrackerConsumer) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::Location::TrackerConsumer`.
 func NewCfnTrackerConsumer(scope constructs.Construct, id *string, props *CfnTrackerConsumerProps) CfnTrackerConsumer {
 	_init_.Initialize()
 
@@ -359,7 +350,6 @@ func NewCfnTrackerConsumer(scope constructs.Construct, id *string, props *CfnTra
 	return &j
 }
 
-// Create a new `AWS::Location::TrackerConsumer`.
 func NewCfnTrackerConsumer_Override(c CfnTrackerConsumer, scope constructs.Construct, id *string, props *CfnTrackerConsumerProps) {
 	_init_.Initialize()
 

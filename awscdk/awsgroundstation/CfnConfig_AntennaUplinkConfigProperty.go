@@ -23,14 +23,22 @@ package awsgroundstation
 //   	TransmitDisabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html
+//
 type CfnConfig_AntennaUplinkConfigProperty struct {
 	// Defines the spectrum configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-spectrumconfig
+	//
 	SpectrumConfig interface{} `field:"optional" json:"spectrumConfig" yaml:"spectrumConfig"`
 	// The equivalent isotropically radiated power (EIRP) to use for uplink transmissions.
 	//
 	// Valid values are between 20.0 to 50.0 dBW.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-targeteirp
+	//
 	TargetEirp interface{} `field:"optional" json:"targetEirp" yaml:"targetEirp"`
 	// Whether or not uplink transmit is disabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled
+	//
 	TransmitDisabled interface{} `field:"optional" json:"transmitDisabled" yaml:"transmitDisabled"`
 }
 

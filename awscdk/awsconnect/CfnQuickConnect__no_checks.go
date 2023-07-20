@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnQuickConnect) validateSetQuickConnectConfigParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnQuickConnect) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnQuickConnectParameters(scope constructs.Construct, id *string, props *CfnQuickConnectProps) error {
 	return nil
 }

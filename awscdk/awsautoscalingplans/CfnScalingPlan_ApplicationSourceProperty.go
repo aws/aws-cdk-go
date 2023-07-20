@@ -22,10 +22,14 @@ package awsautoscalingplans
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html
+//
 type CfnScalingPlan_ApplicationSourceProperty struct {
 	// The Amazon Resource Name (ARN) of a CloudFormation stack.
 	//
 	// You must specify either a `CloudFormationStackARN` or `TagFilters` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html#cfn-autoscalingplans-scalingplan-applicationsource-cloudformationstackarn
+	//
 	CloudFormationStackArn *string `field:"optional" json:"cloudFormationStackArn" yaml:"cloudFormationStackArn"`
 	// A set of tag filters (keys and values).
 	//
@@ -34,6 +38,8 @@ type CfnScalingPlan_ApplicationSourceProperty struct {
 	// Tags are part of the syntax that you use to specify the resources you want returned when configuring a scaling plan from the AWS Auto Scaling console. You do not need to specify valid tag filter values when you create a scaling plan with CloudFormation. The `Key` and `Values` properties can accept any value as long as the combination of values is unique across scaling plans. However, if you also want to use the AWS Auto Scaling console to edit the scaling plan, then you must specify valid values.
 	//
 	// You must specify either a `CloudFormationStackARN` or `TagFilters` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html#cfn-autoscalingplans-scalingplan-applicationsource-tagfilters
+	//
 	TagFilters interface{} `field:"optional" json:"tagFilters" yaml:"tagFilters"`
 }
 

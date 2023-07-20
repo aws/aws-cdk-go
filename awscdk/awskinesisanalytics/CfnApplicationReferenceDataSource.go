@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::KinesisAnalytics::ApplicationReferenceDataSource`.
-//
 // Adds a reference data source to an existing application.
 //
 // Amazon Kinesis Analytics reads reference data (that is, an Amazon S3 object) and creates an in-application table within your application. In the request, you provide the source (S3 bucket name and object key name), name of the in-application table to create, and the necessary mapping information that describes how data in Amazon S3 object maps to columns in the resulting in-application table.
@@ -66,12 +64,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html
+//
 type CfnApplicationReferenceDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Name of an existing application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -99,8 +100,6 @@ type CfnApplicationReferenceDataSource interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The reference data source can be an object in your Amazon S3 bucket.
-	//
-	// Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.
 	ReferenceDataSource() interface{}
 	SetReferenceDataSource(val interface{})
 	// The stack in which this element is defined.
@@ -263,6 +262,16 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSource) ApplicationName() *string 
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplicationReferenceDataSource) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplicationReferenceDataSource) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -374,7 +383,6 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSource) UpdatedProperties() *map[s
 }
 
 
-// Create a new `AWS::KinesisAnalytics::ApplicationReferenceDataSource`.
 func NewCfnApplicationReferenceDataSource(scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceProps) CfnApplicationReferenceDataSource {
 	_init_.Initialize()
 
@@ -392,7 +400,6 @@ func NewCfnApplicationReferenceDataSource(scope constructs.Construct, id *string
 	return &j
 }
 
-// Create a new `AWS::KinesisAnalytics::ApplicationReferenceDataSource`.
 func NewCfnApplicationReferenceDataSource_Override(c CfnApplicationReferenceDataSource, scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceProps) {
 	_init_.Initialize()
 

@@ -9,16 +9,21 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPCCidrBlock`.
+// Associates a CIDR block with your VPC.
 //
-// Associates a CIDR block with your VPC. You can only associate a single IPv6 CIDR block with your VPC. The IPv6 CIDR block size is fixed at /56.
+// You can only associate a single IPv6 CIDR block with your VPC. The IPv6 CIDR block size is fixed at /56.
 //
 // For more information about associating CIDR blocks with your VPC and applicable restrictions, see [VPC and Subnet Sizing](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing) in the *Amazon VPC User Guide* .
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
+//
+//   func associateSubnetWithV6Cidr(vpc *vpc, count *f64, subnet iSubnet) {
+//   	cfnSubnet := *subnet.Node.defaultChild.(cfnSubnet)
+//   	cfnSubnet.Ipv6CidrBlock = awscdk.Fn_Select(count, awscdk.Fn_Cidr(awscdk.Fn_Select(jsii.Number(0), vpc.VpcIpv6CidrBlocks), jsii.Number(256), (jsii.Number(128 - 64)).toString()))
+//   	cfnSubnet.AssignIpv6AddressOnCreation = true
+//   }
 //
 //   // make an ipv6 cidr
 //   ipv6cidr := ec2.NewCfnVPCCidrBlock(this, jsii.String("CIDR6"), &CfnVPCCidrBlockProps{
@@ -28,40 +33,34 @@ import (
 //
 //   // connect the ipv6 cidr to all vpc subnets
 //   subnetcount := 0
-//   subnets := []iSubnet{
-//   	(SpreadElement ...vpc.publicSubnets
-//   			vpc.PublicSubnets),
-//   	(SpreadElement ...vpc.privateSubnets
-//   			vpc.PrivateSubnets),
-//   }
+//   subnets := vpc.PublicSubnets.concat(vpc.PrivateSubnets)
 //   for _, subnet := range subnets {
 //   	// Wait for the ipv6 cidr to complete
 //   	subnet.Node.AddDependency(ipv6cidr)
-//   	this._associate_subnet_with_v6_cidr(subnetcount, subnet)
-//   	subnetcount++
+//   	associateSubnetWithV6Cidr(vpc, subnetcount, subnet)
+//   	subnetcount = subnetcount + 1
 //   }
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+//   	Version: eks.KubernetesVersion_V1_27(),
 //   	Vpc: vpc,
 //   	IpFamily: eks.IpFamily_IP_V6,
 //   	VpcSubnets: []subnetSelection{
 //   		&subnetSelection{
-//   			Subnets: []*iSubnet{
-//   				(SpreadElement ...vpc.publicSubnets
-//   						vpc.*PublicSubnets),
-//   			},
+//   			Subnets: vpc.*PublicSubnets,
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
 //
 type CfnVPCCidrBlock interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
-	//
-	// You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
 	AmazonProvidedIpv6CidrBlock() interface{}
 	SetAmazonProvidedIpv6CidrBlock(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -75,28 +74,20 @@ type CfnVPCCidrBlock interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Associate a CIDR allocated from an IPv4 IPAM pool to a VPC.
-	//
-	// For more information about Amazon VPC IP Address Manager (IPAM), see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	Ipv4IpamPoolId() *string
 	SetIpv4IpamPoolId(val *string)
 	// The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
-	//
-	// For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	Ipv4NetmaskLength() *float64
 	SetIpv4NetmaskLength(val *float64)
-	// An IPv6 CIDR block from the IPv6 address pool. You must also specify `Ipv6Pool` in the request.
+	// An IPv6 CIDR block from the IPv6 address pool.
 	//
-	// To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+	// You must also specify `Ipv6Pool` in the request.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
 	// Associates a CIDR allocated from an IPv6 IPAM pool to a VPC.
-	//
-	// For more information about Amazon VPC IP Address Manager (IPAM), see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	Ipv6IpamPoolId() *string
 	SetIpv6IpamPoolId(val *string)
 	// The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
-	//
-	// For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	Ipv6NetmaskLength() *float64
 	SetIpv6NetmaskLength(val *float64)
 	// The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
@@ -277,6 +268,16 @@ func (j *jsiiProxy_CfnVPCCidrBlock) AmazonProvidedIpv6CidrBlock() interface{} {
 	_jsii_.Get(
 		j,
 		"amazonProvidedIpv6CidrBlock",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -463,7 +464,6 @@ func (j *jsiiProxy_CfnVPCCidrBlock) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::VPCCidrBlock`.
 func NewCfnVPCCidrBlock(scope constructs.Construct, id *string, props *CfnVPCCidrBlockProps) CfnVPCCidrBlock {
 	_init_.Initialize()
 
@@ -481,7 +481,6 @@ func NewCfnVPCCidrBlock(scope constructs.Construct, id *string, props *CfnVPCCid
 	return &j
 }
 
-// Create a new `AWS::EC2::VPCCidrBlock`.
 func NewCfnVPCCidrBlock_Override(c CfnVPCCidrBlock, scope constructs.Construct, id *string, props *CfnVPCCidrBlockProps) {
 	_init_.Initialize()
 

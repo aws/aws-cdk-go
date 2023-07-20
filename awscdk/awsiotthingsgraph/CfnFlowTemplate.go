@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTThingsGraph::FlowTemplate`.
+// Resource Type definition for AWS::IoTThingsGraph::FlowTemplate.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,22 +26,23 @@ import (
 //   	CompatibleNamespaceVersion: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html
+//
 type CfnFlowTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::IoTThingsGraph::FlowTemplate.CompatibleNamespaceVersion`.
 	CompatibleNamespaceVersion() *float64
 	SetCompatibleNamespaceVersion(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IoTThingsGraph::FlowTemplate.Definition`.
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -211,6 +212,16 @@ type jsiiProxy_CfnFlowTemplate struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnFlowTemplate) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowTemplate) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -332,7 +343,6 @@ func (j *jsiiProxy_CfnFlowTemplate) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::IoTThingsGraph::FlowTemplate`.
 func NewCfnFlowTemplate(scope constructs.Construct, id *string, props *CfnFlowTemplateProps) CfnFlowTemplate {
 	_init_.Initialize()
 
@@ -350,7 +360,6 @@ func NewCfnFlowTemplate(scope constructs.Construct, id *string, props *CfnFlowTe
 	return &j
 }
 
-// Create a new `AWS::IoTThingsGraph::FlowTemplate`.
 func NewCfnFlowTemplate_Override(c CfnFlowTemplate, scope constructs.Construct, id *string, props *CfnFlowTemplateProps) {
 	_init_.Initialize()
 

@@ -24,26 +24,38 @@ package awslakeformation
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html
+//
 type CfnPermissions_TableWithColumnsResourceProperty struct {
 	// The identifier for the Data Catalog .
 	//
 	// By default, it is the account ID of the caller.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-catalogid
+	//
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The list of column names for the table.
 	//
 	// At least one of `ColumnNames` or `ColumnWildcard` is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnnames
+	//
 	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
 	// A wildcard specified by a `ColumnWildcard` object.
 	//
 	// At least one of `ColumnNames` or `ColumnWildcard` is required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnwildcard
+	//
 	ColumnWildcard interface{} `field:"optional" json:"columnWildcard" yaml:"columnWildcard"`
 	// The name of the database for the table with columns resource.
 	//
 	// Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-databasename
+	//
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// The name of the table resource.
 	//
 	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

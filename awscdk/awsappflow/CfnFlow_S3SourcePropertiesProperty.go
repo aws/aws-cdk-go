@@ -18,12 +18,20 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html
+//
 type CfnFlow_S3SourcePropertiesProperty struct {
 	// The Amazon S3 bucket name where the source files are stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketname
+	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketprefix
+	//
 	BucketPrefix *string `field:"required" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-s3inputformatconfig
+	//
 	S3InputFormatConfig interface{} `field:"optional" json:"s3InputFormatConfig" yaml:"s3InputFormatConfig"`
 }
 

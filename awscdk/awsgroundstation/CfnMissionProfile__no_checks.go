@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnMissionProfile) validateSetStreamsKmsKeyParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnMissionProfile) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMissionProfile) validateSetTrackingConfigArnParameters(val *string) error {
 	return nil
 }

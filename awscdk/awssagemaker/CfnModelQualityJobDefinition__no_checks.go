@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetStoppingConditionPar
 	return nil
 }
 
+func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnModelQualityJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnModelQualityJobDefinitionProps) error {
 	return nil
 }

@@ -247,14 +247,6 @@ func (j *jsiiProxy_CfnConformancePack) validateSetConformancePackNameParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnConformancePack) validateSetTemplateSsmDocumentDetailsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnConformancePackParameters(scope constructs.Construct, id *string, props *CfnConformancePackProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SQS::QueuePolicy`.
+// The `AWS::SQS::QueuePolicy` type applies a policy to Amazon SQS queues.
 //
-// The `AWS::SQS::QueuePolicy` type applies a policy to Amazon SQS queues. For an example snippet, see [Declaring an Amazon SQS policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *AWS CloudFormation User Guide* .
+// For an example snippet, see [Declaring an Amazon SQS policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *AWS CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,9 +27,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html
+//
 type CfnQueuePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -52,13 +55,9 @@ type CfnQueuePolicy interface {
 	// The tree node.
 	Node() constructs.Node
 	// A policy document that contains the permissions for the specified Amazon SQS queues.
-	//
-	// For more information about Amazon SQS policies, see [Using custom policies with the Amazon SQS access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Amazon SQS Developer Guide* .
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	// The URLs of the queues to which you want to add the policy.
-	//
-	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SQS::Queue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html)` resource.
 	Queues() *[]*string
 	SetQueues(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -216,6 +215,16 @@ type jsiiProxy_CfnQueuePolicy struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnQueuePolicy) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueuePolicy) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -337,7 +346,6 @@ func (j *jsiiProxy_CfnQueuePolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SQS::QueuePolicy`.
 func NewCfnQueuePolicy(scope constructs.Construct, id *string, props *CfnQueuePolicyProps) CfnQueuePolicy {
 	_init_.Initialize()
 
@@ -355,7 +363,6 @@ func NewCfnQueuePolicy(scope constructs.Construct, id *string, props *CfnQueuePo
 	return &j
 }
 
-// Create a new `AWS::SQS::QueuePolicy`.
 func NewCfnQueuePolicy_Override(c CfnQueuePolicy, scope constructs.Construct, id *string, props *CfnQueuePolicyProps) {
 	_init_.Initialize()
 

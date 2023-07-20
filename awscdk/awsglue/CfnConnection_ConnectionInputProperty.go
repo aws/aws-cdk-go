@@ -29,6 +29,8 @@ package awsglue
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html
+//
 type CfnConnection_ConnectionInputProperty struct {
 	// The type of the connection. Currently, these types are supported:.
 	//
@@ -71,18 +73,30 @@ type CfnConnection_ConnectionInputProperty struct {
 	// For more information about how optional ConnectionProperties are used to configure features in AWS Glue , consult [AWS Glue connection properties](https://docs.aws.amazon.com/glue/latest/dg/connection-defining.html) .
 	//
 	// For more information about how optional ConnectionProperties are used to configure features in AWS Glue Studio, consult [Using connectors and connections](https://docs.aws.amazon.com/glue/latest/ug/connectors-chapter.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
+	//
 	ConnectionType *string `field:"required" json:"connectionType" yaml:"connectionType"`
 	// These key-value pairs define parameters for the connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
+	//
 	ConnectionProperties interface{} `field:"optional" json:"connectionProperties" yaml:"connectionProperties"`
 	// The description of the connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A list of criteria that can be used in selecting this connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria
+	//
 	MatchCriteria *[]*string `field:"optional" json:"matchCriteria" yaml:"matchCriteria"`
 	// The name of the connection.
 	//
 	// Connection will not function as expected without a name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A map of physical connection requirements, such as virtual private cloud (VPC) and `SecurityGroup` , that are needed to successfully make this connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
+	//
 	PhysicalConnectionRequirements interface{} `field:"optional" json:"physicalConnectionRequirements" yaml:"physicalConnectionRequirements"`
 }
 

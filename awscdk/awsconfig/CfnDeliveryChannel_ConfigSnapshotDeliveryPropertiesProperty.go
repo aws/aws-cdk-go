@@ -30,8 +30,12 @@ package awsconfig
 //   	DeliveryFrequency: jsii.String("deliveryFrequency"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
+//
 type CfnDeliveryChannel_ConfigSnapshotDeliveryPropertiesProperty struct {
 	// The frequency with which AWS Config delivers configuration snapshots.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency
+	//
 	DeliveryFrequency *string `field:"optional" json:"deliveryFrequency" yaml:"deliveryFrequency"`
 }
 

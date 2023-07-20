@@ -26,8 +26,12 @@ package awsdevopsguru
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
+//
 type CfnResourceCollectionProps struct {
 	// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
+	//
 	ResourceCollectionFilter interface{} `field:"required" json:"resourceCollectionFilter" yaml:"resourceCollectionFilter"`
 }
 

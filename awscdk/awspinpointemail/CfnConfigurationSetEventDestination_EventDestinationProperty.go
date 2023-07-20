@@ -38,32 +38,46 @@ package awspinpointemail
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html
+//
 type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
 	// The types of events that Amazon Pinpoint sends to the specified event destinations.
 	//
 	// Acceptable values: `SEND` , `REJECT` , `BOUNCE` , `COMPLAINT` , `DELIVERY` , `OPEN` , `CLICK` , and `RENDERING_FAILURE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-matchingeventtypes
+	//
 	MatchingEventTypes *[]*string `field:"required" json:"matchingEventTypes" yaml:"matchingEventTypes"`
 	// An object that defines an Amazon CloudWatch destination for email events.
 	//
 	// You can use Amazon CloudWatch to monitor and gain insights on your email sending metrics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-cloudwatchdestination
+	//
 	CloudWatchDestination interface{} `field:"optional" json:"cloudWatchDestination" yaml:"cloudWatchDestination"`
 	// If `true` , the event destination is enabled.
 	//
 	// When the event destination is enabled, the specified event types are sent to the destinations in this `EventDestinationDefinition` .
 	//
 	// If `false` , the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// An object that defines an Amazon Kinesis Data Firehose destination for email events.
 	//
 	// You can use Amazon Kinesis Data Firehose to stream data to other services, such as Amazon S3 and Amazon Redshift.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-kinesisfirehosedestination
+	//
 	KinesisFirehoseDestination interface{} `field:"optional" json:"kinesisFirehoseDestination" yaml:"kinesisFirehoseDestination"`
 	// An object that defines a Amazon Pinpoint destination for email events.
 	//
 	// You can use Amazon Pinpoint events to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments for your campaigns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-pinpointdestination
+	//
 	PinpointDestination interface{} `field:"optional" json:"pinpointDestination" yaml:"pinpointDestination"`
 	// An object that defines an Amazon SNS destination for email events.
 	//
 	// You can use Amazon SNS to send notification when certain email events occur.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-snsdestination
+	//
 	SnsDestination interface{} `field:"optional" json:"snsDestination" yaml:"snsDestination"`
 }
 

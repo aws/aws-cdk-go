@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppFlow::Flow`.
-//
 // The `AWS::AppFlow::Flow` resource is an Amazon AppFlow resource type that specifies a new flow.
 //
 // > If you want to use AWS CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
@@ -200,6 +198,10 @@ import (
 //   				CustomProperties: map[string]*string{
 //   					"customPropertiesKey": jsii.String("customProperties"),
 //   				},
+//   				DataTransferApi: &DataTransferApiProperty{
+//   					Name: jsii.String("name"),
+//   					Type: jsii.String("type"),
+//   				},
 //   			},
 //   			Datadog: &DatadogSourcePropertiesProperty{
 //   				Object: jsii.String("object"),
@@ -345,9 +347,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
+//
 type CfnFlow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The flow's Amazon Resource Name (ARN).
 	AttrFlowArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -366,21 +371,14 @@ type CfnFlow interface {
 	DestinationFlowConfigList() interface{}
 	SetDestinationFlowConfigList(val interface{})
 	// The specified name of the flow.
-	//
-	// Spaces are not allowed. Use underscores (_) or hyphens (-) only.
 	FlowName() *string
 	SetFlowName(val *string)
-	// Sets the status of the flow. You can specify one of the following values:.
+	// Sets the status of the flow.
 	//
-	// - **Active** - The flow runs based on the trigger settings that you defined. Active scheduled flows run as scheduled, and active event-triggered flows run when the specified change event occurs. However, active on-demand flows run only when you manually start them by using Amazon AppFlow.
-	// - **Suspended** - You can use this option to deactivate an active flow. Scheduled and event-triggered flows will cease to run until you reactive them. This value only affects scheduled and event-triggered flows. It has no effect for on-demand flows.
-	//
-	// If you omit the FlowStatus parameter, Amazon AppFlow creates the flow with a default status. The default status for on-demand flows is Active. The default status for scheduled and event-triggered flows is Draft, which means they’re not yet active.
+	// You can specify one of the following values:.
 	FlowStatus() *string
 	SetFlowStatus(val *string)
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
-	//
-	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn() *string
 	SetKmsArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -393,7 +391,7 @@ type CfnFlow interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::AppFlow::Flow.MetadataCatalogConfig`.
+	// Configurations of metadata catalog of the flow.
 	MetadataCatalogConfig() interface{}
 	SetMetadataCatalogConfig(val interface{})
 	// The tree node.
@@ -410,8 +408,11 @@ type CfnFlow interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for your flow.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for your flow.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
 	Tasks() interface{}
 	SetTasks(val interface{})
@@ -562,6 +563,7 @@ type CfnFlow interface {
 type jsiiProxy_CfnFlow struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFlow) AttrFlowArn() *string {
@@ -734,6 +736,16 @@ func (j *jsiiProxy_CfnFlow) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlow) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlow) Tasks() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -775,7 +787,6 @@ func (j *jsiiProxy_CfnFlow) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppFlow::Flow`.
 func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) CfnFlow {
 	_init_.Initialize()
 
@@ -793,7 +804,6 @@ func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::AppFlow::Flow`.
 func NewCfnFlow_Override(c CfnFlow, scope constructs.Construct, id *string, props *CfnFlowProps) {
 	_init_.Initialize()
 
@@ -868,6 +878,17 @@ func (j *jsiiProxy_CfnFlow)SetSourceFlowConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceFlowConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlow)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

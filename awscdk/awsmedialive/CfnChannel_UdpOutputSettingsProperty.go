@@ -85,18 +85,28 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html
+//
 type CfnChannel_UdpOutputSettingsProperty struct {
 	// The UDP output buffering in milliseconds.
 	//
 	// Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, and so on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-buffermsec
+	//
 	BufferMsec *float64 `field:"optional" json:"bufferMsec" yaml:"bufferMsec"`
 	// The settings for the UDP output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-containersettings
+	//
 	ContainerSettings interface{} `field:"optional" json:"containerSettings" yaml:"containerSettings"`
 	// The destination address and port number for RTP or UDP packets.
 	//
 	// These can be unicast or multicast RTP or UDP (for example, rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-destination
+	//
 	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
 	// The settings for enabling and adjusting Forward Error Correction on UDP outputs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-fecoutputsettings
+	//
 	FecOutputSettings interface{} `field:"optional" json:"fecOutputSettings" yaml:"fecOutputSettings"`
 }
 

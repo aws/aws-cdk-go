@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Transfer::Connector`.
+// Creates the connector, which captures the parameters for an outbound connection for the AS2 protocol.
 //
-// Creates the connector, which captures the parameters for an outbound connection for the AS2 protocol. The connector is required for sending files to an externally hosted AS2 server. For more details about connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector) .
+// The connector is required for sending files to an externally hosted AS2 server. For more details about connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,20 +35,21 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html
+//
 type CfnConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// With AS2, you can send files by calling `StartFileTransfer` and specifying the file paths in the request parameter, `SendFilePaths` .
-	//
-	// We use the file’s parent directory (for example, for `--send-file-paths /bucket/dir/file.txt` , parent directory is `/bucket/dir/` ) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the `AccessRole` needs to provide read and write access to the parent directory of the file location used in the `StartFileTransfer` request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with `StartFileTransfer` .
-	//
-	// If you are using Basic authentication for your AS2 connector, the access role requires the `secretsmanager:GetSecretValue` permission for the secret. If the secret is encrypted using a customer-managed key instead of the AWS managed key in Secrets Manager, then the role also needs the `kms:Decrypt` permission for that key.
 	AccessRole() *string
 	SetAccessRole(val *string)
 	// A structure that contains the parameters for a connector object.
 	As2Config() interface{}
 	SetAs2Config(val interface{})
+	// Specifies the unique Amazon Resource Name (ARN) for the workflow.
 	AttrArn() *string
+	// A unique identifier for the connector.
 	AttrConnectorId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -60,8 +61,6 @@ type CfnConnector interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
-	//
-	// When set, you can view connector activity in your CloudWatch logs.
 	LoggingRole() *string
 	SetLoggingRole(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -85,8 +84,11 @@ type CfnConnector interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key-value pairs that can be used to group and search for connectors.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs that can be used to group and search for connectors.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +236,7 @@ type CfnConnector interface {
 type jsiiProxy_CfnConnector struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnConnector) AccessRole() *string {
@@ -376,6 +379,16 @@ func (j *jsiiProxy_CfnConnector) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnector) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnector) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -407,7 +420,6 @@ func (j *jsiiProxy_CfnConnector) Url() *string {
 }
 
 
-// Create a new `AWS::Transfer::Connector`.
 func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnectorProps) CfnConnector {
 	_init_.Initialize()
 
@@ -425,7 +437,6 @@ func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnector
 	return &j
 }
 
-// Create a new `AWS::Transfer::Connector`.
 func NewCfnConnector_Override(c CfnConnector, scope constructs.Construct, id *string, props *CfnConnectorProps) {
 	_init_.Initialize()
 
@@ -462,6 +473,17 @@ func (j *jsiiProxy_CfnConnector)SetLoggingRole(val *string) {
 	_jsii_.Set(
 		j,
 		"loggingRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnector)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

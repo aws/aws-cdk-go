@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnExecutionPlan) validateSetNameParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnExecutionPlan) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnExecutionPlanParameters(scope constructs.Construct, id *string, props *CfnExecutionPlanProps) error {
 	return nil
 }

@@ -33,12 +33,18 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html
+//
 type CfnChannel_StandardHlsSettingsProperty struct {
 	// Lists all the audio groups that are used with the video output stream.
 	//
 	// This inputs all the audio GROUP-IDs that are associated with the video, separated by a comma (,).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html#cfn-medialive-channel-standardhlssettings-audiorenditionsets
+	//
 	AudioRenditionSets *string `field:"optional" json:"audioRenditionSets" yaml:"audioRenditionSets"`
 	// Settings for the M3U8 container.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html#cfn-medialive-channel-standardhlssettings-m3u8settings
+	//
 	M3U8Settings interface{} `field:"optional" json:"m3U8Settings" yaml:"m3U8Settings"`
 }
 

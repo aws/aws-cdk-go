@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElastiCache::UserGroup`.
-//
-// For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see [Using Role Based Access Control (RBAC)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
+// For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see [Using Role Based Access Control (RBAC)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
+//
 type CfnUserGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the user group.
 	AttrArn() *string
 	// Indicates user group status.
@@ -76,8 +77,11 @@ type CfnUserGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::ElastiCache::UserGroup.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this user.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -95,8 +99,6 @@ type CfnUserGroup interface {
 	UserGroupId() *string
 	SetUserGroupId(val *string)
 	// The list of user IDs that belong to the user group.
-	//
-	// A user named `default` must be included.
 	UserIds() *[]*string
 	SetUserIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -230,6 +232,7 @@ type CfnUserGroup interface {
 type jsiiProxy_CfnUserGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnUserGroup) AttrArn() *string {
@@ -352,6 +355,16 @@ func (j *jsiiProxy_CfnUserGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -393,7 +406,6 @@ func (j *jsiiProxy_CfnUserGroup) UserIds() *[]*string {
 }
 
 
-// Create a new `AWS::ElastiCache::UserGroup`.
 func NewCfnUserGroup(scope constructs.Construct, id *string, props *CfnUserGroupProps) CfnUserGroup {
 	_init_.Initialize()
 
@@ -411,7 +423,6 @@ func NewCfnUserGroup(scope constructs.Construct, id *string, props *CfnUserGroup
 	return &j
 }
 
-// Create a new `AWS::ElastiCache::UserGroup`.
 func NewCfnUserGroup_Override(c CfnUserGroup, scope constructs.Construct, id *string, props *CfnUserGroupProps) {
 	_init_.Initialize()
 
@@ -429,6 +440,17 @@ func (j *jsiiProxy_CfnUserGroup)SetEngine(val *string) {
 	_jsii_.Set(
 		j,
 		"engine",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

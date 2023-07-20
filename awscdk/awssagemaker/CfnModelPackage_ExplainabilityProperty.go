@@ -18,8 +18,12 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-explainability.html
+//
 type CfnModelPackage_ExplainabilityProperty struct {
 	// The explainability report for a model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-explainability.html#cfn-sagemaker-modelpackage-explainability-report
+	//
 	Report interface{} `field:"optional" json:"report" yaml:"report"`
 }
 

@@ -16,16 +16,24 @@ package awsec2
 //   	VpnGatewayId: jsii.String("vpnGatewayId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html
+//
 type CfnVPCGatewayAttachmentProps struct {
 	// The ID of the VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html#cfn-ec2-vpcgatewayattachment-vpcid
+	//
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The ID of the internet gateway.
 	//
 	// You must specify either `InternetGatewayId` or `VpnGatewayId` , but not both.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html#cfn-ec2-vpcgatewayattachment-internetgatewayid
+	//
 	InternetGatewayId *string `field:"optional" json:"internetGatewayId" yaml:"internetGatewayId"`
 	// The ID of the virtual private gateway.
 	//
 	// You must specify either `InternetGatewayId` or `VpnGatewayId` , but not both.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html#cfn-ec2-vpcgatewayattachment-vpngatewayid
+	//
 	VpnGatewayId *string `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
 }
 

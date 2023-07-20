@@ -12,8 +12,12 @@ package awscloudfront
 //   	Header: jsii.String("header"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheader.html
+//
 type CfnResponseHeadersPolicy_RemoveHeaderProperty struct {
 	// The HTTP header name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheader.html#cfn-cloudfront-responseheaderspolicy-removeheader-header
+	//
 	Header *string `field:"required" json:"header" yaml:"header"`
 }
 

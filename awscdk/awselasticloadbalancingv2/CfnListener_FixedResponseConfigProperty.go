@@ -16,14 +16,22 @@ package awselasticloadbalancingv2
 //   	MessageBody: jsii.String("messageBody"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html
+//
 type CfnListener_FixedResponseConfigProperty struct {
 	// The HTTP response code (2XX, 4XX, or 5XX).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-statuscode
+	//
 	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The content type.
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-contenttype
+	//
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-messagebody
+	//
 	MessageBody *string `field:"optional" json:"messageBody" yaml:"messageBody"`
 }
 

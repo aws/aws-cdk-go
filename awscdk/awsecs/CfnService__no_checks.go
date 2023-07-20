@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnService) validateSetServiceRegistriesParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnServiceParameters(scope constructs.Construct, id *string, props *CfnServiceProps) error {
 	return nil
 }

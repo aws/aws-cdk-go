@@ -33,20 +33,34 @@ package awsssmincidents
 //   	TargetAccount: jsii.String("targetAccount"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html
+//
 type CfnResponsePlan_SsmAutomationProperty struct {
 	// The automation document's name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentname
+	//
 	DocumentName *string `field:"required" json:"documentName" yaml:"documentName"`
 	// The Amazon Resource Name (ARN) of the role that the automation document will assume when running commands.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The automation document's version to use when running.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion
+	//
 	DocumentVersion *string `field:"optional" json:"documentVersion" yaml:"documentVersion"`
 	// The key-value pairs to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-dynamicparameters
+	//
 	DynamicParameters interface{} `field:"optional" json:"dynamicParameters" yaml:"dynamicParameters"`
 	// The key-value pair parameters to use when running the automation document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
+	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The account that the automation document will be run in.
 	//
 	// This can be in either the management account or an application account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-targetaccount
+	//
 	TargetAccount *string `field:"optional" json:"targetAccount" yaml:"targetAccount"`
 }
 

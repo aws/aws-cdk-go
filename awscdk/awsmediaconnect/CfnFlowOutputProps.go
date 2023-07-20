@@ -38,46 +38,76 @@ package awsmediaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html
+//
 type CfnFlowOutputProps struct {
 	// The Amazon Resource Name (ARN) of the flow this output is attached to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
+	//
 	FlowArn *string `field:"required" json:"flowArn" yaml:"flowArn"`
 	// The protocol to use for the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
+	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// The range of IP addresses that are allowed to initiate output requests to this flow.
 	//
 	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
+	//
 	CidrAllowList *[]*string `field:"optional" json:"cidrAllowList" yaml:"cidrAllowList"`
 	// A description of the output.
 	//
 	// This description is not visible outside of the current AWS account even if the account grants entitlements to other accounts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The IP address where you want to send the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-destination
+	//
 	Destination *string `field:"optional" json:"destination" yaml:"destination"`
 	// The encryption credentials that you want to use for the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
+	//
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// The maximum latency in milliseconds.
 	//
 	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
+	//
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`
 	// The minimum latency in milliseconds for SRT-based streams.
 	//
 	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-minlatency
+	//
 	MinLatency *float64 `field:"optional" json:"minLatency" yaml:"minLatency"`
 	// The name of the VPC interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The port to use when MediaConnect distributes content to the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The identifier that is assigned to the Zixi receiver.
 	//
 	// This parameter applies only to outputs that use Zixi pull.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
+	//
 	RemoteId *string `field:"optional" json:"remoteId" yaml:"remoteId"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
+	//
 	SmoothingLatency *float64 `field:"optional" json:"smoothingLatency" yaml:"smoothingLatency"`
 	// The stream ID that you want to use for this transport.
 	//
 	// This parameter applies only to Zixi and SRT caller-based streams.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
+	//
 	StreamId *string `field:"optional" json:"streamId" yaml:"streamId"`
 	// The VPC interface that you want to send your output to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
+	//
 	VpcInterfaceAttachment interface{} `field:"optional" json:"vpcInterfaceAttachment" yaml:"vpcInterfaceAttachment"`
 }
 

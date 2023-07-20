@@ -12,8 +12,12 @@ package awsbillingconductor
 //   	PricingPlanArn: jsii.String("pricingPlanArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-computationpreference.html
+//
 type CfnBillingGroup_ComputationPreferenceProperty struct {
 	// The Amazon Resource Name (ARN) of the pricing plan used to compute the AWS charges for a billing group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-computationpreference.html#cfn-billingconductor-billinggroup-computationpreference-pricingplanarn
+	//
 	PricingPlanArn *string `field:"required" json:"pricingPlanArn" yaml:"pricingPlanArn"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::AcceptedPortfolioShare`.
-//
 // Accepts an offer to share the specified portfolio.
 //
 // Example:
@@ -25,15 +23,15 @@ import (
 //   	AcceptLanguage: jsii.String("acceptLanguage"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html
+//
 type CfnAcceptedPortfolioShare interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -223,6 +221,16 @@ func (j *jsiiProxy_CfnAcceptedPortfolioShare) AcceptLanguage() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAcceptedPortfolioShare) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAcceptedPortfolioShare) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -334,7 +342,6 @@ func (j *jsiiProxy_CfnAcceptedPortfolioShare) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::ServiceCatalog::AcceptedPortfolioShare`.
 func NewCfnAcceptedPortfolioShare(scope constructs.Construct, id *string, props *CfnAcceptedPortfolioShareProps) CfnAcceptedPortfolioShare {
 	_init_.Initialize()
 
@@ -352,7 +359,6 @@ func NewCfnAcceptedPortfolioShare(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::AcceptedPortfolioShare`.
 func NewCfnAcceptedPortfolioShare_Override(c CfnAcceptedPortfolioShare, scope constructs.Construct, id *string, props *CfnAcceptedPortfolioShareProps) {
 	_init_.Initialize()
 

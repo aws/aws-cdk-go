@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MemoryDB::ParameterGroup`.
+// Specifies a new MemoryDB parameter group.
 //
-// Specifies a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster . For more information, see [Configuring engine parameters using parameter groups](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html) .
+// A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster . For more information, see [Configuring engine parameters using parameter groups](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-parametergroup.html
+//
 type CfnParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// When you pass the logical ID of this resource to the intrinsic `Ref` function, Ref returns the ARN of the parameter group, such as `arn:aws:memorydb:us-east-1:123456789012:parametergroup/my-parameter-group`.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -82,10 +85,11 @@ type CfnParameterGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +234,7 @@ type CfnParameterGroup interface {
 type jsiiProxy_CfnParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnParameterGroup) AttrArn() *string {
@@ -372,6 +377,16 @@ func (j *jsiiProxy_CfnParameterGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnParameterGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnParameterGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -393,7 +408,6 @@ func (j *jsiiProxy_CfnParameterGroup) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::MemoryDB::ParameterGroup`.
 func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnParameterGroupProps) CfnParameterGroup {
 	_init_.Initialize()
 
@@ -411,7 +425,6 @@ func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnPara
 	return &j
 }
 
-// Create a new `AWS::MemoryDB::ParameterGroup`.
 func NewCfnParameterGroup_Override(c CfnParameterGroup, scope constructs.Construct, id *string, props *CfnParameterGroupProps) {
 	_init_.Initialize()
 
@@ -453,12 +466,20 @@ func (j *jsiiProxy_CfnParameterGroup)SetParameterGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnParameterGroup)SetParameters(val interface{}) {
-	if err := j.validateSetParametersParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"parameters",
+		"tagsRaw",
 		val,
 	)
 }

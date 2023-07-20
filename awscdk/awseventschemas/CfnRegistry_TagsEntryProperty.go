@@ -13,10 +13,16 @@ package awseventschemas
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eventschemas-registry-tagsentry.html
+//
 type CfnRegistry_TagsEntryProperty struct {
 	// They key of a key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eventschemas-registry-tagsentry.html#cfn-eventschemas-registry-tagsentry-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// They value of a key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eventschemas-registry-tagsentry.html#cfn-eventschemas-registry-tagsentry-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

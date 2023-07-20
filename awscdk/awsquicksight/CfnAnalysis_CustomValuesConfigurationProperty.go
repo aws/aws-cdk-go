@@ -28,10 +28,15 @@ package awsquicksight
 //   	IncludeNullValue: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-customvaluesconfiguration.html
+//
 type CfnAnalysis_CustomValuesConfigurationProperty struct {
-	// `CfnAnalysis.CustomValuesConfigurationProperty.CustomValues`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-customvaluesconfiguration.html#cfn-quicksight-analysis-customvaluesconfiguration-customvalues
+	//
 	CustomValues interface{} `field:"required" json:"customValues" yaml:"customValues"`
 	// Includes the null value in custom action parameter values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-customvaluesconfiguration.html#cfn-quicksight-analysis-customvaluesconfiguration-includenullvalue
+	//
 	IncludeNullValue interface{} `field:"optional" json:"includeNullValue" yaml:"includeNullValue"`
 }
 

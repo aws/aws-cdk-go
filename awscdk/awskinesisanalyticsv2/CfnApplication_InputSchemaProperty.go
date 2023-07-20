@@ -37,14 +37,22 @@ package awskinesisanalyticsv2
 //   	RecordEncoding: jsii.String("recordEncoding"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html
+//
 type CfnApplication_InputSchemaProperty struct {
 	// A list of `RecordColumn` objects.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordcolumns
+	//
 	RecordColumns interface{} `field:"required" json:"recordColumns" yaml:"recordColumns"`
 	// Specifies the format of the records on the streaming source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordformat
+	//
 	RecordFormat interface{} `field:"required" json:"recordFormat" yaml:"recordFormat"`
 	// Specifies the encoding of the records in the streaming source.
 	//
 	// For example, UTF-8.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordencoding
+	//
 	RecordEncoding *string `field:"optional" json:"recordEncoding" yaml:"recordEncoding"`
 }
 

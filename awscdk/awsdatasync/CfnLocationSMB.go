@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::LocationSMB`.
-//
 // The `AWS::DataSync::LocationSMB` resource specifies a Server Message Block (SMB) location.
 //
 // Example:
@@ -40,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html
+//
 type CfnLocationSMB interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Names (ARNs) of agents to use for a Server Message Block (SMB) location.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
@@ -60,8 +61,6 @@ type CfnLocationSMB interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specifies the Windows domain name that your SMB file server belongs to.
-	//
-	// For more information, see [required permissions](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions) for SMB locations.
 	Domain() *string
 	SetDomain(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -88,8 +87,6 @@ type CfnLocationSMB interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Specifies the Domain Name Service (DNS) name or IP address of the SMB file server that your DataSync agent will mount.
-	//
-	// > You can't specify an IP version 6 (IPv6) address.
 	ServerHostname() *string
 	SetServerHostname(val *string)
 	// The stack in which this element is defined.
@@ -97,18 +94,13 @@ type CfnLocationSMB interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination.
-	//
-	// The SMB path should be a path that's exported by the SMB server, or a subdirectory of that path. The path should be such that it can be mounted by other SMB clients in your network.
-	//
-	// > `Subdirectory` must be specified with forward slashes. For example, `/path/to/folder` .
-	//
-	// To transfer all the data in the folder you specified, DataSync must have permissions to mount the SMB share, as well as to access all the data in that share. To ensure this, either make sure that the user name and password specified belongs to the user who can mount the share, and who has the appropriate permissions for all of the files and directories that you want DataSync to access, or use credentials of a member of the Backup Operators group to mount the share. Doing either one enables the agent to access the data. For the agent to access directories, you must additionally enable all execute access.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// Specifies labels that help you categorize, filter, and search for your AWS resources.
-	//
-	// We recommend creating at least a name tag for your location.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -123,8 +115,6 @@ type CfnLocationSMB interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The user who can mount the share and has the permissions to access files and folders in the SMB share.
-	//
-	// For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#SMBuser) .
 	User() *string
 	SetUser(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -258,6 +248,7 @@ type CfnLocationSMB interface {
 type jsiiProxy_CfnLocationSMB struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocationSMB) AgentArns() *[]*string {
@@ -430,6 +421,16 @@ func (j *jsiiProxy_CfnLocationSMB) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationSMB) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationSMB) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -461,7 +462,6 @@ func (j *jsiiProxy_CfnLocationSMB) User() *string {
 }
 
 
-// Create a new `AWS::DataSync::LocationSMB`.
 func NewCfnLocationSMB(scope constructs.Construct, id *string, props *CfnLocationSMBProps) CfnLocationSMB {
 	_init_.Initialize()
 
@@ -479,7 +479,6 @@ func NewCfnLocationSMB(scope constructs.Construct, id *string, props *CfnLocatio
 	return &j
 }
 
-// Create a new `AWS::DataSync::LocationSMB`.
 func NewCfnLocationSMB_Override(c CfnLocationSMB, scope constructs.Construct, id *string, props *CfnLocationSMBProps) {
 	_init_.Initialize()
 
@@ -540,6 +539,17 @@ func (j *jsiiProxy_CfnLocationSMB)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationSMB)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

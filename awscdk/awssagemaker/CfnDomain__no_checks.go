@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnDomain) validateSetSubnetIdsParameters(val *[]*string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetVpcIdParameters(val *string) error {
 	return nil
 }

@@ -24,12 +24,20 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookiematchpattern.html
+//
 type CfnWebACL_CookieMatchPatternProperty struct {
 	// Inspect all cookies.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookiematchpattern.html#cfn-wafv2-webacl-cookiematchpattern-all
+	//
 	All interface{} `field:"optional" json:"all" yaml:"all"`
 	// Inspect only the cookies whose keys don't match any of the strings specified here.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookiematchpattern.html#cfn-wafv2-webacl-cookiematchpattern-excludedcookies
+	//
 	ExcludedCookies *[]*string `field:"optional" json:"excludedCookies" yaml:"excludedCookies"`
 	// Inspect only the cookies that have a key that matches one of the strings specified here.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookiematchpattern.html#cfn-wafv2-webacl-cookiematchpattern-includedcookies
+	//
 	IncludedCookies *[]*string `field:"optional" json:"includedCookies" yaml:"includedCookies"`
 }
 

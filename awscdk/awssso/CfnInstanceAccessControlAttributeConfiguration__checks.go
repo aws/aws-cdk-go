@@ -239,6 +239,30 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateSetAc
 	return nil
 }
 
+func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateSetInstanceAccessControlAttributeConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnInstanceAccessControlAttributeConfiguration_InstanceAccessControlAttributeConfigurationProperty:
+		val := val.(*CfnInstanceAccessControlAttributeConfiguration_InstanceAccessControlAttributeConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnInstanceAccessControlAttributeConfiguration_InstanceAccessControlAttributeConfigurationProperty:
+		val_ := val.(CfnInstanceAccessControlAttributeConfiguration_InstanceAccessControlAttributeConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInstanceAccessControlAttributeConfiguration_InstanceAccessControlAttributeConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateSetInstanceArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

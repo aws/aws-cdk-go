@@ -123,18 +123,32 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html
+//
 type CfnDatasetProps struct {
 	// Information on how DataBrew can find the dataset, in either the AWS Glue Data Catalog or Amazon S3 .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
+	//
 	Input interface{} `field:"required" json:"input" yaml:"input"`
 	// The unique name of the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The file format of a dataset that is created from an Amazon S3 file or folder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+	//
 	Format *string `field:"optional" json:"format" yaml:"format"`
 	// A set of options that define how DataBrew interprets the data in the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
+	//
 	FormatOptions interface{} `field:"optional" json:"formatOptions" yaml:"formatOptions"`
 	// A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+	//
 	PathOptions interface{} `field:"optional" json:"pathOptions" yaml:"pathOptions"`
 	// Metadata tags that have been applied to the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

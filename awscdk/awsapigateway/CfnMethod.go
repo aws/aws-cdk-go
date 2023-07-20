@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::Method`.
-//
 // The `AWS::ApiGateway::Method` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
 //
 // Example:
@@ -31,6 +29,9 @@ import (
 //   	AuthorizationType: jsii.String("authorizationType"),
 //   	AuthorizerId: jsii.String("authorizerId"),
 //   	Integration: &IntegrationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
 //   		CacheKeyParameters: []*string{
 //   			jsii.String("cacheKeyParameters"),
 //   		},
@@ -63,7 +64,6 @@ import (
 //   			"requestTemplatesKey": jsii.String("requestTemplates"),
 //   		},
 //   		TimeoutInMillis: jsii.Number(123),
-//   		Type: jsii.String("type"),
 //   		Uri: jsii.String("uri"),
 //   	},
 //   	MethodResponses: []interface{}{
@@ -89,6 +89,8 @@ import (
 //   	RequestValidatorId: jsii.String("requestValidatorId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html
+//
 type CfnMethod interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -96,20 +98,12 @@ type CfnMethod interface {
 	ApiKeyRequired() interface{}
 	SetApiKeyRequired(val interface{})
 	// A list of authorization scopes configured on the method.
-	//
-	// The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
 	AuthorizationScopes() *[]*string
 	SetAuthorizationScopes(val *[]*string)
 	// The method's authorization type.
-	//
-	// This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference* .
-	//
-	// > If you specify the `AuthorizerId` property, specify `CUSTOM` or `COGNITO_USER_POOLS` for this property.
 	AuthorizationType() *string
 	SetAuthorizationType(val *string)
 	// The identifier of an authorizer to use on this method.
-	//
-	// The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
 	AuthorizerId() *string
 	SetAuthorizerId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -143,8 +137,6 @@ type CfnMethod interface {
 	// The tree node.
 	Node() constructs.Node
 	// A human-friendly operation identifier for the method.
-	//
-	// For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
 	OperationName() *string
 	SetOperationName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -156,8 +148,6 @@ type CfnMethod interface {
 	RequestModels() interface{}
 	SetRequestModels(val interface{})
 	// A key-value map defining required or optional method request parameters that can be accepted by API Gateway.
-	//
-	// A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
 	RequestParameters() interface{}
 	SetRequestParameters(val interface{})
 	// The identifier of a RequestValidator for request validation.
@@ -550,7 +540,6 @@ func (j *jsiiProxy_CfnMethod) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGateway::Method`.
 func NewCfnMethod(scope constructs.Construct, id *string, props *CfnMethodProps) CfnMethod {
 	_init_.Initialize()
 
@@ -568,7 +557,6 @@ func NewCfnMethod(scope constructs.Construct, id *string, props *CfnMethodProps)
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::Method`.
 func NewCfnMethod_Override(c CfnMethod, scope constructs.Construct, id *string, props *CfnMethodProps) {
 	_init_.Initialize()
 

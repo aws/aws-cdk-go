@@ -35,16 +35,22 @@ package awsbatch
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html
+//
 type CfnJobDefinition_LinuxParametersProperty struct {
 	// Any of the host devices to expose to the container.
 	//
 	// This parameter maps to `Devices` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--device` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-devices
+	//
 	Devices interface{} `field:"optional" json:"devices" yaml:"devices"`
 	// If true, run an `init` process inside the container that forwards signals and reaps processes.
 	//
 	// This parameter maps to the `--init` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-initprocessenabled
+	//
 	InitProcessEnabled interface{} `field:"optional" json:"initProcessEnabled" yaml:"initProcessEnabled"`
 	// The total amount of swap memory (in MiB) a container can use.
 	//
@@ -53,12 +59,16 @@ type CfnJobDefinition_LinuxParametersProperty struct {
 	// If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance that it's running on. A `maxSwap` value must be set for the `swappiness` parameter to be used.
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-maxswap
+	//
 	MaxSwap *float64 `field:"optional" json:"maxSwap" yaml:"maxSwap"`
 	// The value for the size (in MiB) of the `/dev/shm` volume.
 	//
 	// This parameter maps to the `--shm-size` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-sharedmemorysize
+	//
 	SharedMemorySize *float64 `field:"optional" json:"sharedMemorySize" yaml:"sharedMemorySize"`
 	// You can use this parameter to tune a container's memory swappiness behavior.
 	//
@@ -73,12 +83,16 @@ type CfnJobDefinition_LinuxParametersProperty struct {
 	// - If the `maxSwap` and `swappiness` parameters are omitted from a job definition, each container has a default `swappiness` value of 60. Moreover, the total swap usage is limited to two times the memory reservation of the container.
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-swappiness
+	//
 	Swappiness *float64 `field:"optional" json:"swappiness" yaml:"swappiness"`
 	// The container path, mount options, and size (in MiB) of the `tmpfs` mount.
 	//
 	// This parameter maps to the `--tmpfs` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide this parameter for this resource type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-tmpfs
+	//
 	Tmpfs interface{} `field:"optional" json:"tmpfs" yaml:"tmpfs"`
 }
 

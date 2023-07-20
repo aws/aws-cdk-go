@@ -13,10 +13,14 @@ package awswafv2
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html
+//
 type CfnRuleGroup_TextTransformationProperty struct {
 	// Sets the relative processing order for multiple transformations.
 	//
 	// AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-priority
+	//
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// You can specify the following transformation types:.
 	//
@@ -83,6 +87,8 @@ type CfnRuleGroup_TextTransformationProperty struct {
 	// *URL_DECODE_UNI* - Like `URL_DECODE` , but with support for Microsoft-specific `%u` encoding. If the code is in the full-width ASCII code range of `FF01-FF5E` , the higher byte is used to detect and adjust the lower byte. Otherwise, only the lower byte is used and the higher byte is zeroed.
 	//
 	// *UTF8_TO_UNICODE* - Convert all UTF-8 character sequences to Unicode. This helps input normalization, and minimizing false-positives and false-negatives for non-English languages.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

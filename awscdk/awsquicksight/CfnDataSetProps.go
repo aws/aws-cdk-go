@@ -297,46 +297,82 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
+//
 type CfnDataSetProps struct {
 	// The AWS account ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
+	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
 	// Groupings of columns that work together in certain Amazon QuickSight features.
 	//
 	// Currently, only geospatial hierarchy is supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
+	//
 	ColumnGroups interface{} `field:"optional" json:"columnGroups" yaml:"columnGroups"`
 	// A set of one or more definitions of a `ColumnLevelPermissionRule` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
+	//
 	ColumnLevelPermissionRules interface{} `field:"optional" json:"columnLevelPermissionRules" yaml:"columnLevelPermissionRules"`
 	// An ID for the dataset that you want to create.
 	//
 	// This ID is unique per AWS Region for each AWS account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
+	//
 	DataSetId *string `field:"optional" json:"dataSetId" yaml:"dataSetId"`
-	// `AWS::QuickSight::DataSet.DatasetParameters`.
+	// <p>The parameters declared in the dataset.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetparameters
+	//
 	DatasetParameters interface{} `field:"optional" json:"datasetParameters" yaml:"datasetParameters"`
-	// `AWS::QuickSight::DataSet.DataSetRefreshProperties`.
+	// <p>The dataset refresh properties for the dataset.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetrefreshproperties
+	//
 	DataSetRefreshProperties interface{} `field:"optional" json:"dataSetRefreshProperties" yaml:"dataSetRefreshProperties"`
 	// The usage configuration to apply to child datasets that reference this dataset as a source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetusageconfiguration
+	//
 	DataSetUsageConfiguration interface{} `field:"optional" json:"dataSetUsageConfiguration" yaml:"dataSetUsageConfiguration"`
 	// The folder that contains fields and nested subfolders for your dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
+	//
 	FieldFolders interface{} `field:"optional" json:"fieldFolders" yaml:"fieldFolders"`
 	// Indicates whether you want to import the data into SPICE.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
+	//
 	ImportMode *string `field:"optional" json:"importMode" yaml:"importMode"`
 	// The wait policy to use when creating or updating a Dataset.
 	//
 	// The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
+	//
 	IngestionWaitPolicy interface{} `field:"optional" json:"ingestionWaitPolicy" yaml:"ingestionWaitPolicy"`
 	// Configures the combination and transformation of the data from the physical tables.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
+	//
 	LogicalTableMap interface{} `field:"optional" json:"logicalTableMap" yaml:"logicalTableMap"`
 	// The display name for the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of resource permissions on the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
+	//
 	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
+	//
 	PhysicalTableMap interface{} `field:"optional" json:"physicalTableMap" yaml:"physicalTableMap"`
 	// The row-level security configuration for the data that you want to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
+	//
 	RowLevelPermissionDataSet interface{} `field:"optional" json:"rowLevelPermissionDataSet" yaml:"rowLevelPermissionDataSet"`
 	// The element you can use to define tags for row-level security.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration
+	//
 	RowLevelPermissionTagConfiguration interface{} `field:"optional" json:"rowLevelPermissionTagConfiguration" yaml:"rowLevelPermissionTagConfiguration"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

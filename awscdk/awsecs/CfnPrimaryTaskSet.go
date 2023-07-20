@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECS::PrimaryTaskSet`.
+// Modifies which task set in a service is the primary task set.
 //
-// Modifies which task set in a service is the primary task set. Any parameters that are updated on the primary task set in a service will transition to the service. This is used when a service uses the `EXTERNAL` deployment controller type. For more information, see [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide* .
+// Any parameters that are updated on the primary task set in a service will transition to the service. This is used when a service uses the `EXTERNAL` deployment controller type. For more information, see [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,6 +23,8 @@ import (
 //   	Service: jsii.String("service"),
 //   	TaskSetId: jsii.String("taskSetId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
 //
 type CfnPrimaryTaskSet interface {
 	awscdk.CfnResource
@@ -343,7 +345,6 @@ func (j *jsiiProxy_CfnPrimaryTaskSet) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::ECS::PrimaryTaskSet`.
 func NewCfnPrimaryTaskSet(scope constructs.Construct, id *string, props *CfnPrimaryTaskSetProps) CfnPrimaryTaskSet {
 	_init_.Initialize()
 
@@ -361,7 +362,6 @@ func NewCfnPrimaryTaskSet(scope constructs.Construct, id *string, props *CfnPrim
 	return &j
 }
 
-// Create a new `AWS::ECS::PrimaryTaskSet`.
 func NewCfnPrimaryTaskSet_Override(c CfnPrimaryTaskSet, scope constructs.Construct, id *string, props *CfnPrimaryTaskSetProps) {
 	_init_.Initialize()
 

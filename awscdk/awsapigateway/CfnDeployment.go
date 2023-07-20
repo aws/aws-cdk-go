@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::Deployment`.
+// The `AWS::ApiGateway::Deployment` resource deploys an API Gateway `RestApi` resource to a stage so that clients can call the API over the internet.
 //
-// The `AWS::ApiGateway::Deployment` resource deploys an API Gateway `RestApi` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
+// The stage acts as an environment.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -83,6 +83,8 @@ import (
 //   	StageName: jsii.String("stageName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html
+//
 type CfnDeployment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -130,8 +132,6 @@ type CfnDeployment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The description of the Stage resource for the Deployment resource to create.
-	//
-	// To specify a stage description, you must also provide a stage name.
 	StageDescription() interface{}
 	SetStageDescription(val interface{})
 	// The name of the Stage resource for the Deployment resource to create.
@@ -444,7 +444,6 @@ func (j *jsiiProxy_CfnDeployment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGateway::Deployment`.
 func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeploymentProps) CfnDeployment {
 	_init_.Initialize()
 
@@ -462,7 +461,6 @@ func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeployme
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::Deployment`.
 func NewCfnDeployment_Override(c CfnDeployment, scope constructs.Construct, id *string, props *CfnDeploymentProps) {
 	_init_.Initialize()
 

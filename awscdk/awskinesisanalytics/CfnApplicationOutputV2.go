@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::KinesisAnalyticsV2::ApplicationOutput`.
-//
 // Adds an external destination to your SQL-based Amazon Kinesis Data Analytics application.
 //
 // If you want Kinesis Data Analytics to deliver data from an in-application stream within your application to an external destination (such as an Kinesis data stream, a Kinesis Data Firehose delivery stream, or an Amazon Lambda function), you add the relevant configuration to your application using this operation. You can configure one or more outputs for your application. Each output configuration maps an in-application stream and an external destination.
@@ -47,12 +45,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html
+//
 type CfnApplicationOutputV2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The name of the application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -75,8 +76,6 @@ type CfnApplicationOutputV2 interface {
 	// The tree node.
 	Node() constructs.Node
 	// Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written.
-	//
-	// The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
 	Output() interface{}
 	SetOutput(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -244,6 +243,16 @@ func (j *jsiiProxy_CfnApplicationOutputV2) ApplicationName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplicationOutputV2) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplicationOutputV2) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -355,7 +364,6 @@ func (j *jsiiProxy_CfnApplicationOutputV2) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::KinesisAnalyticsV2::ApplicationOutput`.
 func NewCfnApplicationOutputV2(scope constructs.Construct, id *string, props *CfnApplicationOutputV2Props) CfnApplicationOutputV2 {
 	_init_.Initialize()
 
@@ -373,7 +381,6 @@ func NewCfnApplicationOutputV2(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::KinesisAnalyticsV2::ApplicationOutput`.
 func NewCfnApplicationOutputV2_Override(c CfnApplicationOutputV2, scope constructs.Construct, id *string, props *CfnApplicationOutputV2Props) {
 	_init_.Initialize()
 

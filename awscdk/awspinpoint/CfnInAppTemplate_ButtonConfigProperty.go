@@ -31,22 +31,32 @@ package awspinpoint
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html
+//
 type CfnInAppTemplate_ButtonConfigProperty struct {
 	// Optional button configuration to use for in-app messages sent to Android devices.
 	//
 	// This button configuration overrides the default button configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-android
+	//
 	Android interface{} `field:"optional" json:"android" yaml:"android"`
 	// Specifies the default behavior of a button that appears in an in-app message.
 	//
 	// You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-defaultconfig
+	//
 	DefaultConfig interface{} `field:"optional" json:"defaultConfig" yaml:"defaultConfig"`
 	// Optional button configuration to use for in-app messages sent to iOS devices.
 	//
 	// This button configuration overrides the default button configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-ios
+	//
 	Ios interface{} `field:"optional" json:"ios" yaml:"ios"`
 	// Optional button configuration to use for in-app messages sent to web applications.
 	//
 	// This button configuration overrides the default button configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-web
+	//
 	Web interface{} `field:"optional" json:"web" yaml:"web"`
 }
 

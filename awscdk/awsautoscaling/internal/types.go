@@ -15,6 +15,7 @@ type Type__awselasticloadbalancingv2INetworkLoadBalancerTarget = awselasticloadb
 type Type__awscdkIAspect = awscdk.IAspect
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awsiamIGrantable = awsiam.IGrantable
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsConstruct = constructs.Construct

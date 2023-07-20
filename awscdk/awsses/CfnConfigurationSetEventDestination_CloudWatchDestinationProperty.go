@@ -20,8 +20,12 @@ package awsses
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html
+//
 type CfnConfigurationSetEventDestination_CloudWatchDestinationProperty struct {
 	// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html#cfn-ses-configurationseteventdestination-cloudwatchdestination-dimensionconfigurations
+	//
 	DimensionConfigurations interface{} `field:"optional" json:"dimensionConfigurations" yaml:"dimensionConfigurations"`
 }
 

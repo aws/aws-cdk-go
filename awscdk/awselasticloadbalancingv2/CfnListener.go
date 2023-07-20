@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElasticLoadBalancingV2::Listener`.
-//
 // Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 //
 // Example:
@@ -105,6 +103,8 @@ import (
 //   	SslPolicy: jsii.String("sslPolicy"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
+//
 type CfnListener interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -114,10 +114,6 @@ type CfnListener interface {
 	// The Amazon Resource Name (ARN) of the listener.
 	AttrListenerArn() *string
 	// The default SSL server certificate for a secure listener.
-	//
-	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
-	//
-	// To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html) .
 	Certificates() interface{}
 	SetCertificates(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -129,9 +125,9 @@ type CfnListener interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The actions for the default rule. You cannot define a condition for a default rule.
+	// The actions for the default rule.
 	//
-	// To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html) .
+	// You cannot define a condition for a default rule.
 	DefaultActions() interface{}
 	SetDefaultActions(val interface{})
 	// The Amazon Resource Name (ARN) of the load balancer.
@@ -150,13 +146,9 @@ type CfnListener interface {
 	// The tree node.
 	Node() constructs.Node
 	// The port on which the load balancer is listening.
-	//
-	// You cannot specify a port for a Gateway Load Balancer.
 	Port() *float64
 	SetPort(val *float64)
 	// The protocol for connections from clients to the load balancer.
-	//
-	// For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
 	Protocol() *string
 	SetProtocol(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -165,8 +157,6 @@ type CfnListener interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
-	//
-	// For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide* .
 	SslPolicy() *string
 	SetSslPolicy(val *string)
 	// The stack in which this element is defined.
@@ -500,7 +490,6 @@ func (j *jsiiProxy_CfnListener) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ElasticLoadBalancingV2::Listener`.
 func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerProps) CfnListener {
 	_init_.Initialize()
 
@@ -518,7 +507,6 @@ func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerPr
 	return &j
 }
 
-// Create a new `AWS::ElasticLoadBalancingV2::Listener`.
 func NewCfnListener_Override(c CfnListener, scope constructs.Construct, id *string, props *CfnListenerProps) {
 	_init_.Initialize()
 

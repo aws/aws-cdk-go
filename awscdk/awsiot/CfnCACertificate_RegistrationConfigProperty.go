@@ -14,12 +14,20 @@ package awsiot
 //   	TemplateName: jsii.String("templateName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cacertificate-registrationconfig.html
+//
 type CfnCACertificate_RegistrationConfigProperty struct {
 	// The ARN of the role.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cacertificate-registrationconfig.html#cfn-iot-cacertificate-registrationconfig-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The template body.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cacertificate-registrationconfig.html#cfn-iot-cacertificate-registrationconfig-templatebody
+	//
 	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`
 	// The name of the provisioning template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cacertificate-registrationconfig.html#cfn-iot-cacertificate-registrationconfig-templatename
+	//
 	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`
 }
 

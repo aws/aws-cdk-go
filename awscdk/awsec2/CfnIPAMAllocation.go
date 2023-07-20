@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::IPAMAllocation`.
-//
 // In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.
 //
 // Example:
@@ -27,6 +25,8 @@ import (
 //   	NetmaskLength: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html
+//
 type CfnIPAMAllocation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -37,12 +37,9 @@ type CfnIPAMAllocation interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The CIDR you would like to allocate from the IPAM pool. Note the following:.
+	// The CIDR you would like to allocate from the IPAM pool.
 	//
-	// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
-	// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
-	//
-	// Possible values: Any available IPv4 or IPv6 CIDR.
+	// Note the following:.
 	Cidr() *string
 	SetCidr(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -65,12 +62,9 @@ type CfnIPAMAllocation interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The netmask length of the CIDR you would like to allocate from the IPAM pool. Note the following:.
+	// The netmask length of the CIDR you would like to allocate from the IPAM pool.
 	//
-	// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
-	// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
-	//
-	// Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
+	// Note the following:.
 	NetmaskLength() *float64
 	SetNetmaskLength(val *float64)
 	// The tree node.
@@ -381,7 +375,6 @@ func (j *jsiiProxy_CfnIPAMAllocation) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::EC2::IPAMAllocation`.
 func NewCfnIPAMAllocation(scope constructs.Construct, id *string, props *CfnIPAMAllocationProps) CfnIPAMAllocation {
 	_init_.Initialize()
 
@@ -399,7 +392,6 @@ func NewCfnIPAMAllocation(scope constructs.Construct, id *string, props *CfnIPAM
 	return &j
 }
 
-// Create a new `AWS::EC2::IPAMAllocation`.
 func NewCfnIPAMAllocation_Override(c CfnIPAMAllocation, scope constructs.Construct, id *string, props *CfnIPAMAllocationProps) {
 	_init_.Initialize()
 

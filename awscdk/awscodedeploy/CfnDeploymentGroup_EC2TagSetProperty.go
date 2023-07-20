@@ -26,12 +26,16 @@ package awscodedeploy
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html
+//
 type CfnDeploymentGroup_EC2TagSetProperty struct {
 	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group.
 	//
 	// CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
 	//
 	// Duplicates are not allowed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html#cfn-codedeploy-deploymentgroup-ec2tagset-ec2tagsetlist
+	//
 	Ec2TagSetList interface{} `field:"optional" json:"ec2TagSetList" yaml:"ec2TagSetList"`
 }
 

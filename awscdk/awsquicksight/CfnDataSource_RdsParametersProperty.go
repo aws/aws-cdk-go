@@ -13,10 +13,16 @@ package awsquicksight
 //   	InstanceId: jsii.String("instanceId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html
+//
 type CfnDataSource_RdsParametersProperty struct {
 	// Database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database
+	//
 	Database *string `field:"required" json:"database" yaml:"database"`
 	// Instance ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid
+	//
 	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
 }
 

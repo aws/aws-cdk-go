@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnBillingGroup) validateSetBillingGroupPropertiesParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnBillingGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnBillingGroupParameters(scope constructs.Construct, id *string, props *CfnBillingGroupProps) error {
 	return nil
 }

@@ -19,22 +19,36 @@ package awslicensemanager
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html
+//
 type CfnLicense_EntitlementProperty struct {
 	// Entitlement name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Entitlement unit.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-unit
+	//
 	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// Indicates whether check-ins are allowed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
+	//
 	AllowCheckIn interface{} `field:"optional" json:"allowCheckIn" yaml:"allowCheckIn"`
 	// Maximum entitlement count.
 	//
 	// Use if the unit is not None.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
+	//
 	MaxCount *float64 `field:"optional" json:"maxCount" yaml:"maxCount"`
 	// Indicates whether overages are allowed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-overage
+	//
 	Overage interface{} `field:"optional" json:"overage" yaml:"overage"`
 	// Entitlement resource.
 	//
 	// Use only if the unit is None.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

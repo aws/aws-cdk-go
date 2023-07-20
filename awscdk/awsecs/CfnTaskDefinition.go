@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECS::TaskDefinition`.
+// The details of a task definition which describes the container and volume definitions of an Amazon Elastic Container Service task.
 //
-// The details of a task definition which describes the container and volume definitions of an Amazon Elastic Container Service task. You can specify which Docker images to use, the required resources, and other configurations related to launching the task definition through an Amazon ECS service or task.
+// You can specify which Docker images to use, the required resources, and other configurations related to launching the task definition through an Amazon ECS service or task.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -283,9 +283,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
+//
 type CfnTaskDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// The Amazon Resource Name (ARN) of the Amazon ECS task definition.
 	AttrTaskDefinitionArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -293,27 +297,9 @@ type CfnTaskDefinition interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A list of container definitions in JSON format that describe the different containers that make up your task.
-	//
-	// For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide* .
 	ContainerDefinitions() interface{}
 	SetContainerDefinitions(val interface{})
 	// The number of `cpu` units used by the task.
-	//
-	// If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the `memory` parameter.
-	//
-	// The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.
-	//
-	// - 256 (.25 vCPU) - Available `memory` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
-	// - 512 (.5 vCPU) - Available `memory` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
-	// - 1024 (1 vCPU) - Available `memory` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
-	// - 2048 (2 vCPU) - Available `memory` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
-	// - 4096 (4 vCPU) - Available `memory` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
-	// - 8192 (8 vCPU) - Available `memory` values: 16 GB and 60 GB in 4 GB increments
-	//
-	// This option requires Linux platform `1.4.0` or later.
-	// - 16384 (16vCPU) - Available `memory` values: 32GB and 120 GB in 8 GB increments
-	//
-	// This option requires Linux platform `1.4.0` or later.
 	Cpu() *string
 	SetCpu(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -324,34 +310,15 @@ type CfnTaskDefinition interface {
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
 	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf.
-	//
-	// The task execution IAM role is required depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html) in the *Amazon Elastic Container Service Developer Guide* .
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// The name of a family that this task definition is registered to.
-	//
-	// Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
-	//
-	// A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
-	//
-	// > To use revision numbers when you update a task definition, specify this property. If you don't specify a value, AWS CloudFormation generates a new task definition each time that you update it.
 	Family() *string
 	SetFamily(val *string)
 	// The Elastic Inference accelerators to use for the containers in the task.
 	InferenceAccelerators() interface{}
 	SetInferenceAccelerators(val interface{})
 	// The IPC resource namespace to use for the containers in the task.
-	//
-	// The valid values are `host` , `task` , or `none` . If `host` is specified, then all containers within the tasks that specified the `host` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If `task` is specified, all containers within the specified task share the same IPC resources. If `none` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference* .
-	//
-	// If the `host` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/) .
-	//
-	// If you are setting namespaced kernel parameters using `systemControls` for the containers in the task, the following will apply to your IPC resource namespace. For more information, see [System Controls](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in the *Amazon Elastic Container Service Developer Guide* .
-	//
-	// - For tasks that use the `host` IPC mode, IPC namespace related `systemControls` are not supported.
-	// - For tasks that use the `task` IPC mode, IPC namespace related `systemControls` will apply to all containers within a task.
-	//
-	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
 	IpcMode() *string
 	SetIpcMode(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -365,60 +332,20 @@ type CfnTaskDefinition interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The amount (in MiB) of memory used by the task.
-	//
-	// If your tasks runs on Amazon EC2 instances, you must specify either a task-level memory value or a container-level memory value. This field is optional and any value can be used. If a task-level memory value is specified, the container-level memory value is optional. For more information regarding container-level memory and memory reservation, see [ContainerDefinition](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) .
-	//
-	// If your tasks runs on AWS Fargate , this field is required. You must use one of the following values. The value you choose determines your range of valid values for the `cpu` parameter.
-	//
-	// - 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available `cpu` values: 256 (.25 vCPU)
-	// - 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available `cpu` values: 512 (.5 vCPU)
-	// - 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available `cpu` values: 1024 (1 vCPU)
-	// - Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available `cpu` values: 2048 (2 vCPU)
-	// - Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available `cpu` values: 4096 (4 vCPU)
-	// - Between 16 GB and 60 GB in 4 GB increments - Available `cpu` values: 8192 (8 vCPU)
-	//
-	// This option requires Linux platform `1.4.0` or later.
-	// - Between 32GB and 120 GB in 8 GB increments - Available `cpu` values: 16384 (16 vCPU)
-	//
-	// This option requires Linux platform `1.4.0` or later.
 	Memory() *string
 	SetMemory(val *string)
 	// The Docker networking mode to use for the containers in the task.
-	//
-	// The valid values are `none` , `bridge` , `awsvpc` , and `host` . If no network mode is specified, the default is `bridge` .
-	//
-	// For Amazon ECS tasks on Fargate, the `awsvpc` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, `<default>` or `awsvpc` can be used. If the network mode is set to `none` , you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The `host` and `awsvpc` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the `bridge` mode.
-	//
-	// With the `host` and `awsvpc` network modes, exposed container ports are mapped directly to the corresponding host port (for the `host` network mode) or the attached elastic network interface port (for the `awsvpc` network mode), so you cannot take advantage of dynamic host port mappings.
-	//
-	// > When using the `host` network mode, you should not run containers using the root user (UID 0). It is considered best practice to use a non-root user.
-	//
-	// If the network mode is `awsvpc` , the task is allocated an elastic network interface, and you must specify a `NetworkConfiguration` value when you create a service or run a task with the task definition. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide* .
-	//
-	// If the network mode is `host` , you cannot run multiple instantiations of the same task on a single container instance when port mappings are used.
-	//
-	// For more information, see [Network settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#network-settings) in the *Docker run reference* .
 	NetworkMode() *string
 	SetNetworkMode(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The process namespace to use for the containers in the task.
-	//
-	// The valid values are `host` or `task` . If `host` is specified, then all containers within the tasks that specified the `host` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If `task` is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference* .
-	//
-	// If the `host` PID mode is used, be aware that there is a heightened risk of undesired process namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/) .
-	//
-	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
 	PidMode() *string
 	SetPidMode(val *string)
 	// An array of placement constraint objects to use for tasks.
-	//
-	// > This parameter isn't supported for tasks run on AWS Fargate .
 	PlacementConstraints() interface{}
 	SetPlacementConstraints(val interface{})
 	// The configuration details for the App Mesh proxy.
-	//
-	// Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the `ecs-init` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version `20190301` or later, they contain the required versions of the container agent and `ecs-init` . For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide* .
 	ProxyConfiguration() interface{}
 	SetProxyConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -427,40 +354,21 @@ type CfnTaskDefinition interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The task launch types the task definition was validated against.
-	//
-	// For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide* .
 	RequiresCompatibilities() *[]*string
 	SetRequiresCompatibilities(val *[]*string)
 	// The operating system that your tasks definitions run on.
-	//
-	// A platform family is specified only for tasks using the Fargate launch type.
-	//
-	// When you specify a task definition in a service, this value must match the `runtimePlatform` value of the service.
 	RuntimePlatform() interface{}
 	SetRuntimePlatform(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The metadata that you apply to the task definition to help you categorize and organize them.
-	//
-	// Each tag consists of a key and an optional value. You define both of them.
-	//
-	// The following basic restrictions apply to tags:
-	//
-	// - Maximum number of tags per resource - 50
-	// - For each resource, each tag key must be unique, and each tag key can have only one value.
-	// - Maximum key length - 128 Unicode characters in UTF-8
-	// - Maximum value length - 256 Unicode characters in UTF-8
-	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-	// - Tag keys and values are case-sensitive.
-	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The metadata that you apply to the task definition to help you categorize and organize them.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The short name or full Amazon Resource Name (ARN) of the AWS Identity and Access Management role that grants containers in the task permission to call AWS APIs on your behalf.
-	//
-	// For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
-	//
-	// IAM roles for tasks on Windows require that the `-EnableTaskIAMRole` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide* .
 	TaskRoleArn() *string
 	SetTaskRoleArn(val *string)
 	// Deprecated.
@@ -477,10 +385,6 @@ type CfnTaskDefinition interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The list of data volume definitions for the task.
-	//
-	// For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide* .
-	//
-	// > The `host` and `sourcePath` parameters aren't supported for tasks run on AWS Fargate .
 	Volumes() interface{}
 	SetVolumes(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -614,6 +518,7 @@ type CfnTaskDefinition interface {
 type jsiiProxy_CfnTaskDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTaskDefinition) AttrTaskDefinitionArn() *string {
@@ -856,6 +761,16 @@ func (j *jsiiProxy_CfnTaskDefinition) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) TaskRoleArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -897,7 +812,6 @@ func (j *jsiiProxy_CfnTaskDefinition) Volumes() interface{} {
 }
 
 
-// Create a new `AWS::ECS::TaskDefinition`.
 func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) CfnTaskDefinition {
 	_init_.Initialize()
 
@@ -915,7 +829,6 @@ func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTask
 	return &j
 }
 
-// Create a new `AWS::ECS::TaskDefinition`.
 func NewCfnTaskDefinition_Override(c CfnTaskDefinition, scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) {
 	_init_.Initialize()
 
@@ -1052,6 +965,17 @@ func (j *jsiiProxy_CfnTaskDefinition)SetRuntimePlatform(val interface{}) {
 	_jsii_.Set(
 		j,
 		"runtimePlatform",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTaskDefinition)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

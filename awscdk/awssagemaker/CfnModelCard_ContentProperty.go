@@ -174,20 +174,36 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html
+//
 type CfnModelCard_ContentProperty struct {
 	// Additional information about the model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-additionalinformation
+	//
 	AdditionalInformation interface{} `field:"optional" json:"additionalInformation" yaml:"additionalInformation"`
 	// Information about how the model supports business goals.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-businessdetails
+	//
 	BusinessDetails interface{} `field:"optional" json:"businessDetails" yaml:"businessDetails"`
 	// An overview about the model's evaluation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-evaluationdetails
+	//
 	EvaluationDetails interface{} `field:"optional" json:"evaluationDetails" yaml:"evaluationDetails"`
 	// The intended usage of the model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-intendeduses
+	//
 	IntendedUses interface{} `field:"optional" json:"intendedUses" yaml:"intendedUses"`
 	// An overview about the model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-modeloverview
+	//
 	ModelOverview interface{} `field:"optional" json:"modelOverview" yaml:"modelOverview"`
-	// `CfnModelCard.ContentProperty.ModelPackageDetails`.
+	// Metadata information related to model package version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-modelpackagedetails
+	//
 	ModelPackageDetails interface{} `field:"optional" json:"modelPackageDetails" yaml:"modelPackageDetails"`
 	// An overview about model training.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-trainingdetails
+	//
 	TrainingDetails interface{} `field:"optional" json:"trainingDetails" yaml:"trainingDetails"`
 }
 

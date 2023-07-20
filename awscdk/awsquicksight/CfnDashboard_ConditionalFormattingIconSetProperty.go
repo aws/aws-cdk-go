@@ -15,10 +15,16 @@ package awsquicksight
 //   	IconSetType: jsii.String("iconSetType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-conditionalformattingiconset.html
+//
 type CfnDashboard_ConditionalFormattingIconSetProperty struct {
 	// The expression that determines the formatting configuration for the icon set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-conditionalformattingiconset.html#cfn-quicksight-dashboard-conditionalformattingiconset-expression
+	//
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// Determines the icon set type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-conditionalformattingiconset.html#cfn-quicksight-dashboard-conditionalformattingiconset-iconsettype
+	//
 	IconSetType *string `field:"optional" json:"iconSetType" yaml:"iconSetType"`
 }
 

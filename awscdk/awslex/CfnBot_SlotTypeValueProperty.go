@@ -23,10 +23,16 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottypevalue.html
+//
 type CfnBot_SlotTypeValueProperty struct {
 	// The value of the slot type entry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottypevalue.html#cfn-lex-bot-slottypevalue-samplevalue
+	//
 	SampleValue interface{} `field:"required" json:"sampleValue" yaml:"sampleValue"`
 	// Additional values related to the slot type entry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottypevalue.html#cfn-lex-bot-slottypevalue-synonyms
+	//
 	Synonyms interface{} `field:"optional" json:"synonyms" yaml:"synonyms"`
 }
 

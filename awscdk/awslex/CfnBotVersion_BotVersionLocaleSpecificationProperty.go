@@ -17,10 +17,16 @@ package awslex
 //   	LocaleId: jsii.String("localeId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocalespecification.html
+//
 type CfnBotVersion_BotVersionLocaleSpecificationProperty struct {
 	// The version of a bot used for a bot locale.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocalespecification.html#cfn-lex-botversion-botversionlocalespecification-botversionlocaledetails
+	//
 	BotVersionLocaleDetails interface{} `field:"required" json:"botVersionLocaleDetails" yaml:"botVersionLocaleDetails"`
 	// The identifier of the locale to add to the version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocalespecification.html#cfn-lex-botversion-botversionlocalespecification-localeid
+	//
 	LocaleId *string `field:"required" json:"localeId" yaml:"localeId"`
 }
 

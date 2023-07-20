@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CE::CostCategory`.
+// The `AWS::CE::CostCategory` resource creates groupings of cost that you can use across products in the AWS Billing and Cost Management console, such as Cost Explorer and AWS Budgets.
 //
-// The `AWS::CE::CostCategory` resource creates groupings of cost that you can use across products in the AWS Billing and Cost Management console, such as Cost Explorer and AWS Budgets. For more information, see [Managing Your Costs with Cost Categories](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html) in the *AWS Billing and Cost Management User Guide* .
+// For more information, see [Managing Your Costs with Cost Categories](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html) in the *AWS Billing and Cost Management User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,6 +27,8 @@ import (
 //   	DefaultValue: jsii.String("defaultValue"),
 //   	SplitChargeRules: jsii.String("splitChargeRules"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html
 //
 type CfnCostCategory interface {
 	awscdk.CfnResource
@@ -68,8 +70,6 @@ type CfnCostCategory interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The array of CostCategoryRule in JSON array format.
-	//
-	// > Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
 	Rules() *string
 	SetRules(val *string)
 	// The rule schema version in this particular Cost Category.
@@ -399,7 +399,6 @@ func (j *jsiiProxy_CfnCostCategory) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::CE::CostCategory`.
 func NewCfnCostCategory(scope constructs.Construct, id *string, props *CfnCostCategoryProps) CfnCostCategory {
 	_init_.Initialize()
 
@@ -417,7 +416,6 @@ func NewCfnCostCategory(scope constructs.Construct, id *string, props *CfnCostCa
 	return &j
 }
 
-// Create a new `AWS::CE::CostCategory`.
 func NewCfnCostCategory_Override(c CfnCostCategory, scope constructs.Construct, id *string, props *CfnCostCategoryProps) {
 	_init_.Initialize()
 

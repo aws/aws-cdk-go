@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECR::PullThroughCacheRule`.
+// Creates a pull through cache rule.
 //
-// Creates a pull through cache rule. A pull through cache rule provides a way to cache images from an external public registry in your Amazon ECR private registry.
+// A pull through cache rule provides a way to cache images from an external public registry in your Amazon ECR private registry.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	EcrRepositoryPrefix: jsii.String("ecrRepositoryPrefix"),
 //   	UpstreamRegistryUrl: jsii.String("upstreamRegistryUrl"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html
 //
 type CfnPullThroughCacheRule interface {
 	awscdk.CfnResource
@@ -329,7 +331,6 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) UpstreamRegistryUrl() *string {
 }
 
 
-// Create a new `AWS::ECR::PullThroughCacheRule`.
 func NewCfnPullThroughCacheRule(scope constructs.Construct, id *string, props *CfnPullThroughCacheRuleProps) CfnPullThroughCacheRule {
 	_init_.Initialize()
 
@@ -347,7 +348,6 @@ func NewCfnPullThroughCacheRule(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::ECR::PullThroughCacheRule`.
 func NewCfnPullThroughCacheRule_Override(c CfnPullThroughCacheRule, scope constructs.Construct, id *string, props *CfnPullThroughCacheRuleProps) {
 	_init_.Initialize()
 

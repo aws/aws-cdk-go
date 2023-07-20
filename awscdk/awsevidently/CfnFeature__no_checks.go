@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnFeature) validateSetProjectParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFeature) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFeature) validateSetVariationsParameters(val interface{}) error {
 	return nil
 }

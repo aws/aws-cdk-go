@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Logs::SubscriptionFilter`.
+// The `AWS::Logs::SubscriptionFilter` resource specifies a subscription filter and associates it with the specified log group.
 //
-// The `AWS::Logs::SubscriptionFilter` resource specifies a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:
+// Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:
 //
 // - An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.
 // - A logical destination that belongs to a different account, for cross-account delivery.
@@ -36,6 +36,8 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html
+//
 type CfnSubscriptionFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -58,13 +60,9 @@ type CfnSubscriptionFilter interface {
 	FilterName() *string
 	SetFilterName(val *string)
 	// The filtering expressions that restrict what gets delivered to the destination AWS resource.
-	//
-	// For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
 	FilterPattern() *string
 	SetFilterPattern(val *string)
 	// The log group to associate with the subscription filter.
-	//
-	// All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
 	LogGroupName() *string
 	SetLogGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -85,8 +83,6 @@ type CfnSubscriptionFilter interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream.
-	//
-	// You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -400,7 +396,6 @@ func (j *jsiiProxy_CfnSubscriptionFilter) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::Logs::SubscriptionFilter`.
 func NewCfnSubscriptionFilter(scope constructs.Construct, id *string, props *CfnSubscriptionFilterProps) CfnSubscriptionFilter {
 	_init_.Initialize()
 
@@ -418,7 +413,6 @@ func NewCfnSubscriptionFilter(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Logs::SubscriptionFilter`.
 func NewCfnSubscriptionFilter_Override(c CfnSubscriptionFilter, scope constructs.Construct, id *string, props *CfnSubscriptionFilterProps) {
 	_init_.Initialize()
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::CustomMetric`.
+// Use the `AWS::IoT::CustomMetric` resource to define a custom metric published by your devices to Device Defender.
 //
-// Use the `AWS::IoT::CustomMetric` resource to define a custom metric published by your devices to Device Defender. For API reference, see [CreateCustomMetric](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCustomMetric.html) and for general information, see [Custom metrics](https://docs.aws.amazon.com/iot/latest/developerguide/dd-detect-custom-metrics.html) .
+// For API reference, see [CreateCustomMetric](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCustomMetric.html) and for general information, see [Custom metrics](https://docs.aws.amazon.com/iot/latest/developerguide/dd-detect-custom-metrics.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html
+//
 type CfnCustomMetric interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Number (ARN) of the custom metric;
 	//
 	// for example, `arn: *aws-partition* :iot: *region* : *accountId* :custommetric/ *metricName*` .
@@ -49,8 +52,6 @@ type CfnCustomMetric interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The friendly name in the console for the custom metric.
-	//
-	// This name doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. You can update the friendly name after you define it.
 	DisplayName() *string
 	SetDisplayName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -64,13 +65,11 @@ type CfnCustomMetric interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the custom metric.
-	//
-	// This will be used in the metric report submitted from the device/thing. The name can't begin with `aws:` . You can’t change the name after you define it.
 	MetricName() *string
 	SetMetricName(val *string)
-	// The type of the custom metric. Types include `string-list` , `ip-address-list` , `number-list` , and `number` .
+	// The type of the custom metric.
 	//
-	// > The type `number` only takes a single metric value as an input, but when you submit the metrics value in the DeviceMetrics report, you must pass it as an array with a single value.
+	// Types include `string-list` , `ip-address-list` , `number-list` , and `number` .
 	MetricType() *string
 	SetMetricType(val *string)
 	// The tree node.
@@ -84,8 +83,11 @@ type CfnCustomMetric interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that can be used to manage the custom metric.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that can be used to manage the custom metric.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +232,7 @@ type CfnCustomMetric interface {
 type jsiiProxy_CfnCustomMetric struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCustomMetric) AttrMetricArn() *string {
@@ -362,6 +365,16 @@ func (j *jsiiProxy_CfnCustomMetric) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomMetric) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomMetric) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -383,7 +396,6 @@ func (j *jsiiProxy_CfnCustomMetric) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::IoT::CustomMetric`.
 func NewCfnCustomMetric(scope constructs.Construct, id *string, props *CfnCustomMetricProps) CfnCustomMetric {
 	_init_.Initialize()
 
@@ -401,7 +413,6 @@ func NewCfnCustomMetric(scope constructs.Construct, id *string, props *CfnCustom
 	return &j
 }
 
-// Create a new `AWS::IoT::CustomMetric`.
 func NewCfnCustomMetric_Override(c CfnCustomMetric, scope constructs.Construct, id *string, props *CfnCustomMetricProps) {
 	_init_.Initialize()
 
@@ -435,6 +446,17 @@ func (j *jsiiProxy_CfnCustomMetric)SetMetricType(val *string) {
 	_jsii_.Set(
 		j,
 		"metricType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomMetric)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

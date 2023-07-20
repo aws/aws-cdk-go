@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::UserPoolIdentityProvider`.
-//
 // The `AWS::Cognito::UserPoolIdentityProvider` resource creates an identity provider for a user pool.
 //
 // Example:
@@ -34,12 +32,15 @@ import (
 //   	ProviderDetails: providerDetails,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html
+//
 type CfnUserPoolIdentityProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// A mapping of IdP attributes to standard and custom user pool attributes.
 	AttributeMapping() interface{}
 	SetAttributeMapping(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -64,46 +65,9 @@ type CfnUserPoolIdentityProvider interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The IdP details. The following list describes the provider detail keys for each IdP type.
+	// The IdP details.
 	//
-	// - For Google and Login with Amazon:
-	//
-	// - client_id
-	// - client_secret
-	// - authorize_scopes
-	// - For Facebook:
-	//
-	// - client_id
-	// - client_secret
-	// - authorize_scopes
-	// - api_version
-	// - For Sign in with Apple:
-	//
-	// - client_id
-	// - team_id
-	// - key_id
-	// - private_key
-	// - authorize_scopes
-	// - For OpenID Connect (OIDC) providers:
-	//
-	// - client_id
-	// - client_secret
-	// - attributes_request_method
-	// - oidc_issuer
-	// - authorize_scopes
-	// - The following keys are only present if Amazon Cognito didn't discover them at the `oidc_issuer` URL.
-	//
-	// - authorize_url
-	// - token_url
-	// - attributes_url
-	// - jwks_uri
-	// - Amazon Cognito sets the value of the following keys automatically. They are read-only.
-	//
-	// - attributes_url_add_attributes
-	// - For SAML providers:
-	//
-	// - MetadataFile or MetadataURL
-	// - IDPSignout *optional*.
+	// The following list describes the provider detail keys for each IdP type.
 	ProviderDetails() interface{}
 	SetProviderDetails(val interface{})
 	// The IdP name.
@@ -280,6 +244,16 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) AttributeMapping() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPoolIdentityProvider) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolIdentityProvider) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -431,7 +405,6 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) UserPoolId() *string {
 }
 
 
-// Create a new `AWS::Cognito::UserPoolIdentityProvider`.
 func NewCfnUserPoolIdentityProvider(scope constructs.Construct, id *string, props *CfnUserPoolIdentityProviderProps) CfnUserPoolIdentityProvider {
 	_init_.Initialize()
 
@@ -449,7 +422,6 @@ func NewCfnUserPoolIdentityProvider(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::Cognito::UserPoolIdentityProvider`.
 func NewCfnUserPoolIdentityProvider_Override(c CfnUserPoolIdentityProvider, scope constructs.Construct, id *string, props *CfnUserPoolIdentityProviderProps) {
 	_init_.Initialize()
 
@@ -461,9 +433,6 @@ func NewCfnUserPoolIdentityProvider_Override(c CfnUserPoolIdentityProvider, scop
 }
 
 func (j *jsiiProxy_CfnUserPoolIdentityProvider)SetAttributeMapping(val interface{}) {
-	if err := j.validateSetAttributeMappingParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"attributeMapping",
@@ -480,9 +449,6 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider)SetIdpIdentifiers(val *[]*string)
 }
 
 func (j *jsiiProxy_CfnUserPoolIdentityProvider)SetProviderDetails(val interface{}) {
-	if err := j.validateSetProviderDetailsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"providerDetails",

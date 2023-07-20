@@ -84,8 +84,12 @@ package awsbatch
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html
+//
 type CfnJobDefinition_EksPropertiesProperty struct {
 	// The properties for the Kubernetes pod resources of a job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html#cfn-batch-jobdefinition-eksproperties-podproperties
+	//
 	PodProperties interface{} `field:"optional" json:"podProperties" yaml:"podProperties"`
 }
 

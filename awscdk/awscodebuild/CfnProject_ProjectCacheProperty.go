@@ -18,17 +18,23 @@ package awscodebuild
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html
+//
 type CfnProject_ProjectCacheProperty struct {
 	// The type of cache used by the build project. Valid values include:.
 	//
 	// - `NO_CACHE` : The build project does not use any cache.
 	// - `S3` : The build project reads and writes from and to S3.
 	// - `LOCAL` : The build project stores a cache locally on a build host that is only available to that build host.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Information about the cache location:.
 	//
 	// - `NO_CACHE` or `LOCAL` : This value is ignored.
 	// - `S3` : This is the S3 bucket name/prefix.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location
+	//
 	Location *string `field:"optional" json:"location" yaml:"location"`
 	// An array of strings that specify the local cache modes.
 	//
@@ -47,6 +53,8 @@ type CfnProject_ProjectCacheProperty struct {
 	// - Only directories can be specified for caching. You cannot specify individual files.
 	// - Symlinks are used to reference cached directories.
 	// - Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-modes
+	//
 	Modes *[]*string `field:"optional" json:"modes" yaml:"modes"`
 }
 

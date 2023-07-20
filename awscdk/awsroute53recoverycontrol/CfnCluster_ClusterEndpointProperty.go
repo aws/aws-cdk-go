@@ -17,10 +17,16 @@ package awsroute53recoverycontrol
 //   	Region: jsii.String("region"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html
+//
 type CfnCluster_ClusterEndpointProperty struct {
 	// A cluster endpoint URL for one of the five redundant clusters that you specify to set or retrieve a routing control state.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-endpoint
+	//
 	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The AWS Region for a cluster endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-region
+	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

@@ -18,8 +18,12 @@ package awsrds
 //   	Address: jsii.String("address"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-readendpoint.html
+//
 type CfnDBCluster_ReadEndpointProperty struct {
 	// The host address of the reader endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-readendpoint.html#cfn-rds-dbcluster-readendpoint-address
+	//
 	Address *string `field:"optional" json:"address" yaml:"address"`
 }
 

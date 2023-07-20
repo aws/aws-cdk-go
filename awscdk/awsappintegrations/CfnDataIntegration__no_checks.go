@@ -92,15 +92,15 @@ func (j *jsiiProxy_CfnDataIntegration) validateSetNameParameters(val *string) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnDataIntegration) validateSetObjectConfigurationParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDataIntegration) validateSetScheduleConfigParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnDataIntegration) validateSetSourceUriParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataIntegration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

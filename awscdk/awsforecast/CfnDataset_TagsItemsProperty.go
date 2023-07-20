@@ -1,6 +1,8 @@
 package awsforecast
 
 
+// A key-value pair to associate with a resource.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,10 +13,20 @@ package awsforecast
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-tagsitems.html
+//
 type CfnDataset_TagsItemsProperty struct {
-	// `CfnDataset.TagsItemsProperty.Key`.
+	// The key name of the tag.
+	//
+	// You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-tagsitems.html#cfn-forecast-dataset-tagsitems-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// `CfnDataset.TagsItemsProperty.Value`.
+	// The value for the tag.
+	//
+	// You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-tagsitems.html#cfn-forecast-dataset-tagsitems-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -69,34 +69,50 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html
+//
 type CfnHttpApiProps struct {
-	// `AWS::Serverless::HttpApi.AccessLogSetting`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-accesslogsetting
+	//
 	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
-	// `AWS::Serverless::HttpApi.Auth`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-auth
+	//
 	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
-	// `AWS::Serverless::HttpApi.CorsConfiguration`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-corsconfiguration
+	//
 	CorsConfiguration interface{} `field:"optional" json:"corsConfiguration" yaml:"corsConfiguration"`
-	// `AWS::Serverless::HttpApi.DefaultRouteSettings`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-defaultroutesettings
+	//
 	DefaultRouteSettings interface{} `field:"optional" json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
-	// `AWS::Serverless::HttpApi.DefinitionBody`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-definitionbody
+	//
 	DefinitionBody interface{} `field:"optional" json:"definitionBody" yaml:"definitionBody"`
-	// `AWS::Serverless::HttpApi.DefinitionUri`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-definitionuri
+	//
 	DefinitionUri interface{} `field:"optional" json:"definitionUri" yaml:"definitionUri"`
-	// `AWS::Serverless::HttpApi.Description`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Serverless::HttpApi.DisableExecuteApiEndpoint`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-disableexecuteapiendpoint
+	//
 	DisableExecuteApiEndpoint interface{} `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
-	// `AWS::Serverless::HttpApi.Domain`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-domain
+	//
 	Domain interface{} `field:"optional" json:"domain" yaml:"domain"`
-	// `AWS::Serverless::HttpApi.FailOnWarnings`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-failonwarnings
+	//
 	FailOnWarnings interface{} `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
-	// `AWS::Serverless::HttpApi.RouteSettings`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-routesettings
+	//
 	RouteSettings interface{} `field:"optional" json:"routeSettings" yaml:"routeSettings"`
-	// `AWS::Serverless::HttpApi.StageName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-stagename
+	//
 	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
-	// `AWS::Serverless::HttpApi.StageVariables`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-stagevariables
+	//
 	StageVariables interface{} `field:"optional" json:"stageVariables" yaml:"stageVariables"`
-	// `AWS::Serverless::HttpApi.Tags`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html#cfn-serverless-httpapi-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

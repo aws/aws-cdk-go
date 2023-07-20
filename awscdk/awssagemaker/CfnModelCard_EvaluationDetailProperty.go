@@ -45,18 +45,32 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html
+//
 type CfnModelCard_EvaluationDetailProperty struct {
 	// The evaluation job name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The location of the datasets used to evaluate the model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-datasets
+	//
 	Datasets *[]*string `field:"optional" json:"datasets" yaml:"datasets"`
 	// The Amazon Resource Name (ARN) of the evaluation job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-evaluationjobarn
+	//
 	EvaluationJobArn *string `field:"optional" json:"evaluationJobArn" yaml:"evaluationJobArn"`
 	// Any observations made during the model evaluation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-evaluationobservation
+	//
 	EvaluationObservation *string `field:"optional" json:"evaluationObservation" yaml:"evaluationObservation"`
 	// Additional attributes associated with the evaluation results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-metadata
+	//
 	Metadata interface{} `field:"optional" json:"metadata" yaml:"metadata"`
 	// An evaluation Metric Group object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-metricgroups
+	//
 	MetricGroups interface{} `field:"optional" json:"metricGroups" yaml:"metricGroups"`
 }
 

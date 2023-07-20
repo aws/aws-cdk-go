@@ -21,6 +21,10 @@ package awsappflow
 //   			CustomProperties: map[string]*string{
 //   				"customPropertiesKey": jsii.String("customProperties"),
 //   			},
+//   			DataTransferApi: &DataTransferApiProperty{
+//   				Name: jsii.String("name"),
+//   				Type: jsii.String("type"),
+//   			},
 //   		},
 //   		Datadog: &DatadogSourcePropertiesProperty{
 //   			Object: jsii.String("object"),
@@ -94,20 +98,32 @@ package awsappflow
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html
+//
 type CfnFlow_SourceFlowConfigProperty struct {
 	// The type of connector, such as Salesforce, Amplitude, and so on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
+	//
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// Specifies the information that is required to query a particular source connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
+	//
 	SourceConnectorProperties interface{} `field:"required" json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
 	// The API version of the connector when it's used as a source in the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-apiversion
+	//
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The name of the connector profile.
 	//
 	// This name must be unique for each connector profile in the AWS account .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
+	//
 	ConnectorProfileName *string `field:"optional" json:"connectorProfileName" yaml:"connectorProfileName"`
 	// Defines the configuration for a scheduled incremental data pull.
 	//
 	// If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
+	//
 	IncrementalPullConfig interface{} `field:"optional" json:"incrementalPullConfig" yaml:"incrementalPullConfig"`
 }
 

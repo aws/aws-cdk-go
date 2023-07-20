@@ -45,15 +45,14 @@ import (
 // ```.
 //
 // Example:
-//   var vpc vpc
-//
-//
-//   template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
-//   	SecurityGroup: ec2.NewSecurityGroup(this, jsii.String("LaunchTemplateSG"), &SecurityGroupProps{
-//   		Vpc: vpc,
-//   	}),
+//   mySecurityGroupWithoutInlineRules := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+//   	Vpc: Vpc,
+//   	Description: jsii.String("Allow ssh access to ec2 instances"),
+//   	AllowAllOutbound: jsii.Boolean(true),
+//   	DisableInlineRules: jsii.Boolean(true),
 //   })
+//   //This will add the rule as an external cloud formation construct
+//   mySecurityGroupWithoutInlineRules.AddIngressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(22)), jsii.String("allow ssh access from the world"))
 //
 type SecurityGroup interface {
 	awscdk.Resource

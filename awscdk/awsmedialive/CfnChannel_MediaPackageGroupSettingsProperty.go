@@ -16,8 +16,12 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html
+//
 type CfnChannel_MediaPackageGroupSettingsProperty struct {
 	// The MediaPackage channel destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html#cfn-medialive-channel-mediapackagegroupsettings-destination
+	//
 	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
 }
 

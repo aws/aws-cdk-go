@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGatewayV2::RouteResponse`.
+// The `AWS::ApiGatewayV2::RouteResponse` resource creates a route response for a WebSocket API.
 //
-// The `AWS::ApiGatewayV2::RouteResponse` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide* .
+// For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,6 +34,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html
 //
 type CfnRouteResponse interface {
 	awscdk.CfnResource
@@ -63,8 +65,6 @@ type CfnRouteResponse interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The model selection expression for the route response.
-	//
-	// Supported only for WebSocket APIs.
 	ModelSelectionExpression() *string
 	SetModelSelectionExpression(val *string)
 	// The tree node.
@@ -407,7 +407,6 @@ func (j *jsiiProxy_CfnRouteResponse) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::ApiGatewayV2::RouteResponse`.
 func NewCfnRouteResponse(scope constructs.Construct, id *string, props *CfnRouteResponseProps) CfnRouteResponse {
 	_init_.Initialize()
 
@@ -425,7 +424,6 @@ func NewCfnRouteResponse(scope constructs.Construct, id *string, props *CfnRoute
 	return &j
 }
 
-// Create a new `AWS::ApiGatewayV2::RouteResponse`.
 func NewCfnRouteResponse_Override(c CfnRouteResponse, scope constructs.Construct, id *string, props *CfnRouteResponseProps) {
 	_init_.Initialize()
 
@@ -456,9 +454,6 @@ func (j *jsiiProxy_CfnRouteResponse)SetModelSelectionExpression(val *string) {
 }
 
 func (j *jsiiProxy_CfnRouteResponse)SetResponseModels(val interface{}) {
-	if err := j.validateSetResponseModelsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"responseModels",

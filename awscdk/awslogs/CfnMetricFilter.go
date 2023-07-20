@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Logs::MetricFilter`.
+// The `AWS::Logs::MetricFilter` resource specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
 //
-// The `AWS::Logs::MetricFilter` resource specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
+// If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
 //
 // The maximum number of metric filters that can be associated with a log group is 100.
 //
@@ -45,6 +45,8 @@ import (
 //   	FilterName: jsii.String("filterName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
+//
 type CfnMetricFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -61,8 +63,6 @@ type CfnMetricFilter interface {
 	FilterName() *string
 	SetFilterName(val *string)
 	// A filter pattern for extracting metric data out of ingested log events.
-	//
-	// For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
 	FilterPattern() *string
 	SetFilterPattern(val *string)
 	// The name of an existing log group that you want to associate with this metric filter.
@@ -379,7 +379,6 @@ func (j *jsiiProxy_CfnMetricFilter) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Logs::MetricFilter`.
 func NewCfnMetricFilter(scope constructs.Construct, id *string, props *CfnMetricFilterProps) CfnMetricFilter {
 	_init_.Initialize()
 
@@ -397,7 +396,6 @@ func NewCfnMetricFilter(scope constructs.Construct, id *string, props *CfnMetric
 	return &j
 }
 
-// Create a new `AWS::Logs::MetricFilter`.
 func NewCfnMetricFilter_Override(c CfnMetricFilter, scope constructs.Construct, id *string, props *CfnMetricFilterProps) {
 	_init_.Initialize()
 

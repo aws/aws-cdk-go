@@ -19,20 +19,30 @@ package awsconfig
 //   	TagValue: jsii.String("tagValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html
+//
 type CfnConfigRule_ScopeProperty struct {
 	// The ID of the only AWS resource that you want to trigger an evaluation for the rule.
 	//
 	// If you specify a resource ID, you must specify one resource type for `ComplianceResourceTypes` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourceid
+	//
 	ComplianceResourceId *string `field:"optional" json:"complianceResourceId" yaml:"complianceResourceId"`
 	// The resource types of only those AWS resources that you want to trigger an evaluation for the rule.
 	//
 	// You can only specify one type if you also specify a resource ID for `ComplianceResourceId` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
+	//
 	ComplianceResourceTypes *[]*string `field:"optional" json:"complianceResourceTypes" yaml:"complianceResourceTypes"`
 	// The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagkey
+	//
 	TagKey *string `field:"optional" json:"tagKey" yaml:"tagKey"`
 	// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
 	//
 	// If you specify a value for `TagValue` , you must also specify a value for `TagKey` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagvalue
+	//
 	TagValue *string `field:"optional" json:"tagValue" yaml:"tagValue"`
 }
 

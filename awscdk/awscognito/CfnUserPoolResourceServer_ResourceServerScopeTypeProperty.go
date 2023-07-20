@@ -13,10 +13,16 @@ package awscognito
 //   	ScopeName: jsii.String("scopeName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html
+//
 type CfnUserPoolResourceServer_ResourceServerScopeTypeProperty struct {
 	// A description of the scope.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopedescription
+	//
 	ScopeDescription *string `field:"required" json:"scopeDescription" yaml:"scopeDescription"`
 	// The name of the scope.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopename
+	//
 	ScopeName *string `field:"required" json:"scopeName" yaml:"scopeName"`
 }
 

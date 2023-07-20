@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnDBCluster) validateSetStorageEncryptedParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBCluster) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBCluster) validateSetUseLatestRestorableTimeParameters(val interface{}) error {
 	return nil
 }

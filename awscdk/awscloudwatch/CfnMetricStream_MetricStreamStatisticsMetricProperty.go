@@ -13,10 +13,16 @@ package awscloudwatch
 //   	Namespace: jsii.String("namespace"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsmetric.html
+//
 type CfnMetricStream_MetricStreamStatisticsMetricProperty struct {
 	// The name of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsmetric.html#cfn-cloudwatch-metricstream-metricstreamstatisticsmetric-metricname
+	//
 	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsmetric.html#cfn-cloudwatch-metricstream-metricstreamstatisticsmetric-namespace
+	//
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 }
 

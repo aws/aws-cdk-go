@@ -12,6 +12,7 @@ import (
 //
 // Example:
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var cluster iCluster
 //   var taskDefinition taskDefinition
 //

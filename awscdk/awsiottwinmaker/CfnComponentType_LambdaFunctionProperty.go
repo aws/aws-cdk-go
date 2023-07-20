@@ -12,8 +12,12 @@ package awsiottwinmaker
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-lambdafunction.html
+//
 type CfnComponentType_LambdaFunctionProperty struct {
 	// The Lambda function ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-lambdafunction.html#cfn-iottwinmaker-componenttype-lambdafunction-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 

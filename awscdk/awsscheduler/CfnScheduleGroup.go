@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Scheduler::ScheduleGroup`.
-//
 // A *schedule group* is an Amazon EventBridge Scheduler resource you use to organize your schedules.
 //
 // Your AWS account comes with a `default` scheduler group. You associate a new schedule with the `default` group or with schedule groups that you create and manage. You can create up to [500 schedule groups](https://docs.aws.amazon.com/scheduler/latest/UserGuide/scheduler-quotas.html) in your AWS account. With EventBridge Scheduler, you apply [tags](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) to schedule groups, not to individual schedules to organize your resources.
@@ -32,9 +30,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedulegroup.html
+//
 type CfnScheduleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the schedule group.
 	AttrArn() *string
 	// The date and time at which the schedule group was created.
@@ -78,10 +79,11 @@ type CfnScheduleGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +228,7 @@ type CfnScheduleGroup interface {
 type jsiiProxy_CfnScheduleGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnScheduleGroup) AttrArn() *string {
@@ -368,6 +371,16 @@ func (j *jsiiProxy_CfnScheduleGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScheduleGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScheduleGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -389,7 +402,6 @@ func (j *jsiiProxy_CfnScheduleGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Scheduler::ScheduleGroup`.
 func NewCfnScheduleGroup(scope constructs.Construct, id *string, props *CfnScheduleGroupProps) CfnScheduleGroup {
 	_init_.Initialize()
 
@@ -407,7 +419,6 @@ func NewCfnScheduleGroup(scope constructs.Construct, id *string, props *CfnSched
 	return &j
 }
 
-// Create a new `AWS::Scheduler::ScheduleGroup`.
 func NewCfnScheduleGroup_Override(c CfnScheduleGroup, scope constructs.Construct, id *string, props *CfnScheduleGroupProps) {
 	_init_.Initialize()
 
@@ -422,6 +433,17 @@ func (j *jsiiProxy_CfnScheduleGroup)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduleGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT1Click::Project`.
+// The `AWS::IoT1Click::Project` resource creates an empty project with a placement template.
 //
-// The `AWS::IoT1Click::Project` resource creates an empty project with a placement template. A project contains zero or more placements that adhere to the placement template defined in the project. For more information, see [CreateProject](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_CreateProject.html) in the *AWS IoT 1-Click Projects API Reference* .
+// A project contains zero or more placements that adhere to the placement template defined in the project. For more information, see [CreateProject](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_CreateProject.html) in the *AWS IoT 1-Click Projects API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,11 +37,14 @@ import (
 //   	ProjectName: jsii.String("projectName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html
+//
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) of the project, such as `arn:aws:iot1click:us-east-1:123456789012:projects/project-a1bzhi` .
 	AttrArn() *string
+	AttrId() *string
 	// The name of the project, such as `project-a1bzhi` .
 	AttrProjectName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -239,6 +242,16 @@ func (j *jsiiProxy_CfnProject) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) AttrProjectName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -380,7 +393,6 @@ func (j *jsiiProxy_CfnProject) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT1Click::Project`.
 func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
 	_init_.Initialize()
 
@@ -398,7 +410,6 @@ func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProp
 	return &j
 }
 
-// Create a new `AWS::IoT1Click::Project`.
 func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string, props *CfnProjectProps) {
 	_init_.Initialize()
 

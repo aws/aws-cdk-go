@@ -51,16 +51,28 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html
+//
 type CfnVerifiedAccessInstanceProps struct {
 	// A description for the AWS Verified Access instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The current logging configuration for the Verified Access instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-loggingconfigurations
+	//
 	LoggingConfigurations interface{} `field:"optional" json:"loggingConfigurations" yaml:"loggingConfigurations"`
 	// The tags.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The IDs of the AWS Verified Access trust providers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustproviderids
+	//
 	VerifiedAccessTrustProviderIds *[]*string `field:"optional" json:"verifiedAccessTrustProviderIds" yaml:"verifiedAccessTrustProviderIds"`
 	// The IDs of the AWS Verified Access trust providers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustproviders
+	//
 	VerifiedAccessTrustProviders interface{} `field:"optional" json:"verifiedAccessTrustProviders" yaml:"verifiedAccessTrustProviders"`
 }
 

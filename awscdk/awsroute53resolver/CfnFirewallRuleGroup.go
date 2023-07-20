@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::FirewallRuleGroup`.
+// High-level information for a firewall rule group.
 //
-// High-level information for a firewall rule group. A firewall rule group is a collection of rules that DNS Firewall uses to filter DNS network traffic for a VPC. To retrieve the rules for the rule group, call [ListFirewallRules](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallRules.html) .
+// A firewall rule group is a collection of rules that DNS Firewall uses to filter DNS network traffic for a VPC. To retrieve the rules for the rule group, call [ListFirewallRules](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallRules.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,9 +41,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html
+//
 type CfnFirewallRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN (Amazon Resource Name) of the rule group.
 	AttrArn() *string
 	// The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
@@ -106,8 +109,11 @@ type CfnFirewallRuleGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of the tag keys and values that you want to associate with the rule group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of the tag keys and values that you want to associate with the rule group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -252,6 +258,7 @@ type CfnFirewallRuleGroup interface {
 type jsiiProxy_CfnFirewallRuleGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFirewallRuleGroup) AttrArn() *string {
@@ -464,6 +471,16 @@ func (j *jsiiProxy_CfnFirewallRuleGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFirewallRuleGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFirewallRuleGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -485,7 +502,6 @@ func (j *jsiiProxy_CfnFirewallRuleGroup) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::Route53Resolver::FirewallRuleGroup`.
 func NewCfnFirewallRuleGroup(scope constructs.Construct, id *string, props *CfnFirewallRuleGroupProps) CfnFirewallRuleGroup {
 	_init_.Initialize()
 
@@ -503,7 +519,6 @@ func NewCfnFirewallRuleGroup(scope constructs.Construct, id *string, props *CfnF
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::FirewallRuleGroup`.
 func NewCfnFirewallRuleGroup_Override(c CfnFirewallRuleGroup, scope constructs.Construct, id *string, props *CfnFirewallRuleGroupProps) {
 	_init_.Initialize()
 
@@ -529,6 +544,17 @@ func (j *jsiiProxy_CfnFirewallRuleGroup)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewallRuleGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

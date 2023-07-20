@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECR::Repository`.
+// The `AWS::ECR::Repository` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts.
 //
-// The `AWS::ECR::Repository` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide* .
+// For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,9 +45,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
+//
 type CfnRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource.
 	//
 	// For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
@@ -66,23 +69,15 @@ type CfnRepository interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The encryption configuration for the repository.
-	//
-	// This determines how the contents of your repository are encrypted at rest.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
 	// The image scanning configuration for the repository.
-	//
-	// This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
 	// The tag mutability setting for the repository.
-	//
-	// If this parameter is omitted, the default setting of `MUTABLE` will be used which will allow image tags to be overwritten. If `IMMUTABLE` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability() *string
 	SetImageTagMutability(val *string)
 	// Creates or updates a lifecycle policy.
-	//
-	// For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) .
 	LifecyclePolicy() interface{}
 	SetLifecyclePolicy(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -103,25 +98,20 @@ type CfnRepository interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The name to use for the repository.
-	//
-	// The repository name may be specified on its own (such as `nginx-web-app` ) or it can be prepended with a namespace to group the repository into a category (such as `project-a/nginx-web-app` ). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	//
-	// The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
-	//
-	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	RepositoryName() *string
 	SetRepositoryName(val *string)
 	// The JSON repository policy text to apply to the repository.
-	//
-	// For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide* .
 	RepositoryPolicyText() interface{}
 	SetRepositoryPolicyText(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -266,6 +256,7 @@ type CfnRepository interface {
 type jsiiProxy_CfnRepository struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRepository) AttrArn() *string {
@@ -438,6 +429,16 @@ func (j *jsiiProxy_CfnRepository) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRepository) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRepository) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -459,7 +460,6 @@ func (j *jsiiProxy_CfnRepository) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ECR::Repository`.
 func NewCfnRepository(scope constructs.Construct, id *string, props *CfnRepositoryProps) CfnRepository {
 	_init_.Initialize()
 
@@ -477,7 +477,6 @@ func NewCfnRepository(scope constructs.Construct, id *string, props *CfnReposito
 	return &j
 }
 
-// Create a new `AWS::ECR::Repository`.
 func NewCfnRepository_Override(c CfnRepository, scope constructs.Construct, id *string, props *CfnRepositoryProps) {
 	_init_.Initialize()
 
@@ -538,12 +537,20 @@ func (j *jsiiProxy_CfnRepository)SetRepositoryName(val *string) {
 }
 
 func (j *jsiiProxy_CfnRepository)SetRepositoryPolicyText(val interface{}) {
-	if err := j.validateSetRepositoryPolicyTextParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"repositoryPolicyText",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"repositoryPolicyText",
+		"tagsRaw",
 		val,
 	)
 }

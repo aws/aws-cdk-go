@@ -25,10 +25,16 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodeldataquality.html
+//
 type CfnModelPackage_DriftCheckModelDataQualityProperty struct {
 	// The drift check model data quality constraints.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodeldataquality.html#cfn-sagemaker-modelpackage-driftcheckmodeldataquality-constraints
+	//
 	Constraints interface{} `field:"optional" json:"constraints" yaml:"constraints"`
 	// The drift check model data quality statistics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodeldataquality.html#cfn-sagemaker-modelpackage-driftcheckmodeldataquality-statistics
+	//
 	Statistics interface{} `field:"optional" json:"statistics" yaml:"statistics"`
 }
 

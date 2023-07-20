@@ -14,12 +14,22 @@ package awssagemaker
 //   	NearestModelName: jsii.String("nearestModelName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-container.html
+//
 type CfnModelCard_ContainerProperty struct {
-	// `CfnModelCard.ContainerProperty.Image`.
+	// Inference environment path.
+	//
+	// The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-container.html#cfn-sagemaker-modelcard-container-image
+	//
 	Image *string `field:"required" json:"image" yaml:"image"`
-	// `CfnModelCard.ContainerProperty.ModelDataUrl`.
+	// The Amazon S3 path where the model artifacts, which result from model training, are stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-container.html#cfn-sagemaker-modelcard-container-modeldataurl
+	//
 	ModelDataUrl *string `field:"optional" json:"modelDataUrl" yaml:"modelDataUrl"`
-	// `CfnModelCard.ContainerProperty.NearestModelName`.
+	// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-container.html#cfn-sagemaker-modelcard-container-nearestmodelname
+	//
 	NearestModelName *string `field:"optional" json:"nearestModelName" yaml:"nearestModelName"`
 }
 

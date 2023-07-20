@@ -17,10 +17,16 @@ package awsappmesh
 //   	Port: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html
+//
 type CfnGatewayRoute_GatewayRouteTargetProperty struct {
 	// An object that represents a virtual service gateway route target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice
+	//
 	VirtualService interface{} `field:"required" json:"virtualService" yaml:"virtualService"`
 	// The port number of the gateway route target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

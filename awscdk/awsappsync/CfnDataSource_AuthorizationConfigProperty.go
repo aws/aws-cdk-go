@@ -20,12 +20,18 @@ package awsappsync
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html
+//
 type CfnDataSource_AuthorizationConfigProperty struct {
 	// The authorization type that the HTTP endpoint requires.
 	//
 	// - *AWS_IAM* : The authorization type is Signature Version 4 (SigV4).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-authorizationtype
+	//
 	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// The AWS Identity and Access Management settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-awsiamconfig
+	//
 	AwsIamConfig interface{} `field:"optional" json:"awsIamConfig" yaml:"awsIamConfig"`
 }
 

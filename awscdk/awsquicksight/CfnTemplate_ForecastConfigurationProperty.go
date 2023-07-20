@@ -30,10 +30,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastconfiguration.html
+//
 type CfnTemplate_ForecastConfigurationProperty struct {
 	// The forecast properties setup of a forecast in the line chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastconfiguration.html#cfn-quicksight-template-forecastconfiguration-forecastproperties
+	//
 	ForecastProperties interface{} `field:"optional" json:"forecastProperties" yaml:"forecastProperties"`
 	// The forecast scenario of a forecast in the line chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastconfiguration.html#cfn-quicksight-template-forecastconfiguration-scenario
+	//
 	Scenario interface{} `field:"optional" json:"scenario" yaml:"scenario"`
 }
 

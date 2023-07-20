@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElasticLoadBalancingV2::LoadBalancer`.
-//
 // Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 //
 // Example:
@@ -53,9 +51,12 @@ import (
 //   	Type: jsii.String("type"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
+//
 type CfnLoadBalancer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the Amazon Route 53 hosted zone associated with the load balancer.
 	//
 	// For example, `Z2P70J7EXAMPLE` .
@@ -64,6 +65,7 @@ type CfnLoadBalancer interface {
 	//
 	// For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
 	AttrDnsName() *string
+	AttrId() *string
 	// The full name of the load balancer.
 	//
 	// For example, `app/my-load-balancer/50dc6c495c0c9188` .
@@ -84,8 +86,6 @@ type CfnLoadBalancer interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The IP address type.
-	//
-	// The possible values are `ipv4` (for IPv4 addresses) and `dualstack` (for IPv4 and IPv6 addresses). You can’t specify `dualstack` for a load balancer with a UDP or TCP_UDP listener.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The load balancer attributes.
@@ -102,10 +102,6 @@ type CfnLoadBalancer interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the load balancer.
-	//
-	// This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -116,14 +112,6 @@ type CfnLoadBalancer interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The nodes of an Internet-facing load balancer have public IP addresses.
-	//
-	// The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
-	//
-	// The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
-	//
-	// The default is an Internet-facing load balancer.
-	//
-	// You cannot specify a scheme for a Gateway Load Balancer.
 	Scheme() *string
 	SetScheme(val *string)
 	// [Application Load Balancers] The IDs of the security groups for the load balancer.
@@ -134,40 +122,17 @@ type CfnLoadBalancer interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The IDs of the public subnets.
-	//
-	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
-	//
-	// [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
-	//
-	// [Application Load Balancers on Outposts] You must specify one Outpost subnet.
-	//
-	// [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
-	//
-	// [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
-	//
-	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
 	SubnetMappings() interface{}
 	SetSubnetMappings(val interface{})
 	// The IDs of the public subnets.
-	//
-	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
-	//
-	// [Application Load Balancers] You must specify subnets from at least two Availability Zones.
-	//
-	// [Application Load Balancers on Outposts] You must specify one Outpost subnet.
-	//
-	// [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
-	//
-	// [Network Load Balancers] You can specify subnets from one or more Availability Zones.
-	//
-	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 	Subnets() *[]*string
 	SetSubnets(val *[]*string)
-	// The tags to assign to the load balancer.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to assign to the load balancer.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of load balancer.
-	//
-	// The default is `application` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -314,6 +279,7 @@ type CfnLoadBalancer interface {
 type jsiiProxy_CfnLoadBalancer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLoadBalancer) AttrCanonicalHostedZoneId() *string {
@@ -331,6 +297,16 @@ func (j *jsiiProxy_CfnLoadBalancer) AttrDnsName() *string {
 	_jsii_.Get(
 		j,
 		"attrDnsName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoadBalancer) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -526,6 +502,16 @@ func (j *jsiiProxy_CfnLoadBalancer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -557,7 +543,6 @@ func (j *jsiiProxy_CfnLoadBalancer) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::ElasticLoadBalancingV2::LoadBalancer`.
 func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) CfnLoadBalancer {
 	_init_.Initialize()
 
@@ -575,7 +560,6 @@ func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBa
 	return &j
 }
 
-// Create a new `AWS::ElasticLoadBalancingV2::LoadBalancer`.
 func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope constructs.Construct, id *string, props *CfnLoadBalancerProps) {
 	_init_.Initialize()
 
@@ -644,6 +628,17 @@ func (j *jsiiProxy_CfnLoadBalancer)SetSubnets(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnets",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLoadBalancer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

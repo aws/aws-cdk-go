@@ -13,8 +13,12 @@ package awsauditmanager
 //   	RoleType: jsii.String("roleType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
+//
 type CfnAssessment_RoleProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
+	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The type of customer persona.
 	//
@@ -23,6 +27,8 @@ type CfnAssessment_RoleProperty struct {
 	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
 	// >
 	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
+	//
 	RoleType *string `field:"optional" json:"roleType" yaml:"roleType"`
 }
 

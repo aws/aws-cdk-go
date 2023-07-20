@@ -24,16 +24,24 @@ package awssimspaceweaver
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html
+//
 type CfnSimulationProps struct {
 	// The name of the simulation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management ( IAM ) role that the simulation assumes to perform actions.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* . For more information about IAM roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *AWS Identity and Access Management User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The maximum running time of the simulation, specified as a number of minutes (m or M), hours (h or H), or days (d or D).
 	//
 	// The simulation stops when it reaches this limit. The maximum value is `14D` , or its equivalent in the other units. The default value is `14D` . A value equivalent to `0` makes the simulation immediately transition to `STOPPING` as soon as it reaches `STARTED` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-maximumduration
+	//
 	MaximumDuration *string `field:"optional" json:"maximumDuration" yaml:"maximumDuration"`
 	// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ).
 	//
@@ -42,6 +50,8 @@ type CfnSimulationProps struct {
 	// Provide a `SchemaS3Location` to start your simulation from a schema.
 	//
 	// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-schemas3location
+	//
 	SchemaS3Location interface{} `field:"optional" json:"schemaS3Location" yaml:"schemaS3Location"`
 	// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ).
 	//
@@ -50,6 +60,8 @@ type CfnSimulationProps struct {
 	// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
 	//
 	// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-snapshots3location
+	//
 	SnapshotS3Location interface{} `field:"optional" json:"snapshotS3Location" yaml:"snapshotS3Location"`
 }
 

@@ -179,14 +179,6 @@ func validateCfnWorkflow_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnWorkflow) validateSetDefaultRunPropertiesParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnWorkflowParameters(scope constructs.Construct, id *string, props *CfnWorkflowProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

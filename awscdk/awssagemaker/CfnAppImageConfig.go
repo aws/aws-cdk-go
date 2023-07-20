@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::AppImageConfig`.
+// Creates a configuration for running a SageMaker image as a KernelGateway app.
 //
-// Creates a configuration for running a SageMaker image as a KernelGateway app. The configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the kernels in the image.
+// The configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the kernels in the image.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,12 +47,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html
+//
 type CfnAppImageConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the AppImageConfig.
-	//
-	// Must be unique to your account.
 	AppImageConfigName() *string
 	SetAppImageConfigName(val *string)
 	// The Amazon Resource Name (ARN) of the AppImageConfig, such as `arn:aws:sagemaker:us-west-2:account-id:app-image-config/my-app-image-config-name` .
@@ -90,10 +91,11 @@ type CfnAppImageConfig interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,6 +240,7 @@ type CfnAppImageConfig interface {
 type jsiiProxy_CfnAppImageConfig struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAppImageConfig) AppImageConfigName() *string {
@@ -360,6 +363,16 @@ func (j *jsiiProxy_CfnAppImageConfig) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAppImageConfig) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAppImageConfig) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -381,7 +394,6 @@ func (j *jsiiProxy_CfnAppImageConfig) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::SageMaker::AppImageConfig`.
 func NewCfnAppImageConfig(scope constructs.Construct, id *string, props *CfnAppImageConfigProps) CfnAppImageConfig {
 	_init_.Initialize()
 
@@ -399,7 +411,6 @@ func NewCfnAppImageConfig(scope constructs.Construct, id *string, props *CfnAppI
 	return &j
 }
 
-// Create a new `AWS::SageMaker::AppImageConfig`.
 func NewCfnAppImageConfig_Override(c CfnAppImageConfig, scope constructs.Construct, id *string, props *CfnAppImageConfigProps) {
 	_init_.Initialize()
 
@@ -428,6 +439,17 @@ func (j *jsiiProxy_CfnAppImageConfig)SetKernelGatewayImageConfig(val interface{}
 	_jsii_.Set(
 		j,
 		"kernelGatewayImageConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppImageConfig)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

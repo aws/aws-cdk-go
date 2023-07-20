@@ -12,8 +12,12 @@ package awspipes
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-deadletterconfig.html
+//
 type CfnPipe_DeadLetterConfigProperty struct {
 	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-deadletterconfig.html#cfn-pipes-pipe-deadletterconfig-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 

@@ -26,26 +26,38 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html
+//
 type CfnKeyPairProps struct {
 	// A unique name for the key pair.
 	//
 	// Constraints: Up to 255 ASCII characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-keyname
+	//
 	KeyName *string `field:"required" json:"keyName" yaml:"keyName"`
 	// The format of the key pair.
 	//
 	// Default: `pem`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-keyformat
+	//
 	KeyFormat *string `field:"optional" json:"keyFormat" yaml:"keyFormat"`
 	// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
 	//
 	// If the `PublicKeyMaterial` property is specified, the `KeyType` property is ignored, and the key type is inferred from the `PublicKeyMaterial` value.
 	//
 	// Default: `rsa`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-keytype
+	//
 	KeyType *string `field:"optional" json:"keyType" yaml:"keyType"`
 	// The public key material.
 	//
 	// The `PublicKeyMaterial` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-publickeymaterial
+	//
 	PublicKeyMaterial *string `field:"optional" json:"publicKeyMaterial" yaml:"publicKeyMaterial"`
 	// The tags to apply to the key pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

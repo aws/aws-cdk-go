@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::CACertificate`.
-//
 // Specifies a CA certificate.
 //
 // Example:
@@ -40,9 +38,12 @@ import (
 //   	VerificationCertificatePem: jsii.String("verificationCertificatePem"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html
+//
 type CfnCACertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the CA certificate. For example:.
 	//
 	// `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
@@ -54,18 +55,12 @@ type CfnCACertificate interface {
 	// The CA certificate ID.
 	AttrId() *string
 	// Whether the CA certificate is configured for auto registration of device certificates.
-	//
-	// Valid values are "ENABLE" and "DISABLE".
 	AutoRegistrationStatus() *string
 	SetAutoRegistrationStatus(val *string)
 	// The certificate data in PEM format.
 	CaCertificatePem() *string
 	SetCaCertificatePem(val *string)
 	// The mode of the CA.
-	//
-	// All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
-	//
-	// Valid values are "DEFAULT" and "SNI_ONLY".
 	CertificateMode() *string
 	SetCertificateMode(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -105,14 +100,13 @@ type CfnCACertificate interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The status of the CA certificate.
-	//
-	// Valid values are "ACTIVE" and "INACTIVE".
 	Status() *string
 	SetStatus(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -260,6 +254,7 @@ type CfnCACertificate interface {
 type jsiiProxy_CfnCACertificate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCACertificate) AttrArn() *string {
@@ -432,6 +427,16 @@ func (j *jsiiProxy_CfnCACertificate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCACertificate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCACertificate) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -463,7 +468,6 @@ func (j *jsiiProxy_CfnCACertificate) VerificationCertificatePem() *string {
 }
 
 
-// Create a new `AWS::IoT::CACertificate`.
 func NewCfnCACertificate(scope constructs.Construct, id *string, props *CfnCACertificateProps) CfnCACertificate {
 	_init_.Initialize()
 
@@ -481,7 +485,6 @@ func NewCfnCACertificate(scope constructs.Construct, id *string, props *CfnCACer
 	return &j
 }
 
-// Create a new `AWS::IoT::CACertificate`.
 func NewCfnCACertificate_Override(c CfnCACertificate, scope constructs.Construct, id *string, props *CfnCACertificateProps) {
 	_init_.Initialize()
 
@@ -548,6 +551,17 @@ func (j *jsiiProxy_CfnCACertificate)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCACertificate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

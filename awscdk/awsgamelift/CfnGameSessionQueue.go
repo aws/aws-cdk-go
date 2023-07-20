@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GameLift::GameSessionQueue`.
+// The `AWS::GameLift::GameSessionQueue` resource creates a placement queue that processes requests for new game sessions.
 //
-// The `AWS::GameLift::GameSessionQueue` resource creates a placement queue that processes requests for new game sessions. A queue uses FleetIQ algorithms to determine the best placement locations and find an available game server, then prompts the game server to start a new game session. Queues can have destinations (GameLift fleets or aliases), which determine where the queue can place new game sessions. A queue can have destinations with varied fleet type (Spot and On-Demand), instance type, and AWS Region .
+// A queue uses FleetIQ algorithms to determine the best placement locations and find an available game server, then prompts the game server to start a new game session. Queues can have destinations (GameLift fleets or aliases), which determine where the queue can place new game sessions. A queue can have destinations with varied fleet type (Spot and On-Demand), instance type, and AWS Region .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,11 +57,15 @@ import (
 //   	TimeoutInSeconds: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html
+//
 type CfnGameSessionQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique Amazon Resource Name (ARN) for the `GameSessionQueue` .
 	AttrArn() *string
+	AttrId() *string
 	// A descriptive label that is associated with a game session queue.
 	//
 	// Names are unique within each Region.
@@ -79,13 +83,9 @@ type CfnGameSessionQueue interface {
 	CustomEventData() *string
 	SetCustomEventData(val *string)
 	// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
-	//
-	// Destinations are identified by either a fleet ARN or a fleet alias ARN, and are listed in order of placement preference.
 	Destinations() interface{}
 	SetDestinations(val interface{})
 	// A list of locations where a queue is allowed to place new game sessions.
-	//
-	// Locations are specified in the form of AWS Region codes, such as `us-west-2` . If this parameter is not set, game sessions can be placed in any queue location.
 	FilterConfiguration() interface{}
 	SetFilterConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -99,25 +99,17 @@ type CfnGameSessionQueue interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A descriptive label that is associated with game session queue.
-	//
-	// Queue names must be unique within each Region.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// An SNS topic ARN that is set up to receive game session placement notifications.
-	//
-	// See [Setting up notifications for game session placement](https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html) .
 	NotificationTarget() *string
 	SetNotificationTarget(val *string)
 	// A set of policies that act as a sliding cap on player latency.
-	//
-	// FleetIQ works to deliver low latency for most players in a game session. These policies ensure that no individual player can be placed into a game with unreasonably high latency. Use multiple policies to gradually relax latency requirements a step at a time. Multiple policies are applied based on their maximum allowed latency, starting with the lowest value.
 	PlayerLatencyPolicies() interface{}
 	SetPlayerLatencyPolicies(val interface{})
 	// Custom settings to use when prioritizing destinations and locations for game session placements.
-	//
-	// This configuration replaces the FleetIQ default prioritization process. Priority types that are not explicitly named will be automatically applied at the end of the prioritization process.
 	PriorityConfiguration() interface{}
 	SetPriorityConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -129,13 +121,12 @@ type CfnGameSessionQueue interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of labels to assign to the new game session queue resource.
-	//
-	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of labels to assign to the new game session queue resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The maximum time, in seconds, that a new game session placement request remains in the queue.
-	//
-	// When a request exceeds this time, the game session placement changes to a `TIMED_OUT` status. By default, this property is set to `600` .
 	TimeoutInSeconds() *float64
 	SetTimeoutInSeconds(val *float64)
 	// Deprecated.
@@ -282,6 +273,7 @@ type CfnGameSessionQueue interface {
 type jsiiProxy_CfnGameSessionQueue struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnGameSessionQueue) AttrArn() *string {
@@ -289,6 +281,16 @@ func (j *jsiiProxy_CfnGameSessionQueue) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGameSessionQueue) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -464,6 +466,16 @@ func (j *jsiiProxy_CfnGameSessionQueue) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGameSessionQueue) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGameSessionQueue) TimeoutInSeconds() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -495,7 +507,6 @@ func (j *jsiiProxy_CfnGameSessionQueue) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::GameLift::GameSessionQueue`.
 func NewCfnGameSessionQueue(scope constructs.Construct, id *string, props *CfnGameSessionQueueProps) CfnGameSessionQueue {
 	_init_.Initialize()
 
@@ -513,7 +524,6 @@ func NewCfnGameSessionQueue(scope constructs.Construct, id *string, props *CfnGa
 	return &j
 }
 
-// Create a new `AWS::GameLift::GameSessionQueue`.
 func NewCfnGameSessionQueue_Override(c CfnGameSessionQueue, scope constructs.Construct, id *string, props *CfnGameSessionQueueProps) {
 	_init_.Initialize()
 
@@ -591,6 +601,17 @@ func (j *jsiiProxy_CfnGameSessionQueue)SetPriorityConfiguration(val interface{})
 	_jsii_.Set(
 		j,
 		"priorityConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGameSessionQueue)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

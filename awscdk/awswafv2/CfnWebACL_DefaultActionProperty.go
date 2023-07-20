@@ -37,10 +37,16 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
+//
 type CfnWebACL_DefaultActionProperty struct {
 	// Specifies that AWS WAF should allow requests by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
+	//
 	Allow interface{} `field:"optional" json:"allow" yaml:"allow"`
 	// Specifies that AWS WAF should block requests by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
+	//
 	Block interface{} `field:"optional" json:"block" yaml:"block"`
 }
 

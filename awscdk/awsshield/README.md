@@ -13,8 +13,7 @@
 This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import shield "github.com/aws-samples/dummy/awscdkawsshield"
+import shield "github.com/aws/aws-cdk-go/awscdk"
 ```
 
 <!--BEGIN CFNONLY DISCLAIMER-->

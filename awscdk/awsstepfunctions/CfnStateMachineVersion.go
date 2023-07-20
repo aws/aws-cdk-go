@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::StepFunctions::StateMachineVersion`.
-//
 // Represents a state machine [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html) . A published version uses the latest state machine [*revision*](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html) . A revision is an immutable, read-only snapshot of a state machine’s definition and configuration.
 //
 // You can publish up to 1000 versions for each state machine.
@@ -29,6 +27,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	StateMachineRevisionId: jsii.String("stateMachineRevisionId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html
 //
 type CfnStateMachineVersion interface {
 	awscdk.CfnResource
@@ -74,10 +74,6 @@ type CfnStateMachineVersion interface {
 	StateMachineArn() *string
 	SetStateMachineArn(val *string)
 	// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
-	//
-	// Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
-	//
-	// To specify the initial state machine revision, set the value as `INITIAL` .
 	StateMachineRevisionId() *string
 	SetStateMachineRevisionId(val *string)
 	// Deprecated.
@@ -367,7 +363,6 @@ func (j *jsiiProxy_CfnStateMachineVersion) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::StepFunctions::StateMachineVersion`.
 func NewCfnStateMachineVersion(scope constructs.Construct, id *string, props *CfnStateMachineVersionProps) CfnStateMachineVersion {
 	_init_.Initialize()
 
@@ -385,7 +380,6 @@ func NewCfnStateMachineVersion(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::StepFunctions::StateMachineVersion`.
 func NewCfnStateMachineVersion_Override(c CfnStateMachineVersion, scope constructs.Construct, id *string, props *CfnStateMachineVersionProps) {
 	_init_.Initialize()
 

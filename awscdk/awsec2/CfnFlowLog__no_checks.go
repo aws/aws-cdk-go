@@ -80,15 +80,15 @@ func validateCfnFlowLog_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnFlowLog) validateSetDestinationOptionsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnFlowLog) validateSetResourceIdParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnFlowLog) validateSetResourceTypeParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFlowLog) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

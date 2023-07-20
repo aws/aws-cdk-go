@@ -216,14 +216,6 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetAllowUnauthenticatedIdentitiesPar
 	return nil
 }
 
-func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoEventsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -327,14 +319,6 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetPushSyncParameters(val interface{
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIdentityPool_PushSyncProperty; received %#v (a %T)", val, val)
 		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnIdentityPool) validateSetSupportedLoginProvidersParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

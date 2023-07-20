@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) va
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationParameters(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationProps) error {
 	return nil
 }

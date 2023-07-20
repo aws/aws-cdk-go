@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECS::ClusterCapacityProviderAssociations`.
-//
 // The `AWS::ECS::ClusterCapacityProviderAssociations` resource associates one or more capacity providers and a default capacity provider strategy with a cluster.
 //
 // Example:
@@ -33,6 +31,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html
 //
 type CfnClusterCapacityProviderAssociations interface {
 	awscdk.CfnResource
@@ -353,7 +353,6 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) UpdatedProperties() *
 }
 
 
-// Create a new `AWS::ECS::ClusterCapacityProviderAssociations`.
 func NewCfnClusterCapacityProviderAssociations(scope constructs.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) CfnClusterCapacityProviderAssociations {
 	_init_.Initialize()
 
@@ -371,7 +370,6 @@ func NewCfnClusterCapacityProviderAssociations(scope constructs.Construct, id *s
 	return &j
 }
 
-// Create a new `AWS::ECS::ClusterCapacityProviderAssociations`.
 func NewCfnClusterCapacityProviderAssociations_Override(c CfnClusterCapacityProviderAssociations, scope constructs.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) {
 	_init_.Initialize()
 

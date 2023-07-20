@@ -15,14 +15,20 @@ package awsappsync
 //   	RuntimeVersion: jsii.String("runtimeVersion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-appsyncruntime.html
+//
 type CfnResolver_AppSyncRuntimeProperty struct {
 	// The `name` of the runtime to use.
 	//
 	// Currently, the only allowed value is `APPSYNC_JS` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-appsyncruntime.html#cfn-appsync-resolver-appsyncruntime-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The `version` of the runtime to use.
 	//
 	// Currently, the only allowed version is `1.0.0` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-appsyncruntime.html#cfn-appsync-resolver-appsyncruntime-runtimeversion
+	//
 	RuntimeVersion *string `field:"required" json:"runtimeVersion" yaml:"runtimeVersion"`
 }
 

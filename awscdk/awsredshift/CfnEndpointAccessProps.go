@@ -20,16 +20,28 @@ package awsredshift
 //   	ResourceOwner: jsii.String("resourceOwner"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html
+//
 type CfnEndpointAccessProps struct {
 	// The cluster identifier of the cluster associated with the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-clusteridentifier
+	//
 	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// The name of the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-endpointname
+	//
 	EndpointName *string `field:"required" json:"endpointName" yaml:"endpointName"`
 	// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-subnetgroupname
+	//
 	SubnetGroupName *string `field:"required" json:"subnetGroupName" yaml:"subnetGroupName"`
 	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-vpcsecuritygroupids
+	//
 	VpcSecurityGroupIds *[]*string `field:"required" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 	// The AWS account ID of the owner of the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-resourceowner
+	//
 	ResourceOwner *string `field:"optional" json:"resourceOwner" yaml:"resourceOwner"`
 }
 

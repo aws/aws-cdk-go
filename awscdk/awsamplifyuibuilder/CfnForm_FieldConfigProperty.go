@@ -76,16 +76,28 @@ package awsamplifyuibuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html
+//
 type CfnForm_FieldConfigProperty struct {
 	// Specifies whether to hide a field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-excluded
+	//
 	Excluded interface{} `field:"optional" json:"excluded" yaml:"excluded"`
 	// Describes the configuration for the default input value to display for a field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-inputtype
+	//
 	InputType interface{} `field:"optional" json:"inputType" yaml:"inputType"`
 	// The label for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-label
+	//
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// Specifies the field position.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-position
+	//
 	Position interface{} `field:"optional" json:"position" yaml:"position"`
 	// The validations to perform on the value in the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-validations
+	//
 	Validations interface{} `field:"optional" json:"validations" yaml:"validations"`
 }
 

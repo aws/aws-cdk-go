@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DAX::ParameterGroup`.
-//
 // A named set of parameters that are applied to all of the nodes in a DAX cluster.
 //
 // Example:
@@ -26,9 +24,12 @@ import (
 //   	ParameterNameValues: parameterNameValues,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-parametergroup.html
+//
 type CfnParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -57,10 +58,6 @@ type CfnParameterGroup interface {
 	ParameterGroupName() *string
 	SetParameterGroupName(val *string)
 	// An array of name-value pairs for the parameters in the group.
-	//
-	// Each element in the array represents a single parameter.
-	//
-	// > `record-ttl-millis` and `query-ttl-millis` are the only supported parameter names. For more details, see [Configuring TTL Settings](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl) .
 	ParameterNameValues() interface{}
 	SetParameterNameValues(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -218,6 +215,16 @@ type jsiiProxy_CfnParameterGroup struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnParameterGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnParameterGroup) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -349,7 +356,6 @@ func (j *jsiiProxy_CfnParameterGroup) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::DAX::ParameterGroup`.
 func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnParameterGroupProps) CfnParameterGroup {
 	_init_.Initialize()
 
@@ -367,7 +373,6 @@ func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnPara
 	return &j
 }
 
-// Create a new `AWS::DAX::ParameterGroup`.
 func NewCfnParameterGroup_Override(c CfnParameterGroup, scope constructs.Construct, id *string, props *CfnParameterGroupProps) {
 	_init_.Initialize()
 
@@ -395,9 +400,6 @@ func (j *jsiiProxy_CfnParameterGroup)SetParameterGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnParameterGroup)SetParameterNameValues(val interface{}) {
-	if err := j.validateSetParameterNameValuesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parameterNameValues",

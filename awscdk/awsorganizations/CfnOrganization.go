@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Organizations::Organization`.
+// Creates an AWS organization.
 //
-// Creates an AWS organization. The account whose user is calling the [`CreateOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganization.html) operation automatically becomes the [management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) of the new organization.
+// The account whose user is calling the [`CreateOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganization.html) operation automatically becomes the [management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) of the new organization.
 //
 // This operation must be called using credentials from the account that is to become the new organization's management account. The principal must also have the [relevant IAM permissions](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_create.html) .
 //
@@ -29,6 +29,8 @@ import (
 //   cfnOrganization := awscdk.Aws_organizations.NewCfnOrganization(this, jsii.String("MyCfnOrganization"), &CfnOrganizationProps{
 //   	FeatureSet: jsii.String("featureSet"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organization.html
 //
 type CfnOrganization interface {
 	awscdk.CfnResource
@@ -54,20 +56,9 @@ type CfnOrganization interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
+	// Specifies the feature set supported by the new organization.
 	//
-	// - `ALL`  In addition to all the features supported by the consolidated billing feature set, the management account gains access to advanced features that give you more control over accounts in your organization. By default or if you set the `FeatureSet` property to `ALL` , the new organization is created with all features enabled and service control policies automatically enabled in the [root](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#root) . For more information, see [All features](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all) in the *AWS Organizations User Guide* .
-	// - `CONSOLIDATED_BILLING`  All member accounts have their bills consolidated to and paid by the management account. For more information, see [Consolidated billing](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only) in the *AWS Organizations User Guide.*
-	//
-	// The consolidated billing feature subset isn't available for organizations in the AWS GovCloud (US) Region.
-	//
-	// Feature set `ALL` provides the following advanced features:
-	//
-	// - Apply any [policy type](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#orgs-policy-types) to any member account in the organization.
-	// - Apply [service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) to member accounts that restrict the services and actions that users (including the root user) and roles in an account can access. Using SCPs you can prevent member accounts from leaving the organization.
-	// - Enable [integration with supported AWS services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html) to let those services provide functionality across all of the accounts in your organization.
-	//
-	// If you don't specify this property, the default value is `ALL` .
+	// Each feature set supports different levels of functionality.
 	FeatureSet() *string
 	SetFeatureSet(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -408,7 +399,6 @@ func (j *jsiiProxy_CfnOrganization) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Organizations::Organization`.
 func NewCfnOrganization(scope constructs.Construct, id *string, props *CfnOrganizationProps) CfnOrganization {
 	_init_.Initialize()
 
@@ -426,7 +416,6 @@ func NewCfnOrganization(scope constructs.Construct, id *string, props *CfnOrgani
 	return &j
 }
 
-// Create a new `AWS::Organizations::Organization`.
 func NewCfnOrganization_Override(c CfnOrganization, scope constructs.Construct, id *string, props *CfnOrganizationProps) {
 	_init_.Initialize()
 

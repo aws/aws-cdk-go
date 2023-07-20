@@ -18,18 +18,26 @@ package awskendra
 //   	DateFieldFormat: jsii.String("dateFieldFormat"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html
+//
 type CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty struct {
 	// The name of the field in the data source.
 	//
 	// You must first create the index field using the `UpdateIndex` API.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-datasourcefieldname
+	//
 	DataSourceFieldName *string `field:"required" json:"dataSourceFieldName" yaml:"dataSourceFieldName"`
 	// The name of the index field to map to the Confluence data source field.
 	//
 	// The index field type must match the Confluence field type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-indexfieldname
+	//
 	IndexFieldName *string `field:"required" json:"indexFieldName" yaml:"indexFieldName"`
 	// The format for date fields in the data source.
 	//
 	// If the field specified in `DataSourceFieldName` is a date field you must specify the date format. If the field is not a date field, an exception is thrown.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-datefieldformat
+	//
 	DateFieldFormat *string `field:"optional" json:"dateFieldFormat" yaml:"dateFieldFormat"`
 }
 

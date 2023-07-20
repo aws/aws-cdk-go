@@ -155,13 +155,7 @@ type GoFunction interface {
 	AddEnvironment(key *string, value *string, options *awslambda.EnvironmentOptions) awslambda.Function
 	// Adds an event source to this function.
 	//
-	// Event sources are implemented in the @aws-cdk/aws-lambda-event-sources module.
-	//
-	// The following example adds an SQS Queue as an event source:
-	// ```
-	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
-	// myFunction.addEventSource(new SqsEventSource(myQueue));
-	// ```.
+	// Event sources are implemented in the.
 	// Experimental.
 	AddEventSource(source awslambda.IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.

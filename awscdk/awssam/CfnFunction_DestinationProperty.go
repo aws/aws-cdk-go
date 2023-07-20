@@ -13,10 +13,14 @@ package awssam
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-destination.html
+//
 type CfnFunction_DestinationProperty struct {
-	// `CfnFunction.DestinationProperty.Destination`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-destination.html#cfn-serverless-function-destination-destination
+	//
 	Destination *string `field:"required" json:"destination" yaml:"destination"`
-	// `CfnFunction.DestinationProperty.Type`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-destination.html#cfn-serverless-function-destination-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

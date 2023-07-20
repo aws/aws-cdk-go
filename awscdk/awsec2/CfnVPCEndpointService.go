@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPCEndpointService`.
-//
 // Creates a VPC endpoint service configuration to which service consumers ( AWS accounts, users, and IAM roles) can connect.
 //
 // To create an endpoint service configuration, you must first create one of the following for your service:
@@ -36,6 +34,8 @@ import (
 //   	},
 //   	PayerResponsibility: jsii.String("payerResponsibility"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html
 //
 type CfnVPCEndpointService interface {
 	awscdk.CfnResource
@@ -76,8 +76,6 @@ type CfnVPCEndpointService interface {
 	// The tree node.
 	Node() constructs.Node
 	// The entity that is responsible for the endpoint costs.
-	//
-	// The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 	PayerResponsibility() *string
 	SetPayerResponsibility(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -396,7 +394,6 @@ func (j *jsiiProxy_CfnVPCEndpointService) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::EC2::VPCEndpointService`.
 func NewCfnVPCEndpointService(scope constructs.Construct, id *string, props *CfnVPCEndpointServiceProps) CfnVPCEndpointService {
 	_init_.Initialize()
 
@@ -414,7 +411,6 @@ func NewCfnVPCEndpointService(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::EC2::VPCEndpointService`.
 func NewCfnVPCEndpointService_Override(c CfnVPCEndpointService, scope constructs.Construct, id *string, props *CfnVPCEndpointServiceProps) {
 	_init_.Initialize()
 

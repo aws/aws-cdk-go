@@ -13,10 +13,14 @@ package awssam
 //   	DefaultAuthorizer: jsii.String("defaultAuthorizer"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapiauth.html
+//
 type CfnHttpApi_HttpApiAuthProperty struct {
-	// `CfnHttpApi.HttpApiAuthProperty.Authorizers`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapiauth.html#cfn-serverless-httpapi-httpapiauth-authorizers
+	//
 	Authorizers interface{} `field:"optional" json:"authorizers" yaml:"authorizers"`
-	// `CfnHttpApi.HttpApiAuthProperty.DefaultAuthorizer`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapiauth.html#cfn-serverless-httpapi-httpapiauth-defaultauthorizer
+	//
 	DefaultAuthorizer *string `field:"optional" json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
 }
 

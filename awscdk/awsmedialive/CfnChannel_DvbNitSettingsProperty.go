@@ -16,14 +16,22 @@ package awsmedialive
 //   	RepInterval: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html
+//
 type CfnChannel_DvbNitSettingsProperty struct {
 	// The numeric value placed in the Network Information Table (NIT).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html#cfn-medialive-channel-dvbnitsettings-networkid
+	//
 	NetworkId *float64 `field:"optional" json:"networkId" yaml:"networkId"`
 	// The network name text placed in the networkNameDescriptor inside the Network Information Table (NIT).
 	//
 	// The maximum length is 256 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html#cfn-medialive-channel-dvbnitsettings-networkname
+	//
 	NetworkName *string `field:"optional" json:"networkName" yaml:"networkName"`
 	// The number of milliseconds between instances of this table in the output transport stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html#cfn-medialive-channel-dvbnitsettings-repinterval
+	//
 	RepInterval *float64 `field:"optional" json:"repInterval" yaml:"repInterval"`
 }
 

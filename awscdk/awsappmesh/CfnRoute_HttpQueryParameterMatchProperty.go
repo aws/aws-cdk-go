@@ -12,8 +12,12 @@ package awsappmesh
 //   	Exact: jsii.String("exact"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpqueryparametermatch.html
+//
 type CfnRoute_HttpQueryParameterMatchProperty struct {
 	// The exact query parameter to match on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpqueryparametermatch.html#cfn-appmesh-route-httpqueryparametermatch-exact
+	//
 	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 }
 

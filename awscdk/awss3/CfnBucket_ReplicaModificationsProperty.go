@@ -12,10 +12,14 @@ package awss3
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html
+//
 type CfnBucket_ReplicaModificationsProperty struct {
 	// Specifies whether Amazon S3 replicates modifications on replicas.
 	//
 	// *Allowed values* : `Enabled` | `Disabled`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 }
 

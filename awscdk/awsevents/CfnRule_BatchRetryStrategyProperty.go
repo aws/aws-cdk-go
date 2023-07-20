@@ -14,10 +14,14 @@ package awsevents
 //   	Attempts: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchretrystrategy.html
+//
 type CfnRule_BatchRetryStrategyProperty struct {
 	// The number of times to attempt to retry, if the job fails.
 	//
 	// Valid values are 1–10.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchretrystrategy.html#cfn-events-rule-batchretrystrategy-attempts
+	//
 	Attempts *float64 `field:"optional" json:"attempts" yaml:"attempts"`
 }
 

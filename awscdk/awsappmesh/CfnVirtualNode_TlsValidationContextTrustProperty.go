@@ -22,12 +22,20 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html
+//
 type CfnVirtualNode_TlsValidationContextTrustProperty struct {
 	// A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certificate Manager certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-acm
+	//
 	Acm interface{} `field:"optional" json:"acm" yaml:"acm"`
 	// An object that represents a Transport Layer Security (TLS) validation context trust for a local file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-file
+	//
 	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-sds
+	//
 	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 

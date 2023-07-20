@@ -13,14 +13,20 @@ package awsworkspaces
 //   	ResourceId: jsii.String("resourceId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html
+//
 type CfnConnectionAlias_ConnectionAliasAssociationProperty struct {
-	// `CfnConnectionAlias.ConnectionAliasAssociationProperty.AssociatedAccountId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associatedaccountid
+	//
 	AssociatedAccountId *string `field:"optional" json:"associatedAccountId" yaml:"associatedAccountId"`
-	// `CfnConnectionAlias.ConnectionAliasAssociationProperty.AssociationStatus`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associationstatus
+	//
 	AssociationStatus *string `field:"optional" json:"associationStatus" yaml:"associationStatus"`
-	// `CfnConnectionAlias.ConnectionAliasAssociationProperty.ConnectionIdentifier`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-connectionidentifier
+	//
 	ConnectionIdentifier *string `field:"optional" json:"connectionIdentifier" yaml:"connectionIdentifier"`
-	// `CfnConnectionAlias.ConnectionAliasAssociationProperty.ResourceId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
+	//
 	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
 }
 

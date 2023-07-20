@@ -55,6 +55,7 @@ import (
 //   		Local: localBundling,
 //   		Network: jsii.String("network"),
 //   		OutputType: cdk.BundlingOutput_ARCHIVED,
+//   		Platform: jsii.String("platform"),
 //   		SecurityOpt: jsii.String("securityOpt"),
 //   		User: jsii.String("user"),
 //   		Volumes: []dockerVolume{

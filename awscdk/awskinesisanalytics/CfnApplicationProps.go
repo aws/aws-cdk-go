@@ -68,6 +68,8 @@ package awskinesisanalytics
 //   	ApplicationName: jsii.String("applicationName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html
+//
 type CfnApplicationProps struct {
 	// Use this parameter to configure the application input.
 	//
@@ -76,6 +78,8 @@ type CfnApplicationProps struct {
 	// For the streaming source, you provide its Amazon Resource Name (ARN) and format of data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role that Amazon Kinesis Analytics can assume to read this stream on your behalf.
 	//
 	// To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-inputs
+	//
 	Inputs interface{} `field:"required" json:"inputs" yaml:"inputs"`
 	// One or more SQL statements that read input data, transform it, and generate output.
 	//
@@ -84,10 +88,16 @@ type CfnApplicationProps struct {
 	// You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement. You store intermediate results by creating in-application streams and pumps.
 	//
 	// Note that the application code must create the streams with names specified in the `Outputs` . For example, if your `Outputs` defines output streams named `ExampleOutputStream1` and `ExampleOutputStream2` , then your application code must create these streams.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationcode
+	//
 	ApplicationCode *string `field:"optional" json:"applicationCode" yaml:"applicationCode"`
 	// Summary description of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationdescription
+	//
 	ApplicationDescription *string `field:"optional" json:"applicationDescription" yaml:"applicationDescription"`
 	// Name of your Amazon Kinesis Analytics application (for example, `sample-app` ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationname
+	//
 	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 }
 

@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnCloudFormationProduct) validateSetSourceConnectionParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnCloudFormationProduct) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCloudFormationProductParameters(scope constructs.Construct, id *string, props *CfnCloudFormationProductProps) error {
 	return nil
 }

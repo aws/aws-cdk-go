@@ -13,10 +13,16 @@ package awslicensemanager
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html
+//
 type CfnLicense_MetadataProperty struct {
 	// The key name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

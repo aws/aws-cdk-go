@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnStreamKey) validateSetChannelArnParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnStreamKey) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnStreamKeyParameters(scope constructs.Construct, id *string, props *CfnStreamKeyProps) error {
 	return nil
 }

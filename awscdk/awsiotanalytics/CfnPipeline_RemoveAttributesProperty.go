@@ -18,12 +18,20 @@ package awsiotanalytics
 //   	Next: jsii.String("next"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html
+//
 type CfnPipeline_RemoveAttributesProperty struct {
 	// A list of 1-50 attributes to remove from the message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-attributes
+	//
 	Attributes *[]*string `field:"required" json:"attributes" yaml:"attributes"`
 	// The name of the 'removeAttributes' activity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The next activity in the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-next
+	//
 	Next *string `field:"optional" json:"next" yaml:"next"`
 }
 

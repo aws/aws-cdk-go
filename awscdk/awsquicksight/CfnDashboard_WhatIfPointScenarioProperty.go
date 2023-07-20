@@ -13,10 +13,16 @@ package awsquicksight
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-whatifpointscenario.html
+//
 type CfnDashboard_WhatIfPointScenarioProperty struct {
 	// The date that you need the forecast results for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-whatifpointscenario.html#cfn-quicksight-dashboard-whatifpointscenario-date
+	//
 	Date *string `field:"required" json:"date" yaml:"date"`
 	// The target value that you want to meet for the provided date.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-whatifpointscenario.html#cfn-quicksight-dashboard-whatifpointscenario-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

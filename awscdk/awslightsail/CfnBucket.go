@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::Bucket`.
-//
 // The `AWS::Lightsail::Bucket` resource specifies a bucket.
 //
 // Example:
@@ -42,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html
+//
 type CfnBucket interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// An object that describes the access rules for the bucket.
 	AccessRules() interface{}
 	SetAccessRules(val interface{})
@@ -58,8 +59,6 @@ type CfnBucket interface {
 	BucketName() *string
 	SetBucketName(val *string)
 	// The bundle ID for the bucket (for example, `small_1_0` ).
-	//
-	// A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket.
 	BundleId() *string
 	SetBundleId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -84,12 +83,6 @@ type CfnBucket interface {
 	// The tree node.
 	Node() constructs.Node
 	// Indicates whether object versioning is enabled for the bucket.
-	//
-	// The following options can be configured:
-	//
-	// - `Enabled` - Object versioning is enabled.
-	// - `Suspended` - Object versioning was previously enabled but is currently suspended. Existing object versions are retained.
-	// - `NeverEnabled` - Object versioning has never been enabled.
 	ObjectVersioning() interface{}
 	SetObjectVersioning(val interface{})
 	// An array of AWS account IDs that have read-only access to the bucket.
@@ -107,12 +100,11 @@ type CfnBucket interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
-	//
-	// > The `Value` of `Tags` is optional for Lightsail resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -257,6 +249,7 @@ type CfnBucket interface {
 type jsiiProxy_CfnBucket struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnBucket) AccessRules() interface{} {
@@ -439,6 +432,16 @@ func (j *jsiiProxy_CfnBucket) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBucket) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBucket) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -460,7 +463,6 @@ func (j *jsiiProxy_CfnBucket) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lightsail::Bucket`.
 func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps) CfnBucket {
 	_init_.Initialize()
 
@@ -478,7 +480,6 @@ func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps)
 	return &j
 }
 
-// Create a new `AWS::Lightsail::Bucket`.
 func NewCfnBucket_Override(c CfnBucket, scope constructs.Construct, id *string, props *CfnBucketProps) {
 	_init_.Initialize()
 
@@ -545,6 +546,17 @@ func (j *jsiiProxy_CfnBucket)SetResourcesReceivingAccess(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"resourcesReceivingAccess",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBucket)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

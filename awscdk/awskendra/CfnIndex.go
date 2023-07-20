@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Kendra::Index`.
-//
-// Creates an Amazon Kendra index
+// Creates an Amazon Kendra index.
 //
 // Once the index is active you can add documents to your index using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation or using one of the supported data sources.
 //
@@ -88,9 +86,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
+//
 type CfnIndex interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the index.
 	//
 	// For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
@@ -99,7 +100,6 @@ type CfnIndex interface {
 	//
 	// For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
 	AttrId() *string
-	// `AWS::Kendra::Index.CapacityUnits`.
 	CapacityUnits() interface{}
 	SetCapacityUnits(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -115,13 +115,9 @@ type CfnIndex interface {
 	Description() *string
 	SetDescription(val *string)
 	// Specifies the properties of an index field.
-	//
-	// You can add either a custom or a built-in field. You can add and remove built-in fields at any time. When a built-in field is removed it's configuration reverts to the default for the field. Custom fields can't be removed from an index after they are added.
 	DocumentMetadataConfigurations() interface{}
 	SetDocumentMetadataConfigurations(val interface{})
 	// Indicates whether the index is a Enterprise Edition index or a Developer Edition index.
-	//
-	// Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
 	Edition() *string
 	SetEdition(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -145,23 +141,20 @@ type CfnIndex interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics.
-	//
-	// This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The identifier of the AWS KMS customer managed key (CMK) to use to encrypt data indexed by Amazon Kendra.
-	//
-	// Amazon Kendra doesn't support asymmetric CMKs.
 	ServerSideEncryptionConfiguration() interface{}
 	SetServerSideEncryptionConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -176,14 +169,6 @@ type CfnIndex interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The user context policy.
-	//
-	// ATTRIBUTE_FILTER
-	//
-	// - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
-	//
-	// USER_TOKEN
-	//
-	// - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
 	UserContextPolicy() *string
 	SetUserContextPolicy(val *string)
 	// Defines the type of user token used for the index.
@@ -320,6 +305,7 @@ type CfnIndex interface {
 type jsiiProxy_CfnIndex struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnIndex) AttrArn() *string {
@@ -502,6 +488,16 @@ func (j *jsiiProxy_CfnIndex) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIndex) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIndex) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -543,7 +539,6 @@ func (j *jsiiProxy_CfnIndex) UserTokenConfigurations() interface{} {
 }
 
 
-// Create a new `AWS::Kendra::Index`.
 func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) CfnIndex {
 	_init_.Initialize()
 
@@ -561,7 +556,6 @@ func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) C
 	return &j
 }
 
-// Create a new `AWS::Kendra::Index`.
 func NewCfnIndex_Override(c CfnIndex, scope constructs.Construct, id *string, props *CfnIndexProps) {
 	_init_.Initialize()
 
@@ -642,6 +636,17 @@ func (j *jsiiProxy_CfnIndex)SetServerSideEncryptionConfiguration(val interface{}
 	_jsii_.Set(
 		j,
 		"serverSideEncryptionConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIndex)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

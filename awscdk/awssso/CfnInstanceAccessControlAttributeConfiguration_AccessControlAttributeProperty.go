@@ -19,12 +19,18 @@ package awssso
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html
+//
 type CfnInstanceAccessControlAttributeConfiguration_AccessControlAttributeProperty struct {
 	// The name of the attribute associated with your identities in your identity source.
 	//
 	// This is used to map a specified attribute in your identity source with an attribute in IAM Identity Center .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value used for mapping a specified attribute to an identity source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-value
+	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 }
 

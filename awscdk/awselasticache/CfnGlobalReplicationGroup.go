@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElastiCache::GlobalReplicationGroup`.
+// Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region.
 //
-// Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary cluster automatically replicates updates to the secondary cluster.
+// The secondary cluster accepts only reads. The primary cluster automatically replicates updates to the secondary cluster.
 //
 // - The *GlobalReplicationGroupIdSuffix* represents the name of the Global datastore, which is what you use to associate a secondary cluster.
 //
@@ -53,6 +53,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html
+//
 type CfnGlobalReplicationGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -63,16 +65,12 @@ type CfnGlobalReplicationGroup interface {
 	// Can be `Creating` , `Modifying` , `Available` , `Deleting` or `Primary-Only` . Primary-only status indicates the global datastore contains only a primary cluster. Either all secondary clusters are deleted or not successfully created.
 	AttrStatus() *string
 	// Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
-	//
-	// `AutomaticFailoverEnabled` must be enabled for Redis (cluster mode enabled) replication groups.
 	AutomaticFailoverEnabled() interface{}
 	SetAutomaticFailoverEnabled(val interface{})
 	// The cache node type of the Global datastore.
 	CacheNodeType() *string
 	SetCacheNodeType(val *string)
 	// The name of the cache parameter group to use with the Global datastore.
-	//
-	// It must be compatible with the major engine version used by the Global datastore.
 	CacheParameterGroupName() *string
 	SetCacheParameterGroupName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -94,8 +92,6 @@ type CfnGlobalReplicationGroup interface {
 	GlobalReplicationGroupDescription() *string
 	SetGlobalReplicationGroupDescription(val *string)
 	// The suffix name of a Global Datastore.
-	//
-	// The suffix guarantees uniqueness of the Global Datastore name across multiple regions.
 	GlobalReplicationGroupIdSuffix() *string
 	SetGlobalReplicationGroupIdSuffix(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -482,7 +478,6 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::ElastiCache::GlobalReplicationGroup`.
 func NewCfnGlobalReplicationGroup(scope constructs.Construct, id *string, props *CfnGlobalReplicationGroupProps) CfnGlobalReplicationGroup {
 	_init_.Initialize()
 
@@ -500,7 +495,6 @@ func NewCfnGlobalReplicationGroup(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::ElastiCache::GlobalReplicationGroup`.
 func NewCfnGlobalReplicationGroup_Override(c CfnGlobalReplicationGroup, scope constructs.Construct, id *string, props *CfnGlobalReplicationGroupProps) {
 	_init_.Initialize()
 

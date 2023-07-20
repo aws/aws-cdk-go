@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::ModuleDefaultVersion`.
+// Specifies the default version of a module.
 //
-// Specifies the default version of a module. The default version of the module will be used in CloudFormation operations for this account and Region.
+// The default version of the module will be used in CloudFormation operations for this account and Region.
 //
 // To register a module version, use the `[AWS::CloudFormation::ModuleVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html)` resource.
 //
@@ -28,12 +28,12 @@ import (
 //   	VersionId: jsii.String("versionId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+//
 type CfnModuleDefaultVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) of the module version to set as the default version.
-	//
-	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
 	Arn() *string
 	SetArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -56,8 +56,6 @@ type CfnModuleDefaultVersion interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the module.
-	//
-	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
 	ModuleName() *string
 	SetModuleName(val *string)
 	// The tree node.
@@ -85,8 +83,6 @@ type CfnModuleDefaultVersion interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID for the specific version of the module.
-	//
-	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
 	VersionId() *string
 	SetVersionId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -353,7 +349,6 @@ func (j *jsiiProxy_CfnModuleDefaultVersion) VersionId() *string {
 }
 
 
-// Create a new `AWS::CloudFormation::ModuleDefaultVersion`.
 func NewCfnModuleDefaultVersion(scope constructs.Construct, id *string, props *CfnModuleDefaultVersionProps) CfnModuleDefaultVersion {
 	_init_.Initialize()
 
@@ -371,7 +366,6 @@ func NewCfnModuleDefaultVersion(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::ModuleDefaultVersion`.
 func NewCfnModuleDefaultVersion_Override(c CfnModuleDefaultVersion, scope constructs.Construct, id *string, props *CfnModuleDefaultVersionProps) {
 	_init_.Initialize()
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3::MultiRegionAccessPoint`.
+// The `AWS::S3::MultiRegionAccessPoint` resource creates an Amazon S3 Multi-Region Access Point.
 //
-// The `AWS::S3::MultiRegionAccessPoint` resource creates an Amazon S3 Multi-Region Access Point. To learn more about Multi-Region Access Points, see [Multi-Region Access Points in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html) in the in the *Amazon S3 User Guide* .
+// To learn more about Multi-Region Access Points, see [Multi-Region Access Points in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html) in the in the *Amazon S3 User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,6 +37,8 @@ import (
 //   		RestrictPublicBuckets: jsii.Boolean(false),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html
 //
 type CfnMultiRegionAccessPoint interface {
 	awscdk.CfnResource
@@ -72,8 +74,6 @@ type CfnMultiRegionAccessPoint interface {
 	// The tree node.
 	Node() constructs.Node
 	// The PublicAccessBlock configuration that you want to apply to this Multi-Region Access Point.
-	//
-	// You can enable the configuration options in any combination. For more information about when Amazon S3 considers an object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide* .
 	PublicAccessBlockConfiguration() interface{}
 	SetPublicAccessBlockConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -385,7 +385,6 @@ func (j *jsiiProxy_CfnMultiRegionAccessPoint) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::S3::MultiRegionAccessPoint`.
 func NewCfnMultiRegionAccessPoint(scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointProps) CfnMultiRegionAccessPoint {
 	_init_.Initialize()
 
@@ -403,7 +402,6 @@ func NewCfnMultiRegionAccessPoint(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::S3::MultiRegionAccessPoint`.
 func NewCfnMultiRegionAccessPoint_Override(c CfnMultiRegionAccessPoint, scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointProps) {
 	_init_.Initialize()
 

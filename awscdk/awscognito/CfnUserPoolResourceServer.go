@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::UserPoolResourceServer`.
-//
 // The `AWS::Cognito::UserPoolResourceServer` resource creates a new OAuth2.0 resource server and defines custom scopes in it.
 //
 // > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html
+//
 type CfnUserPoolResourceServer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -47,8 +48,6 @@ type CfnUserPoolResourceServer interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A unique resource server identifier for the resource server.
-	//
-	// This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
 	Identifier() *string
 	SetIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -72,8 +71,6 @@ type CfnUserPoolResourceServer interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A list of scopes.
-	//
-	// Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 	Scopes() interface{}
 	SetScopes(val interface{})
 	// The stack in which this element is defined.
@@ -229,6 +226,16 @@ type jsiiProxy_CfnUserPoolResourceServer struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnUserPoolResourceServer) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolResourceServer) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -370,7 +377,6 @@ func (j *jsiiProxy_CfnUserPoolResourceServer) UserPoolId() *string {
 }
 
 
-// Create a new `AWS::Cognito::UserPoolResourceServer`.
 func NewCfnUserPoolResourceServer(scope constructs.Construct, id *string, props *CfnUserPoolResourceServerProps) CfnUserPoolResourceServer {
 	_init_.Initialize()
 
@@ -388,7 +394,6 @@ func NewCfnUserPoolResourceServer(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::Cognito::UserPoolResourceServer`.
 func NewCfnUserPoolResourceServer_Override(c CfnUserPoolResourceServer, scope constructs.Construct, id *string, props *CfnUserPoolResourceServerProps) {
 	_init_.Initialize()
 

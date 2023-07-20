@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDatastore) validateSetRetentionPeriodParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnDatastore) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDatastoreParameters(scope constructs.Construct, id *string, props *CfnDatastoreProps) error {
 	return nil
 }

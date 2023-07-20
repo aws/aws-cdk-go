@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::ReceiptFilter`.
+// Specify a new IP address filter.
 //
-// Specify a new IP address filter. You use IP address filters when you receive email with Amazon SES.
+// You use IP address filters when you receive email with Amazon SES.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,9 +30,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptfilter.html
+//
 type CfnReceiptFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -212,6 +215,16 @@ type jsiiProxy_CfnReceiptFilter struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnReceiptFilter) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReceiptFilter) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -323,7 +336,6 @@ func (j *jsiiProxy_CfnReceiptFilter) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::SES::ReceiptFilter`.
 func NewCfnReceiptFilter(scope constructs.Construct, id *string, props *CfnReceiptFilterProps) CfnReceiptFilter {
 	_init_.Initialize()
 
@@ -341,7 +353,6 @@ func NewCfnReceiptFilter(scope constructs.Construct, id *string, props *CfnRecei
 	return &j
 }
 
-// Create a new `AWS::SES::ReceiptFilter`.
 func NewCfnReceiptFilter_Override(c CfnReceiptFilter, scope constructs.Construct, id *string, props *CfnReceiptFilterProps) {
 	_init_.Initialize()
 

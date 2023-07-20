@@ -12,8 +12,12 @@ package awsquicksight
 //   	Relative: jsii.String("relative"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontsize.html
+//
 type CfnAnalysis_FontSizeProperty struct {
 	// The lexical name for the text size, proportional to its surrounding context.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontsize.html#cfn-quicksight-analysis-fontsize-relative
+	//
 	Relative *string `field:"optional" json:"relative" yaml:"relative"`
 }
 

@@ -12,10 +12,14 @@ package awsmsk
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-publicaccess.html
+//
 type CfnCluster_PublicAccessProperty struct {
 	// DISABLED means that public access is turned off.
 	//
 	// SERVICE_PROVIDED_EIPS means that public access is turned on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-publicaccess.html#cfn-msk-cluster-publicaccess-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

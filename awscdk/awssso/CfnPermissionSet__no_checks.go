@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnPermissionSet) validateSetCustomerManagedPolicyReferencesP
 	return nil
 }
 
-func (j *jsiiProxy_CfnPermissionSet) validateSetInlinePolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPermissionSet) validateSetInstanceArnParameters(val *string) error {
 	return nil
 }
@@ -97,6 +93,10 @@ func (j *jsiiProxy_CfnPermissionSet) validateSetNameParameters(val *string) erro
 }
 
 func (j *jsiiProxy_CfnPermissionSet) validateSetPermissionsBoundaryParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnPermissionSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

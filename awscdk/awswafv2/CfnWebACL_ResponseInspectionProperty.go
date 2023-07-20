@@ -53,18 +53,28 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html
+//
 type CfnWebACL_ResponseInspectionProperty struct {
 	// Configures inspection of the response body.
 	//
 	// AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-bodycontains
+	//
 	BodyContains interface{} `field:"optional" json:"bodyContains" yaml:"bodyContains"`
 	// Configures inspection of the response header.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-header
+	//
 	Header interface{} `field:"optional" json:"header" yaml:"header"`
 	// Configures inspection of the response JSON.
 	//
 	// AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-json
+	//
 	Json interface{} `field:"optional" json:"json" yaml:"json"`
 	// Configures inspection of the response status code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-statuscode
+	//
 	StatusCode interface{} `field:"optional" json:"statusCode" yaml:"statusCode"`
 }
 

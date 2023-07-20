@@ -204,22 +204,6 @@ func (j *jsiiProxy_CfnRoute) validateSetApiKeyRequiredParameters(val interface{}
 	return nil
 }
 
-func (j *jsiiProxy_CfnRoute) validateSetRequestModelsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnRoute) validateSetRequestParametersParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnRoute) validateSetRouteKeyParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

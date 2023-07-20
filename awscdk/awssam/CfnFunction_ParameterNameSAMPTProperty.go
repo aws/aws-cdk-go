@@ -10,8 +10,11 @@ package awssam
 //   	ParameterName: jsii.String("parameterName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-parameternamesampt.html
+//
 type CfnFunction_ParameterNameSAMPTProperty struct {
-	// `CfnFunction.ParameterNameSAMPTProperty.ParameterName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-parameternamesampt.html#cfn-serverless-function-parameternamesampt-parametername
+	//
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 }
 

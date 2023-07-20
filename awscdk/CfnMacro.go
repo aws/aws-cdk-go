@@ -7,9 +7,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::Macro`.
+// The `AWS::CloudFormation::Macro` resource is a CloudFormation resource type that creates a CloudFormation macro to perform custom processing on CloudFormation templates.
 //
-// The `AWS::CloudFormation::Macro` resource is a CloudFormation resource type that creates a CloudFormation macro to perform custom processing on CloudFormation templates. For more information, see [Using AWS CloudFormation macros to perform custom processing on templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) .
+// For more information, see [Using AWS CloudFormation macros to perform custom processing on templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,9 +26,12 @@ import (
 //   	LogRoleArn: jsii.String("logRoleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html
+//
 type CfnMacro interface {
 	CfnResource
 	IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -61,8 +64,6 @@ type CfnMacro interface {
 	LogRoleArn() *string
 	SetLogRoleArn(val *string)
 	// The name of the macro.
-	//
-	// The name of the macro must be unique across all macros in the account.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -222,6 +223,16 @@ type jsiiProxy_CfnMacro struct {
 	jsiiProxy_IInspectable
 }
 
+func (j *jsiiProxy_CfnMacro) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMacro) CfnOptions() ICfnResourceOptions {
 	var returns ICfnResourceOptions
 	_jsii_.Get(
@@ -373,7 +384,6 @@ func (j *jsiiProxy_CfnMacro) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudFormation::Macro`.
 func NewCfnMacro(scope constructs.Construct, id *string, props *CfnMacroProps) CfnMacro {
 	_init_.Initialize()
 
@@ -391,7 +401,6 @@ func NewCfnMacro(scope constructs.Construct, id *string, props *CfnMacroProps) C
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::Macro`.
 func NewCfnMacro_Override(c CfnMacro, scope constructs.Construct, id *string, props *CfnMacroProps) {
 	_init_.Initialize()
 

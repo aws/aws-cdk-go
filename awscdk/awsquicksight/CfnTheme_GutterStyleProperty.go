@@ -12,8 +12,12 @@ package awsquicksight
 //   	Show: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html
+//
 type CfnTheme_GutterStyleProperty struct {
 	// This Boolean value controls whether to display a gutter space between sheet tiles.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show
+	//
 	Show interface{} `field:"optional" json:"show" yaml:"show"`
 }
 

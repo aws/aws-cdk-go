@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnExperiment) validateSetRunningStatusParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnExperiment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnExperiment) validateSetTreatmentsParameters(val interface{}) error {
 	return nil
 }

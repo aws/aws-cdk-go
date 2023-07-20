@@ -56,22 +56,33 @@ package awsbudgets
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html
+//
 type CfnBudget_BudgetDataProperty struct {
 	// Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype
+	//
 	BudgetType *string `field:"required" json:"budgetType" yaml:"budgetType"`
 	// The length of time until a budget resets the actual and forecasted spend.
 	//
 	// `DAILY` is available only for `RI_UTILIZATION` and `RI_COVERAGE` budgets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
+	//
 	TimeUnit *string `field:"required" json:"timeUnit" yaml:"timeUnit"`
-	// `CfnBudget.BudgetDataProperty.AutoAdjustData`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-autoadjustdata
+	//
 	AutoAdjustData interface{} `field:"optional" json:"autoAdjustData" yaml:"autoAdjustData"`
 	// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
 	//
 	// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
+	//
 	BudgetLimit interface{} `field:"optional" json:"budgetLimit" yaml:"budgetLimit"`
 	// The name of a budget.
 	//
 	// The value must be unique within an account. `BudgetName` can't include `:` and `\` characters. If you don't include value for `BudgetName` in the template, Billing and Cost Management assigns your budget a randomly generated name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname
+	//
 	BudgetName *string `field:"optional" json:"budgetName" yaml:"budgetName"`
 	// The cost filters, such as `Region` , `Service` , `member account` , `Tag` , or `Cost Category` , that are applied to a budget.
 	//
@@ -82,10 +93,14 @@ type CfnBudget_BudgetDataProperty struct {
 	// - Amazon Relational Database Service
 	// - Amazon ElastiCache
 	// - Amazon OpenSearch Service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
+	//
 	CostFilters interface{} `field:"optional" json:"costFilters" yaml:"costFilters"`
 	// The types of costs that are included in this `COST` budget.
 	//
 	// `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
+	//
 	CostTypes interface{} `field:"optional" json:"costTypes" yaml:"costTypes"`
 	// A map containing multiple `BudgetLimit` , including current or future limits.
 	//
@@ -102,6 +117,8 @@ type CfnBudget_BudgetDataProperty struct {
 	// After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit` . At that point, the planned budget provides the same experience as a fixed budget.
 	//
 	// `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets that are created with `PlannedBudgetLimits` . Budgets that are created without `PlannedBudgetLimits` only contain `BudgetLimit` . They don't contain `PlannedBudgetLimits` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+	//
 	PlannedBudgetLimits interface{} `field:"optional" json:"plannedBudgetLimits" yaml:"plannedBudgetLimits"`
 	// The period of time that is covered by a budget.
 	//
@@ -112,6 +129,8 @@ type CfnBudget_BudgetDataProperty struct {
 	// You can change your start date with the `UpdateBudget` operation.
 	//
 	// After the end date, AWS deletes the budget and all associated notifications and subscribers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
+	//
 	TimePeriod interface{} `field:"optional" json:"timePeriod" yaml:"timePeriod"`
 }
 

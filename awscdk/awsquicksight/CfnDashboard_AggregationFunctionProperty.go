@@ -21,11 +21,15 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationfunction.html
+//
 type CfnDashboard_AggregationFunctionProperty struct {
 	// Aggregation for categorical values.
 	//
 	// - `COUNT` : Aggregate by the total number of values, including duplicates.
 	// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationfunction.html#cfn-quicksight-dashboard-aggregationfunction-categoricalaggregationfunction
+	//
 	CategoricalAggregationFunction *string `field:"optional" json:"categoricalAggregationFunction" yaml:"categoricalAggregationFunction"`
 	// Aggregation for date values.
 	//
@@ -33,8 +37,12 @@ type CfnDashboard_AggregationFunctionProperty struct {
 	// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
 	// - `MIN` : Select the smallest date value.
 	// - `MAX` : Select the largest date value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationfunction.html#cfn-quicksight-dashboard-aggregationfunction-dateaggregationfunction
+	//
 	DateAggregationFunction *string `field:"optional" json:"dateAggregationFunction" yaml:"dateAggregationFunction"`
 	// Aggregation for numerical values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationfunction.html#cfn-quicksight-dashboard-aggregationfunction-numericalaggregationfunction
+	//
 	NumericalAggregationFunction interface{} `field:"optional" json:"numericalAggregationFunction" yaml:"numericalAggregationFunction"`
 }
 

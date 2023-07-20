@@ -254,28 +254,50 @@ package awsquicksight
 //   	ToggleButtonsVisibility: jsii.String("toggleButtonsVisibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html
+//
 type CfnDashboard_PivotTableOptionsProperty struct {
 	// The table cell style of cells.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-cellstyle
+	//
 	CellStyle interface{} `field:"optional" json:"cellStyle" yaml:"cellStyle"`
 	// The visibility setting of a pivot table's collapsed row dimension fields.
 	//
 	// If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-collapsedrowdimensionsvisibility
+	//
 	CollapsedRowDimensionsVisibility *string `field:"optional" json:"collapsedRowDimensionsVisibility" yaml:"collapsedRowDimensionsVisibility"`
 	// The table cell style of the column header.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-columnheaderstyle
+	//
 	ColumnHeaderStyle interface{} `field:"optional" json:"columnHeaderStyle" yaml:"columnHeaderStyle"`
 	// The visibility of the column names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-columnnamesvisibility
+	//
 	ColumnNamesVisibility *string `field:"optional" json:"columnNamesVisibility" yaml:"columnNamesVisibility"`
 	// The metric placement (row, column) options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-metricplacement
+	//
 	MetricPlacement *string `field:"optional" json:"metricPlacement" yaml:"metricPlacement"`
 	// The row alternate color options (widget status, row alternate colors).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowalternatecoloroptions
+	//
 	RowAlternateColorOptions interface{} `field:"optional" json:"rowAlternateColorOptions" yaml:"rowAlternateColorOptions"`
 	// The table cell style of row field names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowfieldnamesstyle
+	//
 	RowFieldNamesStyle interface{} `field:"optional" json:"rowFieldNamesStyle" yaml:"rowFieldNamesStyle"`
 	// The table cell style of the row headers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowheaderstyle
+	//
 	RowHeaderStyle interface{} `field:"optional" json:"rowHeaderStyle" yaml:"rowHeaderStyle"`
 	// The visibility of the single metric options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-singlemetricvisibility
+	//
 	SingleMetricVisibility *string `field:"optional" json:"singleMetricVisibility" yaml:"singleMetricVisibility"`
 	// Determines the visibility of the pivot table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-togglebuttonsvisibility
+	//
 	ToggleButtonsVisibility *string `field:"optional" json:"toggleButtonsVisibility" yaml:"toggleButtonsVisibility"`
 }
 

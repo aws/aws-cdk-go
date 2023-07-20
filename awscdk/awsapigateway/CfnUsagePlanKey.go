@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::UsagePlanKey`.
+// The `AWS::ApiGateway::UsagePlanKey` resource associates an API key with a usage plan.
 //
-// The `AWS::ApiGateway::UsagePlanKey` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
+// This association determines which users the usage plan is applied to.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,6 +23,8 @@ import (
 //   	KeyType: jsii.String("keyType"),
 //   	UsagePlanId: jsii.String("usagePlanId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
 //
 type CfnUsagePlanKey interface {
 	awscdk.CfnResource
@@ -357,7 +359,6 @@ func (j *jsiiProxy_CfnUsagePlanKey) UsagePlanId() *string {
 }
 
 
-// Create a new `AWS::ApiGateway::UsagePlanKey`.
 func NewCfnUsagePlanKey(scope constructs.Construct, id *string, props *CfnUsagePlanKeyProps) CfnUsagePlanKey {
 	_init_.Initialize()
 
@@ -375,7 +376,6 @@ func NewCfnUsagePlanKey(scope constructs.Construct, id *string, props *CfnUsageP
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::UsagePlanKey`.
 func NewCfnUsagePlanKey_Override(c CfnUsagePlanKey, scope constructs.Construct, id *string, props *CfnUsagePlanKeyProps) {
 	_init_.Initialize()
 

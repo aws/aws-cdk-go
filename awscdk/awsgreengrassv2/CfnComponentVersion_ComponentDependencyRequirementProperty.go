@@ -13,6 +13,8 @@ package awsgreengrassv2
 //   	VersionRequirement: jsii.String("versionRequirement"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html
+//
 type CfnComponentVersion_ComponentDependencyRequirementProperty struct {
 	// The type of this dependency. Choose from the following options:.
 	//
@@ -20,10 +22,14 @@ type CfnComponentVersion_ComponentDependencyRequirementProperty struct {
 	// - `HARD` – The component restarts if the dependency changes state.
 	//
 	// Default: `HARD`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-dependencytype
+	//
 	DependencyType *string `field:"optional" json:"dependencyType" yaml:"dependencyType"`
 	// The component version requirement for the component dependency.
 	//
 	// AWS IoT Greengrass uses semantic version constraints. For more information, see [Semantic Versioning](https://docs.aws.amazon.com/https://semver.org/) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-versionrequirement
+	//
 	VersionRequirement *string `field:"optional" json:"versionRequirement" yaml:"versionRequirement"`
 }
 

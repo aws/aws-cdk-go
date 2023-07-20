@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SecurityHub::AutomationRule`.
+// The `AWS::SecurityHub::AutomationRule` resource specifies an automation rule based on input parameters.
 //
-// The `AWS::SecurityHub::AutomationRule` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+// For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -303,6 +303,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html
+//
 type CfnAutomationRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -341,8 +343,6 @@ type CfnAutomationRule interface {
 	Description() *string
 	SetDescription(val *string)
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria.
-	//
-	// This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If the value of this field is set to `true` for a rule, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. The default value of this field is `false` .
 	IsTerminal() interface{}
 	SetIsTerminal(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -366,13 +366,9 @@ type CfnAutomationRule interface {
 	RuleName() *string
 	SetRuleName(val *string)
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings.
-	//
-	// Security Hub applies rules with lower values for this parameter first.
 	RuleOrder() *float64
 	SetRuleOrder(val *float64)
 	// Whether the rule is active after it is created.
-	//
-	// If this parameter is equal to `ENABLED` , Security Hub applies the rule to findings and finding updates after the rule is created.
 	RuleStatus() *string
 	SetRuleStatus(val *string)
 	// The stack in which this element is defined.
@@ -380,7 +376,8 @@ type CfnAutomationRule interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// User-defined tags that help you label the purpose of a rule.
-	Tags() awscdk.TagManager
+	Tags() *map[string]*string
+	SetTags(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -717,8 +714,8 @@ func (j *jsiiProxy_CfnAutomationRule) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomationRule) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnAutomationRule) Tags() *map[string]*string {
+	var returns *map[string]*string
 	_jsii_.Get(
 		j,
 		"tags",
@@ -748,7 +745,6 @@ func (j *jsiiProxy_CfnAutomationRule) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::SecurityHub::AutomationRule`.
 func NewCfnAutomationRule(scope constructs.Construct, id *string, props *CfnAutomationRuleProps) CfnAutomationRule {
 	_init_.Initialize()
 
@@ -766,7 +762,6 @@ func NewCfnAutomationRule(scope constructs.Construct, id *string, props *CfnAuto
 	return &j
 }
 
-// Create a new `AWS::SecurityHub::AutomationRule`.
 func NewCfnAutomationRule_Override(c CfnAutomationRule, scope constructs.Construct, id *string, props *CfnAutomationRuleProps) {
 	_init_.Initialize()
 
@@ -838,6 +833,14 @@ func (j *jsiiProxy_CfnAutomationRule)SetRuleStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleStatus",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutomationRule)SetTags(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

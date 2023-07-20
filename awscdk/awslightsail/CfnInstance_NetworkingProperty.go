@@ -34,10 +34,16 @@ package awslightsail
 //   	MonthlyTransfer: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html
+//
 type CfnInstance_NetworkingProperty struct {
 	// An array of ports to open on the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html#cfn-lightsail-instance-networking-ports
+	//
 	Ports interface{} `field:"required" json:"ports" yaml:"ports"`
 	// The monthly amount of data transfer, in GB, allocated for the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html#cfn-lightsail-instance-networking-monthlytransfer
+	//
 	MonthlyTransfer *float64 `field:"optional" json:"monthlyTransfer" yaml:"monthlyTransfer"`
 }
 

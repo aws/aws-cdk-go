@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::Route`.
-//
 // Specifies a route in a route table.
 //
 // You must specify either `DestinationCidrBlock` or `DestinationIpv6CidrBlock` , plus the ID of one of the target resources.
@@ -40,12 +38,13 @@ import (
 //   	VpcPeeringConnectionId: jsii.String("vpcPeeringConnectionId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
+//
 type CfnRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The ID of the carrier gateway.
-	//
-	// You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId() *string
 	SetCarrierGatewayId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -58,13 +57,9 @@ type CfnRoute interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The IPv4 CIDR address block used for the destination match.
-	//
-	// Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify `100.68.0.18/18` , we modify it to `100.68.0.0/18` .
 	DestinationCidrBlock() *string
 	SetDestinationCidrBlock(val *string)
 	// The IPv6 CIDR block used for the destination match.
-	//
-	// Routing decisions are based on the most specific match.
 	DestinationIpv6CidrBlock() *string
 	SetDestinationIpv6CidrBlock(val *string)
 	// [IPv6 traffic only] The ID of an egress-only internet gateway.
@@ -74,8 +69,6 @@ type CfnRoute interface {
 	GatewayId() *string
 	SetGatewayId(val *string)
 	// The ID of a NAT instance in your VPC.
-	//
-	// The operation fails if you specify an instance ID unless exactly one network interface is attached.
 	InstanceId() *string
 	SetInstanceId(val *string)
 	// The ID of the local gateway.
@@ -128,8 +121,6 @@ type CfnRoute interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of a VPC endpoint.
-	//
-	// Supported for Gateway Load Balancer endpoints only.
 	VpcEndpointId() *string
 	SetVpcEndpointId(val *string)
 	// The ID of a VPC peering connection.
@@ -266,6 +257,16 @@ type CfnRoute interface {
 type jsiiProxy_CfnRoute struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnRoute) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnRoute) CarrierGatewayId() *string {
@@ -499,7 +500,6 @@ func (j *jsiiProxy_CfnRoute) VpcPeeringConnectionId() *string {
 }
 
 
-// Create a new `AWS::EC2::Route`.
 func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) CfnRoute {
 	_init_.Initialize()
 
@@ -517,7 +517,6 @@ func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) C
 	return &j
 }
 
-// Create a new `AWS::EC2::Route`.
 func NewCfnRoute_Override(c CfnRoute, scope constructs.Construct, id *string, props *CfnRouteProps) {
 	_init_.Initialize()
 

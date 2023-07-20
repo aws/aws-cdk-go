@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnLocation) validateSetLocationNameParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLocationParameters(scope constructs.Construct, id *string, props *CfnLocationProps) error {
 	return nil
 }

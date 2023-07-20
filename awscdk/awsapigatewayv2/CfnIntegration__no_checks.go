@@ -88,18 +88,6 @@ func (j *jsiiProxy_CfnIntegration) validateSetIntegrationTypeParameters(val *str
 	return nil
 }
 
-func (j *jsiiProxy_CfnIntegration) validateSetRequestParametersParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnIntegration) validateSetRequestTemplatesParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnIntegration) validateSetResponseParametersParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnIntegration) validateSetTlsConfigParameters(val interface{}) error {
 	return nil
 }

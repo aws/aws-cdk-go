@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TrafficMirrorTarget`.
-//
 // Specifies a target for your Traffic Mirror session.
 //
 // A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.
@@ -37,9 +35,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html
+//
 type CfnTrafficMirrorTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -82,8 +84,11 @@ type CfnTrafficMirrorTarget interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to assign to the Traffic Mirror target.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to assign to the Traffic Mirror target.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +233,17 @@ type CfnTrafficMirrorTarget interface {
 type jsiiProxy_CfnTrafficMirrorTarget struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnTrafficMirrorTarget) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnTrafficMirrorTarget) CfnOptions() awscdk.ICfnResourceOptions {
@@ -360,6 +376,16 @@ func (j *jsiiProxy_CfnTrafficMirrorTarget) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrafficMirrorTarget) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrafficMirrorTarget) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -381,7 +407,6 @@ func (j *jsiiProxy_CfnTrafficMirrorTarget) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::EC2::TrafficMirrorTarget`.
 func NewCfnTrafficMirrorTarget(scope constructs.Construct, id *string, props *CfnTrafficMirrorTargetProps) CfnTrafficMirrorTarget {
 	_init_.Initialize()
 
@@ -399,7 +424,6 @@ func NewCfnTrafficMirrorTarget(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::EC2::TrafficMirrorTarget`.
 func NewCfnTrafficMirrorTarget_Override(c CfnTrafficMirrorTarget, scope constructs.Construct, id *string, props *CfnTrafficMirrorTargetProps) {
 	_init_.Initialize()
 
@@ -438,6 +462,17 @@ func (j *jsiiProxy_CfnTrafficMirrorTarget)SetNetworkLoadBalancerArn(val *string)
 	_jsii_.Set(
 		j,
 		"networkLoadBalancerArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrafficMirrorTarget)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

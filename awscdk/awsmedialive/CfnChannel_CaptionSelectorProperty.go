@@ -49,14 +49,22 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html
+//
 type CfnChannel_CaptionSelectorProperty struct {
 	// When specified, this field indicates the three-letter language code of the captions track to extract from the source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html#cfn-medialive-channel-captionselector-languagecode
+	//
 	LanguageCode *string `field:"optional" json:"languageCode" yaml:"languageCode"`
 	// The name identifier for a captions selector.
 	//
 	// This name is used to associate this captions selector with one or more captions descriptions. Names must be unique within a channel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html#cfn-medialive-channel-captionselector-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Information about the specific audio to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html#cfn-medialive-channel-captionselector-selectorsettings
+	//
 	SelectorSettings interface{} `field:"optional" json:"selectorSettings" yaml:"selectorSettings"`
 }
 

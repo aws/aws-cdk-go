@@ -1,6 +1,8 @@
 package awspersonalize
 
 
+// Provides the name and range of an integer-valued hyperparameter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,12 +14,20 @@ package awspersonalize
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-integerhyperparameterrange.html
+//
 type CfnSolution_IntegerHyperParameterRangeProperty struct {
-	// `CfnSolution.IntegerHyperParameterRangeProperty.MaxValue`.
+	// The maximum allowable value for the hyperparameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-integerhyperparameterrange.html#cfn-personalize-solution-integerhyperparameterrange-maxvalue
+	//
 	MaxValue *float64 `field:"optional" json:"maxValue" yaml:"maxValue"`
-	// `CfnSolution.IntegerHyperParameterRangeProperty.MinValue`.
+	// The minimum allowable value for the hyperparameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-integerhyperparameterrange.html#cfn-personalize-solution-integerhyperparameterrange-minvalue
+	//
 	MinValue *float64 `field:"optional" json:"minValue" yaml:"minValue"`
-	// `CfnSolution.IntegerHyperParameterRangeProperty.Name`.
+	// The name of the hyperparameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-integerhyperparameterrange.html#cfn-personalize-solution-integerhyperparameterrange-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ImageBuilder::Image`.
+// An image build version.
 //
-// An image build version. An image is a customized, secure, and up-to-date “golden” server image that is pre-installed and pre-configured with software and settings to meet specific IT standards.
+// An image is a customized, secure, and up-to-date “golden” server image that is pre-installed and pre-configured with software and settings to meet specific IT standards.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,9 +44,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
+//
 type CfnImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the image.
 	//
 	// For example, `arn:aws:imagebuilder:us-west-2:123456789012:image/mybasicrecipe/2019.12.03/1` .
@@ -82,7 +85,7 @@ type CfnImage interface {
 	// The Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
-	// `AWS::ImageBuilder::Image.ImageScanningConfiguration`.
+	// Contains settings for Image Builder image resource and container image scans.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
 	// The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.
@@ -112,8 +115,11 @@ type CfnImage interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags of the image.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags of the image.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -258,6 +264,7 @@ type CfnImage interface {
 type jsiiProxy_CfnImage struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnImage) AttrArn() *string {
@@ -460,6 +467,16 @@ func (j *jsiiProxy_CfnImage) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImage) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImage) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -481,7 +498,6 @@ func (j *jsiiProxy_CfnImage) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ImageBuilder::Image`.
 func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) CfnImage {
 	_init_.Initialize()
 
@@ -499,7 +515,6 @@ func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) C
 	return &j
 }
 
-// Create a new `AWS::ImageBuilder::Image`.
 func NewCfnImage_Override(c CfnImage, scope constructs.Construct, id *string, props *CfnImageProps) {
 	_init_.Initialize()
 
@@ -574,6 +589,14 @@ func (j *jsiiProxy_CfnImage)SetInfrastructureConfigurationArn(val *string) {
 	_jsii_.Set(
 		j,
 		"infrastructureConfigurationArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImage)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

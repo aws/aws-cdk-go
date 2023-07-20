@@ -92,15 +92,11 @@ func (j *jsiiProxy_CfnFeatureGroup) validateSetFeatureGroupNameParameters(val *s
 	return nil
 }
 
-func (j *jsiiProxy_CfnFeatureGroup) validateSetOfflineStoreConfigParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnFeatureGroup) validateSetOnlineStoreConfigParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnFeatureGroup) validateSetRecordIdentifierFeatureNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFeatureGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

@@ -25,10 +25,16 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html
+//
 type CfnRuleGroup_RuleVariablesProperty struct {
 	// A list of IP addresses and address ranges, in CIDR notation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-ipsets
+	//
 	IpSets interface{} `field:"optional" json:"ipSets" yaml:"ipSets"`
 	// A list of port ranges.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-portsets
+	//
 	PortSets interface{} `field:"optional" json:"portSets" yaml:"portSets"`
 }
 

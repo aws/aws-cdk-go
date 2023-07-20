@@ -26,12 +26,18 @@ package awsssmcontacts
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-stage.html
+//
 type CfnPlan_StageProperty struct {
 	// The time to wait until beginning the next stage.
 	//
 	// The duration can only be set to 0 if a target is specified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-stage.html#cfn-ssmcontacts-plan-stage-durationinminutes
+	//
 	DurationInMinutes *float64 `field:"required" json:"durationInMinutes" yaml:"durationInMinutes"`
 	// The contacts or contact methods that the escalation plan or engagement plan is engaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-stage.html#cfn-ssmcontacts-plan-stage-targets
+	//
 	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
 }
 

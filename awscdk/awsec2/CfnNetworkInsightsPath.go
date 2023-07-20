@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::NetworkInsightsPath`.
-//
 // Specifies a path to analyze for reachability.
 //
 // VPC Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC). For more information, see the [Reachability Analyzer User Guide](https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html) .
@@ -61,9 +59,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
+//
 type CfnNetworkInsightsPath interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The time stamp when the path was created.
 	AttrCreatedDate() *string
 	// The Amazon Resource Name (ARN) of the destination.
@@ -84,8 +85,6 @@ type CfnNetworkInsightsPath interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ID or ARN of the destination.
-	//
-	// If the resource is in another account, you must specify an ARN.
 	Destination() *string
 	SetDestination(val *string)
 	// The IP address of the destination.
@@ -95,13 +94,9 @@ type CfnNetworkInsightsPath interface {
 	DestinationPort() *float64
 	SetDestinationPort(val *float64)
 	// Scopes the analysis to network paths that match specific filters at the destination.
-	//
-	// If you specify this parameter, you can't specify the parameter for the destination IP address.
 	FilterAtDestination() interface{}
 	SetFilterAtDestination(val interface{})
 	// Scopes the analysis to network paths that match specific filters at the source.
-	//
-	// If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
 	FilterAtSource() interface{}
 	SetFilterAtSource(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -125,8 +120,6 @@ type CfnNetworkInsightsPath interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ID or ARN of the source.
-	//
-	// If the resource is in another account, you must specify an ARN.
 	Source() *string
 	SetSource(val *string)
 	// The IP address of the source.
@@ -136,8 +129,11 @@ type CfnNetworkInsightsPath interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to add to the path.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to add to the path.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -282,6 +278,7 @@ type CfnNetworkInsightsPath interface {
 type jsiiProxy_CfnNetworkInsightsPath struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNetworkInsightsPath) AttrCreatedDate() *string {
@@ -504,6 +501,16 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInsightsPath) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInsightsPath) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -525,7 +532,6 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::EC2::NetworkInsightsPath`.
 func NewCfnNetworkInsightsPath(scope constructs.Construct, id *string, props *CfnNetworkInsightsPathProps) CfnNetworkInsightsPath {
 	_init_.Initialize()
 
@@ -543,7 +549,6 @@ func NewCfnNetworkInsightsPath(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::EC2::NetworkInsightsPath`.
 func NewCfnNetworkInsightsPath_Override(c CfnNetworkInsightsPath, scope constructs.Construct, id *string, props *CfnNetworkInsightsPathProps) {
 	_init_.Initialize()
 
@@ -626,6 +631,17 @@ func (j *jsiiProxy_CfnNetworkInsightsPath)SetSourceIp(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceIp",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsPath)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

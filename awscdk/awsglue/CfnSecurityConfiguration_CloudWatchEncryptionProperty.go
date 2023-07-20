@@ -13,10 +13,16 @@ package awsglue
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html
+//
 type CfnSecurityConfiguration_CloudWatchEncryptionProperty struct {
 	// The encryption mode to use for CloudWatch data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode
+	//
 	CloudWatchEncryptionMode *string `field:"optional" json:"cloudWatchEncryptionMode" yaml:"cloudWatchEncryptionMode"`
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn
+	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 

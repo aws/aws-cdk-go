@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGatewayV2::IntegrationResponse`.
+// The `AWS::ApiGatewayV2::IntegrationResponse` resource updates an integration response for an WebSocket API.
 //
-// The `AWS::ApiGatewayV2::IntegrationResponse` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide* .
+// For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,6 +33,8 @@ import (
 //   	TemplateSelectionExpression: jsii.String("templateSelectionExpression"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html
+//
 type CfnIntegrationResponse interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -47,14 +49,6 @@ type CfnIntegrationResponse interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Supported only for WebSocket APIs.
-	//
-	// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
-	//
-	// `CONVERT_TO_BINARY` : Converts a response payload from a Base64-encoded string to the corresponding binary blob.
-	//
-	// `CONVERT_TO_TEXT` : Converts a response payload from a binary blob to a Base64-encoded string.
-	//
-	// If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
 	ContentHandlingStrategy() *string
 	SetContentHandlingStrategy(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -85,13 +79,9 @@ type CfnIntegrationResponse interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A key-value map specifying response parameters that are passed to the method response from the backend.
-	//
-	// The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header. *{name}*` , where name is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header. *{name}*` or `integration.response.body. *{JSON-expression}*` , where `*{name}*` is a valid and unique response header name and `*{JSON-expression}*` is a valid JSON expression without the `$` prefix.
 	ResponseParameters() interface{}
 	SetResponseParameters(val interface{})
 	// The collection of response templates for the integration response as a string-to-string map of key-value pairs.
-	//
-	// Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
 	ResponseTemplates() interface{}
 	SetResponseTemplates(val interface{})
 	// The stack in which this element is defined.
@@ -99,8 +89,6 @@ type CfnIntegrationResponse interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The template selection expression for the integration response.
-	//
-	// Supported only for WebSocket APIs.
 	TemplateSelectionExpression() *string
 	SetTemplateSelectionExpression(val *string)
 	// Deprecated.
@@ -430,7 +418,6 @@ func (j *jsiiProxy_CfnIntegrationResponse) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::ApiGatewayV2::IntegrationResponse`.
 func NewCfnIntegrationResponse(scope constructs.Construct, id *string, props *CfnIntegrationResponseProps) CfnIntegrationResponse {
 	_init_.Initialize()
 
@@ -448,7 +435,6 @@ func NewCfnIntegrationResponse(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::ApiGatewayV2::IntegrationResponse`.
 func NewCfnIntegrationResponse_Override(c CfnIntegrationResponse, scope constructs.Construct, id *string, props *CfnIntegrationResponseProps) {
 	_init_.Initialize()
 
@@ -501,9 +487,6 @@ func (j *jsiiProxy_CfnIntegrationResponse)SetIntegrationResponseKey(val *string)
 }
 
 func (j *jsiiProxy_CfnIntegrationResponse)SetResponseParameters(val interface{}) {
-	if err := j.validateSetResponseParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"responseParameters",
@@ -512,9 +495,6 @@ func (j *jsiiProxy_CfnIntegrationResponse)SetResponseParameters(val interface{})
 }
 
 func (j *jsiiProxy_CfnIntegrationResponse)SetResponseTemplates(val interface{}) {
-	if err := j.validateSetResponseTemplatesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"responseTemplates",

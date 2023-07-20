@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::Partition`.
+// The `AWS::Glue::Partition` resource creates an AWS Glue partition, which represents a slice of table data.
 //
-// The `AWS::Glue::Partition` resource creates an AWS Glue partition, which represents a slice of table data. For more information, see [CreatePartition Action](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-CreatePartition) and [Partition Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-Partition) in the *AWS Glue Developer Guide* .
+// For more information, see [CreatePartition Action](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-CreatePartition) and [Partition Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-Partition) in the *AWS Glue Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -87,12 +87,13 @@ import (
 //   	TableName: jsii.String("tableName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html
+//
 type CfnPartition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The AWS account ID of the catalog in which the partion is to be created.
-	//
-	// > To specify the account ID, you can use the `Ref` intrinsic function with the `AWS::AccountId` pseudo parameter. For example: `!Ref AWS::AccountId`
 	CatalogId() *string
 	SetCatalogId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -280,6 +281,16 @@ type jsiiProxy_CfnPartition struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnPartition) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPartition) CatalogId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -421,7 +432,6 @@ func (j *jsiiProxy_CfnPartition) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Glue::Partition`.
 func NewCfnPartition(scope constructs.Construct, id *string, props *CfnPartitionProps) CfnPartition {
 	_init_.Initialize()
 
@@ -439,7 +449,6 @@ func NewCfnPartition(scope constructs.Construct, id *string, props *CfnPartition
 	return &j
 }
 
-// Create a new `AWS::Glue::Partition`.
 func NewCfnPartition_Override(c CfnPartition, scope constructs.Construct, id *string, props *CfnPartitionProps) {
 	_init_.Initialize()
 

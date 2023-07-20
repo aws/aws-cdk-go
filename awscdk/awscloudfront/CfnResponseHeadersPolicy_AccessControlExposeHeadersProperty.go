@@ -16,10 +16,14 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolexposeheaders.html
+//
 type CfnResponseHeadersPolicy_AccessControlExposeHeadersProperty struct {
 	// The list of HTTP headers.
 	//
 	// You can specify `*` to expose all headers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolexposeheaders.html#cfn-cloudfront-responseheaderspolicy-accesscontrolexposeheaders-items
+	//
 	Items *[]*string `field:"required" json:"items" yaml:"items"`
 }
 

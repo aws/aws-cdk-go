@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::HealthLake::FHIRDatastore`.
-//
 // Creates a Data Store that can ingest and export FHIR formatted data.
 //
 // > Please note that when a user tries to do an Update operation via CloudFormation, changes to the Data Store name, Type Version, PreloadDataConfig, or SSEConfiguration will delete their existing Data Store for the stack and create a new one. This will lead to potential loss of data.
@@ -25,6 +23,14 @@ import (
 //
 //   	// the properties below are optional
 //   	DatastoreName: jsii.String("datastoreName"),
+//   	IdentityProviderConfiguration: &IdentityProviderConfigurationProperty{
+//   		AuthorizationStrategy: jsii.String("authorizationStrategy"),
+//
+//   		// the properties below are optional
+//   		FineGrainedAuthorizationEnabled: jsii.Boolean(false),
+//   		IdpLambdaArn: jsii.String("idpLambdaArn"),
+//   		Metadata: jsii.String("metadata"),
+//   	},
 //   	PreloadDataConfig: &PreloadDataConfigProperty{
 //   		PreloadDataType: jsii.String("preloadDataType"),
 //   	},
@@ -44,10 +50,17 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html
+//
 type CfnFHIRDatastore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// The time that a Data Store was created.
+	AttrCreatedAt() awscdk.IResolvable
+	// Nanoseconds.
 	AttrCreatedAtNanos() *float64
+	// Seconds since epoch.
 	AttrCreatedAtSeconds() *string
 	// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
 	AttrDatastoreArn() *string
@@ -74,10 +87,10 @@ type CfnFHIRDatastore interface {
 	DatastoreName() *string
 	SetDatastoreName(val *string)
 	// The FHIR version of the Data Store.
-	//
-	// The only supported version is R4.
 	DatastoreTypeVersion() *string
 	SetDatastoreTypeVersion(val *string)
+	IdentityProviderConfiguration() interface{}
+	SetIdentityProviderConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -91,8 +104,6 @@ type CfnFHIRDatastore interface {
 	// The tree node.
 	Node() constructs.Node
 	// The preloaded data configuration for the Data Store.
-	//
-	// Only data preloaded from Synthea is supported.
 	PreloadDataConfig() interface{}
 	SetPreloadDataConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -107,10 +118,11 @@ type CfnFHIRDatastore interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -255,6 +267,17 @@ type CfnFHIRDatastore interface {
 type jsiiProxy_CfnFHIRDatastore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnFHIRDatastore) AttrCreatedAt() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrCreatedAt",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnFHIRDatastore) AttrCreatedAtNanos() *float64 {
@@ -377,6 +400,16 @@ func (j *jsiiProxy_CfnFHIRDatastore) DatastoreTypeVersion() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore) IdentityProviderConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"identityProviderConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -447,6 +480,16 @@ func (j *jsiiProxy_CfnFHIRDatastore) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -468,7 +511,6 @@ func (j *jsiiProxy_CfnFHIRDatastore) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::HealthLake::FHIRDatastore`.
 func NewCfnFHIRDatastore(scope constructs.Construct, id *string, props *CfnFHIRDatastoreProps) CfnFHIRDatastore {
 	_init_.Initialize()
 
@@ -486,7 +528,6 @@ func NewCfnFHIRDatastore(scope constructs.Construct, id *string, props *CfnFHIRD
 	return &j
 }
 
-// Create a new `AWS::HealthLake::FHIRDatastore`.
 func NewCfnFHIRDatastore_Override(c CfnFHIRDatastore, scope constructs.Construct, id *string, props *CfnFHIRDatastoreProps) {
 	_init_.Initialize()
 
@@ -516,6 +557,17 @@ func (j *jsiiProxy_CfnFHIRDatastore)SetDatastoreTypeVersion(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore)SetIdentityProviderConfiguration(val interface{}) {
+	if err := j.validateSetIdentityProviderConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"identityProviderConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore)SetPreloadDataConfig(val interface{}) {
 	if err := j.validateSetPreloadDataConfigParameters(val); err != nil {
 		panic(err)
@@ -534,6 +586,17 @@ func (j *jsiiProxy_CfnFHIRDatastore)SetSseConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sseConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFHIRDatastore)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

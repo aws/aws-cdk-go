@@ -54,26 +54,42 @@ package awsdatapipeline
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html
+//
 type CfnPipelineProps struct {
 	// The name of the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Indicates whether to validate and start the pipeline or stop an active pipeline.
 	//
 	// By default, the value is set to `true` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-activate
+	//
 	Activate interface{} `field:"optional" json:"activate" yaml:"activate"`
 	// A description of the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The parameter objects used with the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects
+	//
 	ParameterObjects interface{} `field:"optional" json:"parameterObjects" yaml:"parameterObjects"`
 	// The parameter values used with the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parametervalues
+	//
 	ParameterValues interface{} `field:"optional" json:"parameterValues" yaml:"parameterValues"`
 	// The objects that define the pipeline.
 	//
 	// These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see [Editing Your Pipeline](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-manage-pipeline-modify-console.html) in the *AWS Data Pipeline Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelineobjects
+	//
 	PipelineObjects interface{} `field:"optional" json:"pipelineObjects" yaml:"pipelineObjects"`
 	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions.
 	//
 	// For more information, see [Controlling Access to Pipelines and Resources](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html) in the *AWS Data Pipeline Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelinetags
+	//
 	PipelineTags interface{} `field:"optional" json:"pipelineTags" yaml:"pipelineTags"`
 }
 

@@ -28,12 +28,16 @@ package awscodedeploy
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagset.html
+//
 type CfnDeploymentGroup_OnPremisesTagSetProperty struct {
 	// A list that contains other lists of on-premises instance tag groups.
 	//
 	// For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
 	//
 	// Duplicates are not allowed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagset.html#cfn-codedeploy-deploymentgroup-onpremisestagset-onpremisestagsetlist
+	//
 	OnPremisesTagSetList interface{} `field:"optional" json:"onPremisesTagSetList" yaml:"onPremisesTagSetList"`
 }
 

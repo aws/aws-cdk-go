@@ -17,12 +17,18 @@ package awsnetworkfirewall
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html
+//
 type CfnFirewall_SubnetMappingProperty struct {
 	// The unique identifier for the subnet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html#cfn-networkfirewall-firewall-subnetmapping-subnetid
+	//
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The subnet's IP address type.
 	//
 	// You can't change the IP address type after you create the subnet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html#cfn-networkfirewall-firewall-subnetmapping-ipaddresstype
+	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 }
 

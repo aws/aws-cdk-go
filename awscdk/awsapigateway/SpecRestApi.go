@@ -11,12 +11,7 @@ import (
 
 // Represents a REST API in Amazon API Gateway, created with an OpenAPI specification.
 //
-// Some properties normally accessible on @see `RestApi` - such as the description -
-// must be declared in the specification. All Resources and Methods need to be defined as
-// part of the OpenAPI specification file, and cannot be added via the CDK.
-//
-// By default, the API will automatically be deployed and accessible from a
-// public endpoint.
+// Some properties normally accessible on.
 //
 // Example:
 //   var integration integration
@@ -28,6 +23,13 @@ import (
 //
 //   booksResource := api.Root.AddResource(jsii.String("books"))
 //   booksResource.AddMethod(jsii.String("GET"), integration)
+//
+// See:  `RestApi` - such as the description -
+// must be declared in the specification. All Resources and Methods need to be defined as
+// part of the OpenAPI specification file, and cannot be added via the CDK.
+//
+// By default, the API will automatically be deployed and accessible from a
+// public endpoint.
 //
 type SpecRestApi interface {
 	RestApiBase

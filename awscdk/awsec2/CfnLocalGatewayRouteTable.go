@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::LocalGatewayRouteTable`.
-//
 // Describes a local gateway route table.
 //
 // Example:
@@ -31,9 +29,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetable.html
+//
 type CfnLocalGatewayRouteTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the local gateway route table.
 	AttrLocalGatewayRouteTableArn() *string
 	// The ID of the local gateway route table.
@@ -80,8 +81,11 @@ type CfnLocalGatewayRouteTable interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags assigned to the local gateway route table.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags assigned to the local gateway route table.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +230,7 @@ type CfnLocalGatewayRouteTable interface {
 type jsiiProxy_CfnLocalGatewayRouteTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocalGatewayRouteTable) AttrLocalGatewayRouteTableArn() *string {
@@ -388,6 +393,16 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTable) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocalGatewayRouteTable) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocalGatewayRouteTable) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -409,7 +424,6 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTable) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::EC2::LocalGatewayRouteTable`.
 func NewCfnLocalGatewayRouteTable(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableProps) CfnLocalGatewayRouteTable {
 	_init_.Initialize()
 
@@ -427,7 +441,6 @@ func NewCfnLocalGatewayRouteTable(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::EC2::LocalGatewayRouteTable`.
 func NewCfnLocalGatewayRouteTable_Override(c CfnLocalGatewayRouteTable, scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableProps) {
 	_init_.Initialize()
 
@@ -453,6 +466,17 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTable)SetMode(val *string) {
 	_jsii_.Set(
 		j,
 		"mode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocalGatewayRouteTable)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

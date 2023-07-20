@@ -39,6 +39,8 @@ import (
 //   		},
 //   		PriceClass: jsii.String("priceClass"),
 //   	},
+//
+//   	// the properties below are optional
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -47,10 +49,16 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html
+//
 type CfnStreamingDistributionProps struct {
 	// The current configuration information for the RTMP distribution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig
+	//
 	StreamingDistributionConfig interface{} `field:"required" json:"streamingDistributionConfig" yaml:"streamingDistributionConfig"`
 	// A complex type that contains zero or more `Tag` elements.
-	Tags *[]*awscdk.CfnTag `field:"required" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaPackage::Channel`.
-//
 // Creates a channel to receive content.
 //
 // After it's created, a channel provides static input URLs. These URLs remain the same throughout the lifetime of the channel, regardless of any failures or upgrades that might occur. Use these URLs to configure the outputs of your upstream encoder.
@@ -49,9 +47,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
+//
 type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The channel's unique system-generated resource name, based on the AWS record.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -99,8 +100,11 @@ type CfnChannel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to assign to the channel.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to assign to the channel.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -245,6 +249,7 @@ type CfnChannel interface {
 type jsiiProxy_CfnChannel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnChannel) AttrArn() *string {
@@ -397,6 +402,16 @@ func (j *jsiiProxy_CfnChannel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -418,7 +433,6 @@ func (j *jsiiProxy_CfnChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MediaPackage::Channel`.
 func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
@@ -436,7 +450,6 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 	return &j
 }
 
-// Create a new `AWS::MediaPackage::Channel`.
 func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 
@@ -495,6 +508,17 @@ func (j *jsiiProxy_CfnChannel)SetIngressAccessLogs(val interface{}) {
 	_jsii_.Set(
 		j,
 		"ingressAccessLogs",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

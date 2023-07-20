@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Budgets::BudgetsAction`.
+// The `AWS::Budgets::BudgetsAction` resource enables you to take predefined actions that are initiated when a budget threshold has been exceeded.
 //
-// The `AWS::Budgets::BudgetsAction` resource enables you to take predefined actions that are initiated when a budget threshold has been exceeded. For more information, see [Managing Your Costs with Budgets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html) in the *AWS Billing and Cost Management User Guide* .
+// For more information, see [Managing Your Costs with Budgets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html) in the *AWS Billing and Cost Management User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -67,6 +67,8 @@ import (
 //   	ApprovalModel: jsii.String("approvalModel"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
+//
 type CfnBudgetsAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -74,8 +76,6 @@ type CfnBudgetsAction interface {
 	ActionThreshold() interface{}
 	SetActionThreshold(val interface{})
 	// The type of action.
-	//
-	// This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
 	ActionType() *string
 	SetActionType(val *string)
 	// This specifies if the action needs manual or automatic approval.
@@ -84,8 +84,6 @@ type CfnBudgetsAction interface {
 	// A system-generated universally unique identifier (UUID) for the action.
 	AttrActionId() *string
 	// A string that represents the budget name.
-	//
-	// ":" and "\" characters aren't allowed.
 	BudgetName() *string
 	SetBudgetName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -101,8 +99,6 @@ type CfnBudgetsAction interface {
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The role passed for action execution and reversion.
-	//
-	// Roles and actions must be in the same account.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -469,7 +465,6 @@ func (j *jsiiProxy_CfnBudgetsAction) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Budgets::BudgetsAction`.
 func NewCfnBudgetsAction(scope constructs.Construct, id *string, props *CfnBudgetsActionProps) CfnBudgetsAction {
 	_init_.Initialize()
 
@@ -487,7 +482,6 @@ func NewCfnBudgetsAction(scope constructs.Construct, id *string, props *CfnBudge
 	return &j
 }
 
-// Create a new `AWS::Budgets::BudgetsAction`.
 func NewCfnBudgetsAction_Override(c CfnBudgetsAction, scope constructs.Construct, id *string, props *CfnBudgetsActionProps) {
 	_init_.Initialize()
 

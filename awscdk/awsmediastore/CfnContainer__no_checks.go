@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnContainer) validateSetMetricPolicyParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnContainer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnContainerParameters(scope constructs.Construct, id *string, props *CfnContainerProps) error {
 	return nil
 }

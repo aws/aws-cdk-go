@@ -143,14 +143,22 @@ package awsiotevents
 //   	Condition: jsii.String("condition"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html
+//
 type CfnDetectorModel_EventProperty struct {
 	// The name of the event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
+	//
 	EventName *string `field:"required" json:"eventName" yaml:"eventName"`
 	// The actions to be performed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-actions
+	//
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// Optional.
 	//
 	// The Boolean expression that, when TRUE, causes the `actions` to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-condition
+	//
 	Condition *string `field:"optional" json:"condition" yaml:"condition"`
 }
 

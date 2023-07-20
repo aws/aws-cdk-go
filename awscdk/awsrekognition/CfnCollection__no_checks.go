@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnCollection) validateSetCollectionIdParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnCollection) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCollectionParameters(scope constructs.Construct, id *string, props *CfnCollectionProps) error {
 	return nil
 }

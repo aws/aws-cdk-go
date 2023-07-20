@@ -84,11 +84,7 @@ func (j *jsiiProxy_CfnTable) validateSetDatabaseNameParameters(val *string) erro
 	return nil
 }
 
-func (j *jsiiProxy_CfnTable) validateSetMagneticStoreWritePropertiesParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnTable) validateSetRetentionPropertiesParameters(val interface{}) error {
+func (j *jsiiProxy_CfnTable) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

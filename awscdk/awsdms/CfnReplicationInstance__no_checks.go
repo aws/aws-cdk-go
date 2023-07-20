@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnReplicationInstance) validateSetReplicationInstanceClassPa
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicationInstance) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnReplicationInstanceParameters(scope constructs.Construct, id *string, props *CfnReplicationInstanceProps) error {
 	return nil
 }

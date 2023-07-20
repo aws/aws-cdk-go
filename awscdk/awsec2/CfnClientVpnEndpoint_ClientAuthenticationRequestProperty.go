@@ -28,18 +28,28 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html
+//
 type CfnClientVpnEndpoint_ClientAuthenticationRequestProperty struct {
 	// The type of client authentication to be used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Information about the Active Directory to be used, if applicable.
 	//
 	// You must provide this information if *Type* is `directory-service-authentication` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-activedirectory
+	//
 	ActiveDirectory interface{} `field:"optional" json:"activeDirectory" yaml:"activeDirectory"`
 	// Information about the IAM SAML identity provider, if applicable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-federatedauthentication
+	//
 	FederatedAuthentication interface{} `field:"optional" json:"federatedAuthentication" yaml:"federatedAuthentication"`
 	// Information about the authentication certificates to be used, if applicable.
 	//
 	// You must provide this information if *Type* is `certificate-authentication` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-mutualauthentication
+	//
 	MutualAuthentication interface{} `field:"optional" json:"mutualAuthentication" yaml:"mutualAuthentication"`
 }
 

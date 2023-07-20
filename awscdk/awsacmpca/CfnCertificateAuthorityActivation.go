@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ACMPCA::CertificateAuthorityActivation`.
+// The `AWS::ACMPCA::CertificateAuthorityActivation` resource creates and installs a CA certificate on a CA.
 //
-// The `AWS::ACMPCA::CertificateAuthorityActivation` resource creates and installs a CA certificate on a CA. If no status is specified, the `AWS::ACMPCA::CertificateAuthorityActivation` resource status defaults to ACTIVE. Once the CA has a CA certificate installed, you can use the resource to toggle the CA status field between `ACTIVE` and `DISABLED` .
+// If no status is specified, the `AWS::ACMPCA::CertificateAuthorityActivation` resource status defaults to ACTIVE. Once the CA has a CA certificate installed, you can use the resource to toggle the CA status field between `ACTIVE` and `DISABLED` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,6 +26,8 @@ import (
 //   	CertificateChain: jsii.String("certificateChain"),
 //   	Status: jsii.String("status"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html
 //
 type CfnCertificateAuthorityActivation interface {
 	awscdk.CfnResource
@@ -371,7 +373,6 @@ func (j *jsiiProxy_CfnCertificateAuthorityActivation) UpdatedProperties() *map[s
 }
 
 
-// Create a new `AWS::ACMPCA::CertificateAuthorityActivation`.
 func NewCfnCertificateAuthorityActivation(scope constructs.Construct, id *string, props *CfnCertificateAuthorityActivationProps) CfnCertificateAuthorityActivation {
 	_init_.Initialize()
 
@@ -389,7 +390,6 @@ func NewCfnCertificateAuthorityActivation(scope constructs.Construct, id *string
 	return &j
 }
 
-// Create a new `AWS::ACMPCA::CertificateAuthorityActivation`.
 func NewCfnCertificateAuthorityActivation_Override(c CfnCertificateAuthorityActivation, scope constructs.Construct, id *string, props *CfnCertificateAuthorityActivationProps) {
 	_init_.Initialize()
 

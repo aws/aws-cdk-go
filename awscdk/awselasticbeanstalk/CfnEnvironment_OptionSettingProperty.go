@@ -23,16 +23,26 @@ package awselasticbeanstalk
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html
+//
 type CfnEnvironment_OptionSettingProperty struct {
 	// A unique namespace that identifies the option's associated AWS resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html#cfn-elasticbeanstalk-environment-optionsetting-namespace
+	//
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The name of the configuration option.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html#cfn-elasticbeanstalk-environment-optionsetting-optionname
+	//
 	OptionName *string `field:"required" json:"optionName" yaml:"optionName"`
 	// A unique resource name for the option setting.
 	//
 	// Use it for a time–based scaling configuration option.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html#cfn-elasticbeanstalk-environment-optionsetting-resourcename
+	//
 	ResourceName *string `field:"optional" json:"resourceName" yaml:"resourceName"`
 	// The current value for the configuration option.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html#cfn-elasticbeanstalk-environment-optionsetting-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

@@ -14,12 +14,20 @@ package awsrobomaker
 //   	S3Key: jsii.String("s3Key"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-sourceconfig.html
+//
 type CfnRobotApplication_SourceConfigProperty struct {
 	// The target processor architecture for the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-sourceconfig.html#cfn-robomaker-robotapplication-sourceconfig-architecture
+	//
 	Architecture *string `field:"required" json:"architecture" yaml:"architecture"`
 	// The Amazon S3 bucket name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-sourceconfig.html#cfn-robomaker-robotapplication-sourceconfig-s3bucket
+	//
 	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The s3 object key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-sourceconfig.html#cfn-robomaker-robotapplication-sourceconfig-s3key
+	//
 	S3Key *string `field:"required" json:"s3Key" yaml:"s3Key"`
 }
 

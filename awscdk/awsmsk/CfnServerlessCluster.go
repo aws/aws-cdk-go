@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MSK::ServerlessCluster`.
+// Resource Type definition for AWS::MSK::ServerlessCluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,19 +44,20 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html
+//
 type CfnServerlessCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::MSK::ServerlessCluster.ClientAuthentication`.
 	ClientAuthentication() interface{}
 	SetClientAuthentication(val interface{})
-	// `AWS::MSK::ServerlessCluster.ClusterName`.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -84,8 +85,11 @@ type CfnServerlessCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::MSK::ServerlessCluster.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A key-value pair to associate with a resource.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -99,7 +103,6 @@ type CfnServerlessCluster interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::MSK::ServerlessCluster.VpcConfigs`.
 	VpcConfigs() interface{}
 	SetVpcConfigs(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -233,6 +236,7 @@ type CfnServerlessCluster interface {
 type jsiiProxy_CfnServerlessCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnServerlessCluster) AttrArn() *string {
@@ -355,6 +359,16 @@ func (j *jsiiProxy_CfnServerlessCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServerlessCluster) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServerlessCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -386,7 +400,6 @@ func (j *jsiiProxy_CfnServerlessCluster) VpcConfigs() interface{} {
 }
 
 
-// Create a new `AWS::MSK::ServerlessCluster`.
 func NewCfnServerlessCluster(scope constructs.Construct, id *string, props *CfnServerlessClusterProps) CfnServerlessCluster {
 	_init_.Initialize()
 
@@ -404,7 +417,6 @@ func NewCfnServerlessCluster(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
-// Create a new `AWS::MSK::ServerlessCluster`.
 func NewCfnServerlessCluster_Override(c CfnServerlessCluster, scope constructs.Construct, id *string, props *CfnServerlessClusterProps) {
 	_init_.Initialize()
 
@@ -433,6 +445,14 @@ func (j *jsiiProxy_CfnServerlessCluster)SetClusterName(val *string) {
 	_jsii_.Set(
 		j,
 		"clusterName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServerlessCluster)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

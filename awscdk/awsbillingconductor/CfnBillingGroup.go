@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::BillingConductor::BillingGroup`.
-//
 // Creates a billing group that resembles a consolidated billing family that AWS charges, based off of the predefined pricing plan computation.
 //
 // Example:
@@ -40,12 +38,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html
+//
 type CfnBillingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The set of accounts that will be under the billing group.
-	//
-	// The set of accounts resemble the linked accounts in a consolidated family.
 	AccountGrouping() interface{}
 	SetAccountGrouping(val interface{})
 	// The Amazon Resource Name (ARN) of the created billing group.
@@ -104,8 +103,10 @@ type CfnBillingGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::BillingConductor::BillingGroup.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -250,6 +251,7 @@ type CfnBillingGroup interface {
 type jsiiProxy_CfnBillingGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnBillingGroup) AccountGrouping() interface{} {
@@ -452,6 +454,16 @@ func (j *jsiiProxy_CfnBillingGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBillingGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBillingGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -473,7 +485,6 @@ func (j *jsiiProxy_CfnBillingGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::BillingConductor::BillingGroup`.
 func NewCfnBillingGroup(scope constructs.Construct, id *string, props *CfnBillingGroupProps) CfnBillingGroup {
 	_init_.Initialize()
 
@@ -491,7 +502,6 @@ func NewCfnBillingGroup(scope constructs.Construct, id *string, props *CfnBillin
 	return &j
 }
 
-// Create a new `AWS::BillingConductor::BillingGroup`.
 func NewCfnBillingGroup_Override(c CfnBillingGroup, scope constructs.Construct, id *string, props *CfnBillingGroupProps) {
 	_init_.Initialize()
 
@@ -550,6 +560,17 @@ func (j *jsiiProxy_CfnBillingGroup)SetPrimaryAccountId(val *string) {
 	_jsii_.Set(
 		j,
 		"primaryAccountId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBillingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

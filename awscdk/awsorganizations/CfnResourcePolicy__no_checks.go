@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnResourcePolicy) validateSetContentParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnResourcePolicy) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnResourcePolicyParameters(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) error {
 	return nil
 }

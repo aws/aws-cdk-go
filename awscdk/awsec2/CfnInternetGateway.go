@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::InternetGateway`.
+// Allocates an internet gateway for use with a VPC.
 //
-// Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
+// After creating the Internet gateway, you then attach it to a VPC.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,9 +27,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
+//
 type CfnInternetGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the internet gateway.
 	AttrInternetGatewayId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -62,8 +65,11 @@ type CfnInternetGateway interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Any tags to assign to the internet gateway.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags to assign to the internet gateway.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -208,6 +214,7 @@ type CfnInternetGateway interface {
 type jsiiProxy_CfnInternetGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInternetGateway) AttrInternetGatewayId() *string {
@@ -310,6 +317,16 @@ func (j *jsiiProxy_CfnInternetGateway) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInternetGateway) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInternetGateway) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -331,7 +348,6 @@ func (j *jsiiProxy_CfnInternetGateway) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::EC2::InternetGateway`.
 func NewCfnInternetGateway(scope constructs.Construct, id *string, props *CfnInternetGatewayProps) CfnInternetGateway {
 	_init_.Initialize()
 
@@ -349,7 +365,6 @@ func NewCfnInternetGateway(scope constructs.Construct, id *string, props *CfnInt
 	return &j
 }
 
-// Create a new `AWS::EC2::InternetGateway`.
 func NewCfnInternetGateway_Override(c CfnInternetGateway, scope constructs.Construct, id *string, props *CfnInternetGatewayProps) {
 	_init_.Initialize()
 
@@ -357,6 +372,17 @@ func NewCfnInternetGateway_Override(c CfnInternetGateway, scope constructs.Const
 		"aws-cdk-lib.aws_ec2.CfnInternetGateway",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnInternetGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
+		val,
 	)
 }
 

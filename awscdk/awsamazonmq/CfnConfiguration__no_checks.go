@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnConfiguration) validateSetNameParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfiguration) validateSetTagsRawParameters(val *[]*CfnConfiguration_TagsEntryProperty) error {
+	return nil
+}
+
 func validateNewCfnConfigurationParameters(scope constructs.Construct, id *string, props *CfnConfigurationProps) error {
 	return nil
 }

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::CoreDefinitionVersion`.
+// The `AWS::Greengrass::CoreDefinitionVersion` resource represents a core definition version for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::CoreDefinitionVersion` resource represents a core definition version for AWS IoT Greengrass . A core definition version contains a Greengrass core.
+// A core definition version contains a Greengrass core.
 //
 // > To create a core definition version, you must specify the ID of the core definition that you want to associate with the version. For information about creating a core definition, see [`AWS::Greengrass::CoreDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html) .
 // >
@@ -36,22 +36,21 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html
+//
 type CfnCoreDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// The ID of the core definition associated with this version.
-	//
-	// This value is a GUID.
 	CoreDefinitionId() *string
 	SetCoreDefinitionId(val *string)
 	// The Greengrass core in this version.
-	//
-	// Currently, the `Cores` property for a core definition version can contain only one core.
 	Cores() interface{}
 	SetCores(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -225,6 +224,16 @@ type jsiiProxy_CfnCoreDefinitionVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnCoreDefinitionVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCoreDefinitionVersion) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -346,7 +355,6 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::Greengrass::CoreDefinitionVersion`.
 func NewCfnCoreDefinitionVersion(scope constructs.Construct, id *string, props *CfnCoreDefinitionVersionProps) CfnCoreDefinitionVersion {
 	_init_.Initialize()
 
@@ -364,7 +372,6 @@ func NewCfnCoreDefinitionVersion(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::Greengrass::CoreDefinitionVersion`.
 func NewCfnCoreDefinitionVersion_Override(c CfnCoreDefinitionVersion, scope constructs.Construct, id *string, props *CfnCoreDefinitionVersionProps) {
 	_init_.Initialize()
 

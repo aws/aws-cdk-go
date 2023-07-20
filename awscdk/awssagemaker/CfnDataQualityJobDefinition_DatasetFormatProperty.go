@@ -1,6 +1,8 @@
 package awssagemaker
 
 
+// The dataset format of the data to monitor.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,12 +18,20 @@ package awssagemaker
 //   	Parquet: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-datasetformat.html
+//
 type CfnDataQualityJobDefinition_DatasetFormatProperty struct {
-	// `CfnDataQualityJobDefinition.DatasetFormatProperty.Csv`.
+	// The CSV format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-datasetformat.html#cfn-sagemaker-dataqualityjobdefinition-datasetformat-csv
+	//
 	Csv interface{} `field:"optional" json:"csv" yaml:"csv"`
-	// `CfnDataQualityJobDefinition.DatasetFormatProperty.Json`.
+	// The Json format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-datasetformat.html#cfn-sagemaker-dataqualityjobdefinition-datasetformat-json
+	//
 	Json interface{} `field:"optional" json:"json" yaml:"json"`
-	// `CfnDataQualityJobDefinition.DatasetFormatProperty.Parquet`.
+	// A flag indicate if the dataset format is Parquet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-datasetformat.html#cfn-sagemaker-dataqualityjobdefinition-datasetformat-parquet
+	//
 	Parquet interface{} `field:"optional" json:"parquet" yaml:"parquet"`
 }
 

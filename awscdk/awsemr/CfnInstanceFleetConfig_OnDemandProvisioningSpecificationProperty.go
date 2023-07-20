@@ -14,10 +14,14 @@ package awsemr
 //   	AllocationStrategy: jsii.String("allocationStrategy"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-ondemandprovisioningspecification.html
+//
 type CfnInstanceFleetConfig_OnDemandProvisioningSpecificationProperty struct {
 	// Specifies the strategy to use in launching On-Demand instance fleets.
 	//
 	// Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-ondemandprovisioningspecification.html#cfn-emr-instancefleetconfig-ondemandprovisioningspecification-allocationstrategy
+	//
 	AllocationStrategy *string `field:"required" json:"allocationStrategy" yaml:"allocationStrategy"`
 }
 

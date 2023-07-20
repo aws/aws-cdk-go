@@ -13,24 +13,30 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   loadBalancerProperty := &LoadBalancerProperty{
-//   	ContainerPort: jsii.Number(123),
-//
-//   	// the properties below are optional
 //   	ContainerName: jsii.String("containerName"),
+//   	ContainerPort: jsii.Number(123),
 //   	LoadBalancerName: jsii.String("loadBalancerName"),
 //   	TargetGroupArn: jsii.String("targetGroupArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html
+//
 type CfnService_LoadBalancerProperty struct {
+	// The name of the container (as it appears in a container definition) to associate with the load balancer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
+	//
+	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The port on the container to associate with the load balancer.
 	//
 	// This port must correspond to a `containerPort` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the `hostPort` of the port mapping.
-	ContainerPort *float64 `field:"required" json:"containerPort" yaml:"containerPort"`
-	// The name of the container (as it appears in a container definition) to associate with the load balancer.
-	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport
+	//
+	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
 	// The name of the load balancer to associate with the Amazon ECS service or task set.
 	//
 	// A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-loadbalancername
+	//
 	LoadBalancerName *string `field:"optional" json:"loadBalancerName" yaml:"loadBalancerName"`
 	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
 	//
@@ -41,6 +47,8 @@ type CfnService_LoadBalancerProperty struct {
 	// For services using the `CODE_DEPLOY` deployment controller, you're required to define two target groups for the load balancer. For more information, see [Blue/green deployment with CodeDeploy](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// > If your service's task definition uses the `awsvpc` network mode, you must choose `ip` as the target type, not `instance` . Do this when creating your target groups because tasks that use the `awsvpc` network mode are associated with an elastic network interface, not an Amazon EC2 instance. This network mode is required for the Fargate launch type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-targetgrouparn
+	//
 	TargetGroupArn *string `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
 }
 

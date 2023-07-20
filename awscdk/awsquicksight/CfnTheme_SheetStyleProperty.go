@@ -24,10 +24,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html
+//
 type CfnTheme_SheetStyleProperty struct {
 	// The display options for tiles.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile
+	//
 	Tile interface{} `field:"optional" json:"tile" yaml:"tile"`
 	// The layout options for tiles.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tilelayout
+	//
 	TileLayout interface{} `field:"optional" json:"tileLayout" yaml:"tileLayout"`
 }
 

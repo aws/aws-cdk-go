@@ -10,8 +10,11 @@ package awssam
 //   	SecretArn: jsii.String("secretArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-secretarnsampt.html
+//
 type CfnFunction_SecretArnSAMPTProperty struct {
-	// `CfnFunction.SecretArnSAMPTProperty.SecretArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-secretarnsampt.html#cfn-serverless-function-secretarnsampt-secretarn
+	//
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
 }
 

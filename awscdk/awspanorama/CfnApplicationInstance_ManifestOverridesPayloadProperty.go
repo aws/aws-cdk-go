@@ -14,8 +14,12 @@ package awspanorama
 //   	PayloadData: jsii.String("payloadData"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html
+//
 type CfnApplicationInstance_ManifestOverridesPayloadProperty struct {
 	// The overrides document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html#cfn-panorama-applicationinstance-manifestoverridespayload-payloaddata
+	//
 	PayloadData *string `field:"optional" json:"payloadData" yaml:"payloadData"`
 }
 

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) validateSetSourceParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnNetworkInsightsPath) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnNetworkInsightsPathParameters(scope constructs.Construct, id *string, props *CfnNetworkInsightsPathProps) error {
 	return nil
 }

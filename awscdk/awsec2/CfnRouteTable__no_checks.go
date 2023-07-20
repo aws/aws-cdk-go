@@ -80,6 +80,10 @@ func validateCfnRouteTable_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnRouteTable) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRouteTable) validateSetVpcIdParameters(val *string) error {
 	return nil
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53::CidrCollection`.
-//
 // Creates a CIDR collection in the current AWS account.
 //
 // Example:
@@ -31,6 +29,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html
 //
 type CfnCidrCollection interface {
 	awscdk.CfnResource
@@ -362,7 +362,6 @@ func (j *jsiiProxy_CfnCidrCollection) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Route53::CidrCollection`.
 func NewCfnCidrCollection(scope constructs.Construct, id *string, props *CfnCidrCollectionProps) CfnCidrCollection {
 	_init_.Initialize()
 
@@ -380,7 +379,6 @@ func NewCfnCidrCollection(scope constructs.Construct, id *string, props *CfnCidr
 	return &j
 }
 
-// Create a new `AWS::Route53::CidrCollection`.
 func NewCfnCidrCollection_Override(c CfnCidrCollection, scope constructs.Construct, id *string, props *CfnCidrCollectionProps) {
 	_init_.Initialize()
 

@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnStackSet) validateSetAutoDeploymentParameters(val interfac
 	return nil
 }
 
-func (j *jsiiProxy_CfnStackSet) validateSetManagedExecutionParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnStackSet) validateSetOperationPreferencesParameters(val interface{}) error {
 	return nil
 }
@@ -105,6 +101,10 @@ func (j *jsiiProxy_CfnStackSet) validateSetStackInstancesGroupParameters(val int
 }
 
 func (j *jsiiProxy_CfnStackSet) validateSetStackSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnStackSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

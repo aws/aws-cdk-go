@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::ResourceDefinitionVersion`.
+// The `AWS::Greengrass::ResourceDefinitionVersion` resource represents a resource definition version for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::ResourceDefinitionVersion` resource represents a resource definition version for AWS IoT Greengrass . A resource definition version contains a list of resources. (In AWS CloudFormation , resources are named *resource instances* .)
+// A resource definition version contains a list of resources. (In AWS CloudFormation , resources are named *resource instances* .)
 //
 // > To create a resource definition version, you must specify the ID of the resource definition that you want to associate with the version. For information about creating a resource definition, see [`AWS::Greengrass::ResourceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html) .
 // >
@@ -85,9 +85,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html
+//
 type CfnResourceDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -115,8 +118,6 @@ type CfnResourceDefinitionVersion interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ID of the resource definition associated with this version.
-	//
-	// This value is a GUID.
 	ResourceDefinitionId() *string
 	SetResourceDefinitionId(val *string)
 	// The resources in this version.
@@ -272,6 +273,16 @@ type jsiiProxy_CfnResourceDefinitionVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnResourceDefinitionVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceDefinitionVersion) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -393,7 +404,6 @@ func (j *jsiiProxy_CfnResourceDefinitionVersion) UpdatedProperties() *map[string
 }
 
 
-// Create a new `AWS::Greengrass::ResourceDefinitionVersion`.
 func NewCfnResourceDefinitionVersion(scope constructs.Construct, id *string, props *CfnResourceDefinitionVersionProps) CfnResourceDefinitionVersion {
 	_init_.Initialize()
 
@@ -411,7 +421,6 @@ func NewCfnResourceDefinitionVersion(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Create a new `AWS::Greengrass::ResourceDefinitionVersion`.
 func NewCfnResourceDefinitionVersion_Override(c CfnResourceDefinitionVersion, scope constructs.Construct, id *string, props *CfnResourceDefinitionVersionProps) {
 	_init_.Initialize()
 

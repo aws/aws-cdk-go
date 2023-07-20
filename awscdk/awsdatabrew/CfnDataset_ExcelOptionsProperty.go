@@ -18,14 +18,22 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html
+//
 type CfnDataset_ExcelOptionsProperty struct {
 	// A variable that specifies whether the first row in the file is parsed as the header.
 	//
 	// If this value is false, column names are auto-generated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
+	//
 	HeaderRow interface{} `field:"optional" json:"headerRow" yaml:"headerRow"`
 	// One or more sheet numbers in the Excel file that will be included in the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
+	//
 	SheetIndexes interface{} `field:"optional" json:"sheetIndexes" yaml:"sheetIndexes"`
 	// One or more named sheets in the Excel file that will be included in the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
+	//
 	SheetNames *[]*string `field:"optional" json:"sheetNames" yaml:"sheetNames"`
 }
 

@@ -31,8 +31,12 @@ package awsssm
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html
+//
 type CfnPatchBaseline_RuleGroupProperty struct {
 	// The rules that make up the rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules
+	//
 	PatchRules interface{} `field:"optional" json:"patchRules" yaml:"patchRules"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MSK::ClusterPolicy`.
-//
 // Create or update cluster policy.
 //
 // Example:
@@ -24,6 +22,8 @@ import (
 //   	ClusterArn: jsii.String("clusterArn"),
 //   	Policy: policy,
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html
 //
 type CfnClusterPolicy interface {
 	awscdk.CfnResource
@@ -343,7 +343,6 @@ func (j *jsiiProxy_CfnClusterPolicy) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::MSK::ClusterPolicy`.
 func NewCfnClusterPolicy(scope constructs.Construct, id *string, props *CfnClusterPolicyProps) CfnClusterPolicy {
 	_init_.Initialize()
 
@@ -361,7 +360,6 @@ func NewCfnClusterPolicy(scope constructs.Construct, id *string, props *CfnClust
 	return &j
 }
 
-// Create a new `AWS::MSK::ClusterPolicy`.
 func NewCfnClusterPolicy_Override(c CfnClusterPolicy, scope constructs.Construct, id *string, props *CfnClusterPolicyProps) {
 	_init_.Initialize()
 

@@ -15,12 +15,18 @@ package awsquicksight
 //   	SheetId: jsii.String("sheetId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheet.html
+//
 type CfnDashboard_SheetProperty struct {
 	// The name of a sheet.
 	//
 	// This name is displayed on the sheet's tab in the Amazon QuickSight console.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheet.html#cfn-quicksight-dashboard-sheet-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The unique identifier associated with a sheet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheet.html#cfn-quicksight-dashboard-sheet-sheetid
+	//
 	SheetId *string `field:"optional" json:"sheetId" yaml:"sheetId"`
 }
 

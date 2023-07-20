@@ -16,8 +16,12 @@ package awscomprehend
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entityrecognitionconfig.html
+//
 type CfnFlywheel_EntityRecognitionConfigProperty struct {
 	// Up to 25 entity types that the model is trained to recognize.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entityrecognitionconfig.html#cfn-comprehend-flywheel-entityrecognitionconfig-entitytypes
+	//
 	EntityTypes interface{} `field:"optional" json:"entityTypes" yaml:"entityTypes"`
 }
 

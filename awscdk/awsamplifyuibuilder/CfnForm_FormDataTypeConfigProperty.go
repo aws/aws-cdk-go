@@ -13,10 +13,16 @@ package awsamplifyuibuilder
 //   	DataTypeName: jsii.String("dataTypeName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formdatatypeconfig.html
+//
 type CfnForm_FormDataTypeConfigProperty struct {
 	// The data source type, either an Amplify DataStore model or a custom data type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formdatatypeconfig.html#cfn-amplifyuibuilder-form-formdatatypeconfig-datasourcetype
+	//
 	DataSourceType *string `field:"required" json:"dataSourceType" yaml:"dataSourceType"`
 	// The unique name of the data type you are using as the data source for the form.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formdatatypeconfig.html#cfn-amplifyuibuilder-form-formdatatypeconfig-datatypename
+	//
 	DataTypeName *string `field:"required" json:"dataTypeName" yaml:"dataTypeName"`
 }
 

@@ -13,10 +13,16 @@ package awsquicksight
 //   	Minimum: jsii.String("minimum"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-rangeconstant.html
+//
 type CfnTopic_RangeConstantProperty struct {
 	// The maximum value for a range constant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-rangeconstant.html#cfn-quicksight-topic-rangeconstant-maximum
+	//
 	Maximum *string `field:"optional" json:"maximum" yaml:"maximum"`
 	// The minimum value for a range constant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-rangeconstant.html#cfn-quicksight-topic-rangeconstant-minimum
+	//
 	Minimum *string `field:"optional" json:"minimum" yaml:"minimum"`
 }
 

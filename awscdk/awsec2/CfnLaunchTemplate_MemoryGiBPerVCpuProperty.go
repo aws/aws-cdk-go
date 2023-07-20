@@ -13,14 +13,20 @@ package awsec2
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorygibpervcpu.html
+//
 type CfnLaunchTemplate_MemoryGiBPerVCpuProperty struct {
 	// The maximum amount of memory per vCPU, in GiB.
 	//
 	// To specify no maximum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorygibpervcpu.html#cfn-ec2-launchtemplate-memorygibpervcpu-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of memory per vCPU, in GiB.
 	//
 	// To specify no minimum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorygibpervcpu.html#cfn-ec2-launchtemplate-memorygibpervcpu-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

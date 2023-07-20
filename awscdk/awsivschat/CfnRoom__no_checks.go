@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnRoom) validateSetMessageReviewHandlerParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnRoom) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnRoomParameters(scope constructs.Construct, id *string, props *CfnRoomProps) error {
 	return nil
 }

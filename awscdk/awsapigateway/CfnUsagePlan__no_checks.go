@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnUsagePlan) validateSetQuotaParameters(val interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnUsagePlan) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUsagePlan) validateSetThrottleParameters(val interface{}) error {
 	return nil
 }

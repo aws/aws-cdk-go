@@ -14,8 +14,12 @@ package awsnetworkfirewall
 //   	"referenceArn": jsii.String("referenceArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipsetreference.html
+//
 type CfnRuleGroup_IPSetReferenceProperty struct {
 	// The Amazon Resource Name (ARN) of the resource to include in the `RuleGroup.IPSetReference` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipsetreference.html#cfn-networkfirewall-rulegroup-ipsetreference-referencearn
+	//
 	ReferenceArn *string `field:"optional" json:"referenceArn" yaml:"referenceArn"`
 }
 

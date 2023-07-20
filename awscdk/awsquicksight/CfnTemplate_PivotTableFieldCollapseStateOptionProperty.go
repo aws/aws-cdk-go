@@ -23,13 +23,19 @@ package awsquicksight
 //   	State: jsii.String("state"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldcollapsestateoption.html
+//
 type CfnTemplate_PivotTableFieldCollapseStateOptionProperty struct {
 	// A tagged-union object that sets the collapse state.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldcollapsestateoption.html#cfn-quicksight-template-pivottablefieldcollapsestateoption-target
+	//
 	Target interface{} `field:"required" json:"target" yaml:"target"`
 	// The state of the field target of a pivot table. Choose one of the following options:.
 	//
 	// - `COLLAPSED`
 	// - `EXPANDED`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldcollapsestateoption.html#cfn-quicksight-template-pivottablefieldcollapsestateoption-state
+	//
 	State *string `field:"optional" json:"state" yaml:"state"`
 }
 

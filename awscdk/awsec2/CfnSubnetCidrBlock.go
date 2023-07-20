@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::SubnetCidrBlock`.
+// Associates a CIDR block with your subnet.
 //
-// Associates a CIDR block with your subnet. You can associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
+// You can associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	SubnetId: jsii.String("subnetId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html
 //
 type CfnSubnetCidrBlock interface {
 	awscdk.CfnResource
@@ -37,9 +39,9 @@ type CfnSubnetCidrBlock interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
+	// The IPv6 network range for the subnet, in CIDR notation.
 	//
-	// This parameter is required for an IPv6 only subnet.
+	// The subnet size must use a /64 prefix length.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -343,7 +345,6 @@ func (j *jsiiProxy_CfnSubnetCidrBlock) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::EC2::SubnetCidrBlock`.
 func NewCfnSubnetCidrBlock(scope constructs.Construct, id *string, props *CfnSubnetCidrBlockProps) CfnSubnetCidrBlock {
 	_init_.Initialize()
 
@@ -361,7 +362,6 @@ func NewCfnSubnetCidrBlock(scope constructs.Construct, id *string, props *CfnSub
 	return &j
 }
 
-// Create a new `AWS::EC2::SubnetCidrBlock`.
 func NewCfnSubnetCidrBlock_Override(c CfnSubnetCidrBlock, scope constructs.Construct, id *string, props *CfnSubnetCidrBlockProps) {
 	_init_.Initialize()
 

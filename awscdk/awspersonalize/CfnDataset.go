@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Personalize::Dataset`.
+// Creates an empty dataset and adds it to the specified dataset group.
 //
-// Creates an empty dataset and adds it to the specified dataset group. Use [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a dataset.
+// Use [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a dataset.
 //
 // There are three types of datasets:
 //
@@ -56,6 +56,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html
+//
 type CfnDataset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -77,10 +79,6 @@ type CfnDataset interface {
 	DatasetImportJob() interface{}
 	SetDatasetImportJob(val interface{})
 	// One of the following values:.
-	//
-	// - Interactions
-	// - Items
-	// - Users.
 	DatasetType() *string
 	SetDatasetType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -417,7 +415,6 @@ func (j *jsiiProxy_CfnDataset) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Personalize::Dataset`.
 func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProps) CfnDataset {
 	_init_.Initialize()
 
@@ -435,7 +432,6 @@ func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProp
 	return &j
 }
 
-// Create a new `AWS::Personalize::Dataset`.
 func NewCfnDataset_Override(c CfnDataset, scope constructs.Construct, id *string, props *CfnDatasetProps) {
 	_init_.Initialize()
 

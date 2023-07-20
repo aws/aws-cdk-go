@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnFilter) validateSetRankParameters(val *float64) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFilter) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFilterParameters(scope constructs.Construct, id *string, props *CfnFilterProps) error {
 	return nil
 }

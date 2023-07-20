@@ -12,11 +12,15 @@ package awsses
 //   	EngagementMetrics: jsii.String("engagementMetrics"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-vdmattributes-dashboardattributes.html
+//
 type CfnVdmAttributes_DashboardAttributesProperty struct {
 	// Specifies the status of your VDM engagement metrics collection. Can be one of the following:.
 	//
 	// - `ENABLED` – Amazon SES enables engagement metrics for your account.
 	// - `DISABLED` – Amazon SES disables engagement metrics for your account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-vdmattributes-dashboardattributes.html#cfn-ses-vdmattributes-dashboardattributes-engagementmetrics
+	//
 	EngagementMetrics *string `field:"optional" json:"engagementMetrics" yaml:"engagementMetrics"`
 }
 

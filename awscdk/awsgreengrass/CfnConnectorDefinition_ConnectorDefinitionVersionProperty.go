@@ -26,10 +26,14 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html
+//
 type CfnConnectorDefinition_ConnectorDefinitionVersionProperty struct {
 	// The connectors in this version.
 	//
 	// Only one instance of a given connector can be added to a connector definition version at a time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html#cfn-greengrass-connectordefinition-connectordefinitionversion-connectors
+	//
 	Connectors interface{} `field:"required" json:"connectors" yaml:"connectors"`
 }
 

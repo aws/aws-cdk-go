@@ -12,12 +12,16 @@ package awsquicksight
 //   	TreatmentOption: jsii.String("treatmentOption"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-missingdataconfiguration.html
+//
 type CfnTemplate_MissingDataConfigurationProperty struct {
 	// The treatment option that determines how missing data should be rendered. Choose from the following options:.
 	//
 	// - `INTERPOLATE` : Interpolate missing values between the prior and the next known value.
 	// - `SHOW_AS_ZERO` : Show missing values as the value `0` .
 	// - `SHOW_AS_BLANK` : Display a blank space when rendering missing data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-missingdataconfiguration.html#cfn-quicksight-template-missingdataconfiguration-treatmentoption
+	//
 	TreatmentOption *string `field:"optional" json:"treatmentOption" yaml:"treatmentOption"`
 }
 

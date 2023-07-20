@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Redshift::ClusterParameterGroup`.
-//
 // Describes a parameter group.
 //
 // Example:
@@ -38,9 +36,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html
+//
 type CfnClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -66,18 +67,14 @@ type CfnClusterParameterGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// The name of the cluster parameter group family that this cluster parameter group is compatible with.
-	//
-	// You can create a custom parameter group and then associate your cluster with it. For more information, see [Amazon Redshift parameter groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html) .
 	ParameterGroupFamily() *string
 	SetParameterGroupFamily(val *string)
 	// The name of the cluster parameter group.
 	ParameterGroupName() *string
 	SetParameterGroupName(val *string)
-	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	// An array of parameters to be modified.
 	//
-	// For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional.
-	//
-	// For the workload management (WLM) configuration, you must supply all the name-value pairs in the wlm_json_configuration parameter.
+	// A maximum of 20 parameters can be modified in a single request.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -89,8 +86,11 @@ type CfnClusterParameterGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The list of tags for the cluster parameter group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of tags for the cluster parameter group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -235,6 +235,7 @@ type CfnClusterParameterGroup interface {
 type jsiiProxy_CfnClusterParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnClusterParameterGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -367,6 +368,16 @@ func (j *jsiiProxy_CfnClusterParameterGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClusterParameterGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClusterParameterGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -388,7 +399,6 @@ func (j *jsiiProxy_CfnClusterParameterGroup) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::Redshift::ClusterParameterGroup`.
 func NewCfnClusterParameterGroup(scope constructs.Construct, id *string, props *CfnClusterParameterGroupProps) CfnClusterParameterGroup {
 	_init_.Initialize()
 
@@ -406,7 +416,6 @@ func NewCfnClusterParameterGroup(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::Redshift::ClusterParameterGroup`.
 func NewCfnClusterParameterGroup_Override(c CfnClusterParameterGroup, scope constructs.Construct, id *string, props *CfnClusterParameterGroupProps) {
 	_init_.Initialize()
 
@@ -454,6 +463,17 @@ func (j *jsiiProxy_CfnClusterParameterGroup)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClusterParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

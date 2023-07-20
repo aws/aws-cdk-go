@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::Trigger`.
+// The `AWS::Glue::Trigger` resource specifies triggers that run AWS Glue jobs.
 //
-// The `AWS::Glue::Trigger` resource specifies triggers that run AWS Glue jobs. For more information, see [Triggering Jobs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) and [Trigger Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-Trigger) in the *AWS Glue Developer Guide* .
+// For more information, see [Triggering Jobs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) and [Trigger Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-Trigger) in the *AWS Glue Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -63,12 +63,16 @@ import (
 //   	WorkflowName: jsii.String("workflowName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html
+//
 type CfnTrigger interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The actions initiated by this trigger.
 	Actions() interface{}
 	SetActions(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -108,8 +112,6 @@ type CfnTrigger interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A `cron` expression used to specify the schedule.
-	//
-	// For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
 	Schedule() *string
 	SetSchedule(val *string)
 	// The stack in which this element is defined.
@@ -117,12 +119,13 @@ type CfnTrigger interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created.
-	//
-	// True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation() interface{}
 	SetStartOnCreation(val interface{})
-	// The tags to use with this trigger.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to use with this trigger.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// The type of trigger that this is.
 	Type() *string
 	SetType(val *string)
@@ -273,6 +276,7 @@ type CfnTrigger interface {
 type jsiiProxy_CfnTrigger struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTrigger) Actions() interface{} {
@@ -280,6 +284,16 @@ func (j *jsiiProxy_CfnTrigger) Actions() interface{} {
 	_jsii_.Get(
 		j,
 		"actions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrigger) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -435,6 +449,16 @@ func (j *jsiiProxy_CfnTrigger) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrigger) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrigger) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -476,7 +500,6 @@ func (j *jsiiProxy_CfnTrigger) WorkflowName() *string {
 }
 
 
-// Create a new `AWS::Glue::Trigger`.
 func NewCfnTrigger(scope constructs.Construct, id *string, props *CfnTriggerProps) CfnTrigger {
 	_init_.Initialize()
 
@@ -494,7 +517,6 @@ func NewCfnTrigger(scope constructs.Construct, id *string, props *CfnTriggerProp
 	return &j
 }
 
-// Create a new `AWS::Glue::Trigger`.
 func NewCfnTrigger_Override(c CfnTrigger, scope constructs.Construct, id *string, props *CfnTriggerProps) {
 	_init_.Initialize()
 
@@ -569,6 +591,14 @@ func (j *jsiiProxy_CfnTrigger)SetStartOnCreation(val interface{}) {
 	_jsii_.Set(
 		j,
 		"startOnCreation",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrigger)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

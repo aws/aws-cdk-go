@@ -19,10 +19,16 @@ package awsemr
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scriptbootstrapactionconfig.html
+//
 type CfnCluster_ScriptBootstrapActionConfigProperty struct {
 	// Location in Amazon S3 of the script to run during a bootstrap action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scriptbootstrapactionconfig.html#cfn-emr-cluster-scriptbootstrapactionconfig-path
+	//
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// A list of command line arguments to pass to the bootstrap action script.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scriptbootstrapactionconfig.html#cfn-emr-cluster-scriptbootstrapactionconfig-args
+	//
 	Args *[]*string `field:"optional" json:"args" yaml:"args"`
 }
 

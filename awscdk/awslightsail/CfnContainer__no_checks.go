@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnContainer) validateSetServiceNameParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnContainer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnContainerParameters(scope constructs.Construct, id *string, props *CfnContainerProps) error {
 	return nil
 }

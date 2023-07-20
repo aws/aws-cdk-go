@@ -293,28 +293,46 @@ package awssecurityhub
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html
+//
 type CfnAutomationRuleProps struct {
 	// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-actions
+	//
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// A set of [AWS Security Finding Format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that Security Hub uses to filter findings. If a rule is enabled and a finding matches the conditions specified in this parameter, Security Hub applies the rule action to the finding.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-criteria
+	//
 	Criteria interface{} `field:"optional" json:"criteria" yaml:"criteria"`
 	// A description of the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria.
 	//
 	// This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If the value of this field is set to `true` for a rule, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. The default value of this field is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-isterminal
+	//
 	IsTerminal interface{} `field:"optional" json:"isTerminal" yaml:"isTerminal"`
 	// The name of the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-rulename
+	//
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings.
 	//
 	// Security Hub applies rules with lower values for this parameter first.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-ruleorder
+	//
 	RuleOrder *float64 `field:"optional" json:"ruleOrder" yaml:"ruleOrder"`
 	// Whether the rule is active after it is created.
 	//
 	// If this parameter is equal to `ENABLED` , Security Hub applies the rule to findings and finding updates after the rule is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-rulestatus
+	//
 	RuleStatus *string `field:"optional" json:"ruleStatus" yaml:"ruleStatus"`
 	// User-defined tags that help you label the purpose of a rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

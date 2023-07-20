@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::TransitGatewayPeering`.
-//
 // Creates a transit gateway peering connection.
 //
 // Example:
@@ -31,9 +29,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewaypeering.html
+//
 type CfnTransitGatewayPeering interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the core network.
 	AttrCoreNetworkArn() *string
 	// The timestamp when the core network peering was created.
@@ -89,8 +90,11 @@ type CfnTransitGatewayPeering interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The list of key-value tags associated with the peering.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of key-value tags associated with the peering.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN of the transit gateway.
 	TransitGatewayArn() *string
 	SetTransitGatewayArn(val *string)
@@ -238,6 +242,7 @@ type CfnTransitGatewayPeering interface {
 type jsiiProxy_CfnTransitGatewayPeering struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTransitGatewayPeering) AttrCoreNetworkArn() *string {
@@ -430,6 +435,16 @@ func (j *jsiiProxy_CfnTransitGatewayPeering) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayPeering) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayPeering) TransitGatewayArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -461,7 +476,6 @@ func (j *jsiiProxy_CfnTransitGatewayPeering) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::NetworkManager::TransitGatewayPeering`.
 func NewCfnTransitGatewayPeering(scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringProps) CfnTransitGatewayPeering {
 	_init_.Initialize()
 
@@ -479,7 +493,6 @@ func NewCfnTransitGatewayPeering(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::TransitGatewayPeering`.
 func NewCfnTransitGatewayPeering_Override(c CfnTransitGatewayPeering, scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringProps) {
 	_init_.Initialize()
 
@@ -497,6 +510,17 @@ func (j *jsiiProxy_CfnTransitGatewayPeering)SetCoreNetworkId(val *string) {
 	_jsii_.Set(
 		j,
 		"coreNetworkId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeering)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

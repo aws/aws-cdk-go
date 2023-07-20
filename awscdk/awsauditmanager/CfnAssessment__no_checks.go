@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnAssessment) validateSetScopeParameters(val interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnAssessment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAssessmentParameters(scope constructs.Construct, id *string, props *CfnAssessmentProps) error {
 	return nil
 }

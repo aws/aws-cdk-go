@@ -50,12 +50,20 @@ package awscodepipeline
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html
+//
 type CfnPipeline_StageDeclarationProperty struct {
 	// The actions included in a stage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-actions
+	//
 	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
 	// The name of the stage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Reserved for future use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-blockers
+	//
 	Blockers interface{} `field:"optional" json:"blockers" yaml:"blockers"`
 }
 

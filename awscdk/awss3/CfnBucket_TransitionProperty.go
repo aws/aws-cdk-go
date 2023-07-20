@@ -18,16 +18,24 @@ package awss3
 //   	TransitionInDays: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-transition.html
+//
 type CfnBucket_TransitionProperty struct {
 	// The storage class to which you want the object to transition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-transition.html#cfn-s3-bucket-transition-storageclass
+	//
 	StorageClass *string `field:"required" json:"storageClass" yaml:"storageClass"`
 	// Indicates when objects are transitioned to the specified storage class.
 	//
 	// The date value must be in ISO 8601 format. The time is always midnight UTC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-transition.html#cfn-s3-bucket-transition-transitiondate
+	//
 	TransitionDate interface{} `field:"optional" json:"transitionDate" yaml:"transitionDate"`
 	// Indicates the number of days after creation when objects are transitioned to the specified storage class.
 	//
 	// The value must be a positive integer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-transition.html#cfn-s3-bucket-transition-transitionindays
+	//
 	TransitionInDays *float64 `field:"optional" json:"transitionInDays" yaml:"transitionInDays"`
 }
 

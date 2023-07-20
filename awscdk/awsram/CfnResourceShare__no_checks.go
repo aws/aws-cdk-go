@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnResourceShare) validateSetNameParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnResourceShare) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnResourceShareParameters(scope constructs.Construct, id *string, props *CfnResourceShareProps) error {
 	return nil
 }

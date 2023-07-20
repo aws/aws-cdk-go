@@ -27,8 +27,12 @@ package awss3outposts
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html
+//
 type CfnBucket_LifecycleConfigurationProperty struct {
 	// The container for the lifecycle configuration rules for the objects stored in the S3 on Outposts bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
+	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 

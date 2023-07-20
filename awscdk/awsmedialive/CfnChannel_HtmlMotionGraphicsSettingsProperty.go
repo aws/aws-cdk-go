@@ -13,6 +13,8 @@ package awsmedialive
 //   htmlMotionGraphicsSettingsProperty := &HtmlMotionGraphicsSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-htmlmotiongraphicssettings.html
+//
 type CfnChannel_HtmlMotionGraphicsSettingsProperty struct {
 }
 

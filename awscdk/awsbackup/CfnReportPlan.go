@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Backup::ReportPlan`.
+// Creates a report plan.
 //
-// Creates a report plan. A report plan is a document that contains information about the contents of the report and where AWS Backup will deliver it.
+// A report plan is a document that contains information about the contents of the report and where AWS Backup will deliver it.
 //
 // If you call `CreateReportPlan` with a plan that already exists, you receive an `AlreadyExistsException` exception.
 //
@@ -39,6 +39,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html
 //
 type CfnReportPlan interface {
 	awscdk.CfnResource
@@ -78,18 +80,14 @@ type CfnReportPlan interface {
 	ReportPlanDescription() *string
 	SetReportPlanDescription(val *string)
 	// The unique name of the report plan.
-	//
-	// This name is between 1 and 256 characters starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
 	ReportPlanName() *string
 	SetReportPlanName(val *string)
 	// A list of tags to tag your report plan.
 	ReportPlanTags() interface{}
 	SetReportPlanTags(val interface{})
-	// Identifies the report template for the report. Reports are built using a report template. The report templates are:.
+	// Identifies the report template for the report.
 	//
-	// `RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
-	//
-	// If the report template is `RESOURCE_COMPLIANCE_REPORT` or `CONTROL_COMPLIANCE_REPORT` , this API resource also describes the report coverage by AWS Regions and frameworks.
+	// Reports are built using a report template. The report templates are:.
 	ReportSetting() interface{}
 	SetReportSetting(val interface{})
 	// The stack in which this element is defined.
@@ -403,7 +401,6 @@ func (j *jsiiProxy_CfnReportPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Backup::ReportPlan`.
 func NewCfnReportPlan(scope constructs.Construct, id *string, props *CfnReportPlanProps) CfnReportPlan {
 	_init_.Initialize()
 
@@ -421,7 +418,6 @@ func NewCfnReportPlan(scope constructs.Construct, id *string, props *CfnReportPl
 	return &j
 }
 
-// Create a new `AWS::Backup::ReportPlan`.
 func NewCfnReportPlan_Override(c CfnReportPlan, scope constructs.Construct, id *string, props *CfnReportPlanProps) {
 	_init_.Initialize()
 

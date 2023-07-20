@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Serverless::Function`.
+// Definition of AWS::Serverless::Function.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,17 +32,16 @@ import (
 //   		Type: jsii.String("type"),
 //   	},
 //   	DeploymentPreference: &DeploymentPreferenceProperty{
-//   		Enabled: jsii.Boolean(false),
-//   		Type: jsii.String("type"),
-//
-//   		// the properties below are optional
 //   		Alarms: []*string{
 //   			jsii.String("alarms"),
 //   		},
+//   		Enabled: jsii.Boolean(false),
 //   		Hooks: &HooksProperty{
 //   			PostTraffic: jsii.String("postTraffic"),
 //   			PreTraffic: jsii.String("preTraffic"),
 //   		},
+//   		Role: jsii.String("role"),
+//   		Type: jsii.String("type"),
 //   	},
 //   	Description: jsii.String("description"),
 //   	Environment: &FunctionEnvironmentProperty{
@@ -70,7 +69,7 @@ import (
 //   	},
 //   	Events: map[string]interface{}{
 //   		"eventsKey": &EventSourceProperty{
-//   			"properties": &S3EventProperty{
+//   			"properties": &AlexaSkillEventProperty{
 //   				"variables": map[string]*string{
 //   					"variablesKey": jsii.String("variables"),
 //   				},
@@ -127,19 +126,18 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html
+//
 type CfnFunction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Serverless::Function.Architectures`.
+	awscdk.ITaggable
 	Architectures() *[]*string
 	SetArchitectures(val *[]*string)
-	// `AWS::Serverless::Function.AssumeRolePolicyDocument`.
 	AssumeRolePolicyDocument() interface{}
 	SetAssumeRolePolicyDocument(val interface{})
-	// `AWS::Serverless::Function.AutoPublishAlias`.
 	AutoPublishAlias() *string
 	SetAutoPublishAlias(val *string)
-	// `AWS::Serverless::Function.AutoPublishCodeSha256`.
 	AutoPublishCodeSha256() *string
 	SetAutoPublishCodeSha256(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -147,56 +145,40 @@ type CfnFunction interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::Serverless::Function.CodeSigningConfigArn`.
 	CodeSigningConfigArn() *string
 	SetCodeSigningConfigArn(val *string)
-	// `AWS::Serverless::Function.CodeUri`.
 	CodeUri() interface{}
 	SetCodeUri(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Serverless::Function.DeadLetterQueue`.
 	DeadLetterQueue() interface{}
 	SetDeadLetterQueue(val interface{})
-	// `AWS::Serverless::Function.DeploymentPreference`.
 	DeploymentPreference() interface{}
 	SetDeploymentPreference(val interface{})
-	// `AWS::Serverless::Function.Description`.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Serverless::Function.Environment`.
 	Environment() interface{}
 	SetEnvironment(val interface{})
-	// `AWS::Serverless::Function.EventInvokeConfig`.
 	EventInvokeConfig() interface{}
 	SetEventInvokeConfig(val interface{})
-	// `AWS::Serverless::Function.Events`.
 	Events() interface{}
 	SetEvents(val interface{})
-	// `AWS::Serverless::Function.FileSystemConfigs`.
 	FileSystemConfigs() interface{}
 	SetFileSystemConfigs(val interface{})
-	// `AWS::Serverless::Function.FunctionName`.
 	FunctionName() *string
 	SetFunctionName(val *string)
-	// `AWS::Serverless::Function.Handler`.
 	Handler() *string
 	SetHandler(val *string)
-	// `AWS::Serverless::Function.ImageConfig`.
 	ImageConfig() interface{}
 	SetImageConfig(val interface{})
-	// `AWS::Serverless::Function.ImageUri`.
 	ImageUri() *string
 	SetImageUri(val *string)
-	// `AWS::Serverless::Function.InlineCode`.
 	InlineCode() *string
 	SetInlineCode(val *string)
-	// `AWS::Serverless::Function.KmsKeyArn`.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
-	// `AWS::Serverless::Function.Layers`.
 	Layers() *[]*string
 	SetLayers(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -209,21 +191,16 @@ type CfnFunction interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Serverless::Function.MemorySize`.
 	MemorySize() *float64
 	SetMemorySize(val *float64)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Serverless::Function.PackageType`.
 	PackageType() *string
 	SetPackageType(val *string)
-	// `AWS::Serverless::Function.PermissionsBoundary`.
 	PermissionsBoundary() *string
 	SetPermissionsBoundary(val *string)
-	// `AWS::Serverless::Function.Policies`.
 	Policies() interface{}
 	SetPolicies(val interface{})
-	// `AWS::Serverless::Function.ProvisionedConcurrencyConfig`.
 	ProvisionedConcurrencyConfig() interface{}
 	SetProvisionedConcurrencyConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -231,25 +208,22 @@ type CfnFunction interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Serverless::Function.ReservedConcurrentExecutions`.
 	ReservedConcurrentExecutions() *float64
 	SetReservedConcurrentExecutions(val *float64)
-	// `AWS::Serverless::Function.Role`.
 	Role() *string
 	SetRole(val *string)
-	// `AWS::Serverless::Function.Runtime`.
 	Runtime() *string
 	SetRuntime(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Serverless::Function.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// `AWS::Serverless::Function.Timeout`.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	Timeout() *float64
 	SetTimeout(val *float64)
-	// `AWS::Serverless::Function.Tracing`.
 	Tracing() *string
 	SetTracing(val *string)
 	// Deprecated.
@@ -265,10 +239,8 @@ type CfnFunction interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::Serverless::Function.VersionDescription`.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
-	// `AWS::Serverless::Function.VpcConfig`.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -402,6 +374,7 @@ type CfnFunction interface {
 type jsiiProxy_CfnFunction struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFunction) Architectures() *[]*string {
@@ -774,6 +747,16 @@ func (j *jsiiProxy_CfnFunction) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) Timeout() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -835,7 +818,6 @@ func (j *jsiiProxy_CfnFunction) VpcConfig() interface{} {
 }
 
 
-// Create a new `AWS::Serverless::Function`.
 func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionProps) CfnFunction {
 	_init_.Initialize()
 
@@ -853,7 +835,6 @@ func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionPr
 	return &j
 }
 
-// Create a new `AWS::Serverless::Function`.
 func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *string, props *CfnFunctionProps) {
 	_init_.Initialize()
 
@@ -873,9 +854,6 @@ func (j *jsiiProxy_CfnFunction)SetArchitectures(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnFunction)SetAssumeRolePolicyDocument(val interface{}) {
-	if err := j.validateSetAssumeRolePolicyDocumentParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"assumeRolePolicyDocument",
@@ -1117,6 +1095,14 @@ func (j *jsiiProxy_CfnFunction)SetRuntime(val *string) {
 	_jsii_.Set(
 		j,
 		"runtime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

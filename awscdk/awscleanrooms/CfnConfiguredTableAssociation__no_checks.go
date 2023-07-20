@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnConfiguredTableAssociation) validateSetRoleArnParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfiguredTableAssociation) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnConfiguredTableAssociationParameters(scope constructs.Construct, id *string, props *CfnConfiguredTableAssociationProps) error {
 	return nil
 }

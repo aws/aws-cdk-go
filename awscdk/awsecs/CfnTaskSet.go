@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ECS::TaskSet`.
+// Create a task set in the specified cluster and service.
 //
-// Create a task set in the specified cluster and service. This is used when a service uses the `EXTERNAL` deployment controller type. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide* .
+// This is used when a service uses the `EXTERNAL` deployment controller type. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -62,6 +62,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html
+//
 type CfnTaskSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -80,20 +82,12 @@ type CfnTaskSet interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// An optional non-unique tag that identifies this task set in external systems.
-	//
-	// If the task set is associated with a service discovery registry, the tasks in this task set will have the `ECS_TASK_SET_EXTERNAL_ID` AWS Cloud Map attribute set to the provided value.
 	ExternalId() *string
 	SetExternalId(val *string)
 	// The launch type that new tasks in the task set uses.
-	//
-	// For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide* .
-	//
-	// If a `launchType` is specified, the `capacityProviderStrategy` parameter must be omitted.
 	LaunchType() *string
 	SetLaunchType(val *string)
 	// A load balancer object representing the load balancer to use with the task set.
-	//
-	// The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 	LoadBalancers() interface{}
 	SetLoadBalancers(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -112,8 +106,6 @@ type CfnTaskSet interface {
 	// The tree node.
 	Node() constructs.Node
 	// The platform version that the tasks in the task set uses.
-	//
-	// A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the `LATEST` platform version is used.
 	PlatformVersion() *string
 	SetPlatformVersion(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -128,8 +120,6 @@ type CfnTaskSet interface {
 	Service() *string
 	SetService(val *string)
 	// The details of the service discovery registries to assign to this task set.
-	//
-	// For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) .
 	ServiceRegistries() interface{}
 	SetServiceRegistries(val interface{})
 	// The stack in which this element is defined.
@@ -496,7 +486,6 @@ func (j *jsiiProxy_CfnTaskSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ECS::TaskSet`.
 func NewCfnTaskSet(scope constructs.Construct, id *string, props *CfnTaskSetProps) CfnTaskSet {
 	_init_.Initialize()
 
@@ -514,7 +503,6 @@ func NewCfnTaskSet(scope constructs.Construct, id *string, props *CfnTaskSetProp
 	return &j
 }
 
-// Create a new `AWS::ECS::TaskSet`.
 func NewCfnTaskSet_Override(c CfnTaskSet, scope constructs.Construct, id *string, props *CfnTaskSetProps) {
 	_init_.Initialize()
 

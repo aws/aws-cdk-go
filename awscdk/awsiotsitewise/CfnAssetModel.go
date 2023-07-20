@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTSiteWise::AssetModel`.
+// Creates an asset model from specified property and hierarchy definitions.
 //
-// Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html) in the *AWS IoT SiteWise User Guide* .
+// You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html) in the *AWS IoT SiteWise User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -157,36 +157,28 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html
+//
 type CfnAssetModel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The composite asset models that are part of this asset model.
-	//
-	// Composite asset models are asset models that contain specific properties. Each composite model has a type that defines the properties that the composite model supports. You can use composite asset models to define alarms on this asset model.
 	AssetModelCompositeModels() interface{}
 	SetAssetModelCompositeModels(val interface{})
 	// A description for the asset model.
 	AssetModelDescription() *string
 	SetAssetModelDescription(val *string)
 	// The hierarchy definitions of the asset model.
-	//
-	// Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. For more information, see [Defining relationships between assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
-	//
-	// You can specify up to 10 hierarchies per asset model. For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
 	AssetModelHierarchies() interface{}
 	SetAssetModelHierarchies(val interface{})
 	// A unique, friendly name for the asset model.
-	//
-	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	AssetModelName() *string
 	SetAssetModelName(val *string)
 	// The property definitions of the asset model.
-	//
-	// For more information, see [Defining data properties](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html) in the *AWS IoT SiteWise User Guide* .
-	//
-	// You can specify up to 200 properties per asset model. For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
 	AssetModelProperties() interface{}
 	SetAssetModelProperties(val interface{})
+	// The ARN of the asset model, which has the following format.
 	AttrAssetModelArn() *string
 	// The ID of the asset model.
 	AttrAssetModelId() *string
@@ -220,10 +212,11 @@ type CfnAssetModel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs that contain metadata for the asset.
-	//
-	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs that contain metadata for the asset.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -368,6 +361,7 @@ type CfnAssetModel interface {
 type jsiiProxy_CfnAssetModel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAssetModel) AssetModelCompositeModels() interface{} {
@@ -530,6 +524,16 @@ func (j *jsiiProxy_CfnAssetModel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssetModel) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssetModel) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -551,7 +555,6 @@ func (j *jsiiProxy_CfnAssetModel) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTSiteWise::AssetModel`.
 func NewCfnAssetModel(scope constructs.Construct, id *string, props *CfnAssetModelProps) CfnAssetModel {
 	_init_.Initialize()
 
@@ -569,7 +572,6 @@ func NewCfnAssetModel(scope constructs.Construct, id *string, props *CfnAssetMod
 	return &j
 }
 
-// Create a new `AWS::IoTSiteWise::AssetModel`.
 func NewCfnAssetModel_Override(c CfnAssetModel, scope constructs.Construct, id *string, props *CfnAssetModelProps) {
 	_init_.Initialize()
 
@@ -628,6 +630,17 @@ func (j *jsiiProxy_CfnAssetModel)SetAssetModelProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"assetModelProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssetModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

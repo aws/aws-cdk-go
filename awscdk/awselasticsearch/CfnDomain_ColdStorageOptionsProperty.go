@@ -14,10 +14,14 @@ package awselasticsearch
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-coldstorageoptions.html
+//
 type CfnDomain_ColdStorageOptionsProperty struct {
 	// Whether to enable or disable cold storage on the domain.
 	//
 	// You must enable UltraWarm storage in order to enable cold storage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-coldstorageoptions.html#cfn-elasticsearch-domain-coldstorageoptions-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

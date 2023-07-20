@@ -13,10 +13,16 @@ package awsec2
 //   	Message: jsii.String("message"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypeeringattachment-peeringattachmentstatus.html
+//
 type CfnTransitGatewayPeeringAttachment_PeeringAttachmentStatusProperty struct {
 	// The status code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypeeringattachment-peeringattachmentstatus.html#cfn-ec2-transitgatewaypeeringattachment-peeringattachmentstatus-code
+	//
 	Code *string `field:"optional" json:"code" yaml:"code"`
 	// The status message, if applicable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypeeringattachment-peeringattachmentstatus.html#cfn-ec2-transitgatewaypeeringattachment-peeringattachmentstatus-message
+	//
 	Message *string `field:"optional" json:"message" yaml:"message"`
 }
 

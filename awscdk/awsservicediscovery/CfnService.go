@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceDiscovery::Service`.
-//
-// A complex type that contains information about a service, which defines the configuration of the following entities:
+// A complex type that contains information about a service, which defines the configuration of the following entities:.
 //
 // - For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:
 //
@@ -62,9 +60,12 @@ import (
 //   	Type: jsii.String("type"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html
+//
 type CfnService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the service.
 	AttrArn() *string
 	// The ID of the service.
@@ -84,18 +85,12 @@ type CfnService interface {
 	Description() *string
 	SetDescription(val *string)
 	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
-	//
-	// > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
 	DnsConfig() interface{}
 	SetDnsConfig(val interface{})
 	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
-	//
-	// For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
 	HealthCheckConfig() interface{}
 	SetHealthCheckConfig(val interface{})
 	// A complex type that contains information about an optional custom health check.
-	//
-	// > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
 	HealthCheckCustomConfig() interface{}
 	SetHealthCheckCustomConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -112,8 +107,6 @@ type CfnService interface {
 	Name() *string
 	SetName(val *string)
 	// The ID of the namespace that was used to create the service.
-	//
-	// > You must specify a value for `NamespaceId` either for the service properties or for [DnsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html) . Don't specify a value in both places.
 	NamespaceId() *string
 	SetNamespaceId(val *string)
 	// The tree node.
@@ -127,13 +120,12 @@ type CfnService interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the service.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the service.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation.
-	//
-	// No DNS records is registered for the service instances. The only valid value is `HTTP` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -280,6 +272,7 @@ type CfnService interface {
 type jsiiProxy_CfnService struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnService) AttrArn() *string {
@@ -462,6 +455,16 @@ func (j *jsiiProxy_CfnService) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -493,7 +496,6 @@ func (j *jsiiProxy_CfnService) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ServiceDiscovery::Service`.
 func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
 
@@ -511,7 +513,6 @@ func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProp
 	return &j
 }
 
-// Create a new `AWS::ServiceDiscovery::Service`.
 func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string, props *CfnServiceProps) {
 	_init_.Initialize()
 
@@ -575,6 +576,17 @@ func (j *jsiiProxy_CfnService)SetNamespaceId(val *string) {
 	_jsii_.Set(
 		j,
 		"namespaceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -20,16 +20,22 @@ package awscloudwatch
 //   	MetricTimeZone: jsii.String("metricTimeZone"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html
+//
 type CfnAnomalyDetector_ConfigurationProperty struct {
 	// Specifies an array of time ranges to exclude from use when the anomaly detection model is trained and updated.
 	//
 	// Use this to make sure that events that could cause unusual values for the metric, such as deployments, aren't used when CloudWatch creates or updates the model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html#cfn-cloudwatch-anomalydetector-configuration-excludedtimeranges
+	//
 	ExcludedTimeRanges interface{} `field:"optional" json:"excludedTimeRanges" yaml:"excludedTimeRanges"`
 	// The time zone to use for the metric.
 	//
 	// This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes.
 	//
 	// To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information, see [tz database](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Tz_database) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html#cfn-cloudwatch-anomalydetector-configuration-metrictimezone
+	//
 	MetricTimeZone *string `field:"optional" json:"metricTimeZone" yaml:"metricTimeZone"`
 }
 

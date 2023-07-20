@@ -16,18 +16,30 @@ package awsglue
 //   	State: jsii.String("state"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html
+//
 type CfnTrigger_ConditionProperty struct {
 	// The name of the crawler to which this condition applies.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername
+	//
 	CrawlerName *string `field:"optional" json:"crawlerName" yaml:"crawlerName"`
 	// The state of the crawler to which this condition applies.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate
+	//
 	CrawlState *string `field:"optional" json:"crawlState" yaml:"crawlState"`
 	// The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname
+	//
 	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`
 	// A logical operator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator
+	//
 	LogicalOperator *string `field:"optional" json:"logicalOperator" yaml:"logicalOperator"`
 	// The condition state.
 	//
 	// Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state
+	//
 	State *string `field:"optional" json:"state" yaml:"state"`
 }
 

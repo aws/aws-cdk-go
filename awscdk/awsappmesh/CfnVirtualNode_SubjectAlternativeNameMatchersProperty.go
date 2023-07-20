@@ -14,8 +14,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenamematchers.html
+//
 type CfnVirtualNode_SubjectAlternativeNameMatchersProperty struct {
 	// The values sent must match the specified values exactly.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenamematchers.html#cfn-appmesh-virtualnode-subjectalternativenamematchers-exact
+	//
 	Exact *[]*string `field:"optional" json:"exact" yaml:"exact"`
 }
 

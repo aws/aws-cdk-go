@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QuickSight::VPCConnection`.
-//
 // Creates a new VPC connection.
 //
 // Example:
@@ -41,9 +39,12 @@ import (
 //   	VpcConnectionId: jsii.String("vpcConnectionId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-vpcconnection.html
+//
 type CfnVPCConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the VPC connection.
 	AttrArn() *string
 	// The time that the VPC connection was created.
@@ -109,8 +110,11 @@ type CfnVPCConnection interface {
 	// A list of subnet IDs for the VPC connection.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -125,8 +129,6 @@ type CfnVPCConnection interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The ID of the VPC connection that you're creating.
-	//
-	// This ID is a unique identifier for each AWS Region in an AWS account.
 	VpcConnectionId() *string
 	SetVpcConnectionId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -260,6 +262,7 @@ type CfnVPCConnection interface {
 type jsiiProxy_CfnVPCConnection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVPCConnection) AttrArn() *string {
@@ -482,6 +485,16 @@ func (j *jsiiProxy_CfnVPCConnection) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCConnection) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCConnection) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -513,7 +526,6 @@ func (j *jsiiProxy_CfnVPCConnection) VpcConnectionId() *string {
 }
 
 
-// Create a new `AWS::QuickSight::VPCConnection`.
 func NewCfnVPCConnection(scope constructs.Construct, id *string, props *CfnVPCConnectionProps) CfnVPCConnection {
 	_init_.Initialize()
 
@@ -531,7 +543,6 @@ func NewCfnVPCConnection(scope constructs.Construct, id *string, props *CfnVPCCo
 	return &j
 }
 
-// Create a new `AWS::QuickSight::VPCConnection`.
 func NewCfnVPCConnection_Override(c CfnVPCConnection, scope constructs.Construct, id *string, props *CfnVPCConnectionProps) {
 	_init_.Initialize()
 
@@ -594,6 +605,17 @@ func (j *jsiiProxy_CfnVPCConnection)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCConnection)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

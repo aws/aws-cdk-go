@@ -262,10 +262,14 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-histogramaggregatedfieldwells.html
+//
 type CfnTemplate_HistogramAggregatedFieldWellsProperty struct {
 	// The value field wells of a histogram.
 	//
 	// Values are aggregated by `COUNT` or `DISTINCT_COUNT` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-histogramaggregatedfieldwells.html#cfn-quicksight-template-histogramaggregatedfieldwells-values
+	//
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

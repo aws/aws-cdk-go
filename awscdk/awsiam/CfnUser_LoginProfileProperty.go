@@ -17,10 +17,16 @@ package awsiam
 //   	PasswordResetRequired: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html
+//
 type CfnUser_LoginProfileProperty struct {
 	// The user's password.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html#cfn-iam-user-loginprofile-password
+	//
 	Password *string `field:"required" json:"password" yaml:"password"`
 	// Specifies whether the user is required to set a new password on next sign-in.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html#cfn-iam-user-loginprofile-passwordresetrequired
+	//
 	PasswordResetRequired interface{} `field:"optional" json:"passwordResetRequired" yaml:"passwordResetRequired"`
 }
 

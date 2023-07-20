@@ -26,10 +26,16 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html
+//
 type CfnRoute_HttpRetryPolicyProperty struct {
 	// The maximum number of retry attempts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-maxretries
+	//
 	MaxRetries *float64 `field:"required" json:"maxRetries" yaml:"maxRetries"`
 	// The timeout for each retry attempt.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-perretrytimeout
+	//
 	PerRetryTimeout interface{} `field:"required" json:"perRetryTimeout" yaml:"perRetryTimeout"`
 	// Specify at least one of the following values.
 	//
@@ -37,10 +43,14 @@ type CfnRoute_HttpRetryPolicyProperty struct {
 	// - *gateway-error* – HTTP status codes 502, 503, and 504
 	// - *client-error* – HTTP status code 409
 	// - *stream-error* – Retry on refused stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-httpretryevents
+	//
 	HttpRetryEvents *[]*string `field:"optional" json:"httpRetryEvents" yaml:"httpRetryEvents"`
 	// Specify a valid value.
 	//
 	// The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-tcpretryevents
+	//
 	TcpRetryEvents *[]*string `field:"optional" json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
 }
 

@@ -17,8 +17,12 @@ package awscleanrooms
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html
+//
 type CfnConfiguredTable_TableReferenceProperty struct {
 	// If present, a reference to the AWS Glue table referred to by this table reference.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html#cfn-cleanrooms-configuredtable-tablereference-glue
+	//
 	Glue interface{} `field:"required" json:"glue" yaml:"glue"`
 }
 

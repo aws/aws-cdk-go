@@ -406,6 +406,16 @@ func (j *jsiiProxy_CfnWebACL) validateSetScopeParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebACL) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebACL) validateSetVisibilityConfigParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

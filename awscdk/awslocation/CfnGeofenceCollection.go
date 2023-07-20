@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Location::GeofenceCollection`.
-//
 // The `AWS::Location::GeofenceCollection` resource specifies the ability to detect and act when a tracked device enters or exits a defined geographical boundary known as a geofence.
 //
 // Example:
@@ -24,7 +22,11 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	PricingPlan: jsii.String("pricingPlan"),
+//   	PricingPlanDataSource: jsii.String("pricingPlanDataSource"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html
 //
 type CfnGeofenceCollection interface {
 	awscdk.CfnResource
@@ -51,12 +53,6 @@ type CfnGeofenceCollection interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A custom name for the geofence collection.
-	//
-	// Requirements:
-	//
-	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
-	// - Must be a unique geofence collection name.
-	// - No spaces allowed. For example, `ExampleGeofenceCollection` .
 	CollectionName() *string
 	SetCollectionName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -81,6 +77,14 @@ type CfnGeofenceCollection interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Deprecated: this property has been deprecated.
+	PricingPlan() *string
+	// Deprecated: this property has been deprecated.
+	SetPricingPlan(val *string)
+	// Deprecated: this property has been deprecated.
+	PricingPlanDataSource() *string
+	// Deprecated: this property has been deprecated.
+	SetPricingPlanDataSource(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -366,6 +370,26 @@ func (j *jsiiProxy_CfnGeofenceCollection) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGeofenceCollection) PricingPlan() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"pricingPlan",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGeofenceCollection) PricingPlanDataSource() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"pricingPlanDataSource",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGeofenceCollection) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -407,7 +431,6 @@ func (j *jsiiProxy_CfnGeofenceCollection) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::Location::GeofenceCollection`.
 func NewCfnGeofenceCollection(scope constructs.Construct, id *string, props *CfnGeofenceCollectionProps) CfnGeofenceCollection {
 	_init_.Initialize()
 
@@ -425,7 +448,6 @@ func NewCfnGeofenceCollection(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Location::GeofenceCollection`.
 func NewCfnGeofenceCollection_Override(c CfnGeofenceCollection, scope constructs.Construct, id *string, props *CfnGeofenceCollectionProps) {
 	_init_.Initialize()
 
@@ -459,6 +481,22 @@ func (j *jsiiProxy_CfnGeofenceCollection)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGeofenceCollection)SetPricingPlan(val *string) {
+	_jsii_.Set(
+		j,
+		"pricingPlan",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGeofenceCollection)SetPricingPlanDataSource(val *string) {
+	_jsii_.Set(
+		j,
+		"pricingPlanDataSource",
 		val,
 	)
 }

@@ -22,10 +22,16 @@ package awscustomerprofiles
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html
+//
 type CfnObjectType_KeyMapProperty struct {
 	// Name of the key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of ObjectTypeKey.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-objecttypekeylist
+	//
 	ObjectTypeKeyList interface{} `field:"optional" json:"objectTypeKeyList" yaml:"objectTypeKeyList"`
 }
 

@@ -12,8 +12,12 @@ package awsservicediscovery
 //   	Ttl: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-soa.html
+//
 type CfnPrivateDnsNamespace_SOAProperty struct {
 	// The time to live (TTL) for purposes of negative caching.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-soa.html#cfn-servicediscovery-privatednsnamespace-soa-ttl
+	//
 	Ttl *float64 `field:"optional" json:"ttl" yaml:"ttl"`
 }
 

@@ -13,12 +13,18 @@ package awsdatabrew
 //   	HeaderRow: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html
+//
 type CfnDataset_CsvOptionsProperty struct {
 	// A single character that specifies the delimiter being used in the CSV file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
+	//
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// A variable that specifies whether the first row in the file is parsed as the header.
 	//
 	// If this value is false, column names are auto-generated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
+	//
 	HeaderRow interface{} `field:"optional" json:"headerRow" yaml:"headerRow"`
 }
 

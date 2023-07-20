@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::Host`.
+// Allocates a fully dedicated physical server for launching EC2 instances.
 //
-// Allocates a fully dedicated physical server for launching EC2 instances. Because the host is fully dedicated for your use, it can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses. For more information, see [Dedicated Hosts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html) in the *Amazon EC2 User Guide for Linux Instances* .
+// Because the host is fully dedicated for your use, it can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses. For more information, see [Dedicated Hosts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html) in the *Amazon EC2 User Guide for Linux Instances* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,16 +30,14 @@ import (
 //   	OutpostArn: jsii.String("outpostArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html
+//
 type CfnHost interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The ID of the host.
 	AttrHostId() *string
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
-	//
-	// For more information, see [Understanding auto-placement and affinity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding) in the *Amazon EC2 User Guide* .
-	//
-	// Default: `on`.
 	AutoPlacement() *string
 	SetAutoPlacement(val *string)
 	// The Availability Zone in which to allocate the Dedicated Host.
@@ -58,20 +56,12 @@ type CfnHost interface {
 	HostMaintenance() *string
 	SetHostMaintenance(val *string)
 	// Indicates whether to enable or disable host recovery for the Dedicated Host.
-	//
-	// Host recovery is disabled by default. For more information, see [Host recovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html) in the *Amazon EC2 User Guide* .
-	//
-	// Default: `off`.
 	HostRecovery() *string
 	SetHostRecovery(val *string)
 	// The instance family supported by the Dedicated Host.
-	//
-	// For example, `m5` .
 	InstanceFamily() *string
 	SetInstanceFamily(val *string)
 	// Specifies the instance type to be supported by the Dedicated Hosts.
-	//
-	// If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
 	InstanceType() *string
 	SetInstanceType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -425,7 +415,6 @@ func (j *jsiiProxy_CfnHost) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::Host`.
 func NewCfnHost(scope constructs.Construct, id *string, props *CfnHostProps) CfnHost {
 	_init_.Initialize()
 
@@ -443,7 +432,6 @@ func NewCfnHost(scope constructs.Construct, id *string, props *CfnHostProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::EC2::Host`.
 func NewCfnHost_Override(c CfnHost, scope constructs.Construct, id *string, props *CfnHostProps) {
 	_init_.Initialize()
 

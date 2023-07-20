@@ -12,10 +12,14 @@ package awskafkaconnect
 //   	AuthenticationType: jsii.String("authenticationType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html
+//
 type CfnConnector_KafkaClusterClientAuthenticationProperty struct {
 	// The type of client authentication used to connect to the Apache Kafka cluster.
 	//
 	// Value NONE means that no client authentication is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html#cfn-kafkaconnect-connector-kafkaclusterclientauthentication-authenticationtype
+	//
 	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
 }
 

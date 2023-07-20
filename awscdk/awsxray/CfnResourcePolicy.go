@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::XRay::ResourcePolicy`.
+// Use `AWS::XRay::ResourcePolicy` to specify an X-Ray resource-based policy, which grants one or more AWS services and accounts permissions to access X-Ray .
 //
-// Use `AWS::XRay::ResourcePolicy` to specify an X-Ray resource-based policy, which grants one or more AWS services and accounts permissions to access X-Ray . Each resource-based policy is associated with a specific AWS account.
+// Each resource-based policy is associated with a specific AWS account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,6 +25,8 @@ import (
 //   	// the properties below are optional
 //   	BypassPolicyLockoutCheck: jsii.Boolean(false),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-resourcepolicy.html
 //
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
@@ -57,8 +59,6 @@ type CfnResourcePolicy interface {
 	PolicyDocument() *string
 	SetPolicyDocument(val *string)
 	// The name of the resource-based policy.
-	//
-	// Must be unique within a specific AWS account.
 	PolicyName() *string
 	SetPolicyName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -347,7 +347,6 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::XRay::ResourcePolicy`.
 func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
@@ -365,7 +364,6 @@ func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
-// Create a new `AWS::XRay::ResourcePolicy`.
 func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 

@@ -19,14 +19,20 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html
+//
 type CfnFeatureGroup_OnlineStoreConfigProperty struct {
 	// Turn `OnlineStore` off by specifying `False` for the `EnableOnlineStore` flag.
 	//
 	// Turn `OnlineStore` on by specifying `True` for the `EnableOnlineStore` flag.
 	//
 	// The default value is `False` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-enableonlinestore
+	//
 	EnableOnlineStore interface{} `field:"optional" json:"enableOnlineStore" yaml:"enableOnlineStore"`
 	// Use to specify KMS Key ID ( `KMSKeyId` ) for at-rest encryption of your `OnlineStore` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-securityconfig
+	//
 	SecurityConfig interface{} `field:"optional" json:"securityConfig" yaml:"securityConfig"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Config::OrganizationConfigRule`.
+// Adds or updates an AWS Config rule for your entire organization to evaluate if your AWS resources comply with your desired configurations.
 //
-// Adds or updates an AWS Config rule for your entire organization to evaluate if your AWS resources comply with your desired configurations. For information on how many organization AWS Config rules you can have per account, see [*Service Limits*](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in the *AWS Config Developer Guide* .
+// For information on how many organization AWS Config rules you can have per account, see [*Service Limits*](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in the *AWS Config Developer Guide* .
 //
 // Only a management account and a delegated administrator can create or update an organization AWS Config rule. When calling the `OrganizationConfigRule` resource with a delegated administrator, you must ensure AWS Organizations `ListDelegatedAdministrator` permissions are added. An organization can have up to 3 delegated administrators.
 //
@@ -93,9 +93,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html
+//
 type CfnOrganizationConfigRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -123,7 +126,6 @@ type CfnOrganizationConfigRule interface {
 	// The name that you assign to organization AWS Config rule.
 	OrganizationConfigRuleName() *string
 	SetOrganizationConfigRuleName(val *string)
-	// `AWS::Config::OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata`.
 	OrganizationCustomPolicyRuleMetadata() interface{}
 	SetOrganizationCustomPolicyRuleMetadata(val interface{})
 	// An `OrganizationCustomRuleMetadata` object.
@@ -287,6 +289,16 @@ type jsiiProxy_CfnOrganizationConfigRule struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnOrganizationConfigRule) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOrganizationConfigRule) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -438,7 +450,6 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::Config::OrganizationConfigRule`.
 func NewCfnOrganizationConfigRule(scope constructs.Construct, id *string, props *CfnOrganizationConfigRuleProps) CfnOrganizationConfigRule {
 	_init_.Initialize()
 
@@ -456,7 +467,6 @@ func NewCfnOrganizationConfigRule(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::Config::OrganizationConfigRule`.
 func NewCfnOrganizationConfigRule_Override(c CfnOrganizationConfigRule, scope constructs.Construct, id *string, props *CfnOrganizationConfigRuleProps) {
 	_init_.Initialize()
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::OpenSearchServerless::AccessPolicy`.
+// Creates a data access policy for OpenSearch Serverless.
 //
-// Creates a data access policy for OpenSearch Serverless. Access policies limit access to collections and the resources within them, and allow a user to access that data irrespective of the access mechanism or network source. For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) .
+// Access policies limit access to collections and the resources within them, and allow a user to access that data irrespective of the access mechanism or network source. For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,6 +26,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-accesspolicy.html
 //
 type CfnAccessPolicy interface {
 	awscdk.CfnResource
@@ -70,8 +72,6 @@ type CfnAccessPolicy interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The type of access policy.
-	//
-	// Currently the only option is `data` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -361,7 +361,6 @@ func (j *jsiiProxy_CfnAccessPolicy) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::OpenSearchServerless::AccessPolicy`.
 func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccessPolicyProps) CfnAccessPolicy {
 	_init_.Initialize()
 
@@ -379,7 +378,6 @@ func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccess
 	return &j
 }
 
-// Create a new `AWS::OpenSearchServerless::AccessPolicy`.
 func NewCfnAccessPolicy_Override(c CfnAccessPolicy, scope constructs.Construct, id *string, props *CfnAccessPolicyProps) {
 	_init_.Initialize()
 

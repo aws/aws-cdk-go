@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::TagOption`.
+// Specifies a TagOption.
 //
-// Specifies a TagOption. A TagOption is a key-value pair managed by AWS Service Catalog that serves as a template for creating an AWS tag.
+// A TagOption is a key-value pair managed by AWS Service Catalog that serves as a template for creating an AWS tag.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,12 +26,15 @@ import (
 //   	Active: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoption.html
+//
 type CfnTagOption interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The TagOption active state.
 	Active() interface{}
 	SetActive(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -224,6 +227,16 @@ func (j *jsiiProxy_CfnTagOption) Active() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTagOption) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTagOption) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -345,7 +358,6 @@ func (j *jsiiProxy_CfnTagOption) Value() *string {
 }
 
 
-// Create a new `AWS::ServiceCatalog::TagOption`.
 func NewCfnTagOption(scope constructs.Construct, id *string, props *CfnTagOptionProps) CfnTagOption {
 	_init_.Initialize()
 
@@ -363,7 +375,6 @@ func NewCfnTagOption(scope constructs.Construct, id *string, props *CfnTagOption
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::TagOption`.
 func NewCfnTagOption_Override(c CfnTagOption, scope constructs.Construct, id *string, props *CfnTagOptionProps) {
 	_init_.Initialize()
 

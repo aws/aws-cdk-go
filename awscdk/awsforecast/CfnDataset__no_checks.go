@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnDataset) validateSetDomainParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnDataset) validateSetEncryptionConfigParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDataset) validateSetSchemaParameters(val interface{}) error {
 	return nil
 }

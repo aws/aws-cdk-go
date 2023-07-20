@@ -13,10 +13,16 @@ package awscognito
 //   	MinValue: jsii.String("minValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html
+//
 type CfnUserPool_NumberAttributeConstraintsProperty struct {
 	// The maximum value of an attribute that is of the number data type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html#cfn-cognito-userpool-numberattributeconstraints-maxvalue
+	//
 	MaxValue *string `field:"optional" json:"maxValue" yaml:"maxValue"`
 	// The minimum value of an attribute that is of the number data type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html#cfn-cognito-userpool-numberattributeconstraints-minvalue
+	//
 	MinValue *string `field:"optional" json:"minValue" yaml:"minValue"`
 }
 

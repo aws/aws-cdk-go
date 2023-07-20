@@ -25,8 +25,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html
+//
 type CfnVirtualGateway_VirtualGatewayAccessLogProperty struct {
 	// The file object to send virtual gateway access logs to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayaccesslog-file
+	//
 	File interface{} `field:"optional" json:"file" yaml:"file"`
 }
 

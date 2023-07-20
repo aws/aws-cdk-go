@@ -169,14 +169,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterdeclaration.html
+//
 type CfnDashboard_ParameterDeclarationProperty struct {
 	// A parameter declaration for the `DateTime` data type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterdeclaration.html#cfn-quicksight-dashboard-parameterdeclaration-datetimeparameterdeclaration
+	//
 	DateTimeParameterDeclaration interface{} `field:"optional" json:"dateTimeParameterDeclaration" yaml:"dateTimeParameterDeclaration"`
 	// A parameter declaration for the `Decimal` data type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterdeclaration.html#cfn-quicksight-dashboard-parameterdeclaration-decimalparameterdeclaration
+	//
 	DecimalParameterDeclaration interface{} `field:"optional" json:"decimalParameterDeclaration" yaml:"decimalParameterDeclaration"`
 	// A parameter declaration for the `Integer` data type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterdeclaration.html#cfn-quicksight-dashboard-parameterdeclaration-integerparameterdeclaration
+	//
 	IntegerParameterDeclaration interface{} `field:"optional" json:"integerParameterDeclaration" yaml:"integerParameterDeclaration"`
 	// A parameter declaration for the `String` data type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterdeclaration.html#cfn-quicksight-dashboard-parameterdeclaration-stringparameterdeclaration
+	//
 	StringParameterDeclaration interface{} `field:"optional" json:"stringParameterDeclaration" yaml:"stringParameterDeclaration"`
 }
 

@@ -18,16 +18,24 @@ package awslightsail
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html
+//
 type CfnDisk_AddOnProperty struct {
 	// The add-on type (for example, `AutoSnapshot` ).
 	//
 	// > `AutoSnapshot` is the only add-on that can be enabled for a disk.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html#cfn-lightsail-disk-addon-addontype
+	//
 	AddOnType *string `field:"required" json:"addOnType" yaml:"addOnType"`
 	// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html#cfn-lightsail-disk-addon-autosnapshotaddonrequest
+	//
 	AutoSnapshotAddOnRequest interface{} `field:"optional" json:"autoSnapshotAddOnRequest" yaml:"autoSnapshotAddOnRequest"`
 	// The status of the add-on.
 	//
 	// Valid Values: `Enabled` | `Disabled`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html#cfn-lightsail-disk-addon-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

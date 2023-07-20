@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::InAppTemplate`.
+// Creates a message template that you can use to send in-app messages.
 //
-// Creates a message template that you can use to send in-app messages. A message template is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications. The In-App channel is unavailable in AWS GovCloud (US).
+// A message template is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications. The In-App channel is unavailable in AWS GovCloud (US).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -91,9 +91,12 @@ import (
 //   	TemplateDescription: jsii.String("templateDescription"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html
+//
 type CfnInAppTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the message template.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -111,14 +114,9 @@ type CfnInAppTemplate interface {
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
 	CustomConfig() interface{}
 	SetCustomConfig(val interface{})
-	// A string that determines the appearance of the in-app message. You can specify one of the following:.
+	// A string that determines the appearance of the in-app message.
 	//
-	// - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
-	// - `TOP_BANNER` – a message that appears as a banner at the top of the page.
-	// - `OVERLAYS` – a message that covers entire screen.
-	// - `MOBILE_FEED` – a message that appears in a window in front of the page.
-	// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
-	// - `CAROUSEL` – a scrollable layout of up to five unique messages.
+	// You can specify one of the following:.
 	Layout() *string
 	SetLayout(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -142,10 +140,11 @@ type CfnInAppTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// An optional description of the in-app template.
 	TemplateDescription() *string
 	SetTemplateDescription(val *string)
@@ -296,6 +295,7 @@ type CfnInAppTemplate interface {
 type jsiiProxy_CfnInAppTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInAppTemplate) AttrArn() *string {
@@ -428,6 +428,16 @@ func (j *jsiiProxy_CfnInAppTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInAppTemplate) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInAppTemplate) TemplateDescription() *string {
 	var returns *string
 	_jsii_.Get(
@@ -469,7 +479,6 @@ func (j *jsiiProxy_CfnInAppTemplate) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Pinpoint::InAppTemplate`.
 func NewCfnInAppTemplate(scope constructs.Construct, id *string, props *CfnInAppTemplateProps) CfnInAppTemplate {
 	_init_.Initialize()
 
@@ -487,7 +496,6 @@ func NewCfnInAppTemplate(scope constructs.Construct, id *string, props *CfnInApp
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::InAppTemplate`.
 func NewCfnInAppTemplate_Override(c CfnInAppTemplate, scope constructs.Construct, id *string, props *CfnInAppTemplateProps) {
 	_init_.Initialize()
 
@@ -510,9 +518,6 @@ func (j *jsiiProxy_CfnInAppTemplate)SetContent(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnInAppTemplate)SetCustomConfig(val interface{}) {
-	if err := j.validateSetCustomConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"customConfig",
@@ -524,6 +529,14 @@ func (j *jsiiProxy_CfnInAppTemplate)SetLayout(val *string) {
 	_jsii_.Set(
 		j,
 		"layout",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInAppTemplate)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

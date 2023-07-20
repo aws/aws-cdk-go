@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnCluster) validateSetServiceConnectDefaultsParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnClusterParameters(scope constructs.Construct, id *string, props *CfnClusterProps) error {
 	return nil
 }

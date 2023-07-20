@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFRegional::RateBasedRule`.
+// > This is *AWS WAF Classic* documentation.
 //
-// > This is *AWS WAF Classic* documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+// For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
 // >
 // > *For the latest version of AWS WAF* , use the AWS WAF V2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) . With the latest version, AWS WAF has a single set of endpoints for regional and global use.
 //
@@ -47,9 +47,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html
+//
 type CfnRateBasedRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -73,25 +76,17 @@ type CfnRateBasedRule interface {
 	MatchPredicates() interface{}
 	SetMatchPredicates(val interface{})
 	// A name for the metrics for a `RateBasedRule` .
-	//
-	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF , including "All" and "Default_Action." You can't change the name of the metric after you create the `RateBasedRule` .
 	MetricName() *string
 	SetMetricName(val *string)
 	// A friendly name or description for a `RateBasedRule` .
-	//
-	// You can't change the name of a `RateBasedRule` after you create it.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The field that AWS WAF uses to determine if requests are likely arriving from single source and thus subject to rate monitoring.
-	//
-	// The only valid value for `RateKey` is `IP` . `IP` indicates that requests arriving from the same IP address are subject to the `RateLimit` that is specified in the `RateBasedRule` .
 	RateKey() *string
 	SetRateKey(val *string)
 	// The maximum number of requests, which have an identical value in the field specified by the `RateKey` , allowed in a five-minute period.
-	//
-	// If the number of requests exceeds the `RateLimit` and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
 	RateLimit() *float64
 	SetRateLimit(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -249,6 +244,16 @@ type jsiiProxy_CfnRateBasedRule struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnRateBasedRule) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRateBasedRule) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -400,7 +405,6 @@ func (j *jsiiProxy_CfnRateBasedRule) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::WAFRegional::RateBasedRule`.
 func NewCfnRateBasedRule(scope constructs.Construct, id *string, props *CfnRateBasedRuleProps) CfnRateBasedRule {
 	_init_.Initialize()
 
@@ -418,7 +422,6 @@ func NewCfnRateBasedRule(scope constructs.Construct, id *string, props *CfnRateB
 	return &j
 }
 
-// Create a new `AWS::WAFRegional::RateBasedRule`.
 func NewCfnRateBasedRule_Override(c CfnRateBasedRule, scope constructs.Construct, id *string, props *CfnRateBasedRuleProps) {
 	_init_.Initialize()
 

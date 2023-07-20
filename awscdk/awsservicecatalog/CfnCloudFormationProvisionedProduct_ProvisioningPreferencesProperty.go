@@ -32,6 +32,8 @@ package awsservicecatalog
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html
+//
 type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct {
 	// One or more AWS accounts where the provisioned product will be available.
 	//
@@ -40,6 +42,8 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 	//
 	// If no values are specified, the default value is all acounts from the `STACKSET` constraint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
+	//
 	StackSetAccounts *[]*string `field:"optional" json:"stackSetAccounts" yaml:"stackSetAccounts"`
 	// The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region.
 	//
@@ -50,6 +54,8 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
 	//
 	// The default value is `0` if no value is specified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancecount
+	//
 	StackSetFailureToleranceCount *float64 `field:"optional" json:"stackSetFailureToleranceCount" yaml:"stackSetFailureToleranceCount"`
 	// The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region.
 	//
@@ -60,6 +66,8 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
 	//
 	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancepercentage
+	//
 	StackSetFailureTolerancePercentage *float64 `field:"optional" json:"stackSetFailureTolerancePercentage" yaml:"stackSetFailureTolerancePercentage"`
 	// The maximum number of accounts in which to perform this operation at one time.
 	//
@@ -70,6 +78,8 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
 	//
 	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencycount
+	//
 	StackSetMaxConcurrencyCount *float64 `field:"optional" json:"stackSetMaxConcurrencyCount" yaml:"stackSetMaxConcurrencyCount"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
@@ -80,6 +90,8 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
 	//
 	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencypercentage
+	//
 	StackSetMaxConcurrencyPercentage *float64 `field:"optional" json:"stackSetMaxConcurrencyPercentage" yaml:"stackSetMaxConcurrencyPercentage"`
 	// Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product.
 	//
@@ -90,6 +102,8 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
 	// - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
 	// - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetoperationtype
+	//
 	StackSetOperationType *string `field:"optional" json:"stackSetOperationType" yaml:"stackSetOperationType"`
 	// One or more AWS Regions where the provisioned product will be available.
 	//
@@ -98,6 +112,8 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 	//
 	// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions
+	//
 	StackSetRegions *[]*string `field:"optional" json:"stackSetRegions" yaml:"stackSetRegions"`
 }
 

@@ -23,14 +23,20 @@ package awslogs
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-dimension.html
+//
 type CfnMetricFilter_DimensionProperty struct {
 	// The name for the CloudWatch metric dimension that the metric filter creates.
 	//
 	// Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-dimension.html#cfn-logs-metricfilter-dimension-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The log event field that will contain the value for this dimension.
 	//
 	// This dimension will only be published for a metric if the value is found in the log event. For example, `$.eventType` for JSON log events, or `$server` for space-delimited log events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-dimension.html#cfn-logs-metricfilter-dimension-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

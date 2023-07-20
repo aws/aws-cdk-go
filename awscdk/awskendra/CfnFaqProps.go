@@ -31,16 +31,28 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
+//
 type CfnFaqProps struct {
 	// The identifier of the index that contains the FAQ.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
+	//
 	IndexId *string `field:"required" json:"indexId" yaml:"indexId"`
 	// The name that you assigned the FAQ when you created or updated the FAQ.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQ.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Simple Storage Service (Amazon S3) location of the FAQ input data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
+	//
 	S3Path interface{} `field:"required" json:"s3Path" yaml:"s3Path"`
 	// A description for the FAQ.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The format of the input file.
 	//
@@ -53,10 +65,14 @@ type CfnFaqProps struct {
 	// - `CSV`
 	// - `CSV_WITH_HEADER`
 	// - `JSON`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
+	//
 	FileFormat *string `field:"optional" json:"fileFormat" yaml:"fileFormat"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Wisdom::Assistant`.
-//
 // Specifies an Amazon Connect Wisdom assistant.
 //
 // Example:
@@ -35,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html
+//
 type CfnAssistant interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the assistant.
 	AttrAssistantArn() *string
 	// The ID of the Wisdom assistant.
@@ -81,8 +82,11 @@ type CfnAssistant interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of assistant.
 	Type() *string
 	SetType(val *string)
@@ -230,6 +234,7 @@ type CfnAssistant interface {
 type jsiiProxy_CfnAssistant struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAssistant) AttrAssistantArn() *string {
@@ -372,6 +377,16 @@ func (j *jsiiProxy_CfnAssistant) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssistant) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssistant) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -403,7 +418,6 @@ func (j *jsiiProxy_CfnAssistant) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Wisdom::Assistant`.
 func NewCfnAssistant(scope constructs.Construct, id *string, props *CfnAssistantProps) CfnAssistant {
 	_init_.Initialize()
 
@@ -421,7 +435,6 @@ func NewCfnAssistant(scope constructs.Construct, id *string, props *CfnAssistant
 	return &j
 }
 
-// Create a new `AWS::Wisdom::Assistant`.
 func NewCfnAssistant_Override(c CfnAssistant, scope constructs.Construct, id *string, props *CfnAssistantProps) {
 	_init_.Initialize()
 
@@ -458,6 +471,17 @@ func (j *jsiiProxy_CfnAssistant)SetServerSideEncryptionConfiguration(val interfa
 	_jsii_.Set(
 		j,
 		"serverSideEncryptionConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssistant)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::ResponseHeadersPolicy`.
-//
 // A response headers policy.
 //
 // A response headers policy contains information about a set of HTTP response headers.
@@ -114,6 +112,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html
 //
 type CfnResponseHeadersPolicy interface {
 	awscdk.CfnResource
@@ -434,7 +434,6 @@ func (j *jsiiProxy_CfnResponseHeadersPolicy) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::CloudFront::ResponseHeadersPolicy`.
 func NewCfnResponseHeadersPolicy(scope constructs.Construct, id *string, props *CfnResponseHeadersPolicyProps) CfnResponseHeadersPolicy {
 	_init_.Initialize()
 
@@ -452,7 +451,6 @@ func NewCfnResponseHeadersPolicy(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::CloudFront::ResponseHeadersPolicy`.
 func NewCfnResponseHeadersPolicy_Override(c CfnResponseHeadersPolicy, scope constructs.Construct, id *string, props *CfnResponseHeadersPolicyProps) {
 	_init_.Initialize()
 

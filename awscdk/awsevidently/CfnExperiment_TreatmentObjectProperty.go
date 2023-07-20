@@ -19,16 +19,26 @@ package awsevidently
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html
+//
 type CfnExperiment_TreatmentObjectProperty struct {
 	// The name of the feature for this experiment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html#cfn-evidently-experiment-treatmentobject-feature
+	//
 	Feature *string `field:"required" json:"feature" yaml:"feature"`
 	// A name for this treatment.
 	//
 	// It can include up to 127 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html#cfn-evidently-experiment-treatmentobject-treatmentname
+	//
 	TreatmentName *string `field:"required" json:"treatmentName" yaml:"treatmentName"`
 	// The name of the variation to use for this treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html#cfn-evidently-experiment-treatmentobject-variation
+	//
 	Variation *string `field:"required" json:"variation" yaml:"variation"`
 	// The description of the treatment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html#cfn-evidently-experiment-treatmentobject-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

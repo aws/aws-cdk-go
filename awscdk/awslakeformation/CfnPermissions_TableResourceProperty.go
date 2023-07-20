@@ -18,20 +18,30 @@ package awslakeformation
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html
+//
 type CfnPermissions_TableResourceProperty struct {
 	// The identifier for the Data Catalog .
 	//
 	// By default, it is the account ID of the caller.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid
+	//
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the database for the table.
 	//
 	// Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-databasename
+	//
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// The name of the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An empty object representing all tables under a database.
 	//
 	// If this field is specified instead of the `Name` field, all tables under `DatabaseName` will have permission changes applied.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard
+	//
 	TableWildcard interface{} `field:"optional" json:"tableWildcard" yaml:"tableWildcard"`
 }
 

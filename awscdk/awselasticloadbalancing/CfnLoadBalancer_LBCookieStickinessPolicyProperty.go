@@ -15,14 +15,20 @@ package awselasticloadbalancing
 //   	PolicyName: jsii.String("policyName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-lbcookiestickinesspolicy.html
+//
 type CfnLoadBalancer_LBCookieStickinessPolicyProperty struct {
 	// The time period, in seconds, after which the cookie should be considered stale.
 	//
 	// If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-lbcookiestickinesspolicy.html#cfn-elasticloadbalancing-loadbalancer-lbcookiestickinesspolicy-cookieexpirationperiod
+	//
 	CookieExpirationPeriod *string `field:"optional" json:"cookieExpirationPeriod" yaml:"cookieExpirationPeriod"`
 	// The name of the policy.
 	//
 	// This name must be unique within the set of policies for this load balancer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-lbcookiestickinesspolicy.html#cfn-elasticloadbalancing-loadbalancer-lbcookiestickinesspolicy-policyname
+	//
 	PolicyName *string `field:"optional" json:"policyName" yaml:"policyName"`
 }
 

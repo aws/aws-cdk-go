@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Inspector::ResourceGroup`.
+// The `AWS::Inspector::ResourceGroup` resource is used to create Amazon Inspector resource groups.
 //
-// The `AWS::Inspector::ResourceGroup` resource is used to create Amazon Inspector resource groups. A resource group defines a set of tags that, when queried, identify the AWS resources that make up the assessment target.
+// A resource group defines a set of tags that, when queried, identify the AWS resources that make up the assessment target.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,6 +26,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html
 //
 type CfnResourceGroup interface {
 	awscdk.CfnResource
@@ -59,8 +61,6 @@ type CfnResourceGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The tags (key and value pairs) that will be associated with the resource group.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	ResourceGroupTags() interface{}
 	SetResourceGroupTags(val interface{})
 	// The stack in which this element is defined.
@@ -334,7 +334,6 @@ func (j *jsiiProxy_CfnResourceGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Inspector::ResourceGroup`.
 func NewCfnResourceGroup(scope constructs.Construct, id *string, props *CfnResourceGroupProps) CfnResourceGroup {
 	_init_.Initialize()
 
@@ -352,7 +351,6 @@ func NewCfnResourceGroup(scope constructs.Construct, id *string, props *CfnResou
 	return &j
 }
 
-// Create a new `AWS::Inspector::ResourceGroup`.
 func NewCfnResourceGroup_Override(c CfnResourceGroup, scope constructs.Construct, id *string, props *CfnResourceGroupProps) {
 	_init_.Initialize()
 

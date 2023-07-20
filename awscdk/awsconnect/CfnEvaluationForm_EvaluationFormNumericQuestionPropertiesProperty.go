@@ -30,14 +30,24 @@ package awsconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html
+//
 type CfnEvaluationForm_EvaluationFormNumericQuestionPropertiesProperty struct {
 	// The maximum answer value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-maxvalue
+	//
 	MaxValue *float64 `field:"required" json:"maxValue" yaml:"maxValue"`
 	// The minimum answer value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-minvalue
+	//
 	MinValue *float64 `field:"required" json:"minValue" yaml:"minValue"`
 	// The automation properties of the numeric question.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-automation
+	//
 	Automation interface{} `field:"optional" json:"automation" yaml:"automation"`
 	// The scoring options of the numeric question.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-options
+	//
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
 }
 

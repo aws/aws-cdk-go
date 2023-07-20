@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnNetworkProfile) validateSetProjectArnParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnNetworkProfile) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnNetworkProfileParameters(scope constructs.Construct, id *string, props *CfnNetworkProfileProps) error {
 	return nil
 }

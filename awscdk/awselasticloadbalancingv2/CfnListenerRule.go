@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElasticLoadBalancingV2::ListenerRule`.
+// Specifies a listener rule.
 //
-// Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+// The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
 //
 // For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers* .
 //
@@ -139,12 +139,12 @@ import (
 //   	ListenerArn: jsii.String("listenerArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
+//
 type CfnListenerRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The actions.
-	//
-	// The rule must include exactly one of the following types of actions: `forward` , `fixed-response` , or `redirect` , and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
 	Actions() interface{}
 	SetActions(val interface{})
 	// Indicates whether this is the default rule.
@@ -157,8 +157,6 @@ type CfnListenerRule interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The conditions.
-	//
-	// The rule can optionally include up to one of each of the following conditions: `http-request-method` , `host-header` , `path-pattern` , and `source-ip` . A rule can also optionally include one or more of each of the following conditions: `http-header` and `query-string` .
 	Conditions() interface{}
 	SetConditions(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -180,9 +178,9 @@ type CfnListenerRule interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The rule priority. A listener can't have multiple rules with the same priority.
+	// The rule priority.
 	//
-	// If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+	// A listener can't have multiple rules with the same priority.
 	Priority() *float64
 	SetPriority(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -501,7 +499,6 @@ func (j *jsiiProxy_CfnListenerRule) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::ElasticLoadBalancingV2::ListenerRule`.
 func NewCfnListenerRule(scope constructs.Construct, id *string, props *CfnListenerRuleProps) CfnListenerRule {
 	_init_.Initialize()
 
@@ -519,7 +516,6 @@ func NewCfnListenerRule(scope constructs.Construct, id *string, props *CfnListen
 	return &j
 }
 
-// Create a new `AWS::ElasticLoadBalancingV2::ListenerRule`.
 func NewCfnListenerRule_Override(c CfnListenerRule, scope constructs.Construct, id *string, props *CfnListenerRuleProps) {
 	_init_.Initialize()
 

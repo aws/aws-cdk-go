@@ -25,16 +25,24 @@ package awsevidently
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html
+//
 type CfnLaunch_SegmentOverrideProperty struct {
 	// A number indicating the order to use to evaluate segment overrides, if there are more than one.
 	//
 	// Segment overrides with lower numbers are evaluated first.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html#cfn-evidently-launch-segmentoverride-evaluationorder
+	//
 	EvaluationOrder *float64 `field:"required" json:"evaluationOrder" yaml:"evaluationOrder"`
 	// The ARN of the segment to use for this override.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html#cfn-evidently-launch-segmentoverride-segment
+	//
 	Segment *string `field:"required" json:"segment" yaml:"segment"`
 	// The traffic allocation percentages among the feature variations to assign to this segment.
 	//
 	// This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html#cfn-evidently-launch-segmentoverride-weights
+	//
 	Weights interface{} `field:"required" json:"weights" yaml:"weights"`
 }
 

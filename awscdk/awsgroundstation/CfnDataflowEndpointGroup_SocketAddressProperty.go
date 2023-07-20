@@ -13,10 +13,16 @@ package awsgroundstation
 //   	Port: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html
+//
 type CfnDataflowEndpointGroup_SocketAddressProperty struct {
 	// The name of the endpoint, such as `Endpoint 1` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The port of the endpoint, such as `55888` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

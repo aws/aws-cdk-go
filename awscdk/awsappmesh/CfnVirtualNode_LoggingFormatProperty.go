@@ -18,10 +18,16 @@ package awsappmesh
 //   	Text: jsii.String("text"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-loggingformat.html
+//
 type CfnVirtualNode_LoggingFormatProperty struct {
 	// The logging format for JSON.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-loggingformat.html#cfn-appmesh-virtualnode-loggingformat-json
+	//
 	Json interface{} `field:"optional" json:"json" yaml:"json"`
 	// The logging format for text.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-loggingformat.html#cfn-appmesh-virtualnode-loggingformat-text
+	//
 	Text *string `field:"optional" json:"text" yaml:"text"`
 }
 

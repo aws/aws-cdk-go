@@ -8,10 +8,16 @@ package awsquicksight
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldwells.html
+//
 type CfnAnalysis_TableFieldWellsProperty struct {
 	// The aggregated field well for the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldwells.html#cfn-quicksight-analysis-tablefieldwells-tableaggregatedfieldwells
+	//
 	TableAggregatedFieldWells interface{} `field:"optional" json:"tableAggregatedFieldWells" yaml:"tableAggregatedFieldWells"`
 	// The unaggregated field well for the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldwells.html#cfn-quicksight-analysis-tablefieldwells-tableunaggregatedfieldwells
+	//
 	TableUnaggregatedFieldWells interface{} `field:"optional" json:"tableUnaggregatedFieldWells" yaml:"tableUnaggregatedFieldWells"`
 }
 

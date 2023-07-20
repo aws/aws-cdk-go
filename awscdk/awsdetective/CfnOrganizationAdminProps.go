@@ -12,8 +12,12 @@ package awsdetective
 //   	AccountId: jsii.String("accountId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html
+//
 type CfnOrganizationAdminProps struct {
 	// The AWS account identifier of the account to designate as the Detective administrator account for the organization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html#cfn-detective-organizationadmin-accountid
+	//
 	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
 }
 

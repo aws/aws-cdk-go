@@ -12,8 +12,12 @@ package awsquicksight
 //   	Show: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html
+//
 type CfnTheme_BorderStyleProperty struct {
 	// The option to enable display of borders for visuals.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
+	//
 	Show interface{} `field:"optional" json:"show" yaml:"show"`
 }
 

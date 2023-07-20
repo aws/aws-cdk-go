@@ -10,8 +10,11 @@ package awssam
 //   	StreamName: jsii.String("streamName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-streamsampt.html
+//
 type CfnFunction_StreamSAMPTProperty struct {
-	// `CfnFunction.StreamSAMPTProperty.StreamName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-streamsampt.html#cfn-serverless-function-streamsampt-streamname
+	//
 	StreamName *string `field:"required" json:"streamName" yaml:"streamName"`
 }
 

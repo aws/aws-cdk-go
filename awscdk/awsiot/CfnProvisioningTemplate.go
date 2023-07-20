@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::ProvisioningTemplate`.
-//
 // Creates a fleet provisioning template.
 //
 // Example:
@@ -39,9 +37,12 @@ import (
 //   	TemplateType: jsii.String("templateType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
+//
 type CfnProvisioningTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN that identifies the provisioning template.
 	AttrTemplateArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -75,8 +76,6 @@ type CfnProvisioningTemplate interface {
 	PreProvisioningHook() interface{}
 	SetPreProvisioningHook(val interface{})
 	// The role ARN for the role associated with the fleet provisioning template.
-	//
-	// This IoT role grants permission to provision a device.
 	ProvisioningRoleArn() *string
 	SetProvisioningRoleArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -88,8 +87,11 @@ type CfnProvisioningTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that can be used to manage the fleet provisioning template.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that can be used to manage the fleet provisioning template.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The JSON formatted contents of the fleet provisioning template version.
 	TemplateBody() *string
 	SetTemplateBody(val *string)
@@ -243,6 +245,7 @@ type CfnProvisioningTemplate interface {
 type jsiiProxy_CfnProvisioningTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnProvisioningTemplate) AttrTemplateArn() *string {
@@ -385,6 +388,16 @@ func (j *jsiiProxy_CfnProvisioningTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProvisioningTemplate) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProvisioningTemplate) TemplateBody() *string {
 	var returns *string
 	_jsii_.Get(
@@ -436,7 +449,6 @@ func (j *jsiiProxy_CfnProvisioningTemplate) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::IoT::ProvisioningTemplate`.
 func NewCfnProvisioningTemplate(scope constructs.Construct, id *string, props *CfnProvisioningTemplateProps) CfnProvisioningTemplate {
 	_init_.Initialize()
 
@@ -454,7 +466,6 @@ func NewCfnProvisioningTemplate(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::IoT::ProvisioningTemplate`.
 func NewCfnProvisioningTemplate_Override(c CfnProvisioningTemplate, scope constructs.Construct, id *string, props *CfnProvisioningTemplateProps) {
 	_init_.Initialize()
 
@@ -502,6 +513,17 @@ func (j *jsiiProxy_CfnProvisioningTemplate)SetProvisioningRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"provisioningRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProvisioningTemplate)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

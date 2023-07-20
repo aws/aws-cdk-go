@@ -27,8 +27,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html
+//
 type CfnVirtualGateway_VirtualGatewayLoggingProperty struct {
 	// The access log configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html#cfn-appmesh-virtualgateway-virtualgatewaylogging-accesslog
+	//
 	AccessLog interface{} `field:"optional" json:"accessLog" yaml:"accessLog"`
 }
 

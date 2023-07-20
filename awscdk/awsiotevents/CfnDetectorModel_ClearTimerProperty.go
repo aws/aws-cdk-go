@@ -12,8 +12,12 @@ package awsiotevents
 //   	TimerName: jsii.String("timerName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html
+//
 type CfnDetectorModel_ClearTimerProperty struct {
 	// The name of the timer to clear.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
+	//
 	TimerName *string `field:"required" json:"timerName" yaml:"timerName"`
 }
 

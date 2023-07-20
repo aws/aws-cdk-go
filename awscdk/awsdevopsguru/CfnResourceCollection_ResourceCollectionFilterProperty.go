@@ -24,10 +24,14 @@ package awsdevopsguru
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html
+//
 type CfnResourceCollection_ResourceCollectionFilterProperty struct {
 	// Information about AWS CloudFormation stacks.
 	//
 	// You can use up to 500 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
+	//
 	CloudFormation interface{} `field:"optional" json:"cloudFormation" yaml:"cloudFormation"`
 	// The AWS tags used to filter the resources in the resource collection.
 	//
@@ -41,6 +45,8 @@ type CfnResourceCollection_ResourceCollectionFilterProperty struct {
 	// Together these are known as *key* - *value* pairs.
 	//
 	// > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `DevOps-Guru-deployment-application` or `devops-guru-rds-application` . When you create a *key* , the case of characters in the *key* can be whatever you choose. After you create a *key* , it is case-sensitive. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` , and these act as two different *keys* . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-tags
+	//
 	Tags *[]*CfnResourceCollection_TagCollectionProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -227,6 +227,16 @@ func (j *jsiiProxy_CfnStudio) validateSetSubnetIdsParameters(val *[]*string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnStudio) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnStudio) validateSetVpcIdParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

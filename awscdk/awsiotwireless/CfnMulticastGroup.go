@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTWireless::MulticastGroup`.
-//
 // A multicast group.
 //
 // Example:
@@ -41,9 +39,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-multicastgroup.html
+//
 type CfnMulticastGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the wireless device to associate with a multicast group.
 	AssociateWirelessDevice() *string
 	SetAssociateWirelessDevice(val *string)
@@ -99,10 +100,11 @@ type CfnMulticastGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags are an array of key-value pairs to attach to the specified resource.
-	//
-	// Tags can have a minimum of 0 and a maximum of 50 items.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -247,6 +249,7 @@ type CfnMulticastGroup interface {
 type jsiiProxy_CfnMulticastGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMulticastGroup) AssociateWirelessDevice() *string {
@@ -439,6 +442,16 @@ func (j *jsiiProxy_CfnMulticastGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMulticastGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMulticastGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -460,7 +473,6 @@ func (j *jsiiProxy_CfnMulticastGroup) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::IoTWireless::MulticastGroup`.
 func NewCfnMulticastGroup(scope constructs.Construct, id *string, props *CfnMulticastGroupProps) CfnMulticastGroup {
 	_init_.Initialize()
 
@@ -478,7 +490,6 @@ func NewCfnMulticastGroup(scope constructs.Construct, id *string, props *CfnMult
 	return &j
 }
 
-// Create a new `AWS::IoTWireless::MulticastGroup`.
 func NewCfnMulticastGroup_Override(c CfnMulticastGroup, scope constructs.Construct, id *string, props *CfnMulticastGroupProps) {
 	_init_.Initialize()
 
@@ -528,6 +539,17 @@ func (j *jsiiProxy_CfnMulticastGroup)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMulticastGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -18,10 +18,16 @@ package awsquicksight
 //   	MeasureFieldId: jsii.String("measureFieldId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-contributionanalysisdefault.html
+//
 type CfnTemplate_ContributionAnalysisDefaultProperty struct {
 	// The dimensions columns that are used in the contribution analysis, usually a list of `ColumnIdentifiers` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-contributionanalysisdefault.html#cfn-quicksight-template-contributionanalysisdefault-contributordimensions
+	//
 	ContributorDimensions interface{} `field:"required" json:"contributorDimensions" yaml:"contributorDimensions"`
 	// The measure field that is used in the contribution analysis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-contributionanalysisdefault.html#cfn-quicksight-template-contributionanalysisdefault-measurefieldid
+	//
 	MeasureFieldId *string `field:"required" json:"measureFieldId" yaml:"measureFieldId"`
 }
 

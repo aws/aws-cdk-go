@@ -80,6 +80,10 @@ func validateCfnEnvironmentTemplate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnvironmentTemplate) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEnvironmentTemplateParameters(scope constructs.Construct, id *string, props *CfnEnvironmentTemplateProps) error {
 	return nil
 }

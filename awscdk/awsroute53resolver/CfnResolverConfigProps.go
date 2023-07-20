@@ -13,12 +13,18 @@ package awsroute53resolver
 //   	ResourceId: jsii.String("resourceId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html
+//
 type CfnResolverConfigProps struct {
 	// Represents the desired status of `AutodefinedReverse` .
 	//
 	// The only supported value on creation is `DISABLE` . Deletion of this resource will return `AutodefinedReverse` to its default value of `ENABLED` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html#cfn-route53resolver-resolverconfig-autodefinedreverseflag
+	//
 	AutodefinedReverseFlag *string `field:"required" json:"autodefinedReverseFlag" yaml:"autodefinedReverseFlag"`
 	// The ID of the Amazon Virtual Private Cloud VPC that you're configuring Resolver for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html#cfn-route53resolver-resolverconfig-resourceid
+	//
 	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 }
 

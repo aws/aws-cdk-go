@@ -19,8 +19,12 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
+//
 type CfnDataQualityJobDefinition_MonitoringResourcesProperty struct {
 	// The configuration for the cluster resources used to run the processing job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
+	//
 	ClusterConfig interface{} `field:"required" json:"clusterConfig" yaml:"clusterConfig"`
 }
 

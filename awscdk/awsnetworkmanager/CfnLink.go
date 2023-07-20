@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::Link`.
-//
 // Specifies a link for a site.
 //
 // Example:
@@ -38,9 +36,12 @@ import (
 //   	Type: jsii.String("type"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html
+//
 type CfnLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the link.
 	//
 	// For example, `arn:aws:networkmanager::123456789012:link/global-network-01231231231231231/link-11112222aaaabbbb1` .
@@ -62,8 +63,6 @@ type CfnLink interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A description of the link.
-	//
-	// Constraints: Maximum length of 256 characters.
 	Description() *string
 	SetDescription(val *string)
 	// The ID of the global network.
@@ -82,8 +81,6 @@ type CfnLink interface {
 	// The tree node.
 	Node() constructs.Node
 	// The provider of the link.
-	//
-	// Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^
 	Provider() *string
 	SetProvider(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -98,11 +95,12 @@ type CfnLink interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the link.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the link.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of the link.
-	//
-	// Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -249,6 +247,7 @@ type CfnLink interface {
 type jsiiProxy_CfnLink struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLink) AttrLinkArn() *string {
@@ -411,6 +410,16 @@ func (j *jsiiProxy_CfnLink) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLink) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLink) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -442,7 +451,6 @@ func (j *jsiiProxy_CfnLink) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::NetworkManager::Link`.
 func NewCfnLink(scope constructs.Construct, id *string, props *CfnLinkProps) CfnLink {
 	_init_.Initialize()
 
@@ -460,7 +468,6 @@ func NewCfnLink(scope constructs.Construct, id *string, props *CfnLinkProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::Link`.
 func NewCfnLink_Override(c CfnLink, scope constructs.Construct, id *string, props *CfnLinkProps) {
 	_init_.Initialize()
 
@@ -516,6 +523,17 @@ func (j *jsiiProxy_CfnLink)SetSiteId(val *string) {
 	_jsii_.Set(
 		j,
 		"siteId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLink)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

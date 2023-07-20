@@ -16,8 +16,12 @@ package awstimestream
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-notificationconfiguration.html
+//
 type CfnScheduledQuery_NotificationConfigurationProperty struct {
 	// Details on SNS configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-notificationconfiguration.html#cfn-timestream-scheduledquery-notificationconfiguration-snsconfiguration
+	//
 	SnsConfiguration interface{} `field:"required" json:"snsConfiguration" yaml:"snsConfiguration"`
 }
 

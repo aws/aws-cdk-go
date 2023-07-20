@@ -12,8 +12,12 @@ package awsappflow
 //   	ObjectPath: jsii.String("objectPath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html
+//
 type CfnFlow_SAPODataSourcePropertiesProperty struct {
 	// The object path specified in the SAPOData flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-objectpath
+	//
 	ObjectPath *string `field:"required" json:"objectPath" yaml:"objectPath"`
 }
 

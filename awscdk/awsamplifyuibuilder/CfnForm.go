@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AmplifyUIBuilder::Form`.
-//
 // The AWS::AmplifyUIBuilder::Form resource specifies all of the information that is required to create a form.
 //
 // Example:
@@ -165,9 +163,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html
+//
 type CfnForm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique ID of the Amplify app associated with the form.
 	AppId() *string
 	SetAppId(val *string)
@@ -224,8 +225,6 @@ type CfnForm interface {
 	SchemaVersion() *string
 	SetSchemaVersion(val *string)
 	// The configuration information for the visual helper elements for the form.
-	//
-	// These elements are not associated with any data.
 	SectionalElements() interface{}
 	SetSectionalElements(val interface{})
 	// The stack in which this element is defined.
@@ -235,8 +234,11 @@ type CfnForm interface {
 	// The configuration for the form's style.
 	Style() interface{}
 	SetStyle(val interface{})
-	// One or more key-value pairs to use when tagging the form data.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more key-value pairs to use when tagging the form data.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -381,6 +383,7 @@ type CfnForm interface {
 type jsiiProxy_CfnForm struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnForm) AppId() *string {
@@ -593,6 +596,16 @@ func (j *jsiiProxy_CfnForm) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnForm) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnForm) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -614,7 +627,6 @@ func (j *jsiiProxy_CfnForm) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AmplifyUIBuilder::Form`.
 func NewCfnForm(scope constructs.Construct, id *string, props *CfnFormProps) CfnForm {
 	_init_.Initialize()
 
@@ -632,7 +644,6 @@ func NewCfnForm(scope constructs.Construct, id *string, props *CfnFormProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::AmplifyUIBuilder::Form`.
 func NewCfnForm_Override(c CfnForm, scope constructs.Construct, id *string, props *CfnFormProps) {
 	_init_.Initialize()
 
@@ -751,6 +762,14 @@ func (j *jsiiProxy_CfnForm)SetStyle(val interface{}) {
 	_jsii_.Set(
 		j,
 		"style",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnForm)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

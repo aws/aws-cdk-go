@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3ObjectLambda::AccessPointPolicy`.
-//
 // The `AWS::S3ObjectLambda::AccessPointPolicy` resource specifies the Object Lambda Access Point resource policy document.
 //
 // Example:
@@ -24,6 +22,8 @@ import (
 //   	ObjectLambdaAccessPoint: jsii.String("objectLambdaAccessPoint"),
 //   	PolicyDocument: policyDocument,
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html
 //
 type CfnAccessPointPolicy interface {
 	awscdk.CfnResource
@@ -331,7 +331,6 @@ func (j *jsiiProxy_CfnAccessPointPolicy) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::S3ObjectLambda::AccessPointPolicy`.
 func NewCfnAccessPointPolicy(scope constructs.Construct, id *string, props *CfnAccessPointPolicyProps) CfnAccessPointPolicy {
 	_init_.Initialize()
 
@@ -349,7 +348,6 @@ func NewCfnAccessPointPolicy(scope constructs.Construct, id *string, props *CfnA
 	return &j
 }
 
-// Create a new `AWS::S3ObjectLambda::AccessPointPolicy`.
 func NewCfnAccessPointPolicy_Override(c CfnAccessPointPolicy, scope constructs.Construct, id *string, props *CfnAccessPointPolicyProps) {
 	_init_.Initialize()
 

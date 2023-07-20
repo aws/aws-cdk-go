@@ -16,8 +16,12 @@ package awsdatasync
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html
+//
 type CfnLocationFSxOpenZFS_ProtocolProperty struct {
 	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html#cfn-datasync-locationfsxopenzfs-protocol-nfs
+	//
 	Nfs interface{} `field:"optional" json:"nfs" yaml:"nfs"`
 }
 

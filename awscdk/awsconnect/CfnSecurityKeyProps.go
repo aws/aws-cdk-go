@@ -13,12 +13,16 @@ package awsconnect
 //   	Key: jsii.String("key"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html
+//
 type CfnSecurityKeyProps struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `100`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html#cfn-connect-securitykey-instanceid
+	//
 	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
 	// A valid security key in PEM format. For example:.
 	//
@@ -27,6 +31,8 @@ type CfnSecurityKeyProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1024`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html#cfn-connect-securitykey-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 }
 

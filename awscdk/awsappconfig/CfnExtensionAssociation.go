@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppConfig::ExtensionAssociation`.
+// When you create an extension or configure an AWS authored extension, you associate the extension with an AWS AppConfig application, environment, or configuration profile.
 //
-// When you create an extension or configure an AWS authored extension, you associate the extension with an AWS AppConfig application, environment, or configuration profile. For example, you can choose to run the `AWS AppConfig deployment events to Amazon SNS` AWS authored extension and receive notifications on an Amazon SNS topic anytime a configuration deployment is started for a specific application. Defining which extension to associate with an AWS AppConfig resource is called an *extension association* . An extension association is a specified relationship between an extension and an AWS AppConfig resource, such as an application or a configuration profile. For more information about extensions and associations, see [Working with AWS AppConfig extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html) in the *AWS AppConfig User Guide* .
+// For example, you can choose to run the `AWS AppConfig deployment events to Amazon SNS` AWS authored extension and receive notifications on an Amazon SNS topic anytime a configuration deployment is started for a specific application. Defining which extension to associate with an AWS AppConfig resource is called an *extension association* . An extension association is a specified relationship between an extension and an AWS AppConfig resource, such as an application or a configuration profile. For more information about extensions and associations, see [Working with AWS AppConfig extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html) in the *AWS AppConfig User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-extensionassociation.html
+//
 type CfnExtensionAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the extension defined in the association.
 	AttrArn() *string
 	// The ARN of the extension defined in the association.
@@ -57,8 +60,6 @@ type CfnExtensionAssociation interface {
 	ExtensionIdentifier() *string
 	SetExtensionIdentifier(val *string)
 	// The version number of the extension.
-	//
-	// If not specified, AWS AppConfig uses the maximum version of the extension.
 	ExtensionVersionNumber() *float64
 	SetExtensionVersionNumber(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -74,8 +75,6 @@ type CfnExtensionAssociation interface {
 	// The tree node.
 	Node() constructs.Node
 	// The parameter names and values defined in the extensions.
-	//
-	// Extension parameters marked `Required` must be entered for this field.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -90,10 +89,11 @@ type CfnExtensionAssociation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Adds one or more tags for the specified extension association.
-	//
-	// Tags are metadata that help you categorize resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Adds one or more tags for the specified extension association.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,6 +238,7 @@ type CfnExtensionAssociation interface {
 type jsiiProxy_CfnExtensionAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnExtensionAssociation) AttrArn() *string {
@@ -410,6 +411,16 @@ func (j *jsiiProxy_CfnExtensionAssociation) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnExtensionAssociation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnExtensionAssociation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -431,7 +442,6 @@ func (j *jsiiProxy_CfnExtensionAssociation) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::AppConfig::ExtensionAssociation`.
 func NewCfnExtensionAssociation(scope constructs.Construct, id *string, props *CfnExtensionAssociationProps) CfnExtensionAssociation {
 	_init_.Initialize()
 
@@ -449,7 +459,6 @@ func NewCfnExtensionAssociation(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::AppConfig::ExtensionAssociation`.
 func NewCfnExtensionAssociation_Override(c CfnExtensionAssociation, scope constructs.Construct, id *string, props *CfnExtensionAssociationProps) {
 	_init_.Initialize()
 
@@ -491,6 +500,17 @@ func (j *jsiiProxy_CfnExtensionAssociation)SetResourceIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnExtensionAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

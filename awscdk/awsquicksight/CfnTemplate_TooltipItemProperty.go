@@ -40,10 +40,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltipitem.html
+//
 type CfnTemplate_TooltipItemProperty struct {
 	// The tooltip item for the columns that are not part of a field well.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltipitem.html#cfn-quicksight-template-tooltipitem-columntooltipitem
+	//
 	ColumnTooltipItem interface{} `field:"optional" json:"columnTooltipItem" yaml:"columnTooltipItem"`
 	// The tooltip item for the fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltipitem.html#cfn-quicksight-template-tooltipitem-fieldtooltipitem
+	//
 	FieldTooltipItem interface{} `field:"optional" json:"fieldTooltipItem" yaml:"fieldTooltipItem"`
 }
 

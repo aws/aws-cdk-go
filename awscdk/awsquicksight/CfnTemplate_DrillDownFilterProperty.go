@@ -38,18 +38,26 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-drilldownfilter.html
+//
 type CfnTemplate_DrillDownFilterProperty struct {
 	// The category type drill down filter.
 	//
 	// This filter is used for string type columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-drilldownfilter.html#cfn-quicksight-template-drilldownfilter-categoryfilter
+	//
 	CategoryFilter interface{} `field:"optional" json:"categoryFilter" yaml:"categoryFilter"`
 	// The numeric equality type drill down filter.
 	//
 	// This filter is used for number type columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-drilldownfilter.html#cfn-quicksight-template-drilldownfilter-numericequalityfilter
+	//
 	NumericEqualityFilter interface{} `field:"optional" json:"numericEqualityFilter" yaml:"numericEqualityFilter"`
 	// The time range drill down filter.
 	//
 	// This filter is used for date time columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-drilldownfilter.html#cfn-quicksight-template-drilldownfilter-timerangefilter
+	//
 	TimeRangeFilter interface{} `field:"optional" json:"timeRangeFilter" yaml:"timeRangeFilter"`
 }
 

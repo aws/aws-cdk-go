@@ -77,13 +77,19 @@ package awsquicksight
 //   	RelativePosition: jsii.String("relativePosition"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinevaluelabelconfiguration.html
+//
 type CfnDashboard_ReferenceLineValueLabelConfigurationProperty struct {
 	// The format configuration of the value label.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinevaluelabelconfiguration.html#cfn-quicksight-dashboard-referencelinevaluelabelconfiguration-formatconfiguration
+	//
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
 	// The relative position of the value label. Choose one of the following options:.
 	//
 	// - `BEFORE_CUSTOM_LABEL`
 	// - `AFTER_CUSTOM_LABEL`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-referencelinevaluelabelconfiguration.html#cfn-quicksight-dashboard-referencelinevaluelabelconfiguration-relativeposition
+	//
 	RelativePosition *string `field:"optional" json:"relativePosition" yaml:"relativePosition"`
 }
 

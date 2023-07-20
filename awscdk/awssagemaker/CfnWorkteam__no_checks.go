@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnWorkteam) validateSetNotificationConfigurationParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkteam) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnWorkteamParameters(scope constructs.Construct, id *string, props *CfnWorkteamProps) error {
 	return nil
 }

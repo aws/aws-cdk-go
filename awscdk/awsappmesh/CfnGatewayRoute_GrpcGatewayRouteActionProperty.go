@@ -26,10 +26,16 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html
+//
 type CfnGatewayRoute_GrpcGatewayRouteActionProperty struct {
 	// An object that represents the target that traffic is routed to when a request matches the gateway route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-target
+	//
 	Target interface{} `field:"required" json:"target" yaml:"target"`
 	// The gateway route action to rewrite.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-rewrite
+	//
 	Rewrite interface{} `field:"optional" json:"rewrite" yaml:"rewrite"`
 }
 

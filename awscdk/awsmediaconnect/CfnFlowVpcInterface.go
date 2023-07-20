@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConnect::FlowVpcInterface`.
-//
 // The AWS::MediaConnect::FlowVpcInterface resource is a connection between your AWS Elemental MediaConnect flow and a virtual private cloud (VPC) that you created using the Amazon Virtual Private Cloud service.
 //
 // To avoid streaming your content over the public internet, you can add up to two VPC interfaces to your flow and use those connections to transfer content between your VPC and MediaConnect.
@@ -35,6 +33,8 @@ import (
 //   	},
 //   	SubnetId: jsii.String("subnetId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html
 //
 type CfnFlowVpcInterface interface {
 	awscdk.CfnResource
@@ -64,8 +64,6 @@ type CfnFlowVpcInterface interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the VPC Interface.
-	//
-	// This value must be unique within the current flow.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -79,8 +77,6 @@ type CfnFlowVpcInterface interface {
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The VPC security groups that you want MediaConnect to use for your VPC configuration.
-	//
-	// You must include at least one security group in the request.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
@@ -88,10 +84,6 @@ type CfnFlowVpcInterface interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The subnet IDs that you want to use for your VPC interface.
-	//
-	// A range of IP addresses in your VPC. When you create your VPC, you specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. This is the primary CIDR block for your VPC. When you create a subnet for your VPC, you specify the CIDR block for the subnet, which is a subset of the VPC CIDR block.
-	//
-	// The subnets that you use across all VPC interfaces on the flow must be in the same Availability Zone as the flow.
 	SubnetId() *string
 	SetSubnetId(val *string)
 	// Deprecated.
@@ -401,7 +393,6 @@ func (j *jsiiProxy_CfnFlowVpcInterface) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::MediaConnect::FlowVpcInterface`.
 func NewCfnFlowVpcInterface(scope constructs.Construct, id *string, props *CfnFlowVpcInterfaceProps) CfnFlowVpcInterface {
 	_init_.Initialize()
 
@@ -419,7 +410,6 @@ func NewCfnFlowVpcInterface(scope constructs.Construct, id *string, props *CfnFl
 	return &j
 }
 
-// Create a new `AWS::MediaConnect::FlowVpcInterface`.
 func NewCfnFlowVpcInterface_Override(c CfnFlowVpcInterface, scope constructs.Construct, id *string, props *CfnFlowVpcInterfaceProps) {
 	_init_.Initialize()
 

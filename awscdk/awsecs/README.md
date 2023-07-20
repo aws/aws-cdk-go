@@ -672,20 +672,21 @@ considers this to be a successful update and deletes the active deployment and
 changes the status of the primary deployment to COMPLETED.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import cw "github.com/aws/aws-cdk-go/awscdk"
+
 var cluster cluster
 var taskDefinition taskDefinition
-var elbAlarm cloudwatch.Alarm
+var elbAlarm alarm
+
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	DeploymentAlarms: &DeploymentAlarmConfig{
-		Alarms: []interface{}{
-			elbAlarm.alarmName,
+		AlarmNames: []*string{
+			elbAlarm.AlarmName,
 		},
-		Behavior: alarmBehavior_ROLLBACK_ON_ALARM,
+		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
 	},
 })
 
@@ -699,7 +700,9 @@ cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
 })
 service.EnableDeploymentAlarms([]*string{
 	cpuAlarmName,
-}, alarmBehavior_FAIL_ON_ALARM)
+}, &DeploymentAlarmOptions{
+	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
+})
 ```
 
 > Note: Deployment alarms are only available when `deploymentController` is set
@@ -734,10 +737,11 @@ there are two options to avoid the circular dependency.
 Option 1, defining a physical name for the alarm:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import cw "github.com/aws/aws-cdk-go/awscdk"
+
 var cluster cluster
 var taskDefinition taskDefinition
+
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
@@ -755,15 +759,16 @@ myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
 // Using `myAlarm.alarmName` here will cause a circular dependency
 service.EnableDeploymentAlarms([]*string{
 	cpuAlarmName,
-}, alarmBehavior_FAIL_ON_ALARM)
+}, &DeploymentAlarmOptions{
+	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
+})
 ```
 
 Option 2, defining a physical name for the service:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import cdk "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
+
 var cluster cluster
 var taskDefinition taskDefinition
 
@@ -774,13 +779,19 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 	TaskDefinition: TaskDefinition,
 })
 
-cpuMetric := cw.NewMetric(metricName, jsii.String("CPUUtilization"), namespace, jsii.String("AWS/ECS"), period, cdk.Duration_Minutes(jsii.Number(5)), statistic, jsii.String("Average"), dimensionsMap, map[string]interface{}{
-	"ClusterName": cluster.clusterName,
-	// Using `service.serviceName` here will cause a circular dependency
-	"ServiceName": serviceName,
+cpuMetric := cw.NewMetric(&MetricProps{
+	MetricName: jsii.String("CPUUtilization"),
+	Namespace: jsii.String("AWS/ECS"),
+	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+	Statistic: jsii.String("Average"),
+	DimensionsMap: map[string]*string{
+		"ClusterName": cluster.clusterName,
+		// Using `service.serviceName` here will cause a circular dependency
+		"ServiceName": serviceName,
+	},
 })
 myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
-	AlarmName: cpuAlarmName,
+	AlarmName: jsii.String("cpuAlarmName"),
 	Metric: cpuMetric,
 	EvaluationPeriods: jsii.Number(2),
 	Threshold: jsii.Number(80),
@@ -788,7 +799,9 @@ myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
 
 service.EnableDeploymentAlarms([]*string{
 	myAlarm.AlarmName,
-}, alarmBehavior_FAIL_ON_ALARM)
+}, &DeploymentAlarmOptions{
+	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
+})
 ```
 
 This issue only applies if the metrics to alarm on are emitted by the service

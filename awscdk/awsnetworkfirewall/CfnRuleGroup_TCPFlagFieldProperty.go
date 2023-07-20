@@ -23,6 +23,8 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html
+//
 type CfnRuleGroup_TCPFlagFieldProperty struct {
 	// Used in conjunction with the `Masks` setting to define the flags that must be set and flags that must not be set in order for the packet to match.
 	//
@@ -32,10 +34,14 @@ type CfnRuleGroup_TCPFlagFieldProperty struct {
 	//
 	// - The ones that are set in this flags setting must be set in the packet.
 	// - The ones that are not set in this flags setting must also not be set in the packet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
+	//
 	Flags *[]*string `field:"required" json:"flags" yaml:"flags"`
 	// The set of flags to consider in the inspection.
 	//
 	// To inspect all flags in the valid values list, leave this with no setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
+	//
 	Masks *[]*string `field:"optional" json:"masks" yaml:"masks"`
 }
 

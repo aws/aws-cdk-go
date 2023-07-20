@@ -13,10 +13,16 @@ package awsamazonmq
 //   	Revision: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html
+//
 type CfnConfigurationAssociation_ConfigurationIdProperty struct {
 	// The unique ID that Amazon MQ generates for the configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The revision number of the configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-revision
+	//
 	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 }
 

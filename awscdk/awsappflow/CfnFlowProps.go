@@ -191,6 +191,10 @@ import (
 //   				CustomProperties: map[string]*string{
 //   					"customPropertiesKey": jsii.String("customProperties"),
 //   				},
+//   				DataTransferApi: &DataTransferApiProperty{
+//   					Name: jsii.String("name"),
+//   					Type: jsii.String("type"),
+//   				},
 //   			},
 //   			Datadog: &DatadogSourcePropertiesProperty{
 //   				Object: jsii.String("object"),
@@ -336,20 +340,34 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
+//
 type CfnFlowProps struct {
 	// The configuration that controls how Amazon AppFlow places data in the destination connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
+	//
 	DestinationFlowConfigList interface{} `field:"required" json:"destinationFlowConfigList" yaml:"destinationFlowConfigList"`
 	// The specified name of the flow.
 	//
 	// Spaces are not allowed. Use underscores (_) or hyphens (-) only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
+	//
 	FlowName *string `field:"required" json:"flowName" yaml:"flowName"`
 	// Contains information about the configuration of the source connector used in the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+	//
 	SourceFlowConfig interface{} `field:"required" json:"sourceFlowConfig" yaml:"sourceFlowConfig"`
 	// A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+	//
 	Tasks interface{} `field:"required" json:"tasks" yaml:"tasks"`
 	// The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+	//
 	TriggerConfig interface{} `field:"required" json:"triggerConfig" yaml:"triggerConfig"`
 	// A user-entered description of the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Sets the status of the flow. You can specify one of the following values:.
 	//
@@ -357,14 +375,22 @@ type CfnFlowProps struct {
 	// - **Suspended** - You can use this option to deactivate an active flow. Scheduled and event-triggered flows will cease to run until you reactive them. This value only affects scheduled and event-triggered flows. It has no effect for on-demand flows.
 	//
 	// If you omit the FlowStatus parameter, Amazon AppFlow creates the flow with a default status. The default status for on-demand flows is Active. The default status for scheduled and event-triggered flows is Draft, which means they’re not yet active.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowstatus
+	//
 	FlowStatus *string `field:"optional" json:"flowStatus" yaml:"flowStatus"`
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
 	//
 	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
+	//
 	KmsArn *string `field:"optional" json:"kmsArn" yaml:"kmsArn"`
-	// `AWS::AppFlow::Flow.MetadataCatalogConfig`.
+	// Configurations of metadata catalog of the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-metadatacatalogconfig
+	//
 	MetadataCatalogConfig interface{} `field:"optional" json:"metadataCatalogConfig" yaml:"metadataCatalogConfig"`
 	// The tags used to organize, track, or control access for your flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

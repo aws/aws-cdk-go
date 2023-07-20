@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnBranch) validateSetEnvironmentVariablesParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnBranch) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnBranchParameters(scope constructs.Construct, id *string, props *CfnBranchProps) error {
 	return nil
 }

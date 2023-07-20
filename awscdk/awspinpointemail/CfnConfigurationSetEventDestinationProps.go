@@ -42,12 +42,20 @@ package awspinpointemail
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html
+//
 type CfnConfigurationSetEventDestinationProps struct {
 	// The name of the configuration set that contains the event destination that you want to modify.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html#cfn-pinpointemail-configurationseteventdestination-configurationsetname
+	//
 	ConfigurationSetName *string `field:"required" json:"configurationSetName" yaml:"configurationSetName"`
 	// The name of the event destination that you want to modify.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestinationname
+	//
 	EventDestinationName *string `field:"required" json:"eventDestinationName" yaml:"eventDestinationName"`
 	// An object that defines the event destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination
+	//
 	EventDestination interface{} `field:"optional" json:"eventDestination" yaml:"eventDestination"`
 }
 

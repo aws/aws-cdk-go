@@ -19,10 +19,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html
+//
 type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
 	// An array of column names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
+	//
 	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
 	// An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
+	//
 	Principals *[]*string `field:"optional" json:"principals" yaml:"principals"`
 }
 

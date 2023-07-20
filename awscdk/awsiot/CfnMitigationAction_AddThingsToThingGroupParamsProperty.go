@@ -17,12 +17,18 @@ package awsiot
 //   	OverrideDynamicGroups: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html
+//
 type CfnMitigationAction_AddThingsToThingGroupParamsProperty struct {
 	// The list of groups to which you want to add the things that triggered the mitigation action.
 	//
 	// You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
+	//
 	ThingGroupNames *[]*string `field:"required" json:"thingGroupNames" yaml:"thingGroupNames"`
 	// Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
+	//
 	OverrideDynamicGroups interface{} `field:"optional" json:"overrideDynamicGroups" yaml:"overrideDynamicGroups"`
 }
 

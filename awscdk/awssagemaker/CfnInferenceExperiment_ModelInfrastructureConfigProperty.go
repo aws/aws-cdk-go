@@ -16,12 +16,18 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelinfrastructureconfig.html
+//
 type CfnInferenceExperiment_ModelInfrastructureConfigProperty struct {
 	// The inference option to which to deploy your model. Possible values are the following:.
 	//
 	// - `RealTime` : Deploy to real-time inference.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelinfrastructureconfig.html#cfn-sagemaker-inferenceexperiment-modelinfrastructureconfig-infrastructuretype
+	//
 	InfrastructureType *string `field:"required" json:"infrastructureType" yaml:"infrastructureType"`
 	// The infrastructure configuration for deploying the model to real-time inference.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelinfrastructureconfig.html#cfn-sagemaker-inferenceexperiment-modelinfrastructureconfig-realtimeinferenceconfig
+	//
 	RealTimeInferenceConfig interface{} `field:"required" json:"realTimeInferenceConfig" yaml:"realTimeInferenceConfig"`
 }
 

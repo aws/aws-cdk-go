@@ -13,12 +13,18 @@ package awsrds
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html
+//
 type CfnDBInstance_ProcessorFeatureProperty struct {
 	// The name of the processor feature.
 	//
 	// Valid names are `coreCount` and `threadsPerCore` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value of a processor feature name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

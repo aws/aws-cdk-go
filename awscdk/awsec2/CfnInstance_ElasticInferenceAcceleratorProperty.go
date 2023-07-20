@@ -17,12 +17,18 @@ package awsec2
 //   	Count: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html
+//
 type CfnInstance_ElasticInferenceAcceleratorProperty struct {
 	// The type of elastic inference accelerator.
 	//
 	// The possible values are `eia1.medium` , `eia1.large` , `eia1.xlarge` , `eia2.medium` , `eia2.large` , and `eia2.xlarge` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The number of elastic inference accelerators to attach to the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-count
+	//
 	Count *float64 `field:"optional" json:"count" yaml:"count"`
 }
 

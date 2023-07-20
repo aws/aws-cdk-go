@@ -21,12 +21,20 @@ package awsquicksight
 //   	StaticValue: jsii.String("staticValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangefiltervalue.html
+//
 type CfnAnalysis_TimeRangeFilterValueProperty struct {
 	// The parameter type input value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangefiltervalue.html#cfn-quicksight-analysis-timerangefiltervalue-parameter
+	//
 	Parameter *string `field:"optional" json:"parameter" yaml:"parameter"`
 	// The rolling date input value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangefiltervalue.html#cfn-quicksight-analysis-timerangefiltervalue-rollingdate
+	//
 	RollingDate interface{} `field:"optional" json:"rollingDate" yaml:"rollingDate"`
 	// The static input value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangefiltervalue.html#cfn-quicksight-analysis-timerangefiltervalue-staticvalue
+	//
 	StaticValue *string `field:"optional" json:"staticValue" yaml:"staticValue"`
 }
 

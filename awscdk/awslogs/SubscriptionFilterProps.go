@@ -5,6 +5,7 @@ package awslogs
 //
 // Example:
 //   import destinations "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var fn function
 //   var logGroup logGroup
 //

@@ -80,7 +80,7 @@ func validateCfnLogAnomalyDetectionIntegration_IsConstructParameters(x interface
 	return nil
 }
 
-func validateNewCfnLogAnomalyDetectionIntegrationParameters(scope constructs.Construct, id *string) error {
+func validateNewCfnLogAnomalyDetectionIntegrationParameters(scope constructs.Construct, id *string, props *CfnLogAnomalyDetectionIntegrationProps) error {
 	return nil
 }
 

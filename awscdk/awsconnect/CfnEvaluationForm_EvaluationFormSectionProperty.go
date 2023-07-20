@@ -10,16 +10,16 @@ package awsconnect
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var evaluationFormItemProperty_ evaluationFormItemProperty
+//   var evaluationFormSectionProperty_ evaluationFormSectionProperty
 //
-//   evaluationFormSectionProperty := &EvaluationFormSectionProperty{
+//   evaluationFormSectionProperty := &evaluationFormSectionProperty{
 //   	RefId: jsii.String("refId"),
 //   	Title: jsii.String("title"),
 //
 //   	// the properties below are optional
 //   	Instructions: jsii.String("instructions"),
 //   	Items: []interface{}{
-//   		&evaluationFormItemProperty{
+//   		&EvaluationFormItemProperty{
 //   			Question: &EvaluationFormQuestionProperty{
 //   				QuestionType: jsii.String("questionType"),
 //   				RefId: jsii.String("refId"),
@@ -82,42 +82,44 @@ package awsconnect
 //   				},
 //   				Weight: jsii.Number(123),
 //   			},
-//   			Section: &EvaluationFormSectionProperty{
-//   				RefId: jsii.String("refId"),
-//   				Title: jsii.String("title"),
-//
-//   				// the properties below are optional
-//   				Instructions: jsii.String("instructions"),
-//   				Items: []interface{}{
-//   					evaluationFormItemProperty_,
-//   				},
-//   				Weight: jsii.Number(123),
-//   			},
+//   			Section: evaluationFormSectionProperty_,
 //   		},
 //   	},
 //   	Weight: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html
+//
 type CfnEvaluationForm_EvaluationFormSectionProperty struct {
 	// The identifier of the section. An identifier must be unique within the evaluation form.
 	//
 	// *Length Constraints* : Minimum length of 1. Maximum length of 40.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-refid
+	//
 	RefId *string `field:"required" json:"refId" yaml:"refId"`
 	// The title of the section.
 	//
 	// *Length Constraints* : Minimum length of 1. Maximum length of 128.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-title
+	//
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// The instructions of the section.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-instructions
+	//
 	Instructions *string `field:"optional" json:"instructions" yaml:"instructions"`
 	// The items of the section.
 	//
 	// *Minimum* : 1.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-items
+	//
 	Items interface{} `field:"optional" json:"items" yaml:"items"`
 	// The scoring weight of the section.
 	//
 	// *Minimum* : 0
 	//
 	// *Maximum* : 100.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-weight
+	//
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

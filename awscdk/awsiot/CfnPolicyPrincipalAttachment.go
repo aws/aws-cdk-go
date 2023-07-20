@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::PolicyPrincipalAttachment`.
-//
 // Use the `AWS::IoT::PolicyPrincipalAttachment` resource to attach an AWS IoT policy to a principal (an X.509 certificate or other credential).
 //
 // For information about working with AWS IoT policies and principals, see [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html) in the *AWS IoT Developer Guide* .
@@ -25,9 +23,12 @@ import (
 //   	Principal: jsii.String("principal"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html
+//
 type CfnPolicyPrincipalAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -210,6 +211,16 @@ type jsiiProxy_CfnPolicyPrincipalAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnPolicyPrincipalAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPolicyPrincipalAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -331,7 +342,6 @@ func (j *jsiiProxy_CfnPolicyPrincipalAttachment) UpdatedProperties() *map[string
 }
 
 
-// Create a new `AWS::IoT::PolicyPrincipalAttachment`.
 func NewCfnPolicyPrincipalAttachment(scope constructs.Construct, id *string, props *CfnPolicyPrincipalAttachmentProps) CfnPolicyPrincipalAttachment {
 	_init_.Initialize()
 
@@ -349,7 +359,6 @@ func NewCfnPolicyPrincipalAttachment(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Create a new `AWS::IoT::PolicyPrincipalAttachment`.
 func NewCfnPolicyPrincipalAttachment_Override(c CfnPolicyPrincipalAttachment, scope constructs.Construct, id *string, props *CfnPolicyPrincipalAttachmentProps) {
 	_init_.Initialize()
 

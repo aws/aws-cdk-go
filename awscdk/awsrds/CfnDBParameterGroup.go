@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::DBParameterGroup`.
-//
 // The `AWS::RDS::DBParameterGroup` resource creates a custom parameter group for an RDS database family.
 //
 // This type can be declared in a template and referenced in the `DBParameterGroupName` property of an `[AWS::RDS::DBInstance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html)` resource.
@@ -43,9 +41,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbparametergroup.html
+//
 type CfnDBParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The name of the DB parameter group.
 	AttrDbParameterGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -58,34 +59,12 @@ type CfnDBParameterGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the DB parameter group.
-	//
-	// Constraints:
-	//
-	// - Must be 1 to 255 letters, numbers, or hyphens.
-	// - First character must be a letter
-	// - Can't end with a hyphen or contain two consecutive hyphens
-	//
-	// If you don't specify a value for `DBParameterGroupName` property, a name is automatically created for the DB parameter group.
-	//
-	// > This value is stored as a lowercase string.
 	DbParameterGroupName() *string
 	SetDbParameterGroupName(val *string)
 	// Provides the customer-specified description for this DB parameter group.
 	Description() *string
 	SetDescription(val *string)
 	// The DB parameter group family name.
-	//
-	// A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a DB engine and engine version compatible with that DB parameter group family.
-	//
-	// > The DB parameter group family can't be changed when updating a DB parameter group.
-	//
-	// To list all of the available parameter group families, use the following command:
-	//
-	// `aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`
-	//
-	// The output contains duplicates.
-	//
-	// For more information, see `[CreateDBParameterGroup](https://docs.aws.amazon.com//AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html)` .
 	Family() *string
 	SetFamily(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -101,14 +80,6 @@ type CfnDBParameterGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// An array of parameter names and values for the parameter update.
-	//
-	// At least one parameter name and value must be supplied. Subsequent arguments are optional.
-	//
-	// For more information about DB parameters and DB parameter groups for Amazon RDS DB engines, see [Working with DB Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide* .
-	//
-	// For more information about DB cluster and DB instance parameters and parameter groups for Amazon Aurora DB engines, see [Working with DB Parameter Groups and DB Cluster Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide* .
-	//
-	// > AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -120,10 +91,11 @@ type CfnDBParameterGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An optional array of key-value pairs to apply to this DB parameter group.
-	//
-	// > Currently, this is the only property that supports drift detection.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An optional array of key-value pairs to apply to this DB parameter group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -268,6 +240,7 @@ type CfnDBParameterGroup interface {
 type jsiiProxy_CfnDBParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDBParameterGroup) AttrDbParameterGroupName() *string {
@@ -410,6 +383,16 @@ func (j *jsiiProxy_CfnDBParameterGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBParameterGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -431,7 +414,6 @@ func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::RDS::DBParameterGroup`.
 func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) CfnDBParameterGroup {
 	_init_.Initialize()
 
@@ -449,7 +431,6 @@ func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDB
 	return &j
 }
 
-// Create a new `AWS::RDS::DBParameterGroup`.
 func NewCfnDBParameterGroup_Override(c CfnDBParameterGroup, scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) {
 	_init_.Initialize()
 
@@ -491,12 +472,20 @@ func (j *jsiiProxy_CfnDBParameterGroup)SetFamily(val *string) {
 }
 
 func (j *jsiiProxy_CfnDBParameterGroup)SetParameters(val interface{}) {
-	if err := j.validateSetParametersParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"parameters",
+		"tagsRaw",
 		val,
 	)
 }

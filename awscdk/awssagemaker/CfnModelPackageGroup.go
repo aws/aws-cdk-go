@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::ModelPackageGroup`.
-//
 // A group of versioned models in the model registry.
 //
 // Example:
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
+//
 type CfnModelPackageGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The time when the model group was created.
 	AttrCreationTime() *string
 	// The Amazon Resource Name (ARN) of the model group.
@@ -69,8 +70,6 @@ type CfnModelPackageGroup interface {
 	ModelPackageGroupName() *string
 	SetModelPackageGroupName(val *string)
 	// A resouce policy to control access to a model group.
-	//
-	// For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
 	ModelPackageGroupPolicy() interface{}
 	SetModelPackageGroupPolicy(val interface{})
 	// The tree node.
@@ -84,10 +83,11 @@ type CfnModelPackageGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +232,7 @@ type CfnModelPackageGroup interface {
 type jsiiProxy_CfnModelPackageGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnModelPackageGroup) AttrCreationTime() *string {
@@ -384,6 +385,16 @@ func (j *jsiiProxy_CfnModelPackageGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnModelPackageGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnModelPackageGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -405,7 +416,6 @@ func (j *jsiiProxy_CfnModelPackageGroup) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::SageMaker::ModelPackageGroup`.
 func NewCfnModelPackageGroup(scope constructs.Construct, id *string, props *CfnModelPackageGroupProps) CfnModelPackageGroup {
 	_init_.Initialize()
 
@@ -423,7 +433,6 @@ func NewCfnModelPackageGroup(scope constructs.Construct, id *string, props *CfnM
 	return &j
 }
 
-// Create a new `AWS::SageMaker::ModelPackageGroup`.
 func NewCfnModelPackageGroup_Override(c CfnModelPackageGroup, scope constructs.Construct, id *string, props *CfnModelPackageGroupProps) {
 	_init_.Initialize()
 
@@ -454,12 +463,20 @@ func (j *jsiiProxy_CfnModelPackageGroup)SetModelPackageGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnModelPackageGroup)SetModelPackageGroupPolicy(val interface{}) {
-	if err := j.validateSetModelPackageGroupPolicyParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"modelPackageGroupPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnModelPackageGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"modelPackageGroupPolicy",
+		"tagsRaw",
 		val,
 	)
 }

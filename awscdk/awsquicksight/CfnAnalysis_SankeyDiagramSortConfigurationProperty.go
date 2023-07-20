@@ -46,12 +46,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sankeydiagramsortconfiguration.html
+//
 type CfnAnalysis_SankeyDiagramSortConfigurationProperty struct {
 	// The limit on the number of destination nodes that are displayed in a sankey diagram.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sankeydiagramsortconfiguration.html#cfn-quicksight-analysis-sankeydiagramsortconfiguration-destinationitemslimit
+	//
 	DestinationItemsLimit interface{} `field:"optional" json:"destinationItemsLimit" yaml:"destinationItemsLimit"`
 	// The limit on the number of source nodes that are displayed in a sankey diagram.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sankeydiagramsortconfiguration.html#cfn-quicksight-analysis-sankeydiagramsortconfiguration-sourceitemslimit
+	//
 	SourceItemsLimit interface{} `field:"optional" json:"sourceItemsLimit" yaml:"sourceItemsLimit"`
 	// The sort configuration of the weight fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sankeydiagramsortconfiguration.html#cfn-quicksight-analysis-sankeydiagramsortconfiguration-weightsort
+	//
 	WeightSort interface{} `field:"optional" json:"weightSort" yaml:"weightSort"`
 }
 

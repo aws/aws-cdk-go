@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnAccessor) validateSetAccessorTypeParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnAccessor) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAccessorParameters(scope constructs.Construct, id *string, props *CfnAccessorProps) error {
 	return nil
 }

@@ -14,16 +14,24 @@ package awsgreengrassv2
 //   	Permission: jsii.String("permission"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html
+//
 type CfnComponentVersion_LambdaDeviceMountProperty struct {
 	// Whether or not to add the component's system user as an owner of the device.
 	//
 	// Default: `false`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-addgroupowner
+	//
 	AddGroupOwner interface{} `field:"optional" json:"addGroupOwner" yaml:"addGroupOwner"`
 	// The mount path for the device in the file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-path
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The permission to access the device: read/only ( `ro` ) or read/write ( `rw` ).
 	//
 	// Default: `ro`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-permission
+	//
 	Permission *string `field:"optional" json:"permission" yaml:"permission"`
 }
 

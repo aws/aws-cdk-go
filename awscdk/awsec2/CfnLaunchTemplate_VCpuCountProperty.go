@@ -13,14 +13,20 @@ package awsec2
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-vcpucount.html
+//
 type CfnLaunchTemplate_VCpuCountProperty struct {
 	// The maximum number of vCPUs.
 	//
 	// To specify no maximum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-vcpucount.html#cfn-ec2-launchtemplate-vcpucount-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of vCPUs.
 	//
 	// To specify no minimum limit, specify `0` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-vcpucount.html#cfn-ec2-launchtemplate-vcpucount-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

@@ -13,10 +13,16 @@ package awslicensemanager
 //   	End: jsii.String("end"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html
+//
 type CfnLicense_ValidityDateFormatProperty struct {
 	// Start of the time range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
+	//
 	Begin *string `field:"required" json:"begin" yaml:"begin"`
 	// End of the time range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
+	//
 	End *string `field:"required" json:"end" yaml:"end"`
 }
 

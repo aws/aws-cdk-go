@@ -49,28 +49,48 @@ package awsquicksight
 //   	TimeGranularity: jsii.String("timeGranularity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html
+//
 type CfnDashboard_TimeRangeFilterProperty struct {
 	// The column that the filter is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-filterid
+	//
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
 	// This option determines how null values should be treated when filtering data.
 	//
 	// - `ALL_VALUES` : Include null values in filtered results.
 	// - `NULLS_ONLY` : Only include null values in filtered results.
 	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-nulloption
+	//
 	NullOption *string `field:"required" json:"nullOption" yaml:"nullOption"`
 	// The exclude period of the time range filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-excludeperiodconfiguration
+	//
 	ExcludePeriodConfiguration interface{} `field:"optional" json:"excludePeriodConfiguration" yaml:"excludePeriodConfiguration"`
 	// Determines whether the maximum value in the filter value range should be included in the filtered results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-includemaximum
+	//
 	IncludeMaximum interface{} `field:"optional" json:"includeMaximum" yaml:"includeMaximum"`
 	// Determines whether the minimum value in the filter value range should be included in the filtered results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-includeminimum
+	//
 	IncludeMinimum interface{} `field:"optional" json:"includeMinimum" yaml:"includeMinimum"`
 	// The maximum value for the filter value range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-rangemaximumvalue
+	//
 	RangeMaximumValue interface{} `field:"optional" json:"rangeMaximumValue" yaml:"rangeMaximumValue"`
 	// The minimum value for the filter value range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-rangeminimumvalue
+	//
 	RangeMinimumValue interface{} `field:"optional" json:"rangeMinimumValue" yaml:"rangeMinimumValue"`
 	// The level of time precision that is used to aggregate `DateTime` values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-timegranularity
+	//
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`
 }
 

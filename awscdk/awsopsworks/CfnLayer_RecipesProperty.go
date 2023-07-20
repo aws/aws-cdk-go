@@ -30,16 +30,28 @@ package awsopsworks
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html
+//
 type CfnLayer_RecipesProperty struct {
 	// An array of custom recipe names to be run following a `configure` event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-recipes-configure
+	//
 	Configure *[]*string `field:"optional" json:"configure" yaml:"configure"`
 	// An array of custom recipe names to be run following a `deploy` event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-recipes-deploy
+	//
 	Deploy *[]*string `field:"optional" json:"deploy" yaml:"deploy"`
 	// An array of custom recipe names to be run following a `setup` event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-recipes-setup
+	//
 	Setup *[]*string `field:"optional" json:"setup" yaml:"setup"`
 	// An array of custom recipe names to be run following a `shutdown` event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-recipes-shutdown
+	//
 	Shutdown *[]*string `field:"optional" json:"shutdown" yaml:"shutdown"`
 	// An array of custom recipe names to be run following a `undeploy` event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-recipes-undeploy
+	//
 	Undeploy *[]*string `field:"optional" json:"undeploy" yaml:"undeploy"`
 }
 

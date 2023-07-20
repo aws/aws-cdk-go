@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnPatchBaseline) validateSetSourcesParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnPatchBaseline) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPatchBaselineParameters(scope constructs.Construct, id *string, props *CfnPatchBaselineProps) error {
 	return nil
 }

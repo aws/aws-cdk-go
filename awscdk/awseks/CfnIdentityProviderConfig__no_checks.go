@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetOidcParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetTypeParameters(val *string) error {
 	return nil
 }

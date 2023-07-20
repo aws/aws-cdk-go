@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::ConnectPeer`.
+// Creates a core network Connect peer for a specified core network connect attachment between a core network and an appliance.
 //
-// Creates a core network Connect peer for a specified core network connect attachment between a core network and an appliance. The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).
+// The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,13 +38,21 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html
+//
 type CfnConnectPeer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrConfiguration() awscdk.IResolvable
 	AttrConfigurationBgpConfigurations() awscdk.IResolvable
+	// The IP address of a core network.
 	AttrConfigurationCoreNetworkAddress() *string
+	// The inside IP addresses used for a Connect peer configuration.
 	AttrConfigurationInsideCidrBlocks() *[]*string
+	// The IP address of the Connect peer.
 	AttrConfigurationPeerAddress() *string
+	// Tunnel protocol type (Only support GRE for now).
 	AttrConfigurationProtocol() *string
 	// The ID of the Connect peer.
 	AttrConnectPeerId() *string
@@ -58,7 +66,7 @@ type CfnConnectPeer interface {
 	//
 	// This will be: `REJECTED` | `PENDING_ATTACHMENT_ACCEPTANCE` | `CREATING` | `FAILED` | `AVAILABLE` | `UPDATING` | `PENDING_NETWORK_UPDATE` | `PENDING_TAG_ACCEPTANCE` | `DELETING` .
 	AttrState() *string
-	// `AWS::NetworkManager::ConnectPeer.BgpOptions`.
+	// Bgp options.
 	BgpOptions() interface{}
 	SetBgpOptions(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -103,8 +111,11 @@ type CfnConnectPeer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The list of key-value tags associated with the Connect peer.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of key-value tags associated with the Connect peer.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -249,6 +260,17 @@ type CfnConnectPeer interface {
 type jsiiProxy_CfnConnectPeer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnConnectPeer) AttrConfiguration() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrConfiguration",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnConnectPeer) AttrConfigurationBgpConfigurations() awscdk.IResolvable {
@@ -491,6 +513,16 @@ func (j *jsiiProxy_CfnConnectPeer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnectPeer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnectPeer) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -512,7 +544,6 @@ func (j *jsiiProxy_CfnConnectPeer) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::NetworkManager::ConnectPeer`.
 func NewCfnConnectPeer(scope constructs.Construct, id *string, props *CfnConnectPeerProps) CfnConnectPeer {
 	_init_.Initialize()
 
@@ -530,7 +561,6 @@ func NewCfnConnectPeer(scope constructs.Construct, id *string, props *CfnConnect
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::ConnectPeer`.
 func NewCfnConnectPeer_Override(c CfnConnectPeer, scope constructs.Construct, id *string, props *CfnConnectPeerProps) {
 	_init_.Initialize()
 
@@ -586,6 +616,17 @@ func (j *jsiiProxy_CfnConnectPeer)SetPeerAddress(val *string) {
 	_jsii_.Set(
 		j,
 		"peerAddress",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnectPeer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

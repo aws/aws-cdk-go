@@ -13,13 +13,14 @@ package awswafv2
 //   var all interface{}
 //   var allQueryArguments interface{}
 //   var method interface{}
+//   var notStatementProperty_ notStatementProperty
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
-//   notStatementProperty := &NotStatementProperty{
+//   notStatementProperty := &notStatementProperty{
 //   	Statement: &statementProperty{
 //   		AndStatement: &AndStatementProperty{
 //   			Statements: []interface{}{
@@ -112,9 +113,7 @@ package awswafv2
 //   			Key: jsii.String("key"),
 //   			Scope: jsii.String("scope"),
 //   		},
-//   		NotStatement: &NotStatementProperty{
-//   			Statement: statementProperty_,
-//   		},
+//   		NotStatement: notStatementProperty_,
 //   		OrStatement: &OrStatementProperty{
 //   			Statements: []interface{}{
 //   				statementProperty_,
@@ -431,10 +430,14 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html
+//
 type CfnRuleGroup_NotStatementProperty struct {
 	// The statement to negate.
 	//
 	// You can use any statement that can be nested.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
+	//
 	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 }
 

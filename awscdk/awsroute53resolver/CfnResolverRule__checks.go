@@ -195,6 +195,16 @@ func (j *jsiiProxy_CfnResolverRule) validateSetRuleTypeParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnResolverRule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnResolverRule) validateSetTargetIpsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

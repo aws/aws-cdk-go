@@ -13,12 +13,18 @@ package awscloudfront
 //   	FunctionArn: jsii.String("functionArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html
+//
 type CfnDistribution_FunctionAssociationProperty struct {
 	// The event type of the function, either `viewer-request` or `viewer-response` .
 	//
 	// You cannot use origin-facing event types ( `origin-request` and `origin-response` ) with a CloudFront function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-eventtype
+	//
 	EventType *string `field:"optional" json:"eventType" yaml:"eventType"`
 	// The Amazon Resource Name (ARN) of the function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-functionarn
+	//
 	FunctionArn *string `field:"optional" json:"functionArn" yaml:"functionArn"`
 }
 

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnVPNConnection) validateSetStaticRoutesOnlyParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPNConnection) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPNConnection) validateSetTypeParameters(val *string) error {
 	return nil
 }

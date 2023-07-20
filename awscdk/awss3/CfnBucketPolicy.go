@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::S3::BucketPolicy`.
+// Applies an Amazon S3 bucket policy to an Amazon S3 bucket.
 //
-// Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity must have the `PutBucketPolicy` permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.
+// If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity must have the `PutBucketPolicy` permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.
 //
 // If you don't have `PutBucketPolicy` permissions, Amazon S3 returns a `403 Access Denied` error. If you have the correct permissions, but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a `405 Method Not Allowed` error.
 //
@@ -36,9 +36,12 @@ import (
 //   	PolicyDocument: policyDocument,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucketpolicy.html
+//
 type CfnBucketPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The name of the Amazon S3 bucket to which the policy applies.
 	Bucket() *string
 	SetBucket(val *string)
@@ -64,8 +67,6 @@ type CfnBucketPolicy interface {
 	// The tree node.
 	Node() constructs.Node
 	// A policy document containing permissions to add to the specified bucket.
-	//
-	// In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM. For more information, see the AWS::IAM::Policy [PolicyDocument](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument) resource description in this guide and [Access Policy Language Overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the *Amazon S3 User Guide* .
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -223,6 +224,16 @@ type jsiiProxy_CfnBucketPolicy struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnBucketPolicy) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBucketPolicy) Bucket() *string {
 	var returns *string
 	_jsii_.Get(
@@ -344,7 +355,6 @@ func (j *jsiiProxy_CfnBucketPolicy) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::S3::BucketPolicy`.
 func NewCfnBucketPolicy(scope constructs.Construct, id *string, props *CfnBucketPolicyProps) CfnBucketPolicy {
 	_init_.Initialize()
 
@@ -362,7 +372,6 @@ func NewCfnBucketPolicy(scope constructs.Construct, id *string, props *CfnBucket
 	return &j
 }
 
-// Create a new `AWS::S3::BucketPolicy`.
 func NewCfnBucketPolicy_Override(c CfnBucketPolicy, scope constructs.Construct, id *string, props *CfnBucketPolicyProps) {
 	_init_.Initialize()
 

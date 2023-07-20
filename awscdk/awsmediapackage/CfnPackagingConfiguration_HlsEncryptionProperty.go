@@ -18,6 +18,8 @@ package awsmediapackage
 //
 //   		// the properties below are optional
 //   		EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   			PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   			PresetSpeke20Video: jsii.String("presetSpeke20Video"),
 //   		},
 //   	},
 //
@@ -26,14 +28,22 @@ package awsmediapackage
 //   	EncryptionMethod: jsii.String("encryptionMethod"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
+//
 type CfnPackagingConfiguration_HlsEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
+	//
 	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, used with the key for encrypting blocks.
 	//
 	// If you don't specify a constant initialization vector (IV), AWS Elemental MediaPackage periodically rotates the IV.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
+	//
 	ConstantInitializationVector *string `field:"optional" json:"constantInitializationVector" yaml:"constantInitializationVector"`
 	// HLS encryption type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
+	//
 	EncryptionMethod *string `field:"optional" json:"encryptionMethod" yaml:"encryptionMethod"`
 }
 

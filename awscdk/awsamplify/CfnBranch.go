@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Amplify::Branch`.
-//
 // The AWS::Amplify::Branch resource specifies a new branch within an app.
 //
 // Example:
@@ -52,14 +50,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html
+//
 type CfnBranch interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique ID for an Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 20.
-	//
-	// *Pattern:* d[a-z0-9]+.
 	AppId() *string
 	SetAppId(val *string)
 	// ARN for a branch, part of an Amplify App.
@@ -67,22 +64,12 @@ type CfnBranch interface {
 	// Name for a branch, part of an Amplify App.
 	AttrBranchName() *string
 	// The basic authorization credentials for a branch of an Amplify app.
-	//
-	// You must base64-encode the authorization credentials and provide them in the format `user:password` .
 	BasicAuthConfig() interface{}
 	SetBasicAuthConfig(val interface{})
 	// The name for the branch.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	//
-	// *Pattern:* (?s).+
 	BranchName() *string
 	SetBranchName(val *string)
 	// The build specification (build spec) for the branch.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
-	//
-	// *Pattern:* (?s).+
 	BuildSpec() *string
 	SetBuildSpec(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -95,27 +82,15 @@ type CfnBranch interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The description for the branch that is part of an Amplify app.
-	//
-	// *Length Constraints:* Maximum length of 1000.
-	//
-	// *Pattern:* (?s).*
 	Description() *string
 	SetDescription(val *string)
 	// Enables auto building for the branch.
 	EnableAutoBuild() interface{}
 	SetEnableAutoBuild(val interface{})
 	// Enables performance mode for the branch.
-	//
-	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
 	EnablePerformanceMode() interface{}
 	SetEnablePerformanceMode(val interface{})
 	// Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch.
-	//
-	// If this property is enabled, Amplify deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
-	//
-	// To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
-	//
-	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview() interface{}
 	SetEnablePullRequestPreview(val interface{})
 	// The environment variables for the branch.
@@ -137,18 +112,6 @@ type CfnBranch interface {
 	// The tree node.
 	Node() constructs.Node
 	// If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews.
-	//
-	// For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
-	//
-	// To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
-	//
-	// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Hosting deletes this environment when the pull request is closed.
-	//
-	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
-	//
-	// *Length Constraints:* Maximum length of 20.
-	//
-	// *Pattern:* (?s).*
 	PullRequestEnvironmentName() *string
 	SetPullRequestEnvironmentName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -161,12 +124,13 @@ type CfnBranch interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Describes the current stage for the branch.
-	//
-	// *Valid Values:* PRODUCTION | BETA | DEVELOPMENT | EXPERIMENTAL | PULL_REQUEST.
 	Stage() *string
 	SetStage(val *string)
-	// The tag for the branch.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tag for the branch.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -311,6 +275,7 @@ type CfnBranch interface {
 type jsiiProxy_CfnBranch struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnBranch) AppId() *string {
@@ -543,6 +508,16 @@ func (j *jsiiProxy_CfnBranch) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBranch) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBranch) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -564,7 +539,6 @@ func (j *jsiiProxy_CfnBranch) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Amplify::Branch`.
 func NewCfnBranch(scope constructs.Construct, id *string, props *CfnBranchProps) CfnBranch {
 	_init_.Initialize()
 
@@ -582,7 +556,6 @@ func NewCfnBranch(scope constructs.Construct, id *string, props *CfnBranchProps)
 	return &j
 }
 
-// Create a new `AWS::Amplify::Branch`.
 func NewCfnBranch_Override(c CfnBranch, scope constructs.Construct, id *string, props *CfnBranchProps) {
 	_init_.Initialize()
 
@@ -706,6 +679,17 @@ func (j *jsiiProxy_CfnBranch)SetStage(val *string) {
 	_jsii_.Set(
 		j,
 		"stage",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBranch)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -14,8 +14,12 @@ package awsmedialive
 //   	FlowArn: jsii.String("flowArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-mediaconnectflowrequest.html
+//
 type CfnInput_MediaConnectFlowRequestProperty struct {
 	// The ARN of one or two MediaConnect flows that are the sources for this MediaConnect input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-mediaconnectflowrequest.html#cfn-medialive-input-mediaconnectflowrequest-flowarn
+	//
 	FlowArn *string `field:"optional" json:"flowArn" yaml:"flowArn"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CleanRooms::ConfiguredTable`.
-//
 // Creates a new configured table resource.
 //
 // Example:
@@ -63,6 +61,9 @@ import (
 //   						},
 //
 //   						// the properties below are optional
+//   						AllowedJoinOperators: []*string{
+//   							jsii.String("allowedJoinOperators"),
+//   						},
 //   						JoinRequired: jsii.String("joinRequired"),
 //   					},
 //   					List: &AnalysisRuleListProperty{
@@ -71,6 +72,11 @@ import (
 //   						},
 //   						ListColumns: []*string{
 //   							jsii.String("listColumns"),
+//   						},
+//
+//   						// the properties below are optional
+//   						AllowedJoinOperators: []*string{
+//   							jsii.String("allowedJoinOperators"),
 //   						},
 //   					},
 //   				},
@@ -87,6 +93,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html
+//
 type CfnConfiguredTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -94,8 +102,6 @@ type CfnConfiguredTable interface {
 	AllowedColumns() *[]*string
 	SetAllowedColumns(val *[]*string)
 	// The analysis method for the configured table.
-	//
-	// The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod() *string
 	SetAnalysisMethod(val *string)
 	// The entire created analysis rule.
@@ -149,9 +155,8 @@ type CfnConfiguredTable interface {
 	TableReference() interface{}
 	SetTableReference(val interface{})
 	// An optional label that you can assign to a resource when you create it.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -458,8 +463,8 @@ func (j *jsiiProxy_CfnConfiguredTable) TableReference() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguredTable) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnConfiguredTable) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -489,7 +494,6 @@ func (j *jsiiProxy_CfnConfiguredTable) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::CleanRooms::ConfiguredTable`.
 func NewCfnConfiguredTable(scope constructs.Construct, id *string, props *CfnConfiguredTableProps) CfnConfiguredTable {
 	_init_.Initialize()
 
@@ -507,7 +511,6 @@ func NewCfnConfiguredTable(scope constructs.Construct, id *string, props *CfnCon
 	return &j
 }
 
-// Create a new `AWS::CleanRooms::ConfiguredTable`.
 func NewCfnConfiguredTable_Override(c CfnConfiguredTable, scope constructs.Construct, id *string, props *CfnConfiguredTableProps) {
 	_init_.Initialize()
 
@@ -577,6 +580,17 @@ func (j *jsiiProxy_CfnConfiguredTable)SetTableReference(val interface{}) {
 	_jsii_.Set(
 		j,
 		"tableReference",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfiguredTable)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

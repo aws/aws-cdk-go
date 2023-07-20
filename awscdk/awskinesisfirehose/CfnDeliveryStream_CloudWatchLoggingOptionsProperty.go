@@ -14,16 +14,24 @@ package awskinesisfirehose
 //   	LogStreamName: jsii.String("logStreamName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html
+//
 type CfnDeliveryStream_CloudWatchLoggingOptionsProperty struct {
 	// Indicates whether CloudWatch Logs logging is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name of the CloudWatch Logs log group that contains the log stream that Kinesis Data Firehose will use.
 	//
 	// Conditional. If you enable logging, you must specify this property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-loggroupname
+	//
 	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The name of the CloudWatch Logs log stream that Kinesis Data Firehose uses to send logs about data delivery.
 	//
 	// Conditional. If you enable logging, you must specify this property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-logstreamname
+	//
 	LogStreamName *string `field:"optional" json:"logStreamName" yaml:"logStreamName"`
 }
 

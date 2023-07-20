@@ -16,8 +16,12 @@ package awsdatasync
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-nfs.html
+//
 type CfnLocationFSxONTAP_NFSProperty struct {
 	// Specifies how DataSync can access a location using the NFS protocol.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-nfs.html#cfn-datasync-locationfsxontap-nfs-mountoptions
+	//
 	MountOptions interface{} `field:"required" json:"mountOptions" yaml:"mountOptions"`
 }
 

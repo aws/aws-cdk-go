@@ -20,10 +20,16 @@ package awsmedialive
 //   	OutputChannel: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html
+//
 type CfnChannel_AudioChannelMappingProperty struct {
 	// The indices and gain values for each input channel that should be remixed into this output channel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html#cfn-medialive-channel-audiochannelmapping-inputchannellevels
+	//
 	InputChannelLevels interface{} `field:"optional" json:"inputChannelLevels" yaml:"inputChannelLevels"`
 	// The index of the output channel that is being produced.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html#cfn-medialive-channel-audiochannelmapping-outputchannel
+	//
 	OutputChannel *float64 `field:"optional" json:"outputChannel" yaml:"outputChannel"`
 }
 

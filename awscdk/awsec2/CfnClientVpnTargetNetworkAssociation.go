@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::ClientVpnTargetNetworkAssociation`.
+// Specifies a target network to associate with a Client VPN endpoint.
 //
-// Specifies a target network to associate with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.
+// A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,9 +23,12 @@ import (
 //   	SubnetId: jsii.String("subnetId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpntargetnetworkassociation.html
+//
 type CfnClientVpnTargetNetworkAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -208,6 +211,16 @@ type jsiiProxy_CfnClientVpnTargetNetworkAssociation struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -329,7 +342,6 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) UpdatedProperties() *ma
 }
 
 
-// Create a new `AWS::EC2::ClientVpnTargetNetworkAssociation`.
 func NewCfnClientVpnTargetNetworkAssociation(scope constructs.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) CfnClientVpnTargetNetworkAssociation {
 	_init_.Initialize()
 
@@ -347,7 +359,6 @@ func NewCfnClientVpnTargetNetworkAssociation(scope constructs.Construct, id *str
 	return &j
 }
 
-// Create a new `AWS::EC2::ClientVpnTargetNetworkAssociation`.
 func NewCfnClientVpnTargetNetworkAssociation_Override(c CfnClientVpnTargetNetworkAssociation, scope constructs.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) {
 	_init_.Initialize()
 

@@ -206,6 +206,16 @@ func (j *jsiiProxy_CfnStreamingDistribution) validateSetStreamingDistributionCon
 	return nil
 }
 
+func (j *jsiiProxy_CfnStreamingDistribution) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnStreamingDistributionParameters(scope constructs.Construct, id *string, props *CfnStreamingDistributionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -23,6 +23,8 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-entitydetectorconfiguration.html
+//
 type CfnJob_EntityDetectorConfigurationProperty struct {
 	// Entity types to detect. Can be any of the following:.
 	//
@@ -47,10 +49,14 @@ type CfnJob_EntityDetectorConfigurationProperty struct {
 	// - DATE
 	//
 	// The Entity type group USA_ALL is also supported, and includes all of the above entity types except PERSON_NAME and DATE.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-entitydetectorconfiguration.html#cfn-databrew-job-entitydetectorconfiguration-entitytypes
+	//
 	EntityTypes *[]*string `field:"required" json:"entityTypes" yaml:"entityTypes"`
 	// Configuration of statistics that are allowed to be run on columns that contain detected entities.
 	//
 	// When undefined, no statistics will be computed on columns that contain detected entities.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-entitydetectorconfiguration.html#cfn-databrew-job-entitydetectorconfiguration-allowedstatistics
+	//
 	AllowedStatistics interface{} `field:"optional" json:"allowedStatistics" yaml:"allowedStatistics"`
 }
 

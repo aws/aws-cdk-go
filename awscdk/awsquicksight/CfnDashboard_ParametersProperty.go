@@ -43,14 +43,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html
+//
 type CfnDashboard_ParametersProperty struct {
 	// The parameters that have a data type of date-time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
+	//
 	DateTimeParameters interface{} `field:"optional" json:"dateTimeParameters" yaml:"dateTimeParameters"`
 	// The parameters that have a data type of decimal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
+	//
 	DecimalParameters interface{} `field:"optional" json:"decimalParameters" yaml:"decimalParameters"`
 	// The parameters that have a data type of integer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
+	//
 	IntegerParameters interface{} `field:"optional" json:"integerParameters" yaml:"integerParameters"`
 	// The parameters that have a data type of string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
+	//
 	StringParameters interface{} `field:"optional" json:"stringParameters" yaml:"stringParameters"`
 }
 

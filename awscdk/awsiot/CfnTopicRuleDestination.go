@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::TopicRuleDestination`.
-//
 // A topic rule destination.
 //
 // Example:
@@ -34,6 +32,8 @@ import (
 //   		VpcId: jsii.String("vpcId"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
 //
 type CfnTopicRuleDestination interface {
 	awscdk.CfnResource
@@ -76,11 +76,6 @@ type CfnTopicRuleDestination interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// - **IN_PROGRESS** - A topic rule destination was created but has not been confirmed.
-	//
-	// You can set status to `IN_PROGRESS` by calling `UpdateTopicRuleDestination` . Calling `UpdateTopicRuleDestination` causes a new confirmation challenge to be sent to your confirmation endpoint.
-	// - **ENABLED** - Confirmation was completed, and traffic to this destination is allowed. You can set status to `DISABLED` by calling `UpdateTopicRuleDestination` .
-	// - **DISABLED** - Confirmation was completed, and traffic to this destination is not allowed. You can set status to `ENABLED` by calling `UpdateTopicRuleDestination` .
-	// - **ERROR** - Confirmation could not be completed; for example, if the confirmation timed out. You can call `GetTopicRuleDestination` for details about the error. You can set status to `IN_PROGRESS` by calling `UpdateTopicRuleDestination` . Calling `UpdateTopicRuleDestination` causes a new confirmation challenge to be sent to your confirmation endpoint.
 	Status() *string
 	SetStatus(val *string)
 	// Deprecated.
@@ -383,7 +378,6 @@ func (j *jsiiProxy_CfnTopicRuleDestination) VpcProperties() interface{} {
 }
 
 
-// Create a new `AWS::IoT::TopicRuleDestination`.
 func NewCfnTopicRuleDestination(scope constructs.Construct, id *string, props *CfnTopicRuleDestinationProps) CfnTopicRuleDestination {
 	_init_.Initialize()
 
@@ -401,7 +395,6 @@ func NewCfnTopicRuleDestination(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::IoT::TopicRuleDestination`.
 func NewCfnTopicRuleDestination_Override(c CfnTopicRuleDestination, scope constructs.Construct, id *string, props *CfnTopicRuleDestinationProps) {
 	_init_.Initialize()
 

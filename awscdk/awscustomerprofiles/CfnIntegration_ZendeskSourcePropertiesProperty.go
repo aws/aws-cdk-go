@@ -12,8 +12,12 @@ package awscustomerprofiles
 //   	Object: jsii.String("object"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html
+//
 type CfnIntegration_ZendeskSourcePropertiesProperty struct {
 	// The object specified in the Zendesk flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html#cfn-customerprofiles-integration-zendesksourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 }
 

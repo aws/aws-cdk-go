@@ -18,14 +18,22 @@ package awslogs
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
+//
 type CfnQueryDefinitionProps struct {
 	// A name for the query definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The query string to use for this query definition.
 	//
 	// For more information, see [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+	//
 	QueryString *string `field:"required" json:"queryString" yaml:"queryString"`
 	// Use this parameter if you want the query to query only certain log groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+	//
 	LogGroupNames *[]*string `field:"optional" json:"logGroupNames" yaml:"logGroupNames"`
 }
 

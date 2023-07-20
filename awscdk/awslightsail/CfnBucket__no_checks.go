@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnBucket) validateSetObjectVersioningParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnBucket) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnBucketParameters(scope constructs.Construct, id *string, props *CfnBucketProps) error {
 	return nil
 }

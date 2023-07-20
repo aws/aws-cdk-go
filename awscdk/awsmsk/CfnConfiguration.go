@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MSK::Configuration`.
+// Creates a new MSK configuration.
 //
-// Creates a new MSK configuration. To see an example of how to use this operation, first save the following text to a file and name the file config-file.txt .
+// To see an example of how to use this operation, first save the following text to a file and name the file config-file.txt .
 //
 // `auto.create.topics.enable = true zookeeper.connection.timeout.ms = 1000 log.roll.ms = 604800000`
 //
@@ -38,6 +38,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html
+//
 type CfnConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -54,7 +56,6 @@ type CfnConfiguration interface {
 	// The description of the configuration.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::MSK::Configuration.KafkaVersionsList`.
 	KafkaVersionsList() *[]*string
 	SetKafkaVersionsList(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,8 +69,6 @@ type CfnConfiguration interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the configuration.
-	//
-	// Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -383,7 +382,6 @@ func (j *jsiiProxy_CfnConfiguration) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::MSK::Configuration`.
 func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfigurationProps) CfnConfiguration {
 	_init_.Initialize()
 
@@ -401,7 +399,6 @@ func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfi
 	return &j
 }
 
-// Create a new `AWS::MSK::Configuration`.
 func NewCfnConfiguration_Override(c CfnConfiguration, scope constructs.Construct, id *string, props *CfnConfigurationProps) {
 	_init_.Initialize()
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::ServiceActionAssociation`.
-//
 // A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
 //
 // Example:
@@ -23,6 +21,8 @@ import (
 //   	ProvisioningArtifactId: jsii.String("provisioningArtifactId"),
 //   	ServiceActionId: jsii.String("serviceActionId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html
 //
 type CfnServiceActionAssociation interface {
 	awscdk.CfnResource
@@ -49,13 +49,9 @@ type CfnServiceActionAssociation interface {
 	// The tree node.
 	Node() constructs.Node
 	// The product identifier.
-	//
-	// For example, `prod-abcdzk7xy33qa` .
 	ProductId() *string
 	SetProductId(val *string)
 	// The identifier of the provisioning artifact.
-	//
-	// For example, `pa-4abcdjnxjj6ne` .
 	ProvisioningArtifactId() *string
 	SetProvisioningArtifactId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -64,8 +60,6 @@ type CfnServiceActionAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The self-service action identifier.
-	//
-	// For example, `act-fs7abcd89wxyz` .
 	ServiceActionId() *string
 	SetServiceActionId(val *string)
 	// The stack in which this element is defined.
@@ -349,7 +343,6 @@ func (j *jsiiProxy_CfnServiceActionAssociation) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::ServiceCatalog::ServiceActionAssociation`.
 func NewCfnServiceActionAssociation(scope constructs.Construct, id *string, props *CfnServiceActionAssociationProps) CfnServiceActionAssociation {
 	_init_.Initialize()
 
@@ -367,7 +360,6 @@ func NewCfnServiceActionAssociation(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::ServiceActionAssociation`.
 func NewCfnServiceActionAssociation_Override(c CfnServiceActionAssociation, scope constructs.Construct, id *string, props *CfnServiceActionAssociationProps) {
 	_init_.Initialize()
 

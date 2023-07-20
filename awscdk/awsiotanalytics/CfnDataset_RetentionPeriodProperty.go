@@ -13,12 +13,18 @@ package awsiotanalytics
 //   	Unlimited: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-retentionperiod.html
+//
 type CfnDataset_RetentionPeriodProperty struct {
 	// The number of days that message data is kept.
 	//
 	// The `unlimited` parameter must be false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-retentionperiod.html#cfn-iotanalytics-dataset-retentionperiod-numberofdays
+	//
 	NumberOfDays *float64 `field:"optional" json:"numberOfDays" yaml:"numberOfDays"`
 	// If true, message data is kept indefinitely.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-retentionperiod.html#cfn-iotanalytics-dataset-retentionperiod-unlimited
+	//
 	Unlimited interface{} `field:"optional" json:"unlimited" yaml:"unlimited"`
 }
 

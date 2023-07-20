@@ -1,6 +1,8 @@
 package awssagemaker
 
 
+// The batch transform input for a monitoring job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,16 +26,32 @@ package awssagemaker
 //   	S3InputMode: jsii.String("s3InputMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html
+//
 type CfnDataQualityJobDefinition_BatchTransformInputProperty struct {
-	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.DataCapturedDestinationS3Uri`.
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-datacaptureddestinations3uri
+	//
 	DataCapturedDestinationS3Uri *string `field:"required" json:"dataCapturedDestinationS3Uri" yaml:"dataCapturedDestinationS3Uri"`
-	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.DatasetFormat`.
+	// The dataset format of the data to monitor.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-datasetformat
+	//
 	DatasetFormat interface{} `field:"required" json:"datasetFormat" yaml:"datasetFormat"`
-	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.LocalPath`.
+	// Path to the filesystem where the endpoint data is available to the container.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-localpath
+	//
 	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
-	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.S3DataDistributionType`.
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
+	//
+	// Defauts to FullyReplicated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-s3datadistributiontype
+	//
 	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
-	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.S3InputMode`.
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job.
+	//
+	// Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-s3inputmode
+	//
 	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::CloudFormationProvisionedProduct`.
-//
 // Provisions the specified product.
 //
 // A provisioned product is a resourced instance of a product. For example, provisioning a product based on a AWS CloudFormation template launches a AWS CloudFormation stack and its underlying resources. You can check the status of this request using [DescribeRecord](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_DescribeRecord.html) .
@@ -61,13 +59,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html
+//
 type CfnCloudFormationProvisionedProduct interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
 	// The Amazon Resource Name (ARN) of the CloudFormation stack, such as `arn:aws:cloudformation:eu-west-1:123456789012:stack/SC-499278721343-pp-hfyszaotincww/8f3df460-346a-11e8-9444-503abe701c29` .
@@ -102,51 +100,27 @@ type CfnCloudFormationProvisionedProduct interface {
 	// The tree node.
 	Node() constructs.Node
 	// Passed to AWS CloudFormation .
-	//
-	// The SNS topic ARNs to which to publish stack-related events.
 	NotificationArns() *[]*string
 	SetNotificationArns(val *[]*string)
 	// The path identifier of the product.
-	//
-	// This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
-	//
-	// > You must provide the name or ID, but not both.
 	PathId() *string
 	SetPathId(val *string)
 	// The name of the path.
-	//
-	// This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
-	//
-	// > You must provide the name or ID, but not both.
 	PathName() *string
 	SetPathName(val *string)
 	// The product identifier.
-	//
-	// > You must specify either the ID or the name of the product, but not both.
 	ProductId() *string
 	SetProductId(val *string)
 	// The name of the Service Catalog product.
-	//
-	// Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
-	//
-	// > You must specify either the name or the ID of the product, but not both.
 	ProductName() *string
 	SetProductName(val *string)
 	// A user-friendly name for the provisioned product.
-	//
-	// This value must be unique for the AWS account and cannot be updated after the product is provisioned.
 	ProvisionedProductName() *string
 	SetProvisionedProductName(val *string)
 	// The identifier of the provisioning artifact (also known as a version).
-	//
-	// > You must specify either the ID or the name of the provisioning artifact, but not both.
 	ProvisioningArtifactId() *string
 	SetProvisioningArtifactId(val *string)
 	// The name of the provisioning artifact (also known as a version) for the product.
-	//
-	// This name must be unique for the product.
-	//
-	// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
 	ProvisioningArtifactName() *string
 	SetProvisioningArtifactName(val *string)
 	// Parameters specified by the administrator that are required for provisioning the product.
@@ -164,10 +138,11 @@ type CfnCloudFormationProvisionedProduct interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// One or more tags.
-	//
-	// > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// One or more tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -312,6 +287,7 @@ type CfnCloudFormationProvisionedProduct interface {
 type jsiiProxy_CfnCloudFormationProvisionedProduct struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) AcceptLanguage() *string {
@@ -554,6 +530,16 @@ func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) Tags() awscdk.TagManager
 	return returns
 }
 
+func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -575,7 +561,6 @@ func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) UpdatedProperties() *map
 }
 
 
-// Create a new `AWS::ServiceCatalog::CloudFormationProvisionedProduct`.
 func NewCfnCloudFormationProvisionedProduct(scope constructs.Construct, id *string, props *CfnCloudFormationProvisionedProductProps) CfnCloudFormationProvisionedProduct {
 	_init_.Initialize()
 
@@ -593,7 +578,6 @@ func NewCfnCloudFormationProvisionedProduct(scope constructs.Construct, id *stri
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::CloudFormationProvisionedProduct`.
 func NewCfnCloudFormationProvisionedProduct_Override(c CfnCloudFormationProvisionedProduct, scope constructs.Construct, id *string, props *CfnCloudFormationProvisionedProductProps) {
 	_init_.Initialize()
 
@@ -694,6 +678,17 @@ func (j *jsiiProxy_CfnCloudFormationProvisionedProduct)SetProvisioningPreference
 	_jsii_.Set(
 		j,
 		"provisioningPreferences",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCloudFormationProvisionedProduct)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

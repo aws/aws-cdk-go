@@ -148,6 +148,10 @@ func (j *jsiiProxy_CfnDBInstance) validateSetStorageEncryptedParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetUseDefaultProcessorFeaturesParameters(val interface{}) error {
 	return nil
 }

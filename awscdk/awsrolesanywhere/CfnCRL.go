@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RolesAnywhere::CRL`.
+// Imports the certificate revocation list (CRL).
 //
-// Imports the certificate revocation list (CRL). A CRL is a list of certificates that have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates against the CRL before issuing credentials.
+// A CRL is a list of certificates that have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates against the CRL before issuing credentials.
 //
 // *Required permissions:* `rolesanywhere:ImportCrl` .
 //
@@ -35,9 +35,12 @@ import (
 //   	TrustAnchorArn: jsii.String("trustAnchorArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html
+//
 type CfnCRL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique primary identifier of the Crl.
 	AttrCrlId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -79,8 +82,11 @@ type CfnCRL interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to attach to the certificate revocation list (CRL).
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags to attach to the certificate revocation list (CRL).
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn() *string
 	SetTrustAnchorArn(val *string)
@@ -228,6 +234,7 @@ type CfnCRL interface {
 type jsiiProxy_CfnCRL struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCRL) AttrCrlId() *string {
@@ -360,6 +367,16 @@ func (j *jsiiProxy_CfnCRL) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCRL) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCRL) TrustAnchorArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -391,7 +408,6 @@ func (j *jsiiProxy_CfnCRL) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::RolesAnywhere::CRL`.
 func NewCfnCRL(scope constructs.Construct, id *string, props *CfnCRLProps) CfnCRL {
 	_init_.Initialize()
 
@@ -409,7 +425,6 @@ func NewCfnCRL(scope constructs.Construct, id *string, props *CfnCRLProps) CfnCR
 	return &j
 }
 
-// Create a new `AWS::RolesAnywhere::CRL`.
 func NewCfnCRL_Override(c CfnCRL, scope constructs.Construct, id *string, props *CfnCRLProps) {
 	_init_.Initialize()
 
@@ -449,6 +464,17 @@ func (j *jsiiProxy_CfnCRL)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCRL)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

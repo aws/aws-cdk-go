@@ -17,12 +17,18 @@ package awsgamelift
 //   	WeightedCapacity: jsii.String("weightedCapacity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
+//
 type CfnGameServerGroup_InstanceDefinitionProperty struct {
 	// An Amazon EC2 instance type designation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
+	//
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group.
 	//
 	// Instance weights are used by Amazon GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see [Instance Weighting](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html) in the *Amazon Elastic Compute Cloud Auto Scaling User Guide* . Default value is "1".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
+	//
 	WeightedCapacity *string `field:"optional" json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 

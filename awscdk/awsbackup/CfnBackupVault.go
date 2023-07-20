@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Backup::BackupVault`.
+// Creates a logical container where backups are stored.
 //
-// Creates a logical container where backups are stored. A `CreateBackupVault` request includes a name, optionally one or more resource tags, an encryption key, and a request ID.
+// A `CreateBackupVault` request includes a name, optionally one or more resource tags, an encryption key, and a request ID.
 //
 // Do not include sensitive data, such as passport numbers, in the name of a backup vault.
 //
@@ -48,6 +48,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
+//
 type CfnBackupVault interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -63,13 +65,9 @@ type CfnBackupVault interface {
 	// Backup vaults are identified by names that are unique to the account used to create them and the Region where they are created. They consist of lowercase and uppercase letters, numbers, and hyphens.
 	AttrBackupVaultName() *string
 	// The name of a logical container where backups are stored.
-	//
-	// Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
 	BackupVaultName() *string
 	SetBackupVaultName(val *string)
 	// Metadata that you can assign to help organize the resources that you create.
-	//
-	// Each tag is a key-value pair.
 	BackupVaultTags() interface{}
 	SetBackupVaultTags(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -81,11 +79,7 @@ type CfnBackupVault interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management;
-	//
-	// for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
-	//
-	// To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
+	// A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management;.
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
 	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
@@ -442,7 +436,6 @@ func (j *jsiiProxy_CfnBackupVault) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Backup::BackupVault`.
 func NewCfnBackupVault(scope constructs.Construct, id *string, props *CfnBackupVaultProps) CfnBackupVault {
 	_init_.Initialize()
 
@@ -460,7 +453,6 @@ func NewCfnBackupVault(scope constructs.Construct, id *string, props *CfnBackupV
 	return &j
 }
 
-// Create a new `AWS::Backup::BackupVault`.
 func NewCfnBackupVault_Override(c CfnBackupVault, scope constructs.Construct, id *string, props *CfnBackupVaultProps) {
 	_init_.Initialize()
 
@@ -472,9 +464,6 @@ func NewCfnBackupVault_Override(c CfnBackupVault, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnBackupVault)SetAccessPolicy(val interface{}) {
-	if err := j.validateSetAccessPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"accessPolicy",

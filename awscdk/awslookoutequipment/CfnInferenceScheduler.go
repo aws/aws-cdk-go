@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::LookoutEquipment::InferenceScheduler`.
+// Creates a scheduled inference.
 //
-// Creates a scheduled inference. Scheduling an inference is setting up a continuous real-time inference plan to analyze new measurement data. When setting up the schedule, you provide an Amazon S3 bucket location for the input data, assign it a delimiter between separate entries in the data, set an offset delay if desired, and set the frequency of inferencing. You must also provide an Amazon S3 bucket location for the output data.
+// Scheduling an inference is setting up a continuous real-time inference plan to analyze new measurement data. When setting up the schedule, you provide an Amazon S3 bucket location for the input data, assign it a delimiter between separate entries in the data, set an offset delay if desired, and set the frequency of inferencing. You must also provide an Amazon S3 bucket location for the output data.
 //
 // > Updating some properties below (for example, InferenceSchedulerName and ServerSideKmsKeyId) triggers a resource replacement, which requires a new model. To replace such a property using AWS CloudFormation , but without creating a completely new stack, you must replace ModelName. If you need to replace the property, but want to use the same model, delete the current stack and create a new one with the updated properties.
 //
@@ -42,9 +42,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html
+//
 type CfnInferenceScheduler interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the inference scheduler being created.
 	AttrInferenceSchedulerArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -57,8 +60,6 @@ type CfnInferenceScheduler interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A period of time (in minutes) by which inference on the data is delayed after the data starts.
-	//
-	// For instance, if an offset delay time of five minutes was selected, inference will not begin on the data until the first data measurement after the five minute mark. For example, if five minutes is selected, the inference scheduler will wake up at the configured frequency with the additional five minute delay time to check the customer S3 bucket. The customer can upload data at the same frequency and they don't need to stop and restart the scheduler when uploading new data.
 	DataDelayOffsetInMinutes() *float64
 	SetDataDelayOffsetInMinutes(val *float64)
 	// Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.
@@ -68,8 +69,6 @@ type CfnInferenceScheduler interface {
 	DataOutputConfiguration() interface{}
 	SetDataOutputConfiguration(val interface{})
 	// How often data is uploaded to the source S3 bucket for the input data.
-	//
-	// This value is the length of time between data uploads. For instance, if you select 5 minutes, Amazon Lookout for Equipment will upload the real-time data to the source bucket once every 5 minutes. This frequency also determines how often Amazon Lookout for Equipment starts a scheduled inference on your data. In this example, it starts once every 5 minutes.
 	DataUploadFrequency() *string
 	SetDataUploadFrequency(val *string)
 	// The name of the inference scheduler.
@@ -105,10 +104,11 @@ type CfnInferenceScheduler interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Any tags associated with the inference scheduler.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Any tags associated with the inference scheduler.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -253,6 +253,7 @@ type CfnInferenceScheduler interface {
 type jsiiProxy_CfnInferenceScheduler struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInferenceScheduler) AttrInferenceSchedulerArn() *string {
@@ -435,6 +436,16 @@ func (j *jsiiProxy_CfnInferenceScheduler) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInferenceScheduler) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInferenceScheduler) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -456,7 +467,6 @@ func (j *jsiiProxy_CfnInferenceScheduler) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::LookoutEquipment::InferenceScheduler`.
 func NewCfnInferenceScheduler(scope constructs.Construct, id *string, props *CfnInferenceSchedulerProps) CfnInferenceScheduler {
 	_init_.Initialize()
 
@@ -474,7 +484,6 @@ func NewCfnInferenceScheduler(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::LookoutEquipment::InferenceScheduler`.
 func NewCfnInferenceScheduler_Override(c CfnInferenceScheduler, scope constructs.Construct, id *string, props *CfnInferenceSchedulerProps) {
 	_init_.Initialize()
 
@@ -560,6 +569,17 @@ func (j *jsiiProxy_CfnInferenceScheduler)SetServerSideKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"serverSideKmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInferenceScheduler)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

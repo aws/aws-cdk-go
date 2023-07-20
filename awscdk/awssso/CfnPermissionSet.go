@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSO::PermissionSet`.
-//
 // Specifies a permission set within a specified IAM Identity Center instance.
 //
 // Example:
@@ -57,9 +55,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html
+//
 type CfnPermissionSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The permission set ARN of the permission set, such as `arn:aws:sso:::permissionSet/ins-instanceid/ps-permissionsetid` .
 	AttrPermissionSetArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -78,13 +79,9 @@ type CfnPermissionSet interface {
 	Description() *string
 	SetDescription(val *string)
 	// The inline policy that is attached to the permission set.
-	//
-	// > For `Length Constraints` , if a valid ARN is provided for a permission set, it is possible for an empty inline policy to be returned.
 	InlinePolicy() interface{}
 	SetInlinePolicy(val interface{})
 	// The ARN of the IAM Identity Center instance under which the operation will be executed.
-	//
-	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -106,10 +103,6 @@ type CfnPermissionSet interface {
 	// The tree node.
 	Node() constructs.Node
 	// Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary.
-	//
-	// Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
-	//
-	// > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
 	PermissionsBoundary() interface{}
 	SetPermissionsBoundary(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -127,8 +120,11 @@ type CfnPermissionSet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to attach to the new `PermissionSet` .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to attach to the new `PermissionSet` .
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -273,6 +269,7 @@ type CfnPermissionSet interface {
 type jsiiProxy_CfnPermissionSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPermissionSet) AttrPermissionSetArn() *string {
@@ -465,6 +462,16 @@ func (j *jsiiProxy_CfnPermissionSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPermissionSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPermissionSet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -486,7 +493,6 @@ func (j *jsiiProxy_CfnPermissionSet) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::SSO::PermissionSet`.
 func NewCfnPermissionSet(scope constructs.Construct, id *string, props *CfnPermissionSetProps) CfnPermissionSet {
 	_init_.Initialize()
 
@@ -504,7 +510,6 @@ func NewCfnPermissionSet(scope constructs.Construct, id *string, props *CfnPermi
 	return &j
 }
 
-// Create a new `AWS::SSO::PermissionSet`.
 func NewCfnPermissionSet_Override(c CfnPermissionSet, scope constructs.Construct, id *string, props *CfnPermissionSetProps) {
 	_init_.Initialize()
 
@@ -535,9 +540,6 @@ func (j *jsiiProxy_CfnPermissionSet)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnPermissionSet)SetInlinePolicy(val interface{}) {
-	if err := j.validateSetInlinePolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"inlinePolicy",
@@ -598,6 +600,17 @@ func (j *jsiiProxy_CfnPermissionSet)SetSessionDuration(val *string) {
 	_jsii_.Set(
 		j,
 		"sessionDuration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPermissionSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -12,8 +12,12 @@ package awslex
 //   	AudioRecognitionStrategy: jsii.String("audioRecognitionStrategy"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-advancedrecognitionsetting.html
+//
 type CfnBot_AdvancedRecognitionSettingProperty struct {
 	// Enables using the slot values as a custom vocabulary for recognizing user utterances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-advancedrecognitionsetting.html#cfn-lex-bot-advancedrecognitionsetting-audiorecognitionstrategy
+	//
 	AudioRecognitionStrategy *string `field:"optional" json:"audioRecognitionStrategy" yaml:"audioRecognitionStrategy"`
 }
 

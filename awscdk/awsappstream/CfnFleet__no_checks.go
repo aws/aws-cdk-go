@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnFleet) validateSetSessionScriptS3LocationParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetVpcConfigParameters(val interface{}) error {
 	return nil
 }

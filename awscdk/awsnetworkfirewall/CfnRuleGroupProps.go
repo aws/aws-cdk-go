@@ -158,27 +158,41 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html
+//
 type CfnRuleGroupProps struct {
 	// The maximum operating resources that this rule group can use.
 	//
 	// You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
+	//
 	Capacity *float64 `field:"required" json:"capacity" yaml:"capacity"`
 	// The descriptive name of the rule group.
 	//
 	// You can't change the name of a rule group after you create it.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
+	//
 	RuleGroupName *string `field:"required" json:"ruleGroupName" yaml:"ruleGroupName"`
 	// Indicates whether the rule group is stateless or stateful.
 	//
 	// If the rule group is stateless, it contains
 	// stateless rules. If it is stateful, it contains stateful rules.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// A description of the rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An object that defines the rule group rules.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
+	//
 	RuleGroup interface{} `field:"optional" json:"ruleGroup" yaml:"ruleGroup"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

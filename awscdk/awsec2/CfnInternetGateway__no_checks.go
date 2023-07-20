@@ -80,6 +80,10 @@ func validateCfnInternetGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnInternetGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnInternetGatewayParameters(scope constructs.Construct, id *string, props *CfnInternetGatewayProps) error {
 	return nil
 }

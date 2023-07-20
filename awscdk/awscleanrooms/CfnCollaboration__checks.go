@@ -306,6 +306,16 @@ func (j *jsiiProxy_CfnCollaboration) validateSetQueryLogStatusParameters(val *st
 	return nil
 }
 
+func (j *jsiiProxy_CfnCollaboration) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnCollaborationParameters(scope constructs.Construct, id *string, props *CfnCollaborationProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

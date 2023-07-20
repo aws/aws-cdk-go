@@ -18,12 +18,20 @@ package awsevents
 //   	IsValueSecret: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-parameter.html
+//
 type CfnConnection_ParameterProperty struct {
 	// The key for a query string parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-parameter.html#cfn-events-connection-parameter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value associated with the key for the query string parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-parameter.html#cfn-events-connection-parameter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// Specifies whether the value is secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-parameter.html#cfn-events-connection-parameter-isvaluesecret
+	//
 	IsValueSecret interface{} `field:"optional" json:"isValueSecret" yaml:"isValueSecret"`
 }
 

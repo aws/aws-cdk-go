@@ -13,10 +13,16 @@ package awsappmesh
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-duration.html
+//
 type CfnVirtualNode_DurationProperty struct {
 	// A unit of time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-duration.html#cfn-appmesh-virtualnode-duration-unit
+	//
 	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// A number of time units.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-duration.html#cfn-appmesh-virtualnode-duration-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

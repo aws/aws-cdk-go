@@ -4,51 +4,10 @@ package cloudassemblyschema
 // Metadata Entry spec for container images.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   containerImageAssetMetadataEntry := &ContainerImageAssetMetadataEntry{
-//   	Id: jsii.String("id"),
-//   	Packaging: jsii.String("packaging"),
-//   	Path: jsii.String("path"),
-//   	SourceHash: jsii.String("sourceHash"),
-//
-//   	// the properties below are optional
-//   	BuildArgs: map[string]*string{
-//   		"buildArgsKey": jsii.String("buildArgs"),
-//   	},
-//   	BuildSecrets: map[string]*string{
-//   		"buildSecretsKey": jsii.String("buildSecrets"),
-//   	},
-//   	CacheFrom: []containerImageAssetCacheOption{
-//   		&containerImageAssetCacheOption{
-//   			Type: jsii.String("type"),
-//
-//   			// the properties below are optional
-//   			Params: map[string]*string{
-//   				"paramsKey": jsii.String("params"),
-//   			},
-//   		},
-//   	},
-//   	CacheTo: &containerImageAssetCacheOption{
-//   		Type: jsii.String("type"),
-//
-//   		// the properties below are optional
-//   		Params: map[string]*string{
-//   			"paramsKey": jsii.String("params"),
-//   		},
-//   	},
-//   	File: jsii.String("file"),
-//   	ImageTag: jsii.String("imageTag"),
-//   	NetworkMode: jsii.String("networkMode"),
-//   	Outputs: []*string{
-//   		jsii.String("outputs"),
-//   	},
-//   	Platform: jsii.String("platform"),
-//   	RepositoryName: jsii.String("repositoryName"),
-//   	Target: jsii.String("target"),
+//   entry := map[string]*string{
+//   	"packaging": jsii.String("container-image"),
+//   	"repositoryName": jsii.String("repository-name"),
+//   	"imageTag": jsii.String("tag"),
 //   }
 //
 type ContainerImageAssetMetadataEntry struct {

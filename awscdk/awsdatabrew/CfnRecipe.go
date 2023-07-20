@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataBrew::Recipe`.
-//
 // Specifies a new AWS Glue DataBrew transformation recipe.
 //
 // Example:
@@ -54,9 +52,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html
+//
 type CfnRecipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -96,8 +97,11 @@ type CfnRecipe interface {
 	// A list of steps that are defined by the recipe.
 	Steps() interface{}
 	SetSteps(val interface{})
-	// Metadata tags that have been applied to the recipe.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata tags that have been applied to the recipe.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -242,6 +246,7 @@ type CfnRecipe interface {
 type jsiiProxy_CfnRecipe struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRecipe) CfnOptions() awscdk.ICfnResourceOptions {
@@ -364,6 +369,16 @@ func (j *jsiiProxy_CfnRecipe) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRecipe) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRecipe) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -385,7 +400,6 @@ func (j *jsiiProxy_CfnRecipe) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DataBrew::Recipe`.
 func NewCfnRecipe(scope constructs.Construct, id *string, props *CfnRecipeProps) CfnRecipe {
 	_init_.Initialize()
 
@@ -403,7 +417,6 @@ func NewCfnRecipe(scope constructs.Construct, id *string, props *CfnRecipeProps)
 	return &j
 }
 
-// Create a new `AWS::DataBrew::Recipe`.
 func NewCfnRecipe_Override(c CfnRecipe, scope constructs.Construct, id *string, props *CfnRecipeProps) {
 	_init_.Initialize()
 
@@ -440,6 +453,17 @@ func (j *jsiiProxy_CfnRecipe)SetSteps(val interface{}) {
 	_jsii_.Set(
 		j,
 		"steps",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRecipe)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

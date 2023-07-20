@@ -15,10 +15,16 @@ package awseks
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html
+//
 type CfnIdentityProviderConfig_RequiredClaimProperty struct {
 	// The key to match from the token.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html#cfn-eks-identityproviderconfig-requiredclaim-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value for the key from the token.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html#cfn-eks-identityproviderconfig-requiredclaim-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

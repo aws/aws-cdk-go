@@ -13,10 +13,16 @@ package awsquicksight
 //   	DataValue: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datacolor.html
+//
 type CfnAnalysis_DataColorProperty struct {
 	// The color that is applied to the data value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datacolor.html#cfn-quicksight-analysis-datacolor-color
+	//
 	Color *string `field:"optional" json:"color" yaml:"color"`
 	// The data value that the color is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datacolor.html#cfn-quicksight-analysis-datacolor-datavalue
+	//
 	DataValue *float64 `field:"optional" json:"dataValue" yaml:"dataValue"`
 }
 

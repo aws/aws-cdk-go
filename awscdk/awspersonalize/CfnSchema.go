@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Personalize::Schema`.
+// Creates an Amazon Personalize schema from the specified schema string.
 //
-// Creates an Amazon Personalize schema from the specified schema string. The schema you create must be in Avro JSON format.
+// The schema you create must be in Avro JSON format.
 //
 // Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group. You specify a schema when you call [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html) .
 //
@@ -33,6 +33,8 @@ import (
 //   	// the properties below are optional
 //   	Domain: jsii.String("domain"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html
 //
 type CfnSchema interface {
 	awscdk.CfnResource
@@ -365,7 +367,6 @@ func (j *jsiiProxy_CfnSchema) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Personalize::Schema`.
 func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps) CfnSchema {
 	_init_.Initialize()
 
@@ -383,7 +384,6 @@ func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps)
 	return &j
 }
 
-// Create a new `AWS::Personalize::Schema`.
 func NewCfnSchema_Override(c CfnSchema, scope constructs.Construct, id *string, props *CfnSchemaProps) {
 	_init_.Initialize()
 

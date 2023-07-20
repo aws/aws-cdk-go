@@ -13,10 +13,14 @@ package awss3objectlambda
 //   	FunctionPayload: jsii.String("functionPayload"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-awslambda.html
+//
 type CfnAccessPoint_AwsLambdaProperty struct {
-	// `CfnAccessPoint.AwsLambdaProperty.FunctionArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-awslambda.html#cfn-s3objectlambda-accesspoint-awslambda-functionarn
+	//
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
-	// `CfnAccessPoint.AwsLambdaProperty.FunctionPayload`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-awslambda.html#cfn-s3objectlambda-accesspoint-awslambda-functionpayload
+	//
 	FunctionPayload *string `field:"optional" json:"functionPayload" yaml:"functionPayload"`
 }
 

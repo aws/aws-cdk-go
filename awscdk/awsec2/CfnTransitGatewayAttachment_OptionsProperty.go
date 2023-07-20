@@ -14,18 +14,26 @@ package awsec2
 //   	Ipv6Support: jsii.String("ipv6Support"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayattachment-options.html
+//
 type CfnTransitGatewayAttachment_OptionsProperty struct {
 	// Enable or disable appliance mode support.
 	//
 	// The default is `disable` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayattachment-options.html#cfn-ec2-transitgatewayattachment-options-appliancemodesupport
+	//
 	ApplianceModeSupport *string `field:"optional" json:"applianceModeSupport" yaml:"applianceModeSupport"`
 	// Enable or disable DNS support.
 	//
 	// The default is `disable` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayattachment-options.html#cfn-ec2-transitgatewayattachment-options-dnssupport
+	//
 	DnsSupport *string `field:"optional" json:"dnsSupport" yaml:"dnsSupport"`
 	// Enable or disable IPv6 support.
 	//
 	// The default is `disable` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayattachment-options.html#cfn-ec2-transitgatewayattachment-options-ipv6support
+	//
 	Ipv6Support *string `field:"optional" json:"ipv6Support" yaml:"ipv6Support"`
 }
 

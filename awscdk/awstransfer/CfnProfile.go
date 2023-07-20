@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Transfer::Profile`.
-//
 // Creates the local or partner profile to use for AS2 transfers.
 //
 // Example:
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-profile.html
+//
 type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The `As2Id` is the *AS2-name* , as defined in the [RFC 4130](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc4130) . For inbound transfers, this is the `AS2-From` header for the AS2 messages sent from the partner. For outbound connectors, this is the `AS2-To` header for the AS2 messages sent to the partner using the `StartFileTransfer` API operation. This ID cannot include spaces.
 	As2Id() *string
 	SetAs2Id(val *string)
@@ -45,8 +46,6 @@ type CfnProfile interface {
 	// The unique identifier for the AS2 profile, returned after the API call succeeds.
 	AttrProfileId() *string
 	// An array of identifiers for the imported certificates.
-	//
-	// You use this identifier for working with profiles and partner profiles.
 	CertificateIds() *[]*string
 	SetCertificateIds(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -71,8 +70,6 @@ type CfnProfile interface {
 	// The tree node.
 	Node() constructs.Node
 	// Indicates whether to list only `LOCAL` type profiles or only `PARTNER` type profiles.
-	//
-	// If not supplied in the request, the command lists all types of profiles.
 	ProfileType() *string
 	SetProfileType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -84,8 +81,11 @@ type CfnProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key-value pairs that can be used to group and search for profiles.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs that can be used to group and search for profiles.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +230,7 @@ type CfnProfile interface {
 type jsiiProxy_CfnProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnProfile) As2Id() *string {
@@ -372,6 +373,16 @@ func (j *jsiiProxy_CfnProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProfile) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -393,7 +404,6 @@ func (j *jsiiProxy_CfnProfile) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Transfer::Profile`.
 func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProps) CfnProfile {
 	_init_.Initialize()
 
@@ -411,7 +421,6 @@ func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProp
 	return &j
 }
 
-// Create a new `AWS::Transfer::Profile`.
 func NewCfnProfile_Override(c CfnProfile, scope constructs.Construct, id *string, props *CfnProfileProps) {
 	_init_.Initialize()
 
@@ -448,6 +457,17 @@ func (j *jsiiProxy_CfnProfile)SetProfileType(val *string) {
 	_jsii_.Set(
 		j,
 		"profileType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

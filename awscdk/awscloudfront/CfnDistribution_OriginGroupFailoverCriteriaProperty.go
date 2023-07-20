@@ -17,8 +17,12 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html
+//
 type CfnDistribution_OriginGroupFailoverCriteriaProperty struct {
 	// The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
+	//
 	StatusCodes interface{} `field:"required" json:"statusCodes" yaml:"statusCodes"`
 }
 

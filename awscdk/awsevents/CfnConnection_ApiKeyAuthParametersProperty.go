@@ -13,10 +13,16 @@ package awsevents
 //   	ApiKeyValue: jsii.String("apiKeyValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html
+//
 type CfnConnection_ApiKeyAuthParametersProperty struct {
 	// The name of the API key to use for authorization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html#cfn-events-connection-apikeyauthparameters-apikeyname
+	//
 	ApiKeyName *string `field:"required" json:"apiKeyName" yaml:"apiKeyName"`
 	// The value for the API key to use for authorization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html#cfn-events-connection-apikeyauthparameters-apikeyvalue
+	//
 	ApiKeyValue *string `field:"required" json:"apiKeyValue" yaml:"apiKeyValue"`
 }
 

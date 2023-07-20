@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::TopicRule`.
+// Use the `AWS::IoT::TopicRule` resource to declare an AWS IoT rule.
 //
-// Use the `AWS::IoT::TopicRule` resource to declare an AWS IoT rule. For information about working with AWS IoT rules, see [Rules for AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) in the *AWS IoT Developer Guide* .
+// For information about working with AWS IoT rules, see [Rules for AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) in the *AWS IoT Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -508,9 +508,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
+//
 type CfnTopicRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -546,14 +549,11 @@ type CfnTopicRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata which can be used to manage the topic rule.
-	//
-	// > For URI Request parameters use format: ...key1=value1&key2=value2...
-	// >
-	// > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
-	// >
-	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata which can be used to manage the topic rule.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The rule payload.
 	TopicRulePayload() interface{}
 	SetTopicRulePayload(val interface{})
@@ -701,6 +701,7 @@ type CfnTopicRule interface {
 type jsiiProxy_CfnTopicRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTopicRule) AttrArn() *string {
@@ -813,6 +814,16 @@ func (j *jsiiProxy_CfnTopicRule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopicRule) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopicRule) TopicRulePayload() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -844,7 +855,6 @@ func (j *jsiiProxy_CfnTopicRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::TopicRule`.
 func NewCfnTopicRule(scope constructs.Construct, id *string, props *CfnTopicRuleProps) CfnTopicRule {
 	_init_.Initialize()
 
@@ -862,7 +872,6 @@ func NewCfnTopicRule(scope constructs.Construct, id *string, props *CfnTopicRule
 	return &j
 }
 
-// Create a new `AWS::IoT::TopicRule`.
 func NewCfnTopicRule_Override(c CfnTopicRule, scope constructs.Construct, id *string, props *CfnTopicRuleProps) {
 	_init_.Initialize()
 
@@ -877,6 +886,17 @@ func (j *jsiiProxy_CfnTopicRule)SetRuleName(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopicRule)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

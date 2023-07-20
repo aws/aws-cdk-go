@@ -13,18 +13,24 @@ package awsamplify
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html
+//
 type CfnDomain_SubDomainSettingProperty struct {
 	// The branch name setting for the subdomain.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern:* (?s).+
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-branchname
+	//
 	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
 	// The prefix setting for the subdomain.
 	//
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* (?s).*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-prefix
+	//
 	Prefix *string `field:"required" json:"prefix" yaml:"prefix"`
 }
 

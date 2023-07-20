@@ -14,6 +14,8 @@ package awscloudfront
 //   	LambdaFunctionArn: jsii.String("lambdaFunctionArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html
+//
 type CfnDistribution_LambdaFunctionAssociationProperty struct {
 	// Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:.
 	//
@@ -23,14 +25,20 @@ type CfnDistribution_LambdaFunctionAssociationProperty struct {
 	// - `viewer-response` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
 	//
 	// If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
+	//
 	EventType *string `field:"optional" json:"eventType" yaml:"eventType"`
 	// A flag that allows a Lambda@Edge function to have read access to the body content.
 	//
 	// For more information, see [Accessing the Request Body by Choosing the Include Body Option](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html) in the Amazon CloudFront Developer Guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody
+	//
 	IncludeBody interface{} `field:"optional" json:"includeBody" yaml:"includeBody"`
 	// The ARN of the Lambda@Edge function.
 	//
 	// You must specify the ARN of a function version; you can't specify an alias or $LATEST.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
+	//
 	LambdaFunctionArn *string `field:"optional" json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
 }
 

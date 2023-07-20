@@ -31,10 +31,16 @@ package awsiottwinmaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html
+//
 type CfnEntity_PropertyProperty struct {
 	// An object that specifies information about a property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html#cfn-iottwinmaker-entity-property-definition
+	//
 	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
 	// An object that contains information about a value for a time series property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html#cfn-iottwinmaker-entity-property-value
+	//
 	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

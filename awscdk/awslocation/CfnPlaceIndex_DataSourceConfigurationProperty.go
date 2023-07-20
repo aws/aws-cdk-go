@@ -12,6 +12,8 @@ package awslocation
 //   	IntendedUse: jsii.String("intendedUse"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
+//
 type CfnPlaceIndex_DataSourceConfigurationProperty struct {
 	// Specifies how the results of an operation will be stored by the caller.
 	//
@@ -21,6 +23,8 @@ type CfnPlaceIndex_DataSourceConfigurationProperty struct {
 	// - `Storage` specifies that the result can be cached or stored in a database.
 	//
 	// Default value: `SingleUse`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
+	//
 	IntendedUse *string `field:"optional" json:"intendedUse" yaml:"intendedUse"`
 }
 

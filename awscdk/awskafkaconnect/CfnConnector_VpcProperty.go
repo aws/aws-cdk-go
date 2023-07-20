@@ -17,10 +17,16 @@ package awskafkaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html
+//
 type CfnConnector_VpcProperty struct {
 	// The security groups for the connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html#cfn-kafkaconnect-connector-vpc-securitygroups
+	//
 	SecurityGroups *[]*string `field:"required" json:"securityGroups" yaml:"securityGroups"`
 	// The subnets for the connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html#cfn-kafkaconnect-connector-vpc-subnets
+	//
 	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 }
 

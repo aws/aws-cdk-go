@@ -187,6 +187,16 @@ func (j *jsiiProxy_CfnLocationFSxLustre) validateSetSecurityGroupArnsParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationFSxLustre) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnLocationFSxLustreParameters(scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

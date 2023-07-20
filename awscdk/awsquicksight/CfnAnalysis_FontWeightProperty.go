@@ -12,8 +12,12 @@ package awsquicksight
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontweight.html
+//
 type CfnAnalysis_FontWeightProperty struct {
 	// The lexical name for the level of boldness of the text display.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fontweight.html#cfn-quicksight-analysis-fontweight-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

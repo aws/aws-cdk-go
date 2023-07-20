@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnLocationSMB) validateSetMountOptionsParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationSMB) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationSMB) validateSetUserParameters(val *string) error {
 	return nil
 }

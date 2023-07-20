@@ -15,12 +15,26 @@ package awscleanrooms
 //   	ListColumns: []*string{
 //   		jsii.String("listColumns"),
 //   	},
+//
+//   	// the properties below are optional
+//   	AllowedJoinOperators: []*string{
+//   		jsii.String("allowedJoinOperators"),
+//   	},
 //   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html
 //
 type CfnConfiguredTable_AnalysisRuleListProperty struct {
 	// Columns that can be used to join a configured table with the table of the member who can query and other members' configured tables.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-joincolumns
+	//
 	JoinColumns *[]*string `field:"required" json:"joinColumns" yaml:"joinColumns"`
 	// Columns that can be listed in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-listcolumns
+	//
 	ListColumns *[]*string `field:"required" json:"listColumns" yaml:"listColumns"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-allowedjoinoperators
+	//
+	AllowedJoinOperators *[]*string `field:"optional" json:"allowedJoinOperators" yaml:"allowedJoinOperators"`
 }
 

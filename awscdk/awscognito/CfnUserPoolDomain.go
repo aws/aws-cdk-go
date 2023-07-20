@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::UserPoolDomain`.
-//
 // The AWS::Cognito::UserPoolDomain resource creates a new domain for a user pool.
 //
 // Example:
@@ -28,11 +26,14 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html
+//
 type CfnUserPoolDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 	AttrCloudFrontDistribution() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -43,15 +44,9 @@ type CfnUserPoolDomain interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application.
-	//
-	// Use this object to specify an SSL certificate that is managed by ACM.
 	CustomDomainConfig() interface{}
 	SetCustomDomainConfig(val interface{})
 	// The domain name for the domain that hosts the sign-up and sign-in pages for your application.
-	//
-	// For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
-	//
-	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
 	Domain() *string
 	SetDomain(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -234,6 +229,16 @@ func (j *jsiiProxy_CfnUserPoolDomain) AttrCloudFrontDistribution() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPoolDomain) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolDomain) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -365,7 +370,6 @@ func (j *jsiiProxy_CfnUserPoolDomain) UserPoolId() *string {
 }
 
 
-// Create a new `AWS::Cognito::UserPoolDomain`.
 func NewCfnUserPoolDomain(scope constructs.Construct, id *string, props *CfnUserPoolDomainProps) CfnUserPoolDomain {
 	_init_.Initialize()
 
@@ -383,7 +387,6 @@ func NewCfnUserPoolDomain(scope constructs.Construct, id *string, props *CfnUser
 	return &j
 }
 
-// Create a new `AWS::Cognito::UserPoolDomain`.
 func NewCfnUserPoolDomain_Override(c CfnUserPoolDomain, scope constructs.Construct, id *string, props *CfnUserPoolDomainProps) {
 	_init_.Initialize()
 

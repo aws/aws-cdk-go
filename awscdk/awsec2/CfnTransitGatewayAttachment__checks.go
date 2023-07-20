@@ -179,7 +179,7 @@ func validateCfnTransitGatewayAttachment_IsConstructParameters(x interface{}) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetOptionsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetSubnetIdsParameters(val *[]*string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
@@ -187,9 +187,11 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetOptionsParameters(val
 	return nil
 }
 
-func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetSubnetIdsParameters(val *[]*string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

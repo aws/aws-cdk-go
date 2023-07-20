@@ -17,14 +17,20 @@ package awss3
 //   	LogFilePrefix: jsii.String("logFilePrefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html
+//
 type CfnBucket_LoggingConfigurationProperty struct {
 	// The name of the bucket where Amazon S3 should store server access log files.
 	//
 	// You can store log files in any bucket that you own. By default, logs are stored in the bucket where the `LoggingConfiguration` property is defined.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html#cfn-s3-bucket-loggingconfiguration-destinationbucketname
+	//
 	DestinationBucketName *string `field:"optional" json:"destinationBucketName" yaml:"destinationBucketName"`
 	// A prefix for all log object keys.
 	//
 	// If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html#cfn-s3-bucket-loggingconfiguration-logfileprefix
+	//
 	LogFilePrefix *string `field:"optional" json:"logFilePrefix" yaml:"logFilePrefix"`
 }
 

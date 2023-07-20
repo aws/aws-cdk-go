@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnApplicationInstance) validateSetManifestPayloadParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplicationInstance) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnApplicationInstanceParameters(scope constructs.Construct, id *string, props *CfnApplicationInstanceProps) error {
 	return nil
 }

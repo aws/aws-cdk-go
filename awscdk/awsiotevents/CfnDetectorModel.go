@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTEvents::DetectorModel`.
+// The AWS::IoTEvents::DetectorModel resource creates a detector model.
 //
-// The AWS::IoTEvents::DetectorModel resource creates a detector model. You create a *detector model* (a model of your equipment or process) using *states* . For each state, you define conditional (Boolean) logic that evaluates the incoming inputs to detect significant events. When an event is detected, it can change the state or trigger custom-built or predefined actions using other AWS services. You can define additional events that trigger actions when entering or exiting a state and, optionally, when a condition is met. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide* .
+// You create a *detector model* (a model of your equipment or process) using *states* . For each state, you define conditional (Boolean) logic that evaluates the incoming inputs to detect significant events. When an event is detected, it can change the state or trigger custom-built or predefined actions using other AWS services. You can define additional events that trigger actions when entering or exiting a state and, optionally, when a condition is met. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide* .
 //
 // > When you successfully update a detector model (using the AWS IoT Events console, AWS IoT Events API or CLI commands, or AWS CloudFormation ) all detector instances created by the model are reset to their initial states. (The detector's `state` , and the values of any variables and timers are reset.)
 // >
@@ -24,9 +24,12 @@ import (
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html
+//
 type CfnDetectorModel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -49,10 +52,6 @@ type CfnDetectorModel interface {
 	EvaluationMethod() *string
 	SetEvaluationMethod(val *string)
 	// The value used to identify a detector instance.
-	//
-	// When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
-	//
-	// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
 	Key() *string
 	SetKey(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -79,10 +78,11 @@ type CfnDetectorModel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -227,6 +227,7 @@ type CfnDetectorModel interface {
 type jsiiProxy_CfnDetectorModel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDetectorModel) CfnOptions() awscdk.ICfnResourceOptions {
@@ -379,6 +380,16 @@ func (j *jsiiProxy_CfnDetectorModel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDetectorModel) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDetectorModel) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -400,7 +411,6 @@ func (j *jsiiProxy_CfnDetectorModel) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::IoTEvents::DetectorModel`.
 func NewCfnDetectorModel(scope constructs.Construct, id *string, props *CfnDetectorModelProps) CfnDetectorModel {
 	_init_.Initialize()
 
@@ -418,7 +428,6 @@ func NewCfnDetectorModel(scope constructs.Construct, id *string, props *CfnDetec
 	return &j
 }
 
-// Create a new `AWS::IoTEvents::DetectorModel`.
 func NewCfnDetectorModel_Override(c CfnDetectorModel, scope constructs.Construct, id *string, props *CfnDetectorModelProps) {
 	_init_.Initialize()
 
@@ -479,6 +488,17 @@ func (j *jsiiProxy_CfnDetectorModel)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDetectorModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

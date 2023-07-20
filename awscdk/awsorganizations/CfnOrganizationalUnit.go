@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Organizations::OrganizationalUnit`.
+// Creates an organizational unit (OU) within a root or parent OU.
 //
-// Creates an organizational unit (OU) within a root or parent OU. An OU is a container for accounts that enables you to organize your accounts to apply policies according to your business requirements. The number of levels deep that you can nest OUs is dependent upon the policy types enabled for that root. For service control policies, the limit is five.
+// An OU is a container for accounts that enables you to organize your accounts to apply policies according to your business requirements. The number of levels deep that you can nest OUs is dependent upon the policy types enabled for that root. For service control policies, the limit is five.
 //
 // For more information about OUs, see [Managing Organizational Units](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html) in the *AWS Organizations User Guide.*
 //
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organizationalunit.html
+//
 type CfnOrganizationalUnit interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of this OU.
 	//
 	// For example: `arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111` .
@@ -68,20 +71,11 @@ type CfnOrganizationalUnit interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The friendly name of this OU.
-	//
-	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
-	//
-	// > To update the `ParentId` parameter value, you must first remove all accounts attached to the organizational unit (OU). OUs can't be moved within the organization with accounts still attached.
-	//
-	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) for a parent ID string requires one of the following:
-	//
-	// - *Root* - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
-	// - *Organizational unit (OU)* - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
 	ParentId() *string
 	SetParentId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -93,12 +87,11 @@ type CfnOrganizationalUnit interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags that you want to attach to the newly created OU.
-	//
-	// For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to `null` . For more information about tagging, see [Tagging AWS Organizations resources](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html) in the AWS Organizations User Guide.
-	//
-	// > If any one of the tags is not valid or if you exceed the allowed number of tags for an OU, then the entire request fails and the OU is not created.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags that you want to attach to the newly created OU.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -243,6 +236,7 @@ type CfnOrganizationalUnit interface {
 type jsiiProxy_CfnOrganizationalUnit struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnOrganizationalUnit) AttrArn() *string {
@@ -375,6 +369,16 @@ func (j *jsiiProxy_CfnOrganizationalUnit) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOrganizationalUnit) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOrganizationalUnit) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -396,7 +400,6 @@ func (j *jsiiProxy_CfnOrganizationalUnit) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::Organizations::OrganizationalUnit`.
 func NewCfnOrganizationalUnit(scope constructs.Construct, id *string, props *CfnOrganizationalUnitProps) CfnOrganizationalUnit {
 	_init_.Initialize()
 
@@ -414,7 +417,6 @@ func NewCfnOrganizationalUnit(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::Organizations::OrganizationalUnit`.
 func NewCfnOrganizationalUnit_Override(c CfnOrganizationalUnit, scope constructs.Construct, id *string, props *CfnOrganizationalUnitProps) {
 	_init_.Initialize()
 
@@ -443,6 +445,17 @@ func (j *jsiiProxy_CfnOrganizationalUnit)SetParentId(val *string) {
 	_jsii_.Set(
 		j,
 		"parentId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOrganizationalUnit)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

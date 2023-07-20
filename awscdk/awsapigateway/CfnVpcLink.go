@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGateway::VpcLink`.
+// The `AWS::ApiGateway::VpcLink` resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC).
 //
-// The `AWS::ApiGateway::VpcLink` resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC). For more information, see [vpclink:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateVpcLink.html) in the `Amazon API Gateway REST API Reference` .
+// For more information, see [vpclink:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateVpcLink.html) in the `Amazon API Gateway REST API Reference` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html
+//
 type CfnVpcLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// The ID of the instance that backs VPC link.
 	AttrVpcLinkId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -74,11 +78,12 @@ type CfnVpcLink interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of arbitrary tags (key-value pairs) to associate with the VPC link.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of arbitrary tags (key-value pairs) to associate with the VPC link.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN of the network load balancer of the VPC targeted by the VPC link.
-	//
-	// The network load balancer must be owned by the same AWS account of the API owner.
 	TargetArns() *[]*string
 	SetTargetArns(val *[]*string)
 	// Deprecated.
@@ -225,6 +230,7 @@ type CfnVpcLink interface {
 type jsiiProxy_CfnVpcLink struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVpcLink) AttrVpcLinkId() *string {
@@ -347,6 +353,16 @@ func (j *jsiiProxy_CfnVpcLink) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVpcLink) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVpcLink) TargetArns() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -378,7 +394,6 @@ func (j *jsiiProxy_CfnVpcLink) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGateway::VpcLink`.
 func NewCfnVpcLink(scope constructs.Construct, id *string, props *CfnVpcLinkProps) CfnVpcLink {
 	_init_.Initialize()
 
@@ -396,7 +411,6 @@ func NewCfnVpcLink(scope constructs.Construct, id *string, props *CfnVpcLinkProp
 	return &j
 }
 
-// Create a new `AWS::ApiGateway::VpcLink`.
 func NewCfnVpcLink_Override(c CfnVpcLink, scope constructs.Construct, id *string, props *CfnVpcLinkProps) {
 	_init_.Initialize()
 
@@ -422,6 +436,17 @@ func (j *jsiiProxy_CfnVpcLink)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcLink)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

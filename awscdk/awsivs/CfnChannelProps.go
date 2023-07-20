@@ -27,14 +27,20 @@ import (
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html
+//
 type CfnChannelProps struct {
 	// Whether the channel is authorized.
 	//
 	// *Default* : `false`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
+	//
 	Authorized interface{} `field:"optional" json:"authorized" yaml:"authorized"`
 	// Whether the channel allows insecure RTMP ingest.
 	//
 	// *Default* : `false`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-insecureingest
+	//
 	InsecureIngest interface{} `field:"optional" json:"insecureIngest" yaml:"insecureIngest"`
 	// Channel latency mode. Valid values:.
 	//
@@ -44,22 +50,32 @@ type CfnChannelProps struct {
 	// > In the  console, `LOW` and `NORMAL` correspond to `Ultra-low` and `Standard` , respectively.
 	//
 	// *Default* : `LOW`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
+	//
 	LatencyMode *string `field:"optional" json:"latencyMode" yaml:"latencyMode"`
 	// Channel name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An optional transcode preset for the channel.
 	//
 	// This is selectable only for `ADVANCED_HD` and `ADVANCED_SD` channel types. For those channel types, the default preset is `HIGHER_BANDWIDTH_DELIVERY` . For other channel types ( `BASIC` and `STANDARD` ), `preset` is the empty string ("").
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-preset
+	//
 	Preset *string `field:"optional" json:"preset" yaml:"preset"`
 	// The ARN of a RecordingConfiguration resource.
 	//
 	// An empty string indicates that recording is disabled for the channel. A RecordingConfiguration ARN indicates that recording is enabled using the specified recording configuration. See the [RecordingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html) resource for more information and an example.
 	//
 	// *Default* : "" (empty string, recording is disabled).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+	//
 	RecordingConfigurationArn *string `field:"optional" json:"recordingConfigurationArn" yaml:"recordingConfigurationArn"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The channel type, which determines the allowable resolution and bitrate.
 	//
@@ -76,6 +92,8 @@ type CfnChannelProps struct {
 	// - *Higher bandwidth delivery* uses a higher bitrate for each quality level. Use it if you have high download bandwidth and/or complex video content (e.g., flashes and quick scene changes).
 	//
 	// *Default* : `STANDARD`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

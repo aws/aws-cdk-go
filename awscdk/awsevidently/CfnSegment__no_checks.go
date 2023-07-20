@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnSegment) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnSegment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSegmentParameters(scope constructs.Construct, id *string, props *CfnSegmentProps) error {
 	return nil
 }

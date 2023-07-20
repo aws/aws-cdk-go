@@ -13,12 +13,18 @@ package awssagemaker
 //   	UserGroup: jsii.String("userGroup"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverproappsettings.html
+//
 type CfnDomain_RStudioServerProAppSettingsProperty struct {
 	// Indicates whether the current user has access to the `RStudioServerPro` app.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverproappsettings.html#cfn-sagemaker-domain-rstudioserverproappsettings-accessstatus
+	//
 	AccessStatus *string `field:"optional" json:"accessStatus" yaml:"accessStatus"`
 	// The level of permissions that the user has within the `RStudioServerPro` app.
 	//
 	// This value defaults to `User`. The `Admin` value allows the user access to the RStudio Administrative Dashboard.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverproappsettings.html#cfn-sagemaker-domain-rstudioserverproappsettings-usergroup
+	//
 	UserGroup *string `field:"optional" json:"userGroup" yaml:"userGroup"`
 }
 

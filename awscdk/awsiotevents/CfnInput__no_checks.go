@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnInput) validateSetInputDefinitionParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnInput) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnInputParameters(scope constructs.Construct, id *string, props *CfnInputProps) error {
 	return nil
 }

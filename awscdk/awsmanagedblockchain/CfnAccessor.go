@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ManagedBlockchain::Accessor`.
+// Creates a new accessor for use with Managed Blockchain Ethereum nodes.
 //
-// Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor contains information required for token based access to your Ethereum nodes.
+// An accessor contains information required for token based access to your Ethereum nodes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,12 +30,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-accessor.html
+//
 type CfnAccessor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The type of the accessor.
-	//
-	// > Currently, accessor type is restricted to `BILLING_TOKEN` .
 	AccessorType() *string
 	SetAccessorType(val *string)
 	// The Amazon Resource Name (ARN) of the accessor.
@@ -82,10 +83,11 @@ type CfnAccessor interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags assigned to the Accessor.
-	//
-	// For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide* , or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags assigned to the Accessor.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +232,7 @@ type CfnAccessor interface {
 type jsiiProxy_CfnAccessor struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAccessor) AccessorType() *string {
@@ -382,6 +385,16 @@ func (j *jsiiProxy_CfnAccessor) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessor) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessor) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -403,7 +416,6 @@ func (j *jsiiProxy_CfnAccessor) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ManagedBlockchain::Accessor`.
 func NewCfnAccessor(scope constructs.Construct, id *string, props *CfnAccessorProps) CfnAccessor {
 	_init_.Initialize()
 
@@ -421,7 +433,6 @@ func NewCfnAccessor(scope constructs.Construct, id *string, props *CfnAccessorPr
 	return &j
 }
 
-// Create a new `AWS::ManagedBlockchain::Accessor`.
 func NewCfnAccessor_Override(c CfnAccessor, scope constructs.Construct, id *string, props *CfnAccessorProps) {
 	_init_.Initialize()
 
@@ -439,6 +450,17 @@ func (j *jsiiProxy_CfnAccessor)SetAccessorType(val *string) {
 	_jsii_.Set(
 		j,
 		"accessorType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccessor)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

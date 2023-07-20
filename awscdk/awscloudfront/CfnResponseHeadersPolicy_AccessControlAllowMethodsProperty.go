@@ -16,6 +16,8 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolallowmethods.html
+//
 type CfnResponseHeadersPolicy_AccessControlAllowMethodsProperty struct {
 	// The list of HTTP methods. Valid values are:.
 	//
@@ -29,6 +31,8 @@ type CfnResponseHeadersPolicy_AccessControlAllowMethodsProperty struct {
 	// - `ALL`
 	//
 	// `ALL` is a special value that includes all of the listed HTTP methods.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolallowmethods.html#cfn-cloudfront-responseheaderspolicy-accesscontrolallowmethods-items
+	//
 	Items *[]*string `field:"required" json:"items" yaml:"items"`
 }
 

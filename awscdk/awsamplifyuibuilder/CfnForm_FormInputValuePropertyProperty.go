@@ -14,8 +14,12 @@ package awsamplifyuibuilder
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html
+//
 type CfnForm_FormInputValuePropertyProperty struct {
 	// The value to assign to the input field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html#cfn-amplifyuibuilder-form-forminputvalueproperty-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

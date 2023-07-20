@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Logs::QueryDefinition`.
+// Creates a query definition for CloudWatch Logs Insights.
 //
-// Creates a query definition for CloudWatch Logs Insights. For more information, see [Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) .
+// For more information, see [Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,6 +27,8 @@ import (
 //   		jsii.String("logGroupNames"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
 //
 type CfnQueryDefinition interface {
 	awscdk.CfnResource
@@ -61,8 +63,6 @@ type CfnQueryDefinition interface {
 	// The tree node.
 	Node() constructs.Node
 	// The query string to use for this query definition.
-	//
-	// For more information, see [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) .
 	QueryString() *string
 	SetQueryString(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -361,7 +361,6 @@ func (j *jsiiProxy_CfnQueryDefinition) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::Logs::QueryDefinition`.
 func NewCfnQueryDefinition(scope constructs.Construct, id *string, props *CfnQueryDefinitionProps) CfnQueryDefinition {
 	_init_.Initialize()
 
@@ -379,7 +378,6 @@ func NewCfnQueryDefinition(scope constructs.Construct, id *string, props *CfnQue
 	return &j
 }
 
-// Create a new `AWS::Logs::QueryDefinition`.
 func NewCfnQueryDefinition_Override(c CfnQueryDefinition, scope constructs.Construct, id *string, props *CfnQueryDefinitionProps) {
 	_init_.Initialize()
 

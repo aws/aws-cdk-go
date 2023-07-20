@@ -15,12 +15,18 @@ package awsquicksight
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html
+//
 type CfnDataSet_FieldFolderProperty struct {
 	// A folder has a list of columns.
 	//
 	// A column can only be in one folder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-columns
+	//
 	Columns *[]*string `field:"optional" json:"columns" yaml:"columns"`
 	// The description for a field folder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

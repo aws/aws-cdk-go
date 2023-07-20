@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnEventStream) validateSetEventStreamNameParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventStream) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEventStream) validateSetUriParameters(val *string) error {
 	return nil
 }

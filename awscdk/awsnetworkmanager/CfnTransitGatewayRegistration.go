@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::TransitGatewayRegistration`.
+// Registers a transit gateway in your global network.
 //
-// Registers a transit gateway in your global network. Not all Regions support transit gateways for global networks. For a list of the supported Regions, see [Region Availability](https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions) in the *AWS Transit Gateways for Global Networks User Guide* . The transit gateway can be in any of the supported AWS Regions, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
+// Not all Regions support transit gateways for global networks. For a list of the supported Regions, see [Region Availability](https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions) in the *AWS Transit Gateways for Global Networks User Guide* . The transit gateway can be in any of the supported AWS Regions, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,8 @@ import (
 //   	GlobalNetworkId: jsii.String("globalNetworkId"),
 //   	TransitGatewayArn: jsii.String("transitGatewayArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html
 //
 type CfnTransitGatewayRegistration interface {
 	awscdk.CfnResource
@@ -329,7 +331,6 @@ func (j *jsiiProxy_CfnTransitGatewayRegistration) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::NetworkManager::TransitGatewayRegistration`.
 func NewCfnTransitGatewayRegistration(scope constructs.Construct, id *string, props *CfnTransitGatewayRegistrationProps) CfnTransitGatewayRegistration {
 	_init_.Initialize()
 
@@ -347,7 +348,6 @@ func NewCfnTransitGatewayRegistration(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::TransitGatewayRegistration`.
 func NewCfnTransitGatewayRegistration_Override(c CfnTransitGatewayRegistration, scope constructs.Construct, id *string, props *CfnTransitGatewayRegistrationProps) {
 	_init_.Initialize()
 

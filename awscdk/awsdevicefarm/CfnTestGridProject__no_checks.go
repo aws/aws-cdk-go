@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnTestGridProject) validateSetNameParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnTestGridProject) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTestGridProject) validateSetVpcConfigParameters(val interface{}) error {
 	return nil
 }

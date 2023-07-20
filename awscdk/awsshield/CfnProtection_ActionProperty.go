@@ -18,6 +18,8 @@ package awsshield
 //   	Count: count,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-action.html
+//
 type CfnProtection_ActionProperty struct {
 	// Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Block` action.
 	//
@@ -26,6 +28,8 @@ type CfnProtection_ActionProperty struct {
 	// Example JSON: `{ "Block": {} }`
 	//
 	// Example YAML: `Block: {}`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-action.html#cfn-shield-protection-action-block
+	//
 	Block interface{} `field:"optional" json:"block" yaml:"block"`
 	// Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Count` action.
 	//
@@ -34,6 +38,8 @@ type CfnProtection_ActionProperty struct {
 	// Example JSON: `{ "Count": {} }`
 	//
 	// Example YAML: `Count: {}`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-action.html#cfn-shield-protection-action-count
+	//
 	Count interface{} `field:"optional" json:"count" yaml:"count"`
 }
 

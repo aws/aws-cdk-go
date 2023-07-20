@@ -30,10 +30,14 @@ package awsquicksight
 //   	Width: jsii.String("width"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html
+//
 type CfnAnalysis_LegendOptionsProperty struct {
 	// The height of the legend.
 	//
 	// If this value is omitted, a default height is used when rendering.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-height
+	//
 	Height *string `field:"optional" json:"height" yaml:"height"`
 	// The positions for the legend. Choose one of the following options:.
 	//
@@ -41,14 +45,22 @@ type CfnAnalysis_LegendOptionsProperty struct {
 	// - `RIGHT`
 	// - `BOTTOM`
 	// - `LEFT`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-position
+	//
 	Position *string `field:"optional" json:"position" yaml:"position"`
 	// The custom title for the legend.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-title
+	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 	// Determines whether or not the legend is visible.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 	// The width of the legend.
 	//
 	// If this value is omitted, a default width is used when rendering.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-width
+	//
 	Width *string `field:"optional" json:"width" yaml:"width"`
 }
 

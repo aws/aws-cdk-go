@@ -15,8 +15,12 @@ package awsiotanalytics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html
+//
 type CfnDataset_FilterProperty struct {
 	// Used to limit data to that which has arrived since the last execution of the action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html#cfn-iotanalytics-dataset-filter-deltatime
+	//
 	DeltaTime interface{} `field:"optional" json:"deltaTime" yaml:"deltaTime"`
 }
 

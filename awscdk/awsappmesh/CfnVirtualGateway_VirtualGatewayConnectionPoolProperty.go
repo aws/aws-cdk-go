@@ -27,12 +27,20 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html
+//
 type CfnVirtualGateway_VirtualGatewayConnectionPoolProperty struct {
 	// An object that represents a type of connection pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-grpc
+	//
 	Grpc interface{} `field:"optional" json:"grpc" yaml:"grpc"`
 	// An object that represents a type of connection pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http
+	//
 	Http interface{} `field:"optional" json:"http" yaml:"http"`
 	// An object that represents a type of connection pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http2
+	//
 	Http2 interface{} `field:"optional" json:"http2" yaml:"http2"`
 }
 

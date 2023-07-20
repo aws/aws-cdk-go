@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ControlTower::EnabledControl`.
+// The resource represents an enabled control.
 //
-// The resource represents an enabled control. It specifies an asynchronous operation that creates AWS resources on the specified organizational unit and the accounts it contains. The resources created will vary according to the control that you specify.
+// It specifies an asynchronous operation that creates AWS resources on the specified organizational unit and the accounts it contains. The resources created will vary according to the control that you specify.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,6 +23,8 @@ import (
 //   	TargetIdentifier: jsii.String("targetIdentifier"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html
+//
 type CfnEnabledControl interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -32,8 +34,6 @@ type CfnEnabledControl interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The ARN of the control.
-	//
-	// Only *Strongly recommended* and *Elective* controls are permitted, with the exception of the *Region deny* guardrail.
 	ControlIdentifier() *string
 	SetControlIdentifier(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -331,7 +331,6 @@ func (j *jsiiProxy_CfnEnabledControl) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::ControlTower::EnabledControl`.
 func NewCfnEnabledControl(scope constructs.Construct, id *string, props *CfnEnabledControlProps) CfnEnabledControl {
 	_init_.Initialize()
 
@@ -349,7 +348,6 @@ func NewCfnEnabledControl(scope constructs.Construct, id *string, props *CfnEnab
 	return &j
 }
 
-// Create a new `AWS::ControlTower::EnabledControl`.
 func NewCfnEnabledControl_Override(c CfnEnabledControl, scope constructs.Construct, id *string, props *CfnEnabledControlProps) {
 	_init_.Initialize()
 

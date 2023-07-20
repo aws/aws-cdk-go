@@ -84,7 +84,7 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) validateSetNameParameters(va
 	return nil
 }
 
-func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) validateSetTraceContentParameters(val interface{}) error {
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

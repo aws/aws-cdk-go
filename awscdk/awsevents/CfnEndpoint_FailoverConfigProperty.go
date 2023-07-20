@@ -19,10 +19,16 @@ package awsevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html
+//
 type CfnEndpoint_FailoverConfigProperty struct {
 	// The main Region of the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html#cfn-events-endpoint-failoverconfig-primary
+	//
 	Primary interface{} `field:"required" json:"primary" yaml:"primary"`
 	// The Region that events are routed to when failover is triggered or event replication is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html#cfn-events-endpoint-failoverconfig-secondary
+	//
 	Secondary interface{} `field:"required" json:"secondary" yaml:"secondary"`
 }
 

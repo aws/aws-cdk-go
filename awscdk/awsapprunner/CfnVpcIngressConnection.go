@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppRunner::VpcIngressConnection`.
-//
 // Specify an AWS App Runner VPC Ingress Connection by using the `AWS::AppRunner::VpcIngressConnection` resource in an AWS CloudFormation template.
 //
 // The `AWS::AppRunner::VpcIngressConnection` resource is an AWS App Runner resource type that specifies an App Runner VPC Ingress Connection.
@@ -39,9 +37,12 @@ import (
 //   	VpcIngressConnectionName: jsii.String("vpcIngressConnectionName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcingressconnection.html
+//
 type CfnVpcIngressConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The domain name associated with the VPC Ingress Connection resource.
 	AttrDomainName() *string
 	// The current status of the VPC Ingress Connection.
@@ -86,10 +87,11 @@ type CfnVpcIngressConnection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An optional list of metadata items that you can associate with the VPC Ingress Connection resource.
-	//
-	// A tag is a key-value pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An optional list of metadata items that you can associate with the VPC Ingress Connection resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -237,6 +239,7 @@ type CfnVpcIngressConnection interface {
 type jsiiProxy_CfnVpcIngressConnection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVpcIngressConnection) AttrDomainName() *string {
@@ -379,6 +382,16 @@ func (j *jsiiProxy_CfnVpcIngressConnection) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVpcIngressConnection) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVpcIngressConnection) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -410,7 +423,6 @@ func (j *jsiiProxy_CfnVpcIngressConnection) VpcIngressConnectionName() *string {
 }
 
 
-// Create a new `AWS::AppRunner::VpcIngressConnection`.
 func NewCfnVpcIngressConnection(scope constructs.Construct, id *string, props *CfnVpcIngressConnectionProps) CfnVpcIngressConnection {
 	_init_.Initialize()
 
@@ -428,7 +440,6 @@ func NewCfnVpcIngressConnection(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::AppRunner::VpcIngressConnection`.
 func NewCfnVpcIngressConnection_Override(c CfnVpcIngressConnection, scope constructs.Construct, id *string, props *CfnVpcIngressConnectionProps) {
 	_init_.Initialize()
 
@@ -457,6 +468,17 @@ func (j *jsiiProxy_CfnVpcIngressConnection)SetServiceArn(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcIngressConnection)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

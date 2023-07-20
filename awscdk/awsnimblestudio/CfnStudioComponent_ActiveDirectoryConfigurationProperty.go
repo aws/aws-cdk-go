@@ -19,12 +19,20 @@ package awsnimblestudio
 //   	OrganizationalUnitDistinguishedName: jsii.String("organizationalUnitDistinguishedName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html
+//
 type CfnStudioComponent_ActiveDirectoryConfigurationProperty struct {
 	// A collection of custom attributes for an Active Directory computer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
+	//
 	ComputerAttributes interface{} `field:"optional" json:"computerAttributes" yaml:"computerAttributes"`
 	// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid
+	//
 	DirectoryId *string `field:"optional" json:"directoryId" yaml:"directoryId"`
 	// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname
+	//
 	OrganizationalUnitDistinguishedName *string `field:"optional" json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
 }
 

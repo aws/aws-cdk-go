@@ -13,6 +13,8 @@ package awsmedialive
 //   aribSourceSettingsProperty := &AribSourceSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aribsourcesettings.html
+//
 type CfnChannel_AribSourceSettingsProperty struct {
 }
 

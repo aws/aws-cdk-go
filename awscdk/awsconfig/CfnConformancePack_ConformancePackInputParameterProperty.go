@@ -15,10 +15,16 @@ package awsconfig
 //   	ParameterValue: jsii.String("parameterValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
+//
 type CfnConformancePack_ConformancePackInputParameterProperty struct {
 	// One part of a key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
+	//
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// Another part of the key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
+	//
 	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 

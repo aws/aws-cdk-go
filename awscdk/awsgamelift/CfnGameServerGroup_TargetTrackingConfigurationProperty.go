@@ -14,8 +14,12 @@ package awsgamelift
 //   	TargetValue: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
+//
 type CfnGameServerGroup_TargetTrackingConfigurationProperty struct {
 	// Desired value to use with a game server group target-based scaling policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
+	//
 	TargetValue *float64 `field:"required" json:"targetValue" yaml:"targetValue"`
 }
 

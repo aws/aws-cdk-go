@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::Device`.
-//
 // Specifies a device.
 //
 // Example:
@@ -45,9 +43,13 @@ import (
 //   	Vendor: jsii.String("vendor"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html
+//
 type CfnDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// The date and time that the device was created.
 	AttrCreatedAt() *string
 	// The ARN of the device.
 	//
@@ -57,7 +59,7 @@ type CfnDevice interface {
 	//
 	// For example, `device-07f6fd08867abc123` .
 	AttrDeviceId() *string
-	// `AWS::NetworkManager::Device.AWSLocation`.
+	// The Amazon Web Services location of the device, if applicable.
 	AwsLocation() interface{}
 	SetAwsLocation(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -70,8 +72,6 @@ type CfnDevice interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A description of the device.
-	//
-	// Constraints: Maximum length of 256 characters.
 	Description() *string
 	SetDescription(val *string)
 	// The ID of the global network.
@@ -91,8 +91,6 @@ type CfnDevice interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The model of the device.
-	//
-	// Constraints: Maximum length of 128 characters.
 	Model() *string
 	SetModel(val *string)
 	// The tree node.
@@ -103,8 +101,6 @@ type CfnDevice interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The serial number of the device.
-	//
-	// Constraints: Maximum length of 128 characters.
 	SerialNumber() *string
 	SetSerialNumber(val *string)
 	// The site ID.
@@ -114,8 +110,11 @@ type CfnDevice interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the device.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the device.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The device type.
 	Type() *string
 	SetType(val *string)
@@ -133,8 +132,6 @@ type CfnDevice interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The vendor of the device.
-	//
-	// Constraints: Maximum length of 128 characters.
 	Vendor() *string
 	SetVendor(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -268,6 +265,7 @@ type CfnDevice interface {
 type jsiiProxy_CfnDevice struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDevice) AttrCreatedAt() *string {
@@ -460,6 +458,16 @@ func (j *jsiiProxy_CfnDevice) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDevice) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDevice) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -501,7 +509,6 @@ func (j *jsiiProxy_CfnDevice) Vendor() *string {
 }
 
 
-// Create a new `AWS::NetworkManager::Device`.
 func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps) CfnDevice {
 	_init_.Initialize()
 
@@ -519,7 +526,6 @@ func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps)
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::Device`.
 func NewCfnDevice_Override(c CfnDevice, scope constructs.Construct, id *string, props *CfnDeviceProps) {
 	_init_.Initialize()
 
@@ -591,6 +597,17 @@ func (j *jsiiProxy_CfnDevice)SetSiteId(val *string) {
 	_jsii_.Set(
 		j,
 		"siteId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDevice)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

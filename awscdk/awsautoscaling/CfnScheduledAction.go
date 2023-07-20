@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AutoScaling::ScheduledAction`.
-//
 // The `AWS::AutoScaling::ScheduledAction` resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
 //
 // When you update a stack with an Auto Scaling group and scheduled action, CloudFormation always sets the min size, max size, and desired capacity properties of your group to the values that are defined in the `AWS::AutoScaling::AutoScalingGroup` section of your template. However, you might not want CloudFormation to do that when you have a scheduled action in effect. You can use an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html) to prevent CloudFormation from changing the min size, max size, or desired capacity property values during a stack update unless you modified the individual values in your template. If you have rolling updates enabled, before you can update the Auto Scaling group, you must suspend scheduled actions by specifying an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html) for the Auto Scaling group. You can find a sample update policy for rolling updates in [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) .
@@ -35,6 +33,8 @@ import (
 //   	TimeZone: jsii.String("timeZone"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scheduledaction.html
+//
 type CfnScheduledAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -53,15 +53,9 @@ type CfnScheduledAction interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
-	//
-	// It can scale beyond this capacity if you add more scaling conditions.
-	//
-	// > You must specify at least one of the following properties: `MaxSize` , `MinSize` , or `DesiredCapacity` .
 	DesiredCapacity() *float64
 	SetDesiredCapacity(val *float64)
 	// The date and time for the recurring schedule to end, in UTC.
-	//
-	// For example, `"2021-06-01T00:00:00Z"` .
 	EndTime() *string
 	SetEndTime(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -83,12 +77,6 @@ type CfnScheduledAction interface {
 	// The tree node.
 	Node() constructs.Node
 	// The recurring schedule for this action.
-	//
-	// This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, `"30 0 1 1,6,12 *"` ). For more information about this format, see [Crontab](https://docs.aws.amazon.com/http://crontab.org) .
-	//
-	// When `StartTime` and `EndTime` are specified with `Recurrence` , they form the boundaries of when the recurring action starts and stops.
-	//
-	// Cron expressions use Universal Coordinated Time (UTC) by default.
 	Recurrence() *string
 	SetRecurrence(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -101,15 +89,9 @@ type CfnScheduledAction interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only and in quotes (for example, `"2021-06-01T00:00:00Z"` ).
-	//
-	// If you specify `Recurrence` and `StartTime` , Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence.
 	StartTime() *string
 	SetStartTime(val *string)
 	// Specifies the time zone for a cron expression.
-	//
-	// If a time zone is not provided, UTC is used by default.
-	//
-	// Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database (such as `Etc/GMT+9` or `Pacific/Tahiti` ). For more information, see [https://en.wikipedia.org/wiki/List_of_tz_database_time_zones](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) .
 	TimeZone() *string
 	SetTimeZone(val *string)
 	// Deprecated.
@@ -449,7 +431,6 @@ func (j *jsiiProxy_CfnScheduledAction) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::AutoScaling::ScheduledAction`.
 func NewCfnScheduledAction(scope constructs.Construct, id *string, props *CfnScheduledActionProps) CfnScheduledAction {
 	_init_.Initialize()
 
@@ -467,7 +448,6 @@ func NewCfnScheduledAction(scope constructs.Construct, id *string, props *CfnSch
 	return &j
 }
 
-// Create a new `AWS::AutoScaling::ScheduledAction`.
 func NewCfnScheduledAction_Override(c CfnScheduledAction, scope constructs.Construct, id *string, props *CfnScheduledActionProps) {
 	_init_.Initialize()
 

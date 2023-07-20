@@ -17,12 +17,18 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+//
 type CfnStorageLens_BucketsAndRegionsProperty struct {
 	// This property contains the details of the buckets for the Amazon S3 Storage Lens configuration.
 	//
 	// This should be the bucket Amazon Resource Name(ARN). For valid values, see [Buckets ARN format here](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_Include.html#API_control_Include_Contents) in the *Amazon S3 API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
+	//
 	Buckets *[]*string `field:"optional" json:"buckets" yaml:"buckets"`
 	// This property contains the details of the Regions for the S3 Storage Lens configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
+	//
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 }
 

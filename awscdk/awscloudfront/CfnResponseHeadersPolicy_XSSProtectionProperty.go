@@ -19,24 +19,34 @@ package awscloudfront
 //   	ReportUri: jsii.String("reportUri"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html
+//
 type CfnResponseHeadersPolicy_XSSProtectionProperty struct {
 	// A Boolean that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-override
+	//
 	Override interface{} `field:"required" json:"override" yaml:"override"`
 	// A Boolean that determines the value of the `X-XSS-Protection` HTTP response header.
 	//
 	// When this setting is `true` , the value of the `X-XSS-Protection` header is `1` . When this setting is `false` , the value of the `X-XSS-Protection` header is `0` .
 	//
 	// For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-protection
+	//
 	Protection interface{} `field:"required" json:"protection" yaml:"protection"`
 	// A Boolean that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
 	//
 	// For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-modeblock
+	//
 	ModeBlock interface{} `field:"optional" json:"modeBlock" yaml:"modeBlock"`
 	// A reporting URI, which CloudFront uses as the value of the `report` directive in the `X-XSS-Protection` header.
 	//
 	// You cannot specify a `ReportUri` when `ModeBlock` is `true` .
 	//
 	// For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-reporturi
+	//
 	ReportUri *string `field:"optional" json:"reportUri" yaml:"reportUri"`
 }
 

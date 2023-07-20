@@ -15,14 +15,20 @@ package awsapigatewayv2
 //   	Source: jsii.String("source"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html
+//
 type CfnIntegration_ResponseParameterProperty struct {
 	// Specifies the location of the response to modify, and how to modify it.
 	//
 	// To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html#cfn-apigatewayv2-integration-responseparameter-destination
+	//
 	Destination *string `field:"required" json:"destination" yaml:"destination"`
 	// Specifies the data to update the parameter with.
 	//
 	// To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html#cfn-apigatewayv2-integration-responseparameter-source
+	//
 	Source *string `field:"required" json:"source" yaml:"source"`
 }
 

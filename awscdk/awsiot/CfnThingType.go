@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::ThingType`.
-//
 // Creates a new thing type.
 //
 // Example:
@@ -35,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html
+//
 type CfnThingType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The thing type arn.
 	AttrArn() *string
 	// The thing type id.
@@ -51,9 +52,9 @@ type CfnThingType interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Deprecates a thing type. You can not associate new things with deprecated thing type.
+	// Deprecates a thing type.
 	//
-	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+	// You can not associate new things with deprecated thing type.
 	DeprecateThingType() interface{}
 	SetDeprecateThingType(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -77,14 +78,15 @@ type CfnThingType interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata which can be used to manage the thing type.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata which can be used to manage the thing type.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The name of the thing type.
 	ThingTypeName() *string
 	SetThingTypeName(val *string)
 	// The thing type properties for the thing type to create.
-	//
-	// It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 	ThingTypeProperties() interface{}
 	SetThingTypeProperties(val interface{})
 	// Deprecated.
@@ -231,6 +233,7 @@ type CfnThingType interface {
 type jsiiProxy_CfnThingType struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnThingType) AttrArn() *string {
@@ -353,6 +356,16 @@ func (j *jsiiProxy_CfnThingType) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnThingType) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnThingType) ThingTypeName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -394,7 +407,6 @@ func (j *jsiiProxy_CfnThingType) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::ThingType`.
 func NewCfnThingType(scope constructs.Construct, id *string, props *CfnThingTypeProps) CfnThingType {
 	_init_.Initialize()
 
@@ -412,7 +424,6 @@ func NewCfnThingType(scope constructs.Construct, id *string, props *CfnThingType
 	return &j
 }
 
-// Create a new `AWS::IoT::ThingType`.
 func NewCfnThingType_Override(c CfnThingType, scope constructs.Construct, id *string, props *CfnThingTypeProps) {
 	_init_.Initialize()
 
@@ -430,6 +441,17 @@ func (j *jsiiProxy_CfnThingType)SetDeprecateThingType(val interface{}) {
 	_jsii_.Set(
 		j,
 		"deprecateThingType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnThingType)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

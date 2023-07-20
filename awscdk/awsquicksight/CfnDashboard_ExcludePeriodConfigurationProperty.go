@@ -16,15 +16,23 @@ package awsquicksight
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-excludeperiodconfiguration.html
+//
 type CfnDashboard_ExcludePeriodConfigurationProperty struct {
 	// The amount or number of the exclude period.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-excludeperiodconfiguration.html#cfn-quicksight-dashboard-excludeperiodconfiguration-amount
+	//
 	Amount *float64 `field:"required" json:"amount" yaml:"amount"`
 	// The granularity or unit (day, month, year) of the exclude period.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-excludeperiodconfiguration.html#cfn-quicksight-dashboard-excludeperiodconfiguration-granularity
+	//
 	Granularity *string `field:"required" json:"granularity" yaml:"granularity"`
 	// The status of the exclude period. Choose from the following options:.
 	//
 	// - `ENABLED`
 	// - `DISABLED`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-excludeperiodconfiguration.html#cfn-quicksight-dashboard-excludeperiodconfiguration-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

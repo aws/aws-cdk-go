@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnWebACL) validateSetScopeParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebACL) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebACL) validateSetVisibilityConfigParameters(val interface{}) error {
 	return nil
 }

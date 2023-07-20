@@ -16,12 +16,20 @@ package awsquicksight
 //   	PositiveColor: jsii.String("positiveColor"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-databarsoptions.html
+//
 type CfnTemplate_DataBarsOptionsProperty struct {
 	// The field ID for the data bars options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-databarsoptions.html#cfn-quicksight-template-databarsoptions-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The color of the negative data bar.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-databarsoptions.html#cfn-quicksight-template-databarsoptions-negativecolor
+	//
 	NegativeColor *string `field:"optional" json:"negativeColor" yaml:"negativeColor"`
 	// The color of the positive data bar.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-databarsoptions.html#cfn-quicksight-template-databarsoptions-positivecolor
+	//
 	PositiveColor *string `field:"optional" json:"positiveColor" yaml:"positiveColor"`
 }
 

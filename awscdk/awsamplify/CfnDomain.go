@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Amplify::Domain`.
-//
 // The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
 //
 // Example:
@@ -36,14 +34,12 @@ import (
 //   	EnableAutoSubDomain: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The unique ID for an Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 20.
-	//
-	// *Pattern:* d[a-z0-9]+.
 	AppId() *string
 	SetAppId(val *string)
 	// ARN for the Domain Association.
@@ -66,10 +62,6 @@ type CfnDomain interface {
 	AutoSubDomainCreationPatterns() *[]*string
 	SetAutoSubDomainCreationPatterns(val *[]*string)
 	// The required AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
-	//
-	// *Length Constraints:* Maximum length of 1000.
-	//
-	// *Pattern:* ^$|^arn:aws:iam::\d{12}:role.+
 	AutoSubDomainIamRole() *string
 	SetAutoSubDomainIamRole(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -82,10 +74,6 @@ type CfnDomain interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The domain name for the domain association.
-	//
-	// *Length Constraints:* Maximum length of 255.
-	//
-	// *Pattern:* ^(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])(\.)?$
 	DomainName() *string
 	SetDomainName(val *string)
 	// Enables the automated creation of subdomains for branches.
@@ -502,7 +490,6 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Amplify::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -520,7 +507,6 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
-// Create a new `AWS::Amplify::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::PushTemplate`.
+// Creates a message template that you can use in messages that are sent through a push notification channel.
 //
-// Creates a message template that you can use in messages that are sent through a push notification channel. A *message template* is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
+// A *message template* is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -74,24 +74,22 @@ import (
 //   	TemplateDescription: jsii.String("templateDescription"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html
+//
 type CfnPushTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The message template to use for the ADM (Amazon Device Messaging) channel.
-	//
-	// This message template overrides the default template for push notification channels ( `Default` ).
 	Adm() interface{}
 	SetAdm(val interface{})
 	// The message template to use for the APNs (Apple Push Notification service) channel.
-	//
-	// This message template overrides the default template for push notification channels ( `Default` ).
 	Apns() interface{}
 	SetApns(val interface{})
 	// The Amazon Resource Name (ARN) of the message template.
 	AttrArn() *string
+	AttrId() *string
 	// The message template to use for the Baidu (Baidu Cloud Push) channel.
-	//
-	// This message template overrides the default template for push notification channels ( `Default` ).
 	Baidu() interface{}
 	SetBaidu(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -107,13 +105,9 @@ type CfnPushTemplate interface {
 	Default() interface{}
 	SetDefault(val interface{})
 	// A JSON object that specifies the default values to use for message variables in the message template.
-	//
-	// This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
 	DefaultSubstitutions() *string
 	SetDefaultSubstitutions(val *string)
 	// The message template to use for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
-	//
-	// This message template overrides the default template for push notification channels ( `Default` ).
 	Gcm() interface{}
 	SetGcm(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -137,10 +131,11 @@ type CfnPushTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// A custom description of the message template.
 	TemplateDescription() *string
 	SetTemplateDescription(val *string)
@@ -291,6 +286,7 @@ type CfnPushTemplate interface {
 type jsiiProxy_CfnPushTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPushTemplate) Adm() interface{} {
@@ -318,6 +314,16 @@ func (j *jsiiProxy_CfnPushTemplate) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPushTemplate) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -453,6 +459,16 @@ func (j *jsiiProxy_CfnPushTemplate) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPushTemplate) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPushTemplate) TemplateDescription() *string {
 	var returns *string
 	_jsii_.Get(
@@ -494,7 +510,6 @@ func (j *jsiiProxy_CfnPushTemplate) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Pinpoint::PushTemplate`.
 func NewCfnPushTemplate(scope constructs.Construct, id *string, props *CfnPushTemplateProps) CfnPushTemplate {
 	_init_.Initialize()
 
@@ -512,7 +527,6 @@ func NewCfnPushTemplate(scope constructs.Construct, id *string, props *CfnPushTe
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::PushTemplate`.
 func NewCfnPushTemplate_Override(c CfnPushTemplate, scope constructs.Construct, id *string, props *CfnPushTemplateProps) {
 	_init_.Initialize()
 
@@ -582,6 +596,14 @@ func (j *jsiiProxy_CfnPushTemplate)SetGcm(val interface{}) {
 	_jsii_.Set(
 		j,
 		"gcm",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPushTemplate)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

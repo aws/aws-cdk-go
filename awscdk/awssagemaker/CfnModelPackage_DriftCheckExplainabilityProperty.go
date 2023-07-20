@@ -25,10 +25,16 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckexplainability.html
+//
 type CfnModelPackage_DriftCheckExplainabilityProperty struct {
 	// The explainability config file for the model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckexplainability.html#cfn-sagemaker-modelpackage-driftcheckexplainability-configfile
+	//
 	ConfigFile interface{} `field:"optional" json:"configFile" yaml:"configFile"`
 	// The drift check explainability constraints.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckexplainability.html#cfn-sagemaker-modelpackage-driftcheckexplainability-constraints
+	//
 	Constraints interface{} `field:"optional" json:"constraints" yaml:"constraints"`
 }
 

@@ -96,12 +96,18 @@ package awspinpoint
 //   	Include: jsii.String("include"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups.html
+//
 type CfnSegment_SegmentGroupsProperty struct {
 	// Specifies the set of segment criteria to evaluate when handling segment groups for the segment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups.html#cfn-pinpoint-segment-segmentgroups-groups
+	//
 	Groups interface{} `field:"optional" json:"groups" yaml:"groups"`
 	// Specifies how to handle multiple segment groups for the segment.
 	//
 	// For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups.html#cfn-pinpoint-segment-segmentgroups-include
+	//
 	Include *string `field:"optional" json:"include" yaml:"include"`
 }
 

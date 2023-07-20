@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::SiteToSiteVpnAttachment`.
-//
 // Creates an Amazon Web Services site-to-site VPN attachment on an edge location of a core network.
 //
 // Example:
@@ -41,9 +39,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html
+//
 type CfnSiteToSiteVpnAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the site-to-site VPN attachment.
 	AttrAttachmentId() *string
 	// The policy rule number associated with the attachment.
@@ -75,7 +76,7 @@ type CfnSiteToSiteVpnAttachment interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::NetworkManager::SiteToSiteVpnAttachment.CoreNetworkId`.
+	// The ID of a core network where you're creating a site-to-site VPN attachment.
 	CoreNetworkId() *string
 	SetCoreNetworkId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -94,7 +95,7 @@ type CfnSiteToSiteVpnAttachment interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::NetworkManager::SiteToSiteVpnAttachment.ProposedSegmentChange`.
+	// The attachment to move from one segment to another.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -106,8 +107,11 @@ type CfnSiteToSiteVpnAttachment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::NetworkManager::SiteToSiteVpnAttachment.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags for the attachment.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -255,6 +259,7 @@ type CfnSiteToSiteVpnAttachment interface {
 type jsiiProxy_CfnSiteToSiteVpnAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) AttrAttachmentId() *string {
@@ -477,6 +482,16 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -508,7 +523,6 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) VpnConnectionArn() *string {
 }
 
 
-// Create a new `AWS::NetworkManager::SiteToSiteVpnAttachment`.
 func NewCfnSiteToSiteVpnAttachment(scope constructs.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) CfnSiteToSiteVpnAttachment {
 	_init_.Initialize()
 
@@ -526,7 +540,6 @@ func NewCfnSiteToSiteVpnAttachment(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::SiteToSiteVpnAttachment`.
 func NewCfnSiteToSiteVpnAttachment_Override(c CfnSiteToSiteVpnAttachment, scope constructs.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) {
 	_init_.Initialize()
 
@@ -555,6 +568,17 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment)SetProposedSegmentChange(val inter
 	_jsii_.Set(
 		j,
 		"proposedSegmentChange",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

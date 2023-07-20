@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RolesAnywhere::TrustAnchor`.
+// Creates a trust anchor to establish trust between IAM Roles Anywhere and your certificate authority (CA).
 //
-// Creates a trust anchor to establish trust between IAM Roles Anywhere and your certificate authority (CA). You can define a trust anchor as a reference to an AWS Private Certificate Authority ( AWS Private CA ) or by uploading a CA certificate. Your AWS workloads can authenticate with the trust anchor using certificates issued by the CA in exchange for temporary AWS credentials.
+// You can define a trust anchor as a reference to an AWS Private Certificate Authority ( AWS Private CA ) or by uploading a CA certificate. Your AWS workloads can authenticate with the trust anchor using certificates issued by the CA in exchange for temporary AWS credentials.
 //
 // *Required permissions:* `rolesanywhere:CreateTrustAnchor` .
 //
@@ -40,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html
+//
 type CfnTrustAnchor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the trust anchor.
 	AttrTrustAnchorArn() *string
 	// The unique identifier of the trust anchor.
@@ -86,8 +89,11 @@ type CfnTrustAnchor interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to attach to the trust anchor.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to attach to the trust anchor.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +238,7 @@ type CfnTrustAnchor interface {
 type jsiiProxy_CfnTrustAnchor struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTrustAnchor) AttrTrustAnchorArn() *string {
@@ -374,6 +381,16 @@ func (j *jsiiProxy_CfnTrustAnchor) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrustAnchor) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrustAnchor) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -395,7 +412,6 @@ func (j *jsiiProxy_CfnTrustAnchor) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::RolesAnywhere::TrustAnchor`.
 func NewCfnTrustAnchor(scope constructs.Construct, id *string, props *CfnTrustAnchorProps) CfnTrustAnchor {
 	_init_.Initialize()
 
@@ -413,7 +429,6 @@ func NewCfnTrustAnchor(scope constructs.Construct, id *string, props *CfnTrustAn
 	return &j
 }
 
-// Create a new `AWS::RolesAnywhere::TrustAnchor`.
 func NewCfnTrustAnchor_Override(c CfnTrustAnchor, scope constructs.Construct, id *string, props *CfnTrustAnchorProps) {
 	_init_.Initialize()
 
@@ -453,6 +468,17 @@ func (j *jsiiProxy_CfnTrustAnchor)SetSource(val interface{}) {
 	_jsii_.Set(
 		j,
 		"source",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrustAnchor)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

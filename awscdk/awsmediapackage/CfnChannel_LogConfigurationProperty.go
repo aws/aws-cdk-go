@@ -12,8 +12,12 @@ package awsmediapackage
 //   	LogGroupName: jsii.String("logGroupName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
+//
 type CfnChannel_LogConfigurationProperty struct {
 	// Sets a custom Amazon CloudWatch log group name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+	//
 	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 }
 

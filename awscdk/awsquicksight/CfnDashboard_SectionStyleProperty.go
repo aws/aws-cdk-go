@@ -18,14 +18,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sectionstyle.html
+//
 type CfnDashboard_SectionStyleProperty struct {
 	// The height of a section.
 	//
 	// Heights can only be defined for header and footer sections. The default height margin is 0.5 inches.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sectionstyle.html#cfn-quicksight-dashboard-sectionstyle-height
+	//
 	Height *string `field:"optional" json:"height" yaml:"height"`
 	// The spacing between section content and its top, bottom, left, and right edges.
 	//
 	// There is no padding by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sectionstyle.html#cfn-quicksight-dashboard-sectionstyle-padding
+	//
 	Padding interface{} `field:"optional" json:"padding" yaml:"padding"`
 }
 

@@ -10,8 +10,11 @@ package awssam
 //   	ProvisionedConcurrentExecutions: jsii.String("provisionedConcurrentExecutions"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-provisionedconcurrencyconfig.html
+//
 type CfnFunction_ProvisionedConcurrencyConfigProperty struct {
-	// `CfnFunction.ProvisionedConcurrencyConfigProperty.ProvisionedConcurrentExecutions`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-provisionedconcurrencyconfig.html#cfn-serverless-function-provisionedconcurrencyconfig-provisionedconcurrentexecutions
+	//
 	ProvisionedConcurrentExecutions *string `field:"required" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 

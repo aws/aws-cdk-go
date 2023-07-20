@@ -13,10 +13,14 @@ package awsservicediscovery
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html
+//
 type CfnService_DnsRecordProperty struct {
 	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
 	//
 	// > Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the `AWS_ALIAS_DNS_NAME` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, the `TTL` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl
+	//
 	Ttl *float64 `field:"required" json:"ttl" yaml:"ttl"`
 	// The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries.
 	//
@@ -60,6 +64,8 @@ type CfnService_DnsRecordProperty struct {
 	// `test.backend.example.com`
 	//
 	// If you specify settings for an `SRV` record and if you specify values for `AWS_INSTANCE_IPV4` , `AWS_INSTANCE_IPV6` , or both in the `RegisterInstance` request, AWS Cloud Map automatically creates `A` and/or `AAAA` records that have the same name as the value of `service-hostname` in the `SRV` record. You can ignore these records.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnConnection) validateSetConnectionNameParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnection) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnConnectionParameters(scope constructs.Construct, id *string, props *CfnConnectionProps) error {
 	return nil
 }

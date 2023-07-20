@@ -19,10 +19,16 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
+//
 type CfnBucket_SourceSelectionCriteriaProperty struct {
 	// A filter that you can specify for selection for modifications on replicas.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+	//
 	ReplicaModifications interface{} `field:"optional" json:"replicaModifications" yaml:"replicaModifications"`
 	// A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
+	//
 	SseKmsEncryptedObjects interface{} `field:"optional" json:"sseKmsEncryptedObjects" yaml:"sseKmsEncryptedObjects"`
 }
 

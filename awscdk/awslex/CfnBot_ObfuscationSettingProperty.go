@@ -12,10 +12,14 @@ package awslex
 //   	ObfuscationSettingType: jsii.String("obfuscationSettingType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-obfuscationsetting.html
+//
 type CfnBot_ObfuscationSettingProperty struct {
 	// Value that determines whether Amazon Lex obscures slot values in conversation logs.
 	//
 	// The default is to obscure the values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-obfuscationsetting.html#cfn-lex-bot-obfuscationsetting-obfuscationsettingtype
+	//
 	ObfuscationSettingType *string `field:"required" json:"obfuscationSettingType" yaml:"obfuscationSettingType"`
 }
 

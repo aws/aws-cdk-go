@@ -14,8 +14,12 @@ package awselasticache
 //   	DeliveryStream: jsii.String("deliveryStream"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html
+//
 type CfnCacheCluster_KinesisFirehoseDestinationDetailsProperty struct {
 	// The name of the Kinesis Data Firehose delivery stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html#cfn-elasticache-cachecluster-kinesisfirehosedestinationdetails-deliverystream
+	//
 	DeliveryStream *string `field:"required" json:"deliveryStream" yaml:"deliveryStream"`
 }
 

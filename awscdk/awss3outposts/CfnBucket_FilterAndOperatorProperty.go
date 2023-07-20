@@ -18,10 +18,14 @@ package awss3outposts
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filterandoperator.html
+//
 type CfnBucket_FilterAndOperatorProperty struct {
-	// `CfnBucket.FilterAndOperatorProperty.Tags`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filterandoperator.html#cfn-s3outposts-bucket-filterandoperator-tags
+	//
 	Tags *[]*CfnBucket_FilterTagProperty `field:"required" json:"tags" yaml:"tags"`
-	// `CfnBucket.FilterAndOperatorProperty.Prefix`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filterandoperator.html#cfn-s3outposts-bucket-filterandoperator-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

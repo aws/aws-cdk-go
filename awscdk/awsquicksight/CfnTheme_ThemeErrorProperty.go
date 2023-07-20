@@ -13,10 +13,16 @@ package awsquicksight
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeerror.html
+//
 type CfnTheme_ThemeErrorProperty struct {
 	// The error message.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeerror.html#cfn-quicksight-theme-themeerror-message
+	//
 	Message *string `field:"optional" json:"message" yaml:"message"`
 	// The type of error.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeerror.html#cfn-quicksight-theme-themeerror-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

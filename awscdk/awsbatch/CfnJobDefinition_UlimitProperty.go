@@ -16,12 +16,20 @@ package awsbatch
 //   	SoftLimit: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ulimit.html
+//
 type CfnJobDefinition_UlimitProperty struct {
 	// The hard limit for the `ulimit` type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ulimit.html#cfn-batch-jobdefinition-ulimit-hardlimit
+	//
 	HardLimit *float64 `field:"required" json:"hardLimit" yaml:"hardLimit"`
 	// The `type` of the `ulimit` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ulimit.html#cfn-batch-jobdefinition-ulimit-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The soft limit for the `ulimit` type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ulimit.html#cfn-batch-jobdefinition-ulimit-softlimit
+	//
 	SoftLimit *float64 `field:"required" json:"softLimit" yaml:"softLimit"`
 }
 

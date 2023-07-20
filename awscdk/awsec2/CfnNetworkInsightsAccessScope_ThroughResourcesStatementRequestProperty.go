@@ -19,8 +19,12 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html
+//
 type CfnNetworkInsightsAccessScope_ThroughResourcesStatementRequestProperty struct {
 	// The resource statement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html#cfn-ec2-networkinsightsaccessscope-throughresourcesstatementrequest-resourcestatement
+	//
 	ResourceStatement interface{} `field:"optional" json:"resourceStatement" yaml:"resourceStatement"`
 }
 

@@ -18,6 +18,8 @@ package awswaf
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-wafaction.html
+//
 type CfnWebACL_WafActionProperty struct {
 	// Specifies how you want AWS WAF to respond to requests that match the settings in a `Rule` .
 	//
@@ -26,6 +28,8 @@ type CfnWebACL_WafActionProperty struct {
 	// - `ALLOW` : AWS WAF allows requests
 	// - `BLOCK` : AWS WAF blocks requests
 	// - `COUNT` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify `COUNT` for the default action for a `WebACL` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-wafaction.html#cfn-waf-webacl-wafaction-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

@@ -12,8 +12,12 @@ package awsguardduty
 //   	EbsVolumes: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnscanec2instancewithfindingsconfiguration.html
+//
 type CfnDetector_CFNScanEc2InstanceWithFindingsConfigurationProperty struct {
 	// Describes the configuration for scanning EBS volumes as data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnscanec2instancewithfindingsconfiguration.html#cfn-guardduty-detector-cfnscanec2instancewithfindingsconfiguration-ebsvolumes
+	//
 	EbsVolumes interface{} `field:"optional" json:"ebsVolumes" yaml:"ebsVolumes"`
 }
 

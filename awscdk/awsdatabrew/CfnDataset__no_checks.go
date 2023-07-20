@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDataset) validateSetPathOptionsParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataset) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDatasetParameters(scope constructs.Construct, id *string, props *CfnDatasetProps) error {
 	return nil
 }

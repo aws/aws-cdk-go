@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NimbleStudio::StreamingImage`.
+// The `AWS::NimbleStudio::StreamingImage` resource creates a streaming image in a studio.
 //
-// The `AWS::NimbleStudio::StreamingImage` resource creates a streaming image in a studio. A streaming image defines the operating system and software to be used in an  streaming session.
+// A streaming image defines the operating system and software to be used in an  streaming session.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,10 +30,17 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html
+//
 type CfnStreamingImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// <p>TODO</p>.
+	AttrEncryptionConfiguration() awscdk.IResolvable
+	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>.
 	AttrEncryptionConfigurationKeyArn() *string
+	// <p/>.
 	AttrEncryptionConfigurationKeyType() *string
 	// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
 	AttrEulaIds() *[]*string
@@ -83,14 +90,13 @@ type CfnStreamingImage interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The unique identifier for a studio resource.
-	//
-	// In Nimble Studio , all other resources are contained in a studio resource.
 	StudioId() *string
 	SetStudioId(val *string)
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -235,6 +241,17 @@ type CfnStreamingImage interface {
 type jsiiProxy_CfnStreamingImage struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnStreamingImage) AttrEncryptionConfiguration() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrEncryptionConfiguration",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnStreamingImage) AttrEncryptionConfigurationKeyArn() *string {
@@ -427,6 +444,16 @@ func (j *jsiiProxy_CfnStreamingImage) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStreamingImage) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStreamingImage) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -448,7 +475,6 @@ func (j *jsiiProxy_CfnStreamingImage) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::NimbleStudio::StreamingImage`.
 func NewCfnStreamingImage(scope constructs.Construct, id *string, props *CfnStreamingImageProps) CfnStreamingImage {
 	_init_.Initialize()
 
@@ -466,7 +492,6 @@ func NewCfnStreamingImage(scope constructs.Construct, id *string, props *CfnStre
 	return &j
 }
 
-// Create a new `AWS::NimbleStudio::StreamingImage`.
 func NewCfnStreamingImage_Override(c CfnStreamingImage, scope constructs.Construct, id *string, props *CfnStreamingImageProps) {
 	_init_.Initialize()
 
@@ -514,6 +539,14 @@ func (j *jsiiProxy_CfnStreamingImage)SetStudioId(val *string) {
 	_jsii_.Set(
 		j,
 		"studioId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStreamingImage)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

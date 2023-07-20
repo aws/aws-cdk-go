@@ -144,6 +144,10 @@ func (j *jsiiProxy_CfnCluster) validateSetSnapshotCopyManualParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnClusterParameters(scope constructs.Construct, id *string, props *CfnClusterProps) error {
 	return nil
 }

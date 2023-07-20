@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::SecurityGroupEgress`.
-//
 // Adds the specified egress rules to a security group.
 //
 // An outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.
@@ -46,26 +44,21 @@ import (
 //   	ToPort: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupegress.html
+//
 type CfnSecurityGroupEgress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// The IPv4 address range, in CIDR format.
-	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
-	//
-	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIp() *string
 	SetCidrIp(val *string)
 	// The IPv6 address range, in CIDR format.
-	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
-	//
-	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIpv6() *string
 	SetCidrIpv6(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -73,35 +66,21 @@ type CfnSecurityGroupEgress interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The description of an egress (outbound) security group rule.
-	//
-	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description() *string
 	SetDescription(val *string)
 	// The prefix list IDs for an AWS service.
-	//
-	// This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
-	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	DestinationPrefixListId() *string
 	SetDestinationPrefixListId(val *string)
 	// The ID of the security group.
-	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	DestinationSecurityGroupId() *string
 	SetDestinationSecurityGroupId(val *string)
 	// If the protocol is TCP or UDP, this is the start of the port range.
-	//
-	// If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
 	FromPort() *float64
 	SetFromPort(val *float64)
 	// The ID of the security group.
-	//
-	// You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 	GroupId() *string
 	SetGroupId(val *string)
 	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
-	//
-	// Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
 	IpProtocol() *string
 	SetIpProtocol(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -126,8 +105,6 @@ type CfnSecurityGroupEgress interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// If the protocol is TCP or UDP, this is the end of the port range.
-	//
-	// If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
 	ToPort() *float64
 	SetToPort(val *float64)
 	// Deprecated.
@@ -274,6 +251,16 @@ type CfnSecurityGroupEgress interface {
 type jsiiProxy_CfnSecurityGroupEgress struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnSecurityGroupEgress) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnSecurityGroupEgress) CfnOptions() awscdk.ICfnResourceOptions {
@@ -467,7 +454,6 @@ func (j *jsiiProxy_CfnSecurityGroupEgress) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::EC2::SecurityGroupEgress`.
 func NewCfnSecurityGroupEgress(scope constructs.Construct, id *string, props *CfnSecurityGroupEgressProps) CfnSecurityGroupEgress {
 	_init_.Initialize()
 
@@ -485,7 +471,6 @@ func NewCfnSecurityGroupEgress(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::EC2::SecurityGroupEgress`.
 func NewCfnSecurityGroupEgress_Override(c CfnSecurityGroupEgress, scope constructs.Construct, id *string, props *CfnSecurityGroupEgressProps) {
 	_init_.Initialize()
 

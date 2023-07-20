@@ -15,8 +15,12 @@ package awsimagebuilder
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html
+//
 type CfnInfrastructureConfiguration_LoggingProperty struct {
 	// The Amazon S3 logging configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html#cfn-imagebuilder-infrastructureconfiguration-logging-s3logs
+	//
 	S3Logs interface{} `field:"optional" json:"s3Logs" yaml:"s3Logs"`
 }
 

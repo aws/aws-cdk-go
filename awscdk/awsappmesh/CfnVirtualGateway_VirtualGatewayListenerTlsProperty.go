@@ -45,16 +45,24 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html
+//
 type CfnVirtualGateway_VirtualGatewayListenerTlsProperty struct {
 	// An object that represents a Transport Layer Security (TLS) certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-certificate
+	//
 	Certificate interface{} `field:"required" json:"certificate" yaml:"certificate"`
 	// Specify one of the following modes.
 	//
 	// - ** STRICT – Listener only accepts connections with TLS enabled.
 	// - ** PERMISSIVE – Listener accepts connections with or without TLS enabled.
 	// - ** DISABLED – Listener only accepts connections without TLS.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-mode
+	//
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
 	// A reference to an object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-validation
+	//
 	Validation interface{} `field:"optional" json:"validation" yaml:"validation"`
 }
 

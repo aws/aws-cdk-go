@@ -19,26 +19,40 @@ package awsevents
 //   	WithEvent: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html
+//
 type CfnRule_RedshiftDataParametersProperty struct {
 	// The name of the database.
 	//
 	// Required when authenticating using temporary credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-database
+	//
 	Database *string `field:"required" json:"database" yaml:"database"`
 	// The SQL statement text to run.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
+	//
 	Sql *string `field:"required" json:"sql" yaml:"sql"`
 	// The database user name.
 	//
 	// Required when authenticating using temporary credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-dbuser
+	//
 	DbUser *string `field:"optional" json:"dbUser" yaml:"dbUser"`
 	// The name or ARN of the secret that enables access to the database.
 	//
 	// Required when authenticating using AWS Secrets Manager.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-secretmanagerarn
+	//
 	SecretManagerArn *string `field:"optional" json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The name of the SQL statement.
 	//
 	// You can name the SQL statement when you create it to identify the query.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-statementname
+	//
 	StatementName *string `field:"optional" json:"statementName" yaml:"statementName"`
 	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-withevent
+	//
 	WithEvent interface{} `field:"optional" json:"withEvent" yaml:"withEvent"`
 }
 

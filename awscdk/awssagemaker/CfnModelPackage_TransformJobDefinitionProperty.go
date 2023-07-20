@@ -47,28 +47,44 @@ package awssagemaker
 //   	MaxPayloadInMb: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html
+//
 type CfnModelPackage_TransformJobDefinitionProperty struct {
 	// A description of the input source and the way the transform job consumes it.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transforminput
+	//
 	TransformInput interface{} `field:"required" json:"transformInput" yaml:"transformInput"`
 	// Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformoutput
+	//
 	TransformOutput interface{} `field:"required" json:"transformOutput" yaml:"transformOutput"`
 	// Identifies the ML compute instances for the transform job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformresources
+	//
 	TransformResources interface{} `field:"required" json:"transformResources" yaml:"transformResources"`
 	// A string that determines the number of records included in a single mini-batch.
 	//
 	// `SingleRecord` means only one record is used per mini-batch. `MultiRecord` means a mini-batch is set to contain as many records that can fit within the `MaxPayloadInMB` limit.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-batchstrategy
+	//
 	BatchStrategy *string `field:"optional" json:"batchStrategy" yaml:"batchStrategy"`
 	// The environment variables to set in the Docker container.
 	//
 	// We support up to 16 key and values entries in the map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-environment
+	//
 	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// The maximum number of parallel requests that can be sent to each instance in a transform job.
 	//
 	// The default value is 1.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-maxconcurrenttransforms
+	//
 	MaxConcurrentTransforms *float64 `field:"optional" json:"maxConcurrentTransforms" yaml:"maxConcurrentTransforms"`
 	// The maximum payload size allowed, in MB.
 	//
 	// A payload is the data portion of a record (without metadata).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-maxpayloadinmb
+	//
 	MaxPayloadInMb *float64 `field:"optional" json:"maxPayloadInMb" yaml:"maxPayloadInMb"`
 }
 

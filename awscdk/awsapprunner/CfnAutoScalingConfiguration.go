@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppRunner::AutoScalingConfiguration`.
-//
 // Specify an AWS App Runner Automatic Scaling configuration by using the `AWS::AppRunner::AutoScalingConfiguration` resource in an AWS CloudFormation template.
 //
 // The `AWS::AppRunner::AutoScalingConfiguration` resource is an AWS App Runner resource type that specifies an App Runner automatic scaling configuration.
@@ -41,6 +39,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-autoscalingconfiguration.html
+//
 type CfnAutoScalingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -55,8 +55,6 @@ type CfnAutoScalingConfiguration interface {
 	// It's set to false otherwise. App Runner temporarily doubles the number of provisioned instances during deployments, to maintain the same capacity for both old and new code.
 	AttrLatest() awscdk.IResolvable
 	// The customer-provided auto scaling configuration name.
-	//
-	// It can be used in multiple revisions of a configuration.
 	AutoScalingConfigurationName() *string
 	SetAutoScalingConfigurationName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -79,20 +77,12 @@ type CfnAutoScalingConfiguration interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum number of concurrent requests that an instance processes.
-	//
-	// If the number of concurrent requests exceeds this limit, App Runner scales the service up.
 	MaxConcurrency() *float64
 	SetMaxConcurrency(val *float64)
 	// The maximum number of instances that a service scales up to.
-	//
-	// At most `MaxSize` instances actively serve traffic for your service.
 	MaxSize() *float64
 	SetMaxSize(val *float64)
 	// The minimum number of instances that App Runner provisions for a service.
-	//
-	// The service always has at least `MinSize` provisioned instances. Some of them actively serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective compute capacity reserve and are ready to be quickly activated. You pay for memory usage of all the provisioned instances. You pay for CPU usage of only the active subset.
-	//
-	// App Runner temporarily doubles the number of provisioned instances during deployments, to maintain the same capacity for both old and new code.
 	MinSize() *float64
 	SetMinSize(val *float64)
 	// The tree node.
@@ -107,9 +97,8 @@ type CfnAutoScalingConfiguration interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A list of metadata items that you can associate with your auto scaling configuration resource.
-	//
-	// A tag is a key-value pair.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -406,8 +395,8 @@ func (j *jsiiProxy_CfnAutoScalingConfiguration) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutoScalingConfiguration) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnAutoScalingConfiguration) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -437,7 +426,6 @@ func (j *jsiiProxy_CfnAutoScalingConfiguration) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::AppRunner::AutoScalingConfiguration`.
 func NewCfnAutoScalingConfiguration(scope constructs.Construct, id *string, props *CfnAutoScalingConfigurationProps) CfnAutoScalingConfiguration {
 	_init_.Initialize()
 
@@ -455,7 +443,6 @@ func NewCfnAutoScalingConfiguration(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::AppRunner::AutoScalingConfiguration`.
 func NewCfnAutoScalingConfiguration_Override(c CfnAutoScalingConfiguration, scope constructs.Construct, id *string, props *CfnAutoScalingConfigurationProps) {
 	_init_.Initialize()
 
@@ -494,6 +481,17 @@ func (j *jsiiProxy_CfnAutoScalingConfiguration)SetMinSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"minSize",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingConfiguration)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

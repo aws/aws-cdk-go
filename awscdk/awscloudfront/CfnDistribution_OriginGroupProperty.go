@@ -30,12 +30,20 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html
+//
 type CfnDistribution_OriginGroupProperty struct {
 	// A complex type that contains information about the failover criteria for an origin group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
+	//
 	FailoverCriteria interface{} `field:"required" json:"failoverCriteria" yaml:"failoverCriteria"`
 	// The origin group's ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// A complex type that contains information about the origins in an origin group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
+	//
 	Members interface{} `field:"required" json:"members" yaml:"members"`
 }
 

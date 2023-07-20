@@ -42,18 +42,32 @@ package awsquicksight
 //   	TimeGranularity: jsii.String("timeGranularity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html
+//
 type CfnTemplate_TopBottomFilterProperty struct {
 	// The aggregation and sort configuration of the top bottom filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html#cfn-quicksight-template-topbottomfilter-aggregationsortconfigurations
+	//
 	AggregationSortConfigurations interface{} `field:"required" json:"aggregationSortConfigurations" yaml:"aggregationSortConfigurations"`
 	// The column that the filter is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html#cfn-quicksight-template-topbottomfilter-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html#cfn-quicksight-template-topbottomfilter-filterid
+	//
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
 	// The number of items to include in the top bottom filter results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html#cfn-quicksight-template-topbottomfilter-limit
+	//
 	Limit *float64 `field:"optional" json:"limit" yaml:"limit"`
 	// The parameter whose value should be used for the filter value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html#cfn-quicksight-template-topbottomfilter-parametername
+	//
 	ParameterName *string `field:"optional" json:"parameterName" yaml:"parameterName"`
 	// The level of time precision that is used to aggregate `DateTime` values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html#cfn-quicksight-template-topbottomfilter-timegranularity
+	//
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`
 }
 

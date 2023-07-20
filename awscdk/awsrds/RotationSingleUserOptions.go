@@ -9,15 +9,17 @@ import (
 //
 // Example:
 //   var instance databaseInstance
-//   var myEndpoint interfaceVpcEndpoint
+//   var mySecurityGroup securityGroup
 //
 //
 //   instance.addRotationSingleUser(&RotationSingleUserOptions{
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-//   	},
-//   	 // Place rotation Lambda in private subnets
-//   	Endpoint: myEndpoint,
+//   	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(7)),
+//   	 // defaults to 30 days
+//   	ExcludeCharacters: jsii.String("!@#$%^&*"),
+//   	 // defaults to the set " %+~`#/// here*()|[]{}:;<>?!'/@\"\\"
+//   	SecurityGroup: mySecurityGroup,
+//   	 // defaults to an auto-created security group
+//   	RotateImmediatelyOnUpdate: jsii.Boolean(false),
 //   })
 //
 type RotationSingleUserOptions struct {
@@ -32,6 +34,8 @@ type RotationSingleUserOptions struct {
 	Endpoint awsec2.IInterfaceVpcEndpoint `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// Specifies characters to not include in generated passwords.
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
+	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
+	RotateImmediatelyOnUpdate *bool `field:"optional" json:"rotateImmediatelyOnUpdate" yaml:"rotateImmediatelyOnUpdate"`
 	// The security group for the Lambda rotation function.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Where to place the rotation Lambda function.

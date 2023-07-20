@@ -13,10 +13,16 @@ package awsamazonmq
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-tagsentry.html
+//
 type CfnBroker_TagsEntryProperty struct {
 	// The key in a key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-tagsentry.html#cfn-amazonmq-broker-tagsentry-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value in a key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-tagsentry.html#cfn-amazonmq-broker-tagsentry-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

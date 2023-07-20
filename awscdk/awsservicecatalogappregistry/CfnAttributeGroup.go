@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalogAppRegistry::AttributeGroup`.
+// Creates a new attribute group as a container for user-defined attributes.
 //
-// Creates a new attribute group as a container for user-defined attributes. This feature enables users to have full control over their cloud application's metadata in a rich machine-readable format to facilitate integration with automated workflows and third-party tools.
+// This feature enables users to have full control over their cloud application's metadata in a rich machine-readable format to facilitate integration with automated workflows and third-party tools.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,14 +31,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html
+//
 type CfnAttributeGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon resource name (ARN) that specifies the attribute group across services.
 	AttrArn() *string
 	// A nested object in a JSON or YAML template that supports arbitrary definitions.
-	//
-	// Represents the attributes in an attribute group that describes an application and its components.
 	Attributes() interface{}
 	SetAttributes(val interface{})
 	// The globally unique attribute group identifier of the attribute group.
@@ -79,8 +80,11 @@ type CfnAttributeGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key-value pairs you can use to associate with the attribute group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs you can use to associate with the attribute group.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -225,6 +229,7 @@ type CfnAttributeGroup interface {
 type jsiiProxy_CfnAttributeGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAttributeGroup) AttrArn() *string {
@@ -367,6 +372,16 @@ func (j *jsiiProxy_CfnAttributeGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAttributeGroup) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAttributeGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -388,7 +403,6 @@ func (j *jsiiProxy_CfnAttributeGroup) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::ServiceCatalogAppRegistry::AttributeGroup`.
 func NewCfnAttributeGroup(scope constructs.Construct, id *string, props *CfnAttributeGroupProps) CfnAttributeGroup {
 	_init_.Initialize()
 
@@ -406,7 +420,6 @@ func NewCfnAttributeGroup(scope constructs.Construct, id *string, props *CfnAttr
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalogAppRegistry::AttributeGroup`.
 func NewCfnAttributeGroup_Override(c CfnAttributeGroup, scope constructs.Construct, id *string, props *CfnAttributeGroupProps) {
 	_init_.Initialize()
 
@@ -443,6 +456,14 @@ func (j *jsiiProxy_CfnAttributeGroup)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAttributeGroup)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

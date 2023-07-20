@@ -15,10 +15,16 @@ package awsdatabrew
 //   	Regex: jsii.String("regex"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-columnselector.html
+//
 type CfnRuleset_ColumnSelectorProperty struct {
 	// The name of a column from a dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-columnselector.html#cfn-databrew-ruleset-columnselector-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A regular expression for selecting a column from a dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-columnselector.html#cfn-databrew-ruleset-columnselector-regex
+	//
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 

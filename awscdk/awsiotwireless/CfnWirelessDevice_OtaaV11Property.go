@@ -14,16 +14,24 @@ package awsiotwireless
 //   	NwkKey: jsii.String("nwkKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html
+//
 type CfnWirelessDevice_OtaaV11Property struct {
 	// The AppKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-appkey
+	//
 	AppKey *string `field:"required" json:"appKey" yaml:"appKey"`
 	// The JoinEUI value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-joineui
+	//
 	JoinEui *string `field:"required" json:"joinEui" yaml:"joinEui"`
 	// The NwkKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-nwkkey
+	//
 	NwkKey *string `field:"required" json:"nwkKey" yaml:"nwkKey"`
 }
 

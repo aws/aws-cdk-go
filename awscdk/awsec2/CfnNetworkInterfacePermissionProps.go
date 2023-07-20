@@ -14,12 +14,20 @@ package awsec2
 //   	Permission: jsii.String("permission"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html
+//
 type CfnNetworkInterfacePermissionProps struct {
 	// The AWS account ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-awsaccountid
+	//
 	AwsAccountId *string `field:"required" json:"awsAccountId" yaml:"awsAccountId"`
 	// The ID of the network interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-networkinterfaceid
+	//
 	NetworkInterfaceId *string `field:"required" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The type of permission to grant: `INSTANCE-ATTACH` or `EIP-ASSOCIATE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-permission
+	//
 	Permission *string `field:"required" json:"permission" yaml:"permission"`
 }
 

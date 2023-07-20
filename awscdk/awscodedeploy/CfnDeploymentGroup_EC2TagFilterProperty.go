@@ -16,16 +16,24 @@ package awscodedeploy
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html
+//
 type CfnDeploymentGroup_EC2TagFilterProperty struct {
 	// The tag filter key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html#cfn-codedeploy-deploymentgroup-ec2tagfilter-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The tag filter type:.
 	//
 	// - `KEY_ONLY` : Key only.
 	// - `VALUE_ONLY` : Value only.
 	// - `KEY_AND_VALUE` : Key and value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html#cfn-codedeploy-deploymentgroup-ec2tagfilter-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The tag filter value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html#cfn-codedeploy-deploymentgroup-ec2tagfilter-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

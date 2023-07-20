@@ -44,14 +44,22 @@ package awskendra
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html
+//
 type CfnDataSource_InlineCustomDocumentEnrichmentConfigurationProperty struct {
 	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html#cfn-kendra-datasource-inlinecustomdocumentenrichmentconfiguration-condition
+	//
 	Condition interface{} `field:"optional" json:"condition" yaml:"condition"`
 	// `TRUE` to delete content if the condition used for the target attribute is met.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html#cfn-kendra-datasource-inlinecustomdocumentenrichmentconfiguration-documentcontentdeletion
+	//
 	DocumentContentDeletion interface{} `field:"optional" json:"documentContentDeletion" yaml:"documentContentDeletion"`
 	// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra.
 	//
 	// You can also include a value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html#cfn-kendra-datasource-inlinecustomdocumentenrichmentconfiguration-target
+	//
 	Target interface{} `field:"optional" json:"target" yaml:"target"`
 }
 

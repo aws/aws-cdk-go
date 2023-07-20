@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppConfig::Extension`.
+// Creates an AWS AppConfig extension.
 //
-// Creates an AWS AppConfig extension. An extension augments your ability to inject logic or behavior at different points during the AWS AppConfig workflow of creating or deploying a configuration.
+// An extension augments your ability to inject logic or behavior at different points during the AWS AppConfig workflow of creating or deploying a configuration.
 //
 // You can create your own extensions or use the AWS authored extensions provided by AWS AppConfig . For an AWS AppConfig extension that uses AWS Lambda , you must create a Lambda function to perform any computation and processing defined in the extension. If you plan to create custom versions of the AWS authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in the `Uri` field for the new extension version.
 //
@@ -51,9 +51,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-extension.html
+//
 type CfnExtension interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The actions defined in the extension.
 	Actions() interface{}
 	SetActions(val interface{})
@@ -76,8 +79,6 @@ type CfnExtension interface {
 	Description() *string
 	SetDescription(val *string)
 	// You can omit this field when you create an extension.
-	//
-	// When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
 	LatestVersionNumber() *float64
 	SetLatestVersionNumber(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -91,15 +92,11 @@ type CfnExtension interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A name for the extension.
-	//
-	// Each extension name in your account must be unique. Extension versions use the same name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The parameters accepted by the extension.
-	//
-	// You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -111,10 +108,11 @@ type CfnExtension interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Adds one or more tags for the specified extension.
-	//
-	// Tags are metadata that help you categorize resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Adds one or more tags for the specified extension.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -259,6 +257,7 @@ type CfnExtension interface {
 type jsiiProxy_CfnExtension struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnExtension) Actions() interface{} {
@@ -431,6 +430,16 @@ func (j *jsiiProxy_CfnExtension) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnExtension) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnExtension) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -452,7 +461,6 @@ func (j *jsiiProxy_CfnExtension) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppConfig::Extension`.
 func NewCfnExtension(scope constructs.Construct, id *string, props *CfnExtensionProps) CfnExtension {
 	_init_.Initialize()
 
@@ -470,7 +478,6 @@ func NewCfnExtension(scope constructs.Construct, id *string, props *CfnExtension
 	return &j
 }
 
-// Create a new `AWS::AppConfig::Extension`.
 func NewCfnExtension_Override(c CfnExtension, scope constructs.Construct, id *string, props *CfnExtensionProps) {
 	_init_.Initialize()
 
@@ -526,6 +533,17 @@ func (j *jsiiProxy_CfnExtension)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnExtension)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

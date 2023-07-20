@@ -12,8 +12,12 @@ package awsquicksight
 //   	Narrative: jsii.String("narrative"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customnarrativeoptions.html
+//
 type CfnDashboard_CustomNarrativeOptionsProperty struct {
 	// The string input of custom narrative.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customnarrativeoptions.html#cfn-quicksight-dashboard-customnarrativeoptions-narrative
+	//
 	Narrative *string `field:"required" json:"narrative" yaml:"narrative"`
 }
 

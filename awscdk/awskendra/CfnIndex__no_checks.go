@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnIndex) validateSetServerSideEncryptionConfigurationParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnIndex) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnIndex) validateSetUserTokenConfigurationsParameters(val interface{}) error {
 	return nil
 }

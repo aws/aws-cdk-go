@@ -16,12 +16,22 @@ package awsidentitystore
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html
+//
 type CfnGroupProps struct {
-	// `AWS::IdentityStore::Group.DisplayName`.
+	// A string containing the name of the group.
+	//
+	// This value is commonly displayed when the group is referenced.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-displayname
+	//
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
-	// `AWS::IdentityStore::Group.IdentityStoreId`.
+	// The globally unique identifier for the identity store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-identitystoreid
+	//
 	IdentityStoreId *string `field:"required" json:"identityStoreId" yaml:"identityStoreId"`
 	// A string containing the description of the group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

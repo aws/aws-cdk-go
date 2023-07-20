@@ -134,14 +134,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tableoptions.html
+//
 type CfnDashboard_TableOptionsProperty struct {
 	// The table cell style of table cells.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tableoptions.html#cfn-quicksight-dashboard-tableoptions-cellstyle
+	//
 	CellStyle interface{} `field:"optional" json:"cellStyle" yaml:"cellStyle"`
 	// The table cell style of a table header.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tableoptions.html#cfn-quicksight-dashboard-tableoptions-headerstyle
+	//
 	HeaderStyle interface{} `field:"optional" json:"headerStyle" yaml:"headerStyle"`
 	// The orientation (vertical, horizontal) for a table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tableoptions.html#cfn-quicksight-dashboard-tableoptions-orientation
+	//
 	Orientation *string `field:"optional" json:"orientation" yaml:"orientation"`
 	// The row alternate color options (widget status, row alternate colors) for a table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tableoptions.html#cfn-quicksight-dashboard-tableoptions-rowalternatecoloroptions
+	//
 	RowAlternateColorOptions interface{} `field:"optional" json:"rowAlternateColorOptions" yaml:"rowAlternateColorOptions"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Wisdom::KnowledgeBase`.
-//
 // Specifies a knowledge base.
 //
 // Example:
@@ -48,9 +46,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html
+//
 type CfnKnowledgeBase interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the knowledge base.
 	AttrKnowledgeBaseArn() *string
 	// The ID of the knowledge base.
@@ -68,8 +69,6 @@ type CfnKnowledgeBase interface {
 	Description() *string
 	SetDescription(val *string)
 	// The type of knowledge base.
-	//
-	// Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
 	KnowledgeBaseType() *string
 	SetKnowledgeBaseType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -99,16 +98,17 @@ type CfnKnowledgeBase interface {
 	ServerSideEncryptionConfiguration() interface{}
 	SetServerSideEncryptionConfiguration(val interface{})
 	// The source of the knowledge base content.
-	//
-	// Only set this argument for EXTERNAL knowledge bases.
 	SourceConfiguration() interface{}
 	SetSourceConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -253,6 +253,7 @@ type CfnKnowledgeBase interface {
 type jsiiProxy_CfnKnowledgeBase struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnKnowledgeBase) AttrKnowledgeBaseArn() *string {
@@ -425,6 +426,16 @@ func (j *jsiiProxy_CfnKnowledgeBase) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKnowledgeBase) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKnowledgeBase) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -446,7 +457,6 @@ func (j *jsiiProxy_CfnKnowledgeBase) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::Wisdom::KnowledgeBase`.
 func NewCfnKnowledgeBase(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) CfnKnowledgeBase {
 	_init_.Initialize()
 
@@ -464,7 +474,6 @@ func NewCfnKnowledgeBase(scope constructs.Construct, id *string, props *CfnKnowl
 	return &j
 }
 
-// Create a new `AWS::Wisdom::KnowledgeBase`.
 func NewCfnKnowledgeBase_Override(c CfnKnowledgeBase, scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) {
 	_init_.Initialize()
 
@@ -534,6 +543,17 @@ func (j *jsiiProxy_CfnKnowledgeBase)SetSourceConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKnowledgeBase)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

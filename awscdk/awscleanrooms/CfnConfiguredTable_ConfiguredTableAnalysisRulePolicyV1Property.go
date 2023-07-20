@@ -36,6 +36,9 @@ package awscleanrooms
 //   		},
 //
 //   		// the properties below are optional
+//   		AllowedJoinOperators: []*string{
+//   			jsii.String("allowedJoinOperators"),
+//   		},
 //   		JoinRequired: jsii.String("joinRequired"),
 //   	},
 //   	List: &AnalysisRuleListProperty{
@@ -45,13 +48,24 @@ package awscleanrooms
 //   		ListColumns: []*string{
 //   			jsii.String("listColumns"),
 //   		},
+//
+//   		// the properties below are optional
+//   		AllowedJoinOperators: []*string{
+//   			jsii.String("allowedJoinOperators"),
+//   		},
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html
+//
 type CfnConfiguredTable_ConfiguredTableAnalysisRulePolicyV1Property struct {
 	// Analysis rule type that enables only aggregation queries on a configured table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-aggregation
+	//
 	Aggregation interface{} `field:"optional" json:"aggregation" yaml:"aggregation"`
 	// Analysis rule type that enables only list queries on a configured table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-list
+	//
 	List interface{} `field:"optional" json:"list" yaml:"list"`
 }
 

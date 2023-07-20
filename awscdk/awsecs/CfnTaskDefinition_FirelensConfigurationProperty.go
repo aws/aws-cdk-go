@@ -17,6 +17,8 @@ package awsecs
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html
+//
 type CfnTaskDefinition_FirelensConfigurationProperty struct {
 	// The options to use when configuring the log router.
 	//
@@ -27,10 +29,14 @@ type CfnTaskDefinition_FirelensConfigurationProperty struct {
 	// - `enable-ecs-log-metadata` , which can be `true` or `false`
 	// - `config-file-type` , which can be `s3` or `file`
 	// - `config-file-value` , which is either an S3 ARN or a file path.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
+	//
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The log router to use.
 	//
 	// The valid values are `fluentd` or `fluentbit` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

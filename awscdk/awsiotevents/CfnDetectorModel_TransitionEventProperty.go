@@ -144,16 +144,26 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html
+//
 type CfnDetectorModel_TransitionEventProperty struct {
 	// Required.
 	//
 	// A Boolean expression that when TRUE causes the actions to be performed and the `nextState` to be entered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
+	//
 	Condition *string `field:"required" json:"condition" yaml:"condition"`
 	// The name of the transition event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
+	//
 	EventName *string `field:"required" json:"eventName" yaml:"eventName"`
 	// The next state to enter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
+	//
 	NextState *string `field:"required" json:"nextState" yaml:"nextState"`
 	// The actions to be performed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
+	//
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 }
 

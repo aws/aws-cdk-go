@@ -7,9 +7,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFormation::WaitConditionHandle`.
+// > For Amazon EC2 and Auto Scaling resources, we recommend that you use a `CreationPolicy` attribute instead of wait conditions.
 //
-// > For Amazon EC2 and Auto Scaling resources, we recommend that you use a `CreationPolicy` attribute instead of wait conditions. Add a `CreationPolicy` attribute to those resources, and use the cfn-signal helper script to signal when an instance creation process has completed successfully.
+// Add a `CreationPolicy` attribute to those resources, and use the cfn-signal helper script to signal when an instance creation process has completed successfully.
 // >
 // > For more information, see [Deploying applications on Amazon EC2 with AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/deploying.applications.html) .
 //
@@ -22,11 +22,15 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnWaitConditionHandle := cdk.NewCfnWaitConditionHandle(this, jsii.String("MyCfnWaitConditionHandle"))
+//   cfnWaitConditionHandle := cdk.NewCfnWaitConditionHandle(this, jsii.String("MyCfnWaitConditionHandle"), &CfnWaitConditionHandleProps{
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-waitconditionhandle.html
 //
 type CfnWaitConditionHandle interface {
 	CfnResource
 	IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -203,6 +207,16 @@ type jsiiProxy_CfnWaitConditionHandle struct {
 	jsiiProxy_IInspectable
 }
 
+func (j *jsiiProxy_CfnWaitConditionHandle) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWaitConditionHandle) CfnOptions() ICfnResourceOptions {
 	var returns ICfnResourceOptions
 	_jsii_.Get(
@@ -304,31 +318,29 @@ func (j *jsiiProxy_CfnWaitConditionHandle) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::CloudFormation::WaitConditionHandle`.
-func NewCfnWaitConditionHandle(scope constructs.Construct, id *string) CfnWaitConditionHandle {
+func NewCfnWaitConditionHandle(scope constructs.Construct, id *string, props *CfnWaitConditionHandleProps) CfnWaitConditionHandle {
 	_init_.Initialize()
 
-	if err := validateNewCfnWaitConditionHandleParameters(scope, id); err != nil {
+	if err := validateNewCfnWaitConditionHandleParameters(scope, id, props); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_CfnWaitConditionHandle{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.CfnWaitConditionHandle",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		&j,
 	)
 
 	return &j
 }
 
-// Create a new `AWS::CloudFormation::WaitConditionHandle`.
-func NewCfnWaitConditionHandle_Override(c CfnWaitConditionHandle, scope constructs.Construct, id *string) {
+func NewCfnWaitConditionHandle_Override(c CfnWaitConditionHandle, scope constructs.Construct, id *string, props *CfnWaitConditionHandleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.CfnWaitConditionHandle",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		c,
 	)
 }

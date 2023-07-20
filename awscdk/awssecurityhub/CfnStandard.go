@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SecurityHub::Standard`.
+// The `AWS::SecurityHub::Standard` resource specifies the enablement of a security standard.
 //
-// The `AWS::SecurityHub::Standard` resource specifies the enablement of a security standard. The standard is identified by the `StandardsArn` property. To view a list of Security Hub standards and their Amazon Resource Names (ARNs), use the [`DescribeStandards`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
+// The standard is identified by the `StandardsArn` property. To view a list of Security Hub standards and their Amazon Resource Names (ARNs), use the [`DescribeStandards`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
 //
 // You must create a separate `AWS::SecurityHub::Standard` resource for each standard that you want to enable.
 //
@@ -35,6 +35,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html
 //
 type CfnStandard interface {
 	awscdk.CfnResource
@@ -75,8 +77,6 @@ type CfnStandard interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The ARN of the standard that you want to enable.
-	//
-	// To view a list of available Security Hub standards and their ARNs, use the [`DescribeStandards`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
 	StandardsArn() *string
 	SetStandardsArn(val *string)
 	// Deprecated.
@@ -356,7 +356,6 @@ func (j *jsiiProxy_CfnStandard) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SecurityHub::Standard`.
 func NewCfnStandard(scope constructs.Construct, id *string, props *CfnStandardProps) CfnStandard {
 	_init_.Initialize()
 
@@ -374,7 +373,6 @@ func NewCfnStandard(scope constructs.Construct, id *string, props *CfnStandardPr
 	return &j
 }
 
-// Create a new `AWS::SecurityHub::Standard`.
 func NewCfnStandard_Override(c CfnStandard, scope constructs.Construct, id *string, props *CfnStandardProps) {
 	_init_.Initialize()
 

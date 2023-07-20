@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RedshiftServerless::Workgroup`.
-//
 // The collection of compute resources in Amazon Redshift Serverless.
 //
 // Example:
@@ -47,14 +45,20 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html
+//
 type CfnWorkgroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	// Returns the `Workgroup` value.
+	AttrWorkgroup() awscdk.IResolvable
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 	AttrWorkgroupBaseCapacity() *float64
 	AttrWorkgroupConfigParameters() awscdk.IResolvable
 	// The creation date of the workgroup.
 	AttrWorkgroupCreationDate() *string
+	AttrWorkgroupEndpoint() awscdk.IResolvable
 	// The DNS address of the VPC endpoint.
 	AttrWorkgroupEndpointAddress() *string
 	// The custom port to use when connecting to a workgroup.
@@ -89,8 +93,6 @@ type CfnWorkgroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A list of parameters to set for finer control over a database.
-	//
-	// Available options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , and `max_query_execution_time` .
 	ConfigParameters() interface{}
 	SetConfigParameters(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -116,8 +118,6 @@ type CfnWorkgroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// The custom port to use when connecting to a workgroup.
-	//
-	// Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 	Port() *float64
 	SetPort(val *float64)
 	// A value that specifies whether the workgroup can be accessible from a public network.
@@ -138,8 +138,11 @@ type CfnWorkgroup interface {
 	// A list of subnet IDs the workgroup is associated with.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// The map of the key-value pairs used to tag the workgroup.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The map of the key-value pairs used to tag the workgroup.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -287,6 +290,17 @@ type CfnWorkgroup interface {
 type jsiiProxy_CfnWorkgroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnWorkgroup) AttrWorkgroup() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrWorkgroup",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnWorkgroup) AttrWorkgroupBaseCapacity() *float64 {
@@ -314,6 +328,16 @@ func (j *jsiiProxy_CfnWorkgroup) AttrWorkgroupCreationDate() *string {
 	_jsii_.Get(
 		j,
 		"attrWorkgroupCreationDate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkgroup) AttrWorkgroupEndpoint() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrWorkgroupEndpoint",
 		&returns,
 	)
 	return returns
@@ -609,6 +633,16 @@ func (j *jsiiProxy_CfnWorkgroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkgroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkgroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -640,7 +674,6 @@ func (j *jsiiProxy_CfnWorkgroup) WorkgroupName() *string {
 }
 
 
-// Create a new `AWS::RedshiftServerless::Workgroup`.
 func NewCfnWorkgroup(scope constructs.Construct, id *string, props *CfnWorkgroupProps) CfnWorkgroup {
 	_init_.Initialize()
 
@@ -658,7 +691,6 @@ func NewCfnWorkgroup(scope constructs.Construct, id *string, props *CfnWorkgroup
 	return &j
 }
 
-// Create a new `AWS::RedshiftServerless::Workgroup`.
 func NewCfnWorkgroup_Override(c CfnWorkgroup, scope constructs.Construct, id *string, props *CfnWorkgroupProps) {
 	_init_.Initialize()
 
@@ -738,6 +770,17 @@ func (j *jsiiProxy_CfnWorkgroup)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkgroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

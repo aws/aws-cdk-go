@@ -99,8 +99,12 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html
+//
 type CfnResponseHeadersPolicyProps struct {
 	// A response headers policy configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig
+	//
 	ResponseHeadersPolicyConfig interface{} `field:"required" json:"responseHeadersPolicyConfig" yaml:"responseHeadersPolicyConfig"`
 }
 

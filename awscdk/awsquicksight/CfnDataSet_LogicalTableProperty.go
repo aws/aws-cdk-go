@@ -97,14 +97,22 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html
+//
 type CfnDataSet_LogicalTableProperty struct {
 	// A display name for the logical table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
+	//
 	Alias *string `field:"required" json:"alias" yaml:"alias"`
 	// Source of this logical table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
+	//
 	Source interface{} `field:"required" json:"source" yaml:"source"`
 	// Transform operations that act on this logical table.
 	//
 	// For this structure to be valid, only one of the attributes can be non-null.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
+	//
 	DataTransforms interface{} `field:"optional" json:"dataTransforms" yaml:"dataTransforms"`
 }
 

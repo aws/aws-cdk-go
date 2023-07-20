@@ -16,10 +16,16 @@ package awsiottwinmaker
 //   	State: jsii.String("state"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-status.html
+//
 type CfnComponentType_StatusProperty struct {
 	// The component type error.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-status.html#cfn-iottwinmaker-componenttype-status-error
+	//
 	Error interface{} `field:"optional" json:"error" yaml:"error"`
 	// The component type status state.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-status.html#cfn-iottwinmaker-componenttype-status-state
+	//
 	State *string `field:"optional" json:"state" yaml:"state"`
 }
 

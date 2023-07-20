@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CertificateManager::Account`.
-//
 // The `AWS::CertificateManager::Account` resource defines the expiry event configuration that determines the number of days prior to expiry when ACM starts generating EventBridge events.
 //
 // Example:
@@ -23,6 +21,8 @@ import (
 //   		DaysBeforeExpiry: jsii.Number(123),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html
 //
 type CfnAccount interface {
 	awscdk.CfnResource
@@ -39,8 +39,6 @@ type CfnAccount interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Object containing expiration events options associated with an AWS account .
-	//
-	// For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
 	ExpiryEventsConfiguration() interface{}
 	SetExpiryEventsConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -331,7 +329,6 @@ func (j *jsiiProxy_CfnAccount) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CertificateManager::Account`.
 func NewCfnAccount(scope constructs.Construct, id *string, props *CfnAccountProps) CfnAccount {
 	_init_.Initialize()
 
@@ -349,7 +346,6 @@ func NewCfnAccount(scope constructs.Construct, id *string, props *CfnAccountProp
 	return &j
 }
 
-// Create a new `AWS::CertificateManager::Account`.
 func NewCfnAccount_Override(c CfnAccount, scope constructs.Construct, id *string, props *CfnAccountProps) {
 	_init_.Initialize()
 

@@ -15,14 +15,20 @@ package awsses
 //   	HeaderValue: jsii.String("headerValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html
+//
 type CfnReceiptRule_AddHeaderActionProperty struct {
 	// The name of the header to add to the incoming message.
 	//
 	// The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a–z, A–Z, 0–9) characters and dashes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headername
+	//
 	HeaderName *string `field:"required" json:"headerName" yaml:"headerName"`
 	// The content to include in the header.
 	//
 	// This value can contain up to 2048 characters. It can't contain newline ( `\n` ) or carriage return ( `\r` ) characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headervalue
+	//
 	HeaderValue *string `field:"required" json:"headerValue" yaml:"headerValue"`
 }
 

@@ -15,10 +15,16 @@ package awsomics
 //   	KeyArn: jsii.String("keyArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-sequencestore-sseconfig.html
+//
 type CfnSequenceStore_SseConfigProperty struct {
 	// The encryption type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-sequencestore-sseconfig.html#cfn-omics-sequencestore-sseconfig-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// An encryption key ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-sequencestore-sseconfig.html#cfn-omics-sequencestore-sseconfig-keyarn
+	//
 	KeyArn *string `field:"optional" json:"keyArn" yaml:"keyArn"`
 }
 

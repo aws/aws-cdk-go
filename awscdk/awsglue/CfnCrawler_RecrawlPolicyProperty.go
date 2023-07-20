@@ -14,6 +14,8 @@ package awsglue
 //   	RecrawlBehavior: jsii.String("recrawlBehavior"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html
+//
 type CfnCrawler_RecrawlPolicyProperty struct {
 	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
 	//
@@ -22,6 +24,8 @@ type CfnCrawler_RecrawlPolicyProperty struct {
 	// A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
 	//
 	// A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html#cfn-glue-crawler-recrawlpolicy-recrawlbehavior
+	//
 	RecrawlBehavior *string `field:"optional" json:"recrawlBehavior" yaml:"recrawlBehavior"`
 }
 

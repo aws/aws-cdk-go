@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnWorkspace) validateSetRootVolumeEncryptionEnabledParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkspace) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkspace) validateSetUserNameParameters(val *string) error {
 	return nil
 }

@@ -12,8 +12,11 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-functionenvironment.html
+//
 type CfnFunction_FunctionEnvironmentProperty struct {
-	// `CfnFunction.FunctionEnvironmentProperty.Variables`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-functionenvironment.html#cfn-serverless-function-functionenvironment-variables
+	//
 	Variables interface{} `field:"required" json:"variables" yaml:"variables"`
 }
 

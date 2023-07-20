@@ -13,10 +13,16 @@ package awsacmpca
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html
+//
 type CfnCertificate_OtherNameProperty struct {
 	// Specifies an OID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
+	//
 	TypeId *string `field:"required" json:"typeId" yaml:"typeId"`
 	// Specifies an OID value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

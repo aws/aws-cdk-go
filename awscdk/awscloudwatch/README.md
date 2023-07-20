@@ -284,9 +284,9 @@ To create a cross-account alarm, make sure you have enabled [cross-account funct
 
 Please note that it is **not possible** to:
 
-* Create a cross-Account alarm that as `evaluationPeriods > 1`. The reason is that the only
+* Create a cross-Account alarm that has `evaluateLowSampleCountPercentile: "ignore"`. The reason is that the only
   way to pass an AccountID is to use the [`Metrics` field of the Alarm resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-metrics). If we use the `Metrics` field, the CloudWatch event that is
-  used to evaluate the Alarm doesn't have a `SampleCount` field anymore ("[When CloudWatch evaluates alarms, periods are aggregated into single data points](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create-alarm-on-metric-math-expression.html)"). The result is that the Alarm cannot evaluate more than 1 period.
+  used to evaluate the Alarm doesn't have a `SampleCount` field anymore ("[When CloudWatch evaluates alarms, periods are aggregated into single data points](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create-alarm-on-metric-math-expression.html)"). The result is that the Alarm cannot evaluate at all.
 * Create a cross-Region alarm ([source](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html)).
 
 ### Alarm Actions
@@ -580,6 +580,20 @@ dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
 }))
 ```
 
+Period allows you to set the default period for the widget:
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
+	Metrics: []iMetric{
+	},
+
+	Period: awscdk.Duration_Minutes(jsii.Number(15)),
+}))
+```
+
 ### Text widget
 
 A text widget shows an arbitrary piece of MarkDown. Use this to add explanations
@@ -752,3 +766,102 @@ dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
 ```
 
 Here, the dashboard would show the metrics for the last 7 days.
+
+### Dashboard variables
+
+Dashboard variables are a convenient way to create flexible dashboards that display different content depending
+on the value of an input field within a dashboard. They create a dashboard on which it's possible to quickly switch between
+different Lambda functions, Amazon EC2 instances, etc.
+
+You can learn more about Dashboard variables in the [Amazon Cloudwatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_dashboard_variables.html)
+
+There are two types of dashboard variables available: a property variable and a pattern variable.
+
+* Property variables can change any JSON property in the JSON source of a dashboard like `region`. It can also change the dimension name for a metric.
+* Pattern variables use a regular expression pattern to change all or part of a JSON property.
+
+A use case of a **property variable** is a dashboard with the ability to toggle the `region` property to see the same dashboard in different regions:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
+	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
+	Variables: []iVariable{
+		cw.NewDashboardVariable(&DashboardVariableOptions{
+			Id: jsii.String("region"),
+			Type: cw.VariableType_PROPERTY,
+			Label: jsii.String("Region"),
+			InputType: cw.VariableInputType_RADIO,
+			Value: jsii.String("region"),
+			Values: cw.Values_FromValues(&VariableValue{
+				Label: jsii.String("IAD"),
+				Value: jsii.String("us-east-1"),
+			}, &VariableValue{
+				Label: jsii.String("DUB"),
+				Value: jsii.String("us-west-2"),
+			}),
+			DefaultValue: cw.DefaultValue_Value(jsii.String("us-east-1")),
+			Visible: jsii.Boolean(true),
+		}),
+	},
+})
+```
+
+This example shows how to change `region` everywhere, assuming the current dashboard is showing region `us-east-1` already, by using **pattern variable**
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
+	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
+	Variables: []iVariable{
+		cw.NewDashboardVariable(&DashboardVariableOptions{
+			Id: jsii.String("region2"),
+			Type: cw.VariableType_PATTERN,
+			Label: jsii.String("RegionPattern"),
+			InputType: cw.VariableInputType_INPUT,
+			Value: jsii.String("us-east-1"),
+			DefaultValue: cw.DefaultValue_Value(jsii.String("us-east-1")),
+			Visible: jsii.Boolean(true),
+		}),
+	},
+})
+```
+
+The following example generates a Lambda function variable, with a radio button for each function. Functions are discovered by a metric query search.
+The `values` with `cw.Values.fromSearchComponents` indicates that the values will be populated from `FunctionName` values retrieved from the search expression `{AWS/Lambda,FunctionName} MetricName=\"Duration\"`.
+The `defaultValue` with `cw.DefaultValue.FIRST` indicates that the default value will be the first value returned from the search.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
+	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
+	Variables: []iVariable{
+		cw.NewDashboardVariable(&DashboardVariableOptions{
+			Id: jsii.String("functionName"),
+			Type: cw.VariableType_PATTERN,
+			Label: jsii.String("Function"),
+			InputType: cw.VariableInputType_RADIO,
+			Value: jsii.String("originalFuncNameInDashboard"),
+			// equivalent to cw.Values.fromSearch('{AWS/Lambda,FunctionName} MetricName=\"Duration\"', 'FunctionName')
+			Values: cw.Values_FromSearchComponents(&SearchComponents{
+				Namespace: jsii.String("AWS/Lambda"),
+				Dimensions: []*string{
+					jsii.String("FunctionName"),
+				},
+				MetricName: jsii.String("Duration"),
+				PopulateFrom: jsii.String("FunctionName"),
+			}),
+			DefaultValue: cw.DefaultValue_FIRST(),
+			Visible: jsii.Boolean(true),
+		}),
+	},
+})
+```
+
+You can add a variable after object instantiation with the method `dashboard.addVariable()`.

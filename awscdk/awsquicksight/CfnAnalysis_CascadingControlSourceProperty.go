@@ -16,10 +16,16 @@ package awsquicksight
 //   	SourceSheetControlId: jsii.String("sourceSheetControlId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-cascadingcontrolsource.html
+//
 type CfnAnalysis_CascadingControlSourceProperty struct {
 	// The column identifier that determines which column to look up for the source sheet control.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-cascadingcontrolsource.html#cfn-quicksight-analysis-cascadingcontrolsource-columntomatch
+	//
 	ColumnToMatch interface{} `field:"optional" json:"columnToMatch" yaml:"columnToMatch"`
 	// The source sheet control ID of a `CascadingControlSource` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-cascadingcontrolsource.html#cfn-quicksight-analysis-cascadingcontrolsource-sourcesheetcontrolid
+	//
 	SourceSheetControlId *string `field:"optional" json:"sourceSheetControlId" yaml:"sourceSheetControlId"`
 }
 

@@ -15,10 +15,16 @@ package awsquicksight
 //   	Color: jsii.String("color"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingsolidcolor.html
+//
 type CfnTemplate_ConditionalFormattingSolidColorProperty struct {
 	// The expression that determines the formatting configuration for solid color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingsolidcolor.html#cfn-quicksight-template-conditionalformattingsolidcolor-expression
+	//
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// Determines the color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingsolidcolor.html#cfn-quicksight-template-conditionalformattingsolidcolor-color
+	//
 	Color *string `field:"optional" json:"color" yaml:"color"`
 }
 

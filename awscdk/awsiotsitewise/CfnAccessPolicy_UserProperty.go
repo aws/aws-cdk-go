@@ -12,8 +12,12 @@ package awsiotsitewise
 //   	Id: jsii.String("id"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html
+//
 type CfnAccessPolicy_UserProperty struct {
 	// The ID of the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html#cfn-iotsitewise-accesspolicy-user-id
+	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
 }
 

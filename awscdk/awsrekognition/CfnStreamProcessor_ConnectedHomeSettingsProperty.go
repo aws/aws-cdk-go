@@ -21,12 +21,18 @@ package awsrekognition
 //   	MinConfidence: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html
+//
 type CfnStreamProcessor_ConnectedHomeSettingsProperty struct {
 	// Specifies what you want to detect in the video, such as people, packages, or pets.
 	//
 	// The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html#cfn-rekognition-streamprocessor-connectedhomesettings-labels
+	//
 	Labels *[]*string `field:"required" json:"labels" yaml:"labels"`
 	// The minimum confidence required to label an object in the video.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html#cfn-rekognition-streamprocessor-connectedhomesettings-minconfidence
+	//
 	MinConfidence *float64 `field:"optional" json:"minConfidence" yaml:"minConfidence"`
 }
 

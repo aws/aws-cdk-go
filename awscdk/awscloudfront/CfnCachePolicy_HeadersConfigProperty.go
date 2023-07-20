@@ -17,6 +17,8 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
+//
 type CfnCachePolicy_HeadersConfigProperty struct {
 	// Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin.
 	//
@@ -24,8 +26,12 @@ type CfnCachePolicy_HeadersConfigProperty struct {
 	//
 	// - `none` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in an `OriginRequestPolicy` *are* included in origin requests.
 	// - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in the cache key and in requests that CloudFront sends to the origin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
+	//
 	HeaderBehavior *string `field:"required" json:"headerBehavior" yaml:"headerBehavior"`
 	// Contains a list of HTTP header names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
+	//
 	Headers *[]*string `field:"optional" json:"headers" yaml:"headers"`
 }
 

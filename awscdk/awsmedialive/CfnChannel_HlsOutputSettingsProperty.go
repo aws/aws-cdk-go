@@ -57,18 +57,28 @@ package awsmedialive
 //   	SegmentModifier: jsii.String("segmentModifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsoutputsettings.html
+//
 type CfnChannel_HlsOutputSettingsProperty struct {
 	// Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsoutputsettings.html#cfn-medialive-channel-hlsoutputsettings-h265packagingtype
+	//
 	H265PackagingType *string `field:"optional" json:"h265PackagingType" yaml:"h265PackagingType"`
 	// The settings regarding the underlying stream.
 	//
 	// These settings are different for audio-only outputs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsoutputsettings.html#cfn-medialive-channel-hlsoutputsettings-hlssettings
+	//
 	HlsSettings interface{} `field:"optional" json:"hlsSettings" yaml:"hlsSettings"`
 	// A string that is concatenated to the end of the destination file name.
 	//
 	// Accepts \"Format Identifiers\":#formatIdentifierParameters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsoutputsettings.html#cfn-medialive-channel-hlsoutputsettings-namemodifier
+	//
 	NameModifier *string `field:"optional" json:"nameModifier" yaml:"nameModifier"`
 	// A string that is concatenated to the end of segment file names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsoutputsettings.html#cfn-medialive-channel-hlsoutputsettings-segmentmodifier
+	//
 	SegmentModifier *string `field:"optional" json:"segmentModifier" yaml:"segmentModifier"`
 }
 

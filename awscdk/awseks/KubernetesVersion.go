@@ -8,17 +8,18 @@ import (
 // Kubernetes cluster version.
 //
 // Example:
-//   var vpc vpc
+//   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+//   	Version: eks.KubernetesVersion_V1_27(),
+//   	DefaultCapacity: jsii.Number(0),
+//   })
 //
-//
-//   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_26(),
-//   	Vpc: Vpc,
-//   	VpcSubnets: []subnetSelection{
-//   		&subnetSelection{
-//   			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-//   		},
+//   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+//   	InstanceTypes: []instanceType{
+//   		ec2.NewInstanceType(jsii.String("m5.large")),
 //   	},
+//   	MinSize: jsii.Number(4),
+//   	DiskSize: jsii.Number(100),
+//   	AmiType: eks.NodegroupAmiType_AL2_X86_64_GPU,
 //   })
 //
 // See: https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar
@@ -201,6 +202,17 @@ func KubernetesVersion_V1_26() KubernetesVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_eks.KubernetesVersion",
 		"V1_26",
+		&returns,
+	)
+	return returns
+}
+
+func KubernetesVersion_V1_27() KubernetesVersion {
+	_init_.Initialize()
+	var returns KubernetesVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"V1_27",
 		&returns,
 	)
 	return returns

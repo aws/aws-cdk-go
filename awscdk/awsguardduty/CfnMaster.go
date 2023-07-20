@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GuardDuty::Master`.
+// You can use the `AWS::GuardDuty::Master` resource in a GuardDuty member account to accept an invitation from a GuardDuty administrator account.
 //
-// You can use the `AWS::GuardDuty::Master` resource in a GuardDuty member account to accept an invitation from a GuardDuty administrator account. The invitation to the member account must be sent prior to using the `AWS::GuardDuty::Master` resource to accept the administrator account's invitation. You can invite a member account by using the `InviteMembers` operation of the GuardDuty API, or by creating an `AWS::GuardDuty::Member` resource.
+// The invitation to the member account must be sent prior to using the `AWS::GuardDuty::Master` resource to accept the administrator account's invitation. You can invite a member account by using the `InviteMembers` operation of the GuardDuty API, or by creating an `AWS::GuardDuty::Member` resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,6 +25,8 @@ import (
 //   	// the properties below are optional
 //   	InvitationId: jsii.String("invitationId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html
 //
 type CfnMaster interface {
 	awscdk.CfnResource
@@ -42,8 +44,6 @@ type CfnMaster interface {
 	DetectorId() *string
 	SetDetectorId(val *string)
 	// The ID of the invitation that is sent to the account designated as a member account.
-	//
-	// You can find the invitation ID by using the ListInvitation action of the GuardDuty API.
 	InvitationId() *string
 	SetInvitationId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -347,7 +347,6 @@ func (j *jsiiProxy_CfnMaster) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GuardDuty::Master`.
 func NewCfnMaster(scope constructs.Construct, id *string, props *CfnMasterProps) CfnMaster {
 	_init_.Initialize()
 
@@ -365,7 +364,6 @@ func NewCfnMaster(scope constructs.Construct, id *string, props *CfnMasterProps)
 	return &j
 }
 
-// Create a new `AWS::GuardDuty::Master`.
 func NewCfnMaster_Override(c CfnMaster, scope constructs.Construct, id *string, props *CfnMasterProps) {
 	_init_.Initialize()
 

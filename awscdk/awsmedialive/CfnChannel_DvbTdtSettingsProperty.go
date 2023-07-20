@@ -14,8 +14,12 @@ package awsmedialive
 //   	RepInterval: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbtdtsettings.html
+//
 type CfnChannel_DvbTdtSettingsProperty struct {
 	// The number of milliseconds between instances of this table in the output transport stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbtdtsettings.html#cfn-medialive-channel-dvbtdtsettings-repinterval
+	//
 	RepInterval *float64 `field:"optional" json:"repInterval" yaml:"repInterval"`
 }
 

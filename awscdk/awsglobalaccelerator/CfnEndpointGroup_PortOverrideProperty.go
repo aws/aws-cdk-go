@@ -17,14 +17,20 @@ package awsglobalaccelerator
 //   	ListenerPort: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
+//
 type CfnEndpointGroup_PortOverrideProperty struct {
 	// The endpoint port that you want a listener port to be mapped to.
 	//
 	// This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
+	//
 	EndpointPort *float64 `field:"required" json:"endpointPort" yaml:"endpointPort"`
 	// The listener port that you want to map to a specific endpoint port.
 	//
 	// This is the port that user traffic arrives to the Global Accelerator on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
+	//
 	ListenerPort *float64 `field:"required" json:"listenerPort" yaml:"listenerPort"`
 }
 

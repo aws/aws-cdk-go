@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EMRContainers::VirtualCluster`.
+// The `AWS::EMRContainers::VirtualCluster` resource specifies a virtual cluster.
 //
-// The `AWS::EMRContainers::VirtualCluster` resource specifies a virtual cluster. A virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list, and delete virtual clusters. They do not consume any additional resources in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.
+// A virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list, and delete virtual clusters. They do not consume any additional resources in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,9 +39,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html
+//
 type CfnVirtualCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
 	AttrArn() *string
 	// The ID of the virtual cluster, such as `ab4rp1abcs8xz47n3x0example` .
@@ -82,10 +85,11 @@ type CfnVirtualCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +234,7 @@ type CfnVirtualCluster interface {
 type jsiiProxy_CfnVirtualCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVirtualCluster) AttrArn() *string {
@@ -362,6 +367,16 @@ func (j *jsiiProxy_CfnVirtualCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVirtualCluster) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVirtualCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -383,7 +398,6 @@ func (j *jsiiProxy_CfnVirtualCluster) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::EMRContainers::VirtualCluster`.
 func NewCfnVirtualCluster(scope constructs.Construct, id *string, props *CfnVirtualClusterProps) CfnVirtualCluster {
 	_init_.Initialize()
 
@@ -401,7 +415,6 @@ func NewCfnVirtualCluster(scope constructs.Construct, id *string, props *CfnVirt
 	return &j
 }
 
-// Create a new `AWS::EMRContainers::VirtualCluster`.
 func NewCfnVirtualCluster_Override(c CfnVirtualCluster, scope constructs.Construct, id *string, props *CfnVirtualClusterProps) {
 	_init_.Initialize()
 
@@ -430,6 +443,17 @@ func (j *jsiiProxy_CfnVirtualCluster)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVirtualCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

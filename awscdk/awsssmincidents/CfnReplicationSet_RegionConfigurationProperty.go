@@ -12,8 +12,12 @@ package awsssmincidents
 //   	SseKmsKeyId: jsii.String("sseKmsKeyId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html
+//
 type CfnReplicationSet_RegionConfigurationProperty struct {
 	// The KMS key ID to use to encrypt your replication set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
+	//
 	SseKmsKeyId *string `field:"required" json:"sseKmsKeyId" yaml:"sseKmsKeyId"`
 }
 

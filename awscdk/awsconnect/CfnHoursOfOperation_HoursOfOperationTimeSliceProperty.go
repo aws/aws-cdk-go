@@ -13,10 +13,16 @@ package awsconnect
 //   	Minutes: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html
+//
 type CfnHoursOfOperation_HoursOfOperationTimeSliceProperty struct {
 	// The hours.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html#cfn-connect-hoursofoperation-hoursofoperationtimeslice-hours
+	//
 	Hours *float64 `field:"required" json:"hours" yaml:"hours"`
 	// The minutes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html#cfn-connect-hoursofoperation-hoursofoperationtimeslice-minutes
+	//
 	Minutes *float64 `field:"required" json:"minutes" yaml:"minutes"`
 }
 

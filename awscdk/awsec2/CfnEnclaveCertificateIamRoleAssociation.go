@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::EnclaveCertificateIamRoleAssociation`.
+// Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate.
 //
-// Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see [AWS Certificate Manager for Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html) in the *AWS Nitro Enclaves User Guide* .
+// This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see [AWS Certificate Manager for Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html) in the *AWS Nitro Enclaves User Guide* .
 //
 // When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted private key are placed in an Amazon S3 location that only the associated IAM role can access. The private key of the certificate is encrypted with an AWS managed key that has an attached attestation-based key policy.
 //
@@ -26,6 +26,8 @@ import (
 //   	CertificateArn: jsii.String("certificateArn"),
 //   	RoleArn: jsii.String("roleArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html
 //
 type CfnEnclaveCertificateIamRoleAssociation interface {
 	awscdk.CfnResource
@@ -68,8 +70,6 @@ type CfnEnclaveCertificateIamRoleAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN of the IAM role to associate with the ACM certificate.
-	//
-	// You can associate up to 16 IAM roles with an ACM certificate.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -373,7 +373,6 @@ func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) UpdatedProperties() 
 }
 
 
-// Create a new `AWS::EC2::EnclaveCertificateIamRoleAssociation`.
 func NewCfnEnclaveCertificateIamRoleAssociation(scope constructs.Construct, id *string, props *CfnEnclaveCertificateIamRoleAssociationProps) CfnEnclaveCertificateIamRoleAssociation {
 	_init_.Initialize()
 
@@ -391,7 +390,6 @@ func NewCfnEnclaveCertificateIamRoleAssociation(scope constructs.Construct, id *
 	return &j
 }
 
-// Create a new `AWS::EC2::EnclaveCertificateIamRoleAssociation`.
 func NewCfnEnclaveCertificateIamRoleAssociation_Override(c CfnEnclaveCertificateIamRoleAssociation, scope constructs.Construct, id *string, props *CfnEnclaveCertificateIamRoleAssociationProps) {
 	_init_.Initialize()
 

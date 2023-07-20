@@ -38,8 +38,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpisortconfiguration.html
+//
 type CfnTemplate_KPISortConfigurationProperty struct {
 	// The sort configuration of the trend group fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpisortconfiguration.html#cfn-quicksight-template-kpisortconfiguration-trendgroupsort
+	//
 	TrendGroupSort interface{} `field:"optional" json:"trendGroupSort" yaml:"trendGroupSort"`
 }
 

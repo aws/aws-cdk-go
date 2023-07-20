@@ -12,10 +12,14 @@ package awspinpoint
 //   	Data: jsii.String("data"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigncustommessage.html
+//
 type CfnCampaign_CampaignCustomMessageProperty struct {
 	// The raw, JSON-formatted string to use as the payload for the message.
 	//
 	// The maximum size is 5 KB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigncustommessage.html#cfn-pinpoint-campaign-campaigncustommessage-data
+	//
 	Data *string `field:"optional" json:"data" yaml:"data"`
 }
 

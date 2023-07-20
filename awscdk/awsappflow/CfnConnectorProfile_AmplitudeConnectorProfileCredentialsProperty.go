@@ -13,10 +13,16 @@ package awsappflow
 //   	SecretKey: jsii.String("secretKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html
+//
 type CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty struct {
 	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
+	//
 	ApiKey *string `field:"required" json:"apiKey" yaml:"apiKey"`
 	// The Secret Access Key portion of the credentials.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
+	//
 	SecretKey *string `field:"required" json:"secretKey" yaml:"secretKey"`
 }
 

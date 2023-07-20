@@ -15,10 +15,16 @@ package awsquicksight
 //   	StepSize: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axislinearscale.html
+//
 type CfnDashboard_AxisLinearScaleProperty struct {
 	// The step count setup of a linear axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axislinearscale.html#cfn-quicksight-dashboard-axislinearscale-stepcount
+	//
 	StepCount *float64 `field:"optional" json:"stepCount" yaml:"stepCount"`
 	// The step size setup of a linear axis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axislinearscale.html#cfn-quicksight-dashboard-axislinearscale-stepsize
+	//
 	StepSize *float64 `field:"optional" json:"stepSize" yaml:"stepSize"`
 }
 

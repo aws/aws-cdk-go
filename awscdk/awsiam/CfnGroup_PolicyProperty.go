@@ -19,10 +19,16 @@ package awsiam
 //   	PolicyName: jsii.String("policyName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group-policy.html
+//
 type CfnGroup_PolicyProperty struct {
 	// The policy document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group-policy.html#cfn-iam-group-policy-policydocument
+	//
 	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group-policy.html#cfn-iam-group-policy-policyname
+	//
 	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 }
 

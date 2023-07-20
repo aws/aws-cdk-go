@@ -14,10 +14,14 @@ package awsnetworkfirewall
 //   	RuleOrder: jsii.String("ruleOrder"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulruleoptions.html
+//
 type CfnRuleGroup_StatefulRuleOptionsProperty struct {
 	// Indicates how to manage the order of the rule evaluation for the rule group.
 	//
 	// `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulruleoptions.html#cfn-networkfirewall-rulegroup-statefulruleoptions-ruleorder
+	//
 	RuleOrder *string `field:"optional" json:"ruleOrder" yaml:"ruleOrder"`
 }
 

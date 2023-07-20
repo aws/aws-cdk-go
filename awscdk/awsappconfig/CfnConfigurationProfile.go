@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppConfig::ConfigurationProfile`.
+// The `AWS::AppConfig::ConfigurationProfile` resource creates a configuration profile that enables AWS AppConfig to access the configuration source.
 //
-// The `AWS::AppConfig::ConfigurationProfile` resource creates a configuration profile that enables AWS AppConfig to access the configuration source. Valid configuration sources include AWS Systems Manager (SSM) documents, SSM Parameter Store parameters, and Amazon S3 . A configuration profile includes the following information.
+// Valid configuration sources include AWS Systems Manager (SSM) documents, SSM Parameter Store parameters, and Amazon S3 . A configuration profile includes the following information.
 //
 // - The Uri location of the configuration data.
 // - The AWS Identity and Access Management ( IAM ) role that provides access to the configuration data.
@@ -55,12 +55,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html
+//
 type CfnConfigurationProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The application ID.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -73,14 +76,9 @@ type CfnConfigurationProfile interface {
 	// A description of the configuration profile.
 	Description() *string
 	SetDescription(val *string)
-	// A URI to locate the configuration. You can specify the following:.
+	// A URI to locate the configuration.
 	//
-	// - For the AWS AppConfig hosted configuration store and for feature flags, specify `hosted` .
-	// - For an AWS Systems Manager Parameter Store parameter, specify either the parameter name in the format `ssm-parameter://<parameter name>` or the ARN.
-	// - For an AWS CodePipeline pipeline, specify the URI in the following format: `codepipeline` ://<pipeline name>.
-	// - For an AWS Secrets Manager secret, specify the URI in the following format: `secretsmanager` ://<secret name>.
-	// - For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>` . Here is an example: `s3://my-bucket/my-app/us-east-1/my-config.json`
-	// - For an SSM document, specify either the document name in the format `ssm-document://<document name>` or the Amazon Resource Name (ARN).
+	// You can specify the following:.
 	LocationUri() *string
 	SetLocationUri(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -104,8 +102,6 @@ type CfnConfigurationProfile interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN of an IAM role with permission to access the configuration at the specified `LocationUri` .
-	//
-	// > A retrieval role ARN is not required for configurations stored in the AWS AppConfig hosted configuration store. It is required for all other sources that store your configuration.
 	RetrievalRoleArn() *string
 	SetRetrievalRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -113,17 +109,9 @@ type CfnConfigurationProfile interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Metadata to assign to the configuration profile.
-	//
-	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 	Tags() *[]*CfnConfigurationProfile_TagsProperty
 	SetTags(val *[]*CfnConfigurationProfile_TagsProperty)
 	// The type of configurations contained in the profile.
-	//
-	// AWS AppConfig supports `feature flags` and `freeform` configurations. We recommend you create feature flag configurations to enable or disable new features and freeform configurations to distribute configurations to an application. When calling this API, enter one of the following values for `Type` :
-	//
-	// `AWS.AppConfig.FeatureFlags`
-	//
-	// `AWS.Freeform`
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -280,6 +268,16 @@ func (j *jsiiProxy_CfnConfigurationProfile) ApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"applicationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationProfile) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -456,7 +454,6 @@ func (j *jsiiProxy_CfnConfigurationProfile) Validators() interface{} {
 }
 
 
-// Create a new `AWS::AppConfig::ConfigurationProfile`.
 func NewCfnConfigurationProfile(scope constructs.Construct, id *string, props *CfnConfigurationProfileProps) CfnConfigurationProfile {
 	_init_.Initialize()
 
@@ -474,7 +471,6 @@ func NewCfnConfigurationProfile(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::AppConfig::ConfigurationProfile`.
 func NewCfnConfigurationProfile_Override(c CfnConfigurationProfile, scope constructs.Construct, id *string, props *CfnConfigurationProfileProps) {
 	_init_.Initialize()
 

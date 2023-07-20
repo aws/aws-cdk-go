@@ -38,12 +38,20 @@ package awsamplifyuibuilder
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalue.html
+//
 type CfnComponent_ComponentBindingPropertiesValueProperty struct {
 	// Describes the properties to customize with data at runtime.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalue.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalue-bindingproperties
+	//
 	BindingProperties interface{} `field:"optional" json:"bindingProperties" yaml:"bindingProperties"`
 	// The default value of the property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalue.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalue-defaultvalue
+	//
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The property type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalue.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalue-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

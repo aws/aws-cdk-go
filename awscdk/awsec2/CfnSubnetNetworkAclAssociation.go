@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::SubnetNetworkAclAssociation`.
-//
 // Associates a subnet with a network ACL. For more information, see [ReplaceNetworkAclAssociation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkAclAssociation.html) in the *Amazon EC2 API Reference* .
 //
 // When `AWS::EC2::SubnetNetworkAclAssociation` resources are created during create or update operations, AWS CloudFormation adopts existing resources that share the same key properties (the properties that contribute to uniquely identify the resource). However, if the operation fails and rolls back, AWS CloudFormation deletes the previously out-of-band resources. You can protect against this behavior by using `Retain` deletion policies. For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
@@ -24,6 +22,8 @@ import (
 //   	NetworkAclId: jsii.String("networkAclId"),
 //   	SubnetId: jsii.String("subnetId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetnetworkaclassociation.html
 //
 type CfnSubnetNetworkAclAssociation interface {
 	awscdk.CfnResource
@@ -343,7 +343,6 @@ func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) UpdatedProperties() *map[stri
 }
 
 
-// Create a new `AWS::EC2::SubnetNetworkAclAssociation`.
 func NewCfnSubnetNetworkAclAssociation(scope constructs.Construct, id *string, props *CfnSubnetNetworkAclAssociationProps) CfnSubnetNetworkAclAssociation {
 	_init_.Initialize()
 
@@ -361,7 +360,6 @@ func NewCfnSubnetNetworkAclAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Create a new `AWS::EC2::SubnetNetworkAclAssociation`.
 func NewCfnSubnetNetworkAclAssociation_Override(c CfnSubnetNetworkAclAssociation, scope constructs.Construct, id *string, props *CfnSubnetNetworkAclAssociationProps) {
 	_init_.Initialize()
 

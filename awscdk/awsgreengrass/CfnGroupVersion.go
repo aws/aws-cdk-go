@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::GroupVersion`.
+// The `AWS::Greengrass::GroupVersion` resource represents a group version in AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::GroupVersion` resource represents a group version in AWS IoT Greengrass . A group version references a core definition version, device definition version, subscription definition version, and other version types that contain the components you want to deploy to a Greengrass core device. The group version must reference a core definition version that contains one core. Other version types are optionally included, depending on your business need.
+// A group version references a core definition version, device definition version, subscription definition version, and other version types that contain the components you want to deploy to a Greengrass core device. The group version must reference a core definition version that contains one core. Other version types are optionally included, depending on your business need.
 //
 // > To create a group version, you must specify the ID of the group that you want to associate with the version. For information about creating a group, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
@@ -33,9 +33,12 @@ import (
 //   	SubscriptionDefinitionVersionArn: jsii.String("subscriptionDefinitionVersionArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html
+//
 type CfnGroupVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -45,8 +48,6 @@ type CfnGroupVersion interface {
 	ConnectorDefinitionVersionArn() *string
 	SetConnectorDefinitionVersionArn(val *string)
 	// The ARN of the core definition version that contains the core you want to deploy with the group version.
-	//
-	// Currently, the core definition version can contain only one core.
 	CoreDefinitionVersionArn() *string
 	SetCoreDefinitionVersionArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -60,8 +61,6 @@ type CfnGroupVersion interface {
 	FunctionDefinitionVersionArn() *string
 	SetFunctionDefinitionVersionArn(val *string)
 	// The ID of the group associated with this version.
-	//
-	// This value is a GUID.
 	GroupId() *string
 	SetGroupId(val *string)
 	// The ARN of the logger definition version that contains the loggers you want to deploy with the group version.
@@ -238,6 +237,16 @@ type CfnGroupVersion interface {
 type jsiiProxy_CfnGroupVersion struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnGroupVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnGroupVersion) CfnOptions() awscdk.ICfnResourceOptions {
@@ -421,7 +430,6 @@ func (j *jsiiProxy_CfnGroupVersion) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Greengrass::GroupVersion`.
 func NewCfnGroupVersion(scope constructs.Construct, id *string, props *CfnGroupVersionProps) CfnGroupVersion {
 	_init_.Initialize()
 
@@ -439,7 +447,6 @@ func NewCfnGroupVersion(scope constructs.Construct, id *string, props *CfnGroupV
 	return &j
 }
 
-// Create a new `AWS::Greengrass::GroupVersion`.
 func NewCfnGroupVersion_Override(c CfnGroupVersion, scope constructs.Construct, id *string, props *CfnGroupVersionProps) {
 	_init_.Initialize()
 

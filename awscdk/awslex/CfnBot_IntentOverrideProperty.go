@@ -28,14 +28,20 @@ package awslex
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentoverride.html
+//
 type CfnBot_IntentOverrideProperty struct {
 	// The name of the intent.
 	//
 	// Only required when you're switching intents.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentoverride.html#cfn-lex-bot-intentoverride-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A map of all of the slot value overrides for the intent.
 	//
 	// The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentoverride.html#cfn-lex-bot-intentoverride-slots
+	//
 	Slots interface{} `field:"optional" json:"slots" yaml:"slots"`
 }
 

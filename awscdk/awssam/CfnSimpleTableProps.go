@@ -30,16 +30,23 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-simpletable.html
+//
 type CfnSimpleTableProps struct {
-	// `AWS::Serverless::SimpleTable.PrimaryKey`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-simpletable.html#cfn-serverless-simpletable-primarykey
+	//
 	PrimaryKey interface{} `field:"optional" json:"primaryKey" yaml:"primaryKey"`
-	// `AWS::Serverless::SimpleTable.ProvisionedThroughput`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-simpletable.html#cfn-serverless-simpletable-provisionedthroughput
+	//
 	ProvisionedThroughput interface{} `field:"optional" json:"provisionedThroughput" yaml:"provisionedThroughput"`
-	// `AWS::Serverless::SimpleTable.SSESpecification`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-simpletable.html#cfn-serverless-simpletable-ssespecification
+	//
 	SseSpecification interface{} `field:"optional" json:"sseSpecification" yaml:"sseSpecification"`
-	// `AWS::Serverless::SimpleTable.TableName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-simpletable.html#cfn-serverless-simpletable-tablename
+	//
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
-	// `AWS::Serverless::SimpleTable.Tags`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-simpletable.html#cfn-serverless-simpletable-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

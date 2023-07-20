@@ -12,8 +12,12 @@ package awscustomerprofiles
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributeitem.html
+//
 type CfnCalculatedAttributeDefinition_AttributeItemProperty struct {
 	// The unique name of the calculated attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributeitem.html#cfn-customerprofiles-calculatedattributedefinition-attributeitem-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

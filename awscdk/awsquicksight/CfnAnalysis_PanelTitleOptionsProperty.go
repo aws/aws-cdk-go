@@ -24,12 +24,19 @@ package awsquicksight
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-paneltitleoptions.html
+//
 type CfnAnalysis_PanelTitleOptionsProperty struct {
-	// `CfnAnalysis.PanelTitleOptionsProperty.FontConfiguration`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-paneltitleoptions.html#cfn-quicksight-analysis-paneltitleoptions-fontconfiguration
+	//
 	FontConfiguration interface{} `field:"optional" json:"fontConfiguration" yaml:"fontConfiguration"`
 	// Sets the horizontal text alignment of the title within each panel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-paneltitleoptions.html#cfn-quicksight-analysis-paneltitleoptions-horizontaltextalignment
+	//
 	HorizontalTextAlignment *string `field:"optional" json:"horizontalTextAlignment" yaml:"horizontalTextAlignment"`
 	// Determines whether or not panel titles are displayed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-paneltitleoptions.html#cfn-quicksight-analysis-paneltitleoptions-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnStorageSystem) validateSetSystemTypeParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnStorageSystem) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnStorageSystemParameters(scope constructs.Construct, id *string, props *CfnStorageSystemProps) error {
 	return nil
 }

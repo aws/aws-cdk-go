@@ -40,3 +40,7 @@ func validateMachineImage_LookupParameters(props *LookupMachineImageProps) error
 	return nil
 }
 
+func validateMachineImage_ResolveSsmParameterAtLaunchParameters(parameterName *string, options *SsmParameterImageOptions) error {
+	return nil
+}
+

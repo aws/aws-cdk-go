@@ -12,8 +12,12 @@ package awsquicksight
 //   	Icon: jsii.String("icon"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldcustomiconcontent.html
+//
 type CfnTemplate_TableFieldCustomIconContentProperty struct {
 	// The icon set type (link) of the custom icon content for table URL link content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldcustomiconcontent.html#cfn-quicksight-template-tablefieldcustomiconcontent-icon
+	//
 	Icon *string `field:"optional" json:"icon" yaml:"icon"`
 }
 

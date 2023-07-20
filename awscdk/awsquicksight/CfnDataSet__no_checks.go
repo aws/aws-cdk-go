@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnDataSet) validateSetRowLevelPermissionTagConfigurationPara
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDataSetParameters(scope constructs.Construct, id *string, props *CfnDataSetProps) error {
 	return nil
 }

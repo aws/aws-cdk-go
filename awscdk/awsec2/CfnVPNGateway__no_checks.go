@@ -80,6 +80,10 @@ func validateCfnVPNGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPNGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPNGateway) validateSetTypeParameters(val *string) error {
 	return nil
 }

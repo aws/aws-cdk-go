@@ -241,6 +241,16 @@ func (j *jsiiProxy_CfnRule) validateSetPriorityParameters(val *float64) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnRule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnRuleParameters(scope constructs.Construct, id *string, props *CfnRuleProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

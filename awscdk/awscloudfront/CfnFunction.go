@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudFront::Function`.
-//
 // Creates a CloudFront function.
 //
 // To create a function, you provide the function code and some configuration information about the function. The response contains an Amazon Resource Name (ARN) that uniquely identifies the function, and the function’s stage.
@@ -41,6 +39,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html
+//
 type CfnFunction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -58,8 +58,6 @@ type CfnFunction interface {
 	AttrFunctionMetadataFunctionArn() *string
 	AttrStage() *string
 	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created.
-	//
-	// To automatically publish to the `LIVE` stage, set this property to `true` .
 	AutoPublish() interface{}
 	SetAutoPublish(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -72,8 +70,6 @@ type CfnFunction interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The function code.
-	//
-	// For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
 	FunctionCode() *string
 	SetFunctionCode(val *string)
 	// Contains configuration information about a CloudFront function.
@@ -433,7 +429,6 @@ func (j *jsiiProxy_CfnFunction) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CloudFront::Function`.
 func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionProps) CfnFunction {
 	_init_.Initialize()
 
@@ -451,7 +446,6 @@ func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionPr
 	return &j
 }
 
-// Create a new `AWS::CloudFront::Function`.
 func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *string, props *CfnFunctionProps) {
 	_init_.Initialize()
 

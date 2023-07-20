@@ -16,7 +16,6 @@ import (
 //
 //   secret.addRotationSchedule(jsii.String("RotationSchedule"), &RotationScheduleOptions{
 //   	HostedRotation: secretsmanager.HostedRotation_MysqlSingleUser(),
-//   	RotateImmediatelyOnUpdate: jsii.Boolean(false),
 //   })
 //
 type HostedRotation interface {

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Athena::DataCatalog`.
+// The AWS::Athena::DataCatalog resource specifies an Amazon Athena data catalog, which contains a name, description, type, parameters, and tags.
 //
-// The AWS::Athena::DataCatalog resource specifies an Amazon Athena data catalog, which contains a name, description, type, parameters, and tags. For more information, see [DataCatalog](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html) in the *Amazon Athena API Reference* .
+// For more information, see [DataCatalog](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html) in the *Amazon Athena API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html
+//
 type CfnDataCatalog interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -61,34 +64,11 @@ type CfnDataCatalog interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the data catalog.
-	//
-	// The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Specifies the Lambda function or functions to use for the data catalog.
-	//
-	// The mapping used depends on the catalog type.
-	//
-	// - The `HIVE` data catalog type uses the following syntax. The `metadata-function` parameter is required. `The sdk-version` parameter is optional and defaults to the currently supported version.
-	//
-	// `metadata-function= *lambda_arn* , sdk-version= *version_number*`
-	// - The `LAMBDA` data catalog type uses one of the following sets of required parameters, but not both.
-	//
-	// - When one Lambda function processes metadata and another Lambda function reads data, the following syntax is used. Both parameters are required.
-	//
-	// `metadata-function= *lambda_arn* , record-function= *lambda_arn*`
-	// - A composite Lambda function that processes both metadata and data uses the following syntax.
-	//
-	// `function= *lambda_arn*`
-	// - The `GLUE` type takes a catalog ID parameter and is required. The `*catalog_id*` is the account ID of the AWS account to which the Glue catalog belongs.
-	//
-	// `catalog-id= *catalog_id*`
-	//
-	// - The `GLUE` data catalog type also applies to the default `AwsDataCatalog` that already exists in your account, of which you can have only one and cannot modify.
-	// - Queries that specify a GLUE data catalog other than the default `AwsDataCatalog` must be run on Athena engine version 2.
-	// - In Regions where Athena engine version 2 is not available, creating new GLUE data catalogs results in an `INVALID_INPUT` error.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -100,8 +80,11 @@ type CfnDataCatalog interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags (key-value pairs) to associate with this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags (key-value pairs) to associate with this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
 	Type() *string
 	SetType(val *string)
@@ -249,6 +232,7 @@ type CfnDataCatalog interface {
 type jsiiProxy_CfnDataCatalog struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDataCatalog) CfnOptions() awscdk.ICfnResourceOptions {
@@ -371,6 +355,16 @@ func (j *jsiiProxy_CfnDataCatalog) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataCatalog) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataCatalog) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -402,7 +396,6 @@ func (j *jsiiProxy_CfnDataCatalog) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Athena::DataCatalog`.
 func NewCfnDataCatalog(scope constructs.Construct, id *string, props *CfnDataCatalogProps) CfnDataCatalog {
 	_init_.Initialize()
 
@@ -420,7 +413,6 @@ func NewCfnDataCatalog(scope constructs.Construct, id *string, props *CfnDataCat
 	return &j
 }
 
-// Create a new `AWS::Athena::DataCatalog`.
 func NewCfnDataCatalog_Override(c CfnDataCatalog, scope constructs.Construct, id *string, props *CfnDataCatalogProps) {
 	_init_.Initialize()
 
@@ -457,6 +449,17 @@ func (j *jsiiProxy_CfnDataCatalog)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataCatalog)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

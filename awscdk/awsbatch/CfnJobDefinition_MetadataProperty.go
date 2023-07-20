@@ -12,8 +12,11 @@ package awsbatch
 //   	Labels: labels,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-metadata.html
+//
 type CfnJobDefinition_MetadataProperty struct {
-	// `CfnJobDefinition.MetadataProperty.Labels`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-metadata.html#cfn-batch-jobdefinition-metadata-labels
+	//
 	Labels interface{} `field:"optional" json:"labels" yaml:"labels"`
 }
 

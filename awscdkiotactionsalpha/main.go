@@ -92,6 +92,28 @@ func init() {
 			"COMMA": FirehoseRecordSeparator_COMMA,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-actions-alpha.HttpActionHeader",
+		reflect.TypeOf((*HttpActionHeader)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-actions-alpha.HttpActionSigV4Auth",
+		reflect.TypeOf((*HttpActionSigV4Auth)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iot-actions-alpha.HttpsAction",
+		reflect.TypeOf((*HttpsAction)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			j := jsiiProxy_HttpsAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-actions-alpha.HttpsActionProps",
+		reflect.TypeOf((*HttpsActionProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.IotEventsPutMessageAction",
 		reflect.TypeOf((*IotEventsPutMessageAction)(nil)).Elem(),

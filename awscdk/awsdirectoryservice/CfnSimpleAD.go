@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DirectoryService::SimpleAD`.
+// The `AWS::DirectoryService::SimpleAD` resource specifies an AWS Directory Service Simple Active Directory ( Simple AD ) in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials.
 //
-// The `AWS::DirectoryService::SimpleAD` resource specifies an AWS Directory Service Simple Active Directory ( Simple AD ) in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials. Simple AD is a Microsoft Active Directory–compatible directory. For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html) in the *AWS Directory Service Admin Guide* .
+// Simple AD is a Microsoft Active Directory–compatible directory. For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html) in the *AWS Directory Service Admin Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,6 +36,8 @@ import (
 //   	ShortName: jsii.String("shortName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html
+//
 type CfnSimpleAD interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -43,6 +45,7 @@ type CfnSimpleAD interface {
 	//
 	// For example: `d-12373a053a` or `alias4-mydirectory-12345abcgmzsk` (if you have the `CreateAlias` property set to true).
 	AttrAlias() *string
+	// The unique identifier for a directory.
 	AttrDirectoryId() *string
 	// The IP addresses of the DNS servers for the directory, such as `[ "172.31.3.154", "172.31.63.203" ]` .
 	AttrDnsIpAddresses() *[]*string
@@ -52,10 +55,6 @@ type CfnSimpleAD interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// If set to `true` , specifies an alias for a directory and assigns the alias to the directory.
-	//
-	// The alias is used to construct the access URL for the directory, such as `http://<alias>.awsapps.com` . By default, this property is set to `false` .
-	//
-	// > After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
 	CreateAlias() interface{}
 	SetCreateAlias(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -66,8 +65,6 @@ type CfnSimpleAD interface {
 	Description() *string
 	SetDescription(val *string)
 	// Whether to enable single sign-on for a directory.
-	//
-	// If you don't specify a value, AWS CloudFormation disables single sign-on by default.
 	EnableSso() interface{}
 	SetEnableSso(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -86,10 +83,6 @@ type CfnSimpleAD interface {
 	// The tree node.
 	Node() constructs.Node
 	// The password for the directory administrator.
-	//
-	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
-	//
-	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
 	Password() *string
 	SetPassword(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -101,8 +94,6 @@ type CfnSimpleAD interface {
 	ShortName() *string
 	SetShortName(val *string)
 	// The size of the directory.
-	//
-	// For valid values, see [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) in the *AWS Directory Service API Reference* .
 	Size() *string
 	SetSize(val *string)
 	// The stack in which this element is defined.
@@ -469,7 +460,6 @@ func (j *jsiiProxy_CfnSimpleAD) VpcSettings() interface{} {
 }
 
 
-// Create a new `AWS::DirectoryService::SimpleAD`.
 func NewCfnSimpleAD(scope constructs.Construct, id *string, props *CfnSimpleADProps) CfnSimpleAD {
 	_init_.Initialize()
 
@@ -487,7 +477,6 @@ func NewCfnSimpleAD(scope constructs.Construct, id *string, props *CfnSimpleADPr
 	return &j
 }
 
-// Create a new `AWS::DirectoryService::SimpleAD`.
 func NewCfnSimpleAD_Override(c CfnSimpleAD, scope constructs.Construct, id *string, props *CfnSimpleADProps) {
 	_init_.Initialize()
 

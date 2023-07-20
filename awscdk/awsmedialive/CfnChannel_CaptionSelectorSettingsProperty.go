@@ -45,20 +45,36 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html
+//
 type CfnChannel_CaptionSelectorSettingsProperty struct {
 	// Information about the ancillary captions to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-ancillarysourcesettings
+	//
 	AncillarySourceSettings interface{} `field:"optional" json:"ancillarySourceSettings" yaml:"ancillarySourceSettings"`
 	// Information about the ARIB captions to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-aribsourcesettings
+	//
 	AribSourceSettings interface{} `field:"optional" json:"aribSourceSettings" yaml:"aribSourceSettings"`
 	// Information about the DVB Sub captions to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-dvbsubsourcesettings
+	//
 	DvbSubSourceSettings interface{} `field:"optional" json:"dvbSubSourceSettings" yaml:"dvbSubSourceSettings"`
 	// Information about the embedded captions to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-embeddedsourcesettings
+	//
 	EmbeddedSourceSettings interface{} `field:"optional" json:"embeddedSourceSettings" yaml:"embeddedSourceSettings"`
 	// Information about the SCTE-20 captions to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-scte20sourcesettings
+	//
 	Scte20SourceSettings interface{} `field:"optional" json:"scte20SourceSettings" yaml:"scte20SourceSettings"`
 	// Information about the SCTE-27 captions to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-scte27sourcesettings
+	//
 	Scte27SourceSettings interface{} `field:"optional" json:"scte27SourceSettings" yaml:"scte27SourceSettings"`
 	// Information about the Teletext captions to extract from the input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-teletextsourcesettings
+	//
 	TeletextSourceSettings interface{} `field:"optional" json:"teletextSourceSettings" yaml:"teletextSourceSettings"`
 }
 

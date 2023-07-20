@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CustomerProfiles::Domain`.
-//
 // Specifies an Amazon Connect Customer Profiles Domain.
 //
 // Example:
@@ -33,9 +31,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The timestamp of when the domain was created.
 	AttrCreatedAt() *string
 	// The timestamp of when the domain was most recently edited.
@@ -50,13 +51,9 @@ type CfnDomain interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-	//
-	// You must set up a policy on the DeadLetterQueue for the SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the DeadLetterQueue.
 	DeadLetterQueueUrl() *string
 	SetDeadLetterQueueUrl(val *string)
 	// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified.
-	//
-	// It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
 	DefaultEncryptionKey() *string
 	SetDefaultEncryptionKey(val *string)
 	// The default number of days until the data within the domain expires.
@@ -86,8 +83,11 @@ type CfnDomain interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +232,7 @@ type CfnDomain interface {
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDomain) AttrCreatedAt() *string {
@@ -384,6 +385,16 @@ func (j *jsiiProxy_CfnDomain) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -405,7 +416,6 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CustomerProfiles::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -423,7 +433,6 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
-// Create a new `AWS::CustomerProfiles::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
@@ -465,6 +474,17 @@ func (j *jsiiProxy_CfnDomain)SetDomainName(val *string) {
 	_jsii_.Set(
 		j,
 		"domainName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

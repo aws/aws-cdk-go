@@ -15,10 +15,16 @@ package awsopsworks
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html
+//
 type CfnStack_ElasticIpProperty struct {
 	// The IP address.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html#cfn-opsworks-stack-elasticip-ip
+	//
 	Ip *string `field:"required" json:"ip" yaml:"ip"`
 	// The name, which can be a maximum of 32 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html#cfn-opsworks-stack-elasticip-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EventSchemas::Schema`.
-//
 // Use the `AWS::EventSchemas::Schema` resource to specify an event schema.
 //
 // Example:
@@ -34,9 +32,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-schema.html
+//
 type CfnSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// The ARN of the schema.
 	AttrSchemaArn() *string
 	// The name of the schema.
@@ -85,11 +87,12 @@ type CfnSchema interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags associated with the schema.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags associated with the schema.
+	TagsRaw() *[]*CfnSchema_TagsEntryProperty
+	SetTagsRaw(val *[]*CfnSchema_TagsEntryProperty)
 	// The type of schema.
-	//
-	// Valid types include `OpenApi3` and `JSONSchemaDraft4` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -236,6 +239,17 @@ type CfnSchema interface {
 type jsiiProxy_CfnSchema struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnSchema) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnSchema) AttrSchemaArn() *string {
@@ -398,6 +412,16 @@ func (j *jsiiProxy_CfnSchema) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSchema) TagsRaw() *[]*CfnSchema_TagsEntryProperty {
+	var returns *[]*CfnSchema_TagsEntryProperty
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSchema) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -429,7 +453,6 @@ func (j *jsiiProxy_CfnSchema) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EventSchemas::Schema`.
 func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps) CfnSchema {
 	_init_.Initialize()
 
@@ -447,7 +470,6 @@ func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps)
 	return &j
 }
 
-// Create a new `AWS::EventSchemas::Schema`.
 func NewCfnSchema_Override(c CfnSchema, scope constructs.Construct, id *string, props *CfnSchemaProps) {
 	_init_.Initialize()
 
@@ -492,6 +514,17 @@ func (j *jsiiProxy_CfnSchema)SetSchemaName(val *string) {
 	_jsii_.Set(
 		j,
 		"schemaName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSchema)SetTagsRaw(val *[]*CfnSchema_TagsEntryProperty) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

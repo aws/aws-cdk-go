@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTWireless::WirelessDevice`.
-//
 // Provisions a wireless device.
 //
 // Example:
@@ -65,9 +63,12 @@ import (
 //   	ThingArn: jsii.String("thingArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html
+//
 type CfnWirelessDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the wireless device created.
 	AttrArn() *string
 	// The ID of the wireless device created.
@@ -86,13 +87,9 @@ type CfnWirelessDevice interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The description of the new resource.
-	//
-	// Maximum length is 2048.
 	Description() *string
 	SetDescription(val *string)
 	// The name of the destination to assign to the new wireless device.
-	//
-	// Can have only have alphanumeric, - (hyphen) and _ (underscore) characters and it can't have any spaces.
 	DestinationName() *string
 	SetDestinationName(val *string)
 	// The date and time when the most recent uplink was received.
@@ -109,8 +106,6 @@ type CfnWirelessDevice interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The device configuration information to use to create the wireless device.
-	//
-	// Must be at least one of OtaaV10x, OtaaV11, AbpV11, or AbpV10x.
 	LoRaWan() interface{}
 	SetLoRaWan(val interface{})
 	// The name of the new resource.
@@ -127,10 +122,11 @@ type CfnWirelessDevice interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags are an array of key-value pairs to attach to the specified resource.
-	//
-	// Tags can have a minimum of 0 and a maximum of 50 items.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN of the thing to associate with the wireless device.
 	ThingArn() *string
 	SetThingArn(val *string)
@@ -281,6 +277,7 @@ type CfnWirelessDevice interface {
 type jsiiProxy_CfnWirelessDevice struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnWirelessDevice) AttrArn() *string {
@@ -453,6 +450,16 @@ func (j *jsiiProxy_CfnWirelessDevice) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWirelessDevice) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWirelessDevice) ThingArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -494,7 +501,6 @@ func (j *jsiiProxy_CfnWirelessDevice) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::IoTWireless::WirelessDevice`.
 func NewCfnWirelessDevice(scope constructs.Construct, id *string, props *CfnWirelessDeviceProps) CfnWirelessDevice {
 	_init_.Initialize()
 
@@ -512,7 +518,6 @@ func NewCfnWirelessDevice(scope constructs.Construct, id *string, props *CfnWire
 	return &j
 }
 
-// Create a new `AWS::IoTWireless::WirelessDevice`.
 func NewCfnWirelessDevice_Override(c CfnWirelessDevice, scope constructs.Construct, id *string, props *CfnWirelessDeviceProps) {
 	_init_.Initialize()
 
@@ -565,6 +570,17 @@ func (j *jsiiProxy_CfnWirelessDevice)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWirelessDevice)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

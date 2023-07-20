@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Serverless::SimpleTable`.
+// Definition of AWS::Serverless::SimpleTable.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-simpletable.html
+//
 type CfnSimpleTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -62,10 +65,8 @@ type CfnSimpleTable interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Serverless::SimpleTable.PrimaryKey`.
 	PrimaryKey() interface{}
 	SetPrimaryKey(val interface{})
-	// `AWS::Serverless::SimpleTable.ProvisionedThroughput`.
 	ProvisionedThroughput() interface{}
 	SetProvisionedThroughput(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -73,18 +74,18 @@ type CfnSimpleTable interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Serverless::SimpleTable.SSESpecification`.
 	SseSpecification() interface{}
 	SetSseSpecification(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Serverless::SimpleTable.TableName`.
 	TableName() *string
 	SetTableName(val *string)
-	// `AWS::Serverless::SimpleTable.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -229,6 +230,7 @@ type CfnSimpleTable interface {
 type jsiiProxy_CfnSimpleTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSimpleTable) CfnOptions() awscdk.ICfnResourceOptions {
@@ -361,6 +363,16 @@ func (j *jsiiProxy_CfnSimpleTable) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSimpleTable) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSimpleTable) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -382,7 +394,6 @@ func (j *jsiiProxy_CfnSimpleTable) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Serverless::SimpleTable`.
 func NewCfnSimpleTable(scope constructs.Construct, id *string, props *CfnSimpleTableProps) CfnSimpleTable {
 	_init_.Initialize()
 
@@ -400,7 +411,6 @@ func NewCfnSimpleTable(scope constructs.Construct, id *string, props *CfnSimpleT
 	return &j
 }
 
-// Create a new `AWS::Serverless::SimpleTable`.
 func NewCfnSimpleTable_Override(c CfnSimpleTable, scope constructs.Construct, id *string, props *CfnSimpleTableProps) {
 	_init_.Initialize()
 
@@ -448,6 +458,14 @@ func (j *jsiiProxy_CfnSimpleTable)SetTableName(val *string) {
 	_jsii_.Set(
 		j,
 		"tableName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSimpleTable)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::Instance`.
-//
 // Specifies an EC2 instance.
 //
 // If an Elastic IP address is attached to your instance, AWS CloudFormation reattaches the Elastic IP address after it updates the instance. For more information about updating stacks, see [AWS CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html) .
@@ -176,23 +174,23 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html
+//
 type CfnInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// This property is reserved for internal use.
-	//
-	// If you use it, the stack fails with this error: `Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX)` .
 	AdditionalInfo() *string
 	SetAdditionalInfo(val *string)
 	// Indicates whether the instance is associated with a dedicated host.
-	//
-	// If you want the instance to always restart on the same host on which it was launched, specify `host` . If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify `default` .
 	Affinity() *string
 	SetAffinity(val *string)
 	// The Availability Zone where the specified instance is launched. For example: `us-east-1b` .
 	//
 	// You can retrieve a list of all Availability Zones for a Region by using the [Fn::GetAZs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getavailabilityzones.html) intrinsic function.
 	AttrAvailabilityZone() *string
+	AttrId() *string
 	// The private DNS name of the specified instance.
 	//
 	// For example: `ip-10-24-34-0.ec2.internal` .
@@ -210,17 +208,9 @@ type CfnInstance interface {
 	// For example: `192.0.2.0` .
 	AttrPublicIp() *string
 	// The Availability Zone of the instance.
-	//
-	// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
-	//
-	// This parameter is not supported by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// The block device mapping entries that defines the block devices to attach to the instance at launch.
-	//
-	// By default, the block devices specified in the block device mapping for the AMI are used. You can override the AMI block device mapping using the instance block device mapping. For the root volume, you can override only the volume size, volume type, volume encryption settings, and the `DeleteOnTermination` setting.
-	//
-	// > After the instance is running, you can modify only the `DeleteOnTermination` parameter for the attached volumes without interrupting the instance. Modifying any other parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	BlockDeviceMappings() interface{}
 	SetBlockDeviceMappings(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -229,8 +219,6 @@ type CfnInstance interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The CPU options for the instance.
-	//
-	// For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	CpuOptions() interface{}
 	SetCpuOptions(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -238,111 +226,61 @@ type CfnInstance interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The credit option for CPU usage of the burstable performance instance.
-	//
-	// Valid values are `standard` and `unlimited` . To change this attribute after launch, use [ModifyInstanceCreditSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html) . For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide* .
-	//
-	// Default: `standard` (T2 instances) or `unlimited` (T3/T3a/T4g instances)
-	//
-	// For T3 instances with `host` tenancy, only `standard` is supported.
 	CreditSpecification() interface{}
 	SetCreditSpecification(val interface{})
-	// If you set this parameter to `true` , you can't terminate the instance using the Amazon EC2 console, CLI, or API;
-	//
-	// otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html) . Alternatively, if you set `InstanceInitiatedShutdownBehavior` to `terminate` , you can terminate the instance by running the shutdown command from the instance.
-	//
-	// Default: `false`.
+	// If you set this parameter to `true` , you can't terminate the instance using the Amazon EC2 console, CLI, or API;.
 	DisableApiTermination() interface{}
 	SetDisableApiTermination(val interface{})
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
-	//
-	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
-	//
-	// Default: `false`.
 	EbsOptimized() interface{}
 	SetEbsOptimized(val interface{})
 	// An elastic GPU to associate with the instance.
-	//
-	// An Elastic GPU is a GPU resource that you can attach to your Windows instance to accelerate the graphics performance of your applications. For more information, see [Amazon EC2 Elastic GPUs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html) in the *Amazon EC2 User Guide* .
 	ElasticGpuSpecifications() interface{}
 	SetElasticGpuSpecifications(val interface{})
 	// An elastic inference accelerator to associate with the instance.
-	//
-	// Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-	//
-	// You cannot specify accelerators from different generations in the same request.
-	//
-	// > Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 	ElasticInferenceAccelerators() interface{}
 	SetElasticInferenceAccelerators(val interface{})
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 	EnclaveOptions() interface{}
 	SetEnclaveOptions(val interface{})
 	// Indicates whether an instance is enabled for hibernation.
-	//
-	// This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html) . For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide* .
-	//
-	// You can't enable hibernation and AWS Nitro Enclaves on the same instance.
 	HibernationOptions() interface{}
 	SetHibernationOptions(val interface{})
 	// If you specify host for the `Affinity` property, the ID of a dedicated host that the instance is associated with.
-	//
-	// If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account. This type of launch is called an untargeted launch. Note that for untargeted launches, you must have a compatible, dedicated host available to successfully launch instances.
 	HostId() *string
 	SetHostId(val *string)
 	// The ARN of the host resource group in which to launch the instances.
-	//
-	// If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to `host` .
 	HostResourceGroupArn() *string
 	SetHostResourceGroupArn(val *string)
 	// The name of an IAM instance profile.
-	//
-	// To create a new IAM instance profile, use the [AWS::IAM::InstanceProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html) resource.
 	IamInstanceProfile() *string
 	SetIamInstanceProfile(val *string)
 	// The ID of the AMI.
-	//
-	// An AMI ID is required to launch an instance and must be specified here or in a launch template.
 	ImageId() *string
 	SetImageId(val *string)
 	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
-	//
-	// Default: `stop`.
 	InstanceInitiatedShutdownBehavior() *string
 	SetInstanceInitiatedShutdownBehavior(val *string)
-	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	// The instance type.
 	//
-	// When you change your EBS-backed instance type, instance restart or replacement behavior depends on the instance type compatibility between the old and new types. An instance that's backed by an instance store volume is always replaced. For more information, see [Change the instance type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html) in the *Amazon EC2 User Guide* .
-	//
-	// Default: `m1.small`
+	// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 	InstanceType() *string
 	SetInstanceType(val *string)
 	// The number of IPv6 addresses to associate with the primary network interface.
-	//
-	// Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
-	//
-	// You cannot specify this option and the network interfaces option in the same request.
 	Ipv6AddressCount() *float64
 	SetIpv6AddressCount(val *float64)
 	// The IPv6 addresses from the range of the subnet to associate with the primary network interface.
-	//
-	// You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
-	//
-	// You cannot specify this option and the network interfaces option in the same request.
 	Ipv6Addresses() interface{}
 	SetIpv6Addresses(val interface{})
 	// The ID of the kernel.
-	//
-	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [PV-GRUB](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide* .
 	KernelId() *string
 	SetKernelId(val *string)
-	// The name of the key pair. You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html) .
+	// The name of the key pair.
 	//
-	// > If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
+	// You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html) .
 	KeyName() *string
 	SetKeyName(val *string)
 	// The launch template to use to launch the instances.
-	//
-	// Any parameters that you specify in the AWS CloudFormation template override the same parameters in the launch template. You can specify either the name or ID of a launch template, but not both.
 	LaunchTemplate() interface{}
 	SetLaunchTemplate(val interface{})
 	// The license configurations.
@@ -359,15 +297,9 @@ type CfnInstance interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Specifies whether detailed monitoring is enabled for the instance.
-	//
-	// Specify `true` to enable detailed monitoring. Otherwise, basic monitoring is enabled. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *Amazon EC2 User Guide* .
 	Monitoring() interface{}
 	SetMonitoring(val interface{})
 	// The network interfaces to associate with the instance.
-	//
-	// > If you use this property to point to a network interface, you must terminate the original interface before attaching a new one to allow the update of the instance to succeed.
-	// >
-	// > If this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the VPC-gateway attachment.
 	NetworkInterfaces() interface{}
 	SetNetworkInterfaces(val interface{})
 	// The tree node.
@@ -378,25 +310,15 @@ type CfnInstance interface {
 	// The options for the instance hostname.
 	PrivateDnsNameOptions() interface{}
 	SetPrivateDnsNameOptions(val interface{})
-	// The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
+	// The primary IPv4 address.
 	//
-	// Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
-	//
-	// You cannot specify this option and the network interfaces option in the same request.
-	//
-	// If you make an update to an instance that requires replacement, you must assign a new private IP address. During a replacement, AWS CloudFormation creates a new instance but doesn't delete the old instance until the stack has successfully updated. If the stack update fails, AWS CloudFormation uses the old instance to roll back the stack to the previous working state. The old and new instances cannot have the same private IP address.
+	// You must specify a value from the IPv4 address range of the subnet.
 	PrivateIpAddress() *string
 	SetPrivateIpAddress(val *string)
 	// Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch.
-	//
-	// If you specify `true` and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify `false` , those tags are not assigned to the attached volumes.
 	PropagateTagsToVolumeOnCreation() interface{}
 	SetPropagateTagsToVolumeOnCreation(val interface{})
 	// The ID of the RAM disk to select.
-	//
-	// Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, go to the AWS Resource Center and search for the kernel ID.
-	//
-	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [PV-GRUB](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide* .
 	RamdiskId() *string
 	SetRamdiskId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -405,27 +327,17 @@ type CfnInstance interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The IDs of the security groups.
-	//
-	// You can specify the IDs of existing security groups and references to resources created by the stack template.
-	//
-	// If you specify a network interface, you must specify any security groups as part of the network interface.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
-	// [Default VPC] The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+	// [Default VPC] The names of the security groups.
 	//
-	// You cannot specify this option and the network interfaces option in the same request. The list can contain both the name of existing Amazon EC2 security groups or references to AWS::EC2::SecurityGroup resources created in the template.
-	//
-	// Default: Amazon EC2 uses the default security group.
+	// For a nondefault VPC, you must use security group IDs instead.
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
 	// Enable or disable source/destination checks, which ensure that the instance is either the source or the destination of any traffic that it receives.
-	//
-	// If the value is `true` , source/destination checks are enabled; otherwise, they are disabled. The default value is `true` . You must disable source/destination checks if the instance runs services such as network address translation, routing, or firewalls.
 	SourceDestCheck() interface{}
 	SetSourceDestCheck(val interface{})
 	// The SSM [document](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html) and parameter values in AWS Systems Manager to associate with this instance. To use this property, you must specify an IAM instance profile role for the instance. For more information, see [Create an IAM instance profile for Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-configuring-access-role.html) in the *AWS Systems Manager User Guide* .
-	//
-	// > You can currently associate only one document with an instance.
 	SsmAssociations() interface{}
 	SetSsmAssociations(val interface{})
 	// The stack in which this element is defined.
@@ -433,17 +345,14 @@ type CfnInstance interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The ID of the subnet to launch the instance into.
-	//
-	// If you specify a network interface, you must specify any subnets as part of the network interface.
 	SubnetId() *string
 	SetSubnetId(val *string)
-	// The tags to add to the instance.
-	//
-	// These tags are not applied to the EBS volumes, such as the root volume, unless [PropagateTagsToVolumeOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-propagatetagstovolumeoncreation) is `true` .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to add to the instance.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The tenancy of the instance.
-	//
-	// An instance with a tenancy of `dedicated` runs on single-tenant hardware.
 	Tenancy() *string
 	SetTenancy(val *string)
 	// Deprecated.
@@ -460,10 +369,6 @@ type CfnInstance interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The user data script to make available to the instance.
-	//
-	// User data is limited to 16 KB. You must provide base64-encoded text. For more information, see [Fn::Base64](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-base64.html) .
-	//
-	// User data runs only at instance launch. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) and [Run commands on your Windows instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html) .
 	UserData() *string
 	SetUserData(val *string)
 	// The volumes to attach to the instance.
@@ -600,6 +505,7 @@ type CfnInstance interface {
 type jsiiProxy_CfnInstance struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInstance) AdditionalInfo() *string {
@@ -627,6 +533,16 @@ func (j *jsiiProxy_CfnInstance) AttrAvailabilityZone() *string {
 	_jsii_.Get(
 		j,
 		"attrAvailabilityZone",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -1102,6 +1018,16 @@ func (j *jsiiProxy_CfnInstance) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInstance) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInstance) Tenancy() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1153,7 +1079,6 @@ func (j *jsiiProxy_CfnInstance) Volumes() interface{} {
 }
 
 
-// Create a new `AWS::EC2::Instance`.
 func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstanceProps) CfnInstance {
 	_init_.Initialize()
 
@@ -1171,7 +1096,6 @@ func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstancePr
 	return &j
 }
 
-// Create a new `AWS::EC2::Instance`.
 func NewCfnInstance_Override(c CfnInstance, scope constructs.Construct, id *string, props *CfnInstanceProps) {
 	_init_.Initialize()
 
@@ -1520,6 +1444,17 @@ func (j *jsiiProxy_CfnInstance)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

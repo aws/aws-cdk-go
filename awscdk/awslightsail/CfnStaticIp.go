@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::StaticIp`.
-//
 // The `AWS::Lightsail::StaticIp` resource specifies a static IP that can be attached to an Amazon Lightsail instance that is in the same AWS Region and Availability Zone.
 //
 // Example:
@@ -24,6 +22,8 @@ import (
 //   	// the properties below are optional
 //   	AttachedTo: jsii.String("attachedTo"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html
 //
 type CfnStaticIp interface {
 	awscdk.CfnResource
@@ -367,7 +367,6 @@ func (j *jsiiProxy_CfnStaticIp) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lightsail::StaticIp`.
 func NewCfnStaticIp(scope constructs.Construct, id *string, props *CfnStaticIpProps) CfnStaticIp {
 	_init_.Initialize()
 
@@ -385,7 +384,6 @@ func NewCfnStaticIp(scope constructs.Construct, id *string, props *CfnStaticIpPr
 	return &j
 }
 
-// Create a new `AWS::Lightsail::StaticIp`.
 func NewCfnStaticIp_Override(c CfnStaticIp, scope constructs.Construct, id *string, props *CfnStaticIpProps) {
 	_init_.Initialize()
 

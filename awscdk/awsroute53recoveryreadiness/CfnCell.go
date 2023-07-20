@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53RecoveryReadiness::Cell`.
+// Creates a cell in recovery group in Amazon Route 53 Application Recovery Controller.
 //
-// Creates a cell in recovery group in Amazon Route 53 Application Recovery Controller. A cell in Route 53 ARC represents replicas or independent units of failover in your application. It groups within it all the AWS resources that are necessary for your application to run independently. Typically, you would have define one set of resources in a primary cell and another set in a standby cell in your recovery group.
+// A cell in Route 53 ARC represents replicas or independent units of failover in your application. It groups within it all the AWS resources that are necessary for your application to run independently. Typically, you would have define one set of resources in a primary cell and another set in a standby cell in your recovery group.
 //
 // After you set up the cells for your application, you can create readiness checks in Route 53 ARC to continually audit readiness for AWS resource quotas, capacity, network routing policies, and other predefined rules.
 //
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html
+//
 type CfnCell interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the cell.
 	AttrCellArn() *string
 	// The readiness scope for the cell, which can be the Amazon Resource Name (ARN) of a cell or the ARN of a recovery group.
@@ -50,8 +53,6 @@ type CfnCell interface {
 	CellName() *string
 	SetCellName(val *string)
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells.
-	//
-	// For example, Availability Zones within specific AWS Regions .
 	Cells() *[]*string
 	SetCells(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -84,8 +85,11 @@ type CfnCell interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of tags associated with a resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A collection of tags associated with a resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,6 +234,7 @@ type CfnCell interface {
 type jsiiProxy_CfnCell struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCell) AttrCellArn() *string {
@@ -362,6 +367,16 @@ func (j *jsiiProxy_CfnCell) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCell) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCell) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -383,7 +398,6 @@ func (j *jsiiProxy_CfnCell) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Route53RecoveryReadiness::Cell`.
 func NewCfnCell(scope constructs.Construct, id *string, props *CfnCellProps) CfnCell {
 	_init_.Initialize()
 
@@ -401,7 +415,6 @@ func NewCfnCell(scope constructs.Construct, id *string, props *CfnCellProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::Route53RecoveryReadiness::Cell`.
 func NewCfnCell_Override(c CfnCell, scope constructs.Construct, id *string, props *CfnCellProps) {
 	_init_.Initialize()
 
@@ -424,6 +437,17 @@ func (j *jsiiProxy_CfnCell)SetCells(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"cells",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCell)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

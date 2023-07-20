@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::FeatureGroup`.
+// Create a new `FeatureGroup` .
 //
-// Create a new `FeatureGroup` . A `FeatureGroup` is a group of `Features` defined in the `FeatureStore` to describe a `Record` .
+// A `FeatureGroup` is a group of `Features` defined in the `FeatureStore` to describe a `Record` .
 //
 // The `FeatureGroup` defines the schema and features contained in the FeatureGroup. A `FeatureGroup` definition is composed of a list of `Features` , a `RecordIdentifierFeatureName` , an `EventTimeFeatureName` and configurations for its `OnlineStore` and `OfflineStore` . Check [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to see the `FeatureGroup` s quota for your AWS account.
 //
@@ -49,9 +49,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html
+//
 type CfnFeatureGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -65,17 +68,11 @@ type CfnFeatureGroup interface {
 	Description() *string
 	SetDescription(val *string)
 	// The name of the feature that stores the `EventTime` of a Record in a `FeatureGroup` .
-	//
-	// A `EventTime` is point in time when a new event occurs that corresponds to the creation or update of a `Record` in `FeatureGroup` . All `Records` in the `FeatureGroup` must have a corresponding `EventTime` .
 	EventTimeFeatureName() *string
 	SetEventTimeFeatureName(val *string)
-	// A list of `Feature` s. Each `Feature` must include a `FeatureName` and a `FeatureType` .
+	// A list of `Feature` s.
 	//
-	// Valid `FeatureType` s are `Integral` , `Fractional` and `String` .
-	//
-	// `FeatureName` s cannot be any of the following: `is_deleted` , `write_time` , `api_invocation_time` .
-	//
-	// You can create up to 2,500 `FeatureDefinition` s per `FeatureGroup` .
+	// Each `Feature` must include a `FeatureName` and a `FeatureType` .
 	FeatureDefinitions() interface{}
 	SetFeatureDefinitions(val interface{})
 	// The name of the `FeatureGroup` .
@@ -114,8 +111,11 @@ type CfnFeatureGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags used to define a `FeatureGroup` .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags used to define a `FeatureGroup` .
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -260,6 +260,7 @@ type CfnFeatureGroup interface {
 type jsiiProxy_CfnFeatureGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnFeatureGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -432,6 +433,16 @@ func (j *jsiiProxy_CfnFeatureGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFeatureGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFeatureGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -453,7 +464,6 @@ func (j *jsiiProxy_CfnFeatureGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::SageMaker::FeatureGroup`.
 func NewCfnFeatureGroup(scope constructs.Construct, id *string, props *CfnFeatureGroupProps) CfnFeatureGroup {
 	_init_.Initialize()
 
@@ -471,7 +481,6 @@ func NewCfnFeatureGroup(scope constructs.Construct, id *string, props *CfnFeatur
 	return &j
 }
 
-// Create a new `AWS::SageMaker::FeatureGroup`.
 func NewCfnFeatureGroup_Override(c CfnFeatureGroup, scope constructs.Construct, id *string, props *CfnFeatureGroupProps) {
 	_init_.Initialize()
 
@@ -524,9 +533,6 @@ func (j *jsiiProxy_CfnFeatureGroup)SetFeatureGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnFeatureGroup)SetOfflineStoreConfig(val interface{}) {
-	if err := j.validateSetOfflineStoreConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"offlineStoreConfig",
@@ -535,9 +541,6 @@ func (j *jsiiProxy_CfnFeatureGroup)SetOfflineStoreConfig(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnFeatureGroup)SetOnlineStoreConfig(val interface{}) {
-	if err := j.validateSetOnlineStoreConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"onlineStoreConfig",
@@ -560,6 +563,17 @@ func (j *jsiiProxy_CfnFeatureGroup)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFeatureGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

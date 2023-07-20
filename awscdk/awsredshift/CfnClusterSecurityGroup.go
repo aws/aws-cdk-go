@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Redshift::ClusterSecurityGroup`.
-//
 // Specifies a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.
 //
 // For information about managing security groups, go to [Amazon Redshift Cluster Security Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html) in the *Amazon Redshift Cluster Management Guide* .
@@ -32,9 +30,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html
+//
 type CfnClusterSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -68,10 +70,11 @@ type CfnClusterSecurityGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies an arbitrary set of tags (key–value pairs) to associate with this security group.
-	//
-	// Use tags to manage your resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies an arbitrary set of tags (key–value pairs) to associate with this security group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -216,6 +219,17 @@ type CfnClusterSecurityGroup interface {
 type jsiiProxy_CfnClusterSecurityGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnClusterSecurityGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnClusterSecurityGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -318,6 +332,16 @@ func (j *jsiiProxy_CfnClusterSecurityGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClusterSecurityGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClusterSecurityGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -339,7 +363,6 @@ func (j *jsiiProxy_CfnClusterSecurityGroup) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::Redshift::ClusterSecurityGroup`.
 func NewCfnClusterSecurityGroup(scope constructs.Construct, id *string, props *CfnClusterSecurityGroupProps) CfnClusterSecurityGroup {
 	_init_.Initialize()
 
@@ -357,7 +380,6 @@ func NewCfnClusterSecurityGroup(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::Redshift::ClusterSecurityGroup`.
 func NewCfnClusterSecurityGroup_Override(c CfnClusterSecurityGroup, scope constructs.Construct, id *string, props *CfnClusterSecurityGroupProps) {
 	_init_.Initialize()
 
@@ -375,6 +397,17 @@ func (j *jsiiProxy_CfnClusterSecurityGroup)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClusterSecurityGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

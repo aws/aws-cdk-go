@@ -20,14 +20,22 @@ package awsdatabrew
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
+//
 type CfnRecipe_ConditionExpressionProperty struct {
 	// A specific condition to apply to a recipe action.
 	//
 	// For more information, see [Recipe structure](https://docs.aws.amazon.com/databrew/latest/dg/recipe-structure.html) in the *AWS Glue DataBrew Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition
+	//
 	Condition *string `field:"required" json:"condition" yaml:"condition"`
 	// A column to apply this condition to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-targetcolumn
+	//
 	TargetColumn *string `field:"required" json:"targetColumn" yaml:"targetColumn"`
 	// A value that the condition must evaluate to for the condition to succeed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

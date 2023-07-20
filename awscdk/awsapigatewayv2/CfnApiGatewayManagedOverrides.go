@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`.
+// The `AWS::ApiGatewayV2::ApiGatewayManagedOverrides` resource overrides the default properties of API Gateway-managed resources that are implicitly configured for you when you use quick create.
 //
-// The `AWS::ApiGatewayV2::ApiGatewayManagedOverrides` resource overrides the default properties of API Gateway-managed resources that are implicitly configured for you when you use quick create. When you create an API by using quick create, an `AWS::ApiGatewayV2::Route` , `AWS::ApiGatewayV2::Integration` , and `AWS::ApiGatewayV2::Stage` are created for you and associated with your `AWS::ApiGatewayV2::Api` . The `AWS::ApiGatewayV2::ApiGatewayManagedOverrides` resource enables you to set, or override the properties of these implicit resources. Supported only for HTTP APIs.
+// When you create an API by using quick create, an `AWS::ApiGatewayV2::Route` , `AWS::ApiGatewayV2::Integration` , and `AWS::ApiGatewayV2::Stage` are created for you and associated with your `AWS::ApiGatewayV2::Api` . The `AWS::ApiGatewayV2::ApiGatewayManagedOverrides` resource enables you to set, or override the properties of these implicit resources. Supported only for HTTP APIs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -59,12 +59,15 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html
+//
 type CfnApiGatewayManagedOverrides interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The ID of the API for which to override the configuration of API Gateway-managed resources.
 	ApiId() *string
 	SetApiId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -260,6 +263,16 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) ApiId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApiGatewayManagedOverrides) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApiGatewayManagedOverrides) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -391,7 +404,6 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`.
 func NewCfnApiGatewayManagedOverrides(scope constructs.Construct, id *string, props *CfnApiGatewayManagedOverridesProps) CfnApiGatewayManagedOverrides {
 	_init_.Initialize()
 
@@ -409,7 +421,6 @@ func NewCfnApiGatewayManagedOverrides(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`.
 func NewCfnApiGatewayManagedOverrides_Override(c CfnApiGatewayManagedOverrides, scope constructs.Construct, id *string, props *CfnApiGatewayManagedOverridesProps) {
 	_init_.Initialize()
 

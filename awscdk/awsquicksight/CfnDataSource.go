@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QuickSight::DataSource`.
-//
 // Creates a data source.
 //
 // Example:
@@ -339,12 +337,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html
+//
 type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A set of alternate data source parameters that you want to share for the credentials stored with this data source.
-	//
-	// The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the `DataSourceParameters` structure that's in the request with the structures in the `AlternateDataSourceParameters` allow list. If the structures are an exact match, the request is allowed to use the credentials from this existing data source. If the `AlternateDataSourceParameters` list is null, the `Credentials` originally used with this `DataSourceParameters` are automatically allowed.
 	AlternateDataSourceParameters() interface{}
 	SetAlternateDataSourceParameters(val interface{})
 	// The Amazon Resource Name (ARN) of the dataset.
@@ -368,13 +367,9 @@ type CfnDataSource interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The credentials Amazon QuickSight that uses to connect to your underlying source.
-	//
-	// Currently, only credentials based on user name and password are supported.
 	Credentials() interface{}
 	SetCredentials(val interface{})
 	// An ID for the data source.
-	//
-	// This ID is unique per AWS Region for each AWS account.
 	DataSourceId() *string
 	SetDataSourceId(val *string)
 	// The parameters that Amazon QuickSight uses to connect to your underlying source.
@@ -413,11 +408,14 @@ type CfnDataSource interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The type of the data source.
 	//
-	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+	// To return a list of all data sources, use `ListDataSources` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -567,6 +565,7 @@ type CfnDataSource interface {
 type jsiiProxy_CfnDataSource struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDataSource) AlternateDataSourceParameters() interface{} {
@@ -789,6 +788,16 @@ func (j *jsiiProxy_CfnDataSource) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -830,7 +839,6 @@ func (j *jsiiProxy_CfnDataSource) VpcConnectionProperties() interface{} {
 }
 
 
-// Create a new `AWS::QuickSight::DataSource`.
 func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
@@ -848,7 +856,6 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 	return &j
 }
 
-// Create a new `AWS::QuickSight::DataSource`.
 func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 
@@ -945,6 +952,17 @@ func (j *jsiiProxy_CfnDataSource)SetSslProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sslProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

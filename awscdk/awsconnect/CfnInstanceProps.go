@@ -27,16 +27,26 @@ package awsconnect
 //   	InstanceAlias: jsii.String("instanceAlias"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html
+//
 type CfnInstanceProps struct {
 	// A toggle for an individual feature at the instance level.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html#cfn-connect-instance-attributes
+	//
 	Attributes interface{} `field:"required" json:"attributes" yaml:"attributes"`
 	// The identity management type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html#cfn-connect-instance-identitymanagementtype
+	//
 	IdentityManagementType *string `field:"required" json:"identityManagementType" yaml:"identityManagementType"`
 	// The identifier for the directory.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html#cfn-connect-instance-directoryid
+	//
 	DirectoryId *string `field:"optional" json:"directoryId" yaml:"directoryId"`
 	// The alias of instance.
 	//
 	// `InstanceAlias` is only required when `IdentityManagementType` is `CONNECT_MANAGED` or `SAML` . `InstanceAlias` is not required when `IdentityManagementType` is `EXISTING_DIRECTORY` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html#cfn-connect-instance-instancealias
+	//
 	InstanceAlias *string `field:"optional" json:"instanceAlias" yaml:"instanceAlias"`
 }
 

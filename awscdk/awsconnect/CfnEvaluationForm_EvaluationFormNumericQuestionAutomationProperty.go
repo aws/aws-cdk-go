@@ -14,8 +14,12 @@ package awsconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html
+//
 type CfnEvaluationForm_EvaluationFormNumericQuestionAutomationProperty struct {
 	// The property value of the automation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html#cfn-connect-evaluationform-evaluationformnumericquestionautomation-propertyvalue
+	//
 	PropertyValue interface{} `field:"required" json:"propertyValue" yaml:"propertyValue"`
 }
 

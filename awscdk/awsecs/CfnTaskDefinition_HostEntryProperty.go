@@ -13,10 +13,16 @@ package awsecs
 //   	IpAddress: jsii.String("ipAddress"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html
+//
 type CfnTaskDefinition_HostEntryProperty struct {
 	// The hostname to use in the `/etc/hosts` entry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html#cfn-ecs-taskdefinition-hostentry-hostname
+	//
 	Hostname *string `field:"optional" json:"hostname" yaml:"hostname"`
 	// The IP address to use in the `/etc/hosts` entry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html#cfn-ecs-taskdefinition-hostentry-ipaddress
+	//
 	IpAddress *string `field:"optional" json:"ipAddress" yaml:"ipAddress"`
 }
 

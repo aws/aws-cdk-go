@@ -98,30 +98,40 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
+//
 type CfnDBClusterProps struct {
 	// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
 	//
 	// Valid for Cluster Type: Multi-AZ DB clusters only
 	//
 	// This setting is required to create a Multi-AZ DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-allocatedstorage
+	//
 	AllocatedStorage *float64 `field:"optional" json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster.
 	//
 	// IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-associatedroles
+	//
 	AssociatedRoles interface{} `field:"optional" json:"associatedRoles" yaml:"associatedRoles"`
 	// Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
 	//
 	// By default, minor engine upgrades are applied automatically.
 	//
 	// Valid for Cluster Type: Multi-AZ DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-autominorversionupgrade
+	//
 	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// A list of Availability Zones (AZs) where instances in the DB cluster can be created.
 	//
 	// For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide* .
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones
+	//
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 	// The target backtrack window, in seconds. To disable backtracking, set this value to 0.
 	//
@@ -134,6 +144,8 @@ type CfnDBClusterProps struct {
 	// - If specified, this value must be set to a number from 0 to 259,200 (72 hours).
 	//
 	// Valid for: Aurora MySQL DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow
+	//
 	BacktrackWindow *float64 `field:"optional" json:"backtrackWindow" yaml:"backtrackWindow"`
 	// The number of days for which automated backups are retained.
 	//
@@ -144,18 +156,24 @@ type CfnDBClusterProps struct {
 	// - Must be a value from 1 to 35
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backupretentionperiod
+	//
 	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
 	//
 	// The default is not to copy them.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-copytagstosnapshot
+	//
 	CopyTagsToSnapshot interface{} `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// The name of your database.
 	//
 	// If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide* .
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename
+	//
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// The DB cluster identifier. This parameter is stored as a lowercase string.
 	//
@@ -168,6 +186,8 @@ type CfnDBClusterProps struct {
 	// Example: `my-cluster1`
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusteridentifier
+	//
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6gd.xlarge` . Not all DB instance classes are available in all AWS Regions , or for all database engines.
 	//
@@ -176,6 +196,8 @@ type CfnDBClusterProps struct {
 	// This setting is required to create a Multi-AZ DB cluster.
 	//
 	// Valid for Cluster Type: Multi-AZ DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterinstanceclass
+	//
 	DbClusterInstanceClass *string `field:"optional" json:"dbClusterInstanceClass" yaml:"dbClusterInstanceClass"`
 	// The name of the DB cluster parameter group to associate with this DB cluster.
 	//
@@ -188,6 +210,8 @@ type CfnDBClusterProps struct {
 	// `aws rds describe-db-cluster-parameter-groups --query "DBClusterParameterGroups[].DBClusterParameterGroupName" --output text`
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname
+	//
 	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
 	//
@@ -198,20 +222,28 @@ type CfnDBClusterProps struct {
 	// Constraints:
 	//
 	// - The DB parameter group must be in the same DB parameter group family as this DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbinstanceparametergroupname
+	//
 	DbInstanceParameterGroupName *string `field:"optional" json:"dbInstanceParameterGroupName" yaml:"dbInstanceParameterGroupName"`
 	// A DB subnet group that you want to associate with this DB cluster.
 	//
 	// If you are restoring a DB cluster to a point in time with `RestoreType` set to `copy-on-write` , and don't specify a DB subnet group name, then the DB cluster is restored with a default DB subnet group.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsubnetgroupname
+	//
 	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// Reserved for future use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsystemid
+	//
 	DbSystemId *string `field:"optional" json:"dbSystemId" yaml:"dbSystemId"`
 	// A value that indicates whether the DB cluster has deletion protection enabled.
 	//
 	// The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-deletionprotection
+	//
 	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Indicates the directory ID of the Active Directory to create the DB cluster.
 	//
@@ -220,10 +252,14 @@ type CfnDBClusterProps struct {
 	// For more information, see [Kerberos authentication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html) in the *Amazon Aurora User Guide* .
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-domain
+	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 	// Specifies the name of the IAM role to use when making API calls to the Directory Service.
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-domainiamrolename
+	//
 	DomainIamRoleName *string `field:"optional" json:"domainIamRoleName" yaml:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	//
@@ -238,6 +274,8 @@ type CfnDBClusterProps struct {
 	// Valid values: `postgresql`
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
+	//
 	EnableCloudwatchLogsExports *[]*string `field:"optional" json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster.
 	//
@@ -248,6 +286,8 @@ type CfnDBClusterProps struct {
 	// For more information, see [Using the Data API for Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide* .
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablehttpendpoint
+	//
 	EnableHttpEndpoint interface{} `field:"optional" json:"enableHttpEndpoint" yaml:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
 	//
@@ -256,6 +296,8 @@ type CfnDBClusterProps struct {
 	// For more information, see [IAM Database Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon Aurora User Guide.*
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication
+	//
 	EnableIamDatabaseAuthentication interface{} `field:"optional" json:"enableIamDatabaseAuthentication" yaml:"enableIamDatabaseAuthentication"`
 	// The name of the database engine to be used for this DB cluster.
 	//
@@ -267,6 +309,8 @@ type CfnDBClusterProps struct {
 	// - `postgres`
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
+	//
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// The DB engine mode of the DB cluster, either `provisioned` or `serverless` .
 	//
@@ -280,6 +324,8 @@ type CfnDBClusterProps struct {
 	// - [Limitations of Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations)
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enginemode
+	//
 	EngineMode *string `field:"optional" json:"engineMode" yaml:"engineMode"`
 	// The version number of the database engine to use.
 	//
@@ -318,6 +364,8 @@ type CfnDBClusterProps struct {
 	// For information, see [Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts) in the *Amazon RDS User Guide* .
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion
+	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster.
 	//
@@ -330,6 +378,8 @@ type CfnDBClusterProps struct {
 	// For information about Aurora global databases, see [Working with Amazon Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) in the *Amazon Aurora User Guide* .
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-globalclusteridentifier
+	//
 	GlobalClusterIdentifier *string `field:"optional" json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
 	// The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster.
 	//
@@ -342,6 +392,8 @@ type CfnDBClusterProps struct {
 	// Constraints:
 	//
 	// - Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-iops
+	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef` .
 	//
@@ -350,6 +402,8 @@ type CfnDBClusterProps struct {
 	// If you specify the `SnapshotIdentifier` property, the `StorageEncrypted` property value is inherited from the snapshot, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	//
@@ -360,22 +414,30 @@ type CfnDBClusterProps struct {
 	// Constraints:
 	//
 	// - Can't manage the master user password with AWS Secrets Manager if `MasterUserPassword` is specified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-managemasteruserpassword
+	//
 	ManageMasterUserPassword interface{} `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
 	// The name of the master user for the DB cluster.
 	//
 	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusername
+	//
 	MasterUsername *string `field:"optional" json:"masterUsername" yaml:"masterUsername"`
 	// The master password for the DB instance.
 	//
 	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword
+	//
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The secret managed by RDS in AWS Secrets Manager for the master user password.
 	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusersecret
+	//
 	MasterUserSecret interface{} `field:"optional" json:"masterUserSecret" yaml:"masterUserSecret"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster.
 	//
@@ -388,6 +450,8 @@ type CfnDBClusterProps struct {
 	// Valid Values: `0 | 1 | 5 | 10 | 15 | 30 | 60`
 	//
 	// Default: `0`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-monitoringinterval
+	//
 	MonitoringInterval *float64 `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
 	//
@@ -396,6 +460,8 @@ type CfnDBClusterProps struct {
 	// If `MonitoringInterval` is set to a value other than `0` , supply a `MonitoringRoleArn` value.
 	//
 	// Valid for Cluster Type: Multi-AZ DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-monitoringrolearn
+	//
 	MonitoringRoleArn *string `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
 	// The network type of the DB cluster.
 	//
@@ -409,12 +475,16 @@ type CfnDBClusterProps struct {
 	// For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon Aurora User Guide.*
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-networktype
+	//
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// Specifies whether to turn on Performance Insights for the DB cluster.
 	//
 	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide* .
 	//
 	// Valid for Cluster Type: Multi-AZ DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-performanceinsightsenabled
+	//
 	PerformanceInsightsEnabled interface{} `field:"optional" json:"performanceInsightsEnabled" yaml:"performanceInsightsEnabled"`
 	// The AWS KMS key identifier for encryption of Performance Insights data.
 	//
@@ -423,6 +493,8 @@ type CfnDBClusterProps struct {
 	// If you don't specify a value for `PerformanceInsightsKMSKeyId` , then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account . Your AWS account has a different default KMS key for each AWS Region .
 	//
 	// Valid for Cluster Type: Multi-AZ DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-performanceinsightskmskeyid
+	//
 	PerformanceInsightsKmsKeyId *string `field:"optional" json:"performanceInsightsKmsKeyId" yaml:"performanceInsightsKmsKeyId"`
 	// The number of days to retain Performance Insights data.
 	//
@@ -437,6 +509,8 @@ type CfnDBClusterProps struct {
 	// Default: `7` days
 	//
 	// If you specify a retention period that isn't valid, such as `94` , Amazon RDS issues an error.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-performanceinsightsretentionperiod
+	//
 	PerformanceInsightsRetentionPeriod *float64 `field:"optional" json:"performanceInsightsRetentionPeriod" yaml:"performanceInsightsRetentionPeriod"`
 	// The port number on which the DB instances in the DB cluster accept connections.
 	//
@@ -451,6 +525,8 @@ type CfnDBClusterProps struct {
 	// > The `No interruption` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-port
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The daily time range during which automated backups are created.
 	//
@@ -464,6 +540,8 @@ type CfnDBClusterProps struct {
 	// - Must be at least 30 minutes.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredbackupwindow
+	//
 	PreferredBackupWindow *string `field:"optional" json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
@@ -476,6 +554,8 @@ type CfnDBClusterProps struct {
 	// Constraints: Minimum 30-minute window.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredmaintenancewindow
+	//
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// Specifies whether the DB cluster is publicly accessible.
 	//
@@ -496,10 +576,14 @@ type CfnDBClusterProps struct {
 	//
 	// - If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.
 	// - If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-publiclyaccessible
+	//
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-replicationsourceidentifier
+	//
 	ReplicationSourceIdentifier *string `field:"optional" json:"replicationSourceIdentifier" yaml:"replicationSourceIdentifier"`
 	// The date and time to restore the DB cluster to.
 	//
@@ -515,6 +599,8 @@ type CfnDBClusterProps struct {
 	// Example: `2015-03-07T23:45:00Z`
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-restoretotime
+	//
 	RestoreToTime *string `field:"optional" json:"restoreToTime" yaml:"restoreToTime"`
 	// The type of restore to be performed. You can specify one of the following values:.
 	//
@@ -524,18 +610,24 @@ type CfnDBClusterProps struct {
 	// If you don't specify a `RestoreType` value, then the new DB cluster is restored as a full copy of the source DB cluster.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-restoretype
+	//
 	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
 	// The `ScalingConfiguration` property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 	//
 	// This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, use `ServerlessV2ScalingConfiguration` property.
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-scalingconfiguration
+	//
 	ScalingConfiguration interface{} `field:"optional" json:"scalingConfiguration" yaml:"scalingConfiguration"`
 	// The `ServerlessV2ScalingConfiguration` property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster.
 	//
 	// This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use `ScalingConfiguration` property.
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-serverlessv2scalingconfiguration
+	//
 	ServerlessV2ScalingConfiguration interface{} `field:"optional" json:"serverlessV2ScalingConfiguration" yaml:"serverlessV2ScalingConfiguration"`
 	// The identifier for the DB snapshot or DB cluster snapshot to restore from.
 	//
@@ -560,6 +652,8 @@ type CfnDBClusterProps struct {
 	// - Must match the identifier of an existing Snapshot.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
+	//
 	SnapshotIdentifier *string `field:"optional" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
 	//
@@ -568,10 +662,14 @@ type CfnDBClusterProps struct {
 	// - Must match the identifier of an existing DBCluster.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourcedbclusteridentifier
+	//
 	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, `us-east-1` .
 	//
 	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourceregion
+	//
 	SourceRegion *string `field:"optional" json:"sourceRegion" yaml:"sourceRegion"`
 	// Indicates whether the DB cluster is encrypted.
 	//
@@ -584,6 +682,8 @@ type CfnDBClusterProps struct {
 	// If you specify the `SnapshotIdentifier` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB cluster is encrypted. Specify the `KmsKeyId` property for the KMS key to use for encryption. If you don't want the restored DB cluster to be encrypted, then don't set this property or set it to `false` .
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted
+	//
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The storage type to associate with the DB cluster.
 	//
@@ -604,22 +704,30 @@ type CfnDBClusterProps struct {
 	//
 	// - Aurora DB clusters - `aurora`
 	// - Multi-AZ DB clusters - `io1`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storagetype
+	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
 	// An optional array of key-value pairs to apply to this DB cluster.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A value that indicates whether to restore the DB cluster to the latest restorable backup time.
 	//
 	// By default, the DB cluster is not restored to the latest restorable backup time.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-uselatestrestorabletime
+	//
 	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// A list of EC2 VPC security groups to associate with this DB cluster.
 	//
 	// If you plan to update the resource, don't specify VPC security groups in a shared VPC.
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids
+	//
 	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 

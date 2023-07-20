@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Location::Tracker`.
-//
 // Specifies a tracker resource in your AWS account , which lets you receive current and historical location of devices.
 //
 // Example:
@@ -25,7 +23,11 @@ import (
 //   	Description: jsii.String("description"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	PositionFiltering: jsii.String("positionFiltering"),
+//   	PricingPlan: jsii.String("pricingPlan"),
+//   	PricingPlanDataSource: jsii.String("pricingPlanDataSource"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html
 //
 type CfnTracker interface {
 	awscdk.CfnResource
@@ -74,16 +76,16 @@ type CfnTracker interface {
 	// The tree node.
 	Node() constructs.Node
 	// Specifies the position filtering for the tracker resource.
-	//
-	// Valid values:
-	//
-	// - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
-	// - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
-	// - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
-	//
-	// This field is optional. If not specified, the default value is `TimeBased` .
 	PositionFiltering() *string
 	SetPositionFiltering(val *string)
+	// Deprecated: this property has been deprecated.
+	PricingPlan() *string
+	// Deprecated: this property has been deprecated.
+	SetPricingPlan(val *string)
+	// Deprecated: this property has been deprecated.
+	PricingPlanDataSource() *string
+	// Deprecated: this property has been deprecated.
+	SetPricingPlanDataSource(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -94,12 +96,6 @@ type CfnTracker interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The name for the tracker resource.
-	//
-	// Requirements:
-	//
-	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
-	// - Must be a unique tracker resource name.
-	// - No spaces allowed. For example, `ExampleTracker` .
 	TrackerName() *string
 	SetTrackerName(val *string)
 	// Deprecated.
@@ -378,6 +374,26 @@ func (j *jsiiProxy_CfnTracker) PositionFiltering() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTracker) PricingPlan() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"pricingPlan",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTracker) PricingPlanDataSource() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"pricingPlanDataSource",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTracker) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -429,7 +445,6 @@ func (j *jsiiProxy_CfnTracker) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Location::Tracker`.
 func NewCfnTracker(scope constructs.Construct, id *string, props *CfnTrackerProps) CfnTracker {
 	_init_.Initialize()
 
@@ -447,7 +462,6 @@ func NewCfnTracker(scope constructs.Construct, id *string, props *CfnTrackerProp
 	return &j
 }
 
-// Create a new `AWS::Location::Tracker`.
 func NewCfnTracker_Override(c CfnTracker, scope constructs.Construct, id *string, props *CfnTrackerProps) {
 	_init_.Initialize()
 
@@ -478,6 +492,22 @@ func (j *jsiiProxy_CfnTracker)SetPositionFiltering(val *string) {
 	_jsii_.Set(
 		j,
 		"positionFiltering",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTracker)SetPricingPlan(val *string) {
+	_jsii_.Set(
+		j,
+		"pricingPlan",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTracker)SetPricingPlanDataSource(val *string) {
+	_jsii_.Set(
+		j,
+		"pricingPlanDataSource",
 		val,
 	)
 }

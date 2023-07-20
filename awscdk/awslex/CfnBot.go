@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lex::Bot`.
-//
 // > Amazon Lex V2 is the only supported version in AWS CloudFormation .
 //
 // Specifies an Amazon Lex conversational bot.
@@ -19,6 +17,8 @@ import (
 //
 // Example:
 //
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html
 //
 type CfnBot interface {
 	awscdk.CfnResource
@@ -31,16 +31,12 @@ type CfnBot interface {
 	AutoBuildBotLocales() interface{}
 	SetAutoBuildBotLocales(val interface{})
 	// The Amazon S3 location of files used to import a bot.
-	//
-	// The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
 	BotFileS3Location() interface{}
 	SetBotFileS3Location(val interface{})
 	// A list of locales for the bot.
 	BotLocales() interface{}
 	SetBotLocales(val interface{})
 	// A list of tags to add to the bot.
-	//
-	// You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
 	BotTags() interface{}
 	SetBotTags(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -53,18 +49,12 @@ type CfnBot interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// By default, data stored by Amazon Lex is encrypted.
-	//
-	// The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy() interface{}
 	SetDataPrivacy(val interface{})
 	// The description of the version.
 	Description() *string
 	SetDescription(val *string)
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
-	//
-	// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
-	//
-	// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
 	IdleSessionTtlInSeconds() *float64
 	SetIdleSessionTtlInSeconds(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -95,13 +85,9 @@ type CfnBot interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies configuration settings for the alias used to test the bot.
-	//
-	// If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
 	TestBotAliasSettings() interface{}
 	SetTestBotAliasSettings(val interface{})
 	// A list of tags to add to the test alias for a bot.
-	//
-	// You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
 	TestBotAliasTags() interface{}
 	SetTestBotAliasTags(val interface{})
 	// Deprecated.
@@ -481,7 +467,6 @@ func (j *jsiiProxy_CfnBot) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Lex::Bot`.
 func NewCfnBot(scope constructs.Construct, id *string, props *CfnBotProps) CfnBot {
 	_init_.Initialize()
 
@@ -499,7 +484,6 @@ func NewCfnBot(scope constructs.Construct, id *string, props *CfnBotProps) CfnBo
 	return &j
 }
 
-// Create a new `AWS::Lex::Bot`.
 func NewCfnBot_Override(c CfnBot, scope constructs.Construct, id *string, props *CfnBotProps) {
 	_init_.Initialize()
 

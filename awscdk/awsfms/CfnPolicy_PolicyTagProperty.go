@@ -15,14 +15,20 @@ package awsfms
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html
+//
 type CfnPolicy_PolicyTagProperty struct {
 	// Part of the key:value pair that defines a tag.
 	//
 	// You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// Part of the key:value pair that defines a tag.
 	//
 	// You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

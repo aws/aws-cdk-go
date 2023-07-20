@@ -58,30 +58,48 @@ import (
 //   	ThingArn: jsii.String("thingArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html
+//
 type CfnWirelessDeviceProps struct {
 	// The name of the destination to assign to the new wireless device.
 	//
 	// Can have only have alphanumeric, - (hyphen) and _ (underscore) characters and it can't have any spaces.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-destinationname
+	//
 	DestinationName *string `field:"required" json:"destinationName" yaml:"destinationName"`
 	// The wireless device type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The description of the new resource.
 	//
 	// Maximum length is 2048.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The date and time when the most recent uplink was received.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lastuplinkreceivedat
+	//
 	LastUplinkReceivedAt *string `field:"optional" json:"lastUplinkReceivedAt" yaml:"lastUplinkReceivedAt"`
 	// The device configuration information to use to create the wireless device.
 	//
 	// Must be at least one of OtaaV10x, OtaaV11, AbpV11, or AbpV10x.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
+	//
 	LoRaWan interface{} `field:"optional" json:"loRaWan" yaml:"loRaWan"`
 	// The name of the new resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN of the thing to associate with the wireless device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-thingarn
+	//
 	ThingArn *string `field:"optional" json:"thingArn" yaml:"thingArn"`
 }
 

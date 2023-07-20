@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::UserPoolGroup`.
-//
 // Specifies a new group in the identified user pool.
 //
 // Calling this action requires developer credentials.
@@ -32,9 +30,12 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html
+//
 type CfnUserPoolGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -48,8 +49,6 @@ type CfnUserPoolGroup interface {
 	Description() *string
 	SetDescription(val *string)
 	// The name of the group.
-	//
-	// Must be unique.
 	GroupName() *string
 	SetGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -65,12 +64,6 @@ type CfnUserPoolGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool.
-	//
-	// Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
-	//
-	// Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
-	//
-	// The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
 	Precedence() *float64
 	SetPrecedence(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -234,6 +227,16 @@ type jsiiProxy_CfnUserPoolGroup struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnUserPoolGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolGroup) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -385,7 +388,6 @@ func (j *jsiiProxy_CfnUserPoolGroup) UserPoolId() *string {
 }
 
 
-// Create a new `AWS::Cognito::UserPoolGroup`.
 func NewCfnUserPoolGroup(scope constructs.Construct, id *string, props *CfnUserPoolGroupProps) CfnUserPoolGroup {
 	_init_.Initialize()
 
@@ -403,7 +405,6 @@ func NewCfnUserPoolGroup(scope constructs.Construct, id *string, props *CfnUserP
 	return &j
 }
 
-// Create a new `AWS::Cognito::UserPoolGroup`.
 func NewCfnUserPoolGroup_Override(c CfnUserPoolGroup, scope constructs.Construct, id *string, props *CfnUserPoolGroupProps) {
 	_init_.Initialize()
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::WAFv2::RegexPatternSet`.
+// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019.
 //
-// > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+// For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
 // Use an `RegexPatternSet` to have AWS WAF inspect a web request component for a specific set of regular expression patterns.
 //
@@ -39,9 +39,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html
+//
 type CfnRegexPatternSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the regex pattern set.
 	AttrArn() *string
 	// The ID of the regex pattern set.
@@ -69,8 +72,6 @@ type CfnRegexPatternSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the set.
-	//
-	// You cannot change the name after you create the set.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,22 +85,17 @@ type CfnRegexPatternSet interface {
 	RegularExpressionList() *[]*string
 	SetRegularExpressionList(val *[]*string)
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
-	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
-	//
-	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope() *string
 	SetScope(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key:value pairs associated with an AWS resource.
-	//
-	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	//
-	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key:value pairs associated with an AWS resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -244,6 +240,7 @@ type CfnRegexPatternSet interface {
 type jsiiProxy_CfnRegexPatternSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRegexPatternSet) AttrArn() *string {
@@ -396,6 +393,16 @@ func (j *jsiiProxy_CfnRegexPatternSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRegexPatternSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRegexPatternSet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -417,7 +424,6 @@ func (j *jsiiProxy_CfnRegexPatternSet) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::WAFv2::RegexPatternSet`.
 func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) CfnRegexPatternSet {
 	_init_.Initialize()
 
@@ -435,7 +441,6 @@ func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnReg
 	return &j
 }
 
-// Create a new `AWS::WAFv2::RegexPatternSet`.
 func NewCfnRegexPatternSet_Override(c CfnRegexPatternSet, scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) {
 	_init_.Initialize()
 
@@ -480,6 +485,17 @@ func (j *jsiiProxy_CfnRegexPatternSet)SetScope(val *string) {
 	_jsii_.Set(
 		j,
 		"scope",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRegexPatternSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

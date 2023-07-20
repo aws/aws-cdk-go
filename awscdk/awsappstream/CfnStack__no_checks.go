@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnStack) validateSetStreamingExperienceSettingsParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnStack) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStack) validateSetUserSettingsParameters(val interface{}) error {
 	return nil
 }

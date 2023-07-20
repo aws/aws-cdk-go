@@ -27,20 +27,29 @@ package awssam
 //   	TimeoutInMillis: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-httpapievent.html
+//
 type CfnFunction_HttpApiEventProperty struct {
-	// `CfnFunction.HttpApiEventProperty.ApiId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-httpapievent.html#cfn-serverless-function-httpapievent-apiid
+	//
 	ApiId *string `field:"optional" json:"apiId" yaml:"apiId"`
-	// `CfnFunction.HttpApiEventProperty.Auth`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-httpapievent.html#cfn-serverless-function-httpapievent-auth
+	//
 	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
-	// `CfnFunction.HttpApiEventProperty.Method`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-httpapievent.html#cfn-serverless-function-httpapievent-method
+	//
 	Method *string `field:"optional" json:"method" yaml:"method"`
-	// `CfnFunction.HttpApiEventProperty.Path`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-httpapievent.html#cfn-serverless-function-httpapievent-path
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
-	// `CfnFunction.HttpApiEventProperty.PayloadFormatVersion`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-httpapievent.html#cfn-serverless-function-httpapievent-payloadformatversion
+	//
 	PayloadFormatVersion *string `field:"optional" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
-	// `CfnFunction.HttpApiEventProperty.RouteSettings`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-httpapievent.html#cfn-serverless-function-httpapievent-routesettings
+	//
 	RouteSettings interface{} `field:"optional" json:"routeSettings" yaml:"routeSettings"`
-	// `CfnFunction.HttpApiEventProperty.TimeoutInMillis`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-httpapievent.html#cfn-serverless-function-httpapievent-timeoutinmillis
+	//
 	TimeoutInMillis *float64 `field:"optional" json:"timeoutInMillis" yaml:"timeoutInMillis"`
 }
 

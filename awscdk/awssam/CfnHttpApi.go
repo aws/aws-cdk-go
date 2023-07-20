@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Serverless::HttpApi`.
+// Definition of AWS::Serverless::HttpApi.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -77,13 +77,14 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-httpapi.html
+//
 type CfnHttpApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Serverless::HttpApi.AccessLogSetting`.
+	awscdk.ITaggable
 	AccessLogSetting() interface{}
 	SetAccessLogSetting(val interface{})
-	// `AWS::Serverless::HttpApi.Auth`.
 	Auth() interface{}
 	SetAuth(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -91,32 +92,24 @@ type CfnHttpApi interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::Serverless::HttpApi.CorsConfiguration`.
 	CorsConfiguration() interface{}
 	SetCorsConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Serverless::HttpApi.DefaultRouteSettings`.
 	DefaultRouteSettings() interface{}
 	SetDefaultRouteSettings(val interface{})
-	// `AWS::Serverless::HttpApi.DefinitionBody`.
 	DefinitionBody() interface{}
 	SetDefinitionBody(val interface{})
-	// `AWS::Serverless::HttpApi.DefinitionUri`.
 	DefinitionUri() interface{}
 	SetDefinitionUri(val interface{})
-	// `AWS::Serverless::HttpApi.Description`.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Serverless::HttpApi.DisableExecuteApiEndpoint`.
 	DisableExecuteApiEndpoint() interface{}
 	SetDisableExecuteApiEndpoint(val interface{})
-	// `AWS::Serverless::HttpApi.Domain`.
 	Domain() interface{}
 	SetDomain(val interface{})
-	// `AWS::Serverless::HttpApi.FailOnWarnings`.
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -136,21 +129,20 @@ type CfnHttpApi interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Serverless::HttpApi.RouteSettings`.
 	RouteSettings() interface{}
 	SetRouteSettings(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Serverless::HttpApi.StageName`.
 	StageName() *string
 	SetStageName(val *string)
-	// `AWS::Serverless::HttpApi.StageVariables`.
 	StageVariables() interface{}
 	SetStageVariables(val interface{})
-	// `AWS::Serverless::HttpApi.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -295,6 +287,7 @@ type CfnHttpApi interface {
 type jsiiProxy_CfnHttpApi struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnHttpApi) AccessLogSetting() interface{} {
@@ -517,6 +510,16 @@ func (j *jsiiProxy_CfnHttpApi) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHttpApi) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHttpApi) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -538,7 +541,6 @@ func (j *jsiiProxy_CfnHttpApi) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Serverless::HttpApi`.
 func NewCfnHttpApi(scope constructs.Construct, id *string, props *CfnHttpApiProps) CfnHttpApi {
 	_init_.Initialize()
 
@@ -556,7 +558,6 @@ func NewCfnHttpApi(scope constructs.Construct, id *string, props *CfnHttpApiProp
 	return &j
 }
 
-// Create a new `AWS::Serverless::HttpApi`.
 func NewCfnHttpApi_Override(c CfnHttpApi, scope constructs.Construct, id *string, props *CfnHttpApiProps) {
 	_init_.Initialize()
 
@@ -612,9 +613,6 @@ func (j *jsiiProxy_CfnHttpApi)SetDefaultRouteSettings(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnHttpApi)SetDefinitionBody(val interface{}) {
-	if err := j.validateSetDefinitionBodyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"definitionBody",
@@ -700,6 +698,14 @@ func (j *jsiiProxy_CfnHttpApi)SetStageVariables(val interface{}) {
 	_jsii_.Set(
 		j,
 		"stageVariables",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHttpApi)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

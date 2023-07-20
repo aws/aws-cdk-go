@@ -20,12 +20,18 @@ package awss3
 //   	OutputSchemaVersion: jsii.String("outputSchemaVersion"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html
+//
 type CfnBucket_DataExportProperty struct {
 	// The place to store the data for an analysis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-destination
+	//
 	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
 	// The version of the output schema to use when exporting data.
 	//
 	// Must be `V_1` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-outputschemaversion
+	//
 	OutputSchemaVersion *string `field:"required" json:"outputSchemaVersion" yaml:"outputSchemaVersion"`
 }
 

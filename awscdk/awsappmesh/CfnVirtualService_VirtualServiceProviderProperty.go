@@ -17,10 +17,16 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html
+//
 type CfnVirtualService_VirtualServiceProviderProperty struct {
 	// The virtual node associated with a virtual service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html#cfn-appmesh-virtualservice-virtualserviceprovider-virtualnode
+	//
 	VirtualNode interface{} `field:"optional" json:"virtualNode" yaml:"virtualNode"`
 	// The virtual router associated with a virtual service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html#cfn-appmesh-virtualservice-virtualserviceprovider-virtualrouter
+	//
 	VirtualRouter interface{} `field:"optional" json:"virtualRouter" yaml:"virtualRouter"`
 }
 

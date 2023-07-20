@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Amplify::App`.
+// The AWS::Amplify::App resource specifies Apps in Amplify Hosting.
 //
-// The AWS::Amplify::App resource specifies Apps in Amplify Hosting. An App is a collection of branches.
+// An App is a collection of branches.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -84,20 +84,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html
+//
 type CfnApp interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The personal access token for a GitHub repository for an Amplify app.
-	//
-	// The personal access token is used to authorize access to a GitHub repository using the Amplify GitHub App. The token is not stored.
-	//
-	// Use `AccessToken` for GitHub repositories only. To authorize access to a repository provider such as Bitbucket or CodeCommit, use `OauthToken` .
-	//
-	// You must specify either `AccessToken` or `OauthToken` when you create a new app.
-	//
-	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	AccessToken() *string
 	SetAccessToken(val *string)
 	// Unique Id for the Amplify App.
@@ -112,15 +105,9 @@ type CfnApp interface {
 	AutoBranchCreationConfig() interface{}
 	SetAutoBranchCreationConfig(val interface{})
 	// The credentials for basic authorization for an Amplify app.
-	//
-	// You must base64-encode the authorization credentials and provide them in the format `user:password` .
 	BasicAuthConfig() interface{}
 	SetBasicAuthConfig(val interface{})
 	// The build specification (build spec) for an Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
-	//
-	// *Pattern:* (?s).+
 	BuildSpec() *string
 	SetBuildSpec(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -133,35 +120,21 @@ type CfnApp interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The custom HTTP headers for an Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 0. Maximum length of 25000.
-	//
-	// *Pattern:* (?s).*
 	CustomHeaders() *string
 	SetCustomHeaders(val *string)
 	// The custom rewrite and redirect rules for an Amplify app.
 	CustomRules() interface{}
 	SetCustomRules(val interface{})
 	// The description for an Amplify app.
-	//
-	// *Length Constraints:* Maximum length of 1000.
-	//
-	// *Pattern:* (?s).*
 	Description() *string
 	SetDescription(val *string)
 	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion() interface{}
 	SetEnableBranchAutoDeletion(val interface{})
 	// The environment variables map for an Amplify app.
-	//
-	// For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
 	// The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) of the Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 0. Maximum length of 1000.
-	//
-	// *Pattern:* (?s).*
 	IamServiceRole() *string
 	SetIamServiceRole(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -175,32 +148,14 @@ type CfnApp interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name for an Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	//
-	// *Pattern:* (?s).+
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The OAuth token for a third-party source control system for an Amplify app.
-	//
-	// The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
-	//
-	// Use `OauthToken` for repository providers other than GitHub, such as Bitbucket or CodeCommit. To authorize access to GitHub as your repository provider, use `AccessToken` .
-	//
-	// You must specify either `OauthToken` or `AccessToken` when you create a new app.
-	//
-	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
-	//
-	// *Length Constraints:* Maximum length of 1000.
-	//
-	// *Pattern:* (?s).*
 	OauthToken() *string
 	SetOauthToken(val *string)
 	// The platform for the Amplify app.
-	//
-	// For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
 	Platform() *string
 	SetPlatform(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -209,16 +164,17 @@ type CfnApp interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The repository for an Amplify app.
-	//
-	// *Pattern:* (?s).*
 	Repository() *string
 	SetRepository(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tag for an Amplify app.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tag for an Amplify app.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -363,6 +319,7 @@ type CfnApp interface {
 type jsiiProxy_CfnApp struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnApp) AccessToken() *string {
@@ -635,6 +592,16 @@ func (j *jsiiProxy_CfnApp) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApp) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApp) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -656,7 +623,6 @@ func (j *jsiiProxy_CfnApp) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Amplify::App`.
 func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnApp {
 	_init_.Initialize()
 
@@ -674,7 +640,6 @@ func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnAp
 	return &j
 }
 
-// Create a new `AWS::Amplify::App`.
 func NewCfnApp_Override(c CfnApp, scope constructs.Construct, id *string, props *CfnAppProps) {
 	_init_.Initialize()
 
@@ -811,6 +776,17 @@ func (j *jsiiProxy_CfnApp)SetRepository(val *string) {
 	_jsii_.Set(
 		j,
 		"repository",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApp)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -81,12 +81,20 @@ package awspinpoint
 //   	TemplateDescription: jsii.String("templateDescription"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html
+//
 type CfnInAppTemplateProps struct {
 	// The name of the in-app message template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-templatename
+	//
 	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`
 	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-content
+	//
 	Content interface{} `field:"optional" json:"content" yaml:"content"`
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-customconfig
+	//
 	CustomConfig interface{} `field:"optional" json:"customConfig" yaml:"customConfig"`
 	// A string that determines the appearance of the in-app message. You can specify one of the following:.
 	//
@@ -96,12 +104,18 @@ type CfnInAppTemplateProps struct {
 	// - `MOBILE_FEED` – a message that appears in a window in front of the page.
 	// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
 	// - `CAROUSEL` – a scrollable layout of up to five unique messages.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-layout
+	//
 	Layout *string `field:"optional" json:"layout" yaml:"layout"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-tags
+	//
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// An optional description of the in-app template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-templatedescription
+	//
 	TemplateDescription *string `field:"optional" json:"templateDescription" yaml:"templateDescription"`
 }
 

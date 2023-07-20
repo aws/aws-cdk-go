@@ -16,8 +16,12 @@ package awspinpointemail
 //   	CustomRedirectDomain: jsii.String("customRedirectDomain"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-trackingoptions.html
+//
 type CfnConfigurationSet_TrackingOptionsProperty struct {
 	// The domain that you want to use for tracking open and click events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-trackingoptions.html#cfn-pinpointemail-configurationset-trackingoptions-customredirectdomain
+	//
 	CustomRedirectDomain *string `field:"optional" json:"customRedirectDomain" yaml:"customRedirectDomain"`
 }
 

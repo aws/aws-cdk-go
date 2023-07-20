@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetBucketParameters(val *string) erro
 	return nil
 }
 
-func (j *jsiiProxy_CfnAccessPoint) validateSetPolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnAccessPoint) validateSetPublicAccessBlockConfigurationParameters(val interface{}) error {
 	return nil
 }

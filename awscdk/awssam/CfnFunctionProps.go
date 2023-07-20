@@ -24,17 +24,16 @@ package awssam
 //   		Type: jsii.String("type"),
 //   	},
 //   	DeploymentPreference: &DeploymentPreferenceProperty{
-//   		Enabled: jsii.Boolean(false),
-//   		Type: jsii.String("type"),
-//
-//   		// the properties below are optional
 //   		Alarms: []*string{
 //   			jsii.String("alarms"),
 //   		},
+//   		Enabled: jsii.Boolean(false),
 //   		Hooks: &HooksProperty{
 //   			PostTraffic: jsii.String("postTraffic"),
 //   			PreTraffic: jsii.String("preTraffic"),
 //   		},
+//   		Role: jsii.String("role"),
+//   		Type: jsii.String("type"),
 //   	},
 //   	Description: jsii.String("description"),
 //   	Environment: &FunctionEnvironmentProperty{
@@ -62,7 +61,7 @@ package awssam
 //   	},
 //   	Events: map[string]interface{}{
 //   		"eventsKey": &EventSourceProperty{
-//   			"properties": &S3EventProperty{
+//   			"properties": &AlexaSkillEventProperty{
 //   				"variables": map[string]*string{
 //   					"variablesKey": jsii.String("variables"),
 //   				},
@@ -119,72 +118,107 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html
+//
 type CfnFunctionProps struct {
-	// `AWS::Serverless::Function.Architectures`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-architectures
+	//
 	Architectures *[]*string `field:"optional" json:"architectures" yaml:"architectures"`
-	// `AWS::Serverless::Function.AssumeRolePolicyDocument`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-assumerolepolicydocument
+	//
 	AssumeRolePolicyDocument interface{} `field:"optional" json:"assumeRolePolicyDocument" yaml:"assumeRolePolicyDocument"`
-	// `AWS::Serverless::Function.AutoPublishAlias`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-autopublishalias
+	//
 	AutoPublishAlias *string `field:"optional" json:"autoPublishAlias" yaml:"autoPublishAlias"`
-	// `AWS::Serverless::Function.AutoPublishCodeSha256`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-autopublishcodesha256
+	//
 	AutoPublishCodeSha256 *string `field:"optional" json:"autoPublishCodeSha256" yaml:"autoPublishCodeSha256"`
-	// `AWS::Serverless::Function.CodeSigningConfigArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-codesigningconfigarn
+	//
 	CodeSigningConfigArn *string `field:"optional" json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
-	// `AWS::Serverless::Function.CodeUri`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-codeuri
+	//
 	CodeUri interface{} `field:"optional" json:"codeUri" yaml:"codeUri"`
-	// `AWS::Serverless::Function.DeadLetterQueue`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-deadletterqueue
+	//
 	DeadLetterQueue interface{} `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
-	// `AWS::Serverless::Function.DeploymentPreference`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-deploymentpreference
+	//
 	DeploymentPreference interface{} `field:"optional" json:"deploymentPreference" yaml:"deploymentPreference"`
-	// `AWS::Serverless::Function.Description`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Serverless::Function.Environment`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-environment
+	//
 	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
-	// `AWS::Serverless::Function.EventInvokeConfig`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-eventinvokeconfig
+	//
 	EventInvokeConfig interface{} `field:"optional" json:"eventInvokeConfig" yaml:"eventInvokeConfig"`
-	// `AWS::Serverless::Function.Events`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-events
+	//
 	Events interface{} `field:"optional" json:"events" yaml:"events"`
-	// `AWS::Serverless::Function.FileSystemConfigs`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-filesystemconfigs
+	//
 	FileSystemConfigs interface{} `field:"optional" json:"fileSystemConfigs" yaml:"fileSystemConfigs"`
-	// `AWS::Serverless::Function.FunctionName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-functionname
+	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
-	// `AWS::Serverless::Function.Handler`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-handler
+	//
 	Handler *string `field:"optional" json:"handler" yaml:"handler"`
-	// `AWS::Serverless::Function.ImageConfig`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-imageconfig
+	//
 	ImageConfig interface{} `field:"optional" json:"imageConfig" yaml:"imageConfig"`
-	// `AWS::Serverless::Function.ImageUri`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-imageuri
+	//
 	ImageUri *string `field:"optional" json:"imageUri" yaml:"imageUri"`
-	// `AWS::Serverless::Function.InlineCode`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-inlinecode
+	//
 	InlineCode *string `field:"optional" json:"inlineCode" yaml:"inlineCode"`
-	// `AWS::Serverless::Function.KmsKeyArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-kmskeyarn
+	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// `AWS::Serverless::Function.Layers`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-layers
+	//
 	Layers *[]*string `field:"optional" json:"layers" yaml:"layers"`
-	// `AWS::Serverless::Function.MemorySize`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-memorysize
+	//
 	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
-	// `AWS::Serverless::Function.PackageType`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-packagetype
+	//
 	PackageType *string `field:"optional" json:"packageType" yaml:"packageType"`
-	// `AWS::Serverless::Function.PermissionsBoundary`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-permissionsboundary
+	//
 	PermissionsBoundary *string `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
-	// `AWS::Serverless::Function.Policies`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-policies
+	//
 	Policies interface{} `field:"optional" json:"policies" yaml:"policies"`
-	// `AWS::Serverless::Function.ProvisionedConcurrencyConfig`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-provisionedconcurrencyconfig
+	//
 	ProvisionedConcurrencyConfig interface{} `field:"optional" json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
-	// `AWS::Serverless::Function.ReservedConcurrentExecutions`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-reservedconcurrentexecutions
+	//
 	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
-	// `AWS::Serverless::Function.Role`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-role
+	//
 	Role *string `field:"optional" json:"role" yaml:"role"`
-	// `AWS::Serverless::Function.Runtime`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-runtime
+	//
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`
-	// `AWS::Serverless::Function.Tags`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-tags
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::Serverless::Function.Timeout`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-timeout
+	//
 	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
-	// `AWS::Serverless::Function.Tracing`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-tracing
+	//
 	Tracing *string `field:"optional" json:"tracing" yaml:"tracing"`
-	// `AWS::Serverless::Function.VersionDescription`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-versiondescription
+	//
 	VersionDescription *string `field:"optional" json:"versionDescription" yaml:"versionDescription"`
-	// `AWS::Serverless::Function.VpcConfig`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-vpcconfig
+	//
 	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 

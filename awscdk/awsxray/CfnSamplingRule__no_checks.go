@@ -84,6 +84,14 @@ func (j *jsiiProxy_CfnSamplingRule) validateSetSamplingRuleParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnSamplingRule) validateSetSamplingRuleRecordParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnSamplingRule) validateSetSamplingRuleUpdateParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnSamplingRuleParameters(scope constructs.Construct, id *string, props *CfnSamplingRuleProps) error {
 	return nil
 }

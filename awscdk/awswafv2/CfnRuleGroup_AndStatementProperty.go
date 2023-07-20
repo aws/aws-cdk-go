@@ -12,6 +12,7 @@ package awswafv2
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
+//   var andStatementProperty_ andStatementProperty
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -19,14 +20,10 @@ package awswafv2
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
-//   andStatementProperty := &AndStatementProperty{
+//   andStatementProperty := &andStatementProperty{
 //   	Statements: []interface{}{
 //   		&statementProperty{
-//   			AndStatement: &AndStatementProperty{
-//   				Statements: []interface{}{
-//   					statementProperty_,
-//   				},
-//   			},
+//   			AndStatement: andStatementProperty_,
 //   			ByteMatchStatement: &ByteMatchStatementProperty{
 //   				FieldToMatch: &FieldToMatchProperty{
 //   					AllQueryArguments: allQueryArguments,
@@ -433,10 +430,14 @@ package awswafv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
+//
 type CfnRuleGroup_AndStatementProperty struct {
 	// The statements to combine with AND logic.
 	//
 	// You can use any statements that can be nested.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
+	//
 	Statements interface{} `field:"required" json:"statements" yaml:"statements"`
 }
 

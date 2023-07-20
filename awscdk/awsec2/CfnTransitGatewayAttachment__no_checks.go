@@ -80,11 +80,11 @@ func validateCfnTransitGatewayAttachment_IsConstructParameters(x interface{}) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetOptionsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetSubnetIdsParameters(val *[]*string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetSubnetIdsParameters(val *[]*string) error {
+func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Kinesis::StreamConsumer`.
+// Use the AWS CloudFormation `AWS::Kinesis::StreamConsumer` resource to register a consumer with a Kinesis data stream.
 //
-// Use the AWS CloudFormation `AWS::Kinesis::StreamConsumer` resource to register a consumer with a Kinesis data stream. The consumer you register can then call [SubscribeToShard](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_SubscribeToShard.html) to receive data from the stream using enhanced fan-out, at a rate of up to 2 MiB per second for every shard you subscribe to. This rate is unaffected by the total number of consumers that read from the same stream.
+// The consumer you register can then call [SubscribeToShard](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_SubscribeToShard.html) to receive data from the stream using enhanced fan-out, at a rate of up to 2 MiB per second for every shard you subscribe to. This rate is unaffected by the total number of consumers that read from the same stream.
 //
 // You can register up to five consumers per stream. However, you can request a limit increase using the [Kinesis Data Streams limits form](https://docs.aws.amazon.com/support/v1?#/) . A given consumer can only be registered with one stream at a time.
 //
@@ -26,6 +26,8 @@ import (
 //   	ConsumerName: jsii.String("consumerName"),
 //   	StreamArn: jsii.String("streamArn"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
 //
 type CfnStreamConsumer interface {
 	awscdk.CfnResource
@@ -42,6 +44,7 @@ type CfnStreamConsumer interface {
 	AttrConsumerName() *string
 	// A consumer can't read data while in the `CREATING` or `DELETING` states.
 	AttrConsumerStatus() *string
+	AttrId() *string
 	// The ARN of the data stream with which the consumer is registered.
 	AttrStreamArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -266,6 +269,16 @@ func (j *jsiiProxy_CfnStreamConsumer) AttrConsumerStatus() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStreamConsumer) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStreamConsumer) AttrStreamArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -397,7 +410,6 @@ func (j *jsiiProxy_CfnStreamConsumer) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Kinesis::StreamConsumer`.
 func NewCfnStreamConsumer(scope constructs.Construct, id *string, props *CfnStreamConsumerProps) CfnStreamConsumer {
 	_init_.Initialize()
 
@@ -415,7 +427,6 @@ func NewCfnStreamConsumer(scope constructs.Construct, id *string, props *CfnStre
 	return &j
 }
 
-// Create a new `AWS::Kinesis::StreamConsumer`.
 func NewCfnStreamConsumer_Override(c CfnStreamConsumer, scope constructs.Construct, id *string, props *CfnStreamConsumerProps) {
 	_init_.Initialize()
 

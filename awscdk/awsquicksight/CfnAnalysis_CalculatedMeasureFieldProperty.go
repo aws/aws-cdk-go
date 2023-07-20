@@ -13,10 +13,16 @@ package awsquicksight
 //   	FieldId: jsii.String("fieldId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-calculatedmeasurefield.html
+//
 type CfnAnalysis_CalculatedMeasureFieldProperty struct {
 	// The expression in the table calculation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-calculatedmeasurefield.html#cfn-quicksight-analysis-calculatedmeasurefield-expression
+	//
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// The custom field ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-calculatedmeasurefield.html#cfn-quicksight-analysis-calculatedmeasurefield-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 }
 

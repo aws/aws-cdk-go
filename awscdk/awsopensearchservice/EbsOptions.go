@@ -12,22 +12,20 @@ import (
 // in the Amazon Elastic Compute Cloud Developer Guide.
 //
 // Example:
-//   prodDomain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
-//   	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
-//   	Capacity: &CapacityConfig{
-//   		MasterNodes: jsii.Number(5),
-//   		DataNodes: jsii.Number(20),
-//   	},
+//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+//   	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
 //   	Ebs: &EbsOptions{
-//   		VolumeSize: jsii.Number(20),
+//   		VolumeSize: jsii.Number(10),
+//   		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD_GP3,
 //   	},
 //   	ZoneAwareness: &ZoneAwarenessConfig{
+//   		Enabled: jsii.Boolean(true),
 //   		AvailabilityZoneCount: jsii.Number(3),
 //   	},
-//   	Logging: &LoggingOptions{
-//   		SlowSearchLogEnabled: jsii.Boolean(true),
-//   		AppLogEnabled: jsii.Boolean(true),
-//   		SlowIndexLogEnabled: jsii.Boolean(true),
+//   	Capacity: &CapacityConfig{
+//   		MultiAzWithStandbyEnabled: jsii.Boolean(true),
+//   		MasterNodes: jsii.Number(3),
+//   		DataNodes: jsii.Number(3),
 //   	},
 //   })
 //

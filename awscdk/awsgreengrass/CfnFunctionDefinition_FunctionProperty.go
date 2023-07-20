@@ -46,16 +46,24 @@ package awsgreengrass
 //   	Id: jsii.String("id"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html
+//
 type CfnFunctionDefinition_FunctionProperty struct {
 	// The Amazon Resource Name (ARN) of the alias (recommended) or version of the referenced Lambda function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html#cfn-greengrass-functiondefinition-function-functionarn
+	//
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The group-specific settings of the Lambda function.
 	//
 	// These settings configure the function's behavior in the Greengrass group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html#cfn-greengrass-functiondefinition-function-functionconfiguration
+	//
 	FunctionConfiguration interface{} `field:"required" json:"functionConfiguration" yaml:"functionConfiguration"`
 	// A descriptive or arbitrary ID for the function.
 	//
 	// This value must be unique within the function definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html#cfn-greengrass-functiondefinition-function-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 }
 

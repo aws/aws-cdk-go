@@ -23,10 +23,16 @@ package awslex
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologsetting.html
+//
 type CfnBotAlias_AudioLogSettingProperty struct {
 	// The location of audio log files collected when conversation logging is enabled for a bot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologsetting.html#cfn-lex-botalias-audiologsetting-destination
+	//
 	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
 	// Determines whether audio logging in enabled for the bot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologsetting.html#cfn-lex-botalias-audiologsetting-enabled
+	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

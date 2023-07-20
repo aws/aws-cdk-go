@@ -22,8 +22,12 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html
+//
 type CfnBucket_StorageClassAnalysisProperty struct {
 	// Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html#cfn-s3-bucket-storageclassanalysis-dataexport
+	//
 	DataExport interface{} `field:"optional" json:"dataExport" yaml:"dataExport"`
 }
 

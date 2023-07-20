@@ -18,6 +18,8 @@ package awsservicediscovery
 //   	InstanceId: jsii.String("instanceId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html
+//
 type CfnInstanceProps struct {
 	// A string map that contains the following information for the service that you specify in `ServiceId` :.
 	//
@@ -51,8 +53,12 @@ type CfnInstanceProps struct {
 	// If the service includes `HealthCheckConfig` , the port on the endpoint that you want Route 53 to send requests to.
 	//
 	// This value is required if you specified settings for an `SRV` record or a Route 53 health check when you created the service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceattributes
+	//
 	InstanceAttributes interface{} `field:"required" json:"instanceAttributes" yaml:"instanceAttributes"`
 	// The ID of the service that you want to use for settings for the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-serviceid
+	//
 	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
 	// An identifier that you want to associate with the instance. Note the following:.
 	//
@@ -64,6 +70,8 @@ type CfnInstanceProps struct {
 	// > The health check isn't deleted immediately, so it will still appear for a while if you submit a `ListHealthChecks` request, for example.
 	//
 	// > Do not include sensitive information in `InstanceId` if the namespace is discoverable by public DNS queries and any `Type` member of `DnsRecord` for the service contains `SRV` because the `InstanceId` is discoverable by public DNS queries.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceid
+	//
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 }
 

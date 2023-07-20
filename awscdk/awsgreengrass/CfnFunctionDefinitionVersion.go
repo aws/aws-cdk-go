@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Greengrass::FunctionDefinitionVersion`.
+// The `AWS::Greengrass::FunctionDefinitionVersion` resource represents a function definition version for AWS IoT Greengrass .
 //
-// The `AWS::Greengrass::FunctionDefinitionVersion` resource represents a function definition version for AWS IoT Greengrass . A function definition version contains contain a list of functions.
+// A function definition version contains contain a list of functions.
 //
 // > To create a function definition version, you must specify the ID of the function definition that you want to associate with the version. For information about creating a function definition, see [`AWS::Greengrass::FunctionDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html) .
 // >
@@ -72,9 +72,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html
+//
 type CfnFunctionDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -85,13 +88,9 @@ type CfnFunctionDefinitionVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The default configuration that applies to all Lambda functions in the group.
-	//
-	// Individual Lambda functions can override these settings.
 	DefaultConfig() interface{}
 	SetDefaultConfig(val interface{})
 	// The ID of the function definition associated with this version.
-	//
-	// This value is a GUID.
 	FunctionDefinitionId() *string
 	SetFunctionDefinitionId(val *string)
 	// The functions in this version.
@@ -264,6 +263,16 @@ type jsiiProxy_CfnFunctionDefinitionVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnFunctionDefinitionVersion) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunctionDefinitionVersion) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -395,7 +404,6 @@ func (j *jsiiProxy_CfnFunctionDefinitionVersion) UpdatedProperties() *map[string
 }
 
 
-// Create a new `AWS::Greengrass::FunctionDefinitionVersion`.
 func NewCfnFunctionDefinitionVersion(scope constructs.Construct, id *string, props *CfnFunctionDefinitionVersionProps) CfnFunctionDefinitionVersion {
 	_init_.Initialize()
 
@@ -413,7 +421,6 @@ func NewCfnFunctionDefinitionVersion(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Create a new `AWS::Greengrass::FunctionDefinitionVersion`.
 func NewCfnFunctionDefinitionVersion_Override(c CfnFunctionDefinitionVersion, scope constructs.Construct, id *string, props *CfnFunctionDefinitionVersionProps) {
 	_init_.Initialize()
 

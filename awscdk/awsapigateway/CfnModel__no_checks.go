@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnModel) validateSetRestApiIdParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnModel) validateSetSchemaParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnModelParameters(scope constructs.Construct, id *string, props *CfnModelProps) error {
 	return nil
 }

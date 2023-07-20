@@ -80,6 +80,10 @@ func validateCfnAgent_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAgent) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAgentParameters(scope constructs.Construct, id *string, props *CfnAgentProps) error {
 	return nil
 }

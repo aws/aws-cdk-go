@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetRoleArnParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnGameServerGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnGameServerGroupParameters(scope constructs.Construct, id *string, props *CfnGameServerGroupProps) error {
 	return nil
 }

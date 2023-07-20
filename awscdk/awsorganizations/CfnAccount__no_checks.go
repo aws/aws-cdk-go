@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnAccount) validateSetEmailParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAccount) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAccountParameters(scope constructs.Construct, id *string, props *CfnAccountProps) error {
 	return nil
 }

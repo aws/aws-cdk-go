@@ -12,6 +12,8 @@ package awslex
 //   	AllowMultipleValues: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html
+//
 type CfnBot_MultipleValuesSettingProperty struct {
 	// Indicates whether a slot can return multiple values.
 	//
@@ -20,6 +22,8 @@ type CfnBot_MultipleValuesSettingProperty struct {
 	// Multi-value slots are only available in the en-US locale. If you set this value to `true` in any other locale, Amazon Lex throws a `ValidationException` .
 	//
 	// If the `allowMutlipleValues` is not set, the default value is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html#cfn-lex-bot-multiplevaluessetting-allowmultiplevalues
+	//
 	AllowMultipleValues interface{} `field:"optional" json:"allowMultipleValues" yaml:"allowMultipleValues"`
 }
 

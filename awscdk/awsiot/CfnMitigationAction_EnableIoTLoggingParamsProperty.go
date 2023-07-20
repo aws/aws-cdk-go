@@ -13,10 +13,16 @@ package awsiot
 //   	RoleArnForLogging: jsii.String("roleArnForLogging"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html
+//
 type CfnMitigationAction_EnableIoTLoggingParamsProperty struct {
 	// Specifies the type of information to be logged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+	//
 	LogLevel *string `field:"required" json:"logLevel" yaml:"logLevel"`
 	// The Amazon Resource Name (ARN) of the IAM role used for logging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+	//
 	RoleArnForLogging *string `field:"required" json:"roleArnForLogging" yaml:"roleArnForLogging"`
 }
 

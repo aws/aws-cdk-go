@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::NetworkManager::GlobalNetwork`.
-//
 // Creates a new, empty global network.
 //
 // Example:
@@ -28,9 +26,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html
+//
 type CfnGlobalNetwork interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the global network.
 	//
 	// For example, `arn:aws:networkmanager::123456789012:global-network/global-network-01231231231231231` .
@@ -49,8 +50,6 @@ type CfnGlobalNetwork interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A description of the global network.
-	//
-	// Constraints: Maximum length of 256 characters.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -74,8 +73,11 @@ type CfnGlobalNetwork interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the global network.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the global network.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -220,6 +222,7 @@ type CfnGlobalNetwork interface {
 type jsiiProxy_CfnGlobalNetwork struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnGlobalNetwork) AttrArn() *string {
@@ -342,6 +345,16 @@ func (j *jsiiProxy_CfnGlobalNetwork) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalNetwork) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalNetwork) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -363,7 +376,6 @@ func (j *jsiiProxy_CfnGlobalNetwork) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::NetworkManager::GlobalNetwork`.
 func NewCfnGlobalNetwork(scope constructs.Construct, id *string, props *CfnGlobalNetworkProps) CfnGlobalNetwork {
 	_init_.Initialize()
 
@@ -381,7 +393,6 @@ func NewCfnGlobalNetwork(scope constructs.Construct, id *string, props *CfnGloba
 	return &j
 }
 
-// Create a new `AWS::NetworkManager::GlobalNetwork`.
 func NewCfnGlobalNetwork_Override(c CfnGlobalNetwork, scope constructs.Construct, id *string, props *CfnGlobalNetworkProps) {
 	_init_.Initialize()
 
@@ -396,6 +407,17 @@ func (j *jsiiProxy_CfnGlobalNetwork)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalNetwork)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

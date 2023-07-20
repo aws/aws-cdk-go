@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Connect::ApprovedOrigin`.
-//
 // The approved origin for the instance.
 //
 // Example:
@@ -22,6 +20,8 @@ import (
 //   	InstanceId: jsii.String("instanceId"),
 //   	Origin: jsii.String("origin"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html
 //
 type CfnApprovedOrigin interface {
 	awscdk.CfnResource
@@ -36,10 +36,6 @@ type CfnApprovedOrigin interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) of the instance.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `100`.
 	InstanceId() *string
 	SetInstanceId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -55,8 +51,6 @@ type CfnApprovedOrigin interface {
 	// The tree node.
 	Node() constructs.Node
 	// Domain name to be added to the allow-list of the instance.
-	//
-	// *Maximum* : `267`.
 	Origin() *string
 	SetOrigin(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -335,7 +329,6 @@ func (j *jsiiProxy_CfnApprovedOrigin) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Connect::ApprovedOrigin`.
 func NewCfnApprovedOrigin(scope constructs.Construct, id *string, props *CfnApprovedOriginProps) CfnApprovedOrigin {
 	_init_.Initialize()
 
@@ -353,7 +346,6 @@ func NewCfnApprovedOrigin(scope constructs.Construct, id *string, props *CfnAppr
 	return &j
 }
 
-// Create a new `AWS::Connect::ApprovedOrigin`.
 func NewCfnApprovedOrigin_Override(c CfnApprovedOrigin, scope constructs.Construct, id *string, props *CfnApprovedOriginProps) {
 	_init_.Initialize()
 

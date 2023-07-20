@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EMR::Cluster`.
+// The `AWS::EMR::Cluster` resource specifies an Amazon EMR cluster.
 //
-// The `AWS::EMR::Cluster` resource specifies an Amazon EMR cluster. This cluster is a collection of Amazon EC2 instances that run open source big data frameworks and applications to process and analyze vast amounts of data. For more information, see the [Amazon EMR Management Guide](https://docs.aws.amazon.com//emr/latest/ManagementGuide/) .
+// This cluster is a collection of Amazon EC2 instances that run open source big data frameworks and applications to process and analyze vast amounts of data. For more information, see the [Amazon EMR Management Guide](https://docs.aws.amazon.com//emr/latest/ManagementGuide/) .
 //
 // Amazon EMR now supports launching task instance groups and task instance fleets as part of the `AWS::EMR::Cluster` resource. This can be done by using the `JobFlowInstancesConfig` property type's `TaskInstanceGroups` and `TaskInstanceFleets` subproperties. Using these subproperties reduces delays in provisioning task nodes compared to specifying task nodes with the `AWS::EMR::InstanceGroupConfig` and `AWS::EMR::InstanceFleetConfig` resources. Please refer to the examples at the bottom of this page to learn how to use these subproperties.
 //
@@ -580,23 +580,24 @@ import (
 //   	VisibleToAllUsers: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A JSON string for selecting additional features.
 	AdditionalInfo() interface{}
 	SetAdditionalInfo(val interface{})
 	// The applications to install on this cluster, for example, Spark, Flink, Oozie, Zeppelin, and so on.
 	Applications() interface{}
 	SetApplications(val interface{})
+	AttrId() *string
 	// The public DNS name of the master node (instance), such as `ec2-12-123-123-123.us-west-2.compute.amazonaws.com` .
 	AttrMasterPublicDns() *string
 	// An IAM role for automatic scaling policies.
-	//
-	// The default role is `EMR_AutoScaling_DefaultRole` . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate Amazon EC2 instances in an instance group.
 	AutoScalingRole() *string
 	SetAutoScalingRole(val *string)
-	// `AWS::EMR::Cluster.AutoTerminationPolicy`.
 	AutoTerminationPolicy() interface{}
 	SetAutoTerminationPolicy(val interface{})
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
@@ -618,26 +619,18 @@ type CfnCluster interface {
 	CustomAmiId() *string
 	SetCustomAmiId(val *string)
 	// The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance.
-	//
-	// Available in Amazon EMR releases 4.x and later.
 	EbsRootVolumeSize() *float64
 	SetEbsRootVolumeSize(val *float64)
 	// A specification of the number and type of Amazon EC2 instances.
 	Instances() interface{}
 	SetInstances(val interface{})
 	// Also called instance profile and Amazon EC2 role.
-	//
-	// An IAM role for an Amazon EMR cluster. The Amazon EC2 instances of the cluster assume this role. The default role is `EMR_EC2_DefaultRole` . In order to use the default role, you must have already created it using the AWS CLI or console.
 	JobFlowRole() *string
 	SetJobFlowRole(val *string)
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
-	//
-	// For more information see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide* .
 	KerberosAttributes() interface{}
 	SetKerberosAttributes(val interface{})
 	// The AWS KMS key used for encrypting log files.
-	//
-	// This attribute is only available with Amazon EMR 5.30.0 and later, excluding Amazon EMR 6.0.0.
 	LogEncryptionKmsKeyId() *string
 	SetLogEncryptionKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -654,8 +647,6 @@ type CfnCluster interface {
 	LogUri() *string
 	SetLogUri(val *string)
 	// Creates or updates a managed scaling policy for an Amazon EMR cluster.
-	//
-	// The managed scaling policy defines the limits for resources, such as Amazon EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 	ManagedScalingPolicy() interface{}
 	SetManagedScalingPolicy(val interface{})
 	// The name of the cluster.
@@ -663,7 +654,6 @@ type CfnCluster interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::EMR::Cluster.OSReleaseLabel`.
 	OsReleaseLabel() *string
 	SetOsReleaseLabel(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -672,13 +662,9 @@ type CfnCluster interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
-	//
-	// Release labels are in the form `emr-x.x.x` , where x.x.x is an Amazon EMR release version such as `emr-5.14.0` . For more information about Amazon EMR release versions and included application versions and features, see [](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/) . The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use `AmiVersion` .
 	ReleaseLabel() *string
 	SetReleaseLabel(val *string)
 	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
-	//
-	// `TERMINATE_AT_INSTANCE_HOUR` indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. `TERMINATE_AT_TASK_COMPLETION` indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. `TERMINATE_AT_TASK_COMPLETION` is available only in Amazon EMR releases 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
 	ScaleDownBehavior() *string
 	SetScaleDownBehavior(val *string)
 	// The name of the security configuration applied to the cluster.
@@ -692,15 +678,16 @@ type CfnCluster interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies the number of steps that can be executed concurrently.
-	//
-	// The default value is `1` . The maximum value is `256` .
 	StepConcurrencyLevel() *float64
 	SetStepConcurrencyLevel(val *float64)
 	// A list of steps to run.
 	Steps() interface{}
 	SetSteps(val interface{})
-	// A list of tags associated with a cluster.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags associated with a cluster.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -715,10 +702,6 @@ type CfnCluster interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster.
-	//
-	// If this value is set to `true` , all IAM users of that AWS account can view and manage the cluster if they have the proper policy permissions set. If this value is `false` , only the IAM user that created the cluster can view and manage it. This value can be changed using the SetVisibleToAllUsers action.
-	//
-	// > When you create clusters directly through the EMR console or API, this value is set to `true` by default. However, for `AWS::EMR::Cluster` resources in CloudFormation, the default is `false` .
 	VisibleToAllUsers() interface{}
 	SetVisibleToAllUsers(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -852,6 +835,7 @@ type CfnCluster interface {
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCluster) AdditionalInfo() interface{} {
@@ -869,6 +853,16 @@ func (j *jsiiProxy_CfnCluster) Applications() interface{} {
 	_jsii_.Get(
 		j,
 		"applications",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -1174,6 +1168,16 @@ func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1205,7 +1209,6 @@ func (j *jsiiProxy_CfnCluster) VisibleToAllUsers() interface{} {
 }
 
 
-// Create a new `AWS::EMR::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -1223,7 +1226,6 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
-// Create a new `AWS::EMR::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -1235,9 +1237,6 @@ func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string
 }
 
 func (j *jsiiProxy_CfnCluster)SetAdditionalInfo(val interface{}) {
-	if err := j.validateSetAdditionalInfoParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"additionalInfo",
@@ -1442,6 +1441,17 @@ func (j *jsiiProxy_CfnCluster)SetSteps(val interface{}) {
 	_jsii_.Set(
 		j,
 		"steps",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

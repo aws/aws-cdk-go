@@ -15,10 +15,16 @@ package awsssmincidents
 //   	RegionName: jsii.String("regionName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html
+//
 type CfnReplicationSet_ReplicationRegionProperty struct {
 	// Specifies the Region configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionconfiguration
+	//
 	RegionConfiguration interface{} `field:"optional" json:"regionConfiguration" yaml:"regionConfiguration"`
 	// Specifies the region name to add to the replication set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname
+	//
 	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`
 }
 

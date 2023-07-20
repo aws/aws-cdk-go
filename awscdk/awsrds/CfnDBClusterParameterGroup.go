@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::DBClusterParameterGroup`.
-//
 // The `AWS::RDS::DBClusterParameterGroup` resource creates a new Amazon RDS DB cluster parameter group.
 //
 // For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide* .
@@ -41,9 +39,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html
+//
 type CfnDBClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -54,32 +55,12 @@ type CfnDBClusterParameterGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the DB cluster parameter group.
-	//
-	// Constraints:
-	//
-	// - Must not match the name of an existing DB cluster parameter group.
-	//
-	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-	//
-	// > This value is stored as a lowercase string.
 	DbClusterParameterGroupName() *string
 	SetDbClusterParameterGroupName(val *string)
 	// A friendly description for this DB cluster parameter group.
 	Description() *string
 	SetDescription(val *string)
 	// The DB cluster parameter group family name.
-	//
-	// A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
-	//
-	// > The DB cluster parameter group family can't be changed when updating a DB cluster parameter group.
-	//
-	// To list all of the available parameter group families, use the following command:
-	//
-	// `aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`
-	//
-	// The output contains duplicates.
-	//
-	// For more information, see `[CreateDBClusterParameterGroup](https://docs.aws.amazon.com//AmazonRDS/latest/APIReference/API_CreateDBClusterParameterGroup.html)` .
 	Family() *string
 	SetFamily(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -106,8 +87,11 @@ type CfnDBClusterParameterGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An optional array of key-value pairs to apply to this DB cluster parameter group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An optional array of key-value pairs to apply to this DB cluster parameter group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -252,6 +236,7 @@ type CfnDBClusterParameterGroup interface {
 type jsiiProxy_CfnDBClusterParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDBClusterParameterGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -384,6 +369,16 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBClusterParameterGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -405,7 +400,6 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperties() *map[string]i
 }
 
 
-// Create a new `AWS::RDS::DBClusterParameterGroup`.
 func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) CfnDBClusterParameterGroup {
 	_init_.Initialize()
 
@@ -423,7 +417,6 @@ func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::RDS::DBClusterParameterGroup`.
 func NewCfnDBClusterParameterGroup_Override(c CfnDBClusterParameterGroup, scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) {
 	_init_.Initialize()
 
@@ -471,6 +464,17 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBClusterParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

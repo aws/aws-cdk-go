@@ -18,10 +18,14 @@ package alexaask
 //   	Manifest: manifest,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-overrides.html
+//
 type CfnSkill_OverridesProperty struct {
 	// Overrides to apply to the skill manifest inside of the skill package.
 	//
 	// The skill manifest contains metadata about the skill. For more information, see  .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-overrides.html#cfn-ask-skill-overrides-manifest
+	//
 	Manifest interface{} `field:"optional" json:"manifest" yaml:"manifest"`
 }
 

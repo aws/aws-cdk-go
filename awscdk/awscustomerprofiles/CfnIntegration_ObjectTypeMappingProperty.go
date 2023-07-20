@@ -13,10 +13,16 @@ package awscustomerprofiles
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-objecttypemapping.html
+//
 type CfnIntegration_ObjectTypeMappingProperty struct {
 	// The key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-objecttypemapping.html#cfn-customerprofiles-integration-objecttypemapping-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-objecttypemapping.html#cfn-customerprofiles-integration-objecttypemapping-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

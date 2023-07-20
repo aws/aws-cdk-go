@@ -17,12 +17,18 @@ package awsdynamodb
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html
+//
 type CfnTable_CsvProperty struct {
 	// The delimiter used for separating items in the CSV file being imported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html#cfn-dynamodb-table-csv-delimiter
+	//
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// List of the headers used to specify a common header for all source CSV files being imported.
 	//
 	// If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html#cfn-dynamodb-table-csv-headerlist
+	//
 	HeaderList *[]*string `field:"optional" json:"headerList" yaml:"headerList"`
 }
 

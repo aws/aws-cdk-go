@@ -30,10 +30,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldlinkcontentconfiguration.html
+//
 type CfnAnalysis_TableFieldLinkContentConfigurationProperty struct {
 	// The custom icon content for the table link content configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldlinkcontentconfiguration.html#cfn-quicksight-analysis-tablefieldlinkcontentconfiguration-customiconcontent
+	//
 	CustomIconContent interface{} `field:"optional" json:"customIconContent" yaml:"customIconContent"`
 	// The custom text content (value, font configuration) for the table link content configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablefieldlinkcontentconfiguration.html#cfn-quicksight-analysis-tablefieldlinkcontentconfiguration-customtextcontent
+	//
 	CustomTextContent interface{} `field:"optional" json:"customTextContent" yaml:"customTextContent"`
 }
 

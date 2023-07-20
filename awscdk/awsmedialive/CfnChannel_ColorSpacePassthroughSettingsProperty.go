@@ -13,6 +13,8 @@ package awsmedialive
 //   colorSpacePassthroughSettingsProperty := &ColorSpacePassthroughSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorspacepassthroughsettings.html
+//
 type CfnChannel_ColorSpacePassthroughSettingsProperty struct {
 }
 

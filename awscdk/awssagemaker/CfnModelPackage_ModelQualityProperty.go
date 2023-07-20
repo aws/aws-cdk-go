@@ -25,10 +25,16 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelquality.html
+//
 type CfnModelPackage_ModelQualityProperty struct {
 	// Model quality constraints.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelquality.html#cfn-sagemaker-modelpackage-modelquality-constraints
+	//
 	Constraints interface{} `field:"optional" json:"constraints" yaml:"constraints"`
 	// Model quality statistics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelquality.html#cfn-sagemaker-modelpackage-modelquality-statistics
+	//
 	Statistics interface{} `field:"optional" json:"statistics" yaml:"statistics"`
 }
 

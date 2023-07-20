@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTEvents::AlarmModel`.
+// Represents an alarm model to monitor an AWS IoT Events input attribute.
 //
-// Represents an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *AWS IoT Events Developer Guide* .
+// You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -160,9 +160,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html
+//
 type CfnAlarmModel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Contains the configuration information of alarm state changes.
 	AlarmCapabilities() interface{}
 	SetAlarmCapabilities(val interface{})
@@ -188,8 +191,6 @@ type CfnAlarmModel interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// An input attribute used as a key to create an alarm.
-	//
-	// AWS IoT Events routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
 	Key() *string
 	SetKey(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -210,8 +211,6 @@ type CfnAlarmModel interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources.
-	//
-	// For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// A non-negative integer that reflects the severity level of the alarm.
@@ -221,12 +220,11 @@ type CfnAlarmModel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs that contain metadata for the alarm model.
-	//
-	// The tags help you manage the alarm model. For more information, see [Tagging your AWS IoT Events resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *AWS IoT Events Developer Guide* .
-	//
-	// You can create up to 50 tags for one alarm model.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs that contain metadata for the alarm model.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -371,6 +369,7 @@ type CfnAlarmModel interface {
 type jsiiProxy_CfnAlarmModel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAlarmModel) AlarmCapabilities() interface{} {
@@ -543,6 +542,16 @@ func (j *jsiiProxy_CfnAlarmModel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAlarmModel) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAlarmModel) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -564,7 +573,6 @@ func (j *jsiiProxy_CfnAlarmModel) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoTEvents::AlarmModel`.
 func NewCfnAlarmModel(scope constructs.Construct, id *string, props *CfnAlarmModelProps) CfnAlarmModel {
 	_init_.Initialize()
 
@@ -582,7 +590,6 @@ func NewCfnAlarmModel(scope constructs.Construct, id *string, props *CfnAlarmMod
 	return &j
 }
 
-// Create a new `AWS::IoTEvents::AlarmModel`.
 func NewCfnAlarmModel_Override(c CfnAlarmModel, scope constructs.Construct, id *string, props *CfnAlarmModelProps) {
 	_init_.Initialize()
 
@@ -665,6 +672,17 @@ func (j *jsiiProxy_CfnAlarmModel)SetSeverity(val *float64) {
 	_jsii_.Set(
 		j,
 		"severity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAlarmModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

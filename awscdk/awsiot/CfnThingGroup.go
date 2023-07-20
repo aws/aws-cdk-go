@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::ThingGroup`.
+// Creates a new thing group.
 //
-// Creates a new thing group. A dynamic thing group is created if the resource template contains the `QueryString` attribute. A dynamic thing group will not contain the `ParentGroupName` attribute. A static thing group and dynamic thing group can't be converted to each other via the addition or removal of the `QueryString` attribute.
+// A dynamic thing group is created if the resource template contains the `QueryString` attribute. A dynamic thing group will not contain the `ParentGroupName` attribute. A static thing group and dynamic thing group can't be converted to each other via the addition or removal of the `QueryString` attribute.
 //
 // > This is a control plane operation. See [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for information about authorizing control plane actions.
 //
@@ -42,9 +42,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thinggroup.html
+//
 type CfnThingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The thing group ARN.
 	AttrArn() *string
 	// The thing group ID.
@@ -71,13 +74,9 @@ type CfnThingGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// The parent thing group name.
-	//
-	// A Dynamic Thing Group does not have `parentGroupName` defined.
 	ParentGroupName() *string
 	SetParentGroupName(val *string)
 	// The dynamic thing group search query string.
-	//
-	// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
 	QueryString() *string
 	SetQueryString(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -89,8 +88,11 @@ type CfnThingGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata which can be used to manage the thing group or dynamic thing group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata which can be used to manage the thing group or dynamic thing group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The thing group name.
 	ThingGroupName() *string
 	SetThingGroupName(val *string)
@@ -241,6 +243,7 @@ type CfnThingGroup interface {
 type jsiiProxy_CfnThingGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnThingGroup) AttrArn() *string {
@@ -373,6 +376,16 @@ func (j *jsiiProxy_CfnThingGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnThingGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnThingGroup) ThingGroupName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -414,7 +427,6 @@ func (j *jsiiProxy_CfnThingGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IoT::ThingGroup`.
 func NewCfnThingGroup(scope constructs.Construct, id *string, props *CfnThingGroupProps) CfnThingGroup {
 	_init_.Initialize()
 
@@ -432,7 +444,6 @@ func NewCfnThingGroup(scope constructs.Construct, id *string, props *CfnThingGro
 	return &j
 }
 
-// Create a new `AWS::IoT::ThingGroup`.
 func NewCfnThingGroup_Override(c CfnThingGroup, scope constructs.Construct, id *string, props *CfnThingGroupProps) {
 	_init_.Initialize()
 
@@ -455,6 +466,17 @@ func (j *jsiiProxy_CfnThingGroup)SetQueryString(val *string) {
 	_jsii_.Set(
 		j,
 		"queryString",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnThingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

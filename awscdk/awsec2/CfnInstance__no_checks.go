@@ -152,6 +152,10 @@ func (j *jsiiProxy_CfnInstance) validateSetSsmAssociationsParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnInstance) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnInstance) validateSetVolumesParameters(val interface{}) error {
 	return nil
 }

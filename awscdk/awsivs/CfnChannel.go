@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IVS::Channel`.
+// The `AWS::IVS::Channel` resource specifies an  channel.
 //
-// The `AWS::IVS::Channel` resource specifies an  channel. A channel stores configuration information related to your live stream. For more information, see [CreateChannel](https://docs.aws.amazon.com/ivs/latest/APIReference/API_CreateChannel.html) in the *Amazon Interactive Video Service API Reference* .
+// A channel stores configuration information related to your live stream. For more information, see [CreateChannel](https://docs.aws.amazon.com/ivs/latest/APIReference/API_CreateChannel.html) in the *Amazon Interactive Video Service API Reference* .
 //
 // > By default, the IVS API CreateChannel endpoint creates a stream key in addition to a channel. The  Channel resource *does not* create a stream key; to create a stream key, use the StreamKey resource instead.
 //
@@ -36,9 +36,12 @@ import (
 //   	Type: jsii.String("type"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html
+//
 type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The channel ARN.
 	//
 	// For example: `arn:aws:ivs:us-west-2:123456789012:channel/abcdABCDefgh`.
@@ -52,8 +55,6 @@ type CfnChannel interface {
 	// For example: `https://a1b2c3d4e5f6.us-west-2.playback.live-video.net/api/video/v1/us-west-2.123456789012.channel.abcdEFGH.m3u8`
 	AttrPlaybackUrl() *string
 	// Whether the channel is authorized.
-	//
-	// *Default* : `false`.
 	Authorized() interface{}
 	SetAuthorized(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -66,18 +67,11 @@ type CfnChannel interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Whether the channel allows insecure RTMP ingest.
-	//
-	// *Default* : `false`.
 	InsecureIngest() interface{}
 	SetInsecureIngest(val interface{})
-	// Channel latency mode. Valid values:.
+	// Channel latency mode.
 	//
-	// - `NORMAL` : Use NORMAL to broadcast and deliver live video up to Full HD.
-	// - `LOW` : Use LOW for near real-time interactions with viewers.
-	//
-	// > In the  console, `LOW` and `NORMAL` correspond to `Ultra-low` and `Standard` , respectively.
-	//
-	// *Default* : `LOW`.
+	// Valid values:.
 	LatencyMode() *string
 	SetLatencyMode(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -96,15 +90,9 @@ type CfnChannel interface {
 	// The tree node.
 	Node() constructs.Node
 	// An optional transcode preset for the channel.
-	//
-	// This is selectable only for `ADVANCED_HD` and `ADVANCED_SD` channel types. For those channel types, the default preset is `HIGHER_BANDWIDTH_DELIVERY` . For other channel types ( `BASIC` and `STANDARD` ), `preset` is the empty string ("").
 	Preset() *string
 	SetPreset(val *string)
 	// The ARN of a RecordingConfiguration resource.
-	//
-	// An empty string indicates that recording is disabled for the channel. A RecordingConfiguration ARN indicates that recording is enabled using the specified recording configuration. See the [RecordingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html) resource for more information and an example.
-	//
-	// *Default* : "" (empty string, recording is disabled).
 	RecordingConfigurationArn() *string
 	SetRecordingConfigurationArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -116,25 +104,12 @@ type CfnChannel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The channel type, which determines the allowable resolution and bitrate.
-	//
-	// *If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.* Valid values:
-	//
-	// - `STANDARD` : Video is transcoded: multiple qualities are generated from the original input to automatically give viewers the best experience for their devices and network conditions. Transcoding allows higher playback quality across a range of download speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded only for renditions 360p and below; above that, audio is passed through.
-	// - `BASIC` : Video is transmuxed: Amazon IVS delivers the original input to viewers. The viewer’s video-quality choice is limited to the original input. Resolution can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to 3.5 Mbps for resolutions between 480p and 1080p.
-	// - `ADVANCED_SD` : Video is transcoded; multiple qualities are generated from the original input, to automatically give viewers the best experience for their devices and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5 Mbps; output is capped at SD quality (480p). You can select an optional transcode preset (see below). Audio for all renditions is transcoded, and an audio-only rendition is available.
-	// - `ADVANCED_HD` : Video is transcoded; multiple qualities are generated from the original input, to automatically give viewers the best experience for their devices and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5 Mbps; output is capped at HD quality (720p). You can select an optional transcode preset (see below). Audio for all renditions is transcoded, and an audio-only rendition is available.
-	//
-	// Optional *transcode presets* (available for the `ADVANCED` types) allow you to trade off available download bandwidth and video quality, to optimize the viewing experience. There are two presets:
-	//
-	// - *Constrained bandwidth delivery* uses a lower bitrate for each quality level. Use it if you have low download bandwidth and/or simple video content (e.g., talking heads)
-	// - *Higher bandwidth delivery* uses a higher bitrate for each quality level. Use it if you have high download bandwidth and/or complex video content (e.g., flashes and quick scene changes).
-	//
-	// *Default* : `STANDARD`.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -281,6 +256,7 @@ type CfnChannel interface {
 type jsiiProxy_CfnChannel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnChannel) AttrArn() *string {
@@ -463,6 +439,16 @@ func (j *jsiiProxy_CfnChannel) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) Type() *string {
 	var returns *string
 	_jsii_.Get(
@@ -494,7 +480,6 @@ func (j *jsiiProxy_CfnChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::IVS::Channel`.
 func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
@@ -512,7 +497,6 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 	return &j
 }
 
-// Create a new `AWS::IVS::Channel`.
 func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 
@@ -573,6 +557,17 @@ func (j *jsiiProxy_CfnChannel)SetRecordingConfigurationArn(val *string) {
 	_jsii_.Set(
 		j,
 		"recordingConfigurationArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

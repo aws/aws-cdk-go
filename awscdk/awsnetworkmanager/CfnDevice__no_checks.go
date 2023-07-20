@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnDevice) validateSetLocationParameters(val interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnDevice) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDeviceParameters(scope constructs.Construct, id *string, props *CfnDeviceProps) error {
 	return nil
 }

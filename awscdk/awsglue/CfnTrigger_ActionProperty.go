@@ -21,6 +21,8 @@ package awsglue
 //   	Timeout: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html
+//
 type CfnTrigger_ActionProperty struct {
 	// The job arguments used when this trigger fires.
 	//
@@ -31,18 +33,30 @@ type CfnTrigger_ActionProperty struct {
 	// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
 	//
 	// For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments
+	//
 	Arguments interface{} `field:"optional" json:"arguments" yaml:"arguments"`
 	// The name of the crawler to be used with this action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-crawlername
+	//
 	CrawlerName *string `field:"optional" json:"crawlerName" yaml:"crawlerName"`
 	// The name of a job to be executed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname
+	//
 	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`
 	// Specifies configuration properties of a job run notification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-notificationproperty
+	//
 	NotificationProperty interface{} `field:"optional" json:"notificationProperty" yaml:"notificationProperty"`
 	// The name of the `SecurityConfiguration` structure to be used with this action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration
+	//
 	SecurityConfiguration *string `field:"optional" json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The `JobRun` timeout in minutes.
 	//
 	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout
+	//
 	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

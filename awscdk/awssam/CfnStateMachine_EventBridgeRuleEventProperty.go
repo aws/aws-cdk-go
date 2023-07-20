@@ -17,14 +17,20 @@ package awssam
 //   	InputPath: jsii.String("inputPath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-eventbridgeruleevent.html
+//
 type CfnStateMachine_EventBridgeRuleEventProperty struct {
-	// `CfnStateMachine.EventBridgeRuleEventProperty.Pattern`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-eventbridgeruleevent.html#cfn-serverless-statemachine-eventbridgeruleevent-pattern
+	//
 	Pattern interface{} `field:"required" json:"pattern" yaml:"pattern"`
-	// `CfnStateMachine.EventBridgeRuleEventProperty.EventBusName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-eventbridgeruleevent.html#cfn-serverless-statemachine-eventbridgeruleevent-eventbusname
+	//
 	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
-	// `CfnStateMachine.EventBridgeRuleEventProperty.Input`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-eventbridgeruleevent.html#cfn-serverless-statemachine-eventbridgeruleevent-input
+	//
 	Input *string `field:"optional" json:"input" yaml:"input"`
-	// `CfnStateMachine.EventBridgeRuleEventProperty.InputPath`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-eventbridgeruleevent.html#cfn-serverless-statemachine-eventbridgeruleevent-inputpath
+	//
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 }
 

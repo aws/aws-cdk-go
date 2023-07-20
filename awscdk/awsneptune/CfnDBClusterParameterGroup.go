@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Neptune::DBClusterParameterGroup`.
-//
 // The `AWS::Neptune::DBClusterParameterGroup` resource creates a new Amazon Neptune DB cluster parameter group.
 //
 // > Applying a parameter group to a DB cluster might require instances to reboot, resulting in a database outage while the instances reboot. > If you provide a custom `DBClusterParameterGroup` that you associate with the `DBCluster` , it is best to specify an `EngineVersion` property in the `DBCluster` . That `EngineVersion` needs to be compatible with the value of the `Family` property in the `DBClusterParameterGroup` .
@@ -37,9 +35,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html
+//
 type CfnDBClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -71,10 +73,6 @@ type CfnDBClusterParameterGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// The parameters to set for this DB cluster parameter group.
-	//
-	// The parameters are expressed as a JSON object consisting of key-value pairs.
-	//
-	// If you update the parameters, some interruption may occur depending on which parameters you update.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -86,8 +84,11 @@ type CfnDBClusterParameterGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags that you want to attach to this parameter group.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags that you want to attach to this parameter group.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +233,17 @@ type CfnDBClusterParameterGroup interface {
 type jsiiProxy_CfnDBClusterParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDBClusterParameterGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDBClusterParameterGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -364,6 +376,16 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBClusterParameterGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -385,7 +407,6 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperties() *map[string]i
 }
 
 
-// Create a new `AWS::Neptune::DBClusterParameterGroup`.
 func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) CfnDBClusterParameterGroup {
 	_init_.Initialize()
 
@@ -403,7 +424,6 @@ func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::Neptune::DBClusterParameterGroup`.
 func NewCfnDBClusterParameterGroup_Override(c CfnDBClusterParameterGroup, scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) {
 	_init_.Initialize()
 
@@ -451,6 +471,17 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBClusterParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

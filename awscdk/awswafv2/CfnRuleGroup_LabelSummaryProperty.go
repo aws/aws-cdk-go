@@ -17,8 +17,12 @@ package awswafv2
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html
+//
 type CfnRuleGroup_LabelSummaryProperty struct {
 	// An individual label specification.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

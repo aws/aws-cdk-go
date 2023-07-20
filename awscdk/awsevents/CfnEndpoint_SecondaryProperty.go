@@ -12,8 +12,12 @@ package awsevents
 //   	Route: jsii.String("route"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-secondary.html
+//
 type CfnEndpoint_SecondaryProperty struct {
 	// Defines the secondary Region.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-secondary.html#cfn-events-endpoint-secondary-route
+	//
 	Route *string `field:"required" json:"route" yaml:"route"`
 }
 

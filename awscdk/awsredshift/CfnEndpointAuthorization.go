@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Redshift::EndpointAuthorization`.
-//
 // Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts .
 //
 // Example:
@@ -29,12 +27,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointauthorization.html
+//
 type CfnEndpointAuthorization interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The AWS account ID of either the cluster owner (grantor) or grantee.
-	//
-	// If `Grantee` parameter is true, then the `Account` value is of the grantor.
 	Account() *string
 	SetAccount(val *string)
 	// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
@@ -66,8 +64,6 @@ type CfnEndpointAuthorization interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether to force the revoke action.
-	//
-	// If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.
 	Force() interface{}
 	SetForce(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -461,7 +457,6 @@ func (j *jsiiProxy_CfnEndpointAuthorization) VpcIds() *[]*string {
 }
 
 
-// Create a new `AWS::Redshift::EndpointAuthorization`.
 func NewCfnEndpointAuthorization(scope constructs.Construct, id *string, props *CfnEndpointAuthorizationProps) CfnEndpointAuthorization {
 	_init_.Initialize()
 
@@ -479,7 +474,6 @@ func NewCfnEndpointAuthorization(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::Redshift::EndpointAuthorization`.
 func NewCfnEndpointAuthorization_Override(c CfnEndpointAuthorization, scope constructs.Construct, id *string, props *CfnEndpointAuthorizationProps) {
 	_init_.Initialize()
 

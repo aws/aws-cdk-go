@@ -15,10 +15,16 @@ package awssagemaker
 //   	StartTime: jsii.String("startTime"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-inferenceexperimentschedule.html
+//
 type CfnInferenceExperiment_InferenceExperimentScheduleProperty struct {
 	// The timestamp at which the inference experiment ended or will end.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-inferenceexperimentschedule.html#cfn-sagemaker-inferenceexperiment-inferenceexperimentschedule-endtime
+	//
 	EndTime *string `field:"optional" json:"endTime" yaml:"endTime"`
 	// The timestamp at which the inference experiment started or will start.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-inferenceexperimentschedule.html#cfn-sagemaker-inferenceexperiment-inferenceexperimentschedule-starttime
+	//
 	StartTime *string `field:"optional" json:"startTime" yaml:"startTime"`
 }
 

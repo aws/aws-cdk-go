@@ -22,10 +22,14 @@ package awspipes
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-networkconfiguration.html
+//
 type CfnPipe_NetworkConfigurationProperty struct {
 	// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used.
 	//
 	// This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-networkconfiguration.html#cfn-pipes-pipe-networkconfiguration-awsvpcconfiguration
+	//
 	AwsvpcConfiguration interface{} `field:"optional" json:"awsvpcConfiguration" yaml:"awsvpcConfiguration"`
 }
 

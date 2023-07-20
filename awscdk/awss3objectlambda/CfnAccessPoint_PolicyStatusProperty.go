@@ -14,8 +14,14 @@ package awss3objectlambda
 //   	IsPublic: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-policystatus.html
+//
 type CfnAccessPoint_PolicyStatusProperty struct {
-	// `CfnAccessPoint.PolicyStatusProperty.IsPublic`.
+	// Specifies whether the Object lambda Access Point Policy is Public or not.
+	//
+	// Object lambda Access Points are private by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-policystatus.html#cfn-s3objectlambda-accesspoint-policystatus-ispublic
+	//
 	IsPublic interface{} `field:"optional" json:"isPublic" yaml:"isPublic"`
 }
 

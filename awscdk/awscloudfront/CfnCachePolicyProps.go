@@ -50,8 +50,12 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
+//
 type CfnCachePolicyProps struct {
 	// The cache policy configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
+	//
 	CachePolicyConfig interface{} `field:"required" json:"cachePolicyConfig" yaml:"cachePolicyConfig"`
 }
 

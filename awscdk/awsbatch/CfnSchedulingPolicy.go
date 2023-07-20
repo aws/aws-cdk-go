@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Batch::SchedulingPolicy`.
+// The `AWS::Batch::SchedulingPolicy` resource specifies the parameters for an AWS Batch scheduling policy.
 //
-// The `AWS::Batch::SchedulingPolicy` resource specifies the parameters for an AWS Batch scheduling policy. For more information, see [Scheduling Policies](https://docs.aws.amazon.com/batch/latest/userguide/scheduling_policies.html) in the ** .
+// For more information, see [Scheduling Policies](https://docs.aws.amazon.com/batch/latest/userguide/scheduling_policies.html) in the ** .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,9 +35,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html
+//
 type CfnSchedulingPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -63,8 +66,6 @@ type CfnSchedulingPolicy interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the scheduling policy.
-	//
-	// It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -78,12 +79,11 @@ type CfnSchedulingPolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags that you apply to the scheduling policy to help you categorize and organize your resources.
-	//
-	// Each tag consists of a key and an optional value. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in *AWS General Reference* .
-	//
-	// These tags can be updated or removed using the [TagResource](https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html) and [UntagResource](https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html) API operations.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags that you apply to the scheduling policy to help you categorize and organize your resources.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +228,7 @@ type CfnSchedulingPolicy interface {
 type jsiiProxy_CfnSchedulingPolicy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSchedulingPolicy) AttrArn() *string {
@@ -350,6 +351,16 @@ func (j *jsiiProxy_CfnSchedulingPolicy) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSchedulingPolicy) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSchedulingPolicy) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -371,7 +382,6 @@ func (j *jsiiProxy_CfnSchedulingPolicy) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::Batch::SchedulingPolicy`.
 func NewCfnSchedulingPolicy(scope constructs.Construct, id *string, props *CfnSchedulingPolicyProps) CfnSchedulingPolicy {
 	_init_.Initialize()
 
@@ -389,7 +399,6 @@ func NewCfnSchedulingPolicy(scope constructs.Construct, id *string, props *CfnSc
 	return &j
 }
 
-// Create a new `AWS::Batch::SchedulingPolicy`.
 func NewCfnSchedulingPolicy_Override(c CfnSchedulingPolicy, scope constructs.Construct, id *string, props *CfnSchedulingPolicyProps) {
 	_init_.Initialize()
 
@@ -415,6 +424,14 @@ func (j *jsiiProxy_CfnSchedulingPolicy)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSchedulingPolicy)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

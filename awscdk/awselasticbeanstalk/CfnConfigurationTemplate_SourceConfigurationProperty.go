@@ -15,10 +15,16 @@ package awselasticbeanstalk
 //   	TemplateName: jsii.String("templateName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html
+//
 type CfnConfigurationTemplate_SourceConfigurationProperty struct {
 	// The name of the application associated with the configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration-applicationname
+	//
 	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// The name of the configuration template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration-templatename
+	//
 	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`
 }
 

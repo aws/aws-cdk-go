@@ -80,10 +80,6 @@ func validateCfnCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnCluster) validateSetAdditionalInfoParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCluster) validateSetApplicationsParameters(val interface{}) error {
 	return nil
 }
@@ -125,6 +121,10 @@ func (j *jsiiProxy_CfnCluster) validateSetServiceRoleParameters(val *string) err
 }
 
 func (j *jsiiProxy_CfnCluster) validateSetStepsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCluster) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

@@ -16,12 +16,20 @@ package awsquicksight
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablefieldoption.html
+//
 type CfnDashboard_PivotTableFieldOptionProperty struct {
 	// The field ID of the pivot table field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablefieldoption.html#cfn-quicksight-dashboard-pivottablefieldoption-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The custom label of the pivot table field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablefieldoption.html#cfn-quicksight-dashboard-pivottablefieldoption-customlabel
+	//
 	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
 	// The visibility of the pivot table field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablefieldoption.html#cfn-quicksight-dashboard-pivottablefieldoption-visibility
+	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

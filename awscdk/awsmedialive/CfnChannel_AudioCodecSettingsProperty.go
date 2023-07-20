@@ -76,20 +76,35 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html
+//
 type CfnChannel_AudioCodecSettingsProperty struct {
 	// The setup of the AAC audio codec in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-aacsettings
+	//
 	AacSettings interface{} `field:"optional" json:"aacSettings" yaml:"aacSettings"`
 	// The setup of an AC3 audio codec in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-ac3settings
+	//
 	Ac3Settings interface{} `field:"optional" json:"ac3Settings" yaml:"ac3Settings"`
-	// `CfnChannel.AudioCodecSettingsProperty.Eac3AtmosSettings`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-eac3atmossettings
+	//
 	Eac3AtmosSettings interface{} `field:"optional" json:"eac3AtmosSettings" yaml:"eac3AtmosSettings"`
 	// The setup of an EAC3 audio codec in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-eac3settings
+	//
 	Eac3Settings interface{} `field:"optional" json:"eac3Settings" yaml:"eac3Settings"`
 	// The setup of an MP2 audio codec in the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-mp2settings
+	//
 	Mp2Settings interface{} `field:"optional" json:"mp2Settings" yaml:"mp2Settings"`
 	// The setup to pass through the Dolby audio codec to the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-passthroughsettings
+	//
 	PassThroughSettings interface{} `field:"optional" json:"passThroughSettings" yaml:"passThroughSettings"`
 	// Settings for audio encoded with the WAV codec.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-wavsettings
+	//
 	WavSettings interface{} `field:"optional" json:"wavSettings" yaml:"wavSettings"`
 }
 

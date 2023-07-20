@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
-//
 // The `AWS::Cognito::UserPoolRiskConfigurationAttachment` resource sets the risk configuration that is used for Amazon Cognito advanced security features.
 //
 // You can specify risk configuration for a single client (with a specific `clientId` ) or for all clients (by setting the `clientId` to `ALL` ). If you specify `ALL` , the default configuration is used for every client that has had no risk configuration set previously. If you specify risk configuration for a particular client, it no longer falls back to the `ALL` configuration.
@@ -91,20 +89,21 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html
+//
 type CfnUserPoolRiskConfigurationAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
 	AccountTakeoverRiskConfiguration() interface{}
 	SetAccountTakeoverRiskConfiguration(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
 	// The app client ID.
-	//
-	// You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
 	ClientId() *string
 	SetClientId(val *string)
 	// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
@@ -297,6 +296,16 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) AccountTakeoverRiskCo
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -438,7 +447,6 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) UserPoolId() *string 
 }
 
 
-// Create a new `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
 func NewCfnUserPoolRiskConfigurationAttachment(scope constructs.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) CfnUserPoolRiskConfigurationAttachment {
 	_init_.Initialize()
 
@@ -456,7 +464,6 @@ func NewCfnUserPoolRiskConfigurationAttachment(scope constructs.Construct, id *s
 	return &j
 }
 
-// Create a new `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
 func NewCfnUserPoolRiskConfigurationAttachment_Override(c CfnUserPoolRiskConfigurationAttachment, scope constructs.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) {
 	_init_.Initialize()
 

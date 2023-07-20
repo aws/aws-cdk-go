@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QuickSight::Topic`.
-//
 // Creates a new Q topic.
 //
 // Example:
@@ -280,6 +278,8 @@ import (
 //   	TopicId: jsii.String("topicId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html
+//
 type CfnTopic interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -328,8 +328,6 @@ type CfnTopic interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The ID for the topic.
-	//
-	// This ID is unique per AWS Region for each AWS account.
 	TopicId() *string
 	SetTopicId(val *string)
 	// Deprecated.
@@ -639,7 +637,6 @@ func (j *jsiiProxy_CfnTopic) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::QuickSight::Topic`.
 func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) CfnTopic {
 	_init_.Initialize()
 
@@ -657,7 +654,6 @@ func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) C
 	return &j
 }
 
-// Create a new `AWS::QuickSight::Topic`.
 func NewCfnTopic_Override(c CfnTopic, scope constructs.Construct, id *string, props *CfnTopicProps) {
 	_init_.Initialize()
 

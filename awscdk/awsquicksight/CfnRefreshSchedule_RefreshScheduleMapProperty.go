@@ -23,6 +23,8 @@ package awsquicksight
 //   	StartAfterDateTime: jsii.String("startAfterDateTime"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshschedulemap.html
+//
 type CfnRefreshSchedule_RefreshScheduleMapProperty struct {
 	// The type of refresh that a dataset undergoes. Valid values are as follows:.
 	//
@@ -30,12 +32,20 @@ type CfnRefreshSchedule_RefreshScheduleMapProperty struct {
 	// - `INCREMENTAL_REFRESH` : A partial refresh of some rows of a dataset, based on the time window specified.
 	//
 	// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Amazon QuickSight User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshschedulemap.html#cfn-quicksight-refreshschedule-refreshschedulemap-refreshtype
+	//
 	RefreshType *string `field:"optional" json:"refreshType" yaml:"refreshType"`
 	// The frequency for the refresh schedule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshschedulemap.html#cfn-quicksight-refreshschedule-refreshschedulemap-schedulefrequency
+	//
 	ScheduleFrequency interface{} `field:"optional" json:"scheduleFrequency" yaml:"scheduleFrequency"`
 	// An identifier for the refresh schedule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshschedulemap.html#cfn-quicksight-refreshschedule-refreshschedulemap-scheduleid
+	//
 	ScheduleId *string `field:"optional" json:"scheduleId" yaml:"scheduleId"`
 	// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshschedulemap.html#cfn-quicksight-refreshschedule-refreshschedulemap-startafterdatetime
+	//
 	StartAfterDateTime *string `field:"optional" json:"startAfterDateTime" yaml:"startAfterDateTime"`
 }
 

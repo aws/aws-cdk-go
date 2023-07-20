@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ApiGatewayV2::ApiMapping`.
+// The `AWS::ApiGatewayV2::ApiMapping` resource contains an API mapping.
 //
-// The `AWS::ApiGatewayV2::ApiMapping` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference* .
+// An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,6 +27,8 @@ import (
 //   	ApiMappingKey: jsii.String("apiMappingKey"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html
+//
 type CfnApiMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -36,6 +38,8 @@ type CfnApiMapping interface {
 	// The API mapping key.
 	ApiMappingKey() *string
 	SetApiMappingKey(val *string)
+	// The API mapping resource ID.
+	AttrApiMappingId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -238,6 +242,16 @@ func (j *jsiiProxy_CfnApiMapping) ApiMappingKey() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApiMapping) AttrApiMappingId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApiMappingId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApiMapping) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -359,7 +373,6 @@ func (j *jsiiProxy_CfnApiMapping) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::ApiGatewayV2::ApiMapping`.
 func NewCfnApiMapping(scope constructs.Construct, id *string, props *CfnApiMappingProps) CfnApiMapping {
 	_init_.Initialize()
 
@@ -377,7 +390,6 @@ func NewCfnApiMapping(scope constructs.Construct, id *string, props *CfnApiMappi
 	return &j
 }
 
-// Create a new `AWS::ApiGatewayV2::ApiMapping`.
 func NewCfnApiMapping_Override(c CfnApiMapping, scope constructs.Construct, id *string, props *CfnApiMappingProps) {
 	_init_.Initialize()
 

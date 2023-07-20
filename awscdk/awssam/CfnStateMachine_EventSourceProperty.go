@@ -7,7 +7,7 @@ package awssam
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   eventSourceProperty := &EventSourceProperty{
-//   	Properties: &CloudWatchEventEventProperty{
+//   	Properties: &ApiEventProperty{
 //   		Method: jsii.String("method"),
 //   		Path: jsii.String("path"),
 //
@@ -17,10 +17,14 @@ package awssam
 //   	Type: jsii.String("type"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-eventsource.html
+//
 type CfnStateMachine_EventSourceProperty struct {
-	// `CfnStateMachine.EventSourceProperty.Properties`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-eventsource.html#cfn-serverless-statemachine-eventsource-properties
+	//
 	Properties interface{} `field:"required" json:"properties" yaml:"properties"`
-	// `CfnStateMachine.EventSourceProperty.Type`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-eventsource.html#cfn-serverless-statemachine-eventsource-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

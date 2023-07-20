@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ServiceCatalog::LaunchTemplateConstraint`.
-//
 // Specifies a template constraint.
 //
 // Example:
@@ -28,15 +26,15 @@ import (
 //   	Description: jsii.String("description"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchtemplateconstraint.html
+//
 type CfnLaunchTemplateConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The language code.
-	//
-	// - `jp` - Japanese
-	// - `zh` - Chinese.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -235,6 +233,16 @@ func (j *jsiiProxy_CfnLaunchTemplateConstraint) AcceptLanguage() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLaunchTemplateConstraint) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLaunchTemplateConstraint) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -376,7 +384,6 @@ func (j *jsiiProxy_CfnLaunchTemplateConstraint) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::ServiceCatalog::LaunchTemplateConstraint`.
 func NewCfnLaunchTemplateConstraint(scope constructs.Construct, id *string, props *CfnLaunchTemplateConstraintProps) CfnLaunchTemplateConstraint {
 	_init_.Initialize()
 
@@ -394,7 +401,6 @@ func NewCfnLaunchTemplateConstraint(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::ServiceCatalog::LaunchTemplateConstraint`.
 func NewCfnLaunchTemplateConstraint_Override(c CfnLaunchTemplateConstraint, scope constructs.Construct, id *string, props *CfnLaunchTemplateConstraintProps) {
 	_init_.Initialize()
 

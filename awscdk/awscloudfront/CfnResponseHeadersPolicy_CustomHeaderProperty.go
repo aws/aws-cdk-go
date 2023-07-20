@@ -16,12 +16,20 @@ package awscloudfront
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html
+//
 type CfnResponseHeadersPolicy_CustomHeaderProperty struct {
 	// The HTTP response header name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-header
+	//
 	Header *string `field:"required" json:"header" yaml:"header"`
 	// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-override
+	//
 	Override interface{} `field:"required" json:"override" yaml:"override"`
 	// The value for the HTTP response header.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

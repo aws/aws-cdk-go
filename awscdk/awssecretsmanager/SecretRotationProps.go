@@ -8,20 +8,20 @@ import (
 // Construction properties for a SecretRotation.
 //
 // Example:
-//   var mySecret secret
+//   var myUserSecret secret
+//   var myMasterSecret secret
 //   var myDatabase iConnectable
 //   var myVpc vpc
 //
 //
 //   secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRotationProps{
-//   	Application: secretsmanager.SecretRotationApplication_MYSQL_ROTATION_SINGLE_USER(),
-//   	 // MySQL single user scheme
-//   	Secret: mySecret,
+//   	Application: secretsmanager.SecretRotationApplication_MYSQL_ROTATION_MULTI_USER(),
+//   	Secret: myUserSecret,
+//   	 // The secret that will be rotated
+//   	MasterSecret: myMasterSecret,
+//   	 // The secret used for the rotation
 //   	Target: myDatabase,
-//   	 // a Connectable
 //   	Vpc: myVpc,
-//   	 // The VPC where the secret rotation application will be deployed
-//   	ExcludeCharacters: jsii.String(" %+:;{}"),
 //   })
 //
 type SecretRotationProps struct {
@@ -63,6 +63,8 @@ type SecretRotationProps struct {
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The master secret for a multi user rotation scheme.
 	MasterSecret ISecret `field:"optional" json:"masterSecret" yaml:"masterSecret"`
+	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
+	RotateImmediatelyOnUpdate *bool `field:"optional" json:"rotateImmediatelyOnUpdate" yaml:"rotateImmediatelyOnUpdate"`
 	// The security group for the Lambda rotation function.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.

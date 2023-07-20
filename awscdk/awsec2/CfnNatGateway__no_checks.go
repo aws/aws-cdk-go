@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnNatGateway) validateSetSubnetIdParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnNatGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnNatGatewayParameters(scope constructs.Construct, id *string, props *CfnNatGatewayProps) error {
 	return nil
 }

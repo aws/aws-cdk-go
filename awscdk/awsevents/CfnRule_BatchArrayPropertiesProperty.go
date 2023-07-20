@@ -14,10 +14,14 @@ package awsevents
 //   	Size: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batcharrayproperties.html
+//
 type CfnRule_BatchArrayPropertiesProperty struct {
 	// The size of the array, if this is an array batch job.
 	//
 	// Valid values are integers between 2 and 10,000.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batcharrayproperties.html#cfn-events-rule-batcharrayproperties-size
+	//
 	Size *float64 `field:"optional" json:"size" yaml:"size"`
 }
 

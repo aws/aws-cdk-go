@@ -89,14 +89,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablecellconditionalformatting.html
+//
 type CfnTemplate_PivotTableCellConditionalFormattingProperty struct {
 	// The field ID of the cell for conditional formatting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablecellconditionalformatting.html#cfn-quicksight-template-pivottablecellconditionalformatting-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The scope of the cell for conditional formatting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablecellconditionalformatting.html#cfn-quicksight-template-pivottablecellconditionalformatting-scope
+	//
 	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`
 	// A list of cell scopes for conditional formatting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablecellconditionalformatting.html#cfn-quicksight-template-pivottablecellconditionalformatting-scopes
+	//
 	Scopes interface{} `field:"optional" json:"scopes" yaml:"scopes"`
 	// The text format of the cell for conditional formatting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablecellconditionalformatting.html#cfn-quicksight-template-pivottablecellconditionalformatting-textformat
+	//
 	TextFormat interface{} `field:"optional" json:"textFormat" yaml:"textFormat"`
 }
 

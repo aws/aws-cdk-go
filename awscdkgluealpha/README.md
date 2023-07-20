@@ -563,3 +563,23 @@ glue.NewTable(this, jsii.String("MyTable"), &TableProps{
 | array(itemType: Type)               	| Function 	| An array of some other type                                       	|
 | map(keyType: Type, valueType: Type) 	| Function 	| A map of some primitive key type to any value type                	|
 | struct(collumns: Column[])          	| Function 	| Nested structure containing individually named and typed collumns 	|
+
+## Data Quality Ruleset
+
+A `DataQualityRuleset` specifies a data quality ruleset with DQDL rules applied to a specified AWS Glue table. For example, to create a data quality ruleset for a given table:
+
+```go
+glue.NewDataQualityRuleset(this, jsii.String("MyDataQualityRuleset"), &DataQualityRulesetProps{
+	ClientToken: jsii.String("client_token"),
+	Description: jsii.String("description"),
+	RulesetName: jsii.String("ruleset_name"),
+	RulesetDqdl: jsii.String("ruleset_dqdl"),
+	Tags: map[string]*string{
+		"key1": jsii.String("value1"),
+		"key2": jsii.String("value2"),
+	},
+	TargetTable: glue.NewDataQualityTargetTable(jsii.String("database_name"), jsii.String("table_name")),
+})
+```
+
+For more information, see [AWS Glue Data Quality](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html).

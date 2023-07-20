@@ -13,10 +13,16 @@ package awsapigateway
 //   	StageName: jsii.String("stageName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
+//
 type CfnApiKey_StageKeyProperty struct {
 	// The string identifier of the associated RestApi.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
+	//
 	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
 	// The stage name associated with the stage key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
+	//
 	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 

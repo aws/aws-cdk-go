@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Redshift::ClusterSecurityGroupIngress`.
+// Adds an inbound (ingress) rule to an Amazon Redshift security group.
 //
-// Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether the application accessing your cluster is running on the Internet or an Amazon EC2 instance, you can authorize inbound access to either a Classless Interdomain Routing (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as many as 20 ingress rules to an Amazon Redshift security group.
+// Depending on whether the application accessing your cluster is running on the Internet or an Amazon EC2 instance, you can authorize inbound access to either a Classless Interdomain Routing (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as many as 20 ingress rules to an Amazon Redshift security group.
 //
 // If you authorize access to an Amazon EC2 security group, specify *EC2SecurityGroupName* and *EC2SecurityGroupOwnerId* . The Amazon EC2 security group and Amazon Redshift cluster must be in the same AWS Region .
 //
@@ -33,9 +33,12 @@ import (
 //   	Ec2SecurityGroupOwnerId: jsii.String("ec2SecurityGroupOwnerId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroupingress.html
+//
 type CfnClusterSecurityGroupIngress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -55,12 +58,6 @@ type CfnClusterSecurityGroupIngress interface {
 	Ec2SecurityGroupName() *string
 	SetEc2SecurityGroupName(val *string)
 	// The AWS account number of the owner of the security group specified by the *EC2SecurityGroupName* parameter.
-	//
-	// The AWS Access Key ID is not an acceptable value.
-	//
-	// Example: `111122223333`
-	//
-	// Conditional. If you specify the `EC2SecurityGroupName` property, you must specify this property.
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -230,6 +227,16 @@ type jsiiProxy_CfnClusterSecurityGroupIngress struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnClusterSecurityGroupIngress) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClusterSecurityGroupIngress) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -371,7 +378,6 @@ func (j *jsiiProxy_CfnClusterSecurityGroupIngress) UpdatedProperties() *map[stri
 }
 
 
-// Create a new `AWS::Redshift::ClusterSecurityGroupIngress`.
 func NewCfnClusterSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnClusterSecurityGroupIngressProps) CfnClusterSecurityGroupIngress {
 	_init_.Initialize()
 
@@ -389,7 +395,6 @@ func NewCfnClusterSecurityGroupIngress(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Create a new `AWS::Redshift::ClusterSecurityGroupIngress`.
 func NewCfnClusterSecurityGroupIngress_Override(c CfnClusterSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnClusterSecurityGroupIngressProps) {
 	_init_.Initialize()
 

@@ -21,12 +21,18 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata.html
+//
 type CfnResourceDefinitionVersion_SecretsManagerSecretResourceDataProperty struct {
 	// The Amazon Resource Name (ARN) of the Secrets Manager secret to make available on the core.
 	//
 	// The value of the secret's latest version (represented by the `AWSCURRENT` staging label) is included by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata.html#cfn-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The staging labels whose values you want to make available on the core, in addition to `AWSCURRENT` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata.html#cfn-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata-additionalstaginglabelstodownload
+	//
 	AdditionalStagingLabelsToDownload *[]*string `field:"optional" json:"additionalStagingLabelsToDownload" yaml:"additionalStagingLabelsToDownload"`
 }
 

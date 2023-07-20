@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDiscoverer) validateSetSourceArnParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnDiscoverer) validateSetTagsRawParameters(val *[]*CfnDiscoverer_TagsEntryProperty) error {
+	return nil
+}
+
 func validateNewCfnDiscovererParameters(scope constructs.Construct, id *string, props *CfnDiscovererProps) error {
 	return nil
 }

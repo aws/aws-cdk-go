@@ -12,8 +12,11 @@ package awssam
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-logdestination.html
+//
 type CfnStateMachine_LogDestinationProperty struct {
-	// `CfnStateMachine.LogDestinationProperty.CloudWatchLogsLogGroup`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-logdestination.html#cfn-serverless-statemachine-logdestination-cloudwatchlogsloggroup
+	//
 	CloudWatchLogsLogGroup interface{} `field:"required" json:"cloudWatchLogsLogGroup" yaml:"cloudWatchLogsLogGroup"`
 }
 

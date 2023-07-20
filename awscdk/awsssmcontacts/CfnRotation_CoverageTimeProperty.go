@@ -13,10 +13,16 @@ package awsssmcontacts
 //   	StartTime: jsii.String("startTime"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-coveragetime.html
+//
 type CfnRotation_CoverageTimeProperty struct {
 	// Information about when an on-call rotation shift ends.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-coveragetime.html#cfn-ssmcontacts-rotation-coveragetime-endtime
+	//
 	EndTime *string `field:"required" json:"endTime" yaml:"endTime"`
 	// Information about when an on-call rotation shift begins.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-coveragetime.html#cfn-ssmcontacts-rotation-coveragetime-starttime
+	//
 	StartTime *string `field:"required" json:"startTime" yaml:"startTime"`
 }
 

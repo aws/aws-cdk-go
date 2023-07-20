@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Backup::BackupSelection`.
-//
 // Specifies a set of resources to assign to a backup plan.
 //
 // For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
@@ -46,6 +44,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
+//
 type CfnBackupSelection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -59,8 +59,6 @@ type CfnBackupSelection interface {
 	BackupPlanId() *string
 	SetBackupPlanId(val *string)
 	// Specifies the body of a request to assign a set of resources to a backup plan.
-	//
-	// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
 	BackupSelection() interface{}
 	SetBackupSelection(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -390,7 +388,6 @@ func (j *jsiiProxy_CfnBackupSelection) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::Backup::BackupSelection`.
 func NewCfnBackupSelection(scope constructs.Construct, id *string, props *CfnBackupSelectionProps) CfnBackupSelection {
 	_init_.Initialize()
 
@@ -408,7 +405,6 @@ func NewCfnBackupSelection(scope constructs.Construct, id *string, props *CfnBac
 	return &j
 }
 
-// Create a new `AWS::Backup::BackupSelection`.
 func NewCfnBackupSelection_Override(c CfnBackupSelection, scope constructs.Construct, id *string, props *CfnBackupSelectionProps) {
 	_init_.Initialize()
 

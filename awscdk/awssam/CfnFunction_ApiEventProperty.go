@@ -69,18 +69,26 @@ package awssam
 //   	RestApiId: jsii.String("restApiId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-apievent.html
+//
 type CfnFunction_ApiEventProperty struct {
-	// `CfnFunction.ApiEventProperty.Method`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-apievent.html#cfn-serverless-function-apievent-method
+	//
 	Method *string `field:"required" json:"method" yaml:"method"`
-	// `CfnFunction.ApiEventProperty.Path`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-apievent.html#cfn-serverless-function-apievent-path
+	//
 	Path *string `field:"required" json:"path" yaml:"path"`
-	// `CfnFunction.ApiEventProperty.Auth`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-apievent.html#cfn-serverless-function-apievent-auth
+	//
 	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
-	// `CfnFunction.ApiEventProperty.RequestModel`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-apievent.html#cfn-serverless-function-apievent-requestmodel
+	//
 	RequestModel interface{} `field:"optional" json:"requestModel" yaml:"requestModel"`
-	// `CfnFunction.ApiEventProperty.RequestParameters`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-apievent.html#cfn-serverless-function-apievent-requestparameters
+	//
 	RequestParameters interface{} `field:"optional" json:"requestParameters" yaml:"requestParameters"`
-	// `CfnFunction.ApiEventProperty.RestApiId`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-apievent.html#cfn-serverless-function-apievent-restapiid
+	//
 	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
 }
 

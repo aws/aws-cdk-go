@@ -14,8 +14,12 @@ package awsrekognition
 //   	Arn: jsii.String("arn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-kinesisdatastream.html
+//
 type CfnStreamProcessor_KinesisDataStreamProperty struct {
 	// ARN of the output Amazon Kinesis Data Streams stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-kinesisdatastream.html#cfn-rekognition-streamprocessor-kinesisdatastream-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 

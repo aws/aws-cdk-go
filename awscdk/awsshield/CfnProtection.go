@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Shield::Protection`.
+// Enables AWS Shield Advanced for a specific AWS resource.
 //
-// Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
+// The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
 //
 // Use this to add protection to a single resource at a time. You can add protection to multiple resources at once through the [Shield Advanced console](https://docs.aws.amazon.com/wafv2/shieldv2#/) . For more information see [Getting Started with AWS Shield Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html) and [Managing resource protections in AWS Shield Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-manage-protected-resources.html) .
 //
@@ -50,12 +50,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-protection.html
+//
 type CfnProtection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The automatic application layer DDoS mitigation settings for the protection.
-	//
-	// This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 	ApplicationLayerAutomaticResponseConfiguration() interface{}
 	SetApplicationLayerAutomaticResponseConfiguration(val interface{})
 	// The ARN (Amazon Resource Name) of the new protection.
@@ -72,12 +72,6 @@ type CfnProtection interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ARN (Amazon Resource Name) of the health check to associate with the protection.
-	//
-	// Health-based detection provides improved responsiveness and accuracy in attack detection and mitigation.
-	//
-	// You can use this option with any resource type except for Route 53 hosted zones.
-	//
-	// For more information, see [Configuring health-based detection using health checks](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-health-checks.html) in the *AWS Shield Advanced Developer Guide* .
 	HealthCheckArns() *[]*string
 	SetHealthCheckArns(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -90,9 +84,9 @@ type CfnProtection interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the protection. For example, `My CloudFront distributions` .
+	// The name of the protection.
 	//
-	// > If you change the name of an existing protection, Shield Advanced deletes the protection and replaces it with a new one. While this is happening, the protection isn't available on the AWS resource.
+	// For example, `My CloudFront distributions` .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -110,9 +104,8 @@ type CfnProtection interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Key:value pairs associated with an AWS resource.
-	//
-	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -399,8 +392,8 @@ func (j *jsiiProxy_CfnProtection) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProtection) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnProtection) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -430,7 +423,6 @@ func (j *jsiiProxy_CfnProtection) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Shield::Protection`.
 func NewCfnProtection(scope constructs.Construct, id *string, props *CfnProtectionProps) CfnProtection {
 	_init_.Initialize()
 
@@ -448,7 +440,6 @@ func NewCfnProtection(scope constructs.Construct, id *string, props *CfnProtecti
 	return &j
 }
 
-// Create a new `AWS::Shield::Protection`.
 func NewCfnProtection_Override(c CfnProtection, scope constructs.Construct, id *string, props *CfnProtectionProps) {
 	_init_.Initialize()
 
@@ -496,6 +487,17 @@ func (j *jsiiProxy_CfnProtection)SetResourceArn(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProtection)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

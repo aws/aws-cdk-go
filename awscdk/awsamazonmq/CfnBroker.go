@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AmazonMQ::Broker`.
+// A *broker* is a message broker environment running on Amazon MQ .
 //
-// A *broker* is a message broker environment running on Amazon MQ . It is the basic building block of Amazon MQ .
+// It is the basic building block of Amazon MQ .
 //
 // The `AWS::AmazonMQ::Broker` resource lets you create Amazon MQ for ActiveMQ and Amazon MQ for RabbitMQ brokers, add configuration changes or modify users for a speified ActiveMQ broker, return information about the specified broker, and delete the broker. For more information, see [How Amazon MQ works](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-how-it-works.html) in the *Amazon MQ Developer Guide* .
 //
@@ -111,9 +111,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
+//
 type CfnBroker interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The AMQP endpoints of each broker instance as a list of strings.
 	//
 	// `amqp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:5671`
@@ -130,6 +133,7 @@ type CfnBroker interface {
 	//
 	// `1`.
 	AttrConfigurationRevision() *float64
+	AttrId() *string
 	// The IP addresses of each broker instance as a list of strings. Does not apply to RabbitMQ brokers.
 	//
 	// `['198.51.100.2', '203.0.113.9']`
@@ -151,20 +155,12 @@ type CfnBroker interface {
 	// `wss://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61619`
 	AttrWssEndpoints() *[]*string
 	// Optional.
-	//
-	// The authentication strategy used to secure the broker. The default is `SIMPLE` .
 	AuthenticationStrategy() *string
 	SetAuthenticationStrategy(val *string)
 	// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ.
-	//
-	// Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
 	// The name of the broker.
-	//
-	// This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
-	//
-	// > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including C CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
 	BrokerName() *string
 	SetBrokerName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -173,42 +169,30 @@ type CfnBroker interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A list of information about the configuration.
-	//
-	// Does not apply to RabbitMQ brokers.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The deployment mode of the broker. Available values:.
+	// The deployment mode of the broker.
 	//
-	// - `SINGLE_INSTANCE`
-	// - `ACTIVE_STANDBY_MULTI_AZ`
-	// - `CLUSTER_MULTI_AZ`.
+	// Available values:.
 	DeploymentMode() *string
 	SetDeploymentMode(val *string)
 	// Encryption options for the broker.
-	//
-	// Does not apply to RabbitMQ brokers.
 	EncryptionOptions() interface{}
 	SetEncryptionOptions(val interface{})
 	// The type of broker engine.
-	//
-	// Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
 	EngineType() *string
 	SetEngineType(val *string)
 	// The version of the broker engine.
-	//
-	// For a list of supported engine versions, see [Engine](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) in the *Amazon MQ Developer Guide* .
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	// The broker's instance type.
 	HostInstanceType() *string
 	SetHostInstanceType(val *string)
 	// Optional.
-	//
-	// The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.
 	LdapServerMetadata() interface{}
 	SetLdapServerMetadata(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -248,16 +232,13 @@ type CfnBroker interface {
 	StorageType() *string
 	SetStorageType(val *string)
 	// The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones.
-	//
-	// If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
-	//
-	// > If you specify subnets in a shared VPC for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC enpoints in VPCs that are not owned by your AWS account .
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// An array of key-value pairs.
-	//
-	// For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs.
+	TagsRaw() *[]*CfnBroker_TagsEntryProperty
+	SetTagsRaw(val *[]*CfnBroker_TagsEntryProperty)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -272,8 +253,6 @@ type CfnBroker interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The list of broker users (persons or applications) who can access queues and topics.
-	//
-	// For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent RabbitMQ users are created by via the RabbitMQ web console or by using the RabbitMQ management API.
 	Users() interface{}
 	SetUsers(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -407,6 +386,7 @@ type CfnBroker interface {
 type jsiiProxy_CfnBroker struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnBroker) AttrAmqpEndpoints() *[]*string {
@@ -444,6 +424,16 @@ func (j *jsiiProxy_CfnBroker) AttrConfigurationRevision() *float64 {
 	_jsii_.Get(
 		j,
 		"attrConfigurationRevision",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBroker) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -749,6 +739,16 @@ func (j *jsiiProxy_CfnBroker) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBroker) TagsRaw() *[]*CfnBroker_TagsEntryProperty {
+	var returns *[]*CfnBroker_TagsEntryProperty
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBroker) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -780,7 +780,6 @@ func (j *jsiiProxy_CfnBroker) Users() interface{} {
 }
 
 
-// Create a new `AWS::AmazonMQ::Broker`.
 func NewCfnBroker(scope constructs.Construct, id *string, props *CfnBrokerProps) CfnBroker {
 	_init_.Initialize()
 
@@ -798,7 +797,6 @@ func NewCfnBroker(scope constructs.Construct, id *string, props *CfnBrokerProps)
 	return &j
 }
 
-// Create a new `AWS::AmazonMQ::Broker`.
 func NewCfnBroker_Override(c CfnBroker, scope constructs.Construct, id *string, props *CfnBrokerProps) {
 	_init_.Initialize()
 
@@ -969,6 +967,17 @@ func (j *jsiiProxy_CfnBroker)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBroker)SetTagsRaw(val *[]*CfnBroker_TagsEntryProperty) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

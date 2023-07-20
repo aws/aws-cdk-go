@@ -12,8 +12,12 @@ package awsquicksight
 //   	TargetSheetId: jsii.String("targetSheetId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-localnavigationconfiguration.html
+//
 type CfnAnalysis_LocalNavigationConfigurationProperty struct {
 	// The sheet that is targeted for navigation in the same analysis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-localnavigationconfiguration.html#cfn-quicksight-analysis-localnavigationconfiguration-targetsheetid
+	//
 	TargetSheetId *string `field:"required" json:"targetSheetId" yaml:"targetSheetId"`
 }
 

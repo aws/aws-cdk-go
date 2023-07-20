@@ -97,24 +97,42 @@ package awss3
 //   	StorageLensArn: jsii.String("storageLensArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
+//
 type CfnStorageLens_StorageLensConfigurationProperty struct {
 	// This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
+	//
 	AccountLevel interface{} `field:"required" json:"accountLevel" yaml:"accountLevel"`
 	// This property contains the details of the ID of the S3 Storage Lens configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// This property contains the details of whether the Amazon S3 Storage Lens configuration is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+	//
 	IsEnabled interface{} `field:"required" json:"isEnabled" yaml:"isEnabled"`
 	// This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
+	//
 	AwsOrg interface{} `field:"optional" json:"awsOrg" yaml:"awsOrg"`
 	// This property contains the details of this S3 Storage Lens configuration's metrics export.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
+	//
 	DataExport interface{} `field:"optional" json:"dataExport" yaml:"dataExport"`
 	// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
+	//
 	Exclude interface{} `field:"optional" json:"exclude" yaml:"exclude"`
 	// This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
+	//
 	Include interface{} `field:"optional" json:"include" yaml:"include"`
 	// This property contains the details of the ARN of the S3 Storage Lens configuration.
 	//
 	// This property is read-only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+	//
 	StorageLensArn *string `field:"optional" json:"storageLensArn" yaml:"storageLensArn"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GuardDuty::Member`.
+// You can use the `AWS::GuardDuty::Member` resource to add an AWS account as a GuardDuty member account to the current GuardDuty administrator account.
 //
-// You can use the `AWS::GuardDuty::Member` resource to add an AWS account as a GuardDuty member account to the current GuardDuty administrator account. If the value of the `Status` property is not provided or is set to `Created` , a member account is created but not invited. If the value of the `Status` property is set to `Invited` , a member account is created and invited. An `AWS::GuardDuty::Member` resource must be created with the `Status` property set to `Invited` before the `AWS::GuardDuty::Master` resource can be created in a GuardDuty member account.
+// If the value of the `Status` property is not provided or is set to `Created` , a member account is created but not invited. If the value of the `Status` property is set to `Invited` , a member account is created and invited. An `AWS::GuardDuty::Member` resource must be created with the `Status` property set to `Invited` before the `AWS::GuardDuty::Master` resource can be created in a GuardDuty member account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,6 +28,8 @@ import (
 //   	Message: jsii.String("message"),
 //   	Status: jsii.String("status"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html
 //
 type CfnMember interface {
 	awscdk.CfnResource
@@ -78,8 +80,6 @@ type CfnMember interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// You can use the `Status` property to update the status of the relationship between the member account and its administrator account.
-	//
-	// Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
 	Status() *string
 	SetStatus(val *string)
 	// Deprecated.
@@ -389,7 +389,6 @@ func (j *jsiiProxy_CfnMember) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GuardDuty::Member`.
 func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps) CfnMember {
 	_init_.Initialize()
 
@@ -407,7 +406,6 @@ func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps)
 	return &j
 }
 
-// Create a new `AWS::GuardDuty::Member`.
 func NewCfnMember_Override(c CfnMember, scope constructs.Construct, id *string, props *CfnMemberProps) {
 	_init_.Initialize()
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53RecoveryReadiness::ResourceSet`.
+// Creates a resource set in Amazon Route 53 Application Recovery Controller.
 //
-// Creates a resource set in Amazon Route 53 Application Recovery Controller. A resource set is a set of resources of one type, such as Network Load Balancers, that span multiple cells. You can associate a resource set with a readiness check to have Route 53 ARC continually monitor the resources in the set for failover readiness.
+// A resource set is a set of resources of one type, such as Network Load Balancers, that span multiple cells. You can associate a resource set with a readiness check to have Route 53 ARC continually monitor the resources in the set for failover readiness.
 //
 // You typically create a resource set and a readiness check for each supported type of AWS resource in your application.
 //
@@ -61,9 +61,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html
+//
 type CfnResourceSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the resource set.
 	AttrResourceSetArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -98,19 +101,20 @@ type CfnResourceSet interface {
 	// The name of the resource set to create.
 	ResourceSetName() *string
 	SetResourceSetName(val *string)
-	// The resource type of the resources in the resource set. Enter one of the following values for resource type:.
+	// The resource type of the resources in the resource set.
 	//
-	// AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource.
-	//
-	// Note that AWS::Route53RecoveryReadiness::DNSTargetResource is only used for this setting. It isn't an actual AWS CloudFormation resource type.
+	// Enter one of the following values for resource type:.
 	ResourceSetType() *string
 	SetResourceSetType(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A tag to associate with the parameters for a resource set.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A tag to associate with the parameters for a resource set.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -255,6 +259,7 @@ type CfnResourceSet interface {
 type jsiiProxy_CfnResourceSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnResourceSet) AttrResourceSetArn() *string {
@@ -387,6 +392,16 @@ func (j *jsiiProxy_CfnResourceSet) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceSet) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceSet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -408,7 +423,6 @@ func (j *jsiiProxy_CfnResourceSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Route53RecoveryReadiness::ResourceSet`.
 func NewCfnResourceSet(scope constructs.Construct, id *string, props *CfnResourceSetProps) CfnResourceSet {
 	_init_.Initialize()
 
@@ -426,7 +440,6 @@ func NewCfnResourceSet(scope constructs.Construct, id *string, props *CfnResourc
 	return &j
 }
 
-// Create a new `AWS::Route53RecoveryReadiness::ResourceSet`.
 func NewCfnResourceSet_Override(c CfnResourceSet, scope constructs.Construct, id *string, props *CfnResourceSetProps) {
 	_init_.Initialize()
 
@@ -463,6 +476,17 @@ func (j *jsiiProxy_CfnResourceSet)SetResourceSetType(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceSetType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

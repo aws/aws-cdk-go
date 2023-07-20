@@ -18,14 +18,24 @@ package awsquicksight
 //   	TimeGranularity: jsii.String("timeGranularity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html
+//
 type CfnAnalysis_TimeRangeDrillDownFilterProperty struct {
 	// The column that the filter is applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html#cfn-quicksight-analysis-timerangedrilldownfilter-column
+	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// The maximum value for the filter value range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html#cfn-quicksight-analysis-timerangedrilldownfilter-rangemaximum
+	//
 	RangeMaximum *string `field:"required" json:"rangeMaximum" yaml:"rangeMaximum"`
 	// The minimum value for the filter value range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html#cfn-quicksight-analysis-timerangedrilldownfilter-rangeminimum
+	//
 	RangeMinimum *string `field:"required" json:"rangeMinimum" yaml:"rangeMinimum"`
 	// The level of time precision that is used to aggregate `DateTime` values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html#cfn-quicksight-analysis-timerangedrilldownfilter-timegranularity
+	//
 	TimeGranularity *string `field:"required" json:"timeGranularity" yaml:"timeGranularity"`
 }
 

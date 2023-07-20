@@ -11,10 +11,14 @@ package awsiotcoredeviceadvisor
 //   	ThingArn: jsii.String("thingArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotcoredeviceadvisor-suitedefinition-deviceundertest.html
+//
 type CfnSuiteDefinition_DeviceUnderTestProperty struct {
-	// `CfnSuiteDefinition.DeviceUnderTestProperty.CertificateArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotcoredeviceadvisor-suitedefinition-deviceundertest.html#cfn-iotcoredeviceadvisor-suitedefinition-deviceundertest-certificatearn
+	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
-	// `CfnSuiteDefinition.DeviceUnderTestProperty.ThingArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotcoredeviceadvisor-suitedefinition-deviceundertest.html#cfn-iotcoredeviceadvisor-suitedefinition-deviceundertest-thingarn
+	//
 	ThingArn *string `field:"optional" json:"thingArn" yaml:"thingArn"`
 }
 

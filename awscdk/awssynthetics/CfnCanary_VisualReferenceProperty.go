@@ -28,12 +28,18 @@ package awssynthetics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
+//
 type CfnCanary_VisualReferenceProperty struct {
 	// Specifies which canary run to use the screenshots from as the baseline for future visual monitoring with this canary.
 	//
 	// Valid values are `nextrun` to use the screenshots from the next run after this update is made, `lastrun` to use the screenshots from the most recent run before this update was made, or the value of `Id` in the [CanaryRun](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html) from any past run of this canary.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+	//
 	BaseCanaryRunId *string `field:"required" json:"baseCanaryRunId" yaml:"baseCanaryRunId"`
 	// An array of screenshots that are used as the baseline for comparisons during visual monitoring.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+	//
 	BaseScreenshots interface{} `field:"optional" json:"baseScreenshots" yaml:"baseScreenshots"`
 }
 

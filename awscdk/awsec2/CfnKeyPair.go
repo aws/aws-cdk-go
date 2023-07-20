@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::KeyPair`.
-//
-// Specifies a key pair for use with an Amazon Elastic Compute Cloud instance as follows:
+// Specifies a key pair for use with an Amazon Elastic Compute Cloud instance as follows:.
 //
 // - To import an existing key pair, include the `PublicKeyMaterial` property.
 // - To create a new key pair, omit the `PublicKeyMaterial` property.
@@ -42,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html
+//
 type CfnKeyPair interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// If you created the key pair using Amazon EC2:.
 	//
 	// - For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.
@@ -67,20 +68,14 @@ type CfnKeyPair interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The format of the key pair.
-	//
-	// Default: `pem`.
 	KeyFormat() *string
 	SetKeyFormat(val *string)
 	// A unique name for the key pair.
-	//
-	// Constraints: Up to 255 ASCII characters.
 	KeyName() *string
 	SetKeyName(val *string)
-	// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+	// The type of key pair.
 	//
-	// If the `PublicKeyMaterial` property is specified, the `KeyType` property is ignored, and the key type is inferred from the `PublicKeyMaterial` value.
-	//
-	// Default: `rsa`.
+	// Note that ED25519 keys are not supported for Windows instances.
 	KeyType() *string
 	SetKeyType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -96,8 +91,6 @@ type CfnKeyPair interface {
 	// The tree node.
 	Node() constructs.Node
 	// The public key material.
-	//
-	// The `PublicKeyMaterial` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
 	PublicKeyMaterial() *string
 	SetPublicKeyMaterial(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -109,8 +102,11 @@ type CfnKeyPair interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to apply to the key pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to apply to the key pair.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -255,6 +251,7 @@ type CfnKeyPair interface {
 type jsiiProxy_CfnKeyPair struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnKeyPair) AttrKeyFingerprint() *string {
@@ -407,6 +404,16 @@ func (j *jsiiProxy_CfnKeyPair) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKeyPair) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKeyPair) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -428,7 +435,6 @@ func (j *jsiiProxy_CfnKeyPair) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::KeyPair`.
 func NewCfnKeyPair(scope constructs.Construct, id *string, props *CfnKeyPairProps) CfnKeyPair {
 	_init_.Initialize()
 
@@ -446,7 +452,6 @@ func NewCfnKeyPair(scope constructs.Construct, id *string, props *CfnKeyPairProp
 	return &j
 }
 
-// Create a new `AWS::EC2::KeyPair`.
 func NewCfnKeyPair_Override(c CfnKeyPair, scope constructs.Construct, id *string, props *CfnKeyPairProps) {
 	_init_.Initialize()
 
@@ -488,6 +493,17 @@ func (j *jsiiProxy_CfnKeyPair)SetPublicKeyMaterial(val *string) {
 	_jsii_.Set(
 		j,
 		"publicKeyMaterial",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKeyPair)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

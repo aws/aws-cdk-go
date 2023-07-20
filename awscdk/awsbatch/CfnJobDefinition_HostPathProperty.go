@@ -10,8 +10,11 @@ package awsbatch
 //   	Path: jsii.String("path"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-hostpath.html
+//
 type CfnJobDefinition_HostPathProperty struct {
-	// `CfnJobDefinition.HostPathProperty.Path`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-hostpath.html#cfn-batch-jobdefinition-hostpath-path
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 

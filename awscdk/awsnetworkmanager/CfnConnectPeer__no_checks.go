@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnConnectPeer) validateSetPeerAddressParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnectPeer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnConnectPeerParameters(scope constructs.Construct, id *string, props *CfnConnectPeerProps) error {
 	return nil
 }

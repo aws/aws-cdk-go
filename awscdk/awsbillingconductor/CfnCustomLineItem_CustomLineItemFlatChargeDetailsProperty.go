@@ -14,8 +14,12 @@ package awsbillingconductor
 //   	ChargeValue: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html
+//
 type CfnCustomLineItem_CustomLineItemFlatChargeDetailsProperty struct {
 	// The custom line item's fixed charge value in USD.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html#cfn-billingconductor-customlineitem-customlineitemflatchargedetails-chargevalue
+	//
 	ChargeValue *float64 `field:"required" json:"chargeValue" yaml:"chargeValue"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::Task`.
+// The `AWS::DataSync::Task` resource specifies a task.
 //
-// The `AWS::DataSync::Task` resource specifies a task. A task is a set of two locations (source and destination) and a set of `Options` that you use to control the behavior of a task. If you don't specify `Options` when you create a task, AWS DataSync populates them with service defaults.
+// A task is a set of two locations (source and destination) and a set of `Options` that you use to control the behavior of a task. If you don't specify `Options` when you create a task, AWS DataSync populates them with service defaults.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -65,9 +65,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
+//
 type CfnTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
 	AttrDestinationNetworkInterfaceArns() *[]*string
 	// The ARNs of the source ENIs that were created for your subnet.
@@ -82,10 +85,6 @@ type CfnTask interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor and log events in the task.
-	//
-	// For more information about how to use CloudWatch Logs with DataSync, see [Monitoring Your Task](https://docs.aws.amazon.com/datasync/latest/userguide/monitor-datasync.html#cloudwatchlogs) in the *AWS DataSync User Guide.*
-	//
-	// For more information about these groups, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide* .
 	CloudWatchLogGroupArn() *string
 	SetCloudWatchLogGroupArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -96,13 +95,9 @@ type CfnTask interface {
 	DestinationLocationArn() *string
 	SetDestinationLocationArn(val *string)
 	// Specifies a list of filter rules that exclude specific data during your transfer.
-	//
-	// For more information and examples, see [Filtering data transferred by DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Excludes() interface{}
 	SetExcludes(val interface{})
 	// Specifies a list of filter rules that include specific data during your transfer.
-	//
-	// For more information and examples, see [Filtering data transferred by DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Includes() interface{}
 	SetIncludes(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -116,15 +111,13 @@ type CfnTask interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of a task.
-	//
-	// This value is a text reference that is used to identify the task in the console.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the configuration options for a task. Some options include preserving file or object metadata and verifying data integrity.
+	// Specifies the configuration options for a task.
 	//
-	// You can also override these options before starting an individual run of a task (also known as a *task execution* ). For more information, see [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
+	// Some options include preserving file or object metadata and verifying data integrity.
 	Options() interface{}
 	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -133,8 +126,6 @@ type CfnTask interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
-	//
-	// The schedule should be specified in UTC time. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
 	Schedule() interface{}
 	SetSchedule(val interface{})
 	// The Amazon Resource Name (ARN) of the source location for the task.
@@ -144,10 +135,11 @@ type CfnTask interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing the task.
-	//
-	// *Tags* are key-value pairs that help you manage, filter, and search for your DataSync resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing the task.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -292,6 +284,7 @@ type CfnTask interface {
 type jsiiProxy_CfnTask struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTask) AttrDestinationNetworkInterfaceArns() *[]*string {
@@ -504,6 +497,16 @@ func (j *jsiiProxy_CfnTask) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTask) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTask) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -525,7 +528,6 @@ func (j *jsiiProxy_CfnTask) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DataSync::Task`.
 func NewCfnTask(scope constructs.Construct, id *string, props *CfnTaskProps) CfnTask {
 	_init_.Initialize()
 
@@ -543,7 +545,6 @@ func NewCfnTask(scope constructs.Construct, id *string, props *CfnTaskProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::DataSync::Task`.
 func NewCfnTask_Override(c CfnTask, scope constructs.Construct, id *string, props *CfnTaskProps) {
 	_init_.Initialize()
 
@@ -632,6 +633,17 @@ func (j *jsiiProxy_CfnTask)SetSourceLocationArn(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceLocationArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTask)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

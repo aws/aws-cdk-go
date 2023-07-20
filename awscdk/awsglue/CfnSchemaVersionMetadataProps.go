@@ -14,12 +14,20 @@ package awsglue
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
+//
 type CfnSchemaVersionMetadataProps struct {
 	// A metadata key in a key-value pair for metadata.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The version number of the schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+	//
 	SchemaVersionId *string `field:"required" json:"schemaVersionId" yaml:"schemaVersionId"`
 	// A metadata key's corresponding value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Shield::ProactiveEngagement`.
-//
 // Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
 //
 // To enable proactive engagement, you must be subscribed to the [Business Support plan](https://docs.aws.amazon.com/premiumsupport/business-support/) or the [Enterprise Support plan](https://docs.aws.amazon.com/premiumsupport/enterprise-support/) .
@@ -37,6 +35,8 @@ import (
 //   	ProactiveEngagementStatus: jsii.String("proactiveEngagementStatus"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-proactiveengagement.html
+//
 type CfnProactiveEngagement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -52,15 +52,6 @@ type CfnProactiveEngagement interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support, plus any relevant notes.
-	//
-	// To enable proactive engagement, the contact list must include at least one phone number.
-	//
-	// If you provide more than one contact, in the notes, indicate the circumstances under which each contact should be used. Include primary and secondary contact designations, and provide the hours of availability and time zones for each contact.
-	//
-	// Example contact notes:
-	//
-	// - This is a hotline that's staffed 24x7x365. Please work with the responding analyst and they will get the appropriate person on the call.
-	// - Please contact the secondary phone number if the hotline doesn't respond within 5 minutes.
 	EmergencyContactList() interface{}
 	SetEmergencyContactList(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -76,12 +67,6 @@ type CfnProactiveEngagement interface {
 	// The tree node.
 	Node() constructs.Node
 	// Specifies whether proactive engagement is enabled or disabled.
-	//
-	// Valid values:
-	//
-	// `ENABLED` - The Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
-	//
-	// `DISABLED` - The SRT will not proactively notify contacts about escalations or to initiate proactive customer support.
 	ProactiveEngagementStatus() *string
 	SetProactiveEngagementStatus(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -370,7 +355,6 @@ func (j *jsiiProxy_CfnProactiveEngagement) UpdatedProperties() *map[string]inter
 }
 
 
-// Create a new `AWS::Shield::ProactiveEngagement`.
 func NewCfnProactiveEngagement(scope constructs.Construct, id *string, props *CfnProactiveEngagementProps) CfnProactiveEngagement {
 	_init_.Initialize()
 
@@ -388,7 +372,6 @@ func NewCfnProactiveEngagement(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::Shield::ProactiveEngagement`.
 func NewCfnProactiveEngagement_Override(c CfnProactiveEngagement, scope constructs.Construct, id *string, props *CfnProactiveEngagementProps) {
 	_init_.Initialize()
 

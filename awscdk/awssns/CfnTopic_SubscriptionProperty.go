@@ -15,14 +15,20 @@ package awssns
 //   	Protocol: jsii.String("protocol"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-subscription.html
+//
 type CfnTopic_SubscriptionProperty struct {
 	// The endpoint that receives notifications from the Amazon SNS topic.
 	//
 	// The endpoint value depends on the protocol that you specify. For more information, see the `Endpoint` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-subscription.html#cfn-sns-topic-subscription-endpoint
+	//
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The subscription's protocol.
 	//
 	// For more information, see the `Protocol` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-subscription.html#cfn-sns-topic-subscription-protocol
+	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 }
 

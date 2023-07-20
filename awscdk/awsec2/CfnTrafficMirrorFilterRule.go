@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TrafficMirrorFilterRule`.
-//
 // Creates a Traffic Mirror filter rule.
 //
 // A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.
@@ -43,9 +41,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html
+//
 type CfnTrafficMirrorFilterRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -77,8 +78,6 @@ type CfnTrafficMirrorFilterRule interface {
 	// The tree node.
 	Node() constructs.Node
 	// The protocol, for example UDP, to assign to the Traffic Mirror rule.
-	//
-	// For information about the protocol value, see [Protocol Numbers](https://docs.aws.amazon.com/https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol() *float64
 	SetProtocol(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -90,8 +89,6 @@ type CfnTrafficMirrorFilterRule interface {
 	RuleAction() *string
 	SetRuleAction(val *string)
 	// The number of the Traffic Mirror rule.
-	//
-	// This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
 	RuleNumber() *float64
 	SetRuleNumber(val *float64)
 	// The source CIDR block to assign to the Traffic Mirror rule.
@@ -254,6 +251,16 @@ type CfnTrafficMirrorFilterRule interface {
 type jsiiProxy_CfnTrafficMirrorFilterRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnTrafficMirrorFilterRule) CfnOptions() awscdk.ICfnResourceOptions {
@@ -457,7 +464,6 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) UpdatedProperties() *map[string]i
 }
 
 
-// Create a new `AWS::EC2::TrafficMirrorFilterRule`.
 func NewCfnTrafficMirrorFilterRule(scope constructs.Construct, id *string, props *CfnTrafficMirrorFilterRuleProps) CfnTrafficMirrorFilterRule {
 	_init_.Initialize()
 
@@ -475,7 +481,6 @@ func NewCfnTrafficMirrorFilterRule(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::EC2::TrafficMirrorFilterRule`.
 func NewCfnTrafficMirrorFilterRule_Override(c CfnTrafficMirrorFilterRule, scope constructs.Construct, id *string, props *CfnTrafficMirrorFilterRuleProps) {
 	_init_.Initialize()
 

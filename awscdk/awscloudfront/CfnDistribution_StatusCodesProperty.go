@@ -15,10 +15,16 @@ package awscloudfront
 //   	Quantity: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html
+//
 type CfnDistribution_StatusCodesProperty struct {
 	// The items (status codes) for an origin group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
+	//
 	Items interface{} `field:"required" json:"items" yaml:"items"`
 	// The number of status codes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
+	//
 	Quantity *float64 `field:"required" json:"quantity" yaml:"quantity"`
 }
 

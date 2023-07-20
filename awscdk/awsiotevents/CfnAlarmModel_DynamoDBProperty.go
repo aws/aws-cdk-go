@@ -47,16 +47,24 @@ package awsiotevents
 //   	RangeKeyValue: jsii.String("rangeKeyValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html
+//
 type CfnAlarmModel_DynamoDBProperty struct {
 	// The name of the hash key (also called the partition key).
 	//
 	// The `hashKeyField` value must match the partition key of the target DynamoDB table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-hashkeyfield
+	//
 	HashKeyField *string `field:"required" json:"hashKeyField" yaml:"hashKeyField"`
 	// The value of the hash key (also called the partition key).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-hashkeyvalue
+	//
 	HashKeyValue *string `field:"required" json:"hashKeyValue" yaml:"hashKeyValue"`
 	// The name of the DynamoDB table.
 	//
 	// The `tableName` value must match the table name of the target DynamoDB table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-tablename
+	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:.
 	//
@@ -64,6 +72,8 @@ type CfnAlarmModel_DynamoDBProperty struct {
 	// - `'NUMBER'` - The hash key is a number.
 	//
 	// If you don't specify `hashKeyType` , the default value is `'STRING'` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-hashkeytype
+	//
 	HashKeyType *string `field:"optional" json:"hashKeyType" yaml:"hashKeyType"`
 	// The type of operation to perform. You can specify the following values:.
 	//
@@ -72,18 +82,26 @@ type CfnAlarmModel_DynamoDBProperty struct {
 	// - `'DELETE'` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	// If you don't specify this parameter, AWS IoT Events triggers the `'INSERT'` operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-operation
+	//
 	Operation *string `field:"optional" json:"operation" yaml:"operation"`
 	// Information needed to configure the payload.
 	//
 	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-payload
+	//
 	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
 	//
 	// If you don't specify this parameter, the name of the DynamoDB column is `payload` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-payloadfield
+	//
 	PayloadField *string `field:"optional" json:"payloadField" yaml:"payloadField"`
 	// The name of the range key (also called the sort key).
 	//
 	// The `rangeKeyField` value must match the sort key of the target DynamoDB table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-rangekeyfield
+	//
 	RangeKeyField *string `field:"optional" json:"rangeKeyField" yaml:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:.
 	//
@@ -91,8 +109,12 @@ type CfnAlarmModel_DynamoDBProperty struct {
 	// - `'NUMBER'` - The range key is number.
 	//
 	// If you don't specify `rangeKeyField` , the default value is `'STRING'` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-rangekeytype
+	//
 	RangeKeyType *string `field:"optional" json:"rangeKeyType" yaml:"rangeKeyType"`
 	// The value of the range key (also called the sort key).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodb.html#cfn-iotevents-alarmmodel-dynamodb-rangekeyvalue
+	//
 	RangeKeyValue *string `field:"optional" json:"rangeKeyValue" yaml:"rangeKeyValue"`
 }
 

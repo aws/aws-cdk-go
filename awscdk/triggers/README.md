@@ -24,7 +24,7 @@ triggers.NewTriggerFunction(this, jsii.String("MyTrigger"), &TriggerFunctionProp
 })
 ```
 
-In the above example, the AWS Lambda function defined in `myLambdaFunction` will
+In the above example, the AWS Lambda function defined in `MyTrigger` will
 be invoked when the stack is deployed.
 
 It is also possible to trigger a predefined Lambda function by using the `Trigger` construct:

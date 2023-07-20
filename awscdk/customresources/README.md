@@ -1,5 +1,7 @@
 # AWS CDK Custom Resources
 
+This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
+
 ## Provider Framework
 
 AWS CloudFormation [custom resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) are extension points to the provisioning
@@ -357,7 +359,10 @@ This sample demonstrates the following concepts:
 
 #### S3Assert
 
-Checks that the textual contents of an S3 object matches a certain value. The check will be retried for 5 minutes as long as the object is not found or the value is different. See the source code for the [construct](https://github.com/aws/aws-cdk/blob/main/packages/aws-cdk-lib/custom-resources/test/provider-framework/integration-test-fixtures/s3-assert.ts) and [handler](https://github.com/aws/aws-cdk/blob/main/packages/aws-cdk-lib/custom-resources/test/provider-framework/integration-test-fixtures/s3-assert-handler/index.py).
+Checks that the textual contents of an S3 object matches a certain value. The check will be retried
+for 5 minutes as long as the object is not found or the value is different. See the source code for the
+[construct](https://github.com/aws/aws-cdk/blob/main/packages/aws-cdk-lib/custom-resources/test/provider-framework/integration-test-fixtures/s3-assert.ts)
+and [handler](https://github.com/aws/aws-cdk/blob/main/packages/aws-cdk-lib/custom-resources/test/provider-framework/integration-test-fixtures/s3-assert-handler/index.py).
 
 The following example defines an `S3Assert` resource which waits until
 `myfile.txt` in `myBucket` exists and includes the contents `foo bar`:
@@ -396,6 +401,29 @@ myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
 	LogRetention: logs.RetentionDays_ONE_DAY,
 	Role: myRole,
 	ProviderFunctionName: jsii.String("the-lambda-name"),
+})
+```
+
+### Customizing Provider Function environment encryption key
+
+Sometimes it may be useful to manually set a AWS KMS key for the Provider Function Lambda and therefore
+be able to view, manage and audit the key usage.
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+var onEvent function
+var isComplete function
+var myRole role
+
+
+key := kms.NewKey(this, jsii.String("MyKey"))
+myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
+	OnEventHandler: onEvent,
+	IsCompleteHandler: isComplete,
+	LogRetention: logs.RetentionDays_ONE_DAY,
+	Role: myRole,
+	ProviderFunctionEnvEncryption: key,
 })
 ```
 
@@ -653,36 +681,32 @@ getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHoste
 `AwsCustomResource` experimentally supports AWS SDK for JavaScript v3 (NODEJS_18_X or higher). In AWS SDK for JavaScript v3, packages are installed for each service. Therefore, specify the package name for `service`. Also, `action` specifies the XxxClient operations provided in the package. This example is the same as `SSM.getParameter` in v2.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
+type myFact struct {
+	region
+	name
+	value
+}
+
 // change custom resource default runtime
-regionInfo.Fact_Register(map[string]interface{}{
-	"region": jsii.String("us-east-1"),
-	 // your region
-	"name": regionInfo.FactName_DEFAULT_CR_NODE_VERSION(),
-	"value": lambda.Runtime_NODEJS_18_X().name,
-}, jsii.Boolean(true))
-NewAwsCustomResource(this, jsii.String("GetParameter"), map[string]interface{}{
-	"resourceType": jsii.String("Custom::SSMParameter"),
-	"onUpdate": map[string]interface{}{
-		"service": jsii.String("@aws-sdk/client-ssm"),
+regionInfo.Fact_Register(NewMyFact(), jsii.Boolean(true))
+
+cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &AwsCustomResourceProps{
+	ResourceType: jsii.String("Custom::SSMParameter"),
+	OnUpdate: &AwsSdkCall{
+		Service: jsii.String("@aws-sdk/client-ssm"),
 		 // 'SSM' in v2
-		"action": jsii.String("GetParameterCommand"),
+		Action: jsii.String("GetParameterCommand"),
 		 // 'getParameter' in v2
-		"parameters": map[string]interface{}{
+		Parameters: map[string]interface{}{
 			"Name": jsii.String("foo"),
 			"WithDecryption": jsii.Boolean(true),
 		},
-		"physicalResourceId": PhysicalResourceId_fromResponse(jsii.String("Parameter.ARN")),
+		PhysicalResourceId: cr.PhysicalResourceId_FromResponse(jsii.String("Parameter.ARN")),
 	},
 })
 ```
 
 If you are using `NODEJS_18_X` or higher, you can also use the existing AWS SDK for JavaScript v2 style.
-
----
-
-
-This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.

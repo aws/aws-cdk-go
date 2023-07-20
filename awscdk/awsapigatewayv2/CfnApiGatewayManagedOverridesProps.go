@@ -49,14 +49,24 @@ package awsapigatewayv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html
+//
 type CfnApiGatewayManagedOverridesProps struct {
 	// The ID of the API for which to override the configuration of API Gateway-managed resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-apiid
+	//
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// Overrides the integration configuration for an API Gateway-managed integration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integration
+	//
 	Integration interface{} `field:"optional" json:"integration" yaml:"integration"`
 	// Overrides the route configuration for an API Gateway-managed route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-route
+	//
 	Route interface{} `field:"optional" json:"route" yaml:"route"`
 	// Overrides the stage configuration for an API Gateway-managed stage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stage
+	//
 	Stage interface{} `field:"optional" json:"stage" yaml:"stage"`
 }
 

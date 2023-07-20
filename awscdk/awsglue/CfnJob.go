@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Glue::Job`.
+// The `AWS::Glue::Job` resource specifies an AWS Glue job in the data catalog.
 //
-// The `AWS::Glue::Job` resource specifies an AWS Glue job in the data catalog. For more information, see [Adding Jobs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) and [Job Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job) in the *AWS Glue Developer Guide.*
+// For more information, see [Adding Jobs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) and [Job Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job) in the *AWS Glue Developer Guide.*
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -60,14 +60,18 @@ import (
 //   	WorkerType: jsii.String("workerType"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html
+//
 type CfnJob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// This parameter is no longer supported. Use `MaxCapacity` instead.
+	awscdk.ITaggable
+	// This parameter is no longer supported.
 	//
-	// The number of capacity units that are allocated to this job.
+	// Use `MaxCapacity` instead.
 	AllocatedCapacity() *float64
 	SetAllocatedCapacity(val *float64)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -84,36 +88,18 @@ type CfnJob interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The default arguments for this job, specified as name-value pairs.
-	//
-	// You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-	//
-	// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-	//
-	// For information about the key-value pairs that AWS Glue consumes to set up your job, see [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) in the *AWS Glue Developer Guide* .
 	DefaultArguments() interface{}
 	SetDefaultArguments(val interface{})
 	// A description of the job.
 	Description() *string
 	SetDescription(val *string)
 	// Indicates whether the job is run with a standard or flexible execution class.
-	//
-	// The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.
-	//
-	// The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary.
-	//
-	// Only jobs with AWS Glue version 3.0 and above and command type `glueetl` will be allowed to set `ExecutionClass` to `FLEX` . The flexible execution class is available for Spark jobs.
 	ExecutionClass() *string
 	SetExecutionClass(val *string)
 	// The maximum number of concurrent runs that are allowed for this job.
 	ExecutionProperty() interface{}
 	SetExecutionProperty(val interface{})
 	// Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
-	//
-	// The Python version indicates the version supported for jobs of type Spark.
-	//
-	// For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
-	//
-	// Jobs that are created without specifying a Glue version default to Glue 0.9.
 	GlueVersion() *string
 	SetGlueVersion(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -130,15 +116,6 @@ type CfnJob interface {
 	LogUri() *string
 	SetLogUri(val *string)
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
-	//
-	// A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-	//
-	// Do not set `Max Capacity` if using `WorkerType` and `NumberOfWorkers` .
-	//
-	// The value that can be allocated for `MaxCapacity` depends on whether you are running a Python shell job or an Apache Spark ETL job:
-	//
-	// - When you specify a Python shell job ( `JobCommand.Name` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
-	// - When you specify an Apache Spark ETL job ( `JobCommand.Name` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
 	MaxCapacity() *float64
 	SetMaxCapacity(val *float64)
 	// The maximum number of times to retry this job after a JobRun fails.
@@ -156,8 +133,6 @@ type CfnJob interface {
 	NotificationProperty() interface{}
 	SetNotificationProperty(val interface{})
 	// The number of workers of a defined `workerType` that are allocated when a job runs.
-	//
-	// The maximum number of workers you can define are 299 for `G.1X` , and 149 for `G.2X` .
 	NumberOfWorkers() *float64
 	SetNumberOfWorkers(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -175,11 +150,12 @@ type CfnJob interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to use with this job.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags to use with this job.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// The job timeout in minutes.
-	//
-	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours).
 	Timeout() *float64
 	SetTimeout(val *float64)
 	// Deprecated.
@@ -196,12 +172,6 @@ type CfnJob interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The type of predefined worker that is allocated when a job runs.
-	//
-	// Accepts a value of Standard, G.1X, or G.2X.
-	//
-	// - For the `Standard` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
-	// - For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
-	// - For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
 	WorkerType() *string
 	SetWorkerType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -335,6 +305,7 @@ type CfnJob interface {
 type jsiiProxy_CfnJob struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnJob) AllocatedCapacity() *float64 {
@@ -342,6 +313,16 @@ func (j *jsiiProxy_CfnJob) AllocatedCapacity() *float64 {
 	_jsii_.Get(
 		j,
 		"allocatedCapacity",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJob) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -597,6 +578,16 @@ func (j *jsiiProxy_CfnJob) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJob) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJob) Timeout() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -638,7 +629,6 @@ func (j *jsiiProxy_CfnJob) WorkerType() *string {
 }
 
 
-// Create a new `AWS::Glue::Job`.
 func NewCfnJob(scope constructs.Construct, id *string, props *CfnJobProps) CfnJob {
 	_init_.Initialize()
 
@@ -656,7 +646,6 @@ func NewCfnJob(scope constructs.Construct, id *string, props *CfnJobProps) CfnJo
 	return &j
 }
 
-// Create a new `AWS::Glue::Job`.
 func NewCfnJob_Override(c CfnJob, scope constructs.Construct, id *string, props *CfnJobProps) {
 	_init_.Initialize()
 
@@ -698,9 +687,6 @@ func (j *jsiiProxy_CfnJob)SetConnections(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnJob)SetDefaultArguments(val interface{}) {
-	if err := j.validateSetDefaultArgumentsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"defaultArguments",
@@ -776,9 +762,6 @@ func (j *jsiiProxy_CfnJob)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnJob)SetNonOverridableArguments(val interface{}) {
-	if err := j.validateSetNonOverridableArgumentsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"nonOverridableArguments",
@@ -820,6 +803,14 @@ func (j *jsiiProxy_CfnJob)SetSecurityConfiguration(val *string) {
 	_jsii_.Set(
 		j,
 		"securityConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJob)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

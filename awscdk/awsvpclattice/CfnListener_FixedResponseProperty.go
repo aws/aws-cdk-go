@@ -12,8 +12,12 @@ package awsvpclattice
 //   	StatusCode: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-fixedresponse.html
+//
 type CfnListener_FixedResponseProperty struct {
 	// The HTTP response code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-fixedresponse.html#cfn-vpclattice-listener-fixedresponse-statuscode
+	//
 	StatusCode *float64 `field:"required" json:"statusCode" yaml:"statusCode"`
 }
 

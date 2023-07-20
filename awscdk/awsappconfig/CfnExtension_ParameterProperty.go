@@ -17,10 +17,16 @@ package awsappconfig
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-extension-parameter.html
+//
 type CfnExtension_ParameterProperty struct {
 	// A parameter value must be specified in the extension association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-extension-parameter.html#cfn-appconfig-extension-parameter-required
+	//
 	Required interface{} `field:"required" json:"required" yaml:"required"`
 	// Information about the parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-extension-parameter.html#cfn-appconfig-extension-parameter-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

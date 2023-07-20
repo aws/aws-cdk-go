@@ -262,22 +262,40 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html
+//
 type CfnTopic_DatasetMetadataProperty struct {
 	// The Amazon Resource Name (ARN) of the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-datasetarn
+	//
 	DatasetArn *string `field:"required" json:"datasetArn" yaml:"datasetArn"`
 	// The list of calculated field definitions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-calculatedfields
+	//
 	CalculatedFields interface{} `field:"optional" json:"calculatedFields" yaml:"calculatedFields"`
 	// The list of column definitions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-columns
+	//
 	Columns interface{} `field:"optional" json:"columns" yaml:"columns"`
 	// The definition of a data aggregation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-dataaggregation
+	//
 	DataAggregation interface{} `field:"optional" json:"dataAggregation" yaml:"dataAggregation"`
 	// The description of the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-datasetdescription
+	//
 	DatasetDescription *string `field:"optional" json:"datasetDescription" yaml:"datasetDescription"`
 	// The name of the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-datasetname
+	//
 	DatasetName *string `field:"optional" json:"datasetName" yaml:"datasetName"`
 	// The list of filter definitions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-filters
+	//
 	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
 	// The list of named entities definitions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-namedentities
+	//
 	NamedEntities interface{} `field:"optional" json:"namedEntities" yaml:"namedEntities"`
 }
 

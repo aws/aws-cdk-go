@@ -14,6 +14,8 @@ package awsgamelift
 //   	CertificateType: jsii.String("certificateType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html
+//
 type CfnFleet_CertificateConfigurationProperty struct {
 	// Indicates whether a TLS/SSL certificate is generated for a fleet.
 	//
@@ -21,6 +23,8 @@ type CfnFleet_CertificateConfigurationProperty struct {
 	//
 	// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
 	// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
+	//
 	CertificateType *string `field:"required" json:"certificateType" yaml:"certificateType"`
 }
 

@@ -13,10 +13,16 @@ package awsglue
 //   	Path: jsii.String("path"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html
+//
 type CfnCrawler_MongoDBTargetProperty struct {
 	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html#cfn-glue-crawler-mongodbtarget-connectionname
+	//
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html#cfn-glue-crawler-mongodbtarget-path
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 

@@ -16,8 +16,12 @@ package awscertificatemanager
 //   	ValidationDomain: jsii.String("validationDomain"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html
+//
 type CfnCertificate_DomainValidationOptionProperty struct {
 	// A fully qualified domain name (FQDN) in the certificate request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-domainname
+	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record.
 	//
@@ -30,6 +34,8 @@ type CfnCertificate_DomainValidationOptionProperty struct {
 	// > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
 	//
 	// When you change your `DomainValidationOptions` , a new resource is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-hostedzoneid
+	//
 	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// The domain name to which you want ACM to send validation emails.
 	//
@@ -40,6 +46,8 @@ type CfnCertificate_DomainValidationOptionProperty struct {
 	// - hostmaster@example.com
 	// - postmaster@example.com
 	// - webmaster@example.com
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-validationdomain
+	//
 	ValidationDomain *string `field:"optional" json:"validationDomain" yaml:"validationDomain"`
 }
 

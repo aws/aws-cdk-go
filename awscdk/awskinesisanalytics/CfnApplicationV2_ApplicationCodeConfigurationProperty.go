@@ -23,10 +23,16 @@ package awskinesisanalytics
 //   	CodeContentType: jsii.String("codeContentType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html
+//
 type CfnApplicationV2_ApplicationCodeConfigurationProperty struct {
 	// The location and type of the application code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontent
+	//
 	CodeContent interface{} `field:"required" json:"codeContent" yaml:"codeContent"`
 	// Specifies whether the code content is in text or zip format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontenttype
+	//
 	CodeContentType *string `field:"required" json:"codeContentType" yaml:"codeContentType"`
 }
 

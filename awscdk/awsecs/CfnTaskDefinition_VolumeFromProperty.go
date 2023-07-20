@@ -13,12 +13,18 @@ package awsecs
 //   	SourceContainer: jsii.String("sourceContainer"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html
+//
 type CfnTaskDefinition_VolumeFromProperty struct {
 	// If this value is `true` , the container has read-only access to the volume.
 	//
 	// If this value is `false` , then the container can write to the volume. The default value is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html#cfn-ecs-taskdefinition-volumefrom-readonly
+	//
 	ReadOnly interface{} `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// The name of another container within the same task definition to mount volumes from.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html#cfn-ecs-taskdefinition-volumefrom-sourcecontainer
+	//
 	SourceContainer *string `field:"optional" json:"sourceContainer" yaml:"sourceContainer"`
 }
 

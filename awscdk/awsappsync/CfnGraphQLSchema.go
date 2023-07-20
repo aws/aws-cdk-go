@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppSync::GraphQLSchema`.
+// The `AWS::AppSync::GraphQLSchema` resource is used for your AWS AppSync GraphQL schema that controls the data model for your API.
 //
-// The `AWS::AppSync::GraphQLSchema` resource is used for your AWS AppSync GraphQL schema that controls the data model for your API. Schema files are text written in Schema Definition Language (SDL) format. For more information about schema authoring, see [Designing a GraphQL API](https://docs.aws.amazon.com/appsync/latest/devguide/designing-a-graphql-api.html) in the *AWS AppSync Developer Guide* .
+// Schema files are text written in Schema Definition Language (SDL) format. For more information about schema authoring, see [Designing a GraphQL API](https://docs.aws.amazon.com/appsync/latest/devguide/designing-a-graphql-api.html) in the *AWS AppSync Developer Guide* .
 //
 // > When you submit an update, AWS CloudFormation updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CloudFormation template. Changing the Amazon S3 file content without changing a property value will not result in an update operation.
 // >
@@ -30,12 +30,15 @@ import (
 //   	DefinitionS3Location: jsii.String("definitionS3Location"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlschema.html
+//
 type CfnGraphQLSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The AWS AppSync GraphQL API identifier to which you want to apply this schema.
 	ApiId() *string
 	SetApiId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -46,13 +49,9 @@ type CfnGraphQLSchema interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The text representation of a GraphQL schema in SDL format.
-	//
-	// For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref) .
 	Definition() *string
 	SetDefinition(val *string)
 	// The location of a GraphQL schema file in an Amazon S3 bucket.
-	//
-	// Use this if you want to provision with the schema living in Amazon S3 rather than embedding it in your CloudFormation template.
 	DefinitionS3Location() *string
 	SetDefinitionS3Location(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -232,6 +231,16 @@ func (j *jsiiProxy_CfnGraphQLSchema) ApiId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraphQLSchema) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraphQLSchema) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -353,7 +362,6 @@ func (j *jsiiProxy_CfnGraphQLSchema) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::AppSync::GraphQLSchema`.
 func NewCfnGraphQLSchema(scope constructs.Construct, id *string, props *CfnGraphQLSchemaProps) CfnGraphQLSchema {
 	_init_.Initialize()
 
@@ -371,7 +379,6 @@ func NewCfnGraphQLSchema(scope constructs.Construct, id *string, props *CfnGraph
 	return &j
 }
 
-// Create a new `AWS::AppSync::GraphQLSchema`.
 func NewCfnGraphQLSchema_Override(c CfnGraphQLSchema, scope constructs.Construct, id *string, props *CfnGraphQLSchemaProps) {
 	_init_.Initialize()
 

@@ -18,16 +18,24 @@ package awsdatabrew
 //   	Unit: jsii.String("unit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-threshold.html
+//
 type CfnRuleset_ThresholdProperty struct {
 	// The value of a threshold.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-threshold.html#cfn-databrew-ruleset-threshold-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 	// The type of a threshold.
 	//
 	// Used for comparison of an actual count of rows that satisfy the rule to the threshold value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-threshold.html#cfn-databrew-ruleset-threshold-type
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// Unit of threshold value.
 	//
 	// Can be either a COUNT or PERCENTAGE of the full sample size used for validation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-threshold.html#cfn-databrew-ruleset-threshold-unit
+	//
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

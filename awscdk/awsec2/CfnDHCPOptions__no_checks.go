@@ -80,6 +80,10 @@ func validateCfnDHCPOptions_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDHCPOptions) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDHCPOptionsParameters(scope constructs.Construct, id *string, props *CfnDHCPOptionsProps) error {
 	return nil
 }

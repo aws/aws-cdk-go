@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RDS::CustomDBEngineVersion`.
-//
 // Creates a custom DB engine version (CEV).
 //
 // Example:
@@ -37,6 +35,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html
+//
 type CfnCustomDBEngineVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -52,42 +52,21 @@ type CfnCustomDBEngineVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV.
-	//
-	// For example, a valid bucket name is `my-custom-installation-files` .
 	DatabaseInstallationFilesS3BucketName() *string
 	SetDatabaseInstallationFilesS3BucketName(val *string)
 	// The Amazon S3 directory that contains the database installation files for your CEV.
-	//
-	// For example, a valid bucket name is `123456789012/cev1` . If this setting isn't specified, no prefix is assumed.
 	DatabaseInstallationFilesS3Prefix() *string
 	SetDatabaseInstallationFilesS3Prefix(val *string)
 	// An optional description of your CEV.
 	Description() *string
 	SetDescription(val *string)
 	// The database engine to use for your custom engine version (CEV).
-	//
-	// Valid values:
-	//
-	// - `custom-oracle-ee`
-	// - `custom-oracle-ee-cdb`.
 	Engine() *string
 	SetEngine(val *string)
 	// The name of your CEV.
-	//
-	// The name format is `major version.customized_string` . For example, a valid CEV name is `19.my_cev1` . This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of `Engine` and `EngineVersion` is unique per customer per Region.
-	//
-	// *Constraints:* Minimum length is 1. Maximum length is 60.
-	//
-	// *Pattern:* `^[a-z0-9_.-]{1,60$` }
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	// The AWS KMS key identifier for an encrypted CEV.
-	//
-	// A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
-	//
-	// If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS Key Management Service Developer Guide* .
-	//
-	// You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -101,16 +80,6 @@ type CfnCustomDBEngineVersion interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
-	//
-	// The following JSON fields are valid:
-	//
-	// - **MediaImportTemplateVersion** - Version of the CEV manifest. The date is in the format `YYYY-MM-DD` .
-	// - **databaseInstallationFileNames** - Ordered list of installation files for the CEV.
-	// - **opatchFileNames** - Ordered list of OPatch installers used for the Oracle DB engine.
-	// - **psuRuPatchFileNames** - The PSU and RU patches for this CEV.
-	// - **OtherPatchFileNames** - The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.
-	//
-	// For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide* .
 	Manifest() *string
 	SetManifest(val *string)
 	// The tree node.
@@ -128,9 +97,8 @@ type CfnCustomDBEngineVersion interface {
 	Status() *string
 	SetStatus(val *string)
 	// A list of tags.
-	//
-	// For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -447,8 +415,8 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) Status() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomDBEngineVersion) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnCustomDBEngineVersion) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -478,7 +446,6 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) UpdatedProperties() *map[string]int
 }
 
 
-// Create a new `AWS::RDS::CustomDBEngineVersion`.
 func NewCfnCustomDBEngineVersion(scope constructs.Construct, id *string, props *CfnCustomDBEngineVersionProps) CfnCustomDBEngineVersion {
 	_init_.Initialize()
 
@@ -496,7 +463,6 @@ func NewCfnCustomDBEngineVersion(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::RDS::CustomDBEngineVersion`.
 func NewCfnCustomDBEngineVersion_Override(c CfnCustomDBEngineVersion, scope constructs.Construct, id *string, props *CfnCustomDBEngineVersionProps) {
 	_init_.Initialize()
 
@@ -576,6 +542,17 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomDBEngineVersion)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

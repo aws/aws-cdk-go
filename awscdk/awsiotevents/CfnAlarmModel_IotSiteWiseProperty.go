@@ -46,20 +46,32 @@ package awsiotevents
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html
+//
 type CfnAlarmModel_IotSiteWiseProperty struct {
 	// The ID of the asset that has the specified property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-assetid
+	//
 	AssetId *string `field:"optional" json:"assetId" yaml:"assetId"`
 	// A unique identifier for this entry.
 	//
 	// You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-entryid
+	//
 	EntryId *string `field:"optional" json:"entryId" yaml:"entryId"`
 	// The alias of the asset property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-propertyalias
+	//
 	PropertyAlias *string `field:"optional" json:"propertyAlias" yaml:"propertyAlias"`
 	// The ID of the asset property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-propertyid
+	//
 	PropertyId *string `field:"optional" json:"propertyId" yaml:"propertyId"`
 	// The value to send to the asset property.
 	//
 	// This value contains timestamp, quality, and value (TQV) information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-propertyvalue
+	//
 	PropertyValue interface{} `field:"optional" json:"propertyValue" yaml:"propertyValue"`
 }
 

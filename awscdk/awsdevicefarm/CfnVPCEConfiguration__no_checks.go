@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnVPCEConfiguration) validateSetServiceDnsNameParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPCEConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPCEConfiguration) validateSetVpceConfigurationNameParameters(val *string) error {
 	return nil
 }

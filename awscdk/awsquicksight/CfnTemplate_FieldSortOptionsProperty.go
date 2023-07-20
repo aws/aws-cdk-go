@@ -34,10 +34,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldsortoptions.html
+//
 type CfnTemplate_FieldSortOptionsProperty struct {
 	// The sort configuration for a column that is not used in a field well.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldsortoptions.html#cfn-quicksight-template-fieldsortoptions-columnsort
+	//
 	ColumnSort interface{} `field:"optional" json:"columnSort" yaml:"columnSort"`
 	// The sort configuration for a field in a field well.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldsortoptions.html#cfn-quicksight-template-fieldsortoptions-fieldsort
+	//
 	FieldSort interface{} `field:"optional" json:"fieldSort" yaml:"fieldSort"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::LocationHDFS`.
-//
 // The `AWS::DataSync::LocationHDFS` resource specifies an endpoint for a Hadoop Distributed File System (HDFS).
 //
 // Example:
@@ -51,9 +49,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html
+//
 type CfnLocationHDFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS cluster.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
@@ -61,12 +62,10 @@ type CfnLocationHDFS interface {
 	AttrLocationArn() *string
 	// The URI of the HDFS cluster location.
 	AttrLocationUri() *string
-	// `AWS::DataSync::LocationHDFS.AuthenticationType`.
+	// The authentication mode used to determine identity of user.
 	AuthenticationType() *string
 	SetAuthenticationType(val *string)
 	// The size of data blocks to write into the HDFS cluster.
-	//
-	// The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
 	BlockSize() *float64
 	SetBlockSize(val *float64)
 	// Options for this resource, such as condition, update policy etc.
@@ -79,16 +78,12 @@ type CfnLocationHDFS interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys.
-	//
-	// Provide the base64-encoded file text. If `KERBEROS` is specified for `AuthType` , this value is required.
 	KerberosKeytab() *string
 	SetKerberosKeytab(val *string)
 	// The `krb5.conf` file that contains the Kerberos configuration information. You can load the `krb5.conf` by providing a string of the file's contents or an Amazon S3 presigned URL of the file. If `KERBEROS` is specified for `AuthType` , this value is required.
 	KerberosKrb5Conf() *string
 	SetKerberosKrb5Conf(val *string)
 	// The Kerberos principal with access to the files and folders on the HDFS cluster.
-	//
-	// > If `KERBEROS` is specified for `AuthenticationType` , this parameter is required.
 	KerberosPrincipal() *string
 	SetKerberosPrincipal(val *string)
 	// The URI of the HDFS cluster's Key Management Server (KMS).
@@ -105,15 +100,11 @@ type CfnLocationHDFS interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The NameNode that manages the HDFS namespace.
-	//
-	// The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode.
 	NameNodes() interface{}
 	SetNameNodes(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster.
-	//
-	// If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
 	QopConfiguration() interface{}
 	SetQopConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -122,13 +113,9 @@ type CfnLocationHDFS interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster.
-	//
-	// By default, data is replicated to three DataNodes.
 	ReplicationFactor() *float64
 	SetReplicationFactor(val *float64)
 	// The user name used to identify the client on the host operating system.
-	//
-	// > If `SIMPLE` is specified for `AuthenticationType` , this parameter is required.
 	SimpleUser() *string
 	SetSimpleUser(val *string)
 	// The stack in which this element is defined.
@@ -136,14 +123,13 @@ type CfnLocationHDFS interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A subdirectory in the HDFS cluster.
-	//
-	// This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to `/` .
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// The key-value pair that represents the tag that you want to add to the location.
-	//
-	// The value can be an empty string. We recommend using tags to name your resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The key-value pair that represents the tag that you want to add to the location.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -288,6 +274,7 @@ type CfnLocationHDFS interface {
 type jsiiProxy_CfnLocationHDFS struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocationHDFS) AgentArns() *[]*string {
@@ -520,6 +507,16 @@ func (j *jsiiProxy_CfnLocationHDFS) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationHDFS) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationHDFS) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -541,7 +538,6 @@ func (j *jsiiProxy_CfnLocationHDFS) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::DataSync::LocationHDFS`.
 func NewCfnLocationHDFS(scope constructs.Construct, id *string, props *CfnLocationHDFSProps) CfnLocationHDFS {
 	_init_.Initialize()
 
@@ -559,7 +555,6 @@ func NewCfnLocationHDFS(scope constructs.Construct, id *string, props *CfnLocati
 	return &j
 }
 
-// Create a new `AWS::DataSync::LocationHDFS`.
 func NewCfnLocationHDFS_Override(c CfnLocationHDFS, scope constructs.Construct, id *string, props *CfnLocationHDFSProps) {
 	_init_.Initialize()
 
@@ -674,6 +669,17 @@ func (j *jsiiProxy_CfnLocationHDFS)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

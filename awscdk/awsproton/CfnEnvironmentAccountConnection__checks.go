@@ -179,6 +179,16 @@ func validateCfnEnvironmentAccountConnection_IsConstructParameters(x interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnvironmentAccountConnection) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnEnvironmentAccountConnectionParameters(scope constructs.Construct, id *string, props *CfnEnvironmentAccountConnectionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataBrew::Job`.
-//
 // Specifies a new DataBrew job.
 //
 // Example:
@@ -199,9 +197,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html
+//
 type CfnJob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -221,19 +222,12 @@ type CfnJob interface {
 	DatasetName() *string
 	SetDatasetName(val *string)
 	// The Amazon Resource Name (ARN) of an encryption key that is used to protect the job output.
-	//
-	// For more information, see [Encrypting data written by DataBrew jobs](https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html)
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
 	// The encryption mode for the job, which can be one of the following:.
-	//
-	// - `SSE-KMS` - Server-side encryption with keys managed by AWS KMS .
-	// - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
 	EncryptionMode() *string
 	SetEncryptionMode(val *string)
 	// A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run.
-	//
-	// If a `JobSample` value isn't provided, the default value is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.
 	JobSample() interface{}
 	SetJobSample(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -260,15 +254,13 @@ type CfnJob interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::DataBrew::Job.OutputLocation`.
+	// Output location.
 	OutputLocation() interface{}
 	SetOutputLocation(val interface{})
 	// One or more artifacts that represent output from running the job.
 	Outputs() interface{}
 	SetOutputs(val interface{})
 	// Configuration for profile jobs.
-	//
-	// Configuration can be used to select columns, do evaluations, and override default parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all supported columns.
 	ProfileConfiguration() interface{}
 	SetProfileConfiguration(val interface{})
 	// The name of the project that the job is associated with.
@@ -289,17 +281,15 @@ type CfnJob interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata tags that have been applied to the job.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata tags that have been applied to the job.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The job's timeout in minutes.
-	//
-	// A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT` .
 	Timeout() *float64
 	SetTimeout(val *float64)
 	// The job type of the job, which must be one of the following:.
-	//
-	// - `PROFILE` - A job to analyze a dataset, to determine its size, data types, data distribution, and more.
-	// - `RECIPE` - A job to apply one or more transformations to a dataset.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -449,6 +439,7 @@ type CfnJob interface {
 type jsiiProxy_CfnJob struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnJob) CfnOptions() awscdk.ICfnResourceOptions {
@@ -701,6 +692,16 @@ func (j *jsiiProxy_CfnJob) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJob) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJob) Timeout() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -752,7 +753,6 @@ func (j *jsiiProxy_CfnJob) ValidationConfigurations() interface{} {
 }
 
 
-// Create a new `AWS::DataBrew::Job`.
 func NewCfnJob(scope constructs.Construct, id *string, props *CfnJobProps) CfnJob {
 	_init_.Initialize()
 
@@ -770,7 +770,6 @@ func NewCfnJob(scope constructs.Construct, id *string, props *CfnJobProps) CfnJo
 	return &j
 }
 
-// Create a new `AWS::DataBrew::Job`.
 func NewCfnJob_Override(c CfnJob, scope constructs.Construct, id *string, props *CfnJobProps) {
 	_init_.Initialize()
 
@@ -932,6 +931,17 @@ func (j *jsiiProxy_CfnJob)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJob)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

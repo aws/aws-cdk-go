@@ -13,10 +13,16 @@ package awslightsail
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-state.html
+//
 type CfnInstance_StateProperty struct {
 	// The status code of the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-state.html#cfn-lightsail-instance-state-code
+	//
 	Code *float64 `field:"optional" json:"code" yaml:"code"`
 	// The state of the instance (for example, `running` or `pending` ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-state.html#cfn-lightsail-instance-state-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

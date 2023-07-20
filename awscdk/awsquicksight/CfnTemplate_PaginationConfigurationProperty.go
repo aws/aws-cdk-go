@@ -13,10 +13,16 @@ package awsquicksight
 //   	PageSize: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-paginationconfiguration.html
+//
 type CfnTemplate_PaginationConfigurationProperty struct {
 	// Indicates the page number.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-paginationconfiguration.html#cfn-quicksight-template-paginationconfiguration-pagenumber
+	//
 	PageNumber *float64 `field:"required" json:"pageNumber" yaml:"pageNumber"`
 	// Indicates how many items render in one page.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-paginationconfiguration.html#cfn-quicksight-template-paginationconfiguration-pagesize
+	//
 	PageSize *float64 `field:"required" json:"pageSize" yaml:"pageSize"`
 }
 

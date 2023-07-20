@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Oam::Link`.
-//
 // Creates a link between a source account and a sink that you have created in a monitoring account.
 //
 // Before you create a link, you must create a sink in the monitoring account. The sink must have a sink policy that permits the source account to link to it. You can grant permission to source accounts by granting permission to an entire organization, an organizational unit, or to individual accounts.
@@ -39,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html
+//
 type CfnLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the link.
 	//
 	// For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`.
@@ -60,12 +61,6 @@ type CfnLink interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-	//
-	// You can include the following variables in your template:
-	//
-	// - `$AccountName` is the name of the account
-	// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
-	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`.
 	LabelTemplate() *string
 	SetLabelTemplate(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -86,23 +81,20 @@ type CfnLink interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// An array of strings that define which types of data that the source account shares with the monitoring account.
-	//
-	// Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace` .
 	ResourceTypes() *[]*string
 	SetResourceTypes(val *[]*string)
 	// The ARN of the sink in the monitoring account that you want to link to.
-	//
-	// You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
 	SinkIdentifier() *string
 	SetSinkIdentifier(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to the link.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to the link.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -247,6 +239,7 @@ type CfnLink interface {
 type jsiiProxy_CfnLink struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLink) AttrArn() *string {
@@ -389,6 +382,16 @@ func (j *jsiiProxy_CfnLink) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLink) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLink) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -410,7 +413,6 @@ func (j *jsiiProxy_CfnLink) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Oam::Link`.
 func NewCfnLink(scope constructs.Construct, id *string, props *CfnLinkProps) CfnLink {
 	_init_.Initialize()
 
@@ -428,7 +430,6 @@ func NewCfnLink(scope constructs.Construct, id *string, props *CfnLinkProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::Oam::Link`.
 func NewCfnLink_Override(c CfnLink, scope constructs.Construct, id *string, props *CfnLinkProps) {
 	_init_.Initialize()
 
@@ -465,6 +466,14 @@ func (j *jsiiProxy_CfnLink)SetSinkIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"sinkIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLink)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

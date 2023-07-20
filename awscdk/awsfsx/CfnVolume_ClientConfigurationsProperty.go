@@ -15,10 +15,14 @@ package awsfsx
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-clientconfigurations.html
+//
 type CfnVolume_ClientConfigurationsProperty struct {
 	// A value that specifies who can mount the file system.
 	//
 	// You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` ). By default, Amazon FSx uses the wildcard character when specifying the client.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-clientconfigurations.html#cfn-fsx-volume-clientconfigurations-clients
+	//
 	Clients *string `field:"required" json:"clients" yaml:"clients"`
 	// The options to use when mounting the file system.
 	//
@@ -26,6 +30,8 @@ type CfnVolume_ClientConfigurationsProperty struct {
 	//
 	// - `crossmnt` is used by default. If you don't specify `crossmnt` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.
 	// - `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-clientconfigurations.html#cfn-fsx-volume-clientconfigurations-options
+	//
 	Options *[]*string `field:"required" json:"options" yaml:"options"`
 }
 

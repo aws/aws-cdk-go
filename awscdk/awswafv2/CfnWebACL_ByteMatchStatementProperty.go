@@ -82,8 +82,12 @@ package awswafv2
 //   	SearchStringBase64: jsii.String("searchStringBase64"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
+//
 type CfnWebACL_ByteMatchStatementProperty struct {
 	// The part of the web request that you want AWS WAF to inspect.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
+	//
 	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The area within the portion of the web request that you want AWS WAF to search for `SearchString` .
 	//
@@ -111,10 +115,14 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 	// *ENDS_WITH*
 	//
 	// The value of `SearchString` must appear at the end of the specified part of the web request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
+	//
 	PositionalConstraint *string `field:"required" json:"positionalConstraint" yaml:"positionalConstraint"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
+	//
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 	// A string value that you want AWS WAF to search for.
 	//
@@ -125,12 +133,16 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 	// For example, suppose the value of `Type` is `HEADER` and the value of `Data` is `User-Agent` . If you want to search the `User-Agent` header for the value `BadBot` , you provide the string `BadBot` in the value of `SearchString` .
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstring
+	//
 	SearchString *string `field:"optional" json:"searchString" yaml:"searchString"`
 	// String to search for in a web request component, base64-encoded.
 	//
 	// If you don't want to encode the string, specify the unencoded value in `SearchString` instead.
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstringbase64
+	//
 	SearchStringBase64 *string `field:"optional" json:"searchStringBase64" yaml:"searchStringBase64"`
 }
 

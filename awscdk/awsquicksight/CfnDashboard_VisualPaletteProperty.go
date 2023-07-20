@@ -24,10 +24,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualpalette.html
+//
 type CfnDashboard_VisualPaletteProperty struct {
 	// The chart color options for the visual palette.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualpalette.html#cfn-quicksight-dashboard-visualpalette-chartcolor
+	//
 	ChartColor *string `field:"optional" json:"chartColor" yaml:"chartColor"`
 	// The color map options for the visual palette.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualpalette.html#cfn-quicksight-dashboard-visualpalette-colormap
+	//
 	ColorMap interface{} `field:"optional" json:"colorMap" yaml:"colorMap"`
 }
 

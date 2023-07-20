@@ -66,10 +66,12 @@ book.AddMethod(jsii.String("DELETE"))
 To give an IAM User or Role permission to invoke a method, use `grantExecute`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-declareuser: iam.User;
-books := api.root.addResource(jsii.String("books"))
-books.grantExecute(user)
+var api restApi
+var user user
+
+
+method := api.Root.AddResource(jsii.String("books")).AddMethod(jsii.String("GET"))
+method.GrantExecute(user)
 ```
 
 ## AWS Lambda-backed APIs

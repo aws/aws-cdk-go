@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoT::DomainConfiguration`.
-//
 // Specifies a domain configuration.
 //
 // Example:
@@ -42,9 +40,12 @@ import (
 //   	ValidationCertificateArn: jsii.String("validationCertificateArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html
+//
 type CfnDomainConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the domain configuration.
 	AttrArn() *string
 	// The type of service delivered by the domain.
@@ -66,13 +67,9 @@ type CfnDomainConfiguration interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The name of the domain configuration.
-	//
-	// This value must be unique to a region.
 	DomainConfigurationName() *string
 	SetDomainConfigurationName(val *string)
 	// The status to which the domain configuration should be updated.
-	//
-	// Valid values: `ENABLED` | `DISABLED`.
 	DomainConfigurationStatus() *string
 	SetDomainConfigurationStatus(val *string)
 	// The name of the domain.
@@ -96,27 +93,20 @@ type CfnDomainConfiguration interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake.
-	//
-	// Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
 	ServerCertificateArns() *[]*string
 	SetServerCertificateArns(val *[]*string)
 	// The type of service delivered by the endpoint.
-	//
-	// > AWS IoT Core currently supports only the `DATA` service type.
 	ServiceType() *string
 	SetServiceType(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata which can be used to manage the domain configuration.
-	//
-	// > For URI Request parameters use format: ...key1=value1&key2=value2...
-	// >
-	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
-	// >
-	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata which can be used to manage the domain configuration.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// An object that specifies the TLS configuration for a domain.
 	TlsConfig() interface{}
 	SetTlsConfig(val interface{})
@@ -134,8 +124,6 @@ type CfnDomainConfiguration interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The certificate used to validate the server certificate and prove domain name ownership.
-	//
-	// This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
 	ValidationCertificateArn() *string
 	SetValidationCertificateArn(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -269,6 +257,7 @@ type CfnDomainConfiguration interface {
 type jsiiProxy_CfnDomainConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDomainConfiguration) AttrArn() *string {
@@ -451,6 +440,16 @@ func (j *jsiiProxy_CfnDomainConfiguration) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomainConfiguration) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomainConfiguration) TlsConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -492,7 +491,6 @@ func (j *jsiiProxy_CfnDomainConfiguration) ValidationCertificateArn() *string {
 }
 
 
-// Create a new `AWS::IoT::DomainConfiguration`.
 func NewCfnDomainConfiguration(scope constructs.Construct, id *string, props *CfnDomainConfigurationProps) CfnDomainConfiguration {
 	_init_.Initialize()
 
@@ -510,7 +508,6 @@ func NewCfnDomainConfiguration(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::IoT::DomainConfiguration`.
 func NewCfnDomainConfiguration_Override(c CfnDomainConfiguration, scope constructs.Construct, id *string, props *CfnDomainConfigurationProps) {
 	_init_.Initialize()
 
@@ -568,6 +565,17 @@ func (j *jsiiProxy_CfnDomainConfiguration)SetServiceType(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

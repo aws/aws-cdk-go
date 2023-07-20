@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnFirewall) validateSetSubnetMappingsParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnFirewall) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFirewall) validateSetVpcIdParameters(val *string) error {
 	return nil
 }

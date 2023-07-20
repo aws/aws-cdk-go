@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lambda::LayerVersionPermission`.
-//
 // The `AWS::Lambda::LayerVersionPermission` resource adds permissions to the resource-based policy of a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) . Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all accounts in an organization.
 //
 // > Since the release of the [UpdateReplacePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html) both `UpdateReplacePolicy` and `DeletionPolicy` are required to protect your Resources/LayerPermissions from deletion.
@@ -29,14 +27,15 @@ import (
 //   	OrganizationId: jsii.String("organizationId"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html
+//
 type CfnLayerVersionPermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The API action that grants access to the layer.
-	//
-	// For example, `lambda:GetLayerVersion` .
 	Action() *string
 	SetAction(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -65,8 +64,6 @@ type CfnLayerVersionPermission interface {
 	OrganizationId() *string
 	SetOrganizationId(val *string)
 	// An account ID, or `*` to grant layer usage permission to all accounts in an organization, or all AWS accounts (if `organizationId` is not specified).
-	//
-	// For the last case, make sure that you really do want all AWS accounts to have usage permission to this layer.
 	Principal() *string
 	SetPrincipal(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -234,6 +231,16 @@ func (j *jsiiProxy_CfnLayerVersionPermission) Action() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLayerVersionPermission) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLayerVersionPermission) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -365,7 +372,6 @@ func (j *jsiiProxy_CfnLayerVersionPermission) UpdatedProperties() *map[string]in
 }
 
 
-// Create a new `AWS::Lambda::LayerVersionPermission`.
 func NewCfnLayerVersionPermission(scope constructs.Construct, id *string, props *CfnLayerVersionPermissionProps) CfnLayerVersionPermission {
 	_init_.Initialize()
 
@@ -383,7 +389,6 @@ func NewCfnLayerVersionPermission(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::Lambda::LayerVersionPermission`.
 func NewCfnLayerVersionPermission_Override(c CfnLayerVersionPermission, scope constructs.Construct, id *string, props *CfnLayerVersionPermissionProps) {
 	_init_.Initialize()
 

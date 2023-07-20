@@ -14,8 +14,12 @@ package awsmedialive
 //   	Track: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html
+//
 type CfnChannel_AudioTrackProperty struct {
 	// 1-based integer value that maps to a specific audio track.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html#cfn-medialive-channel-audiotrack-track
+	//
 	Track *float64 `field:"optional" json:"track" yaml:"track"`
 }
 

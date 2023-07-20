@@ -13,10 +13,16 @@ package awsappsync
 //   	DomainName: jsii.String("domainName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html
+//
 type CfnDomainNameApiAssociationProps struct {
 	// The API ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html#cfn-appsync-domainnameapiassociation-apiid
+	//
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The domain name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html#cfn-appsync-domainnameapiassociation-domainname
+	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 

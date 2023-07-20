@@ -18,6 +18,8 @@ package awsquicksight
 //   	TimeZone: jsii.String("timeZone"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html
+//
 type CfnRefreshSchedule_ScheduleFrequencyProperty struct {
 	// The interval between scheduled refreshes. Valid values are as follows:.
 	//
@@ -27,18 +29,26 @@ type CfnRefreshSchedule_ScheduleFrequencyProperty struct {
 	// - `DAILY` : The dataset refreshes every day.
 	// - `WEEKLY` : The dataset refreshes every week.
 	// - `MONTHLY` : The dataset refreshes every month.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html#cfn-quicksight-refreshschedule-schedulefrequency-interval
+	//
 	Interval *string `field:"optional" json:"interval" yaml:"interval"`
 	// The day of the week that you want to schedule the refresh on.
 	//
 	// This value is required for weekly and monthly refresh intervals.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html#cfn-quicksight-refreshschedule-schedulefrequency-refreshonday
+	//
 	RefreshOnDay interface{} `field:"optional" json:"refreshOnDay" yaml:"refreshOnDay"`
 	// The time of day that you want the dataset to refresh.
 	//
 	// This value is expressed in HH:MM format. This field is not required for schedules that refresh hourly.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html#cfn-quicksight-refreshschedule-schedulefrequency-timeoftheday
+	//
 	TimeOfTheDay *string `field:"optional" json:"timeOfTheDay" yaml:"timeOfTheDay"`
 	// The timezone that you want the refresh schedule to use.
 	//
 	// The timezone ID must match a corresponding ID found on `java.util.time.getAvailableIDs()` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html#cfn-quicksight-refreshschedule-schedulefrequency-timezone
+	//
 	TimeZone *string `field:"optional" json:"timeZone" yaml:"timeZone"`
 }
 

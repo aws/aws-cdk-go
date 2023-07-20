@@ -17,10 +17,16 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-queryparameter.html
+//
 type CfnRoute_QueryParameterProperty struct {
 	// A name for the query parameter that will be matched on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-queryparameter.html#cfn-appmesh-route-queryparameter-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The query parameter to match on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-queryparameter.html#cfn-appmesh-route-queryparameter-match
+	//
 	Match interface{} `field:"optional" json:"match" yaml:"match"`
 }
 

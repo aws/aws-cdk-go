@@ -80,6 +80,10 @@ func validateCfnTransitGatewayRouteTable_IsConstructParameters(x interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRouteTable) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRouteTable) validateSetTransitGatewayIdParameters(val *string) error {
 	return nil
 }

@@ -13,10 +13,16 @@ package awsamplifyuibuilder
 //   	Property: jsii.String("property"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-formbindingelement.html
+//
 type CfnComponent_FormBindingElementProperty struct {
 	// The name of the component to retrieve a value from.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-formbindingelement.html#cfn-amplifyuibuilder-component-formbindingelement-element
+	//
 	Element *string `field:"required" json:"element" yaml:"element"`
 	// The property to retrieve a value from.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-formbindingelement.html#cfn-amplifyuibuilder-component-formbindingelement-property
+	//
 	Property *string `field:"required" json:"property" yaml:"property"`
 }
 

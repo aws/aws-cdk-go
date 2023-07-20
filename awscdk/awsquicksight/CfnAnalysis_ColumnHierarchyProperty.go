@@ -125,16 +125,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnhierarchy.html
+//
 type CfnAnalysis_ColumnHierarchyProperty struct {
 	// The option that determines the hierarchy of any `DateTime` fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnhierarchy.html#cfn-quicksight-analysis-columnhierarchy-datetimehierarchy
+	//
 	DateTimeHierarchy interface{} `field:"optional" json:"dateTimeHierarchy" yaml:"dateTimeHierarchy"`
 	// The option that determines the hierarchy of the fields that are built within a visual's field wells.
 	//
 	// These fields can't be duplicated to other visuals.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnhierarchy.html#cfn-quicksight-analysis-columnhierarchy-explicithierarchy
+	//
 	ExplicitHierarchy interface{} `field:"optional" json:"explicitHierarchy" yaml:"explicitHierarchy"`
 	// The option that determines the hierarchy of the fields that are defined during data preparation.
 	//
 	// These fields are available to use in any analysis that uses the data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnhierarchy.html#cfn-quicksight-analysis-columnhierarchy-predefinedhierarchy
+	//
 	PredefinedHierarchy interface{} `field:"optional" json:"predefinedHierarchy" yaml:"predefinedHierarchy"`
 }
 

@@ -36,30 +36,50 @@ package awsiot
 //   	RangeKeyValue: jsii.String("rangeKeyValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html
+//
 type CfnTopicRule_DynamoDBActionProperty struct {
 	// The hash key name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield
+	//
 	HashKeyField *string `field:"required" json:"hashKeyField" yaml:"hashKeyField"`
 	// The hash key value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyvalue
+	//
 	HashKeyValue *string `field:"required" json:"hashKeyValue" yaml:"hashKeyValue"`
 	// The ARN of the IAM role that grants access to the DynamoDB table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rolearn
+	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the DynamoDB table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-tablename
+	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// The hash key type.
 	//
 	// Valid values are "STRING" or "NUMBER".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeytype
+	//
 	HashKeyType *string `field:"optional" json:"hashKeyType" yaml:"hashKeyType"`
 	// The action payload.
 	//
 	// This name can be customized.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-payloadfield
+	//
 	PayloadField *string `field:"optional" json:"payloadField" yaml:"payloadField"`
 	// The range key name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield
+	//
 	RangeKeyField *string `field:"optional" json:"rangeKeyField" yaml:"rangeKeyField"`
 	// The range key type.
 	//
 	// Valid values are "STRING" or "NUMBER".
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeytype
+	//
 	RangeKeyType *string `field:"optional" json:"rangeKeyType" yaml:"rangeKeyType"`
 	// The range key value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue
+	//
 	RangeKeyValue *string `field:"optional" json:"rangeKeyValue" yaml:"rangeKeyValue"`
 }
 

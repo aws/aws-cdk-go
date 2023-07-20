@@ -13,10 +13,16 @@ package awslightsail
 //   	Variable: jsii.String("variable"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html
+//
 type CfnContainer_EnvironmentVariableProperty struct {
 	// The environment variable value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html#cfn-lightsail-container-environmentvariable-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 	// The environment variable key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html#cfn-lightsail-container-environmentvariable-variable
+	//
 	Variable *string `field:"optional" json:"variable" yaml:"variable"`
 }
 

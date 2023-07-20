@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataBrew::Schedule`.
+// Specifies a new schedule for one or more AWS Glue DataBrew jobs.
 //
-// Specifies a new schedule for one or more AWS Glue DataBrew jobs. Jobs can be run at a specific date and time, or at regular intervals.
+// Jobs can be run at a specific date and time, or at regular intervals.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html
+//
 type CfnSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -47,8 +50,6 @@ type CfnSchedule interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The dates and times when the job is to run.
-	//
-	// For more information, see [Working with cron expressions for recipe jobs](https://docs.aws.amazon.com/databrew/latest/dg/jobs.recipe.html#jobs.cron) in the *AWS Glue DataBrew Developer Guide* .
 	CronExpression() *string
 	SetCronExpression(val *string)
 	// A list of jobs to be run, according to the schedule.
@@ -78,8 +79,11 @@ type CfnSchedule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata tags that have been applied to the schedule.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata tags that have been applied to the schedule.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,6 +228,7 @@ type CfnSchedule interface {
 type jsiiProxy_CfnSchedule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSchedule) CfnOptions() awscdk.ICfnResourceOptions {
@@ -346,6 +351,16 @@ func (j *jsiiProxy_CfnSchedule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSchedule) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSchedule) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -367,7 +382,6 @@ func (j *jsiiProxy_CfnSchedule) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::DataBrew::Schedule`.
 func NewCfnSchedule(scope constructs.Construct, id *string, props *CfnScheduleProps) CfnSchedule {
 	_init_.Initialize()
 
@@ -385,7 +399,6 @@ func NewCfnSchedule(scope constructs.Construct, id *string, props *CfnSchedulePr
 	return &j
 }
 
-// Create a new `AWS::DataBrew::Schedule`.
 func NewCfnSchedule_Override(c CfnSchedule, scope constructs.Construct, id *string, props *CfnScheduleProps) {
 	_init_.Initialize()
 
@@ -422,6 +435,17 @@ func (j *jsiiProxy_CfnSchedule)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSchedule)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

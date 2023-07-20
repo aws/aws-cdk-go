@@ -12,8 +12,12 @@ package awscognito
 //   	AdvancedSecurityMode: jsii.String("advancedSecurityMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html
+//
 type CfnUserPool_UserPoolAddOnsProperty struct {
 	// The advanced security mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecuritymode
+	//
 	AdvancedSecurityMode *string `field:"optional" json:"advancedSecurityMode" yaml:"advancedSecurityMode"`
 }
 

@@ -12,10 +12,14 @@ package awsquicksight
 //   	PercentileValue: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-percentileaggregation.html
+//
 type CfnTemplate_PercentileAggregationProperty struct {
 	// The percentile value.
 	//
 	// This value can be any numeric constant 0–100. A percentile value of 50 computes the median value of the measure.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-percentileaggregation.html#cfn-quicksight-template-percentileaggregation-percentilevalue
+	//
 	PercentileValue *float64 `field:"optional" json:"percentileValue" yaml:"percentileValue"`
 }
 

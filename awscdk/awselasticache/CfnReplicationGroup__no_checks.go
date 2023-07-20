@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetReplicationGroupDescriptionPa
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicationGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnReplicationGroup) validateSetTransitEncryptionEnabledParameters(val interface{}) error {
 	return nil
 }

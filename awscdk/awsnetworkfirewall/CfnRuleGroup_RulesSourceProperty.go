@@ -113,20 +113,30 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html
+//
 type CfnRuleGroup_RulesSourceProperty struct {
 	// Stateful inspection criteria for a domain list rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulessourcelist
+	//
 	RulesSourceList interface{} `field:"optional" json:"rulesSourceList" yaml:"rulesSourceList"`
 	// Stateful inspection criteria, provided in Suricata compatible intrusion prevention system (IPS) rules.
 	//
 	// Suricata is an open-source network IPS that includes a standard rule-based language for network traffic inspection.
 	//
 	// These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring
+	//
 	RulesString *string `field:"optional" json:"rulesString" yaml:"rulesString"`
 	// An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
 	//
 	// Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
+	//
 	StatefulRules interface{} `field:"optional" json:"statefulRules" yaml:"statefulRules"`
 	// Stateless inspection criteria to be used in a stateless rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
+	//
 	StatelessRulesAndCustomActions interface{} `field:"optional" json:"statelessRulesAndCustomActions" yaml:"statelessRulesAndCustomActions"`
 }
 

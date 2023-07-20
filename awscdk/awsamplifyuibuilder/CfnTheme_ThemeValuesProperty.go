@@ -8,25 +8,28 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var themeValueProperty_ themeValueProperty
+//   var themeValuesProperty_ themeValuesProperty
 //
-//   themeValuesProperty := &ThemeValuesProperty{
+//   themeValuesProperty := &themeValuesProperty{
 //   	Key: jsii.String("key"),
-//   	Value: &themeValueProperty{
+//   	Value: &ThemeValueProperty{
 //   		Children: []interface{}{
-//   			&ThemeValuesProperty{
-//   				Key: jsii.String("key"),
-//   				Value: themeValueProperty_,
-//   			},
+//   			themeValuesProperty_,
 //   		},
 //   		Value: jsii.String("value"),
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html
+//
 type CfnTheme_ThemeValuesProperty struct {
 	// The name of the property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html#cfn-amplifyuibuilder-theme-themevalues-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value of the property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html#cfn-amplifyuibuilder-theme-themevalues-value
+	//
 	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

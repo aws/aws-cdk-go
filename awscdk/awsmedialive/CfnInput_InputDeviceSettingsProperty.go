@@ -14,8 +14,12 @@ package awsmedialive
 //   	Id: jsii.String("id"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicesettings.html
+//
 type CfnInput_InputDeviceSettingsProperty struct {
 	// The unique ID for the device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicesettings.html#cfn-medialive-input-inputdevicesettings-id
+	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
 }
 

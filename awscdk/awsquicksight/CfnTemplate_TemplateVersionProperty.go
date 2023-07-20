@@ -58,20 +58,34 @@ package awsquicksight
 //   	VersionNumber: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html
+//
 type CfnTemplate_TemplateVersionProperty struct {
 	// The time that this template version was created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-createdtime
+	//
 	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// Schema of the dataset identified by the placeholder.
 	//
 	// Any dashboard created from this template should be bound to new datasets matching the same schema described through this API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-datasetconfigurations
+	//
 	DataSetConfigurations interface{} `field:"optional" json:"dataSetConfigurations" yaml:"dataSetConfigurations"`
 	// The description of the template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Errors associated with this template version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-errors
+	//
 	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
 	// A list of the associated sheets with the unique identifier and name of each sheet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-sheets
+	//
 	Sheets interface{} `field:"optional" json:"sheets" yaml:"sheets"`
 	// The Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-sourceentityarn
+	//
 	SourceEntityArn *string `field:"optional" json:"sourceEntityArn" yaml:"sourceEntityArn"`
 	// The status that is associated with the template.
 	//
@@ -82,10 +96,16 @@ type CfnTemplate_TemplateVersionProperty struct {
 	// - `UPDATE_SUCCESSFUL`
 	// - `UPDATE_FAILED`
 	// - `DELETED`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-status
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// The ARN of the theme associated with this version of the template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-themearn
+	//
 	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`
 	// The version number of the template version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-versionnumber
+	//
 	VersionNumber *float64 `field:"optional" json:"versionNumber" yaml:"versionNumber"`
 }
 

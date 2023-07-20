@@ -11,10 +11,20 @@ package awsfinspace
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-attributemapitems.html
+//
 type CfnEnvironment_AttributeMapItemsProperty struct {
-	// `CfnEnvironment.AttributeMapItemsProperty.Key`.
+	// The key name of the tag.
+	//
+	// You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-attributemapitems.html#cfn-finspace-environment-attributemapitems-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
-	// `CfnEnvironment.AttributeMapItemsProperty.Value`.
+	// The value for the tag.
+	//
+	// You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-attributemapitems.html#cfn-finspace-environment-attributemapitems-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

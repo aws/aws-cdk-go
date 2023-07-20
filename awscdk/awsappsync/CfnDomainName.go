@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppSync::DomainName`.
-//
 // The `AWS::AppSync::DomainName` resource creates a `DomainNameConfig` object to configure a custom domain.
 //
 // Example:
@@ -26,6 +24,8 @@ import (
 //   	Description: jsii.String("description"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html
+//
 type CfnDomainName interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -36,8 +36,6 @@ type CfnDomainName interface {
 	// The ID of your Amazon Route 53 hosted zone.
 	AttrHostedZoneId() *string
 	// The Amazon Resource Name (ARN) of the certificate.
-	//
-	// This will be an AWS Certificate Manager certificate.
 	CertificateArn() *string
 	SetCertificateArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -383,7 +381,6 @@ func (j *jsiiProxy_CfnDomainName) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::AppSync::DomainName`.
 func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNameProps) CfnDomainName {
 	_init_.Initialize()
 
@@ -401,7 +398,6 @@ func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNa
 	return &j
 }
 
-// Create a new `AWS::AppSync::DomainName`.
 func NewCfnDomainName_Override(c CfnDomainName, scope constructs.Construct, id *string, props *CfnDomainNameProps) {
 	_init_.Initialize()
 

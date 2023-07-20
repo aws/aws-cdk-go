@@ -16,20 +16,29 @@ package awsmedialive
 //   	SurroundTrim: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html
+//
 type CfnChannel_Eac3AtmosSettingsProperty struct {
-	// `CfnChannel.Eac3AtmosSettingsProperty.Bitrate`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-bitrate
+	//
 	Bitrate *float64 `field:"optional" json:"bitrate" yaml:"bitrate"`
-	// `CfnChannel.Eac3AtmosSettingsProperty.CodingMode`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-codingmode
+	//
 	CodingMode *string `field:"optional" json:"codingMode" yaml:"codingMode"`
-	// `CfnChannel.Eac3AtmosSettingsProperty.Dialnorm`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-dialnorm
+	//
 	Dialnorm *float64 `field:"optional" json:"dialnorm" yaml:"dialnorm"`
-	// `CfnChannel.Eac3AtmosSettingsProperty.DrcLine`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-drcline
+	//
 	DrcLine *string `field:"optional" json:"drcLine" yaml:"drcLine"`
-	// `CfnChannel.Eac3AtmosSettingsProperty.DrcRf`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-drcrf
+	//
 	DrcRf *string `field:"optional" json:"drcRf" yaml:"drcRf"`
-	// `CfnChannel.Eac3AtmosSettingsProperty.HeightTrim`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-heighttrim
+	//
 	HeightTrim *float64 `field:"optional" json:"heightTrim" yaml:"heightTrim"`
-	// `CfnChannel.Eac3AtmosSettingsProperty.SurroundTrim`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-surroundtrim
+	//
 	SurroundTrim *float64 `field:"optional" json:"surroundTrim" yaml:"surroundTrim"`
 }
 

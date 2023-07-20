@@ -20,6 +20,8 @@ package awslocation
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
+//
 type CfnPlaceIndexProps struct {
 	// Specifies the geospatial data provider for the new place index.
 	//
@@ -34,6 +36,8 @@ type CfnPlaceIndexProps struct {
 	// > If you specify HERE Technologies ( `Here` ) as the data provider, you may not [store results](https://docs.aws.amazon.com//location-places/latest/APIReference/API_DataSourceConfiguration.html) for locations in Japan. For more information, see the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
 	//
 	// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
+	//
 	DataSource *string `field:"required" json:"dataSource" yaml:"dataSource"`
 	// The name of the place index resource.
 	//
@@ -42,14 +46,22 @@ type CfnPlaceIndexProps struct {
 	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique place index resource name.
 	// - No spaces allowed. For example, `ExamplePlaceIndex` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
+	//
 	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
 	// Specifies the data storage option requesting Places.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
+	//
 	DataSourceConfiguration interface{} `field:"optional" json:"dataSourceConfiguration" yaml:"dataSourceConfiguration"`
 	// The optional description for the place index resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
 	//
 	// *Allowed Values* : `RequestBasedUsage`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
+	//
 	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
 }
 

@@ -80,6 +80,10 @@ func validateCfnContactList_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnContactList) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnContactList) validateSetTopicsParameters(val interface{}) error {
 	return nil
 }

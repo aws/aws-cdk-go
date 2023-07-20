@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::CarrierGateway`.
+// Creates a carrier gateway.
 //
-// Creates a carrier gateway. For more information about carrier gateways, see [Carrier gateways](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway) in the *AWS Wavelength Developer Guide* .
+// For more information about carrier gateways, see [Carrier gateways](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway) in the *AWS Wavelength Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,9 +30,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
+//
 type CfnCarrierGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ID of the carrier gateway.
 	AttrCarrierGatewayId() *string
 	// The AWS account ID of the owner of the carrier gateway.
@@ -69,8 +72,11 @@ type CfnCarrierGateway interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags assigned to the carrier gateway.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags assigned to the carrier gateway.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -218,6 +224,7 @@ type CfnCarrierGateway interface {
 type jsiiProxy_CfnCarrierGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnCarrierGateway) AttrCarrierGatewayId() *string {
@@ -340,6 +347,16 @@ func (j *jsiiProxy_CfnCarrierGateway) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCarrierGateway) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCarrierGateway) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -371,7 +388,6 @@ func (j *jsiiProxy_CfnCarrierGateway) VpcId() *string {
 }
 
 
-// Create a new `AWS::EC2::CarrierGateway`.
 func NewCfnCarrierGateway(scope constructs.Construct, id *string, props *CfnCarrierGatewayProps) CfnCarrierGateway {
 	_init_.Initialize()
 
@@ -389,7 +405,6 @@ func NewCfnCarrierGateway(scope constructs.Construct, id *string, props *CfnCarr
 	return &j
 }
 
-// Create a new `AWS::EC2::CarrierGateway`.
 func NewCfnCarrierGateway_Override(c CfnCarrierGateway, scope constructs.Construct, id *string, props *CfnCarrierGatewayProps) {
 	_init_.Initialize()
 
@@ -397,6 +412,17 @@ func NewCfnCarrierGateway_Override(c CfnCarrierGateway, scope constructs.Constru
 		"aws-cdk-lib.aws_ec2.CfnCarrierGateway",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCarrierGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
+		val,
 	)
 }
 

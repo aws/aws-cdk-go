@@ -14,8 +14,12 @@ package awsmedialive
 //   	StreamName: jsii.String("streamName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdestinationrequest.html
+//
 type CfnInput_InputDestinationRequestProperty struct {
 	// The stream name (application name/application instance) for the location the RTMP source content will be pushed to in MediaLive.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdestinationrequest.html#cfn-medialive-input-inputdestinationrequest-streamname
+	//
 	StreamName *string `field:"optional" json:"streamName" yaml:"streamName"`
 }
 

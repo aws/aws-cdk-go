@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnInAppTemplate) validateSetContentParameters(val interface{
 	return nil
 }
 
-func (j *jsiiProxy_CfnInAppTemplate) validateSetCustomConfigParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnInAppTemplate) validateSetTemplateNameParameters(val *string) error {
 	return nil
 }

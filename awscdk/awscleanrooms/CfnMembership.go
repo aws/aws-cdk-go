@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CleanRooms::Membership`.
-//
 // Creates a membership for a specific collaboration identifier and joins the collaboration.
 //
 // Example:
@@ -30,6 +28,8 @@ import (
 //   		},
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html
 //
 type CfnMembership interface {
 	awscdk.CfnResource
@@ -87,9 +87,8 @@ type CfnMembership interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An optional label that you can assign to a resource when you create it.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
-	Tags() awscdk.TagManager
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -376,8 +375,8 @@ func (j *jsiiProxy_CfnMembership) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMembership) Tags() awscdk.TagManager {
-	var returns awscdk.TagManager
+func (j *jsiiProxy_CfnMembership) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -407,7 +406,6 @@ func (j *jsiiProxy_CfnMembership) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::CleanRooms::Membership`.
 func NewCfnMembership(scope constructs.Construct, id *string, props *CfnMembershipProps) CfnMembership {
 	_init_.Initialize()
 
@@ -425,7 +423,6 @@ func NewCfnMembership(scope constructs.Construct, id *string, props *CfnMembersh
 	return &j
 }
 
-// Create a new `AWS::CleanRooms::Membership`.
 func NewCfnMembership_Override(c CfnMembership, scope constructs.Construct, id *string, props *CfnMembershipProps) {
 	_init_.Initialize()
 
@@ -454,6 +451,17 @@ func (j *jsiiProxy_CfnMembership)SetQueryLogStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"queryLogStatus",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMembership)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

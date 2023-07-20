@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::PinpointEmail::DedicatedIpPool`.
-//
 // A request to create a new dedicated IP pool.
 //
 // Example:
@@ -28,9 +26,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html
+//
 type CfnDedicatedIpPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -213,6 +214,16 @@ type jsiiProxy_CfnDedicatedIpPool struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnDedicatedIpPool) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDedicatedIpPool) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -334,7 +345,6 @@ func (j *jsiiProxy_CfnDedicatedIpPool) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::PinpointEmail::DedicatedIpPool`.
 func NewCfnDedicatedIpPool(scope constructs.Construct, id *string, props *CfnDedicatedIpPoolProps) CfnDedicatedIpPool {
 	_init_.Initialize()
 
@@ -352,7 +362,6 @@ func NewCfnDedicatedIpPool(scope constructs.Construct, id *string, props *CfnDed
 	return &j
 }
 
-// Create a new `AWS::PinpointEmail::DedicatedIpPool`.
 func NewCfnDedicatedIpPool_Override(c CfnDedicatedIpPool, scope constructs.Construct, id *string, props *CfnDedicatedIpPoolProps) {
 	_init_.Initialize()
 

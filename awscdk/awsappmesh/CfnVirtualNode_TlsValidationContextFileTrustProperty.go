@@ -12,8 +12,12 @@ package awsappmesh
 //   	CertificateChain: jsii.String("certificateChain"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html
+//
 type CfnVirtualNode_TlsValidationContextFileTrustProperty struct {
 	// The certificate trust chain for a certificate stored on the file system of the virtual node that the proxy is running on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html#cfn-appmesh-virtualnode-tlsvalidationcontextfiletrust-certificatechain
+	//
 	CertificateChain *string `field:"required" json:"certificateChain" yaml:"certificateChain"`
 }
 

@@ -52,10 +52,16 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html
+//
 type CfnModelPackage_ValidationProfileProperty struct {
 	// The name of the profile for the model package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html#cfn-sagemaker-modelpackage-validationprofile-profilename
+	//
 	ProfileName *string `field:"required" json:"profileName" yaml:"profileName"`
 	// The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html#cfn-sagemaker-modelpackage-validationprofile-transformjobdefinition
+	//
 	TransformJobDefinition interface{} `field:"required" json:"transformJobDefinition" yaml:"transformJobDefinition"`
 }
 

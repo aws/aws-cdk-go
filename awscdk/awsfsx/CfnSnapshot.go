@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::FSx::Snapshot`.
-//
 // A snapshot of an Amazon FSx for OpenZFS volume.
 //
 // Example:
@@ -31,9 +29,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-snapshot.html
+//
 type CfnSnapshot interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
+	AttrId() *string
 	// Returns the snapshot's Amazon Resource Name (ARN).
 	//
 	// Example: `arn:aws:fsx:us-east-2:111133334444:snapshot/fsvol-01234567890123456/fsvolsnap-0123456789abcedf5`.
@@ -71,10 +73,11 @@ type CfnSnapshot interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -222,6 +225,17 @@ type CfnSnapshot interface {
 type jsiiProxy_CfnSnapshot struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnSnapshot) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnSnapshot) AttrResourceArn() *string {
@@ -334,6 +348,16 @@ func (j *jsiiProxy_CfnSnapshot) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSnapshot) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSnapshot) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -365,7 +389,6 @@ func (j *jsiiProxy_CfnSnapshot) VolumeId() *string {
 }
 
 
-// Create a new `AWS::FSx::Snapshot`.
 func NewCfnSnapshot(scope constructs.Construct, id *string, props *CfnSnapshotProps) CfnSnapshot {
 	_init_.Initialize()
 
@@ -383,7 +406,6 @@ func NewCfnSnapshot(scope constructs.Construct, id *string, props *CfnSnapshotPr
 	return &j
 }
 
-// Create a new `AWS::FSx::Snapshot`.
 func NewCfnSnapshot_Override(c CfnSnapshot, scope constructs.Construct, id *string, props *CfnSnapshotProps) {
 	_init_.Initialize()
 
@@ -401,6 +423,17 @@ func (j *jsiiProxy_CfnSnapshot)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSnapshot)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

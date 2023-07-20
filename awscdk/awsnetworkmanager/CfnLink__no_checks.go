@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnLink) validateSetSiteIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLink) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLinkParameters(scope constructs.Construct, id *string, props *CfnLinkProps) error {
 	return nil
 }

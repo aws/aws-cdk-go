@@ -12,10 +12,14 @@ package awsdatabrew
 //   	SourceArn: jsii.String("sourceArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-metadata.html
+//
 type CfnDataset_MetadataProperty struct {
 	// The Amazon Resource Name (ARN) associated with the dataset.
 	//
 	// Currently, DataBrew only supports ARNs from Amazon AppFlow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-metadata.html#cfn-databrew-dataset-metadata-sourcearn
+	//
 	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 }
 

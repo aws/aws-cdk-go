@@ -18,10 +18,16 @@ package awsiotwireless
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html
+//
 type CfnWirelessDevice_AbpV11Property struct {
 	// The DevAddr value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
+	//
 	DevAddr *string `field:"required" json:"devAddr" yaml:"devAddr"`
 	// Session keys for ABP v1.1.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys
+	//
 	SessionKeys interface{} `field:"required" json:"sessionKeys" yaml:"sessionKeys"`
 }
 

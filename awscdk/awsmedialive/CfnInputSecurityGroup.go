@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaLive::InputSecurityGroup`.
-//
 // The AWS::MediaLive::InputSecurityGroup is a MediaLive resource type that creates an input security group.
 //
 // A MediaLive input security group is associated with a MediaLive input. The input security group is an "allow list" of IP addresses that controls whether an external IP address can push content to the associated MediaLive input.
@@ -31,13 +29,17 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-inputsecuritygroup.html
+//
 type CfnInputSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the MediaLive input security group.
 	//
 	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:inputSecurityGroup:1234567.
 	AttrArn() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -68,10 +70,11 @@ type CfnInputSecurityGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of tags for this input security group.
-	//
-	// Each tag is a key-value pair.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A collection of tags for this input security group.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -219,6 +222,7 @@ type CfnInputSecurityGroup interface {
 type jsiiProxy_CfnInputSecurityGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnInputSecurityGroup) AttrArn() *string {
@@ -226,6 +230,16 @@ func (j *jsiiProxy_CfnInputSecurityGroup) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInputSecurityGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -321,6 +335,16 @@ func (j *jsiiProxy_CfnInputSecurityGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInputSecurityGroup) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInputSecurityGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -352,7 +376,6 @@ func (j *jsiiProxy_CfnInputSecurityGroup) WhitelistRules() interface{} {
 }
 
 
-// Create a new `AWS::MediaLive::InputSecurityGroup`.
 func NewCfnInputSecurityGroup(scope constructs.Construct, id *string, props *CfnInputSecurityGroupProps) CfnInputSecurityGroup {
 	_init_.Initialize()
 
@@ -370,7 +393,6 @@ func NewCfnInputSecurityGroup(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::MediaLive::InputSecurityGroup`.
 func NewCfnInputSecurityGroup_Override(c CfnInputSecurityGroup, scope constructs.Construct, id *string, props *CfnInputSecurityGroupProps) {
 	_init_.Initialize()
 
@@ -378,6 +400,14 @@ func NewCfnInputSecurityGroup_Override(c CfnInputSecurityGroup, scope constructs
 		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnInputSecurityGroup)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
+		val,
 	)
 }
 

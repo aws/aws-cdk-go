@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::Device`.
+// The `AWS::SageMaker::Device` resource is an Amazon SageMaker resource type that allows you to register your Devices against an existing SageMaker Edge Manager DeviceFleet.
 //
-// The `AWS::SageMaker::Device` resource is an Amazon SageMaker resource type that allows you to register your Devices against an existing SageMaker Edge Manager DeviceFleet. Each device must be listed individually in the CFN specification.
+// Each device must be listed individually in the CFN specification.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,9 +37,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
+//
 type CfnDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -76,10 +79,11 @@ type CfnDevice interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs that contain metadata to help you categorize and organize your devices.
-	//
-	// Each tag consists of a key and a value, both of which you define.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs that contain metadata to help you categorize and organize your devices.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,6 +228,7 @@ type CfnDevice interface {
 type jsiiProxy_CfnDevice struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnDevice) CfnOptions() awscdk.ICfnResourceOptions {
@@ -336,6 +341,16 @@ func (j *jsiiProxy_CfnDevice) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDevice) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDevice) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -357,7 +372,6 @@ func (j *jsiiProxy_CfnDevice) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::SageMaker::Device`.
 func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps) CfnDevice {
 	_init_.Initialize()
 
@@ -375,7 +389,6 @@ func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps)
 	return &j
 }
 
-// Create a new `AWS::SageMaker::Device`.
 func NewCfnDevice_Override(c CfnDevice, scope constructs.Construct, id *string, props *CfnDeviceProps) {
 	_init_.Initialize()
 
@@ -404,6 +417,17 @@ func (j *jsiiProxy_CfnDevice)SetDeviceFleetName(val *string) {
 	_jsii_.Set(
 		j,
 		"deviceFleetName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDevice)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

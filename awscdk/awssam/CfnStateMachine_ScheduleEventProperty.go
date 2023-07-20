@@ -13,10 +13,14 @@ package awssam
 //   	Input: jsii.String("input"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-scheduleevent.html
+//
 type CfnStateMachine_ScheduleEventProperty struct {
-	// `CfnStateMachine.ScheduleEventProperty.Schedule`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-scheduleevent.html#cfn-serverless-statemachine-scheduleevent-schedule
+	//
 	Schedule *string `field:"required" json:"schedule" yaml:"schedule"`
-	// `CfnStateMachine.ScheduleEventProperty.Input`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-statemachine-scheduleevent.html#cfn-serverless-statemachine-scheduleevent-input
+	//
 	Input *string `field:"optional" json:"input" yaml:"input"`
 }
 

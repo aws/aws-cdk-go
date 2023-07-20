@@ -49,16 +49,26 @@ package awsemr
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scalingrule.html
+//
 type CfnCluster_ScalingRuleProperty struct {
 	// The conditions that trigger an automatic scaling activity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scalingrule.html#cfn-emr-cluster-scalingrule-action
+	//
 	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// The name used to identify an automatic scaling rule.
 	//
 	// Rule names must be unique within a scaling policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scalingrule.html#cfn-emr-cluster-scalingrule-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scalingrule.html#cfn-emr-cluster-scalingrule-trigger
+	//
 	Trigger interface{} `field:"required" json:"trigger" yaml:"trigger"`
 	// A friendly, more verbose description of the automatic scaling rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scalingrule.html#cfn-emr-cluster-scalingrule-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

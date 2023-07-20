@@ -22,10 +22,16 @@ package awsiot
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html
+//
 type CfnSecurityProfile_MetricToRetainProperty struct {
 	// A standard of measurement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric
+	//
 	Metric *string `field:"required" json:"metric" yaml:"metric"`
 	// The dimension of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension
+	//
 	MetricDimension interface{} `field:"optional" json:"metricDimension" yaml:"metricDimension"`
 }
 

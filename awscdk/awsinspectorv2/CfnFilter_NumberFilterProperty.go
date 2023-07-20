@@ -13,10 +13,16 @@ package awsinspectorv2
 //   	UpperInclusive: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-numberfilter.html
+//
 type CfnFilter_NumberFilterProperty struct {
 	// The lowest number to be included in the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-numberfilter.html#cfn-inspectorv2-filter-numberfilter-lowerinclusive
+	//
 	LowerInclusive *float64 `field:"optional" json:"lowerInclusive" yaml:"lowerInclusive"`
 	// The highest number to be included in the filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-numberfilter.html#cfn-inspectorv2-filter-numberfilter-upperinclusive
+	//
 	UpperInclusive *float64 `field:"optional" json:"upperInclusive" yaml:"upperInclusive"`
 }
 

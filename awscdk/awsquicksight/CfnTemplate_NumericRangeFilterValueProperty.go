@@ -13,10 +13,16 @@ package awsquicksight
 //   	StaticValue: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefiltervalue.html
+//
 type CfnTemplate_NumericRangeFilterValueProperty struct {
 	// The parameter that is used in the numeric range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefiltervalue.html#cfn-quicksight-template-numericrangefiltervalue-parameter
+	//
 	Parameter *string `field:"optional" json:"parameter" yaml:"parameter"`
 	// The static value of the numeric range filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefiltervalue.html#cfn-quicksight-template-numericrangefiltervalue-staticvalue
+	//
 	StaticValue *float64 `field:"optional" json:"staticValue" yaml:"staticValue"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::KendraRanking::ExecutionPlan`.
+// Creates a rescore execution plan.
 //
-// Creates a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the `Rescore` API. You set the number of capacity units that you require for Amazon Kendra Intelligent Ranking to rescore or re-rank a search service's results.
+// A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the `Rescore` API. You set the number of capacity units that you require for Amazon Kendra Intelligent Ranking to rescore or re-rank a search service's results.
 //
 // For an example of using the `CreateRescoreExecutionPlan` API, including using the Python and Java SDKs, see [Semantically ranking a search service's results](https://docs.aws.amazon.com/kendra/latest/dg/search-service-rerank.html) .
 //
@@ -36,16 +36,17 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendraranking-executionplan.html
+//
 type CfnExecutionPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the rescore execution plan.
 	AttrArn() *string
 	// The identifier of the rescore execution plan.
 	AttrId() *string
 	// You can set additional capacity units to meet the needs of your rescore execution plan.
-	//
-	// You are given a single capacity unit by default. If you want to use the default capacity, you don't set additional capacity units. For more information on the default capacity and additional capacity units, see [Adjusting capacity](https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html) .
 	CapacityUnits() interface{}
 	SetCapacityUnits(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -84,10 +85,11 @@ type CfnExecutionPlan interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pairs that identify or categorize your rescore execution plan.
-	//
-	// You can also use tags to help control access to the rescore execution plan. Tag keys and values can consist of Unicode letters, digits, white space. They can also consist of underscore, period, colon, equal, plus, and asperand.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key-value pairs that identify or categorize your rescore execution plan.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +234,7 @@ type CfnExecutionPlan interface {
 type jsiiProxy_CfnExecutionPlan struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnExecutionPlan) AttrArn() *string {
@@ -374,6 +377,16 @@ func (j *jsiiProxy_CfnExecutionPlan) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnExecutionPlan) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnExecutionPlan) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -395,7 +408,6 @@ func (j *jsiiProxy_CfnExecutionPlan) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::KendraRanking::ExecutionPlan`.
 func NewCfnExecutionPlan(scope constructs.Construct, id *string, props *CfnExecutionPlanProps) CfnExecutionPlan {
 	_init_.Initialize()
 
@@ -413,7 +425,6 @@ func NewCfnExecutionPlan(scope constructs.Construct, id *string, props *CfnExecu
 	return &j
 }
 
-// Create a new `AWS::KendraRanking::ExecutionPlan`.
 func NewCfnExecutionPlan_Override(c CfnExecutionPlan, scope constructs.Construct, id *string, props *CfnExecutionPlanProps) {
 	_init_.Initialize()
 
@@ -450,6 +461,17 @@ func (j *jsiiProxy_CfnExecutionPlan)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnExecutionPlan)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -20,6 +20,8 @@ package awsnetworkfirewall
 //   	LogType: jsii.String("logType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html
+//
 type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 	// The named location for the logs, provided in a key:value mapping that is specific to the chosen destination type.
 	//
@@ -32,14 +34,20 @@ type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 	// - For a Kinesis Data Firehose delivery stream, provide the name of the delivery stream, with key `deliveryStream` . The following example specifies a delivery stream named `alert-delivery-stream` :
 	//
 	// `"LogDestination": { "deliveryStream": "alert-delivery-stream" }`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestination
+	//
 	LogDestination interface{} `field:"required" json:"logDestination" yaml:"logDestination"`
 	// The type of storage destination to send these logs to.
 	//
 	// You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestinationtype
+	//
 	LogDestinationType *string `field:"required" json:"logDestinationType" yaml:"logDestinationType"`
 	// The type of log to send.
 	//
 	// Alert logs report traffic that matches a stateful rule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logtype
+	//
 	LogType *string `field:"required" json:"logType" yaml:"logType"`
 }
 

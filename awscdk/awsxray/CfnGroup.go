@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::XRay::Group`.
+// Use the `AWS::XRay::Group` resource to specify a group with a name and a filter expression.
 //
-// Use the `AWS::XRay::Group` resource to specify a group with a name and a filter expression. Groups enable the collection of traces that match the filter expression, can be used to filter service graphs and traces, and to supply Amazon CloudWatch metrics.
+// Groups enable the collection of traces that match the filter expression, can be used to filter service graphs and traces, and to supply Amazon CloudWatch metrics.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,6 +34,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html
+//
 type CfnGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -55,9 +57,6 @@ type CfnGroup interface {
 	GroupName() *string
 	SetGroupName(val *string)
 	// The structure containing configurations related to insights.
-	//
-	// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
-	// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
 	InsightsConfiguration() interface{}
 	SetInsightsConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -381,7 +380,6 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::XRay::Group`.
 func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
@@ -399,7 +397,6 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 	return &j
 }
 
-// Create a new `AWS::XRay::Group`.
 func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 

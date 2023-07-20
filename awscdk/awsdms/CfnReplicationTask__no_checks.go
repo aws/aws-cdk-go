@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnReplicationTask) validateSetTableMappingsParameters(val *s
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicationTask) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnReplicationTask) validateSetTargetEndpointArnParameters(val *string) error {
 	return nil
 }

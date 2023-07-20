@@ -29,10 +29,16 @@ package awsaccessanalyzer
 //   	RuleName: jsii.String("ruleName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
+//
 type CfnAnalyzer_ArchiveRuleProperty struct {
 	// The criteria for the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
+	//
 	Filter interface{} `field:"required" json:"filter" yaml:"filter"`
 	// The name of the archive rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
+	//
 	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
 }
 

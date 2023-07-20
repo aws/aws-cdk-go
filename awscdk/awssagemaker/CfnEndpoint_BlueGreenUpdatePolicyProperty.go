@@ -31,16 +31,24 @@ package awssagemaker
 //   	TerminationWaitInSeconds: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html
+//
 type CfnEndpoint_BlueGreenUpdatePolicyProperty struct {
 	// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-trafficroutingconfiguration
+	//
 	TrafficRoutingConfiguration interface{} `field:"required" json:"trafficRoutingConfiguration" yaml:"trafficRoutingConfiguration"`
 	// Maximum execution timeout for the deployment.
 	//
 	// Note that the timeout value should be larger than the total waiting time specified in `TerminationWaitInSeconds` and `WaitIntervalInSeconds` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-maximumexecutiontimeoutinseconds
+	//
 	MaximumExecutionTimeoutInSeconds *float64 `field:"optional" json:"maximumExecutionTimeoutInSeconds" yaml:"maximumExecutionTimeoutInSeconds"`
 	// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet.
 	//
 	// Default is 0.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-terminationwaitinseconds
+	//
 	TerminationWaitInSeconds *float64 `field:"optional" json:"terminationWaitInSeconds" yaml:"terminationWaitInSeconds"`
 }
 

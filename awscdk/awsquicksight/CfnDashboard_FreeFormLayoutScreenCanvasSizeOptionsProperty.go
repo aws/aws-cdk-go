@@ -12,8 +12,12 @@ package awsquicksight
 //   	OptimizedViewPortWidth: jsii.String("optimizedViewPortWidth"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutscreencanvassizeoptions.html
+//
 type CfnDashboard_FreeFormLayoutScreenCanvasSizeOptionsProperty struct {
 	// The width that the view port will be optimized for when the layout renders.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutscreencanvassizeoptions.html#cfn-quicksight-dashboard-freeformlayoutscreencanvassizeoptions-optimizedviewportwidth
+	//
 	OptimizedViewPortWidth *string `field:"required" json:"optimizedViewPortWidth" yaml:"optimizedViewPortWidth"`
 }
 

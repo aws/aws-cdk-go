@@ -19,8 +19,12 @@ package awswisdom
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html
+//
 type CfnKnowledgeBase_SourceConfigurationProperty struct {
 	// Configuration information for Amazon AppIntegrations to automatically ingest content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html#cfn-wisdom-knowledgebase-sourceconfiguration-appintegrations
+	//
 	AppIntegrations interface{} `field:"required" json:"appIntegrations" yaml:"appIntegrations"`
 }
 

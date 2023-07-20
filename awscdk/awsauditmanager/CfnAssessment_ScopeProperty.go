@@ -23,10 +23,16 @@ package awsauditmanager
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
+//
 type CfnAssessment_ScopeProperty struct {
 	// The AWS accounts that are included in the scope of the assessment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+	//
 	AwsAccounts interface{} `field:"optional" json:"awsAccounts" yaml:"awsAccounts"`
 	// The AWS services that are included in the scope of the assessment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+	//
 	AwsServices interface{} `field:"optional" json:"awsServices" yaml:"awsServices"`
 }
 

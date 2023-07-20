@@ -13,12 +13,18 @@ package awsssm
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
+//
 type CfnDocument_DocumentRequiresProperty struct {
 	// The name of the required SSM document.
 	//
 	// The name can be an Amazon Resource Name (ARN).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The document version required by the current document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

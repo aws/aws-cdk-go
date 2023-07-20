@@ -12,8 +12,12 @@ package awsnimblestudio
 //   	Endpoint: jsii.String("endpoint"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html
+//
 type CfnStudioComponent_LicenseServiceConfigurationProperty struct {
 	// The endpoint of the license service that is accessed by the studio component resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html#cfn-nimblestudio-studiocomponent-licenseserviceconfiguration-endpoint
+	//
 	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 }
 

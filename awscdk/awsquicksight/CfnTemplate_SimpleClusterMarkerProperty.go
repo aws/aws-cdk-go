@@ -12,8 +12,12 @@ package awsquicksight
 //   	Color: jsii.String("color"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-simpleclustermarker.html
+//
 type CfnTemplate_SimpleClusterMarkerProperty struct {
 	// The color of the simple cluster marker.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-simpleclustermarker.html#cfn-quicksight-template-simpleclustermarker-color
+	//
 	Color *string `field:"optional" json:"color" yaml:"color"`
 }
 

@@ -22,10 +22,14 @@ package awsemr
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-managedscalingpolicy.html
+//
 type CfnCluster_ManagedScalingPolicyProperty struct {
 	// The Amazon EC2 unit limits for a managed scaling policy.
 	//
 	// The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-managedscalingpolicy.html#cfn-emr-cluster-managedscalingpolicy-computelimits
+	//
 	ComputeLimits interface{} `field:"optional" json:"computeLimits" yaml:"computeLimits"`
 }
 

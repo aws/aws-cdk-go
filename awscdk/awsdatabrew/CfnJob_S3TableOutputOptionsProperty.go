@@ -18,8 +18,12 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html
+//
 type CfnJob_S3TableOutputOptionsProperty struct {
 	// Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
+	//
 	Location interface{} `field:"required" json:"location" yaml:"location"`
 }
 

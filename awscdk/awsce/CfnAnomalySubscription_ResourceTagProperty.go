@@ -15,10 +15,16 @@ package awsce
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-resourcetag.html
+//
 type CfnAnomalySubscription_ResourceTagProperty struct {
 	// The key that's associated with the tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-resourcetag.html#cfn-ce-anomalysubscription-resourcetag-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value that's associated with the tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-resourcetag.html#cfn-ce-anomalysubscription-resourcetag-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

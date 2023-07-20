@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSM::MaintenanceWindowTask`.
+// The `AWS::SSM::MaintenanceWindowTask` resource defines information about a task for an AWS Systems Manager maintenance window.
 //
-// The `AWS::SSM::MaintenanceWindowTask` resource defines information about a task for an AWS Systems Manager maintenance window. For more information, see [RegisterTaskWithMaintenanceWindow](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTaskWithMaintenanceWindow.html) in the *AWS Systems Manager API Reference* .
+// For more information, see [RegisterTaskWithMaintenanceWindow](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTaskWithMaintenanceWindow.html) in the *AWS Systems Manager API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -91,9 +91,12 @@ import (
 //   	TaskParameters: taskParameters,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html
+//
 type CfnMaintenanceWindowTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -110,8 +113,6 @@ type CfnMaintenanceWindowTask interface {
 	Description() *string
 	SetDescription(val *string)
 	// Information about an Amazon S3 bucket to write Run Command task-level logs to.
-	//
-	// > `LoggingInfo` has been deprecated. To specify an Amazon S3 bucket to contain logs for Run Command tasks, instead use the `OutputS3BucketName` and `OutputS3KeyPrefix` options in the `TaskInvocationParameters` structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see [AWS ::SSM::MaintenanceWindowTask MaintenanceWindowRunCommandParameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html) .
 	LoggingInfo() interface{}
 	SetLoggingInfo(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -125,17 +126,9 @@ type CfnMaintenanceWindowTask interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The maximum number of targets this task can be run for, in parallel.
-	//
-	// > Although this element is listed as "Required: No", a value can be omitted only when you are registering or updating a [targetless task](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html) You must provide a value in all other cases.
-	// >
-	// > For maintenance window tasks without a target specified, you can't supply a value for this option. Instead, the system inserts a placeholder value of `1` . This value doesn't affect the running of your task.
 	MaxConcurrency() *string
 	SetMaxConcurrency(val *string)
 	// The maximum number of errors allowed before this task stops being scheduled.
-	//
-	// > Although this element is listed as "Required: No", a value can be omitted only when you are registering or updating a [targetless task](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html) You must provide a value in all other cases.
-	// >
-	// > For maintenance window tasks without a target specified, you can't supply a value for this option. Instead, the system inserts a placeholder value of `1` . This value doesn't affect the running of your task.
 	MaxErrors() *string
 	SetMaxErrors(val *string)
 	// The task name.
@@ -144,8 +137,6 @@ type CfnMaintenanceWindowTask interface {
 	// The tree node.
 	Node() constructs.Node
 	// The priority of the task in the maintenance window.
-	//
-	// The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
 	Priority() *float64
 	SetPriority(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -161,35 +152,18 @@ type CfnMaintenanceWindowTask interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The targets, either instances or window target IDs.
-	//
-	// - Specify instances using `Key=InstanceIds,Values= *instanceid1* , *instanceid2*` .
-	// - Specify window target IDs using `Key=WindowTargetIds,Values= *window-target-id-1* , *window-target-id-2*` .
 	Targets() interface{}
 	SetTargets(val interface{})
 	// The resource that the task uses during execution.
-	//
-	// For `RUN_COMMAND` and `AUTOMATION` task types, `TaskArn` is the SSM document name or Amazon Resource Name (ARN).
-	//
-	// For `LAMBDA` tasks, `TaskArn` is the function name or ARN.
-	//
-	// For `STEP_FUNCTIONS` tasks, `TaskArn` is the state machine ARN.
 	TaskArn() *string
 	SetTaskArn(val *string)
 	// The parameters to pass to the task when it runs.
-	//
-	// Populate only the fields that match the task type. All other fields should be empty.
-	//
-	// > When you update a maintenance window task that has options specified in `TaskInvocationParameters` , you must provide again all the `TaskInvocationParameters` values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified `TaskInvocationParameters` values for `Comment` , `NotificationConfig` , and `OutputS3BucketName` . If you update the maintenance window task and specify only a different `OutputS3BucketName` value, the values for `Comment` and `NotificationConfig` are removed.
 	TaskInvocationParameters() interface{}
 	SetTaskInvocationParameters(val interface{})
 	// The parameters to pass to the task when it runs.
-	//
-	// > `TaskParameters` has been deprecated. To specify parameters to pass to a task when it runs, instead use the `Parameters` option in the `TaskInvocationParameters` structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see [MaintenanceWindowTaskInvocationParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_MaintenanceWindowTaskInvocationParameters.html) .
 	TaskParameters() interface{}
 	SetTaskParameters(val interface{})
 	// The type of task.
-	//
-	// Valid values: `RUN_COMMAND` , `AUTOMATION` , `LAMBDA` , `STEP_FUNCTIONS` .
 	TaskType() *string
 	SetTaskType(val *string)
 	// Deprecated.
@@ -339,6 +313,16 @@ type CfnMaintenanceWindowTask interface {
 type jsiiProxy_CfnMaintenanceWindowTask struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindowTask) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnMaintenanceWindowTask) CfnOptions() awscdk.ICfnResourceOptions {
@@ -582,7 +566,6 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) WindowId() *string {
 }
 
 
-// Create a new `AWS::SSM::MaintenanceWindowTask`.
 func NewCfnMaintenanceWindowTask(scope constructs.Construct, id *string, props *CfnMaintenanceWindowTaskProps) CfnMaintenanceWindowTask {
 	_init_.Initialize()
 
@@ -600,7 +583,6 @@ func NewCfnMaintenanceWindowTask(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Create a new `AWS::SSM::MaintenanceWindowTask`.
 func NewCfnMaintenanceWindowTask_Override(c CfnMaintenanceWindowTask, scope constructs.Construct, id *string, props *CfnMaintenanceWindowTaskProps) {
 	_init_.Initialize()
 
@@ -715,9 +697,6 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask)SetTaskInvocationParameters(val inte
 }
 
 func (j *jsiiProxy_CfnMaintenanceWindowTask)SetTaskParameters(val interface{}) {
-	if err := j.validateSetTaskParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"taskParameters",

@@ -172,32 +172,48 @@ package awsmedialive
 //   	Width: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html
+//
 type CfnChannel_VideoDescriptionProperty struct {
 	// The video codec settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-codecsettings
+	//
 	CodecSettings interface{} `field:"optional" json:"codecSettings" yaml:"codecSettings"`
 	// The output video height, in pixels.
 	//
 	// This must be an even number. For most codecs, you can keep this field and width blank in order to use the height and width (resolution) from the source. Note that we don't recommend keeping the field blank. For the Frame Capture codec, height and width are required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-height
+	//
 	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// The name of this VideoDescription.
 	//
 	// Outputs use this name to uniquely identify this description. Description names should be unique within this channel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Indicates how to respond to the AFD values in the input stream.
 	//
 	// RESPOND causes input video to be clipped, depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for the FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec) ignores the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values and does not include the values through to the output, so input video is not clipped.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-respondtoafd
+	//
 	RespondToAfd *string `field:"optional" json:"respondToAfd" yaml:"respondToAfd"`
 	// STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution (height and width).
 	//
 	// This option overrides any position value. DEFAULT might insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-scalingbehavior
+	//
 	ScalingBehavior *string `field:"optional" json:"scalingBehavior" yaml:"scalingBehavior"`
 	// Changes the strength of the anti-alias filter used for scaling.
 	//
 	// 0 is the softest setting, and 100 is the sharpest. We recommend a setting of 50 for most content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-sharpness
+	//
 	Sharpness *float64 `field:"optional" json:"sharpness" yaml:"sharpness"`
 	// The output video width, in pixels.
 	//
 	// It must be an even number. For most codecs, you can keep this field and height blank in order to use the height and width (resolution) from the source. Note that we don't recommend keeping the field blank. For the Frame Capture codec, height and width are required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-width
+	//
 	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 

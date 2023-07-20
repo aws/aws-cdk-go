@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53Resolver::ResolverRule`.
-//
 // For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through, one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.
 //
 // Example:
@@ -40,9 +38,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html
+//
 type CfnResolverRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the resolver rule, such as `arn:aws:route53resolver:us-east-1:123456789012:resolver-rule/resolver-rule-a1bzhi` .
 	AttrArn() *string
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps.
@@ -71,8 +72,6 @@ type CfnResolverRule interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps` .
-	//
-	// If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed using the Resolver rule that contains the most specific domain name (www.example.com).
 	DomainName() *string
 	SetDomainName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -99,25 +98,18 @@ type CfnResolverRule interface {
 	ResolverEndpointId() *string
 	SetResolverEndpointId(val *string)
 	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify `FORWARD` .
-	//
-	// When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify `SYSTEM` .
-	//
-	// For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify `FORWARD` for `RuleType` . To then have Resolver process queries for apex.example.com, you create a rule and specify `SYSTEM` for `RuleType` .
-	//
-	// Currently, only Resolver can create rules that have a value of `RECURSIVE` for `RuleType` .
 	RuleType() *string
 	SetRuleType(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags help organize and categorize your Resolver rules.
-	//
-	// Each tag consists of a key and an optional value, both of which you define.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags help organize and categorize your Resolver rules.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to.
-	//
-	// Typically, these are the IP addresses of DNS resolvers on your network.
 	TargetIps() interface{}
 	SetTargetIps(val interface{})
 	// Deprecated.
@@ -264,6 +256,7 @@ type CfnResolverRule interface {
 type jsiiProxy_CfnResolverRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnResolverRule) AttrArn() *string {
@@ -456,6 +449,16 @@ func (j *jsiiProxy_CfnResolverRule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResolverRule) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResolverRule) TargetIps() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -487,7 +490,6 @@ func (j *jsiiProxy_CfnResolverRule) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::Route53Resolver::ResolverRule`.
 func NewCfnResolverRule(scope constructs.Construct, id *string, props *CfnResolverRuleProps) CfnResolverRule {
 	_init_.Initialize()
 
@@ -505,7 +507,6 @@ func NewCfnResolverRule(scope constructs.Construct, id *string, props *CfnResolv
 	return &j
 }
 
-// Create a new `AWS::Route53Resolver::ResolverRule`.
 func NewCfnResolverRule_Override(c CfnResolverRule, scope constructs.Construct, id *string, props *CfnResolverRuleProps) {
 	_init_.Initialize()
 
@@ -550,6 +551,17 @@ func (j *jsiiProxy_CfnResolverRule)SetRuleType(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResolverRule)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnModelPackage) validateSetSourceAlgorithmSpecificationParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnModelPackage) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnModelPackage) validateSetValidationSpecificationParameters(val interface{}) error {
 	return nil
 }

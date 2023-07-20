@@ -14,8 +14,12 @@ package awsappsync
 //   	LambdaFunctionArn: jsii.String("lambdaFunctionArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html
+//
 type CfnDataSource_LambdaConfigProperty struct {
 	// The ARN for the Lambda function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html#cfn-appsync-datasource-lambdaconfig-lambdafunctionarn
+	//
 	LambdaFunctionArn *string `field:"required" json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
 }
 

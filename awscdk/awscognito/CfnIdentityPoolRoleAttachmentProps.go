@@ -36,8 +36,12 @@ package awscognito
 //   	Roles: roles,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
+//
 type CfnIdentityPoolRoleAttachmentProps struct {
 	// An identity pool ID in the format `REGION:GUID` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-identitypoolid
+	//
 	IdentityPoolId *string `field:"required" json:"identityPoolId" yaml:"identityPoolId"`
 	// How users for a specific identity provider are mapped to roles.
 	//
@@ -46,10 +50,14 @@ type CfnIdentityPoolRoleAttachmentProps struct {
 	// If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
 	//
 	// For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-rolemappings
+	//
 	RoleMappings interface{} `field:"optional" json:"roleMappings" yaml:"roleMappings"`
 	// The map of the roles associated with this pool.
 	//
 	// For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-roles
+	//
 	Roles interface{} `field:"optional" json:"roles" yaml:"roles"`
 }
 

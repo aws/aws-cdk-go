@@ -27,14 +27,22 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
+//
 type CfnSigningProfileProps struct {
 	// The ID of a platform that is available for use by a signing profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+	//
 	PlatformId *string `field:"required" json:"platformId" yaml:"platformId"`
 	// The validity period override for any signature generated using this signing profile.
 	//
 	// If unspecified, the default is 135 months.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+	//
 	SignatureValidityPeriod interface{} `field:"optional" json:"signatureValidityPeriod" yaml:"signatureValidityPeriod"`
 	// A list of tags associated with the signing profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

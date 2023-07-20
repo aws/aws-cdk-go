@@ -30,18 +30,26 @@ package alexaask
 //   	VendorId: jsii.String("vendorId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html
+//
 type CfnSkillProps struct {
 	// Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
 	//
 	// Only Login with Amazon clients created through the  are supported. The client ID, client secret, and refresh token are required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-authenticationconfiguration
+	//
 	AuthenticationConfiguration interface{} `field:"required" json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
 	// Configuration for the skill package that contains the components of the Alexa skill.
 	//
 	// Skill packages are retrieved from an Amazon S3 bucket and key and used to create and update the skill. For more information about the skill package format, see the  .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-skillpackage
+	//
 	SkillPackage interface{} `field:"required" json:"skillPackage" yaml:"skillPackage"`
 	// The vendor ID associated with the Amazon developer account that will host the skill.
 	//
 	// Details for retrieving the vendor ID are in  . The provided LWA credentials must be linked to the developer account associated with this vendor ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-vendorid
+	//
 	VendorId *string `field:"required" json:"vendorId" yaml:"vendorId"`
 }
 

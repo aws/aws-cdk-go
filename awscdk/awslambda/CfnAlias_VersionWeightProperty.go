@@ -13,10 +13,16 @@ package awslambda
 //   	FunctionWeight: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html
+//
 type CfnAlias_VersionWeightProperty struct {
 	// The qualifier of the second version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html#cfn-lambda-alias-versionweight-functionversion
+	//
 	FunctionVersion *string `field:"required" json:"functionVersion" yaml:"functionVersion"`
 	// The percentage of traffic that the alias routes to the second version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html#cfn-lambda-alias-versionweight-functionweight
+	//
 	FunctionWeight *float64 `field:"required" json:"functionWeight" yaml:"functionWeight"`
 }
 

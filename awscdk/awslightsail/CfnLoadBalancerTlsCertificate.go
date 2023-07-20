@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Lightsail::LoadBalancerTlsCertificate`.
-//
 // The `AWS::Lightsail::LoadBalancerTlsCertificate` resource specifies a TLS certificate that can be used with a Lightsail load balancer.
 //
 // Example:
@@ -31,6 +29,8 @@ import (
 //   	IsAttached: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html
+//
 type CfnLoadBalancerTlsCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -41,13 +41,9 @@ type CfnLoadBalancerTlsCertificate interface {
 	// Valid Values: `PENDING_VALIDATION` | `ISSUED` | `INACTIVE` | `EXPIRED` | `VALIDATION_TIMED_OUT` | `REVOKED` | `FAILED` | `UNKNOWN`.
 	AttrStatus() *string
 	// An array of alternative domain names and subdomain names for your SSL/TLS certificate.
-	//
-	// In addition to the primary domain name, you can have up to nine alternative domain names. Wildcards (such as `*.example.com` ) are not supported.
 	CertificateAlternativeNames() *[]*string
 	SetCertificateAlternativeNames(val *[]*string)
 	// The domain name for the SSL/TLS certificate.
-	//
-	// For example, `example.com` or `www.example.com` .
 	CertificateDomainName() *string
 	SetCertificateDomainName(val *string)
 	// The name of the SSL/TLS certificate.
@@ -419,7 +415,6 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) UpdatedProperties() *map[strin
 }
 
 
-// Create a new `AWS::Lightsail::LoadBalancerTlsCertificate`.
 func NewCfnLoadBalancerTlsCertificate(scope constructs.Construct, id *string, props *CfnLoadBalancerTlsCertificateProps) CfnLoadBalancerTlsCertificate {
 	_init_.Initialize()
 
@@ -437,7 +432,6 @@ func NewCfnLoadBalancerTlsCertificate(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Create a new `AWS::Lightsail::LoadBalancerTlsCertificate`.
 func NewCfnLoadBalancerTlsCertificate_Override(c CfnLoadBalancerTlsCertificate, scope constructs.Construct, id *string, props *CfnLoadBalancerTlsCertificateProps) {
 	_init_.Initialize()
 

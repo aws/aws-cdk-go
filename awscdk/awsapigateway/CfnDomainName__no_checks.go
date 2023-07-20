@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDomainName) validateSetMutualTlsAuthenticationParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomainName) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDomainNameParameters(scope constructs.Construct, id *string, props *CfnDomainNameProps) error {
 	return nil
 }

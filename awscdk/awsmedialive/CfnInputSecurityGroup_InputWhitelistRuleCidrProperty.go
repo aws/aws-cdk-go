@@ -14,8 +14,12 @@ package awsmedialive
 //   	Cidr: jsii.String("cidr"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-inputsecuritygroup-inputwhitelistrulecidr.html
+//
 type CfnInputSecurityGroup_InputWhitelistRuleCidrProperty struct {
 	// An IPv4 CIDR range to include in this input security group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-inputsecuritygroup-inputwhitelistrulecidr.html#cfn-medialive-inputsecuritygroup-inputwhitelistrulecidr-cidr
+	//
 	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 }
 

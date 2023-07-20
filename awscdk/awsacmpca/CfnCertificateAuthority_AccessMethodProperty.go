@@ -15,12 +15,18 @@ package awsacmpca
 //   	CustomObjectIdentifier: jsii.String("customObjectIdentifier"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html
+//
 type CfnCertificateAuthority_AccessMethodProperty struct {
 	// Specifies the `AccessMethod` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-accessmethodtype
+	//
 	AccessMethodType *string `field:"optional" json:"accessMethodType" yaml:"accessMethodType"`
 	// An object identifier (OID) specifying the `AccessMethod` .
 	//
 	// The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-customobjectidentifier
+	//
 	CustomObjectIdentifier *string `field:"optional" json:"customObjectIdentifier" yaml:"customObjectIdentifier"`
 }
 

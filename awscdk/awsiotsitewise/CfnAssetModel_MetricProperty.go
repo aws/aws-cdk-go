@@ -37,18 +37,26 @@ package awsiotsitewise
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html
+//
 type CfnAssetModel_MetricProperty struct {
 	// The mathematical expression that defines the metric aggregation function.
 	//
 	// You can specify up to 10 variables per expression. You can specify up to 10 functions per expression.
 	//
 	// For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
+	//
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// The list of variables used in the expression.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
+	//
 	Variables interface{} `field:"required" json:"variables" yaml:"variables"`
 	// The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression.
 	//
 	// AWS IoT SiteWise computes one data point per `window` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
+	//
 	Window interface{} `field:"required" json:"window" yaml:"window"`
 }
 

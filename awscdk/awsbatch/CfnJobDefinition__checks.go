@@ -251,14 +251,6 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetNodePropertiesParameters(val int
 	return nil
 }
 
-func (j *jsiiProxy_CfnJobDefinition) validateSetParametersParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnJobDefinition) validateSetPropagateTagsParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

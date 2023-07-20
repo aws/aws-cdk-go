@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSMContacts::ContactChannel`.
-//
 // The `AWS::SSMContacts::ContactChannel` resource specifies a contact channel as the method that Incident Manager uses to engage your contact.
 //
 // Example:
@@ -28,6 +26,8 @@ import (
 //   	DeferActivation: jsii.Boolean(false),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html
+//
 type CfnContactChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -44,11 +44,9 @@ type CfnContactChannel interface {
 	// The name of the contact channel.
 	ChannelName() *string
 	SetChannelName(val *string)
-	// The type of the contact channel. Incident Manager supports three contact methods:.
+	// The type of the contact channel.
 	//
-	// - SMS
-	// - VOICE
-	// - EMAIL.
+	// Incident Manager supports three contact methods:.
 	ChannelType() *string
 	SetChannelType(val *string)
 	// The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.
@@ -59,8 +57,6 @@ type CfnContactChannel interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// If you want to activate the channel at a later time, you can choose to defer activation.
-	//
-	// Incident Manager can't engage your contact channel until it has been activated.
 	DeferActivation() interface{}
 	SetDeferActivation(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -391,7 +387,6 @@ func (j *jsiiProxy_CfnContactChannel) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::SSMContacts::ContactChannel`.
 func NewCfnContactChannel(scope constructs.Construct, id *string, props *CfnContactChannelProps) CfnContactChannel {
 	_init_.Initialize()
 
@@ -409,7 +404,6 @@ func NewCfnContactChannel(scope constructs.Construct, id *string, props *CfnCont
 	return &j
 }
 
-// Create a new `AWS::SSMContacts::ContactChannel`.
 func NewCfnContactChannel_Override(c CfnContactChannel, scope constructs.Construct, id *string, props *CfnContactChannelProps) {
 	_init_.Initialize()
 

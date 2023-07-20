@@ -10,8 +10,11 @@ package awsmedialive
 //   	ProgramSelection: jsii.String("programSelection"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodolbyedecode.html
+//
 type CfnChannel_AudioDolbyEDecodeProperty struct {
-	// `CfnChannel.AudioDolbyEDecodeProperty.ProgramSelection`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodolbyedecode.html#cfn-medialive-channel-audiodolbyedecode-programselection
+	//
 	ProgramSelection *string `field:"optional" json:"programSelection" yaml:"programSelection"`
 }
 

@@ -64,22 +64,32 @@ package awskinesisfirehose
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html
+//
 type CfnDeliveryStream_DataFormatConversionConfigurationProperty struct {
 	// Defaults to `true` .
 	//
 	// Set it to `false` if you want to disable format conversion while preserving the configuration details.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON.
 	//
 	// This parameter is required if `Enabled` is set to true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration
+	//
 	InputFormatConfiguration interface{} `field:"optional" json:"inputFormatConfiguration" yaml:"inputFormatConfiguration"`
 	// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format.
 	//
 	// This parameter is required if `Enabled` is set to true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration
+	//
 	OutputFormatConfiguration interface{} `field:"optional" json:"outputFormatConfiguration" yaml:"outputFormatConfiguration"`
 	// Specifies the AWS Glue Data Catalog table that contains the column information.
 	//
 	// This parameter is required if `Enabled` is set to true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-schemaconfiguration
+	//
 	SchemaConfiguration interface{} `field:"optional" json:"schemaConfiguration" yaml:"schemaConfiguration"`
 }
 

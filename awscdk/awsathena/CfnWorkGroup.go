@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Athena::WorkGroup`.
+// The AWS::Athena::WorkGroup resource specifies an Amazon Athena workgroup, which contains a name, description, creation time, state, and other configuration, listed under `WorkGroupConfiguration` .
 //
-// The AWS::Athena::WorkGroup resource specifies an Amazon Athena workgroup, which contains a name, description, creation time, state, and other configuration, listed under `WorkGroupConfiguration` . Each workgroup enables you to isolate queries for you or your group from other queries in the same account. For more information, see [CreateWorkGroup](https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateWorkGroup.html) in the *Amazon Athena API Reference* .
+// Each workgroup enables you to isolate queries for you or your group from other queries in the same account. For more information, see [CreateWorkGroup](https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateWorkGroup.html) in the *Amazon Athena API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -59,16 +59,60 @@ import (
 //   			OutputLocation: jsii.String("outputLocation"),
 //   		},
 //   	},
+//   	WorkGroupConfigurationUpdates: &WorkGroupConfigurationUpdatesProperty{
+//   		AdditionalConfiguration: jsii.String("additionalConfiguration"),
+//   		BytesScannedCutoffPerQuery: jsii.Number(123),
+//   		CustomerContentEncryptionConfiguration: &CustomerContentEncryptionConfigurationProperty{
+//   			KmsKey: jsii.String("kmsKey"),
+//   		},
+//   		EnforceWorkGroupConfiguration: jsii.Boolean(false),
+//   		EngineVersion: &EngineVersionProperty{
+//   			EffectiveEngineVersion: jsii.String("effectiveEngineVersion"),
+//   			SelectedEngineVersion: jsii.String("selectedEngineVersion"),
+//   		},
+//   		ExecutionRole: jsii.String("executionRole"),
+//   		PublishCloudWatchMetricsEnabled: jsii.Boolean(false),
+//   		RemoveBytesScannedCutoffPerQuery: jsii.Boolean(false),
+//   		RemoveCustomerContentEncryptionConfiguration: jsii.Boolean(false),
+//   		RequesterPaysEnabled: jsii.Boolean(false),
+//   		ResultConfigurationUpdates: &ResultConfigurationUpdatesProperty{
+//   			AclConfiguration: &AclConfigurationProperty{
+//   				S3AclOption: jsii.String("s3AclOption"),
+//   			},
+//   			EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   				EncryptionOption: jsii.String("encryptionOption"),
+//
+//   				// the properties below are optional
+//   				KmsKey: jsii.String("kmsKey"),
+//   			},
+//   			ExpectedBucketOwner: jsii.String("expectedBucketOwner"),
+//   			OutputLocation: jsii.String("outputLocation"),
+//   			RemoveAclConfiguration: jsii.Boolean(false),
+//   			RemoveEncryptionConfiguration: jsii.Boolean(false),
+//   			RemoveExpectedBucketOwner: jsii.Boolean(false),
+//   			RemoveOutputLocation: jsii.Boolean(false),
+//   		},
+//   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html
 //
 type CfnWorkGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The date and time the workgroup was created, as a UNIX timestamp in seconds.
 	//
 	// For example: `1582761016` .
 	AttrCreationTime() *string
+	// Read only.
+	//
+	// The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a CreateWorkGroup or UpdateWorkGroup operation, the EffectiveEngineVersion field is ignored.
 	AttrWorkGroupConfigurationEngineVersionEffectiveEngineVersion() *string
+	// Read only.
+	//
+	// The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a CreateWorkGroup or UpdateWorkGroup operation, the EffectiveEngineVersion field is ignored.
+	AttrWorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -97,8 +141,6 @@ type CfnWorkGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// The option to delete a workgroup and its contents even if the workgroup contains any named queries.
-	//
-	// The default is false.
 	RecursiveDeleteOption() interface{}
 	SetRecursiveDeleteOption(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -113,8 +155,11 @@ type CfnWorkGroup interface {
 	// The state of the workgroup: ENABLED or DISABLED.
 	State() *string
 	SetState(val *string)
-	// The tags (key-value pairs) to associate with this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags (key-value pairs) to associate with this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -129,10 +174,13 @@ type CfnWorkGroup interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
-	//
-	// The `EnforceWorkGroupConfiguration` option determines whether workgroup settings override client-side query settings.
 	WorkGroupConfiguration() interface{}
 	SetWorkGroupConfiguration(val interface{})
+	// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
+	// Deprecated: this property has been deprecated.
+	WorkGroupConfigurationUpdates() interface{}
+	// Deprecated: this property has been deprecated.
+	SetWorkGroupConfigurationUpdates(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -264,6 +312,7 @@ type CfnWorkGroup interface {
 type jsiiProxy_CfnWorkGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnWorkGroup) AttrCreationTime() *string {
@@ -281,6 +330,16 @@ func (j *jsiiProxy_CfnWorkGroup) AttrWorkGroupConfigurationEngineVersionEffectiv
 	_jsii_.Get(
 		j,
 		"attrWorkGroupConfigurationEngineVersionEffectiveEngineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkGroup) AttrWorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrWorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion",
 		&returns,
 	)
 	return returns
@@ -416,6 +475,16 @@ func (j *jsiiProxy_CfnWorkGroup) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkGroup) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -446,8 +515,17 @@ func (j *jsiiProxy_CfnWorkGroup) WorkGroupConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkGroup) WorkGroupConfigurationUpdates() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"workGroupConfigurationUpdates",
+		&returns,
+	)
+	return returns
+}
 
-// Create a new `AWS::Athena::WorkGroup`.
+
 func NewCfnWorkGroup(scope constructs.Construct, id *string, props *CfnWorkGroupProps) CfnWorkGroup {
 	_init_.Initialize()
 
@@ -465,7 +543,6 @@ func NewCfnWorkGroup(scope constructs.Construct, id *string, props *CfnWorkGroup
 	return &j
 }
 
-// Create a new `AWS::Athena::WorkGroup`.
 func NewCfnWorkGroup_Override(c CfnWorkGroup, scope constructs.Construct, id *string, props *CfnWorkGroupProps) {
 	_init_.Initialize()
 
@@ -514,6 +591,17 @@ func (j *jsiiProxy_CfnWorkGroup)SetState(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnWorkGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnWorkGroup)SetWorkGroupConfiguration(val interface{}) {
 	if err := j.validateSetWorkGroupConfigurationParameters(val); err != nil {
 		panic(err)
@@ -521,6 +609,17 @@ func (j *jsiiProxy_CfnWorkGroup)SetWorkGroupConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"workGroupConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkGroup)SetWorkGroupConfigurationUpdates(val interface{}) {
+	if err := j.validateSetWorkGroupConfigurationUpdatesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"workGroupConfigurationUpdates",
 		val,
 	)
 }

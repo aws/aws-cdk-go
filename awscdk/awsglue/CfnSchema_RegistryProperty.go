@@ -13,10 +13,16 @@ package awsglue
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
+//
 type CfnSchema_RegistryProperty struct {
 	// The Amazon Resource Name (ARN) of the registry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
+	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The name of the registry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::APS::RuleGroupsNamespace`.
+// The `AWS::APS::RuleGroupsNamespace` resource creates or updates a rule groups namespace within a Amazon Managed Service for Prometheus workspace.
 //
-// The `AWS::APS::RuleGroupsNamespace` resource creates or updates a rule groups namespace within a Amazon Managed Service for Prometheus workspace. For more information, see [Recording rules and alerting rules](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html) .
+// For more information, see [Recording rules and alerting rules](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html
+//
 type CfnRuleGroupsNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the rules group namespace.
 	//
 	// For example, `arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/ws-EXAMPLE-3687-4ac9-853c-EXAMPLEe8f/amp=rules`.
@@ -62,8 +65,6 @@ type CfnRuleGroupsNamespace interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the rule groups namespace.
-	//
-	// This property is required.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -77,8 +78,11 @@ type CfnRuleGroupsNamespace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key and value pairs for the workspace resources.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of key and value pairs for the workspace resources.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +230,7 @@ type CfnRuleGroupsNamespace interface {
 type jsiiProxy_CfnRuleGroupsNamespace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRuleGroupsNamespace) AttrArn() *string {
@@ -348,6 +353,16 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuleGroupsNamespace) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuleGroupsNamespace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -379,7 +394,6 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace) Workspace() *string {
 }
 
 
-// Create a new `AWS::APS::RuleGroupsNamespace`.
 func NewCfnRuleGroupsNamespace(scope constructs.Construct, id *string, props *CfnRuleGroupsNamespaceProps) CfnRuleGroupsNamespace {
 	_init_.Initialize()
 
@@ -397,7 +411,6 @@ func NewCfnRuleGroupsNamespace(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
-// Create a new `AWS::APS::RuleGroupsNamespace`.
 func NewCfnRuleGroupsNamespace_Override(c CfnRuleGroupsNamespace, scope constructs.Construct, id *string, props *CfnRuleGroupsNamespaceProps) {
 	_init_.Initialize()
 
@@ -426,6 +439,17 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuleGroupsNamespace)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

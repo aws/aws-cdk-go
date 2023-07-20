@@ -15,12 +15,18 @@ package awsdatasync
 //   	Port: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-namenode.html
+//
 type CfnLocationHDFS_NameNodeProperty struct {
 	// The hostname of the NameNode in the HDFS cluster.
 	//
 	// This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-namenode.html#cfn-datasync-locationhdfs-namenode-hostname
+	//
 	Hostname *string `field:"required" json:"hostname" yaml:"hostname"`
 	// The port that the NameNode uses to listen to client requests.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-namenode.html#cfn-datasync-locationhdfs-namenode-port
+	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCapacityReservation) validateSetNameParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnCapacityReservation) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCapacityReservation) validateSetTargetDpusParameters(val *float64) error {
 	return nil
 }

@@ -14,8 +14,12 @@ package awsmedialive
 //   	DestinationRefId: jsii.String("destinationRefId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html
+//
 type CfnChannel_OutputLocationRefProperty struct {
 	// A reference ID for this destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html#cfn-medialive-channel-outputlocationref-destinationrefid
+	//
 	DestinationRefId *string `field:"optional" json:"destinationRefId" yaml:"destinationRefId"`
 }
 

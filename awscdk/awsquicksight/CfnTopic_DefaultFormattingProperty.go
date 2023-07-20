@@ -29,12 +29,18 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-defaultformatting.html
+//
 type CfnTopic_DefaultFormattingProperty struct {
 	// The display format.
 	//
 	// Valid values for this structure are `AUTO` , `PERCENT` , `CURRENCY` , `NUMBER` , `DATE` , and `STRING` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-defaultformatting.html#cfn-quicksight-topic-defaultformatting-displayformat
+	//
 	DisplayFormat *string `field:"optional" json:"displayFormat" yaml:"displayFormat"`
 	// The additional options for display formatting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-defaultformatting.html#cfn-quicksight-topic-defaultformatting-displayformatoptions
+	//
 	DisplayFormatOptions interface{} `field:"optional" json:"displayFormatOptions" yaml:"displayFormatOptions"`
 }
 

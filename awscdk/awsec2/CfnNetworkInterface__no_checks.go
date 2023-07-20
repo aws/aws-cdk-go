@@ -80,6 +80,10 @@ func validateCfnNetworkInterface_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnNetworkInterface) validateSetEnablePrimaryIpv6Parameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnNetworkInterface) validateSetIpv6AddressesParameters(val interface{}) error {
 	return nil
 }
@@ -93,6 +97,10 @@ func (j *jsiiProxy_CfnNetworkInterface) validateSetSourceDestCheckParameters(val
 }
 
 func (j *jsiiProxy_CfnNetworkInterface) validateSetSubnetIdParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

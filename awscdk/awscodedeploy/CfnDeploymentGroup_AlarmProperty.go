@@ -14,10 +14,14 @@ package awscodedeploy
 //   	Name: jsii.String("name"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarm.html
+//
 type CfnDeploymentGroup_AlarmProperty struct {
 	// The name of the alarm.
 	//
 	// Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarm.html#cfn-codedeploy-deploymentgroup-alarm-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

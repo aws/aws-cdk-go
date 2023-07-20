@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Wisdom::AssistantAssociation`.
+// Specifies an association between an Amazon Connect Wisdom assistant and another resource.
 //
-// Specifies an association between an Amazon Connect Wisdom assistant and another resource. Currently, the only supported association is with a knowledge base. An assistant can have only a single association.
+// Currently, the only supported association is with a knowledge base. An assistant can have only a single association.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html
+//
 type CfnAssistantAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The identifier of the Wisdom assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
@@ -82,8 +85,11 @@ type CfnAssistantAssociation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags used to organize, track, or control access for this resource.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags used to organize, track, or control access for this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +234,7 @@ type CfnAssistantAssociation interface {
 type jsiiProxy_CfnAssistantAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnAssistantAssociation) AssistantId() *string {
@@ -380,6 +387,16 @@ func (j *jsiiProxy_CfnAssistantAssociation) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssistantAssociation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssistantAssociation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -401,7 +418,6 @@ func (j *jsiiProxy_CfnAssistantAssociation) UpdatedProperties() *map[string]inte
 }
 
 
-// Create a new `AWS::Wisdom::AssistantAssociation`.
 func NewCfnAssistantAssociation(scope constructs.Construct, id *string, props *CfnAssistantAssociationProps) CfnAssistantAssociation {
 	_init_.Initialize()
 
@@ -419,7 +435,6 @@ func NewCfnAssistantAssociation(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
-// Create a new `AWS::Wisdom::AssistantAssociation`.
 func NewCfnAssistantAssociation_Override(c CfnAssistantAssociation, scope constructs.Construct, id *string, props *CfnAssistantAssociationProps) {
 	_init_.Initialize()
 
@@ -459,6 +474,17 @@ func (j *jsiiProxy_CfnAssistantAssociation)SetAssociationType(val *string) {
 	_jsii_.Set(
 		j,
 		"associationType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssistantAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

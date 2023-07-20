@@ -30,14 +30,24 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datafieldseriesitem.html
+//
 type CfnAnalysis_DataFieldSeriesItemProperty struct {
 	// The axis that you are binding the field to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datafieldseriesitem.html#cfn-quicksight-analysis-datafieldseriesitem-axisbinding
+	//
 	AxisBinding *string `field:"required" json:"axisBinding" yaml:"axisBinding"`
 	// The field ID of the field that you are setting the axis binding to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datafieldseriesitem.html#cfn-quicksight-analysis-datafieldseriesitem-fieldid
+	//
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The field value of the field that you are setting the axis binding to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datafieldseriesitem.html#cfn-quicksight-analysis-datafieldseriesitem-fieldvalue
+	//
 	FieldValue *string `field:"optional" json:"fieldValue" yaml:"fieldValue"`
 	// The options that determine the presentation of line series associated to the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datafieldseriesitem.html#cfn-quicksight-analysis-datafieldseriesitem-settings
+	//
 	Settings interface{} `field:"optional" json:"settings" yaml:"settings"`
 }
 

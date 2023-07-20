@@ -20,12 +20,20 @@ package awskinesisanalytics
 //   	ZipFileContent: jsii.String("zipFileContent"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html
+//
 type CfnApplicationV2_CodeContentProperty struct {
 	// Information about the Amazon S3 bucket that contains the application code.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-s3contentlocation
+	//
 	S3ContentLocation interface{} `field:"optional" json:"s3ContentLocation" yaml:"s3ContentLocation"`
 	// The text-format code for a Flink-based Kinesis Data Analytics application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-textcontent
+	//
 	TextContent *string `field:"optional" json:"textContent" yaml:"textContent"`
 	// The zip-format code for a Flink-based Kinesis Data Analytics application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-zipfilecontent
+	//
 	ZipFileContent *string `field:"optional" json:"zipFileContent" yaml:"zipFileContent"`
 }
 

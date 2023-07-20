@@ -29,12 +29,20 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html
+//
 type CfnRoute_GrpcRetryPolicyProperty struct {
 	// The maximum number of retry attempts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-maxretries
+	//
 	MaxRetries *float64 `field:"required" json:"maxRetries" yaml:"maxRetries"`
 	// The timeout for each retry attempt.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-perretrytimeout
+	//
 	PerRetryTimeout interface{} `field:"required" json:"perRetryTimeout" yaml:"perRetryTimeout"`
 	// Specify at least one of the valid values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-grpcretryevents
+	//
 	GrpcRetryEvents *[]*string `field:"optional" json:"grpcRetryEvents" yaml:"grpcRetryEvents"`
 	// Specify at least one of the following values.
 	//
@@ -42,10 +50,14 @@ type CfnRoute_GrpcRetryPolicyProperty struct {
 	// - *gateway-error* – HTTP status codes 502, 503, and 504
 	// - *client-error* – HTTP status code 409
 	// - *stream-error* – Retry on refused stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-httpretryevents
+	//
 	HttpRetryEvents *[]*string `field:"optional" json:"httpRetryEvents" yaml:"httpRetryEvents"`
 	// Specify a valid value.
 	//
 	// The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-tcpretryevents
+	//
 	TcpRetryEvents *[]*string `field:"optional" json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Rekognition::StreamProcessor`.
+// The `AWS::Rekognition::StreamProcessor` type creates a stream processor used to detect and recognize faces or to detect connected home labels in a streaming video.
 //
-// The `AWS::Rekognition::StreamProcessor` type creates a stream processor used to detect and recognize faces or to detect connected home labels in a streaming video. Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition, one for detecting faces and one for connected home features.
+// Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition, one for detecting faces and one for connected home features.
 //
 // If you are creating a stream processor for detecting faces, you provide a Kinesis video stream (input) and a Kinesis data stream (output). You also specify the face recognition criteria in FaceSearchSettings. For example, the collection containing faces that you want to recognize.
 //
@@ -83,9 +83,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html
+//
 type CfnStreamProcessor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Amazon Resource Name for the newly created stream processor.
 	AttrArn() *string
 	// Current status of the Amazon Rekognition stream processor.
@@ -93,8 +96,6 @@ type CfnStreamProcessor interface {
 	// Detailed status message about the stream processor.
 	AttrStatusMessage() *string
 	// List of BoundingBox objects, each of which denotes a region of interest on screen.
-	//
-	// For more information, see the BoundingBox field of [RegionOfInterest](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RegionOfInterest) .
 	BoundingBoxRegionsOfInterest() interface{}
 	SetBoundingBoxRegionsOfInterest(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -103,8 +104,6 @@ type CfnStreamProcessor interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Connected home settings to use on a streaming video.
-	//
-	// You can use a stream processor for connected home features and select what you want the stream processor to detect, such as people or pets. When the stream processor has started, one notification is sent for each object class specified. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
 	ConnectedHomeSettings() interface{}
 	SetConnectedHomeSettings(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -112,28 +111,18 @@ type CfnStreamProcessor interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Allows you to opt in or opt out to share data with Rekognition to improve model performance.
-	//
-	// You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
 	DataSharingPreference() interface{}
 	SetDataSharingPreference(val interface{})
 	// The input parameters used to recognize faces in a streaming video analyzed by an Amazon Rekognition stream processor.
-	//
-	// For more information regarding the contents of the parameters, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
 	FaceSearchSettings() interface{}
 	SetFaceSearchSettings(val interface{})
 	// Amazon Rekognition's Video Stream Processor takes a Kinesis video stream as input.
-	//
-	// This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
 	KinesisDataStream() interface{}
 	SetKinesisDataStream(val interface{})
 	// The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor.
-	//
-	// For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
 	KinesisVideoStream() interface{}
 	SetKinesisVideoStream(val interface{})
 	// The identifier for your Amazon Key Management Service key (Amazon KMS key).
-	//
-	// Optional parameter for connected home stream processors used to encrypt results and data published to your Amazon S3 bucket. For more information, see the KMSKeyId section of [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor) .
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -152,8 +141,6 @@ type CfnStreamProcessor interface {
 	// The tree node.
 	Node() constructs.Node
 	// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.
-	//
-	// Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
 	NotificationChannel() interface{}
 	SetNotificationChannel(val interface{})
 	// A set of ordered lists of [Point](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_Point) objects. Each entry of the set contains a polygon denoting a region of interest on the screen. Each polygon is an ordered list of [Point](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_Point) objects. For more information, see the Polygon field of [RegionOfInterest](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RegionOfInterest) .
@@ -165,23 +152,20 @@ type CfnStreamProcessor interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN of the IAM role that allows access to the stream processor.
-	//
-	// The IAM role provides Rekognition read permissions to the Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a connected home stream processor. This is required for both face search and connected home stream processors. For information about constraints, see the RoleArn section of [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor) .
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
-	//
-	// For more information, see the S3Destination section of [StreamProcessorOutput](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorOutput) .
 	S3Destination() interface{}
 	SetS3Destination(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A set of tags (key-value pairs) that you want to attach to the stream processor.
-	//
-	// For more information, see the Tags section of [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A set of tags (key-value pairs) that you want to attach to the stream processor.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -326,6 +310,7 @@ type CfnStreamProcessor interface {
 type jsiiProxy_CfnStreamProcessor struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStreamProcessor) AttrArn() *string {
@@ -568,6 +553,16 @@ func (j *jsiiProxy_CfnStreamProcessor) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStreamProcessor) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStreamProcessor) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -589,7 +584,6 @@ func (j *jsiiProxy_CfnStreamProcessor) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::Rekognition::StreamProcessor`.
 func NewCfnStreamProcessor(scope constructs.Construct, id *string, props *CfnStreamProcessorProps) CfnStreamProcessor {
 	_init_.Initialize()
 
@@ -607,7 +601,6 @@ func NewCfnStreamProcessor(scope constructs.Construct, id *string, props *CfnStr
 	return &j
 }
 
-// Create a new `AWS::Rekognition::StreamProcessor`.
 func NewCfnStreamProcessor_Override(c CfnStreamProcessor, scope constructs.Construct, id *string, props *CfnStreamProcessorProps) {
 	_init_.Initialize()
 
@@ -712,9 +705,6 @@ func (j *jsiiProxy_CfnStreamProcessor)SetNotificationChannel(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnStreamProcessor)SetPolygonRegionsOfInterest(val interface{}) {
-	if err := j.validateSetPolygonRegionsOfInterestParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"polygonRegionsOfInterest",
@@ -740,6 +730,17 @@ func (j *jsiiProxy_CfnStreamProcessor)SetS3Destination(val interface{}) {
 	_jsii_.Set(
 		j,
 		"s3Destination",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStreamProcessor)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

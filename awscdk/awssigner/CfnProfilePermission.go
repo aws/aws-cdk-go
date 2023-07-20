@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Signer::ProfilePermission`.
-//
 // Adds cross-account permissions to a signing profile.
 //
 // Example:
@@ -27,6 +25,8 @@ import (
 //   	// the properties below are optional
 //   	ProfileVersion: jsii.String("profileVersion"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html
 //
 type CfnProfilePermission interface {
 	awscdk.CfnResource
@@ -56,8 +56,6 @@ type CfnProfilePermission interface {
 	// The tree node.
 	Node() constructs.Node
 	// The AWS principal receiving cross-account permissions.
-	//
-	// This may be an IAM role or another AWS account ID.
 	Principal() *string
 	SetPrincipal(val *string)
 	// The human-readable name of the signing profile.
@@ -375,7 +373,6 @@ func (j *jsiiProxy_CfnProfilePermission) UpdatedProperties() *map[string]interfa
 }
 
 
-// Create a new `AWS::Signer::ProfilePermission`.
 func NewCfnProfilePermission(scope constructs.Construct, id *string, props *CfnProfilePermissionProps) CfnProfilePermission {
 	_init_.Initialize()
 
@@ -393,7 +390,6 @@ func NewCfnProfilePermission(scope constructs.Construct, id *string, props *CfnP
 	return &j
 }
 
-// Create a new `AWS::Signer::ProfilePermission`.
 func NewCfnProfilePermission_Override(c CfnProfilePermission, scope constructs.Construct, id *string, props *CfnProfilePermissionProps) {
 	_init_.Initialize()
 

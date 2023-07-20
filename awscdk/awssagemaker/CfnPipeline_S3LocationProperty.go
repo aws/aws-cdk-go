@@ -15,14 +15,26 @@ package awssagemaker
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html
+//
 type CfnPipeline_S3LocationProperty struct {
-	// `CfnPipeline.S3LocationProperty.Bucket`.
+	// The name of the S3 bucket where the PipelineDefinition file is stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html#cfn-sagemaker-pipeline-s3location-bucket
+	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// `CfnPipeline.S3LocationProperty.Key`.
+	// The file name of the PipelineDefinition file (Amazon S3 object name).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html#cfn-sagemaker-pipeline-s3location-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// `CfnPipeline.S3LocationProperty.ETag`.
+	// The Amazon S3 ETag (a file checksum) of the PipelineDefinition file.
+	//
+	// If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html#cfn-sagemaker-pipeline-s3location-etag
+	//
 	ETag *string `field:"optional" json:"eTag" yaml:"eTag"`
-	// `CfnPipeline.S3LocationProperty.Version`.
+	// For versioning-enabled buckets, a specific version of the PipelineDefinition file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html#cfn-sagemaker-pipeline-s3location-version
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

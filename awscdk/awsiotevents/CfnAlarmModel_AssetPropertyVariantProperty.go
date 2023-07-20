@@ -31,22 +31,32 @@ package awsiotevents
 //   	StringValue: jsii.String("stringValue"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvariant.html
+//
 type CfnAlarmModel_AssetPropertyVariantProperty struct {
 	// The asset property value is a Boolean value that must be `'TRUE'` or `'FALSE'` .
 	//
 	// You must use an expression, and the evaluated result should be a Boolean value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvariant.html#cfn-iotevents-alarmmodel-assetpropertyvariant-booleanvalue
+	//
 	BooleanValue *string `field:"optional" json:"booleanValue" yaml:"booleanValue"`
 	// The asset property value is a double.
 	//
 	// You must use an expression, and the evaluated result should be a double.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvariant.html#cfn-iotevents-alarmmodel-assetpropertyvariant-doublevalue
+	//
 	DoubleValue *string `field:"optional" json:"doubleValue" yaml:"doubleValue"`
 	// The asset property value is an integer.
 	//
 	// You must use an expression, and the evaluated result should be an integer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvariant.html#cfn-iotevents-alarmmodel-assetpropertyvariant-integervalue
+	//
 	IntegerValue *string `field:"optional" json:"integerValue" yaml:"integerValue"`
 	// The asset property value is a string.
 	//
 	// You must use an expression, and the evaluated result should be a string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvariant.html#cfn-iotevents-alarmmodel-assetpropertyvariant-stringvalue
+	//
 	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 

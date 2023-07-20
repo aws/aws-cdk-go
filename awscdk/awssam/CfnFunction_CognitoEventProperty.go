@@ -11,10 +11,14 @@ package awssam
 //   	UserPool: jsii.String("userPool"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cognitoevent.html
+//
 type CfnFunction_CognitoEventProperty struct {
-	// `CfnFunction.CognitoEventProperty.Trigger`.
-	Trigger interface{} `field:"required" json:"trigger" yaml:"trigger"`
-	// `CfnFunction.CognitoEventProperty.UserPool`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cognitoevent.html#cfn-serverless-function-cognitoevent-trigger
+	//
+	Trigger *string `field:"required" json:"trigger" yaml:"trigger"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-function-cognitoevent.html#cfn-serverless-function-cognitoevent-userpool
+	//
 	UserPool *string `field:"required" json:"userPool" yaml:"userPool"`
 }
 

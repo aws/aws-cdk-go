@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetStoppingConditionParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnModelBiasJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnModelBiasJobDefinitionProps) error {
 	return nil
 }

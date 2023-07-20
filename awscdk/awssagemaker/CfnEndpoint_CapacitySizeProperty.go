@@ -17,13 +17,19 @@ package awssagemaker
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html
+//
 type CfnEndpoint_CapacitySizeProperty struct {
 	// Specifies the endpoint capacity type.
 	//
 	// - `INSTANCE_COUNT` : The endpoint activates based on the number of instances.
 	// - `CAPACITY_PERCENT` : The endpoint activates based on the specified percentage of capacity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html#cfn-sagemaker-endpoint-capacitysize-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html#cfn-sagemaker-endpoint-capacitysize-value
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

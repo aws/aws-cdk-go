@@ -15,10 +15,16 @@ package awsquicksight
 //   	ColumnGeographicRole: jsii.String("columnGeographicRole"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html
+//
 type CfnDataSet_ColumnTagProperty struct {
 	// A description for a column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columndescription
+	//
 	ColumnDescription interface{} `field:"optional" json:"columnDescription" yaml:"columnDescription"`
 	// A geospatial role for a column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columngeographicrole
+	//
 	ColumnGeographicRole *string `field:"optional" json:"columnGeographicRole" yaml:"columnGeographicRole"`
 }
 

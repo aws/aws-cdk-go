@@ -13,6 +13,8 @@ package awsmedialive
 //   frameCaptureHlsSettingsProperty := &FrameCaptureHlsSettingsProperty{
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturehlssettings.html
+//
 type CfnChannel_FrameCaptureHlsSettingsProperty struct {
 }
 

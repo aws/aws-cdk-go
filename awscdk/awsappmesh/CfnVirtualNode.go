@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AppMesh::VirtualNode`.
-//
 // Creates a virtual node within a service mesh.
 //
 // A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS service or a Kubernetes deployment. When you create a virtual node, you can specify the service discovery information for your task group, and whether the proxy running in a task group will communicate with other proxies using Transport Layer Security (TLS).
@@ -305,11 +303,15 @@ import (
 //   	VirtualNodeName: jsii.String("virtualNodeName"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html
+//
 type CfnVirtualNode interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the virtual node.
 	AttrArn() *string
+	AttrId() *string
 	// The name of the service mesh that the virtual node resides in.
 	AttrMeshName() *string
 	// The AWS IAM account ID of the service mesh owner.
@@ -347,8 +349,6 @@ type CfnVirtualNode interface {
 	MeshName() *string
 	SetMeshName(val *string)
 	// The AWS IAM account ID of the service mesh owner.
-	//
-	// If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
 	MeshOwner() *string
 	SetMeshOwner(val *string)
 	// The tree node.
@@ -365,10 +365,11 @@ type CfnVirtualNode interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Optional metadata that you can apply to the virtual node to assist with categorization and organization.
-	//
-	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Optional metadata that you can apply to the virtual node to assist with categorization and organization.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -516,6 +517,7 @@ type CfnVirtualNode interface {
 type jsiiProxy_CfnVirtualNode struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVirtualNode) AttrArn() *string {
@@ -523,6 +525,16 @@ func (j *jsiiProxy_CfnVirtualNode) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVirtualNode) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -698,6 +710,16 @@ func (j *jsiiProxy_CfnVirtualNode) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVirtualNode) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVirtualNode) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -729,7 +751,6 @@ func (j *jsiiProxy_CfnVirtualNode) VirtualNodeName() *string {
 }
 
 
-// Create a new `AWS::AppMesh::VirtualNode`.
 func NewCfnVirtualNode(scope constructs.Construct, id *string, props *CfnVirtualNodeProps) CfnVirtualNode {
 	_init_.Initialize()
 
@@ -747,7 +768,6 @@ func NewCfnVirtualNode(scope constructs.Construct, id *string, props *CfnVirtual
 	return &j
 }
 
-// Create a new `AWS::AppMesh::VirtualNode`.
 func NewCfnVirtualNode_Override(c CfnVirtualNode, scope constructs.Construct, id *string, props *CfnVirtualNodeProps) {
 	_init_.Initialize()
 
@@ -784,6 +804,17 @@ func (j *jsiiProxy_CfnVirtualNode)SetSpec(val interface{}) {
 	_jsii_.Set(
 		j,
 		"spec",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVirtualNode)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

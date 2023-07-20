@@ -276,10 +276,14 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
+//
 type CfnTaskDefinitionProps struct {
 	// A list of container definitions in JSON format that describe the different containers that make up your task.
 	//
 	// For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
+	//
 	ContainerDefinitions interface{} `field:"optional" json:"containerDefinitions" yaml:"containerDefinitions"`
 	// The number of `cpu` units used by the task.
 	//
@@ -298,12 +302,18 @@ type CfnTaskDefinitionProps struct {
 	// - 16384 (16vCPU) - Available `memory` values: 32GB and 120 GB in 8 GB increments
 	//
 	// This option requires Linux platform `1.4.0` or later.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
+	//
 	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
 	// The ephemeral storage settings to use for tasks run with the task definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+	//
 	EphemeralStorage interface{} `field:"optional" json:"ephemeralStorage" yaml:"ephemeralStorage"`
 	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf.
 	//
 	// The task execution IAM role is required depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
+	//
 	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The name of a family that this task definition is registered to.
 	//
@@ -312,8 +322,12 @@ type CfnTaskDefinitionProps struct {
 	// A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
 	//
 	// > To use revision numbers when you update a task definition, specify this property. If you don't specify a value, AWS CloudFormation generates a new task definition each time that you update it.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
+	//
 	Family *string `field:"optional" json:"family" yaml:"family"`
 	// The Elastic Inference accelerators to use for the containers in the task.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
+	//
 	InferenceAccelerators interface{} `field:"optional" json:"inferenceAccelerators" yaml:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task.
 	//
@@ -327,6 +341,8 @@ type CfnTaskDefinitionProps struct {
 	// - For tasks that use the `task` IPC mode, IPC namespace related `systemControls` will apply to all containers within a task.
 	//
 	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
+	//
 	IpcMode *string `field:"optional" json:"ipcMode" yaml:"ipcMode"`
 	// The amount (in MiB) of memory used by the task.
 	//
@@ -345,6 +361,8 @@ type CfnTaskDefinitionProps struct {
 	// - Between 32GB and 120 GB in 8 GB increments - Available `cpu` values: 16384 (16 vCPU)
 	//
 	// This option requires Linux platform `1.4.0` or later.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
+	//
 	Memory *string `field:"optional" json:"memory" yaml:"memory"`
 	// The Docker networking mode to use for the containers in the task.
 	//
@@ -361,6 +379,8 @@ type CfnTaskDefinitionProps struct {
 	// If the network mode is `host` , you cannot run multiple instantiations of the same task on a single container instance when port mappings are used.
 	//
 	// For more information, see [Network settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#network-settings) in the *Docker run reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
+	//
 	NetworkMode *string `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
@@ -369,24 +389,34 @@ type CfnTaskDefinitionProps struct {
 	// If the `host` PID mode is used, be aware that there is a heightened risk of undesired process namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/) .
 	//
 	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
+	//
 	PidMode *string `field:"optional" json:"pidMode" yaml:"pidMode"`
 	// An array of placement constraint objects to use for tasks.
 	//
 	// > This parameter isn't supported for tasks run on AWS Fargate .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
+	//
 	PlacementConstraints interface{} `field:"optional" json:"placementConstraints" yaml:"placementConstraints"`
 	// The configuration details for the App Mesh proxy.
 	//
 	// Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the `ecs-init` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version `20190301` or later, they contain the required versions of the container agent and `ecs-init` . For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
+	//
 	ProxyConfiguration interface{} `field:"optional" json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The task launch types the task definition was validated against.
 	//
-	// For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// The valid values are `EC2` , `FARGATE` , and `git diff` . For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
+	//
 	RequiresCompatibilities *[]*string `field:"optional" json:"requiresCompatibilities" yaml:"requiresCompatibilities"`
 	// The operating system that your tasks definitions run on.
 	//
 	// A platform family is specified only for tasks using the Fargate launch type.
 	//
 	// When you specify a task definition in a service, this value must match the `runtimePlatform` value of the service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-runtimeplatform
+	//
 	RuntimePlatform interface{} `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
 	// The metadata that you apply to the task definition to help you categorize and organize them.
 	//
@@ -398,21 +428,25 @@ type CfnTaskDefinitionProps struct {
 	// - For each resource, each tag key must be unique, and each tag key can have only one value.
 	// - Maximum key length - 128 Unicode characters in UTF-8
 	// - Maximum value length - 256 Unicode characters in UTF-8
-	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-	// - Tag keys and values are case-sensitive.
-	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : /
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The short name or full Amazon Resource Name (ARN) of the AWS Identity and Access Management role that grants containers in the task permission to call AWS APIs on your behalf.
 	//
 	// For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// IAM roles for tasks on Windows require that the `-EnableTaskIAMRole` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
+	//
 	TaskRoleArn *string `field:"optional" json:"taskRoleArn" yaml:"taskRoleArn"`
 	// The list of data volume definitions for the task.
 	//
 	// For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// > The `host` and `sourcePath` parameters aren't supported for tasks run on AWS Fargate .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
+	//
 	Volumes interface{} `field:"optional" json:"volumes" yaml:"volumes"`
 }
 

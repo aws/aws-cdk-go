@@ -15,12 +15,18 @@ package awsec2
 //   	VolumeId: jsii.String("volumeId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html
+//
 type CfnInstance_VolumeProperty struct {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html#cfn-ec2-instance-volume-device
+	//
 	Device *string `field:"required" json:"device" yaml:"device"`
 	// The ID of the EBS volume.
 	//
 	// The volume and instance must be within the same Availability Zone.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html#cfn-ec2-instance-volume-volumeid
+	//
 	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 }
 

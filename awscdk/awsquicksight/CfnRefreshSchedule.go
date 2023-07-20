@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::QuickSight::RefreshSchedule`.
-//
 // Creates a refresh schedule for a dataset in Amazon QuickSight .
 //
 // Example:
@@ -36,6 +34,8 @@ import (
 //   		StartAfterDateTime: jsii.String("startAfterDateTime"),
 //   	},
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html
 //
 type CfnRefreshSchedule interface {
 	awscdk.CfnResource
@@ -368,7 +368,6 @@ func (j *jsiiProxy_CfnRefreshSchedule) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::QuickSight::RefreshSchedule`.
 func NewCfnRefreshSchedule(scope constructs.Construct, id *string, props *CfnRefreshScheduleProps) CfnRefreshSchedule {
 	_init_.Initialize()
 
@@ -386,7 +385,6 @@ func NewCfnRefreshSchedule(scope constructs.Construct, id *string, props *CfnRef
 	return &j
 }
 
-// Create a new `AWS::QuickSight::RefreshSchedule`.
 func NewCfnRefreshSchedule_Override(c CfnRefreshSchedule, scope constructs.Construct, id *string, props *CfnRefreshScheduleProps) {
 	_init_.Initialize()
 

@@ -12,8 +12,12 @@ package awswisdom
 //   	KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html
+//
 type CfnAssistantAssociation_AssociationDataProperty struct {
 	// The identifier of the knowledge base.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html#cfn-wisdom-assistantassociation-associationdata-knowledgebaseid
+	//
 	KnowledgeBaseId *string `field:"required" json:"knowledgeBaseId" yaml:"knowledgeBaseId"`
 }
 

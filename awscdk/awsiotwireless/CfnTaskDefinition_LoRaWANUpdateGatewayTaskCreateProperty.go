@@ -23,14 +23,24 @@ package awsiotwireless
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html
+//
 type CfnTaskDefinition_LoRaWANUpdateGatewayTaskCreateProperty struct {
 	// The version of the gateways that should receive the update.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion
+	//
 	CurrentVersion interface{} `field:"optional" json:"currentVersion" yaml:"currentVersion"`
 	// The CRC of the signature private key to check.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc
+	//
 	SigKeyCrc *float64 `field:"optional" json:"sigKeyCrc" yaml:"sigKeyCrc"`
 	// The signature used to verify the update firmware.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updatesignature
+	//
 	UpdateSignature *string `field:"optional" json:"updateSignature" yaml:"updateSignature"`
 	// The firmware version to update the gateway to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
+	//
 	UpdateVersion interface{} `field:"optional" json:"updateVersion" yaml:"updateVersion"`
 }
 

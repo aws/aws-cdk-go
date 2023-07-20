@@ -12,6 +12,8 @@ package awssecurityhub
 //   	Status: jsii.String("status"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-workflowupdate.html
+//
 type CfnAutomationRule_WorkflowUpdateProperty struct {
 	// The status of the investigation into the finding.
 	//
@@ -28,6 +30,8 @@ type CfnAutomationRule_WorkflowUpdateProperty struct {
 	// - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
 	// - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
 	// - `SUPPRESSED` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-workflowupdate.html#cfn-securityhub-automationrule-workflowupdate-status
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 }
 

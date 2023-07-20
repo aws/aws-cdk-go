@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnSink) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnSink) validateSetPolicyParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnSinkParameters(scope constructs.Construct, id *string, props *CfnSinkProps) error {
 	return nil
 }

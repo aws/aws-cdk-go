@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CodeArtifact::Repository`.
+// The `AWS::CodeArtifact::Repository` resource creates an AWS CodeArtifact repository.
 //
-// The `AWS::CodeArtifact::Repository` resource creates an AWS CodeArtifact repository. CodeArtifact *repositories* contain a set of package versions. For more information about repositories, see the [Repository concepts information](https://docs.aws.amazon.com/codeartifact/latest/ug/codeartifact-concepts.html#welcome-concepts-repository) in the *CodeArtifact User Guide* . For more information about the `CreateRepository` API, see [CreateRepository](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html) in the *CodeArtifact API Reference* .
+// CodeArtifact *repositories* contain a set of package versions. For more information about repositories, see the [Repository concepts information](https://docs.aws.amazon.com/codeartifact/latest/ug/codeartifact-concepts.html#welcome-concepts-repository) in the *CodeArtifact User Guide* . For more information about the `CreateRepository` API, see [CreateRepository](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html) in the *CodeArtifact API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -42,9 +42,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
+//
 type CfnRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// When you pass the logical ID of this resource, the function returns the Amazon Resource Name (ARN) of the repository.
 	AttrArn() *string
 	// When you pass the logical ID of this resource, the function returns the domain name that contains the repository.
@@ -69,8 +72,6 @@ type CfnRepository interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// The 12-digit account number of the AWS account that owns the domain that contains the repository.
-	//
-	// It does not include dashes or spaces.
 	DomainOwner() *string
 	SetDomainOwner(val *string)
 	// An array of external connections associated with the repository.
@@ -103,8 +104,11 @@ type CfnRepository interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to be applied to the repository.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags to be applied to the repository.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -119,8 +123,6 @@ type CfnRepository interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A list of upstream repositories to associate with the repository.
-	//
-	// The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more information, see [Working with upstream repositories](https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html) .
 	Upstreams() *[]*string
 	SetUpstreams(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -254,6 +256,7 @@ type CfnRepository interface {
 type jsiiProxy_CfnRepository struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnRepository) AttrArn() *string {
@@ -446,6 +449,16 @@ func (j *jsiiProxy_CfnRepository) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRepository) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRepository) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -477,7 +490,6 @@ func (j *jsiiProxy_CfnRepository) Upstreams() *[]*string {
 }
 
 
-// Create a new `AWS::CodeArtifact::Repository`.
 func NewCfnRepository(scope constructs.Construct, id *string, props *CfnRepositoryProps) CfnRepository {
 	_init_.Initialize()
 
@@ -495,7 +507,6 @@ func NewCfnRepository(scope constructs.Construct, id *string, props *CfnReposito
 	return &j
 }
 
-// Create a new `AWS::CodeArtifact::Repository`.
 func NewCfnRepository_Override(c CfnRepository, scope constructs.Construct, id *string, props *CfnRepositoryProps) {
 	_init_.Initialize()
 
@@ -542,9 +553,6 @@ func (j *jsiiProxy_CfnRepository)SetExternalConnections(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnRepository)SetPermissionsPolicyDocument(val interface{}) {
-	if err := j.validateSetPermissionsPolicyDocumentParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"permissionsPolicyDocument",
@@ -559,6 +567,17 @@ func (j *jsiiProxy_CfnRepository)SetRepositoryName(val *string) {
 	_jsii_.Set(
 		j,
 		"repositoryName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

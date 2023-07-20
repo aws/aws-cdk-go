@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GameLift::Location`.
-//
 // Creates a custom location for use in an Anywhere fleet.
 //
 // Example:
@@ -30,9 +28,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-location.html
+//
 type CfnLocation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	AttrLocationArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -67,8 +68,11 @@ type CfnLocation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::GameLift::Location.Tags`.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -213,6 +217,7 @@ type CfnLocation interface {
 type jsiiProxy_CfnLocation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnLocation) AttrLocationArn() *string {
@@ -325,6 +330,16 @@ func (j *jsiiProxy_CfnLocation) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocation) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -346,7 +361,6 @@ func (j *jsiiProxy_CfnLocation) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::GameLift::Location`.
 func NewCfnLocation(scope constructs.Construct, id *string, props *CfnLocationProps) CfnLocation {
 	_init_.Initialize()
 
@@ -364,7 +378,6 @@ func NewCfnLocation(scope constructs.Construct, id *string, props *CfnLocationPr
 	return &j
 }
 
-// Create a new `AWS::GameLift::Location`.
 func NewCfnLocation_Override(c CfnLocation, scope constructs.Construct, id *string, props *CfnLocationProps) {
 	_init_.Initialize()
 
@@ -382,6 +395,17 @@ func (j *jsiiProxy_CfnLocation)SetLocationName(val *string) {
 	_jsii_.Set(
 		j,
 		"locationName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocation)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

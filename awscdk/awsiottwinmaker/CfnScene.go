@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTTwinMaker::Scene`.
-//
 // Use the `AWS::IoTTwinMaker::Scene` resource to declare a scene.
 //
 // Example:
@@ -36,9 +34,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html
+//
 type CfnScene interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The scene ARN.
 	AttrArn() *string
 	// The date and time when the scene was created.
@@ -92,8 +93,11 @@ type CfnScene interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The ComponentType tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The ComponentType tags.
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -241,6 +245,7 @@ type CfnScene interface {
 type jsiiProxy_CfnScene struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnScene) AttrArn() *string {
@@ -423,6 +428,16 @@ func (j *jsiiProxy_CfnScene) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScene) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScene) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -454,7 +469,6 @@ func (j *jsiiProxy_CfnScene) WorkspaceId() *string {
 }
 
 
-// Create a new `AWS::IoTTwinMaker::Scene`.
 func NewCfnScene(scope constructs.Construct, id *string, props *CfnSceneProps) CfnScene {
 	_init_.Initialize()
 
@@ -472,7 +486,6 @@ func NewCfnScene(scope constructs.Construct, id *string, props *CfnSceneProps) C
 	return &j
 }
 
-// Create a new `AWS::IoTTwinMaker::Scene`.
 func NewCfnScene_Override(c CfnScene, scope constructs.Construct, id *string, props *CfnSceneProps) {
 	_init_.Initialize()
 
@@ -528,6 +541,14 @@ func (j *jsiiProxy_CfnScene)SetSceneMetadata(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sceneMetadata",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScene)SetTagsRaw(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

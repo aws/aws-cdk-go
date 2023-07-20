@@ -21,12 +21,18 @@ package awsmedialive
 //   	ServerValidation: jsii.String("serverValidation"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html
+//
 type CfnChannel_NetworkInputSettingsProperty struct {
 	// Information about how to connect to the upstream system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html#cfn-medialive-channel-networkinputsettings-hlsinputsettings
+	//
 	HlsInputSettings interface{} `field:"optional" json:"hlsInputSettings" yaml:"hlsInputSettings"`
 	// Checks HTTPS server certificates.
 	//
 	// When set to checkCryptographyOnly, cryptography in the certificate is checked, but not the server's name. Certain subdomains (notably S3 buckets that use dots in the bucket name) don't strictly match the corresponding certificate's wildcard pattern and would otherwise cause the channel to error. This setting is ignored for protocols that do not use HTTPS.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html#cfn-medialive-channel-networkinputsettings-servervalidation
+	//
 	ServerValidation *string `field:"optional" json:"serverValidation" yaml:"serverValidation"`
 }
 

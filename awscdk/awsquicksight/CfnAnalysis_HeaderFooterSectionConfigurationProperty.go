@@ -63,12 +63,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-headerfootersectionconfiguration.html
+//
 type CfnAnalysis_HeaderFooterSectionConfigurationProperty struct {
 	// The layout configuration of the header or footer section.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-headerfootersectionconfiguration.html#cfn-quicksight-analysis-headerfootersectionconfiguration-layout
+	//
 	Layout interface{} `field:"required" json:"layout" yaml:"layout"`
 	// The unique identifier of the header or footer section.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-headerfootersectionconfiguration.html#cfn-quicksight-analysis-headerfootersectionconfiguration-sectionid
+	//
 	SectionId *string `field:"required" json:"sectionId" yaml:"sectionId"`
 	// The style options of a header or footer section.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-headerfootersectionconfiguration.html#cfn-quicksight-analysis-headerfootersectionconfiguration-style
+	//
 	Style interface{} `field:"optional" json:"style" yaml:"style"`
 }
 

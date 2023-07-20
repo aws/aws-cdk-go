@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnAssistantAssociation) validateSetAssociationTypeParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnAssistantAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAssistantAssociationParameters(scope constructs.Construct, id *string, props *CfnAssistantAssociationProps) error {
 	return nil
 }

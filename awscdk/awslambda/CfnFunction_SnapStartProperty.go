@@ -12,8 +12,12 @@ package awslambda
 //   	ApplyOn: jsii.String("applyOn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.html
+//
 type CfnFunction_SnapStartProperty struct {
 	// Set `ApplyOn` to `PublishedVersions` to create a snapshot of the initialized execution environment when you publish a function version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.html#cfn-lambda-function-snapstart-applyon
+	//
 	ApplyOn *string `field:"required" json:"applyOn" yaml:"applyOn"`
 }
 

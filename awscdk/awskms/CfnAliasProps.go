@@ -13,6 +13,8 @@ package awskms
 //   	TargetKeyId: jsii.String("targetKeyId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
+//
 type CfnAliasProps struct {
 	// Specifies the alias name. This value must begin with `alias/` followed by a name, such as `alias/ExampleAlias` .
 	//
@@ -25,6 +27,8 @@ type CfnAliasProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `256`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
+	//
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// Associates the alias with the specified [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) . The KMS key must be in the same AWS account and Region.
 	//
@@ -40,6 +44,8 @@ type CfnAliasProps struct {
 	// - Key ARN: `arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
 	//
 	// To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
+	//
 	TargetKeyId *string `field:"required" json:"targetKeyId" yaml:"targetKeyId"`
 }
 

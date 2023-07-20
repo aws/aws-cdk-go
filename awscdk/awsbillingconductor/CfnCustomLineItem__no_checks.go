@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnCustomLineItem) validateSetNameParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnCustomLineItem) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCustomLineItemParameters(scope constructs.Construct, id *string, props *CfnCustomLineItemProps) error {
 	return nil
 }

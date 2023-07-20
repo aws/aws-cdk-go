@@ -12,10 +12,14 @@ package awsec2
 //   	Enabled: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html
+//
 type CfnInstance_EnclaveOptionsProperty struct {
 	// If this parameter is set to `true` , the instance is enabled for AWS Nitro Enclaves;
 	//
 	// otherwise, it is not enabled for AWS Nitro Enclaves.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

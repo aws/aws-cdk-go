@@ -80,12 +80,20 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeformatconfiguration.html
+//
 type CfnDashboard_DateTimeFormatConfigurationProperty struct {
 	// Determines the `DateTime` format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeformatconfiguration.html#cfn-quicksight-dashboard-datetimeformatconfiguration-datetimeformat
+	//
 	DateTimeFormat *string `field:"optional" json:"dateTimeFormat" yaml:"dateTimeFormat"`
 	// The options that determine the null value format configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeformatconfiguration.html#cfn-quicksight-dashboard-datetimeformatconfiguration-nullvalueformatconfiguration
+	//
 	NullValueFormatConfiguration interface{} `field:"optional" json:"nullValueFormatConfiguration" yaml:"nullValueFormatConfiguration"`
 	// The formatting configuration for numeric `DateTime` fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeformatconfiguration.html#cfn-quicksight-dashboard-datetimeformatconfiguration-numericformatconfiguration
+	//
 	NumericFormatConfiguration interface{} `field:"optional" json:"numericFormatConfiguration" yaml:"numericFormatConfiguration"`
 }
 

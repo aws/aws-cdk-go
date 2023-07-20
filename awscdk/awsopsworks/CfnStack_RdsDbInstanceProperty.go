@@ -14,12 +14,20 @@ package awsopsworks
 //   	RdsDbInstanceArn: jsii.String("rdsDbInstanceArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html
+//
 type CfnStack_RdsDbInstanceProperty struct {
 	// AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html#cfn-opsworks-stack-rdsdbinstance-dbpassword
+	//
 	DbPassword *string `field:"required" json:"dbPassword" yaml:"dbPassword"`
 	// The master user name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html#cfn-opsworks-stack-rdsdbinstance-dbuser
+	//
 	DbUser *string `field:"required" json:"dbUser" yaml:"dbUser"`
 	// The instance's ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html#cfn-opsworks-stack-rdsdbinstance-rdsdbinstancearn
+	//
 	RdsDbInstanceArn *string `field:"required" json:"rdsDbInstanceArn" yaml:"rdsDbInstanceArn"`
 }
 

@@ -12,8 +12,12 @@ package awscustomerprofiles
 //   	Object: jsii.String("object"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html
+//
 type CfnIntegration_ServiceNowSourcePropertiesProperty struct {
 	// The object specified in the ServiceNow flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object
+	//
 	Object *string `field:"required" json:"object" yaml:"object"`
 }
 

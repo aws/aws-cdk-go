@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Grafana::Workspace`.
+// Specifies a *workspace* .
 //
-// Specifies a *workspace* . In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to build, package, or deploy any hardware to run the Grafana server.
+// In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to build, package, or deploy any hardware to run the Grafana server.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -88,12 +88,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html
+//
 type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization.
-	//
-	// If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
 	AccountAccessType() *string
 	SetAccountAccessType(val *string)
 	// The date that the workspace was created.
@@ -148,16 +148,12 @@ type CfnWorkspace interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specifies the AWS data sources that have been configured to have IAM roles and permissions created to allow Amazon Managed Grafana to read data from these sources.
-	//
-	// This list is only used when the workspace was created through the AWS console, and the `permissionType` is `SERVICE_MANAGED` .
 	DataSources() *[]*string
 	SetDataSources(val *[]*string)
 	// The user-defined description of the workspace.
 	Description() *string
 	SetDescription(val *string)
 	// Specifies the version of Grafana to support in the new workspace.
-	//
-	// Supported values are `8.4` and `9.4` .
 	GrafanaVersion() *string
 	SetGrafanaVersion(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -188,12 +184,6 @@ type CfnWorkspace interface {
 	OrganizationRoleName() *string
 	SetOrganizationRoleName(val *string)
 	// If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
-	//
-	// If this is `CUSTOMER_MANAGED` , you must manage those roles and permissions yourself.
-	//
-	// If you are working with a workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, this parameter must be set to `CUSTOMER_MANAGED` .
-	//
-	// For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
 	PermissionType() *string
 	SetPermissionType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -202,8 +192,6 @@ type CfnWorkspace interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The IAM role that grants permissions to the AWS resources that the workspace will view data from.
-	//
-	// This role must already exist.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
@@ -230,8 +218,6 @@ type CfnWorkspace interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
-	//
-	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
 	VpcConfiguration() interface{}
 	SetVpcConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -708,7 +694,6 @@ func (j *jsiiProxy_CfnWorkspace) VpcConfiguration() interface{} {
 }
 
 
-// Create a new `AWS::Grafana::Workspace`.
 func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
@@ -726,7 +711,6 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 	return &j
 }
 
-// Create a new `AWS::Grafana::Workspace`.
 func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 

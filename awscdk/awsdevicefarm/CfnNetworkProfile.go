@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DeviceFarm::NetworkProfile`.
-//
 // Creates a network profile.
 //
 // Example:
@@ -40,9 +38,12 @@ import (
 //   	UplinkLossPercent: jsii.Number(123),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-networkprofile.html
+//
 type CfnNetworkProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the network profile.
 	//
 	// See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -98,10 +99,11 @@ type CfnNetworkProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -258,6 +260,7 @@ type CfnNetworkProfile interface {
 type jsiiProxy_CfnNetworkProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnNetworkProfile) AttrArn() *string {
@@ -430,6 +433,16 @@ func (j *jsiiProxy_CfnNetworkProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkProfile) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -491,7 +504,6 @@ func (j *jsiiProxy_CfnNetworkProfile) UplinkLossPercent() *float64 {
 }
 
 
-// Create a new `AWS::DeviceFarm::NetworkProfile`.
 func NewCfnNetworkProfile(scope constructs.Construct, id *string, props *CfnNetworkProfileProps) CfnNetworkProfile {
 	_init_.Initialize()
 
@@ -509,7 +521,6 @@ func NewCfnNetworkProfile(scope constructs.Construct, id *string, props *CfnNetw
 	return &j
 }
 
-// Create a new `AWS::DeviceFarm::NetworkProfile`.
 func NewCfnNetworkProfile_Override(c CfnNetworkProfile, scope constructs.Construct, id *string, props *CfnNetworkProfileProps) {
 	_init_.Initialize()
 
@@ -578,6 +589,17 @@ func (j *jsiiProxy_CfnNetworkProfile)SetProjectArn(val *string) {
 	_jsii_.Set(
 		j,
 		"projectArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

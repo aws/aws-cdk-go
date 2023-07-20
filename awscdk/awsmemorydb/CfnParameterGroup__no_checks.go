@@ -88,7 +88,7 @@ func (j *jsiiProxy_CfnParameterGroup) validateSetParameterGroupNameParameters(va
 	return nil
 }
 
-func (j *jsiiProxy_CfnParameterGroup) validateSetParametersParameters(val interface{}) error {
+func (j *jsiiProxy_CfnParameterGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

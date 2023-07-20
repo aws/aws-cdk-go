@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::SMSChannel`.
+// A *channel* is a type of platform that you can deliver messages to.
 //
-// A *channel* is a type of platform that you can deliver messages to. To send an SMS text message, you send the message through the SMS channel. Before you can use Amazon Pinpoint to send text messages, you have to enable the SMS channel for an Amazon Pinpoint application.
+// To send an SMS text message, you send the message through the SMS channel. Before you can use Amazon Pinpoint to send text messages, you have to enable the SMS channel for an Amazon Pinpoint application.
 //
 // The SMSChannel resource represents the status, sender ID, and other settings for the SMS channel for an application.
 //
@@ -29,12 +29,15 @@ import (
 //   	ShortCode: jsii.String("shortCode"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html
+//
 type CfnSMSChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The unique identifier for the Amazon Pinpoint application that the SMS channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -65,13 +68,9 @@ type CfnSMSChannel interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The identity that you want to display on recipients' devices when they receive messages from the SMS channel.
-	//
-	// > SenderIDs are only supported in certain countries and regions. For more information, see [Supported Countries and Regions](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html) in the *Amazon Pinpoint User Guide* .
 	SenderId() *string
 	SetSenderId(val *string)
 	// The registered short code that you want to use when you send messages through the SMS channel.
-	//
-	// > For information about obtaining a dedicated short code for sending SMS messages, see [Requesting Dedicated Short Codes for SMS Messaging with Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-short-code.html) in the *Amazon Pinpoint User Guide* .
 	ShortCode() *string
 	SetShortCode(val *string)
 	// The stack in which this element is defined.
@@ -234,6 +233,16 @@ func (j *jsiiProxy_CfnSMSChannel) ApplicationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSMSChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSMSChannel) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -365,7 +374,6 @@ func (j *jsiiProxy_CfnSMSChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Pinpoint::SMSChannel`.
 func NewCfnSMSChannel(scope constructs.Construct, id *string, props *CfnSMSChannelProps) CfnSMSChannel {
 	_init_.Initialize()
 
@@ -383,7 +391,6 @@ func NewCfnSMSChannel(scope constructs.Construct, id *string, props *CfnSMSChann
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::SMSChannel`.
 func NewCfnSMSChannel_Override(c CfnSMSChannel, scope constructs.Construct, id *string, props *CfnSMSChannelProps) {
 	_init_.Initialize()
 

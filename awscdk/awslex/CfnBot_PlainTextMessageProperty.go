@@ -12,8 +12,12 @@ package awslex
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-plaintextmessage.html
+//
 type CfnBot_PlainTextMessageProperty struct {
 	// The message to send to the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-plaintextmessage.html#cfn-lex-bot-plaintextmessage-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

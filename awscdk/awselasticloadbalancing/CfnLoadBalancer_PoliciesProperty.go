@@ -28,20 +28,32 @@ package awselasticloadbalancing
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-policies.html
+//
 type CfnLoadBalancer_PoliciesProperty struct {
 	// The policy attributes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-policies.html#cfn-elasticloadbalancing-loadbalancer-policies-attributes
+	//
 	Attributes interface{} `field:"required" json:"attributes" yaml:"attributes"`
 	// The name of the policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-policies.html#cfn-elasticloadbalancing-loadbalancer-policies-policyname
+	//
 	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 	// The name of the policy type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-policies.html#cfn-elasticloadbalancing-loadbalancer-policies-policytype
+	//
 	PolicyType *string `field:"required" json:"policyType" yaml:"policyType"`
 	// The instance ports for the policy.
 	//
 	// Required only for some policy types.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-policies.html#cfn-elasticloadbalancing-loadbalancer-policies-instanceports
+	//
 	InstancePorts *[]*string `field:"optional" json:"instancePorts" yaml:"instancePorts"`
 	// The load balancer ports for the policy.
 	//
 	// Required only for some policy types.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-policies.html#cfn-elasticloadbalancing-loadbalancer-policies-loadbalancerports
+	//
 	LoadBalancerPorts *[]*string `field:"optional" json:"loadBalancerPorts" yaml:"loadBalancerPorts"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SSM::Parameter`.
-//
 // The `AWS::SSM::Parameter` resource creates an SSM parameter in AWS Systems Manager Parameter Store.
 //
 // > To create an SSM parameter, you must have the AWS Identity and Access Management ( IAM ) permissions `ssm:PutParameter` and `ssm:AddTagsToResource` . On stack creation, AWS CloudFormation adds the following three tags to the parameter: `aws:cloudformation:stack-name` , `aws:cloudformation:logical-id` , and `aws:cloudformation:stack-id` , in addition to any custom tags you specify.
@@ -40,14 +38,16 @@ import (
 //   	Tier: jsii.String("tier"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html
+//
 type CfnParameter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// A regular expression used to validate the parameter value.
-	//
-	// For example, for String types with values restricted to numbers, you can specify the following: `AllowedPattern=^\d+$`.
 	AllowedPattern() *string
 	SetAllowedPattern(val *string)
+	AttrId() *string
 	// Returns the type of the parameter.
 	//
 	// Valid values are `String` or `StringList` .
@@ -64,8 +64,6 @@ type CfnParameter interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The data type of the parameter, such as `text` or `aws:ec2:image` .
-	//
-	// The default is `text` .
 	DataType() *string
 	SetDataType(val *string)
 	// Information about the parameter.
@@ -82,15 +80,11 @@ type CfnParameter interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the parameter.
-	//
-	// > The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: `arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName`
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Information about the policies assigned to a parameter.
-	//
-	// [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *AWS Systems Manager User Guide* .
 	Policies() *string
 	SetPolicies(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -102,18 +96,15 @@ type CfnParameter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs).
-	//
-	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a Systems Manager parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs).
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// The parameter tier.
 	Tier() *string
 	SetTier(val *string)
 	// The type of parameter.
-	//
-	// > AWS CloudFormation doesn't support creating a `SecureString` parameter type.
-	//
-	// *Allowed Values* : String | StringList.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -130,8 +121,6 @@ type CfnParameter interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// The parameter value.
-	//
-	// > If type is `StringList` , the system returns a comma-separated string with no spaces between commas in the `Value` field.
 	Value() *string
 	SetValue(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -265,6 +254,7 @@ type CfnParameter interface {
 type jsiiProxy_CfnParameter struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnParameter) AllowedPattern() *string {
@@ -272,6 +262,16 @@ func (j *jsiiProxy_CfnParameter) AllowedPattern() *string {
 	_jsii_.Get(
 		j,
 		"allowedPattern",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnParameter) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -427,6 +427,16 @@ func (j *jsiiProxy_CfnParameter) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnParameter) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnParameter) Tier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -478,7 +488,6 @@ func (j *jsiiProxy_CfnParameter) Value() *string {
 }
 
 
-// Create a new `AWS::SSM::Parameter`.
 func NewCfnParameter(scope constructs.Construct, id *string, props *CfnParameterProps) CfnParameter {
 	_init_.Initialize()
 
@@ -496,7 +505,6 @@ func NewCfnParameter(scope constructs.Construct, id *string, props *CfnParameter
 	return &j
 }
 
-// Create a new `AWS::SSM::Parameter`.
 func NewCfnParameter_Override(c CfnParameter, scope constructs.Construct, id *string, props *CfnParameterProps) {
 	_init_.Initialize()
 
@@ -543,6 +551,14 @@ func (j *jsiiProxy_CfnParameter)SetPolicies(val *string) {
 	_jsii_.Set(
 		j,
 		"policies",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnParameter)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -16,14 +16,22 @@ package awsvpclattice
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatchtype.html
+//
 type CfnRule_HeaderMatchTypeProperty struct {
 	// Specifies a contains type match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatchtype.html#cfn-vpclattice-rule-headermatchtype-contains
+	//
 	Contains *string `field:"optional" json:"contains" yaml:"contains"`
 	// Specifies an exact type match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatchtype.html#cfn-vpclattice-rule-headermatchtype-exact
+	//
 	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// Specifies a prefix type match.
 	//
 	// Matches the value with the prefix.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatchtype.html#cfn-vpclattice-rule-headermatchtype-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

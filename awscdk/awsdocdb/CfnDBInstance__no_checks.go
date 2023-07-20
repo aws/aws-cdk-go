@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDBInstance) validateSetEnablePerformanceInsightsParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDBInstanceParameters(scope constructs.Construct, id *string, props *CfnDBInstanceProps) error {
 	return nil
 }

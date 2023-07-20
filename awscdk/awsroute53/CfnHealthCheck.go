@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53::HealthCheck`.
-//
 // The `AWS::Route53::HealthCheck` resource is a Route 53 resource type that contains settings for a Route 53 health check.
 //
 // For information about associating health checks with records, see [HealthCheckId](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId) in [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) .
@@ -73,6 +71,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
+//
 type CfnHealthCheck interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -90,8 +90,6 @@ type CfnHealthCheck interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A complex type that contains detailed information about one health check.
-	//
-	// For the values to enter for `HealthCheckConfig` , see [HealthCheckConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html)
 	HealthCheckConfig() interface{}
 	SetHealthCheckConfig(val interface{})
 	// The `HealthCheckTags` property describes key-value pairs that are associated with an `AWS::Route53::HealthCheck` resource.
@@ -395,7 +393,6 @@ func (j *jsiiProxy_CfnHealthCheck) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Route53::HealthCheck`.
 func NewCfnHealthCheck(scope constructs.Construct, id *string, props *CfnHealthCheckProps) CfnHealthCheck {
 	_init_.Initialize()
 
@@ -413,7 +410,6 @@ func NewCfnHealthCheck(scope constructs.Construct, id *string, props *CfnHealthC
 	return &j
 }
 
-// Create a new `AWS::Route53::HealthCheck`.
 func NewCfnHealthCheck_Override(c CfnHealthCheck, scope constructs.Construct, id *string, props *CfnHealthCheckProps) {
 	_init_.Initialize()
 

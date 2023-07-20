@@ -61,12 +61,18 @@ package awsgreengrass
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html
+//
 type CfnFunctionDefinition_FunctionDefinitionVersionProperty struct {
 	// The functions in this version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html#cfn-greengrass-functiondefinition-functiondefinitionversion-functions
+	//
 	Functions interface{} `field:"required" json:"functions" yaml:"functions"`
 	// The default configuration that applies to all Lambda functions in the group.
 	//
 	// Individual Lambda functions can override these settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html#cfn-greengrass-functiondefinition-functiondefinitionversion-defaultconfig
+	//
 	DefaultConfig interface{} `field:"optional" json:"defaultConfig" yaml:"defaultConfig"`
 }
 

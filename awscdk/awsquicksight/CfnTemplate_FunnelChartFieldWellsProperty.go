@@ -509,8 +509,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-funnelchartfieldwells.html
+//
 type CfnTemplate_FunnelChartFieldWellsProperty struct {
 	// The field well configuration of a `FunnelChartVisual` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-funnelchartfieldwells.html#cfn-quicksight-template-funnelchartfieldwells-funnelchartaggregatedfieldwells
+	//
 	FunnelChartAggregatedFieldWells interface{} `field:"optional" json:"funnelChartAggregatedFieldWells" yaml:"funnelChartAggregatedFieldWells"`
 }
 

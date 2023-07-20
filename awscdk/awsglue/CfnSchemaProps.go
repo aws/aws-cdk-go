@@ -35,28 +35,46 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
+//
 type CfnSchemaProps struct {
 	// The compatibility mode of the schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+	//
 	Compatibility *string `field:"required" json:"compatibility" yaml:"compatibility"`
 	// The data format of the schema definition.
 	//
 	// Currently only `AVRO` is supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+	//
 	DataFormat *string `field:"required" json:"dataFormat" yaml:"dataFormat"`
 	// Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
 	//
 	// No whitespace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The schema definition using the `DataFormat` setting for `SchemaName` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+	//
 	SchemaDefinition *string `field:"required" json:"schemaDefinition" yaml:"schemaDefinition"`
 	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema.
 	//
 	// This is only required for updating a checkpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+	//
 	CheckpointVersion interface{} `field:"optional" json:"checkpointVersion" yaml:"checkpointVersion"`
 	// A description of the schema if specified when created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The registry where a schema is stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+	//
 	Registry interface{} `field:"optional" json:"registry" yaml:"registry"`
 	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

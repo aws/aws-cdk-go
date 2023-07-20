@@ -19,16 +19,26 @@ package awsevidently
 //   	Description: jsii.String("description"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html
+//
 type CfnLaunch_LaunchGroupObjectProperty struct {
 	// The feature that this launch is using.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html#cfn-evidently-launch-launchgroupobject-feature
+	//
 	Feature *string `field:"required" json:"feature" yaml:"feature"`
 	// A name for this launch group.
 	//
 	// It can include up to 127 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html#cfn-evidently-launch-launchgroupobject-groupname
+	//
 	GroupName *string `field:"required" json:"groupName" yaml:"groupName"`
 	// The feature variation to use for this launch group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html#cfn-evidently-launch-launchgroupobject-variation
+	//
 	Variation *string `field:"required" json:"variation" yaml:"variation"`
 	// A description of the launch group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html#cfn-evidently-launch-launchgroupobject-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

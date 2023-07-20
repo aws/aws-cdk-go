@@ -271,3 +271,26 @@ func MachineImage_Lookup(props *LookupMachineImageProps) IMachineImage {
 	return returns
 }
 
+// An image specified in SSM parameter store that will be resolved at instance launch time.
+//
+// The AMI ID will be resolved at instance launch time.
+// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/using-systems-manager-parameters.html
+//
+func MachineImage_ResolveSsmParameterAtLaunch(parameterName *string, options *SsmParameterImageOptions) IMachineImage {
+	_init_.Initialize()
+
+	if err := validateMachineImage_ResolveSsmParameterAtLaunchParameters(parameterName, options); err != nil {
+		panic(err)
+	}
+	var returns IMachineImage
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.MachineImage",
+		"resolveSsmParameterAtLaunch",
+		[]interface{}{parameterName, options},
+		&returns,
+	)
+
+	return returns
+}
+

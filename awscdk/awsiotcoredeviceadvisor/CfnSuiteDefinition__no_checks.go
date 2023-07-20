@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnSuiteDefinition) validateSetSuiteDefinitionConfigurationPa
 	return nil
 }
 
+func (j *jsiiProxy_CfnSuiteDefinition) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSuiteDefinitionParameters(scope constructs.Construct, id *string, props *CfnSuiteDefinitionProps) error {
 	return nil
 }

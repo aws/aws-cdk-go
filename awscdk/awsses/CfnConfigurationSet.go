@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SES::ConfigurationSet`.
+// Configuration sets let you create groups of rules that you can apply to the emails you send using Amazon SES.
 //
-// Configuration sets let you create groups of rules that you can apply to the emails you send using Amazon SES. For more information about using configuration sets, see [Using Amazon SES Configuration Sets](https://docs.aws.amazon.com/ses/latest/dg/using-configuration-sets.html) in the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/) .
+// For more information about using configuration sets, see [Using Amazon SES Configuration Sets](https://docs.aws.amazon.com/ses/latest/dg/using-configuration-sets.html) in the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/) .
 //
 // > *Required permissions:*
 // >
@@ -61,6 +61,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
+//
 type CfnConfigurationSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -86,10 +88,9 @@ type CfnConfigurationSet interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the configuration set. The name must meet the following requirements:.
+	// The name of the configuration set.
 	//
-	// - Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
-	// - Contain 64 characters or fewer.
+	// The name must meet the following requirements:.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -435,7 +436,6 @@ func (j *jsiiProxy_CfnConfigurationSet) VdmOptions() interface{} {
 }
 
 
-// Create a new `AWS::SES::ConfigurationSet`.
 func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnConfigurationSetProps) CfnConfigurationSet {
 	_init_.Initialize()
 
@@ -453,7 +453,6 @@ func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
-// Create a new `AWS::SES::ConfigurationSet`.
 func NewCfnConfigurationSet_Override(c CfnConfigurationSet, scope constructs.Construct, id *string, props *CfnConfigurationSetProps) {
 	_init_.Initialize()
 

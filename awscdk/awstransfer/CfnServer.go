@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Transfer::Server`.
+// Instantiates an auto-scaling virtual server based on the selected file transfer protocol in AWS .
 //
-// Instantiates an auto-scaling virtual server based on the selected file transfer protocol in AWS . When you make updates to your file transfer protocol-enabled server or when you work with users, use the service-generated `ServerId` property that is assigned to the newly created server.
+// When you make updates to your file transfer protocol-enabled server or when you work with users, use the service-generated `ServerId` property that is assigned to the newly created server.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -83,9 +83,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html
+//
 type CfnServer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
 	//
 	// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
@@ -95,24 +98,6 @@ type CfnServer interface {
 	// An example `ServerId` is `s-01234567890abcdef` .
 	AttrServerId() *string
 	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate.
-	//
-	// Required when `Protocols` is set to `FTPS` .
-	//
-	// To request a new public certificate, see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) in the *AWS Certificate Manager User Guide* .
-	//
-	// To import an existing certificate into ACM, see [Importing certificates into ACM](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
-	//
-	// To request a private certificate to use FTPS through private IP addresses, see [Request a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html) in the *AWS Certificate Manager User Guide* .
-	//
-	// Certificates with the following cryptographic algorithms and key sizes are supported:
-	//
-	// - 2048-bit RSA (RSA_2048)
-	// - 4096-bit RSA (RSA_4096)
-	// - Elliptic Prime Curve 256 bit (EC_prime256v1)
-	// - Elliptic Prime Curve 384 bit (EC_secp384r1)
-	// - Elliptic Prime Curve 521 bit (EC_secp521r1)
-	//
-	// > The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.
 	Certificate() *string
 	SetCertificate(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -128,34 +113,18 @@ type CfnServer interface {
 	Domain() *string
 	SetDomain(val *string)
 	// The virtual private cloud (VPC) endpoint settings that are configured for your server.
-	//
-	// When you host your endpoint within your VPC, you can make your endpoint accessible only to resources within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.
 	EndpointDetails() interface{}
 	SetEndpointDetails(val interface{})
 	// The type of endpoint that you want your server to use.
-	//
-	// You can choose to make your server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.
 	EndpointType() *string
 	SetEndpointType(val *string)
 	// Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` .
-	//
-	// Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Not required when `IdentityProviderType` is set to `SERVICE_MANAGED` .
 	IdentityProviderDetails() interface{}
 	SetIdentityProviderDetails(val interface{})
 	// The mode of authentication for a server.
-	//
-	// The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.
-	//
-	// Use `AWS_DIRECTORY_SERVICE` to provide access to Active Directory groups in AWS Directory Service for Microsoft Active Directory or Microsoft Active Directory in your on-premises environment or in AWS using AD Connector. This option also requires you to provide a Directory ID by using the `IdentityProviderDetails` parameter.
-	//
-	// Use the `API_GATEWAY` value to integrate with an identity provider of your choosing. The `API_GATEWAY` setting requires you to provide an Amazon API Gateway endpoint URL to call for authentication by using the `IdentityProviderDetails` parameter.
-	//
-	// Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
 	IdentityProviderType() *string
 	SetIdentityProviderType(val *string)
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents.
-	//
-	// When set, you can view user activity in your CloudWatch logs.
 	LoggingRole() *string
 	SetLoggingRole(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -170,48 +139,18 @@ type CfnServer interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
+	// Specifies a string to display when users connect to a server.
 	//
-	// > The SFTP protocol does not support post-authentication display banners.
+	// This string is displayed after the user authenticates.
 	PostAuthenticationLoginBanner() *string
 	SetPostAuthenticationLoginBanner(val *string)
 	// Specifies a string to display when users connect to a server.
-	//
-	// This string is displayed before the user authenticates. For example, the following banner displays details about using the system:
-	//
-	// `This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.`
 	PreAuthenticationLoginBanner() *string
 	SetPreAuthenticationLoginBanner(val *string)
 	// The protocol settings that are configured for your server.
-	//
-	// - To indicate passive mode (for FTP and FTPS protocols), use the `PassiveIp` parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
-	// - To ignore the error that is generated when the client attempts to use the `SETSTAT` command on a file that you are uploading to an Amazon S3 bucket, use the `SetStatOption` parameter. To have the AWS Transfer Family server ignore the `SETSTAT` command and upload files without needing to make any changes to your SFTP client, set the value to `ENABLE_NO_OP` . If you set the `SetStatOption` parameter to `ENABLE_NO_OP` , Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a `SETSTAT` call.
-	// - To determine whether your AWS Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the `TlsSessionResumptionMode` parameter.
-	// - `As2Transports` indicates the transport method for the AS2 messages. Currently, only HTTP is supported.
-	//
-	// The `Protocols` parameter is an array of strings.
-	//
-	// *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`.
 	ProtocolDetails() interface{}
 	SetProtocolDetails(val interface{})
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
-	//
-	// The available protocols are:
-	//
-	// - `SFTP` (Secure Shell (SSH) File Transfer Protocol): File transfer over SSH
-	// - `FTPS` (File Transfer Protocol Secure): File transfer with TLS encryption
-	// - `FTP` (File Transfer Protocol): Unencrypted file transfer
-	// - `AS2` (Applicability Statement 2): used for transporting structured business-to-business data
-	//
-	// > - If you select `FTPS` , you must choose a certificate stored in AWS Certificate Manager (ACM) which is used to identify your server when clients connect to it over FTPS.
-	// > - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
-	// > - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.
-	// > - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
-	// > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3.
-	//
-	// The `Protocols` parameter is an array of strings.
-	//
-	// *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`.
 	Protocols() *[]*string
 	SetProtocols(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -227,20 +166,13 @@ type CfnServer interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies the log groups to which your server logs are sent.
-	//
-	// To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:
-	//
-	// `arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*`
-	//
-	// For example, `arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*`
-	//
-	// If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty value for this parameter in an `update-server` call. For example:
-	//
-	// `update-server --server-id s-1234567890abcdef0 --structured-log-destinations`.
 	StructuredLogDestinations() *[]*string
 	SetStructuredLogDestinations(val *[]*string)
-	// Key-value pairs that can be used to group and search for servers.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Key-value pairs that can be used to group and search for servers.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -255,8 +187,6 @@ type CfnServer interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.
-	//
-	// In addition to a workflow to execute when a file is uploaded completely, `WorkflowDetails` can also contain a workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when the session disconnects.
 	WorkflowDetails() interface{}
 	SetWorkflowDetails(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -390,6 +320,7 @@ type CfnServer interface {
 type jsiiProxy_CfnServer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnServer) AttrArn() *string {
@@ -632,6 +563,16 @@ func (j *jsiiProxy_CfnServer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServer) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServer) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -663,7 +604,6 @@ func (j *jsiiProxy_CfnServer) WorkflowDetails() interface{} {
 }
 
 
-// Create a new `AWS::Transfer::Server`.
 func NewCfnServer(scope constructs.Construct, id *string, props *CfnServerProps) CfnServer {
 	_init_.Initialize()
 
@@ -681,7 +621,6 @@ func NewCfnServer(scope constructs.Construct, id *string, props *CfnServerProps)
 	return &j
 }
 
-// Create a new `AWS::Transfer::Server`.
 func NewCfnServer_Override(c CfnServer, scope constructs.Construct, id *string, props *CfnServerProps) {
 	_init_.Initialize()
 
@@ -801,6 +740,17 @@ func (j *jsiiProxy_CfnServer)SetStructuredLogDestinations(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"structuredLogDestinations",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServer)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

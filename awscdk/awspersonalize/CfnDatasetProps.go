@@ -26,20 +26,32 @@ package awspersonalize
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html
+//
 type CfnDatasetProps struct {
 	// The Amazon Resource Name (ARN) of the dataset group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasetgrouparn
+	//
 	DatasetGroupArn *string `field:"required" json:"datasetGroupArn" yaml:"datasetGroupArn"`
 	// One of the following values:.
 	//
 	// - Interactions
 	// - Items
 	// - Users.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasettype
+	//
 	DatasetType *string `field:"required" json:"datasetType" yaml:"datasetType"`
 	// The name of the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The ARN of the associated schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-schemaarn
+	//
 	SchemaArn *string `field:"required" json:"schemaArn" yaml:"schemaArn"`
 	// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasetimportjob
+	//
 	DatasetImportJob interface{} `field:"optional" json:"datasetImportJob" yaml:"datasetImportJob"`
 }
 

@@ -37,10 +37,14 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html
+//
 type CfnProjectProps struct {
 	// The name for the project.
 	//
 	// It can include up to 127 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html#cfn-evidently-project-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* .
 	//
@@ -49,14 +53,20 @@ type CfnProjectProps struct {
 	// This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
 	//
 	// To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html#cfn-evidently-project-appconfigresource
+	//
 	AppConfigResource interface{} `field:"optional" json:"appConfigResource" yaml:"appConfigResource"`
 	// A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so.
 	//
 	// If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
 	//
 	// You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html#cfn-evidently-project-datadelivery
+	//
 	DataDelivery interface{} `field:"optional" json:"dataDelivery" yaml:"dataDelivery"`
 	// An optional description of the project.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html#cfn-evidently-project-description
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Assigns one or more tags (key-value pairs) to the project.
 	//
@@ -67,6 +77,8 @@ type CfnProjectProps struct {
 	// You can associate as many as 50 tags with a project.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html#cfn-evidently-project-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

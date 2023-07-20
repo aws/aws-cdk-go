@@ -16,6 +16,8 @@ package awssecurityhub
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-mapfilter.html
+//
 type CfnAutomationRule_MapFilterProperty struct {
 	// The condition to apply to the key value when querying for findings with a map filter.
 	//
@@ -28,14 +30,20 @@ type CfnAutomationRule_MapFilterProperty struct {
 	// `NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters.
 	//
 	// You cannot have both an `EQUALS` filter and a `NOT_EQUALS` filter on the same field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-mapfilter.html#cfn-securityhub-automationrule-mapfilter-comparison
+	//
 	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`
 	// The key of the map filter.
 	//
 	// For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-mapfilter.html#cfn-securityhub-automationrule-mapfilter-key
+	//
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value for the key in the map filter.
 	//
 	// Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there is no match.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-mapfilter.html#cfn-securityhub-automationrule-mapfilter-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnSafetyRule) validateSetRuleConfigParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnSafetyRule) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSafetyRuleParameters(scope constructs.Construct, id *string, props *CfnSafetyRuleProps) error {
 	return nil
 }

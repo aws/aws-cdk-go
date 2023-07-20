@@ -21,10 +21,16 @@ package awsgreengrassv2
 //   	MaximumPerMinute: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexecutionsrolloutconfig.html
+//
 type CfnDeployment_IoTJobExecutionsRolloutConfigProperty struct {
 	// The exponential rate to increase the job rollout rate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexecutionsrolloutconfig.html#cfn-greengrassv2-deployment-iotjobexecutionsrolloutconfig-exponentialrate
+	//
 	ExponentialRate interface{} `field:"optional" json:"exponentialRate" yaml:"exponentialRate"`
 	// The maximum number of devices that receive a pending job notification, per minute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexecutionsrolloutconfig.html#cfn-greengrassv2-deployment-iotjobexecutionsrolloutconfig-maximumperminute
+	//
 	MaximumPerMinute *float64 `field:"optional" json:"maximumPerMinute" yaml:"maximumPerMinute"`
 }
 

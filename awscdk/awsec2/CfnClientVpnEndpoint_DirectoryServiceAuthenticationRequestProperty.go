@@ -12,8 +12,12 @@ package awsec2
 //   	DirectoryId: jsii.String("directoryId"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html
+//
 type CfnClientVpnEndpoint_DirectoryServiceAuthenticationRequestProperty struct {
 	// The ID of the Active Directory to be used for authentication.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html#cfn-ec2-clientvpnendpoint-directoryserviceauthenticationrequest-directoryid
+	//
 	DirectoryId *string `field:"required" json:"directoryId" yaml:"directoryId"`
 }
 

@@ -21,12 +21,18 @@ package awsec2
 //   	VolumeType: jsii.String("volumeType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html
+//
 type CfnLaunchTemplate_EbsProperty struct {
 	// Indicates whether the EBS volume is deleted on instance termination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-deleteontermination
+	//
 	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// Indicates whether the EBS volume is encrypted.
 	//
 	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-encrypted
+	//
 	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The number of I/O operations per second (IOPS).
 	//
@@ -41,14 +47,22 @@ type CfnLaunchTemplate_EbsProperty struct {
 	// For `io1` and `io2` volumes, we guarantee 64,000 IOPS only for [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families guarantee performance up to 32,000 IOPS.
 	//
 	// This parameter is supported for `io1` , `io2` , and `gp3` volumes only. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-iops
+	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The ARN of the symmetric AWS Key Management Service ( AWS KMS ) CMK used for encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The ID of the snapshot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-snapshotid
+	//
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
 	//
 	// Valid Range: Minimum value of 125. Maximum value of 1000.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-throughput
+	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The size of the volume, in GiBs.
 	//
@@ -58,10 +72,14 @@ type CfnLaunchTemplate_EbsProperty struct {
 	// - `io1` and `io2` : 4-16,384
 	// - `st1` and `sc1` : 125-16,384
 	// - `standard` : 1-1,024.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-volumesize
+	//
 	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
 	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-volumetype
+	//
 	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 

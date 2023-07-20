@@ -22,6 +22,8 @@ package awscodebuild
 //   	Path: jsii.String("path"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html
+//
 type CfnProject_ArtifactsProperty struct {
 	// The type of build output artifact. Valid values include:.
 	//
@@ -30,12 +32,18 @@ type CfnProject_ArtifactsProperty struct {
 	// > The `CODEPIPELINE` type is not supported for `secondaryArtifacts` .
 	// - `NO_ARTIFACTS` : The build project does not produce any build output.
 	// - `S3` : The build project stores build output in Amazon S3.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// An identifier for this artifact definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-artifactidentifier
+	//
 	ArtifactIdentifier *string `field:"optional" json:"artifactIdentifier" yaml:"artifactIdentifier"`
 	// Set to true if you do not want your output artifacts encrypted.
 	//
 	// This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an `invalidInputException` is thrown.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-encryptiondisabled
+	//
 	EncryptionDisabled interface{} `field:"optional" json:"encryptionDisabled" yaml:"encryptionDisabled"`
 	// Information about the build output artifact location:.
 	//
@@ -44,6 +52,8 @@ type CfnProject_ArtifactsProperty struct {
 	// - If `type` is set to `S3` , this is the name of the output bucket.
 	//
 	// If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-location
+	//
 	Location *string `field:"optional" json:"location" yaml:"location"`
 	// Along with `path` and `namespaceType` , the pattern that AWS CodeBuild uses to name and store the output artifact:.
 	//
@@ -58,6 +68,8 @@ type CfnProject_ArtifactsProperty struct {
 	// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to " `/` ", the output artifact is stored in `MyArtifacts/ *build-ID*` .
 	//
 	// If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Along with `path` and `name` , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:  - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified.
 	//
@@ -69,10 +81,14 @@ type CfnProject_ArtifactsProperty struct {
 	// - `NONE` : Do not include the build ID. This is the default if `namespaceType` is not specified.
 	//
 	// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in `MyArtifacts/<build-ID>/MyArtifact.zip` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-namespacetype
+	//
 	NamespaceType *string `field:"optional" json:"namespaceType" yaml:"namespaceType"`
 	// If set to true a name specified in the buildspec file overrides the artifact name.
 	//
 	// The name specified in a buildspec file is calculated at build time and uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-overrideartifactname
+	//
 	OverrideArtifactName interface{} `field:"optional" json:"overrideArtifactName" yaml:"overrideArtifactName"`
 	// The type of build output artifact to create:.
 	//
@@ -82,6 +98,8 @@ type CfnProject_ArtifactsProperty struct {
 	//
 	// - `NONE` : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if `packaging` is not specified.
 	// - `ZIP` : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-packaging
+	//
 	Packaging *string `field:"optional" json:"packaging" yaml:"packaging"`
 	// Along with `namespaceType` and `name` , the pattern that AWS CodeBuild uses to name and store the output artifact:.
 	//
@@ -90,6 +108,8 @@ type CfnProject_ArtifactsProperty struct {
 	// - If `type` is set to `S3` , this is the path to the output artifact. If `path` is not specified, `path` is not used.
 	//
 	// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `NONE` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in the output bucket at `MyArtifacts/MyArtifact.zip` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-path
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 

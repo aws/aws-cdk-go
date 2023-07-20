@@ -12,8 +12,12 @@ package awsnetworkmanager
 //   	Protocol: jsii.String("protocol"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectattachment-connectattachmentoptions.html
+//
 type CfnConnectAttachment_ConnectAttachmentOptionsProperty struct {
 	// The protocol used for the attachment connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectattachment-connectattachmentoptions.html#cfn-networkmanager-connectattachment-connectattachmentoptions-protocol
+	//
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

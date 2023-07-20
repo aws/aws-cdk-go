@@ -80,6 +80,10 @@ func validateCfnPlacementGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlacementGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPlacementGroupParameters(scope constructs.Construct, id *string, props *CfnPlacementGroupProps) error {
 	return nil
 }

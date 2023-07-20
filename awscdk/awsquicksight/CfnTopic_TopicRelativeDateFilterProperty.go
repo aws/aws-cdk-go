@@ -17,14 +17,22 @@ package awsquicksight
 //   	TimeGranularity: jsii.String("timeGranularity"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html
+//
 type CfnTopic_TopicRelativeDateFilterProperty struct {
 	// The constant used in a relative date filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html#cfn-quicksight-topic-topicrelativedatefilter-constant
+	//
 	Constant interface{} `field:"optional" json:"constant" yaml:"constant"`
 	// The function to be used in a relative date filter to determine the range of dates to include in the results.
 	//
 	// Valid values for this structure are `BEFORE` , `AFTER` , and `BETWEEN` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html#cfn-quicksight-topic-topicrelativedatefilter-relativedatefilterfunction
+	//
 	RelativeDateFilterFunction *string `field:"optional" json:"relativeDateFilterFunction" yaml:"relativeDateFilterFunction"`
 	// The level of time precision that is used to aggregate `DateTime` values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html#cfn-quicksight-topic-topicrelativedatefilter-timegranularity
+	//
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`
 }
 

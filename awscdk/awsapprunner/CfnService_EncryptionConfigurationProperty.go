@@ -12,8 +12,12 @@ package awsapprunner
 //   	KmsKey: jsii.String("kmsKey"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html
+//
 type CfnService_EncryptionConfigurationProperty struct {
 	// The ARN of the KMS key that's used for encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html#cfn-apprunner-service-encryptionconfiguration-kmskey
+	//
 	KmsKey *string `field:"required" json:"kmsKey" yaml:"kmsKey"`
 }
 

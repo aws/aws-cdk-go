@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::VpcLattice::Listener`.
+// Creates a listener for a service.
 //
-// Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services. For more information, see [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the *Amazon VPC Lattice User Guide* .
+// Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services. For more information, see [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the *Amazon VPC Lattice User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -48,9 +48,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html
+//
 type CfnListener interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the listener.
 	AttrArn() *string
 	// The ID of the listener.
@@ -69,8 +72,6 @@ type CfnListener interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The action for the default rule.
-	//
-	// Each listener has a default rule. Each rule consists of a priority, one or more actions, and one or more conditions. The default rule is the rule that's used if no other rules match. Each rule must include exactly one of the following types of actions: `forward` or `fixed-response` , and it must be the last action to be performed.
 	DefaultAction() interface{}
 	SetDefaultAction(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -84,17 +85,11 @@ type CfnListener interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the listener.
-	//
-	// A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-	//
-	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The listener port.
-	//
-	// You can specify a value from `1` to `65535` . For HTTP, the default is `80` . For HTTPS, the default is `443` .
 	Port() *float64
 	SetPort(val *float64)
 	// The listener protocol HTTP or HTTPS.
@@ -112,8 +107,11 @@ type CfnListener interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the listener.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the listener.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -258,6 +256,7 @@ type CfnListener interface {
 type jsiiProxy_CfnListener struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnListener) AttrArn() *string {
@@ -440,6 +439,16 @@ func (j *jsiiProxy_CfnListener) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnListener) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnListener) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -461,7 +470,6 @@ func (j *jsiiProxy_CfnListener) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::VpcLattice::Listener`.
 func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerProps) CfnListener {
 	_init_.Initialize()
 
@@ -479,7 +487,6 @@ func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerPr
 	return &j
 }
 
-// Create a new `AWS::VpcLattice::Listener`.
 func NewCfnListener_Override(c CfnListener, scope constructs.Construct, id *string, props *CfnListenerProps) {
 	_init_.Initialize()
 
@@ -532,6 +539,17 @@ func (j *jsiiProxy_CfnListener)SetServiceIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnListener)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

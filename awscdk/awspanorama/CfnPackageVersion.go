@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Panorama::PackageVersion`.
-//
 // Registers a package version.
 //
 // Example:
@@ -28,6 +26,8 @@ import (
 //   	OwnerAccount: jsii.String("ownerAccount"),
 //   	UpdatedLatestPatchVersion: jsii.String("updatedLatestPatchVersion"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html
 //
 type CfnPackageVersion interface {
 	awscdk.CfnResource
@@ -459,7 +459,6 @@ func (j *jsiiProxy_CfnPackageVersion) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Panorama::PackageVersion`.
 func NewCfnPackageVersion(scope constructs.Construct, id *string, props *CfnPackageVersionProps) CfnPackageVersion {
 	_init_.Initialize()
 
@@ -477,7 +476,6 @@ func NewCfnPackageVersion(scope constructs.Construct, id *string, props *CfnPack
 	return &j
 }
 
-// Create a new `AWS::Panorama::PackageVersion`.
 func NewCfnPackageVersion_Override(c CfnPackageVersion, scope constructs.Construct, id *string, props *CfnPackageVersionProps) {
 	_init_.Initialize()
 

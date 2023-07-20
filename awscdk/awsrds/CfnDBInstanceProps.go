@@ -105,6 +105,8 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TdeCredentialArn: jsii.String("tdeCredentialArn"),
+//   	TdeCredentialPassword: jsii.String("tdeCredentialPassword"),
 //   	Timezone: jsii.String("timezone"),
 //   	UseDefaultProcessorFeatures: jsii.Boolean(false),
 //   	UseLatestRestorableTime: jsii.Boolean(false),
@@ -112,6 +114,8 @@ import (
 //   		jsii.String("vpcSecurityGroups"),
 //   	},
 //   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html
 //
 type CfnDBInstanceProps struct {
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
@@ -170,22 +174,30 @@ type CfnDBInstanceProps struct {
 	//
 	// - Enterprise and Standard editions: Must be an integer from 20 to 1024.
 	// - Web and Express editions: Must be an integer from 20 to 1024.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-allocatedstorage
+	//
 	AllocatedStorage *string `field:"optional" json:"allocatedStorage" yaml:"allocatedStorage"`
 	// A value that indicates whether major version upgrades are allowed.
 	//
 	// Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
 	//
 	// Constraints: Major version upgrades must be allowed when specifying a value for the `EngineVersion` parameter that is a different major version than the DB instance's current version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-allowmajorversionupgrade
+	//
 	AllowMajorVersionUpgrade interface{} `field:"optional" json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// The AWS Identity and Access Management (IAM) roles associated with the DB instance.
 	//
 	// *Amazon Aurora*
 	//
 	// Not applicable. The associated roles are managed by the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-associatedroles
+	//
 	AssociatedRoles interface{} `field:"optional" json:"associatedRoles" yaml:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	//
 	// By default, minor engine upgrades are applied automatically.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-autominorversionupgrade
+	//
 	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The Availability Zone (AZ) where the database will be created.
 	//
@@ -201,6 +213,8 @@ type CfnDBInstanceProps struct {
 	// - The specified Availability Zone must be in the same AWS Region as the current endpoint.
 	//
 	// Example: `us-east-1d`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-availabilityzone
+	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days for which automated backups are retained.
 	//
@@ -216,6 +230,8 @@ type CfnDBInstanceProps struct {
 	//
 	// - Must be a value from 0 to 35
 	// - Can't be set to 0 if the DB instance is a source to read replicas.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-backupretentionperiod
+	//
 	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
 	//
@@ -224,8 +240,12 @@ type CfnDBInstanceProps struct {
 	// For more information about CA certificate identifiers for RDS DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide* .
 	//
 	// For more information about CA certificate identifiers for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-cacertificateidentifier
+	//
 	CaCertificateIdentifier *string `field:"optional" json:"caCertificateIdentifier" yaml:"caCertificateIdentifier"`
 	// The details of the DB instance's server certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-certificatedetails
+	//
 	CertificateDetails interface{} `field:"optional" json:"certificateDetails" yaml:"certificateDetails"`
 	// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
 	//
@@ -239,18 +259,24 @@ type CfnDBInstanceProps struct {
 	// - For more information about rotating your SSL/TLS certificate for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide* .
 	//
 	// This setting doesn't apply to RDS Custom DB instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-certificaterotationrestart
+	//
 	CertificateRotationRestart interface{} `field:"optional" json:"certificateRotationRestart" yaml:"certificateRotationRestart"`
 	// For supported engines, indicates that the DB instance should be associated with the specified character set.
 	//
 	// *Amazon Aurora*
 	//
 	// Not applicable. The character set is managed by the DB cluster. For more information, see [AWS::RDS::DBCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-charactersetname
+	//
 	CharacterSetName *string `field:"optional" json:"characterSetName" yaml:"characterSetName"`
-	// Spcifies whether to copy tags from the DB instance to snapshots of the DB instance.
+	// Specifies whether to copy tags from the DB instance to snapshots of the DB instance.
 	//
 	// By default, tags are not copied.
 	//
 	// This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-copytagstosnapshot
+	//
 	CopyTagsToSnapshot interface{} `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	//
@@ -263,8 +289,12 @@ type CfnDBInstanceProps struct {
 	// - The instance profile name and the associated IAM role name must start with the prefix `AWSRDSCustom` .
 	//
 	// For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-customiaminstanceprofile
+	//
 	CustomIamInstanceProfile *string `field:"optional" json:"customIamInstanceProfile" yaml:"customIamInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclusteridentifier
+	//
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.
 	//
@@ -278,10 +308,14 @@ type CfnDBInstanceProps struct {
 	// - If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the `DBClusterSnapshotIdentifier` must be the ARN of the shared snapshot.
 	// - Can't be the identifier of an Aurora DB cluster snapshot.
 	// - Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclustersnapshotidentifier
+	//
 	DbClusterSnapshotIdentifier *string `field:"optional" json:"dbClusterSnapshotIdentifier" yaml:"dbClusterSnapshotIdentifier"`
 	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	//
 	// For the full list of DB instance classes, and availability for your engine, see [DB Instance Class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide.* For more information about DB instance class pricing and AWS Region support for DB instance classes, see [Amazon RDS Pricing](https://docs.aws.amazon.com/rds/pricing/) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbinstanceclass
+	//
 	DbInstanceClass *string `field:"optional" json:"dbInstanceClass" yaml:"dbInstanceClass"`
 	// A name for the DB instance.
 	//
@@ -290,6 +324,8 @@ type CfnDBInstanceProps struct {
 	// For information about constraints that apply to DB instance identifiers, see [Naming constraints in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon RDS User Guide* .
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbinstanceidentifier
+	//
 	DbInstanceIdentifier *string `field:"optional" json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// The meaning of this parameter differs according to the database engine you use.
 	//
@@ -340,6 +376,8 @@ type CfnDBInstanceProps struct {
 	// *SQL Server*
 	//
 	// Not applicable. Must be null.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbname
+	//
 	DbName *string `field:"optional" json:"dbName" yaml:"dbName"`
 	// The name of an existing DB parameter group or a reference to an [AWS::RDS::DBParameterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html) resource created in the template.
 	//
@@ -350,6 +388,8 @@ type CfnDBInstanceProps struct {
 	// > If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
 	//
 	// If you don't specify a value for `DBParameterGroupName` property, the default DB parameter group for the specified engine and engine version is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbparametergroupname
+	//
 	DbParameterGroupName *string `field:"optional" json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
 	// A list of the DB security groups to assign to the DB instance.
 	//
@@ -381,6 +421,8 @@ type CfnDBInstanceProps struct {
 	// > - `PreferredMaintenanceWindow`
 	// >
 	// > All other properties are ignored. Specify a virtual private cloud (VPC) security group if you want to submit other properties, such as `StorageType` , `StorageEncrypted` , or `KmsKeyId` . If you're already using the `DBSecurityGroups` property, you can't use these other properties by updating your DB instance to use a VPC security group. You must recreate the DB instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsecuritygroups
+	//
 	DbSecurityGroups *[]*string `field:"optional" json:"dbSecurityGroups" yaml:"dbSecurityGroups"`
 	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance.
 	//
@@ -413,6 +455,8 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. Snapshot restore is managed by the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsnapshotidentifier
+	//
 	DbSnapshotIdentifier *string `field:"optional" json:"dbSnapshotIdentifier" yaml:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance.
 	//
@@ -425,6 +469,8 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsubnetgroupname
+	//
 	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted.
 	//
@@ -433,6 +479,8 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the DB cluster are not deleted.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-deleteautomatedbackups
+	//
 	DeleteAutomatedBackups interface{} `field:"optional" json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB instance has deletion protection enabled.
 	//
@@ -441,12 +489,16 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. You can enable or disable deletion protection for the DB cluster. For more information, see `CreateDBCluster` . DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-deletionprotection
+	//
 	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
 	//
 	// Currently, only Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	//
 	// For more information, see [Kerberos Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html) in the *Amazon RDS User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domain
+	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 	// The name of the IAM role to use when making API calls to the Directory Service.
 	//
@@ -454,6 +506,8 @@ type CfnDBInstanceProps struct {
 	//
 	// - Amazon Aurora (The domain is managed by the DB cluster.)
 	// - RDS Custom.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domainiamrolename
+	//
 	DomainIamRoleName *string `field:"optional" json:"domainIamRoleName" yaml:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	//
@@ -482,6 +536,8 @@ type CfnDBInstanceProps struct {
 	// *PostgreSQL*
 	//
 	// Valid values: `postgresql` , `upgrade`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enablecloudwatchlogsexports
+	//
 	EnableCloudwatchLogsExports *[]*string `field:"optional" json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
 	//
@@ -492,16 +548,22 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enableiamdatabaseauthentication
+	//
 	EnableIamDatabaseAuthentication interface{} `field:"optional" json:"enableIamDatabaseAuthentication" yaml:"enableIamDatabaseAuthentication"`
 	// Specifies whether to enable Performance Insights for the DB instance.
 	//
 	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide* .
 	//
 	// This setting doesn't apply to RDS Custom DB instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enableperformanceinsights
+	//
 	EnablePerformanceInsights interface{} `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// The connection endpoint for the DB instance.
 	//
 	// > The endpoint might not be shown for instances with the status of `creating` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-endpoint
+	//
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The name of the database engine that you want to use for this DB instance.
 	//
@@ -527,6 +589,8 @@ type CfnDBInstanceProps struct {
 	// - `sqlserver-se`
 	// - `sqlserver-ex`
 	// - `sqlserver-web`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-engine
+	//
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// The version number of the database engine to use.
 	//
@@ -557,6 +621,8 @@ type CfnDBInstanceProps struct {
 	// *PostgreSQL*
 	//
 	// See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-engineversion
+	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
@@ -565,6 +631,8 @@ type CfnDBInstanceProps struct {
 	// If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide* .
 	//
 	// > If you specify `io1` for the `StorageType` property, then you must also specify the `Iops` property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-iops
+	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The ARN of the AWS KMS key that's used to encrypt the DB instance, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef` .
 	//
@@ -581,6 +649,8 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The KMS key identifier is managed by the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// License model information for this DB instance.
 	//
@@ -595,6 +665,8 @@ type CfnDBInstanceProps struct {
 	// - PostgreSQL - `postgresql-license`
 	//
 	// > If you've specified `DBSecurityGroups` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-licensemodel
+	//
 	LicenseModel *string `field:"optional" json:"licenseModel" yaml:"licenseModel"`
 	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	//
@@ -603,6 +675,8 @@ type CfnDBInstanceProps struct {
 	// Constraints:
 	//
 	// - Can't manage the master user password with AWS Secrets Manager if `MasterUserPassword` is specified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-managemasteruserpassword
+	//
 	ManageMasterUserPassword interface{} `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
 	// The master user name for the DB instance.
 	//
@@ -655,6 +729,8 @@ type CfnDBInstanceProps struct {
 	// - Must be 1 to 63 letters or numbers.
 	// - First character must be a letter.
 	// - Can't be a reserved word for the chosen database engine.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masterusername
+	//
 	MasterUsername *string `field:"optional" json:"masterUsername" yaml:"masterUsername"`
 	// The password for the master user. The password can include any printable ASCII character except "/", """, or "@".
 	//
@@ -681,10 +757,14 @@ type CfnDBInstanceProps struct {
 	// *PostgreSQL*
 	//
 	// Constraints: Must contain from 8 to 128 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masteruserpassword
+	//
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The secret managed by RDS in AWS Secrets Manager for the master user password.
 	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masterusersecret
+	//
 	MasterUserSecret interface{} `field:"optional" json:"masterUserSecret" yaml:"masterUserSecret"`
 	// The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.
 	//
@@ -694,6 +774,8 @@ type CfnDBInstanceProps struct {
 	//
 	// - Amazon Aurora (Storage is managed by the DB cluster.)
 	// - RDS Custom.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-maxallocatedstorage
+	//
 	MaxAllocatedStorage *float64 `field:"optional" json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 	//
@@ -704,6 +786,8 @@ type CfnDBInstanceProps struct {
 	// This setting doesn't apply to RDS Custom.
 	//
 	// Valid Values: `0, 1, 5, 10, 15, 30, 60`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-monitoringinterval
+	//
 	MonitoringInterval *float64 `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
 	//
@@ -712,6 +796,8 @@ type CfnDBInstanceProps struct {
 	// If `MonitoringInterval` is set to a value other than `0` , then you must supply a `MonitoringRoleArn` value.
 	//
 	// This setting doesn't apply to RDS Custom DB instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-monitoringrolearn
+	//
 	MonitoringRoleArn *string `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
 	// Specifies whether the database instance is a Multi-AZ DB instance deployment.
 	//
@@ -722,10 +808,14 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the `MultiAZ` option to be set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-multiaz
+	//
 	MultiAz interface{} `field:"optional" json:"multiAz" yaml:"multiAz"`
 	// The name of the NCHAR character set for the Oracle DB instance.
 	//
 	// This setting doesn't apply to RDS Custom DB instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-ncharcharactersetname
+	//
 	NcharCharacterSetName *string `field:"optional" json:"ncharCharacterSetName" yaml:"ncharCharacterSetName"`
 	// The network type of the DB instance.
 	//
@@ -737,10 +827,14 @@ type CfnDBInstanceProps struct {
 	// The network type is determined by the `DBSubnetGroup` specified for the DB instance. A `DBSubnetGroup` can support only the IPv4 protocol or the IPv4 and IPv6 protocols ( `DUAL` ).
 	//
 	// For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon RDS User Guide.*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-networktype
+	//
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// Indicates that the DB instance should be associated with the specified option group.
 	//
 	// Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-optiongroupname
+	//
 	OptionGroupName *string `field:"optional" json:"optionGroupName" yaml:"optionGroupName"`
 	// The AWS KMS key identifier for encryption of Performance Insights data.
 	//
@@ -749,6 +843,8 @@ type CfnDBInstanceProps struct {
 	// If you do not specify a value for `PerformanceInsightsKMSKeyId` , then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.
 	//
 	// For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-performanceinsightskmskeyid
+	//
 	PerformanceInsightsKmsKeyId *string `field:"optional" json:"performanceInsightsKmsKeyId" yaml:"performanceInsightsKmsKeyId"`
 	// The number of days to retain Performance Insights data.
 	//
@@ -763,12 +859,16 @@ type CfnDBInstanceProps struct {
 	// Default: `7` days
 	//
 	// If you specify a retention period that isn't valid, such as `94` , Amazon RDS returns an error.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-performanceinsightsretentionperiod
+	//
 	PerformanceInsightsRetentionPeriod *float64 `field:"optional" json:"performanceInsightsRetentionPeriod" yaml:"performanceInsightsRetentionPeriod"`
 	// The port number on which the database accepts connections.
 	//
 	// *Amazon Aurora*
 	//
 	// Not applicable. The port number is managed by the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-port
+	//
 	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled, using the `BackupRetentionPeriod` parameter.
 	//
@@ -784,6 +884,8 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The daily time range for creating automated backups is managed by the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-preferredbackupwindow
+	//
 	PreferredBackupWindow *string `field:"optional" json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
@@ -794,10 +896,14 @@ type CfnDBInstanceProps struct {
 	// > This property applies when AWS CloudFormation initially creates the DB instance. If you use AWS CloudFormation to update the DB instance, those updates are applied immediately.
 	//
 	// Constraints: Minimum 30-minute window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-preferredmaintenancewindow
+	//
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
 	//
 	// This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-processorfeatures
+	//
 	ProcessorFeatures interface{} `field:"optional" json:"processorFeatures" yaml:"processorFeatures"`
 	// The order of priority in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
 	//
@@ -808,12 +914,16 @@ type CfnDBInstanceProps struct {
 	// Default: `1`
 	//
 	// Valid Values: `0 - 15`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-promotiontier
+	//
 	PromotionTier *float64 `field:"optional" json:"promotionTier" yaml:"promotionTier"`
 	// Indicates whether the DB instance is an internet-facing instance.
 	//
 	// If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
 	//
 	// The default behavior value depends on your VPC setup and the database subnet group. For more information, see the `PubliclyAccessible` parameter in the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-publiclyaccessible
+	//
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The open mode of an Oracle read replica.
 	//
@@ -824,6 +934,8 @@ type CfnDBInstanceProps struct {
 	// Default: `open-read-only`
 	//
 	// Valid Values: `open-read-only` or `mounted`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-replicamode
+	//
 	ReplicaMode *string `field:"optional" json:"replicaMode" yaml:"replicaMode"`
 	// The date and time to restore from.
 	//
@@ -835,6 +947,8 @@ type CfnDBInstanceProps struct {
 	// - Can't be specified if the `UseLatestRestorableTime` parameter is enabled
 	//
 	// Example: `2009-09-07T23:45:00Z`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-restoretime
+	//
 	RestoreTime *string `field:"optional" json:"restoreTime" yaml:"restoreTime"`
 	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica.
 	//
@@ -846,10 +960,14 @@ type CfnDBInstanceProps struct {
 	// - Can't be specified if the `SourceDBInstanceIdentifier` parameter is also specified.
 	// - The specified DB cluster must have automatic backups enabled, that is, its backup retention period must be greater than 0.
 	// - The source DB cluster must be in the same AWS Region as the read replica. Cross-Region replication isn't supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbclusteridentifier
+	//
 	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, `arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE` .
 	//
 	// This setting doesn't apply to RDS Custom.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbinstanceautomatedbackupsarn
+	//
 	SourceDbInstanceAutomatedBackupsArn *string `field:"optional" json:"sourceDbInstanceAutomatedBackupsArn" yaml:"sourceDbInstanceAutomatedBackupsArn"`
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
 	//
@@ -865,10 +983,16 @@ type CfnDBInstanceProps struct {
 	// > - Don't set the `BackupRetentionPeriod` , `DBName` , `MasterUsername` , `MasterUserPassword` , and `PreferredBackupWindow` properties. The database attributes are inherited from the source DB instance, and backups are disabled for read replicas.
 	// > - If the source DB instance is in a different region than the read replica, specify the source region in `SourceRegion` , and specify an ARN for a valid DB instance in `SourceDBInstanceIdentifier` . For more information, see [Constructing a Amazon RDS Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN) in the *Amazon RDS User Guide* .
 	// > - For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier
+	//
 	SourceDbInstanceIdentifier *string `field:"optional" json:"sourceDbInstanceIdentifier" yaml:"sourceDbInstanceIdentifier"`
 	// The resource ID of the source DB instance from which to restore.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbiresourceid
+	//
 	SourceDbiResourceId *string `field:"optional" json:"sourceDbiResourceId" yaml:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the read replica.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourceregion
+	//
 	SourceRegion *string `field:"optional" json:"sourceRegion" yaml:"sourceRegion"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//
@@ -883,10 +1007,14 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The encryption for DB instances is managed by the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storageencrypted
+	//
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// Specifies the storage throughput value for the DB instance. This setting applies only to the `gp3` storage type.
 	//
 	// This setting doesn't apply to RDS Custom or Amazon Aurora.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storagethroughput
+	//
 	StorageThroughput *float64 `field:"optional" json:"storageThroughput" yaml:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB instance.
 	//
@@ -903,22 +1031,42 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. Aurora data is stored in the cluster volume, which is a single, virtual volume that uses solid state drives (SSDs).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storagetype
+	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
 	// An optional array of key-value pairs to apply to this DB instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The ARN from the key store with which to associate the instance for TDE encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-tdecredentialarn
+	//
+	// Deprecated: this property has been deprecated.
+	TdeCredentialArn *string `field:"optional" json:"tdeCredentialArn" yaml:"tdeCredentialArn"`
+	// The password for the given ARN from the key store in order to access the device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-tdecredentialpassword
+	//
+	// Deprecated: this property has been deprecated.
+	TdeCredentialPassword *string `field:"optional" json:"tdeCredentialPassword" yaml:"tdeCredentialPassword"`
 	// The time zone of the DB instance.
 	//
 	// The time zone parameter is currently supported only by [Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-timezone
+	//
 	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
 	// Specifies whether the DB instance class of the DB instance uses its default processor features.
 	//
 	// This setting doesn't apply to RDS Custom DB instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-usedefaultprocessorfeatures
+	//
 	UseDefaultProcessorFeatures interface{} `field:"optional" json:"useDefaultProcessorFeatures" yaml:"useDefaultProcessorFeatures"`
 	// A value that indicates whether the DB instance is restored from the latest backup time.
 	//
 	// By default, the DB instance isn't restored from the latest backup time.
 	//
 	// Constraints: Can't be specified if the `RestoreTime` parameter is provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-uselatestrestorabletime
+	//
 	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// A list of the VPC security group IDs to assign to the DB instance.
 	//
@@ -939,6 +1087,8 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-vpcsecuritygroups
+	//
 	VpcSecurityGroups *[]*string `field:"optional" json:"vpcSecurityGroups" yaml:"vpcSecurityGroups"`
 }
 

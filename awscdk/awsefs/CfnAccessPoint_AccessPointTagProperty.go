@@ -15,12 +15,18 @@ package awsefs
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html
+//
 type CfnAccessPoint_AccessPointTagProperty struct {
 	// The tag key (String).
 	//
 	// The key can't start with `aws:` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value of the tag key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

@@ -15,10 +15,16 @@ package awsemr
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-keyvalue.html
+//
 type CfnCluster_KeyValueProperty struct {
 	// The unique identifier of a key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-keyvalue.html#cfn-emr-cluster-keyvalue-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value part of the identified key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-keyvalue.html#cfn-emr-cluster-keyvalue-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

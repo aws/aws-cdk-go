@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDisk) validateSetSizeInGbParameters(val *float64) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDisk) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDiskParameters(scope constructs.Construct, id *string, props *CfnDiskProps) error {
 	return nil
 }

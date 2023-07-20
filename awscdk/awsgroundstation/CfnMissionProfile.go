@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::GroundStation::MissionProfile`.
-//
 // Mission profiles specify parameters and provide references to config objects to define how Ground Station lists and executes contacts.
 //
 // Example:
@@ -45,9 +43,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
+//
 type CfnMissionProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	AttrArn() *string
 	// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
@@ -60,13 +61,9 @@ type CfnMissionProfile interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Amount of time in seconds after a contact ends that you’d like to receive a CloudWatch Event indicating the pass has finished.
-	//
-	// For more information on CloudWatch Events, see the [What Is CloudWatch Events?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html)
 	ContactPostPassDurationSeconds() *float64
 	SetContactPostPassDurationSeconds(val *float64)
 	// Amount of time in seconds prior to contact start that you'd like to receive a CloudWatch Event indicating an upcoming pass.
-	//
-	// For more information on CloudWatch Events, see the [What Is CloudWatch Events?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html)
 	ContactPrePassDurationSeconds() *float64
 	SetContactPrePassDurationSeconds(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -74,8 +71,6 @@ type CfnMissionProfile interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A list containing lists of config ARNs.
-	//
-	// Each list of config ARNs is an edge, with a "from" config and a "to" config.
 	DataflowEdges() interface{}
 	SetDataflowEdges(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -89,8 +84,6 @@ type CfnMissionProfile interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Minimum length of a contact in seconds that Ground Station will return when listing contacts.
-	//
-	// Ground Station will not return contacts shorter than this duration.
 	MinimumViableContactDurationSeconds() *float64
 	SetMinimumViableContactDurationSeconds(val *float64)
 	// The name of the mission profile.
@@ -107,14 +100,16 @@ type CfnMissionProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::GroundStation::MissionProfile.StreamsKmsKey`.
 	StreamsKmsKey() interface{}
 	SetStreamsKmsKey(val interface{})
-	// `AWS::GroundStation::MissionProfile.StreamsKmsRole`.
+	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
 	StreamsKmsRole() *string
 	SetStreamsKmsRole(val *string)
-	// Tags assigned to the mission profile.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags assigned to the mission profile.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	TrackingConfigArn() *string
 	SetTrackingConfigArn(val *string)
@@ -262,6 +257,7 @@ type CfnMissionProfile interface {
 type jsiiProxy_CfnMissionProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnMissionProfile) AttrArn() *string {
@@ -454,6 +450,16 @@ func (j *jsiiProxy_CfnMissionProfile) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMissionProfile) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMissionProfile) TrackingConfigArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -485,7 +491,6 @@ func (j *jsiiProxy_CfnMissionProfile) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::GroundStation::MissionProfile`.
 func NewCfnMissionProfile(scope constructs.Construct, id *string, props *CfnMissionProfileProps) CfnMissionProfile {
 	_init_.Initialize()
 
@@ -503,7 +508,6 @@ func NewCfnMissionProfile(scope constructs.Construct, id *string, props *CfnMiss
 	return &j
 }
 
-// Create a new `AWS::GroundStation::MissionProfile`.
 func NewCfnMissionProfile_Override(c CfnMissionProfile, scope constructs.Construct, id *string, props *CfnMissionProfileProps) {
 	_init_.Initialize()
 
@@ -578,6 +582,17 @@ func (j *jsiiProxy_CfnMissionProfile)SetStreamsKmsRole(val *string) {
 	_jsii_.Set(
 		j,
 		"streamsKmsRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMissionProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

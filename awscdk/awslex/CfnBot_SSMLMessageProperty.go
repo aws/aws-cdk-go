@@ -12,8 +12,12 @@ package awslex
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html
+//
 type CfnBot_SSMLMessageProperty struct {
 	// The SSML text that defines the prompt.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html#cfn-lex-bot-ssmlmessage-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -16,10 +16,14 @@ package awscloudfront
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolalloworigins.html
+//
 type CfnResponseHeadersPolicy_AccessControlAllowOriginsProperty struct {
 	// The list of origins (domain names).
 	//
 	// You can specify `*` to allow all origins.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolalloworigins.html#cfn-cloudfront-responseheaderspolicy-accesscontrolalloworigins-items
+	//
 	Items *[]*string `field:"required" json:"items" yaml:"items"`
 }
 

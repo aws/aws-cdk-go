@@ -14,10 +14,14 @@ package awsapigatewayv2
 //   	ServerNameToVerify: jsii.String("serverNameToVerify"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
+//
 type CfnIntegration_TlsConfigProperty struct {
 	// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate.
 	//
 	// The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html#cfn-apigatewayv2-integration-tlsconfig-servernametoverify
+	//
 	ServerNameToVerify *string `field:"optional" json:"serverNameToVerify" yaml:"serverNameToVerify"`
 }
 

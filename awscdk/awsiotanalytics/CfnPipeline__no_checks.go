@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineActivitiesParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnPipeline) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPipelineParameters(scope constructs.Construct, id *string, props *CfnPipelineProps) error {
 	return nil
 }

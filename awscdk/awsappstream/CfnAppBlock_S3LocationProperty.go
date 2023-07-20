@@ -15,12 +15,18 @@ package awsappstream
 //   	S3Key: jsii.String("s3Key"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-s3location.html
+//
 type CfnAppBlock_S3LocationProperty struct {
 	// The S3 bucket of the app block.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-s3location.html#cfn-appstream-appblock-s3location-s3bucket
+	//
 	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The S3 key of the S3 object of the virtual hard disk.
 	//
 	// This is required when it's used by `SetupScriptDetails` and `PostSetupScriptDetails` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-s3location.html#cfn-appstream-appblock-s3location-s3key
+	//
 	S3Key *string `field:"optional" json:"s3Key" yaml:"s3Key"`
 }
 

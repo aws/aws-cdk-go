@@ -9,26 +9,25 @@ import (
 // Properties for a new delivery stream.
 //
 // Example:
-//   // Specify the roles created above when defining the destination and delivery stream.
-//   var bucket bucket
-//   // Create service roles for the delivery stream and destination.
-//   // These can be used for other purposes and granted access to different resources.
-//   // They must include the Kinesis Data Firehose service principal in their trust policies.
-//   // Two separate roles are shown below, but the same role can be used for both purposes.
-//   deliveryStreamRole := iam.NewRole(this, jsii.String("Delivery Stream Role"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
-//   })
-//   destinationRole := iam.NewRole(this, jsii.String("Destination Role"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
-//   })
-//   destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
-//   	Role: destinationRole,
-//   })
-//   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+//   import firehose "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+//   import destinations "github.com/aws/aws-cdk-go/awscdkkinesisfirehosedestinationsalpha"
+//
+//
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//   stream := firehose.NewDeliveryStream(this, jsii.String("MyStream"), &DeliveryStreamProps{
 //   	Destinations: []iDestination{
-//   		destination,
+//   		destinations.NewS3Bucket(bucket),
 //   	},
-//   	Role: deliveryStreamRole,
+//   })
+//
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//   	Actions: []iAction{
+//   		actions.NewFirehosePutRecordAction(stream, &FirehosePutRecordActionProps{
+//   			BatchMode: jsii.Boolean(true),
+//   			RecordSeparator: actions.FirehoseRecordSeparator_NEWLINE,
+//   		}),
+//   	},
 //   })
 //
 // Experimental.

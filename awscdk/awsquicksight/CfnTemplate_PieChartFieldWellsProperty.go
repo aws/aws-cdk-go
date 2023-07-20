@@ -8,8 +8,12 @@ package awsquicksight
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-piechartfieldwells.html
+//
 type CfnTemplate_PieChartFieldWellsProperty struct {
 	// The field well configuration of a pie chart.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-piechartfieldwells.html#cfn-quicksight-template-piechartfieldwells-piechartaggregatedfieldwells
+	//
 	PieChartAggregatedFieldWells interface{} `field:"optional" json:"pieChartAggregatedFieldWells" yaml:"pieChartAggregatedFieldWells"`
 }
 

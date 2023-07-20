@@ -23,16 +23,23 @@ package awssagemaker
 //   	UseLogit: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html
+//
 type CfnEndpointConfig_ClarifyShapConfigProperty struct {
-	// `CfnEndpointConfig.ClarifyShapConfigProperty.ShapBaselineConfig`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-shapbaselineconfig
+	//
 	ShapBaselineConfig interface{} `field:"required" json:"shapBaselineConfig" yaml:"shapBaselineConfig"`
-	// `CfnEndpointConfig.ClarifyShapConfigProperty.NumberOfSamples`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-numberofsamples
+	//
 	NumberOfSamples *float64 `field:"optional" json:"numberOfSamples" yaml:"numberOfSamples"`
-	// `CfnEndpointConfig.ClarifyShapConfigProperty.Seed`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-seed
+	//
 	Seed *float64 `field:"optional" json:"seed" yaml:"seed"`
-	// `CfnEndpointConfig.ClarifyShapConfigProperty.TextConfig`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-textconfig
+	//
 	TextConfig interface{} `field:"optional" json:"textConfig" yaml:"textConfig"`
-	// `CfnEndpointConfig.ClarifyShapConfigProperty.UseLogit`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-uselogit
+	//
 	UseLogit interface{} `field:"optional" json:"useLogit" yaml:"useLogit"`
 }
 

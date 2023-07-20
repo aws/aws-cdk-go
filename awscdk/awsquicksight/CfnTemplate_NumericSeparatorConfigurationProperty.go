@@ -16,10 +16,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericseparatorconfiguration.html
+//
 type CfnTemplate_NumericSeparatorConfigurationProperty struct {
 	// Determines the decimal separator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericseparatorconfiguration.html#cfn-quicksight-template-numericseparatorconfiguration-decimalseparator
+	//
 	DecimalSeparator *string `field:"optional" json:"decimalSeparator" yaml:"decimalSeparator"`
 	// The options that determine the thousands separator configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericseparatorconfiguration.html#cfn-quicksight-template-numericseparatorconfiguration-thousandsseparator
+	//
 	ThousandsSeparator interface{} `field:"optional" json:"thousandsSeparator" yaml:"thousandsSeparator"`
 }
 

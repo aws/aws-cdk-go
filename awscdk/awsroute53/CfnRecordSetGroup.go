@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Route53::RecordSetGroup`.
-//
 // A complex type that contains an optional comment, the name and ID of the hosted zone that you want to make changes in, and values for the records that you want to create.
 //
 // Example:
@@ -60,9 +58,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html
+//
 type CfnRecordSetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -76,17 +77,9 @@ type CfnRecordSetGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The ID of the hosted zone that you want to create records in.
-	//
-	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
 	// The name of the hosted zone that you want to create records in.
-	//
-	// You must include a trailing dot (for example, `www.example.com.` ) as part of the `HostedZoneName` .
-	//
-	// When you create a stack using an `AWS::Route53::RecordSet` that specifies `HostedZoneName` , AWS CloudFormation attempts to find a hosted zone whose name matches the `HostedZoneName` . If AWS CloudFormation can't find a hosted zone with a matching domain name, or if there is more than one hosted zone with the specified domain name, AWS CloudFormation will not create the stack.
-	//
-	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
 	HostedZoneName() *string
 	SetHostedZoneName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -259,6 +252,16 @@ type jsiiProxy_CfnRecordSetGroup struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnRecordSetGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRecordSetGroup) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -400,7 +403,6 @@ func (j *jsiiProxy_CfnRecordSetGroup) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::Route53::RecordSetGroup`.
 func NewCfnRecordSetGroup(scope constructs.Construct, id *string, props *CfnRecordSetGroupProps) CfnRecordSetGroup {
 	_init_.Initialize()
 
@@ -418,7 +420,6 @@ func NewCfnRecordSetGroup(scope constructs.Construct, id *string, props *CfnReco
 	return &j
 }
 
-// Create a new `AWS::Route53::RecordSetGroup`.
 func NewCfnRecordSetGroup_Override(c CfnRecordSetGroup, scope constructs.Construct, id *string, props *CfnRecordSetGroupProps) {
 	_init_.Initialize()
 

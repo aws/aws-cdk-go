@@ -13,14 +13,20 @@ package awscassandra
 //   	ColumnType: jsii.String("columnType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html
+//
 type CfnTable_ColumnProperty struct {
 	// The name of the column.
 	//
 	// For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname
+	//
 	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// The data type of the column.
 	//
 	// For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype
+	//
 	ColumnType *string `field:"required" json:"columnType" yaml:"columnType"`
 }
 

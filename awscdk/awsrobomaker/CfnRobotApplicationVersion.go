@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RoboMaker::RobotApplicationVersion`.
-//
 // The `AWS::RoboMaker::RobotApplicationVersion` resource creates an AWS RoboMaker robot version.
 //
 // Example:
@@ -24,6 +22,8 @@ import (
 //   	// the properties below are optional
 //   	CurrentRevisionId: jsii.String("currentRevisionId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html
 //
 type CfnRobotApplicationVersion interface {
 	awscdk.CfnResource
@@ -45,8 +45,6 @@ type CfnRobotApplicationVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The current revision id for the robot application.
-	//
-	// If you provide a value and it matches the latest revision ID, a new version will be created.
 	CurrentRevisionId() *string
 	SetCurrentRevisionId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -357,7 +355,6 @@ func (j *jsiiProxy_CfnRobotApplicationVersion) UpdatedProperties() *map[string]i
 }
 
 
-// Create a new `AWS::RoboMaker::RobotApplicationVersion`.
 func NewCfnRobotApplicationVersion(scope constructs.Construct, id *string, props *CfnRobotApplicationVersionProps) CfnRobotApplicationVersion {
 	_init_.Initialize()
 
@@ -375,7 +372,6 @@ func NewCfnRobotApplicationVersion(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Create a new `AWS::RoboMaker::RobotApplicationVersion`.
 func NewCfnRobotApplicationVersion_Override(c CfnRobotApplicationVersion, scope constructs.Construct, id *string, props *CfnRobotApplicationVersionProps) {
 	_init_.Initialize()
 

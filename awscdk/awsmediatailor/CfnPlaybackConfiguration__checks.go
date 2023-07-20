@@ -261,15 +261,15 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetCdnConfigurationParamete
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetConfigurationAliasesParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *map[string]interface{}:
 		// ok
 	case map[string]interface{}:
 		// ok
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]interface{}; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *map[string]interface{}, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -375,6 +375,16 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetManifestProcessingRulesP
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

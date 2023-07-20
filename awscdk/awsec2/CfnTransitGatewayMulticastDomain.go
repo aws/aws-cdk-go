@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::TransitGatewayMulticastDomain`.
-//
 // Creates a multicast domain using the specified transit gateway.
 //
 // The transit gateway must be in the available state before you create a domain.
@@ -35,9 +33,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html
+//
 type CfnTransitGatewayMulticastDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The time the multicast domain was created.
 	AttrCreationTime() *string
 	// The state of the multicast domain.
@@ -68,10 +69,6 @@ type CfnTransitGatewayMulticastDomain interface {
 	// The tree node.
 	Node() constructs.Node
 	// The options for the transit gateway multicast domain.
-	//
-	// - AutoAcceptSharedAssociations (enable | disable)
-	// - Igmpv2Support (enable | disable)
-	// - StaticSourcesSupport (enable | disable).
 	Options() interface{}
 	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -83,8 +80,11 @@ type CfnTransitGatewayMulticastDomain interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the transit gateway multicast domain.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the transit gateway multicast domain.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ID of the transit gateway.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
@@ -232,6 +232,7 @@ type CfnTransitGatewayMulticastDomain interface {
 type jsiiProxy_CfnTransitGatewayMulticastDomain struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) AttrCreationTime() *string {
@@ -374,6 +375,16 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) TransitGatewayId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -405,7 +416,6 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) UpdatedProperties() *map[st
 }
 
 
-// Create a new `AWS::EC2::TransitGatewayMulticastDomain`.
 func NewCfnTransitGatewayMulticastDomain(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastDomainProps) CfnTransitGatewayMulticastDomain {
 	_init_.Initialize()
 
@@ -423,7 +433,6 @@ func NewCfnTransitGatewayMulticastDomain(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Create a new `AWS::EC2::TransitGatewayMulticastDomain`.
 func NewCfnTransitGatewayMulticastDomain_Override(c CfnTransitGatewayMulticastDomain, scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastDomainProps) {
 	_init_.Initialize()
 
@@ -435,12 +444,20 @@ func NewCfnTransitGatewayMulticastDomain_Override(c CfnTransitGatewayMulticastDo
 }
 
 func (j *jsiiProxy_CfnTransitGatewayMulticastDomain)SetOptions(val interface{}) {
-	if err := j.validateSetOptionsParameters(val); err != nil {
+	_jsii_.Set(
+		j,
+		"options",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayMulticastDomain)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"options",
+		"tagsRaw",
 		val,
 	)
 }

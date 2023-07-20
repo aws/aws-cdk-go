@@ -15,10 +15,16 @@ package awsdatabrew
 //   	Size: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html
+//
 type CfnProject_SampleProperty struct {
 	// The way in which DataBrew obtains rows from a dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The number of rows in the sample.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+	//
 	Size *float64 `field:"optional" json:"size" yaml:"size"`
 }
 

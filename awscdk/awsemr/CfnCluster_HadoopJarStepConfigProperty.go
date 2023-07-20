@@ -26,18 +26,28 @@ package awsemr
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-hadoopjarstepconfig.html
+//
 type CfnCluster_HadoopJarStepConfigProperty struct {
 	// A path to a JAR file run during the step.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-hadoopjarstepconfig.html#cfn-emr-cluster-hadoopjarstepconfig-jar
+	//
 	Jar *string `field:"required" json:"jar" yaml:"jar"`
 	// A list of command line arguments passed to the JAR file's main function when executed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-hadoopjarstepconfig.html#cfn-emr-cluster-hadoopjarstepconfig-args
+	//
 	Args *[]*string `field:"optional" json:"args" yaml:"args"`
 	// The name of the main class in the specified Java file.
 	//
 	// If not specified, the JAR file should specify a Main-Class in its manifest file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-hadoopjarstepconfig.html#cfn-emr-cluster-hadoopjarstepconfig-mainclass
+	//
 	MainClass *string `field:"optional" json:"mainClass" yaml:"mainClass"`
 	// A list of Java properties that are set when the step runs.
 	//
 	// You can use these properties to pass key-value pairs to your main function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-hadoopjarstepconfig.html#cfn-emr-cluster-hadoopjarstepconfig-stepproperties
+	//
 	StepProperties interface{} `field:"optional" json:"stepProperties" yaml:"stepProperties"`
 }
 

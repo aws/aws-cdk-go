@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VerifiedAccessInstance`.
-//
 // Describes a Verified Access instance.
 //
 // Example:
@@ -58,9 +56,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html
+//
 type CfnVerifiedAccessInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The creation time.
 	AttrCreationTime() *string
 	// The last updated time.
@@ -103,8 +104,11 @@ type CfnVerifiedAccessInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -255,6 +259,7 @@ type CfnVerifiedAccessInstance interface {
 type jsiiProxy_CfnVerifiedAccessInstance struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVerifiedAccessInstance) AttrCreationTime() *string {
@@ -397,6 +402,16 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessInstance) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessInstance) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -438,7 +453,6 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance) VerifiedAccessTrustProviders() int
 }
 
 
-// Create a new `AWS::EC2::VerifiedAccessInstance`.
 func NewCfnVerifiedAccessInstance(scope constructs.Construct, id *string, props *CfnVerifiedAccessInstanceProps) CfnVerifiedAccessInstance {
 	_init_.Initialize()
 
@@ -456,7 +470,6 @@ func NewCfnVerifiedAccessInstance(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Create a new `AWS::EC2::VerifiedAccessInstance`.
 func NewCfnVerifiedAccessInstance_Override(c CfnVerifiedAccessInstance, scope constructs.Construct, id *string, props *CfnVerifiedAccessInstanceProps) {
 	_init_.Initialize()
 
@@ -482,6 +495,17 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance)SetLoggingConfigurations(val interf
 	_jsii_.Set(
 		j,
 		"loggingConfigurations",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

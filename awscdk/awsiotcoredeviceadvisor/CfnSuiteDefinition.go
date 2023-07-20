@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
-//
 // Creates a Device Advisor test suite.
 //
 // Requires permission to access the [CreateSuiteDefinition](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
@@ -34,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
+//
 type CfnSuiteDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Arn of the Suite Definition.
 	AttrSuiteDefinitionArn() *string
 	// The version of the Suite Definition.
@@ -73,37 +74,16 @@ type CfnSuiteDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
+	// The configuration of the Suite Definition.
 	//
-	// - ***devicePermissionRoleArn*** - The device permission arn.
-	//
-	// This is a required element.
-	//
-	// *Type:* String
-	// - ***devices*** - The list of configured devices under test. For more information on devices under test, see [DeviceUnderTest](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdeviceadvisor_DeviceUnderTest.html)
-	//
-	// Not a required element.
-	//
-	// *Type:* List of devices under test
-	// - ***intendedForQualification*** - The tests intended for qualification in a suite.
-	//
-	// Not a required element.
-	//
-	// *Type:* Boolean
-	// - ***rootGroup*** - The test suite root group. For more information on creating and using root groups see the [Device Advisor workflow](https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-workflow.html) .
-	//
-	// This is a required element.
-	//
-	// *Type:* String
-	// - ***suiteDefinitionName*** - The Suite Definition Configuration name.
-	//
-	// This is a required element.
-	//
-	// *Type:* String.
+	// Listed below are the required elements of the `SuiteDefinitionConfiguration` .
 	SuiteDefinitionConfiguration() interface{}
 	SetSuiteDefinitionConfiguration(val interface{})
-	// Metadata that can be used to manage the the Suite Definition.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Metadata that can be used to manage the the Suite Definition.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -248,6 +228,7 @@ type CfnSuiteDefinition interface {
 type jsiiProxy_CfnSuiteDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSuiteDefinition) AttrSuiteDefinitionArn() *string {
@@ -380,6 +361,16 @@ func (j *jsiiProxy_CfnSuiteDefinition) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSuiteDefinition) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSuiteDefinition) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -401,7 +392,6 @@ func (j *jsiiProxy_CfnSuiteDefinition) UpdatedProperties() *map[string]interface
 }
 
 
-// Create a new `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
 func NewCfnSuiteDefinition(scope constructs.Construct, id *string, props *CfnSuiteDefinitionProps) CfnSuiteDefinition {
 	_init_.Initialize()
 
@@ -419,7 +409,6 @@ func NewCfnSuiteDefinition(scope constructs.Construct, id *string, props *CfnSui
 	return &j
 }
 
-// Create a new `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
 func NewCfnSuiteDefinition_Override(c CfnSuiteDefinition, scope constructs.Construct, id *string, props *CfnSuiteDefinitionProps) {
 	_init_.Initialize()
 
@@ -437,6 +426,17 @@ func (j *jsiiProxy_CfnSuiteDefinition)SetSuiteDefinitionConfiguration(val interf
 	_jsii_.Set(
 		j,
 		"suiteDefinitionConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSuiteDefinition)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

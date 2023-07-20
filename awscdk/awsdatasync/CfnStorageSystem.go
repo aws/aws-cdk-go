@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::DataSync::StorageSystem`.
+// The `AWS::DataSync::StorageSystem` resource creates an AWS resource for an on-premises storage system that you want DataSync Discovery to collect information about.
 //
-// The `AWS::DataSync::StorageSystem` resource creates an AWS resource for an on-premises storage system that you want DataSync Discovery to collect information about. For more information, see [discovering your storage with DataSync Discovery.](https://docs.aws.amazon.com/datasync/latest/userguide/understanding-your-storage.html)
+// For more information, see [discovering your storage with DataSync Discovery.](https://docs.aws.amazon.com/datasync/latest/userguide/understanding-your-storage.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,9 +45,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html
+//
 type CfnStorageSystem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that connects to and reads from your on-premises storage system's management interface.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
@@ -102,14 +105,13 @@ type CfnStorageSystem interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Specifies the type of on-premises storage system that you want DataSync Discovery to collect information about.
-	//
-	// > DataSync Discovery currently supports NetApp Fabric-Attached Storage (FAS) and All Flash FAS (AFF) systems running ONTAP 9.7 or later.
 	SystemType() *string
 	SetSystemType(val *string)
-	// Specifies labels that help you categorize, filter, and search for your AWS resources.
-	//
-	// We recommend creating at least a name tag for your on-premises storage system.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -254,6 +256,7 @@ type CfnStorageSystem interface {
 type jsiiProxy_CfnStorageSystem struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnStorageSystem) AgentArns() *[]*string {
@@ -436,6 +439,16 @@ func (j *jsiiProxy_CfnStorageSystem) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStorageSystem) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStorageSystem) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -457,7 +470,6 @@ func (j *jsiiProxy_CfnStorageSystem) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Create a new `AWS::DataSync::StorageSystem`.
 func NewCfnStorageSystem(scope constructs.Construct, id *string, props *CfnStorageSystemProps) CfnStorageSystem {
 	_init_.Initialize()
 
@@ -475,7 +487,6 @@ func NewCfnStorageSystem(scope constructs.Construct, id *string, props *CfnStora
 	return &j
 }
 
-// Create a new `AWS::DataSync::StorageSystem`.
 func NewCfnStorageSystem_Override(c CfnStorageSystem, scope constructs.Construct, id *string, props *CfnStorageSystemProps) {
 	_init_.Initialize()
 
@@ -542,6 +553,17 @@ func (j *jsiiProxy_CfnStorageSystem)SetSystemType(val *string) {
 	_jsii_.Set(
 		j,
 		"systemType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStorageSystem)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -11,8 +11,7 @@ import (
 //
 // This class needs to exist to provide public surface area for external
 // implementations of stack synthesizers. The protected methods give
-// access to functions that are otherwise @_internal to the framework
-// and could not be accessed by external implementors.
+// access to functions that are otherwise.
 type StackSynthesizer interface {
 	IStackSynthesizer
 	// The qualifier used to bootstrap this stack.

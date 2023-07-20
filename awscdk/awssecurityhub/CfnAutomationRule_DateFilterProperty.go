@@ -17,16 +17,24 @@ package awssecurityhub
 //   	Start: jsii.String("start"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html
+//
 type CfnAutomationRule_DateFilterProperty struct {
 	// A date range for the date filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html#cfn-securityhub-automationrule-datefilter-daterange
+	//
 	DateRange interface{} `field:"optional" json:"dateRange" yaml:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
 	//
 	// A correctly formatted example is `2020-05-21T20:16:34.724Z` . The value cannot contain spaces, and date and time should be separated by `T` . For more information, see [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc3339#section-5.6) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html#cfn-securityhub-automationrule-datefilter-end
+	//
 	End *string `field:"optional" json:"end" yaml:"end"`
 	// A timestamp that provides the start date for the date filter.
 	//
 	// A correctly formatted example is `2020-05-21T20:16:34.724Z` . The value cannot contain spaces, and date and time should be separated by `T` . For more information, see [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc3339#section-5.6) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html#cfn-securityhub-automationrule-datefilter-start
+	//
 	Start *string `field:"optional" json:"start" yaml:"start"`
 }
 

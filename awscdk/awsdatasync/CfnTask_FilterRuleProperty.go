@@ -13,14 +13,20 @@ package awsdatasync
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html
+//
 type CfnTask_FilterRuleProperty struct {
 	// The type of filter rule to apply.
 	//
 	// AWS DataSync only supports the SIMPLE_PATTERN rule type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-filtertype
+	//
 	FilterType *string `field:"optional" json:"filterType" yaml:"filterType"`
 	// A single filter string that consists of the patterns to include or exclude.
 	//
 	// The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

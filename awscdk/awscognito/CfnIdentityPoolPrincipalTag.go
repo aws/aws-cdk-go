@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Cognito::IdentityPoolPrincipalTag`.
-//
 // A list of the identity pool principal tag assignments for attributes for access control.
 //
 // Example:
@@ -28,6 +26,8 @@ import (
 //   	PrincipalTags: principalTags,
 //   	UseDefaults: jsii.Boolean(false),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html
 //
 type CfnIdentityPoolPrincipalTag interface {
 	awscdk.CfnResource
@@ -60,8 +60,6 @@ type CfnIdentityPoolPrincipalTag interface {
 	// The tree node.
 	Node() constructs.Node
 	// A JSON-formatted list of user claims and the principal tags that you want to associate with them.
-	//
-	// When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
 	PrincipalTags() interface{}
 	SetPrincipalTags(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -363,7 +361,6 @@ func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) UseDefaults() interface{} {
 }
 
 
-// Create a new `AWS::Cognito::IdentityPoolPrincipalTag`.
 func NewCfnIdentityPoolPrincipalTag(scope constructs.Construct, id *string, props *CfnIdentityPoolPrincipalTagProps) CfnIdentityPoolPrincipalTag {
 	_init_.Initialize()
 
@@ -381,7 +378,6 @@ func NewCfnIdentityPoolPrincipalTag(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::Cognito::IdentityPoolPrincipalTag`.
 func NewCfnIdentityPoolPrincipalTag_Override(c CfnIdentityPoolPrincipalTag, scope constructs.Construct, id *string, props *CfnIdentityPoolPrincipalTagProps) {
 	_init_.Initialize()
 
@@ -415,9 +411,6 @@ func (j *jsiiProxy_CfnIdentityPoolPrincipalTag)SetIdentityProviderName(val *stri
 }
 
 func (j *jsiiProxy_CfnIdentityPoolPrincipalTag)SetPrincipalTags(val interface{}) {
-	if err := j.validateSetPrincipalTagsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"principalTags",

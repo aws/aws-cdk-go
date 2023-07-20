@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnNamespace) validateSetNamespaceNameParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnNamespace) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnNamespaceParameters(scope constructs.Construct, id *string, props *CfnNamespaceProps) error {
 	return nil
 }

@@ -142,16 +142,26 @@ package awsmedialive
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html
+//
 type CfnChannel_InputAttachmentProperty struct {
 	// Settings to implement automatic input failover in this input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-automaticinputfailoversettings
+	//
 	AutomaticInputFailoverSettings interface{} `field:"optional" json:"automaticInputFailoverSettings" yaml:"automaticInputFailoverSettings"`
 	// A name for the attachment.
 	//
 	// This is required if you want to use this input in an input switch action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputattachmentname
+	//
 	InputAttachmentName *string `field:"optional" json:"inputAttachmentName" yaml:"inputAttachmentName"`
 	// The ID of the input to attach.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputid
+	//
 	InputId *string `field:"optional" json:"inputId" yaml:"inputId"`
 	// Information about the content to extract from the input and about the general handling of the content.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputsettings
+	//
 	InputSettings interface{} `field:"optional" json:"inputSettings" yaml:"inputSettings"`
 }
 

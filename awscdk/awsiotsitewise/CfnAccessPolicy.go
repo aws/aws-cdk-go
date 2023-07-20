@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTSiteWise::AccessPolicy`.
-//
 // Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or IAM user) access to the specified AWS IoT SiteWise Monitor portal or project resource.
 //
 // Example:
@@ -41,22 +39,18 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
+//
 type CfnAccessPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The identity for this access policy.
-	//
-	// Choose an IAM Identity Center user, an IAM Identity Center group, or an IAM user.
 	AccessPolicyIdentity() interface{}
 	SetAccessPolicyIdentity(val interface{})
 	// The permission level for this access policy.
-	//
-	// Choose either a `ADMINISTRATOR` or `VIEWER` . Note that a project `ADMINISTRATOR` is also known as a project owner.
 	AccessPolicyPermission() *string
 	SetAccessPolicyPermission(val *string)
 	// The AWS IoT SiteWise Monitor resource for this access policy.
-	//
-	// Choose either a portal or a project.
 	AccessPolicyResource() interface{}
 	SetAccessPolicyResource(val interface{})
 	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the access policy, which has the following format.
@@ -392,7 +386,6 @@ func (j *jsiiProxy_CfnAccessPolicy) UpdatedProperties() *map[string]interface{} 
 }
 
 
-// Create a new `AWS::IoTSiteWise::AccessPolicy`.
 func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccessPolicyProps) CfnAccessPolicy {
 	_init_.Initialize()
 
@@ -410,7 +403,6 @@ func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccess
 	return &j
 }
 
-// Create a new `AWS::IoTSiteWise::AccessPolicy`.
 func NewCfnAccessPolicy_Override(c CfnAccessPolicy, scope constructs.Construct, id *string, props *CfnAccessPolicyProps) {
 	_init_.Initialize()
 

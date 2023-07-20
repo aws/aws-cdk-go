@@ -13,10 +13,16 @@ package awslightsail
 //   	RegionName: jsii.String("regionName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html
+//
 type CfnInstance_LocationProperty struct {
 	// The Availability Zone for the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html#cfn-lightsail-instance-location-availabilityzone
+	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The name of the AWS Region for the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html#cfn-lightsail-instance-location-regionname
+	//
 	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`
 }
 

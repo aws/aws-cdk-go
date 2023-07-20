@@ -30,12 +30,18 @@ package awsdatabrew
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
+//
 type CfnRecipe_RecipeStepProperty struct {
 	// The particular action to be performed in the recipe step.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
+	//
 	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// One or more conditions that must be met for the recipe step to succeed.
 	//
 	// > All of the conditions in the array must be met. In other words, all of the conditions must be combined using a logical AND operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
+	//
 	ConditionExpressions interface{} `field:"optional" json:"conditionExpressions" yaml:"conditionExpressions"`
 }
 

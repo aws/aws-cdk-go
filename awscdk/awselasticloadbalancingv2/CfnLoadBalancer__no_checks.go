@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetSubnetMappingsParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnLoadBalancerParameters(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) error {
 	return nil
 }

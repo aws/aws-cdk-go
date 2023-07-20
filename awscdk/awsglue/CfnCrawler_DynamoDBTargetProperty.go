@@ -12,8 +12,12 @@ package awsglue
 //   	Path: jsii.String("path"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html
+//
 type CfnCrawler_DynamoDBTargetProperty struct {
 	// The name of the DynamoDB table to crawl.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html#cfn-glue-crawler-dynamodbtarget-path
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 

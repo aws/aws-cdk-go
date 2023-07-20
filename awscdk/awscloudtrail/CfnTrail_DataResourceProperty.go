@@ -34,6 +34,8 @@ package awscloudtrail
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html
+//
 type CfnTrail_DataResourceProperty struct {
 	// The resource type in which you want to log data events.
 	//
@@ -42,6 +44,8 @@ type CfnTrail_DataResourceProperty struct {
 	// - `AWS::S3::Object`
 	// - `AWS::Lambda::Function`
 	// - `AWS::DynamoDB::Table`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
 	//
@@ -57,6 +61,8 @@ type CfnTrail_DataResourceProperty struct {
 	//
 	// > Lambda function ARNs are exact. For example, if you specify a function ARN *arn:aws:lambda:us-west-2:111111111111:function:helloworld* , data events will only be logged for *arn:aws:lambda:us-west-2:111111111111:function:helloworld* . They will not be logged for *arn:aws:lambda:us-west-2:111111111111:function:helloworld2* .
 	// - To log data events for all DynamoDB tables in your AWS account , specify the prefix as `arn:aws:dynamodb` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values
+	//
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

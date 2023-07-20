@@ -50,18 +50,30 @@ package awsiot
 //   	SuppressAlerts: jsii.Boolean(false),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html
+//
 type CfnSecurityProfile_BehaviorProperty struct {
 	// The name you've given to the behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The criteria that determine if a device is behaving normally in regard to the `metric` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria
+	//
 	Criteria interface{} `field:"optional" json:"criteria" yaml:"criteria"`
 	// What is measured by the behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric
+	//
 	Metric *string `field:"optional" json:"metric" yaml:"metric"`
 	// The dimension of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metricdimension
+	//
 	MetricDimension interface{} `field:"optional" json:"metricDimension" yaml:"metricDimension"`
 	// The alert status.
 	//
 	// If you set the value to `true` , alerts will be suppressed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts
+	//
 	SuppressAlerts interface{} `field:"optional" json:"suppressAlerts" yaml:"suppressAlerts"`
 }
 

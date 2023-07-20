@@ -17,14 +17,20 @@ package awsdatabrew
 //   	ValidationMode: jsii.String("validationMode"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html
+//
 type CfnJob_ValidationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) for the ruleset to be validated in the profile job.
 	//
 	// The TargetArn of the selected ruleset should be the same as the Amazon Resource Name (ARN) of the dataset that is associated with the profile job.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html#cfn-databrew-job-validationconfiguration-rulesetarn
+	//
 	RulesetArn *string `field:"required" json:"rulesetArn" yaml:"rulesetArn"`
 	// Mode of data quality validation.
 	//
 	// Default mode is “CHECK_ALL” which verifies all rules defined in the selected ruleset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html#cfn-databrew-job-validationconfiguration-validationmode
+	//
 	ValidationMode *string `field:"optional" json:"validationMode" yaml:"validationMode"`
 }
 

@@ -13,10 +13,16 @@ package awsbatch
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-environment.html
+//
 type CfnJobDefinition_EnvironmentProperty struct {
 	// The name of the environment variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-environment.html#cfn-batch-jobdefinition-environment-name
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value of the environment variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-environment.html#cfn-batch-jobdefinition-environment-value
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

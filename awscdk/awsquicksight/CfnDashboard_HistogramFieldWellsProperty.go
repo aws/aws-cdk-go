@@ -264,8 +264,12 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-histogramfieldwells.html
+//
 type CfnDashboard_HistogramFieldWellsProperty struct {
 	// The field well configuration of a histogram.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-histogramfieldwells.html#cfn-quicksight-dashboard-histogramfieldwells-histogramaggregatedfieldwells
+	//
 	HistogramAggregatedFieldWells interface{} `field:"optional" json:"histogramAggregatedFieldWells" yaml:"histogramAggregatedFieldWells"`
 }
 

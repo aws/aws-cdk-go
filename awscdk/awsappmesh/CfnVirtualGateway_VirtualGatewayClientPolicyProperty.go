@@ -52,8 +52,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html
+//
 type CfnVirtualGateway_VirtualGatewayClientPolicyProperty struct {
 	// A reference to an object that represents a Transport Layer Security (TLS) client policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicy-tls
+	//
 	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::MediaConnect::Flow`.
+// The AWS::MediaConnect::Flow resource defines a connection between one or more video sources and one or more outputs.
 //
-// The AWS::MediaConnect::Flow resource defines a connection between one or more video sources and one or more outputs. For each flow, you specify the transport protocol to use, encryption information, and details for any outputs or entitlements that you want. AWS Elemental MediaConnect returns an ingest endpoint where you can send your live video as a single unicast stream. The service replicates and distributes the video to every output that you specify, whether inside or outside the AWS Cloud. You can also set up entitlements on a flow to allow other AWS accounts to access your content.
+// For each flow, you specify the transport protocol to use, encryption information, and details for any outputs or entitlements that you want. AWS Elemental MediaConnect returns an ingest endpoint where you can send your live video as a single unicast stream. The service replicates and distributes the video to every output that you specify, whether inside or outside the AWS Cloud. You can also set up entitlements on a flow to allow other AWS accounts to access your content.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -74,6 +74,8 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html
+//
 type CfnFlow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -92,8 +94,6 @@ type CfnFlow interface {
 	// If the protocol of the source is Zixi, the port must be set to 2088.
 	AttrSourceSourceIngestPort() *string
 	// The Availability Zone that you want to create the flow in.
-	//
-	// These options are limited to the Availability Zones within the current AWS Region.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -472,7 +472,6 @@ func (j *jsiiProxy_CfnFlow) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::MediaConnect::Flow`.
 func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) CfnFlow {
 	_init_.Initialize()
 
@@ -490,7 +489,6 @@ func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) Cfn
 	return &j
 }
 
-// Create a new `AWS::MediaConnect::Flow`.
 func NewCfnFlow_Override(c CfnFlow, scope constructs.Construct, id *string, props *CfnFlowProps) {
 	_init_.Initialize()
 

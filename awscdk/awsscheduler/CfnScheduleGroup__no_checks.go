@@ -80,6 +80,10 @@ func validateCfnScheduleGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnScheduleGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnScheduleGroupParameters(scope constructs.Construct, id *string, props *CfnScheduleGroupProps) error {
 	return nil
 }

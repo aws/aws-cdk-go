@@ -15,6 +15,8 @@ package awsappstream
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-entitlement-attribute.html
+//
 type CfnEntitlement_AttributeProperty struct {
 	// A supported AWS IAM SAML PrincipalTag attribute that is matched to a value when a user identity federates to an AppStream 2.0 SAML application.
 	//
@@ -27,8 +29,12 @@ type CfnEntitlement_AttributeProperty struct {
 	// - title
 	// - costCenter
 	// - userType.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-entitlement-attribute.html#cfn-appstream-entitlement-attribute-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-entitlement-attribute.html#cfn-appstream-entitlement-attribute-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

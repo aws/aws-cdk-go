@@ -12,6 +12,8 @@ package awsemrcontainers
 //   	Namespace: jsii.String("namespace"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html
+//
 type CfnVirtualCluster_EksInfoProperty struct {
 	// The namespaces of the EKS cluster.
 	//
@@ -20,6 +22,8 @@ type CfnVirtualCluster_EksInfoProperty struct {
 	// *Maximum* : 63
 	//
 	// *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html#cfn-emrcontainers-virtualcluster-eksinfo-namespace
+	//
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 }
 

@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Pinpoint::Segment`.
-//
 // Updates the configuration, dimension, and other settings for an existing segment.
 //
 // Example:
@@ -178,9 +176,12 @@ import (
 //   	Tags: tags,
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html
+//
 type CfnSegment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The unique identifier for the Amazon Pinpoint application that the segment is associated with.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -211,8 +212,6 @@ type CfnSegment interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the segment.
-	//
-	// > A segment must have a name otherwise it will not appear in the Amazon Pinpoint console.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -223,18 +222,17 @@ type CfnSegment interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The segment group to use and the dimensions to apply to the group's base segments in order to build the segment.
-	//
-	// A segment group can consist of zero or more base segments. Your request can include only one segment group.
 	SegmentGroups() interface{}
 	SetSegmentGroups(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// An array of key-value pairs to apply to this resource.
+	TagsRaw() interface{}
+	SetTagsRaw(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -379,6 +377,7 @@ type CfnSegment interface {
 type jsiiProxy_CfnSegment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnSegment) ApplicationId() *string {
@@ -531,6 +530,16 @@ func (j *jsiiProxy_CfnSegment) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSegment) TagsRaw() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSegment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -552,7 +561,6 @@ func (j *jsiiProxy_CfnSegment) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Pinpoint::Segment`.
 func NewCfnSegment(scope constructs.Construct, id *string, props *CfnSegmentProps) CfnSegment {
 	_init_.Initialize()
 
@@ -570,7 +578,6 @@ func NewCfnSegment(scope constructs.Construct, id *string, props *CfnSegmentProp
 	return &j
 }
 
-// Create a new `AWS::Pinpoint::Segment`.
 func NewCfnSegment_Override(c CfnSegment, scope constructs.Construct, id *string, props *CfnSegmentProps) {
 	_init_.Initialize()
 
@@ -621,6 +628,14 @@ func (j *jsiiProxy_CfnSegment)SetSegmentGroups(val interface{}) {
 	_jsii_.Set(
 		j,
 		"segmentGroups",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSegment)SetTagsRaw(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

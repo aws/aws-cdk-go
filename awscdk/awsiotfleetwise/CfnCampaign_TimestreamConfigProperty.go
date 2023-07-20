@@ -15,10 +15,16 @@ package awsiotfleetwise
 //   	TimestreamTableArn: jsii.String("timestreamTableArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timestreamconfig.html
+//
 type CfnCampaign_TimestreamConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the task execution role that grants AWS IoT FleetWise permission to deliver data to the Amazon Timestream table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timestreamconfig.html#cfn-iotfleetwise-campaign-timestreamconfig-executionrolearn
+	//
 	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The Amazon Resource Name (ARN) of the Amazon Timestream table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timestreamconfig.html#cfn-iotfleetwise-campaign-timestreamconfig-timestreamtablearn
+	//
 	TimestreamTableArn *string `field:"required" json:"timestreamTableArn" yaml:"timestreamTableArn"`
 }
 

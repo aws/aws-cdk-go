@@ -13,13 +13,19 @@ package awsquicksight
 //   	ValueWhenUnsetOption: jsii.String("valueWhenUnsetOption"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimevaluewhenunsetconfiguration.html
+//
 type CfnDashboard_DateTimeValueWhenUnsetConfigurationProperty struct {
 	// A custom value that's used when the value of a parameter isn't set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimevaluewhenunsetconfiguration.html#cfn-quicksight-dashboard-datetimevaluewhenunsetconfiguration-customvalue
+	//
 	CustomValue *string `field:"optional" json:"customValue" yaml:"customValue"`
 	// The built-in options for default values. The value can be one of the following:.
 	//
 	// - `RECOMMENDED` : The recommended value.
 	// - `NULL` : The `NULL` value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimevaluewhenunsetconfiguration.html#cfn-quicksight-dashboard-datetimevaluewhenunsetconfiguration-valuewhenunsetoption
+	//
 	ValueWhenUnsetOption *string `field:"optional" json:"valueWhenUnsetOption" yaml:"valueWhenUnsetOption"`
 }
 

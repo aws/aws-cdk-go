@@ -19,14 +19,20 @@ package awsgreengrass
 //   	Uid: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-runas.html
+//
 type CfnFunctionDefinition_RunAsProperty struct {
 	// The group ID whose permissions are used to run the Lambda function.
 	//
 	// You can use the `getent group` command on your core device to look up the group ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-runas.html#cfn-greengrass-functiondefinition-runas-gid
+	//
 	Gid *float64 `field:"optional" json:"gid" yaml:"gid"`
 	// The user ID whose permissions are used to run the Lambda function.
 	//
 	// You can use the `getent passwd` command on your core device to look up the user ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-runas.html#cfn-greengrass-functiondefinition-runas-uid
+	//
 	Uid *float64 `field:"optional" json:"uid" yaml:"uid"`
 }
 

@@ -16,8 +16,12 @@ package awsdevopsguru
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
+//
 type CfnResourceCollection_CloudFormationCollectionFilterProperty struct {
 	// An array of CloudFormation stack names.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
+	//
 	StackNames *[]*string `field:"optional" json:"stackNames" yaml:"stackNames"`
 }
 

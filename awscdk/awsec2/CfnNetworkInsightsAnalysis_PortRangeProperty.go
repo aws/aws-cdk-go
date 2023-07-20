@@ -13,10 +13,16 @@ package awsec2
 //   	To: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html
+//
 type CfnNetworkInsightsAnalysis_PortRangeProperty struct {
 	// The first port in the range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-from
+	//
 	From *float64 `field:"optional" json:"from" yaml:"from"`
 	// The last port in the range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-to
+	//
 	To *float64 `field:"optional" json:"to" yaml:"to"`
 }
 

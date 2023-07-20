@@ -12,10 +12,14 @@ package awsapplicationinsights
 //   	AlarmMetricName: jsii.String("alarmMetricName"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
+//
 type CfnApplication_AlarmMetricProperty struct {
 	// The name of the metric to be monitored for the component.
 	//
 	// For metrics supported by Application Insights, see [Logs and metrics supported by Amazon CloudWatch Application Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-logs-and-metrics.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
+	//
 	AlarmMetricName *string `field:"required" json:"alarmMetricName" yaml:"alarmMetricName"`
 }
 

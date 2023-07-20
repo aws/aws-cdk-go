@@ -15,10 +15,16 @@ package awsec2
 //   	CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html
+//
 type CfnLaunchTemplate_CapacityReservationTargetProperty struct {
 	// The ID of the Capacity Reservation in which to run the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationid
+	//
 	CapacityReservationId *string `field:"optional" json:"capacityReservationId" yaml:"capacityReservationId"`
 	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+	//
 	CapacityReservationResourceGroupArn *string `field:"optional" json:"capacityReservationResourceGroupArn" yaml:"capacityReservationResourceGroupArn"`
 }
 

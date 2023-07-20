@@ -12,10 +12,14 @@ package awsquicksight
 //   	ConditionExpression: jsii.String("conditionExpression"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html
+//
 type CfnDataSet_FilterOperationProperty struct {
 	// An expression that must evaluate to a Boolean value.
 	//
 	// Rows for which the expression evaluates to true are kept in the dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
+	//
 	ConditionExpression *string `field:"required" json:"conditionExpression" yaml:"conditionExpression"`
 }
 

@@ -28,12 +28,19 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnsort.html
+//
 type CfnTemplate_ColumnSortProperty struct {
 	// The sort direction.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnsort.html#cfn-quicksight-template-columnsort-direction
+	//
 	Direction *string `field:"required" json:"direction" yaml:"direction"`
-	// `CfnTemplate.ColumnSortProperty.SortBy`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnsort.html#cfn-quicksight-template-columnsort-sortby
+	//
 	SortBy interface{} `field:"required" json:"sortBy" yaml:"sortBy"`
 	// The aggregation function that is defined in the column sort.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnsort.html#cfn-quicksight-template-columnsort-aggregationfunction
+	//
 	AggregationFunction interface{} `field:"optional" json:"aggregationFunction" yaml:"aggregationFunction"`
 }
 

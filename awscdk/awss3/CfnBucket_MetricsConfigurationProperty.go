@@ -24,20 +24,30 @@ package awss3
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html
+//
 type CfnBucket_MetricsConfigurationProperty struct {
 	// The ID used to identify the metrics configuration.
 	//
 	// This can be any value you choose that helps you identify your metrics configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-id
+	//
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The access point that was used while performing operations on the object.
 	//
 	// The metrics configuration only includes objects that meet the filter's criteria.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-accesspointarn
+	//
 	AccessPointArn *string `field:"optional" json:"accessPointArn" yaml:"accessPointArn"`
 	// The prefix that an object must have to be included in the metrics results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-prefix
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// Specifies a list of tag filters to use as a metrics configuration filter.
 	//
 	// The metrics configuration includes only objects that meet the filter's criteria.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-tagfilters
+	//
 	TagFilters interface{} `field:"optional" json:"tagFilters" yaml:"tagFilters"`
 }
 

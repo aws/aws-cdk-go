@@ -27,20 +27,29 @@ package awssam
 //   	SecurityPolicy: jsii.String("securityPolicy"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapidomainconfiguration.html
+//
 type CfnHttpApi_HttpApiDomainConfigurationProperty struct {
-	// `CfnHttpApi.HttpApiDomainConfigurationProperty.CertificateArn`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapidomainconfiguration.html#cfn-serverless-httpapi-httpapidomainconfiguration-certificatearn
+	//
 	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
-	// `CfnHttpApi.HttpApiDomainConfigurationProperty.DomainName`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapidomainconfiguration.html#cfn-serverless-httpapi-httpapidomainconfiguration-domainname
+	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
-	// `CfnHttpApi.HttpApiDomainConfigurationProperty.BasePath`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapidomainconfiguration.html#cfn-serverless-httpapi-httpapidomainconfiguration-basepath
+	//
 	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
-	// `CfnHttpApi.HttpApiDomainConfigurationProperty.EndpointConfiguration`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapidomainconfiguration.html#cfn-serverless-httpapi-httpapidomainconfiguration-endpointconfiguration
+	//
 	EndpointConfiguration *string `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
-	// `CfnHttpApi.HttpApiDomainConfigurationProperty.MutualTlsAuthentication`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapidomainconfiguration.html#cfn-serverless-httpapi-httpapidomainconfiguration-mutualtlsauthentication
+	//
 	MutualTlsAuthentication interface{} `field:"optional" json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
-	// `CfnHttpApi.HttpApiDomainConfigurationProperty.Route53`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapidomainconfiguration.html#cfn-serverless-httpapi-httpapidomainconfiguration-route53
+	//
 	Route53 interface{} `field:"optional" json:"route53" yaml:"route53"`
-	// `CfnHttpApi.HttpApiDomainConfigurationProperty.SecurityPolicy`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-serverless-httpapi-httpapidomainconfiguration.html#cfn-serverless-httpapi-httpapidomainconfiguration-securitypolicy
+	//
 	SecurityPolicy *string `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 }
 

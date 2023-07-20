@@ -29,10 +29,14 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html
+//
 type CfnTableProps struct {
 	// The name of the Timestream database that contains this table.
 	//
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
+	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// Contains properties to set on the table when enabling magnetic store writes.
 	//
@@ -66,6 +70,8 @@ type CfnTableProps struct {
 	// DependsOn: TestDatabase
 	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" MagneticStoreWriteProperties: EnableMagneticStoreWrites: true MagneticStoreRejectedDataLocation: S3Configuration: BucketName: "testbucket" EncryptionOption: "SSE_KMS" KmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab" ObjectKeyPrefix: "prefix"
 	// ```.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-magneticstorewriteproperties
+	//
 	MagneticStoreWriteProperties interface{} `field:"optional" json:"magneticStoreWriteProperties" yaml:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. This object has the following attributes:.
 	//
@@ -87,12 +93,18 @@ type CfnTableProps struct {
 	// DependsOn: TestDatabase
 	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" RetentionProperties: MemoryStoreRetentionPeriodInHours: "24" MagneticStoreRetentionPeriodInDays: "7"
 	// ```.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
+	//
 	RetentionProperties interface{} `field:"optional" json:"retentionProperties" yaml:"retentionProperties"`
 	// The name of the Timestream table.
 	//
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tablename
+	//
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// The tags to add to the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

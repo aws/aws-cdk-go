@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Macie::Session`.
+// The `AWS::Macie::Session` resource represents the Amazon Macie service and certain configuration settings for an Amazon Macie account in a specific AWS Region .
 //
-// The `AWS::Macie::Session` resource represents the Amazon Macie service and certain configuration settings for an Amazon Macie account in a specific AWS Region . It enables Macie to become operational for a specific account in a specific Region. An account can have only one session in each Region.
+// It enables Macie to become operational for a specific account in a specific Region. An account can have only one session in each Region.
 //
 // You must create an `AWS::Macie::Session` resource for an account before you can create other types of resources for the account. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that an `AWS::Macie::Session` resource is created before other Macie resources are created for an account. For example, `"DependsOn": "Session"` .
 //
@@ -24,6 +24,8 @@ import (
 //   	FindingPublishingFrequency: jsii.String("findingPublishingFrequency"),
 //   	Status: jsii.String("status"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
 //
 type CfnSession interface {
 	awscdk.CfnResource
@@ -42,12 +44,6 @@ type CfnSession interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Specifies how often Amazon Macie publishes updates to policy findings for the account.
-	//
-	// This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events ). Valid values are:
-	//
-	// - FIFTEEN_MINUTES
-	// - ONE_HOUR
-	// - SIX_HOURS.
 	FindingPublishingFrequency() *string
 	SetFindingPublishingFrequency(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -72,8 +68,6 @@ type CfnSession interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The status of Amazon Macie for the account.
-	//
-	// Valid values are: `ENABLED` , start or resume all Macie activities for the account; and, `PAUSED` , suspend all Macie activities for the account.
 	Status() *string
 	SetStatus(val *string)
 	// Deprecated.
@@ -363,7 +357,6 @@ func (j *jsiiProxy_CfnSession) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::Macie::Session`.
 func NewCfnSession(scope constructs.Construct, id *string, props *CfnSessionProps) CfnSession {
 	_init_.Initialize()
 
@@ -381,7 +374,6 @@ func NewCfnSession(scope constructs.Construct, id *string, props *CfnSessionProp
 	return &j
 }
 
-// Create a new `AWS::Macie::Session`.
 func NewCfnSession_Override(c CfnSession, scope constructs.Construct, id *string, props *CfnSessionProps) {
 	_init_.Initialize()
 

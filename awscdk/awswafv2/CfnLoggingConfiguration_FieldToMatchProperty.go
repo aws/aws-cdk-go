@@ -32,26 +32,38 @@ package awswafv2
 //   	UriPath: uriPath,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+//
 type CfnLoggingConfiguration_FieldToMatchProperty struct {
 	// Redact the request body JSON.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+	//
 	JsonBody interface{} `field:"optional" json:"jsonBody" yaml:"jsonBody"`
 	// Redact the indicated HTTP method.
 	//
 	// The method indicates the type of operation that the request is asking the origin to perform.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+	//
 	Method interface{} `field:"optional" json:"method" yaml:"method"`
 	// Redact the query string.
 	//
 	// This is the part of a URL that appears after a `?` character, if any.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+	//
 	QueryString interface{} `field:"optional" json:"queryString" yaml:"queryString"`
 	// Redact a single header.
 	//
 	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
 	//
 	// Example JSON: `"SingleHeader": { "Name": "haystack" }`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+	//
 	SingleHeader interface{} `field:"optional" json:"singleHeader" yaml:"singleHeader"`
 	// Redact the request URI path.
 	//
 	// This is the part of the web request that identifies a resource, for example, `/images/daily-ad.jpg` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+	//
 	UriPath interface{} `field:"optional" json:"uriPath" yaml:"uriPath"`
 }
 

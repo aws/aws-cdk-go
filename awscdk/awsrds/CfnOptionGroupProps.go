@@ -47,6 +47,8 @@ import (
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
+//
 type CfnOptionGroupProps struct {
 	// Specifies the name of the engine that this option group should be associated with.
 	//
@@ -63,12 +65,20 @@ type CfnOptionGroupProps struct {
 	// - `sqlserver-se`
 	// - `sqlserver-ex`
 	// - `sqlserver-web`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-enginename
+	//
 	EngineName *string `field:"required" json:"engineName" yaml:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-majorengineversion
+	//
 	MajorEngineVersion *string `field:"required" json:"majorEngineVersion" yaml:"majorEngineVersion"`
 	// The description of the option group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optiongroupdescription
+	//
 	OptionGroupDescription *string `field:"required" json:"optionGroupDescription" yaml:"optionGroupDescription"`
 	// A list of options and the settings for each option.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optionconfigurations
+	//
 	OptionConfigurations interface{} `field:"optional" json:"optionConfigurations" yaml:"optionConfigurations"`
 	// The name of the option group to be created.
 	//
@@ -83,8 +93,12 @@ type CfnOptionGroupProps struct {
 	// If you don't specify a value for `OptionGroupName` property, a name is automatically created for the option group.
 	//
 	// > This value is stored as a lowercase string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optiongroupname
+	//
 	OptionGroupName *string `field:"optional" json:"optionGroupName" yaml:"optionGroupName"`
 	// An optional array of key-value pairs to apply to this option group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-tags
+	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -21,14 +21,23 @@ package awssagemaker
 //   	S3OutputPath: jsii.String("s3OutputPath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html
+//
 type CfnEndpointConfig_AsyncInferenceOutputConfigProperty struct {
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-kmskeyid
+	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the configuration for notifications of inference results for asynchronous inference.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-notificationconfig
+	//
 	NotificationConfig interface{} `field:"optional" json:"notificationConfig" yaml:"notificationConfig"`
-	// `CfnEndpointConfig.AsyncInferenceOutputConfigProperty.S3FailurePath`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-s3failurepath
+	//
 	S3FailurePath *string `field:"optional" json:"s3FailurePath" yaml:"s3FailurePath"`
 	// The Amazon S3 location to upload inference responses to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-s3outputpath
+	//
 	S3OutputPath *string `field:"optional" json:"s3OutputPath" yaml:"s3OutputPath"`
 }
 

@@ -12,8 +12,12 @@ package awsappmesh
 //   	MaxRequests: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html
+//
 type CfnVirtualGateway_VirtualGatewayHttp2ConnectionPoolProperty struct {
 	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttp2connectionpool-maxrequests
+	//
 	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 

@@ -14,33 +14,33 @@ You must specify the instance to use as the writer, along with an optional list
 of readers (up to 15).
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"),
-Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-	Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
-}),
-Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
- // Optional - will default to 'admin' username and generated password
-Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+	}),
+	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
+	 // Optional - will default to 'admin' username and generated password
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+		PubliclyAccessible: jsii.Boolean(false),
+	}),
 	Readers: []iClusterInstance{
 		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
 			PromotionTier: jsii.Number(1),
 		}),
 		rds.ClusterInstance_ServerlessV2(jsii.String("reader2")),
 	},
-	VpcSubnets: map[string]subnetType{
-		"subnetType": ec2.*subnetType_PRIVATE_WITH_EGRESS,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 	},
-	Vpc: *Vpc,
-}),
+	Vpc: Vpc,
+})
 ```
 
 To adopt Aurora I/O-Optimized. Speicify `DBClusterStorageType.AURORA_IOPT1` on the `storageType` property.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -48,7 +48,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 		Version: rds.AuroraPostgresEngineVersion_VER_15_2(),
 	}),
 	Credentials: rds.Credentials_FromUsername(jsii.String("adminuser"), &CredentialsFromUsernameOptions{
-		Password: cdk.secretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
+		Password: awscdk.SecretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
 	}),
 	InstanceProps: &InstanceProps{
 		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_X2G, ec2.InstanceSize_XLARGE),
@@ -111,24 +111,26 @@ rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &DatabaseClust
 
 Database cluster instances may be updated in bulk or on a rolling basis.
 
-An update to all instances in a cluster may cause significant downtime. To reduce the downtime, set the `instanceUpdateBehavior` property in `DatabaseClusterBaseProps` to `InstanceUpdateBehavior.ROLLING`. This adds a dependency between each instance so the update is performed on only one instance at a time.
+An update to all instances in a cluster may cause significant downtime. To reduce the downtime, set the
+`instanceUpdateBehavior` property in `DatabaseClusterBaseProps` to `InstanceUpdateBehavior.ROLLING`.
+This adds a dependency between each instance so the update is performed on only one instance at a time.
 
 Use `InstanceUpdateBehavior.BULK` to update all instances at once.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 	}),
-	Writer: rds.ClusterInstance_Provisioned(map[string]instanceType{
-		"instanceType": ec2.*instanceType_of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
+		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 	}),
-	Readers: Readers,
-	Rds.ClusterInstance_Provisioned(jsii.String("reader")): ,
-	InstanceUpdateBehaviour: *Rds.InstanceUpdateBehaviour_ROLLING,
+	Readers: []iClusterInstance{
+		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
+	},
+	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
 	 // Optional - defaults to rds.InstanceUpdateBehaviour.BULK
 	Vpc: Vpc,
 })
@@ -146,7 +148,6 @@ a serverless v2 reader.
 > consideration.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -173,7 +174,6 @@ v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverle
   cluster.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -251,7 +251,6 @@ wants to ensure that in the event of a failover the reader that gets promoted is
 scaled to handle the write load.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -304,7 +303,6 @@ the minimum capacity so if your cluster has spiky workloads you may need to set
 a higher minimum capacity.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -347,10 +345,9 @@ deprecated. To migrate to the new properties you can provide the
 For example, in order to migrate from this deprecated config:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
-cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
 	}),
@@ -375,13 +372,12 @@ Make sure to run a `cdk diff` before deploying to make sure that all changes are
 expected. **Always test the migration in a non-production environment first.**
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 instanceProps := map[string]interface{}{
 	"instanceType": ec2.InstanceType_of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 	"isFromLegacyInstanceProps": jsii.Boolean(true),
 }
-cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
 	}),
@@ -389,14 +385,14 @@ cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClust
 		SubnetType: ec2.SubnetType_PUBLIC,
 	},
 	Vpc: Vpc,
-	Writer: clusterInstance_Provisioned(jsii.String("Instance1"), map[string]interface{}{
-		(SpreadAssignment ...instanceProps
-				instanceProps),
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance1"), &ProvisionedClusterInstanceProps{
+		InstanceType: instanceProps.instanceType,
+		IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
 	}),
 	Readers: []iClusterInstance{
-		*clusterInstance_*Provisioned(jsii.String("Instance2"), map[string]interface{}{
-			(SpreadAssignment ...instanceProps
-					instanceProps),
+		rds.ClusterInstance_*Provisioned(jsii.String("Instance2"), &ProvisionedClusterInstanceProps{
+			InstanceType: instanceProps.instanceType,
+			IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
 		}),
 	},
 })
@@ -896,10 +892,9 @@ address := instance.InstanceEndpoint.SocketAddress
 When the master password is generated and stored in AWS Secrets Manager, it can be rotated automatically:
 
 ```go
-import cdk "github.com/aws/aws-cdk-go/awscdk"
-
 var instance databaseInstance
 var mySecurityGroup securityGroup
+
 
 instance.addRotationSingleUser(&RotationSingleUserOptions{
 	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(7)),
@@ -995,6 +990,24 @@ instance.addRotationSingleUser(&RotationSingleUserOptions{
 ```
 
 See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
+
+By default, any stack updates will cause AWS Secrets Manager to rotate a secret immediately. To prevent this behavior and wait until the next scheduled rotation window specified via the `automaticallyAfter` property, set the `rotateImmediatelyOnUpdate` property to false:
+
+```go
+var instance databaseInstance
+var mySecurityGroup securityGroup
+
+
+instance.addRotationSingleUser(&RotationSingleUserOptions{
+	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(7)),
+	 // defaults to 30 days
+	ExcludeCharacters: jsii.String("!@#$%^&*"),
+	 // defaults to the set " %+~`#/// here*()|[]{}:;<>?!'/@\"\\"
+	SecurityGroup: mySecurityGroup,
+	 // defaults to an auto-created security group
+	RotateImmediatelyOnUpdate: jsii.Boolean(false),
+})
+```
 
 ## IAM Authentication
 

@@ -20,8 +20,12 @@ package awsomics
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-storeoptions.html
+//
 type CfnAnnotationStore_StoreOptionsProperty struct {
 	// Formatting options for a TSV file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-storeoptions.html#cfn-omics-annotationstore-storeoptions-tsvstoreoptions
+	//
 	TsvStoreOptions interface{} `field:"required" json:"tsvStoreOptions" yaml:"tsvStoreOptions"`
 }
 

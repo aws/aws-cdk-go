@@ -25,10 +25,16 @@ package awsiotfleetwise
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html
+//
 type CfnCampaign_DataDestinationConfigProperty struct {
 	// (Optional) The Amazon S3 bucket where the AWS IoT FleetWise campaign sends data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-s3config
+	//
 	S3Config interface{} `field:"optional" json:"s3Config" yaml:"s3Config"`
 	// (Optional) The Amazon Timestream table where the campaign sends data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-timestreamconfig
+	//
 	TimestreamConfig interface{} `field:"optional" json:"timestreamConfig" yaml:"timestreamConfig"`
 }
 

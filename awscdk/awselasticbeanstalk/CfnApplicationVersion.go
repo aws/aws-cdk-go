@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::ElasticBeanstalk::ApplicationVersion`.
-//
 // Specify an AWS Elastic Beanstalk application version by using the AWS::ElasticBeanstalk::ApplicationVersion resource in an AWS CloudFormation template.
 //
 // The AWS::ElasticBeanstalk::ApplicationVersion resource is an AWS Elastic Beanstalk resource type that specifies an application version, an iteration of deployable code, for an Elastic Beanstalk application.
@@ -32,6 +30,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html
 //
 type CfnApplicationVersion interface {
 	awscdk.CfnResource
@@ -70,8 +70,6 @@ type CfnApplicationVersion interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
-	//
-	// > The Amazon S3 bucket must be in the same region as the environment.
 	SourceBundle() interface{}
 	SetSourceBundle(val interface{})
 	// The stack in which this element is defined.
@@ -365,7 +363,6 @@ func (j *jsiiProxy_CfnApplicationVersion) UpdatedProperties() *map[string]interf
 }
 
 
-// Create a new `AWS::ElasticBeanstalk::ApplicationVersion`.
 func NewCfnApplicationVersion(scope constructs.Construct, id *string, props *CfnApplicationVersionProps) CfnApplicationVersion {
 	_init_.Initialize()
 
@@ -383,7 +380,6 @@ func NewCfnApplicationVersion(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
-// Create a new `AWS::ElasticBeanstalk::ApplicationVersion`.
 func NewCfnApplicationVersion_Override(c CfnApplicationVersion, scope constructs.Construct, id *string, props *CfnApplicationVersionProps) {
 	_init_.Initialize()
 

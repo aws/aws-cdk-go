@@ -15,10 +15,16 @@ package awsdatabrew
 //   	Version: jsii.String("version"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html
+//
 type CfnJob_RecipeProperty struct {
 	// The unique name for the recipe.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The identifier for the version for the recipe.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-version
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

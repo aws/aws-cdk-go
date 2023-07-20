@@ -17,10 +17,16 @@ package awsquicksight
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html
+//
 type CfnTheme_TileLayoutStyleProperty struct {
 	// The gutter settings that apply between tiles.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter
+	//
 	Gutter interface{} `field:"optional" json:"gutter" yaml:"gutter"`
 	// The margin settings that apply around the outside edge of sheets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin
+	//
 	Margin interface{} `field:"optional" json:"margin" yaml:"margin"`
 }
 

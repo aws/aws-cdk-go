@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::SageMaker::NotebookInstanceLifecycleConfig`.
+// The `AWS::SageMaker::NotebookInstanceLifecycleConfig` resource creates shell scripts that run when you create and/or start a notebook instance.
 //
-// The `AWS::SageMaker::NotebookInstanceLifecycleConfig` resource creates shell scripts that run when you create and/or start a notebook instance. For information about notebook instance lifecycle configurations, see [Customize a Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html) in the *Amazon SageMaker Developer Guide* .
+// For information about notebook instance lifecycle configurations, see [Customize a Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html) in the *Amazon SageMaker Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html
+//
 type CfnNotebookInstanceLifecycleConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The name of the lifecycle configuration, such as `MyLifecycleConfig` .
 	AttrNotebookInstanceLifecycleConfigName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -62,13 +65,9 @@ type CfnNotebookInstanceLifecycleConfig interface {
 	NotebookInstanceLifecycleConfigName() *string
 	SetNotebookInstanceLifecycleConfigName(val *string)
 	// A shell script that runs only once, when you create a notebook instance.
-	//
-	// The shell script must be a base64-encoded string.
 	OnCreate() interface{}
 	SetOnCreate(val interface{})
 	// A shell script that runs every time you start a notebook instance, including when you create the notebook instance.
-	//
-	// The shell script must be a base64-encoded string.
 	OnStart() interface{}
 	SetOnStart(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -226,6 +225,16 @@ type jsiiProxy_CfnNotebookInstanceLifecycleConfig struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) AttrNotebookInstanceLifecycleConfigName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -367,7 +376,6 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) UpdatedProperties() *map[
 }
 
 
-// Create a new `AWS::SageMaker::NotebookInstanceLifecycleConfig`.
 func NewCfnNotebookInstanceLifecycleConfig(scope constructs.Construct, id *string, props *CfnNotebookInstanceLifecycleConfigProps) CfnNotebookInstanceLifecycleConfig {
 	_init_.Initialize()
 
@@ -385,7 +393,6 @@ func NewCfnNotebookInstanceLifecycleConfig(scope constructs.Construct, id *strin
 	return &j
 }
 
-// Create a new `AWS::SageMaker::NotebookInstanceLifecycleConfig`.
 func NewCfnNotebookInstanceLifecycleConfig_Override(c CfnNotebookInstanceLifecycleConfig, scope constructs.Construct, id *string, props *CfnNotebookInstanceLifecycleConfigProps) {
 	_init_.Initialize()
 

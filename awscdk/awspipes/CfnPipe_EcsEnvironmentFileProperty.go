@@ -22,12 +22,18 @@ package awspipes
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentfile.html
+//
 type CfnPipe_EcsEnvironmentFileProperty struct {
 	// The file type to use.
 	//
 	// The only supported value is `s3` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentfile.html#cfn-pipes-pipe-ecsenvironmentfile-type
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentfile.html#cfn-pipes-pipe-ecsenvironmentfile-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

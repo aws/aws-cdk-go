@@ -17,6 +17,8 @@ package awsglue
 //   	UpdateBehavior: jsii.String("updateBehavior"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html
+//
 type CfnCrawler_SchemaChangePolicyProperty struct {
 	// The deletion behavior when the crawler finds a deleted object.
 	//
@@ -25,12 +27,16 @@ type CfnCrawler_SchemaChangePolicyProperty struct {
 	// A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
 	//
 	// A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior
+	//
 	DeleteBehavior *string `field:"optional" json:"deleteBehavior" yaml:"deleteBehavior"`
 	// The update behavior when the crawler finds a changed schema.
 	//
 	// A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
 	//
 	// A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior
+	//
 	UpdateBehavior *string `field:"optional" json:"updateBehavior" yaml:"updateBehavior"`
 }
 

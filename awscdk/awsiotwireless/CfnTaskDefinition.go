@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::IoTWireless::TaskDefinition`.
-//
 // Creates a gateway task definition.
 //
 // Example:
@@ -62,16 +60,17 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html
+//
 type CfnTaskDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The Amazon Resource Name of the resource.
 	AttrArn() *string
 	// The ID of the new wireless gateway task definition.
 	AttrId() *string
 	// Whether to automatically create tasks using this task definition for all gateways with the specified current version.
-	//
-	// If `false` , the task must be created by calling `CreateWirelessGatewayTask` .
 	AutoCreateTasks() interface{}
 	SetAutoCreateTasks(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -93,7 +92,6 @@ type CfnTaskDefinition interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskEntry`.
 	LoRaWanUpdateGatewayTaskEntry() interface{}
 	SetLoRaWanUpdateGatewayTaskEntry(val interface{})
 	// The name of the new resource.
@@ -110,11 +108,12 @@ type CfnTaskDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags are an array of key-value pairs to attach to the specified resource.
-	//
-	// Tags can have a minimum of 0 and a maximum of 50 items.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// `AWS::IoTWireless::TaskDefinition.TaskDefinitionType`.
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// A filter to list only the wireless gateway task definitions that use this task definition type.
 	TaskDefinitionType() *string
 	SetTaskDefinitionType(val *string)
 	// Information about the gateways to update.
@@ -264,6 +263,7 @@ type CfnTaskDefinition interface {
 type jsiiProxy_CfnTaskDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnTaskDefinition) AttrArn() *string {
@@ -406,6 +406,16 @@ func (j *jsiiProxy_CfnTaskDefinition) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) TaskDefinitionType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -447,7 +457,6 @@ func (j *jsiiProxy_CfnTaskDefinition) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::IoTWireless::TaskDefinition`.
 func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) CfnTaskDefinition {
 	_init_.Initialize()
 
@@ -465,7 +474,6 @@ func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTask
 	return &j
 }
 
-// Create a new `AWS::IoTWireless::TaskDefinition`.
 func NewCfnTaskDefinition_Override(c CfnTaskDefinition, scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) {
 	_init_.Initialize()
 
@@ -502,6 +510,17 @@ func (j *jsiiProxy_CfnTaskDefinition)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTaskDefinition)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

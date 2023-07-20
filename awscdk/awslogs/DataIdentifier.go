@@ -10,11 +10,39 @@ import (
 // If an identifier is supported but not in this class, it can be passed in the constructor instead.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import kinesisfirehose "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+//   import destinations "github.com/aws/aws-cdk-go/awscdkkinesisfirehosedestinationsalpha"
 //
-//   dataIdentifier := awscdk.Aws_logs.DataIdentifier_ADDRESS()
+//
+//   logGroupDestination := logs.NewLogGroup(this, jsii.String("LogGroupLambdaAudit"), &LogGroupProps{
+//   	LogGroupName: jsii.String("auditDestinationForCDK"),
+//   })
+//
+//   bucket := s3.NewBucket(this, jsii.String("audit-bucket"))
+//   s3Destination := destinations.NewS3Bucket(bucket)
+//
+//   deliveryStream := kinesisfirehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+//   	Destinations: []iDestination{
+//   		s3Destination,
+//   	},
+//   })
+//
+//   dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
+//   	Name: jsii.String("data protection policy"),
+//   	Description: jsii.String("policy description"),
+//   	Identifiers: []dataIdentifier{
+//   		logs.*dataIdentifier_DRIVERSLICENSE_US(),
+//   		logs.NewDataIdentifier(jsii.String("EmailAddress")),
+//   	},
+//   	LogGroupAuditDestination: logGroupDestination,
+//   	S3BucketAuditDestination: bucket,
+//   	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,
+//   })
+//
+//   logs.NewLogGroup(this, jsii.String("LogGroupLambda"), &LogGroupProps{
+//   	LogGroupName: jsii.String("cdkIntegLogGroup"),
+//   	DataProtectionPolicy: dataProtectionPolicy,
+//   })
 //
 type DataIdentifier interface {
 	ToString() *string

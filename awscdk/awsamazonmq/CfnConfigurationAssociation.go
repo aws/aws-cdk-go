@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::AmazonMQ::ConfigurationAssociation`.
+// Use the AWS CloudFormation `AWS::AmazonMQ::ConfigurationAssociation` resource to associate a configuration with a broker, or return information about the specified ConfigurationAssociation.
 //
-// Use the AWS CloudFormation `AWS::AmazonMQ::ConfigurationAssociation` resource to associate a configuration with a broker, or return information about the specified ConfigurationAssociation. Only use one per broker, and don't use a configuration on the broker resource if you have associated a configuration with that broker.
+// Only use one per broker, and don't use a configuration on the broker resource if you have associated a configuration with that broker.
 //
 // > Does not apply to RabbitMQ brokers.
 //
@@ -28,9 +28,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html
+//
 type CfnConfigurationAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The broker to associate with a configuration.
 	Broker() *string
 	SetBroker(val *string)
@@ -213,6 +216,16 @@ type jsiiProxy_CfnConfigurationAssociation struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnConfigurationAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationAssociation) Broker() *string {
 	var returns *string
 	_jsii_.Get(
@@ -334,7 +347,6 @@ func (j *jsiiProxy_CfnConfigurationAssociation) UpdatedProperties() *map[string]
 }
 
 
-// Create a new `AWS::AmazonMQ::ConfigurationAssociation`.
 func NewCfnConfigurationAssociation(scope constructs.Construct, id *string, props *CfnConfigurationAssociationProps) CfnConfigurationAssociation {
 	_init_.Initialize()
 
@@ -352,7 +364,6 @@ func NewCfnConfigurationAssociation(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Create a new `AWS::AmazonMQ::ConfigurationAssociation`.
 func NewCfnConfigurationAssociation_Override(c CfnConfigurationAssociation, scope constructs.Construct, id *string, props *CfnConfigurationAssociationProps) {
 	_init_.Initialize()
 

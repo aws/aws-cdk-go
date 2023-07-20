@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::PinpointEmail::Identity`.
+// Specifies an identity to use for sending email through Amazon Pinpoint.
 //
-// Specifies an identity to use for sending email through Amazon Pinpoint. In Amazon Pinpoint, an *identity* is an email address or domain that you use when you send email. Before you can use Amazon Pinpoint to send an email from an identity, you first have to verify it. By verifying an identity, you demonstrate that you're the owner of the address or domain, and that you've given Amazon Pinpoint permission to send email from that identity.
+// In Amazon Pinpoint, an *identity* is an email address or domain that you use when you send email. Before you can use Amazon Pinpoint to send an email from an identity, you first have to verify it. By verifying an identity, you demonstrate that you're the owner of the address or domain, and that you've given Amazon Pinpoint permission to send email from that identity.
 //
 // When you verify an email address, Amazon Pinpoint sends an email to the address. Your email address is verified as soon as you follow the link in the verification email.
 //
@@ -42,9 +42,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html
+//
 type CfnIdentity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// The host name for the first token that you have to add to the DNS configuration for your domain.
 	//
 	// For more information, see [Verifying a Domain](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html#channels-email-manage-verify-domain) in the Amazon Pinpoint User Guide.
@@ -69,17 +72,9 @@ type CfnIdentity interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// For domain identities, this attribute is used to enable or disable DomainKeys Identified Mail (DKIM) signing for the domain.
-	//
-	// If the value is `true` , then the messages that you send from the domain are signed using both the DKIM keys for your domain, as well as the keys for the `amazonses.com` domain. If the value is `false` , then the messages that you send are only signed using the DKIM keys for the `amazonses.com` domain.
 	DkimSigningEnabled() interface{}
 	SetDkimSigningEnabled(val interface{})
 	// Used to enable or disable feedback forwarding for an identity.
-	//
-	// This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
-	//
-	// When you enable feedback forwarding, Amazon Pinpoint sends you email notifications when bounce or complaint events occur. Amazon Pinpoint sends this notification to the address that you specified in the Return-Path header of the original email.
-	//
-	// When you disable feedback forwarding, Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic. You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
 	FeedbackForwardingEnabled() interface{}
 	SetFeedbackForwardingEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -256,6 +251,16 @@ type CfnIdentity interface {
 type jsiiProxy_CfnIdentity struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnIdentity) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnIdentity) AttrIdentityDnsRecordName1() *string {
@@ -469,7 +474,6 @@ func (j *jsiiProxy_CfnIdentity) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::PinpointEmail::Identity`.
 func NewCfnIdentity(scope constructs.Construct, id *string, props *CfnIdentityProps) CfnIdentity {
 	_init_.Initialize()
 
@@ -487,7 +491,6 @@ func NewCfnIdentity(scope constructs.Construct, id *string, props *CfnIdentityPr
 	return &j
 }
 
-// Create a new `AWS::PinpointEmail::Identity`.
 func NewCfnIdentity_Override(c CfnIdentity, scope constructs.Construct, id *string, props *CfnIdentityProps) {
 	_init_.Initialize()
 

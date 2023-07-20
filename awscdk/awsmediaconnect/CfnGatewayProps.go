@@ -21,16 +21,24 @@ package awsmediaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html
+//
 type CfnGatewayProps struct {
 	// The range of IP addresses that are allowed to contribute content or initiate output requests for flows communicating with this gateway.
 	//
 	// These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html#cfn-mediaconnect-gateway-egresscidrblocks
+	//
 	EgressCidrBlocks *[]*string `field:"required" json:"egressCidrBlocks" yaml:"egressCidrBlocks"`
 	// The name of the gateway.
 	//
 	// This name can not be modified after the gateway is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html#cfn-mediaconnect-gateway-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The list of networks that you want to add.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html#cfn-mediaconnect-gateway-networks
+	//
 	Networks interface{} `field:"required" json:"networks" yaml:"networks"`
 }
 

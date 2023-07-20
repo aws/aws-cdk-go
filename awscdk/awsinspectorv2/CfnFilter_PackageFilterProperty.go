@@ -35,18 +35,32 @@ package awsinspectorv2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html
+//
 type CfnFilter_PackageFilterProperty struct {
 	// An object that contains details on the package architecture type to filter on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-architecture
+	//
 	Architecture interface{} `field:"optional" json:"architecture" yaml:"architecture"`
 	// An object that contains details on the package epoch to filter on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-epoch
+	//
 	Epoch interface{} `field:"optional" json:"epoch" yaml:"epoch"`
 	// An object that contains details on the name of the package to filter on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-name
+	//
 	Name interface{} `field:"optional" json:"name" yaml:"name"`
 	// An object that contains details on the package release to filter on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-release
+	//
 	Release interface{} `field:"optional" json:"release" yaml:"release"`
 	// An object that contains details on the source layer hash to filter on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-sourcelayerhash
+	//
 	SourceLayerHash interface{} `field:"optional" json:"sourceLayerHash" yaml:"sourceLayerHash"`
 	// The package version to filter on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-version
+	//
 	Version interface{} `field:"optional" json:"version" yaml:"version"`
 }
 

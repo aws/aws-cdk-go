@@ -14,6 +14,8 @@ package awsses
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-suppressionoptions.html
+//
 type CfnConfigurationSet_SuppressionOptionsProperty struct {
 	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
 	//
@@ -21,6 +23,8 @@ type CfnConfigurationSet_SuppressionOptionsProperty struct {
 	//
 	// - `COMPLAINT` – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.
 	// - `BOUNCE` – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-suppressionoptions.html#cfn-ses-configurationset-suppressionoptions-suppressedreasons
+	//
 	SuppressedReasons *[]*string `field:"optional" json:"suppressedReasons" yaml:"suppressedReasons"`
 }
 

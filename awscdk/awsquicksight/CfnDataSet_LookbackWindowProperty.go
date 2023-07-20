@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The lookback window setup of an incremental refresh configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,14 +12,19 @@ package awsquicksight
 //   	SizeUnit: jsii.String("sizeUnit"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html
+//
 type CfnDataSet_LookbackWindowProperty struct {
-	// The name of the lookback window column.
-	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
-	// The lookback window column size.
-	Size *float64 `field:"optional" json:"size" yaml:"size"`
-	// The size unit that is used for the lookback window column.
+	// <p>Column Name</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html#cfn-quicksight-dataset-lookbackwindow-columnname
 	//
-	// Valid values for this structure are `HOUR` , `DAY` , and `WEEK` .
+	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
+	// <p>Size</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html#cfn-quicksight-dataset-lookbackwindow-size
+	//
+	Size *float64 `field:"optional" json:"size" yaml:"size"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html#cfn-quicksight-dataset-lookbackwindow-sizeunit
+	//
 	SizeUnit *string `field:"optional" json:"sizeUnit" yaml:"sizeUnit"`
 }
 

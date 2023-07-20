@@ -20,10 +20,16 @@ package awskafkaconnect
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html
+//
 type CfnConnector_ApacheKafkaClusterProperty struct {
 	// The bootstrap servers of the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html#cfn-kafkaconnect-connector-apachekafkacluster-bootstrapservers
+	//
 	BootstrapServers *string `field:"required" json:"bootstrapServers" yaml:"bootstrapServers"`
 	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html#cfn-kafkaconnect-connector-apachekafkacluster-vpc
+	//
 	Vpc interface{} `field:"required" json:"vpc" yaml:"vpc"`
 }
 

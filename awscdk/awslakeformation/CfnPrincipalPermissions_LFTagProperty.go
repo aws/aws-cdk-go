@@ -15,10 +15,16 @@ package awslakeformation
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html
+//
 type CfnPrincipalPermissions_LFTagProperty struct {
 	// The key-name for the LF-tag.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html#cfn-lakeformation-principalpermissions-lftag-tagkey
+	//
 	TagKey *string `field:"optional" json:"tagKey" yaml:"tagKey"`
 	// A list of possible values of the corresponding `TagKey` of an LF-tag key-value pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html#cfn-lakeformation-principalpermissions-lftag-tagvalues
+	//
 	TagValues *[]*string `field:"optional" json:"tagValues" yaml:"tagValues"`
 }
 

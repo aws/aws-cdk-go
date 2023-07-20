@@ -20,12 +20,20 @@ package awstransfer
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html
+//
 type CfnUser_PosixProfileProperty struct {
 	// The POSIX group ID used for all EFS operations by this user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-gid
+	//
 	Gid *float64 `field:"required" json:"gid" yaml:"gid"`
 	// The POSIX user ID used for all EFS operations by this user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-uid
+	//
 	Uid *float64 `field:"required" json:"uid" yaml:"uid"`
 	// The secondary POSIX group IDs used for all EFS operations by this user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-secondarygids
+	//
 	SecondaryGids interface{} `field:"optional" json:"secondaryGids" yaml:"secondaryGids"`
 }
 

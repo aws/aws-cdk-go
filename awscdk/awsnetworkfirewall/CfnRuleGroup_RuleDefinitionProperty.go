@@ -55,6 +55,8 @@ package awsnetworkfirewall
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html
+//
 type CfnRuleGroup_RuleDefinitionProperty struct {
 	// The actions to take on a packet that matches one of the stateless rule definition's match attributes.
 	//
@@ -71,10 +73,14 @@ type CfnRuleGroup_RuleDefinitionProperty struct {
 	// Additionally, you can specify a custom action. To do this, you define a custom action by name and type, then provide the name you've assigned to the action in this `Actions` setting.
 	//
 	// To provide more than one action in this setting, separate the settings with a comma. For example, if you have a publish metrics custom action that you've named `MyMetricsAction` , then you could specify the standard action `aws:pass` combined with the custom action using `[“aws:pass”, “MyMetricsAction”]` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-actions
+	//
 	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection.
 	//
 	// Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-matchattributes
+	//
 	MatchAttributes interface{} `field:"required" json:"matchAttributes" yaml:"matchAttributes"`
 }
 

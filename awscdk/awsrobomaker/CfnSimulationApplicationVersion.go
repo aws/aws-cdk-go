@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::RoboMaker::SimulationApplicationVersion`.
-//
 // The `AWS::RoboMaker::SimulationApplicationVersion` resource creates a version of an AWS RoboMaker simulation application.
 //
 // Example:
@@ -24,6 +22,8 @@ import (
 //   	// the properties below are optional
 //   	CurrentRevisionId: jsii.String("currentRevisionId"),
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html
 //
 type CfnSimulationApplicationVersion interface {
 	awscdk.CfnResource
@@ -45,8 +45,6 @@ type CfnSimulationApplicationVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The current revision id for the simulation application.
-	//
-	// If you provide a value and it matches the latest revision ID, a new version will be created.
 	CurrentRevisionId() *string
 	SetCurrentRevisionId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -357,7 +355,6 @@ func (j *jsiiProxy_CfnSimulationApplicationVersion) UpdatedProperties() *map[str
 }
 
 
-// Create a new `AWS::RoboMaker::SimulationApplicationVersion`.
 func NewCfnSimulationApplicationVersion(scope constructs.Construct, id *string, props *CfnSimulationApplicationVersionProps) CfnSimulationApplicationVersion {
 	_init_.Initialize()
 
@@ -375,7 +372,6 @@ func NewCfnSimulationApplicationVersion(scope constructs.Construct, id *string, 
 	return &j
 }
 
-// Create a new `AWS::RoboMaker::SimulationApplicationVersion`.
 func NewCfnSimulationApplicationVersion_Override(c CfnSimulationApplicationVersion, scope constructs.Construct, id *string, props *CfnSimulationApplicationVersionProps) {
 	_init_.Initialize()
 

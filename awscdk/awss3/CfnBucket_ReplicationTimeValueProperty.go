@@ -12,10 +12,14 @@ package awss3
 //   	Minutes: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html
+//
 type CfnBucket_ReplicationTimeValueProperty struct {
 	// Contains an integer specifying time in minutes.
 	//
 	// Valid value: 15.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html#cfn-s3-bucket-replicationtimevalue-minutes
+	//
 	Minutes *float64 `field:"required" json:"minutes" yaml:"minutes"`
 }
 

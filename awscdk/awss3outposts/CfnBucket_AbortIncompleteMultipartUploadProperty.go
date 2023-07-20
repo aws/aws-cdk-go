@@ -14,8 +14,12 @@ package awss3outposts
 //   	DaysAfterInitiation: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html
+//
 type CfnBucket_AbortIncompleteMultipartUploadProperty struct {
 	// Specifies the number of days after initiation that Amazon S3 on Outposts aborts an incomplete multipart upload.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html#cfn-s3outposts-bucket-abortincompletemultipartupload-daysafterinitiation
+	//
 	DaysAfterInitiation *float64 `field:"required" json:"daysAfterInitiation" yaml:"daysAfterInitiation"`
 }
 

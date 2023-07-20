@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::VPC`.
-//
 // Specifies a virtual private cloud (VPC).
 //
 // You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
@@ -42,9 +40,12 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
+//
 type CfnVPC interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The primary IPv4 CIDR block for the VPC.
 	//
 	// For example, 10.0.0.0/16.
@@ -73,10 +74,6 @@ type CfnVPC interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The IPv4 network range for the VPC, in CIDR notation.
-	//
-	// For example, `10.0.0.0/16` . We modify the specified CIDR block to its canonical form; for example, if you specify `100.68.0.18/18` , we modify it to `100.68.0.0/18` .
-	//
-	// You must specify either `CidrBlock` or `Ipv4IpamPoolId` .
 	CidrBlock() *string
 	SetCidrBlock(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -84,35 +81,18 @@ type CfnVPC interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether the instances launched in the VPC get DNS hostnames.
-	//
-	// If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support) .
-	//
-	// You can only enable DNS hostnames if you've enabled DNS support.
 	EnableDnsHostnames() interface{}
 	SetEnableDnsHostnames(val interface{})
 	// Indicates whether the DNS resolution is supported for the VPC.
-	//
-	// If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support) .
 	EnableDnsSupport() interface{}
 	SetEnableDnsSupport(val interface{})
 	// The allowed tenancy of instances launched into the VPC.
-	//
-	// - `default` : An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-	// - `dedicated` : An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of `host` during instance launch. You cannot specify a tenancy of `default` during instance launch.
-	//
-	// Updating `InstanceTenancy` requires no replacement only if you are updating its value from `dedicated` to `default` . Updating `InstanceTenancy` from `default` to `dedicated` requires replacement.
 	InstanceTenancy() *string
 	SetInstanceTenancy(val *string)
 	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR.
-	//
-	// For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
-	//
-	// You must specify either `CidrBlock` or `Ipv4IpamPoolId` .
 	Ipv4IpamPoolId() *string
 	SetIpv4IpamPoolId(val *string)
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool.
-	//
-	// For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	Ipv4NetmaskLength() *float64
 	SetIpv4NetmaskLength(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -136,8 +116,11 @@ type CfnVPC interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the VPC.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the VPC.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -282,6 +265,7 @@ type CfnVPC interface {
 type jsiiProxy_CfnVPC struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnVPC) AttrCidrBlock() *string {
@@ -494,6 +478,16 @@ func (j *jsiiProxy_CfnVPC) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPC) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPC) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -515,7 +509,6 @@ func (j *jsiiProxy_CfnVPC) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::VPC`.
 func NewCfnVPC(scope constructs.Construct, id *string, props *CfnVPCProps) CfnVPC {
 	_init_.Initialize()
 
@@ -533,7 +526,6 @@ func NewCfnVPC(scope constructs.Construct, id *string, props *CfnVPCProps) CfnVP
 	return &j
 }
 
-// Create a new `AWS::EC2::VPC`.
 func NewCfnVPC_Override(c CfnVPC, scope constructs.Construct, id *string, props *CfnVPCProps) {
 	_init_.Initialize()
 
@@ -594,6 +586,17 @@ func (j *jsiiProxy_CfnVPC)SetIpv4NetmaskLength(val *float64) {
 	_jsii_.Set(
 		j,
 		"ipv4NetmaskLength",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPC)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

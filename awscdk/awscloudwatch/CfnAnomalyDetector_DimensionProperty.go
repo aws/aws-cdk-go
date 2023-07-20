@@ -17,12 +17,18 @@ package awscloudwatch
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-dimension.html
+//
 type CfnAnomalyDetector_DimensionProperty struct {
 	// The name of the dimension.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-dimension.html#cfn-cloudwatch-anomalydetector-dimension-name
+	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value of the dimension.
 	//
 	// Dimension values must contain only ASCII characters and must include at least one non-whitespace character. ASCII control characters are not supported as part of dimension values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-dimension.html#cfn-cloudwatch-anomalydetector-dimension-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateSetProposedSeg
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateSetTransitGatewayRouteTableArnParameters(val *string) error {
 	return nil
 }

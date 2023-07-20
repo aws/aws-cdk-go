@@ -15,10 +15,16 @@ package awsmsk
 //   	Policy: policy,
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html
+//
 type CfnClusterPolicyProps struct {
 	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html#cfn-msk-clusterpolicy-clusterarn
+	//
 	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
 	// Resource policy for the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html#cfn-msk-clusterpolicy-policy
+	//
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
 }
 

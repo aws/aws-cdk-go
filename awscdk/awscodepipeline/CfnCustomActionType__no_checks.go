@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnCustomActionType) validateSetSettingsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnCustomActionType) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCustomActionType) validateSetVersionParameters(val *string) error {
 	return nil
 }

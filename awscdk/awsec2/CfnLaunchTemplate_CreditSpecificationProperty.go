@@ -14,10 +14,14 @@ package awsec2
 //   	CpuCredits: jsii.String("cpuCredits"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-creditspecification.html
+//
 type CfnLaunchTemplate_CreditSpecificationProperty struct {
 	// The credit option for CPU usage of a T instance.
 	//
 	// Valid values: `standard` | `unlimited`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-creditspecification.html#cfn-ec2-launchtemplate-creditspecification-cpucredits
+	//
 	CpuCredits *string `field:"optional" json:"cpuCredits" yaml:"cpuCredits"`
 }
 

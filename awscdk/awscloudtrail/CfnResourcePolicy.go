@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::CloudTrail::ResourcePolicy`.
+// Attaches a resource-based permission policy to a CloudTrail channel that is used for an integration with an event source outside of AWS .
 //
-// Attaches a resource-based permission policy to a CloudTrail channel that is used for an integration with an event source outside of AWS . For more information about resource-based policies, see [CloudTrail resource-based policy examples](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html) in the *CloudTrail User Guide* .
+// For more information about resource-based policies, see [CloudTrail resource-based policy examples](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html) in the *CloudTrail User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,6 +24,8 @@ import (
 //   	ResourceArn: jsii.String("resourceArn"),
 //   	ResourcePolicy: resourcePolicy,
 //   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-resourcepolicy.html
 //
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
@@ -55,17 +57,9 @@ type CfnResourcePolicy interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based policy.
-	//
-	// The following is the format of a resource ARN: `arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel` .
 	ResourceArn() *string
 	SetResourceArn(val *string)
 	// A JSON-formatted string for an AWS resource-based policy.
-	//
-	// The following are requirements for the resource policy:
-	//
-	// - Contains only one action: cloudtrail-data:PutAuditEvents
-	// - Contains at least one statement. The policy can have a maximum of 20 statements.
-	// - Each statement contains at least one principal. A statement can have a maximum of 50 principals.
 	ResourcePolicy() interface{}
 	SetResourcePolicy(val interface{})
 	// The stack in which this element is defined.
@@ -339,7 +333,6 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{
 }
 
 
-// Create a new `AWS::CloudTrail::ResourcePolicy`.
 func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
@@ -357,7 +350,6 @@ func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
-// Create a new `AWS::CloudTrail::ResourcePolicy`.
 func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 

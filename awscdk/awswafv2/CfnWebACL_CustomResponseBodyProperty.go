@@ -15,14 +15,20 @@ package awswafv2
 //   	ContentType: jsii.String("contentType"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
+//
 type CfnWebACL_CustomResponseBodyProperty struct {
 	// The payload of the custom response.
 	//
 	// You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
+	//
 	Content *string `field:"required" json:"content" yaml:"content"`
 	// The type of content in the payload that you are defining in the `Content` string.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
+	//
 	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
 }
 

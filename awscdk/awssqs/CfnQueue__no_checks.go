@@ -88,15 +88,11 @@ func (j *jsiiProxy_CfnQueue) validateSetFifoQueueParameters(val interface{}) err
 	return nil
 }
 
-func (j *jsiiProxy_CfnQueue) validateSetRedriveAllowPolicyParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnQueue) validateSetRedrivePolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnQueue) validateSetSqsManagedSseEnabledParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnQueue) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

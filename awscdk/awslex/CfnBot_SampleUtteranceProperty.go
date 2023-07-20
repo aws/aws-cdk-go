@@ -12,8 +12,12 @@ package awslex
 //   	Utterance: jsii.String("utterance"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html
+//
 type CfnBot_SampleUtteranceProperty struct {
 	// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html#cfn-lex-bot-sampleutterance-utterance
+	//
 	Utterance *string `field:"required" json:"utterance" yaml:"utterance"`
 }
 

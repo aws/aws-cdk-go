@@ -18,8 +18,12 @@ package awsec2
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html
+//
 type CfnSpotFleet_TargetGroupsConfigProperty struct {
 	// One or more target groups.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html#cfn-ec2-spotfleet-targetgroupsconfig-targetgroups
+	//
 	TargetGroups interface{} `field:"required" json:"targetGroups" yaml:"targetGroups"`
 }
 

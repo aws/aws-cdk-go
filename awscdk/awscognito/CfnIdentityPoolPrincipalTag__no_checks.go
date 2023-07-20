@@ -88,10 +88,6 @@ func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) validateSetIdentityProviderNameP
 	return nil
 }
 
-func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) validateSetPrincipalTagsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) validateSetUseDefaultsParameters(val interface{}) error {
 	return nil
 }

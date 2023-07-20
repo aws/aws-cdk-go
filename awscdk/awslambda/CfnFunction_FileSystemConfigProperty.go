@@ -13,10 +13,16 @@ package awslambda
 //   	LocalMountPath: jsii.String("localMountPath"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html
+//
 type CfnFunction_FileSystemConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn
+	//
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The path where the function can access the file system, starting with `/mnt/` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
+	//
 	LocalMountPath *string `field:"required" json:"localMountPath" yaml:"localMountPath"`
 }
 

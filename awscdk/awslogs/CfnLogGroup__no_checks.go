@@ -80,7 +80,7 @@ func validateCfnLogGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnLogGroup) validateSetDataProtectionPolicyParameters(val interface{}) error {
+func (j *jsiiProxy_CfnLogGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

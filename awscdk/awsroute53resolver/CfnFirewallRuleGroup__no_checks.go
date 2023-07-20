@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnFirewallRuleGroup) validateSetFirewallRulesParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnFirewallRuleGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFirewallRuleGroupParameters(scope constructs.Construct, id *string, props *CfnFirewallRuleGroupProps) error {
 	return nil
 }

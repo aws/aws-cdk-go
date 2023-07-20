@@ -15,12 +15,18 @@ package awss3objectlambda
 //   	Value: jsii.String("value"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html
+//
 type CfnAccessPoint_AliasProperty struct {
 	// The status of the Object Lambda Access Point alias.
 	//
 	// If the status is `PROVISIONING` , the Object Lambda Access Point is provisioning the alias and the alias is not ready for use yet. If the status is `READY` , the Object Lambda Access Point alias is successfully provisioned and ready for use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html#cfn-s3objectlambda-accesspoint-alias-status
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 	// The alias value of the Object Lambda Access Point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html#cfn-s3objectlambda-accesspoint-alias-value
+	//
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

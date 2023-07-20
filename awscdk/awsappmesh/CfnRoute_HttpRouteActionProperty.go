@@ -20,8 +20,12 @@ package awsappmesh
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html
+//
 type CfnRoute_HttpRouteActionProperty struct {
 	// An object that represents the targets that traffic is routed to when a request matches the route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html#cfn-appmesh-route-httprouteaction-weightedtargets
+	//
 	WeightedTargets interface{} `field:"required" json:"weightedTargets" yaml:"weightedTargets"`
 }
 

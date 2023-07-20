@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnIPSet) validateSetLocationParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnIPSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnIPSetParameters(scope constructs.Construct, id *string, props *CfnIPSetProps) error {
 	return nil
 }

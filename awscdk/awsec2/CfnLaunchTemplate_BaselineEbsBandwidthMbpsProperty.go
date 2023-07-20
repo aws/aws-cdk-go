@@ -15,14 +15,20 @@ package awsec2
 //   	Min: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineebsbandwidthmbps.html
+//
 type CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty struct {
 	// The maximum baseline bandwidth, in Mbps.
 	//
 	// To specify no maximum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineebsbandwidthmbps.html#cfn-ec2-launchtemplate-baselineebsbandwidthmbps-max
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum baseline bandwidth, in Mbps.
 	//
 	// To specify no minimum limit, omit this parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineebsbandwidthmbps.html#cfn-ec2-launchtemplate-baselineebsbandwidthmbps-min
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::EC2::PrefixList`.
+// Specifies a managed prefix list.
 //
-// Specifies a managed prefix list. You can add one or more entries to the prefix list. Each entry consists of a CIDR block and an optional description.
+// You can add one or more entries to the prefix list. Each entry consists of a CIDR block and an optional description.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,12 +40,13 @@ import (
 //   	},
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
+//
 type CfnPrefixList interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggable
 	// The IP address type.
-	//
-	// Valid Values: `IPv4` | `IPv6`.
 	AddressFamily() *string
 	SetAddressFamily(val *string)
 	// The ARN of the prefix list.
@@ -92,8 +93,6 @@ type CfnPrefixList interface {
 	// The tree node.
 	Node() constructs.Node
 	// A name for the prefix list.
-	//
-	// Constraints: Up to 255 characters in length. The name cannot start with `com.amazonaws` .
 	PrefixListName() *string
 	SetPrefixListName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -105,8 +104,11 @@ type CfnPrefixList interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the prefix list.
+	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The tags for the prefix list.
+	TagsRaw() *[]*awscdk.CfnTag
+	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -251,6 +253,7 @@ type CfnPrefixList interface {
 type jsiiProxy_CfnPrefixList struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggable
 }
 
 func (j *jsiiProxy_CfnPrefixList) AddressFamily() *string {
@@ -423,6 +426,16 @@ func (j *jsiiProxy_CfnPrefixList) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPrefixList) TagsRaw() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPrefixList) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -444,7 +457,6 @@ func (j *jsiiProxy_CfnPrefixList) UpdatedProperties() *map[string]interface{} {
 }
 
 
-// Create a new `AWS::EC2::PrefixList`.
 func NewCfnPrefixList(scope constructs.Construct, id *string, props *CfnPrefixListProps) CfnPrefixList {
 	_init_.Initialize()
 
@@ -462,7 +474,6 @@ func NewCfnPrefixList(scope constructs.Construct, id *string, props *CfnPrefixLi
 	return &j
 }
 
-// Create a new `AWS::EC2::PrefixList`.
 func NewCfnPrefixList_Override(c CfnPrefixList, scope constructs.Construct, id *string, props *CfnPrefixListProps) {
 	_init_.Initialize()
 
@@ -513,6 +524,17 @@ func (j *jsiiProxy_CfnPrefixList)SetPrefixListName(val *string) {
 	_jsii_.Set(
 		j,
 		"prefixListName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPrefixList)SetTagsRaw(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagsRaw",
 		val,
 	)
 }

@@ -21,6 +21,8 @@ package awswafv2
 // Example:
 //
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html
+//
 type CfnWebACL_RateBasedStatementProperty struct {
 	// Setting that indicates how to aggregate the request counts. The options are the following:.
 	//
@@ -28,10 +30,14 @@ type CfnWebACL_RateBasedStatementProperty struct {
 	// - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header. If you use this, configure the `ForwardedIPConfig` , to specify the header to use.
 	//
 	// > You can only use the `IP` and `FORWARDED_IP` key types.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
+	//
 	AggregateKeyType *string `field:"required" json:"aggregateKeyType" yaml:"aggregateKeyType"`
 	// The limit on requests per 5-minute period for a single originating IP address.
 	//
 	// If the statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
+	//
 	Limit *float64 `field:"required" json:"limit" yaml:"limit"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
@@ -40,10 +46,14 @@ type CfnWebACL_RateBasedStatementProperty struct {
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	//
 	// This is required if you specify a forwarded IP in the rule's aggregate key settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
+	//
 	ForwardedIpConfig interface{} `field:"optional" json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
 	// An optional nested statement that narrows the scope of the web requests that are evaluated by the rate-based statement.
 	//
 	// Requests are only tracked by the rate-based statement if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
+	//
 	ScopeDownStatement interface{} `field:"optional" json:"scopeDownStatement" yaml:"scopeDownStatement"`
 }
 

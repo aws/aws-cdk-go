@@ -15,10 +15,16 @@ package awsconnect
 //   	UserArn: jsii.String("userArn"),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html
+//
 type CfnQuickConnect_UserQuickConnectConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-contactflowarn
+	//
 	ContactFlowArn *string `field:"required" json:"contactFlowArn" yaml:"contactFlowArn"`
 	// The Amazon Resource Name (ARN) of the user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-userarn
+	//
 	UserArn *string `field:"required" json:"userArn" yaml:"userArn"`
 }
 

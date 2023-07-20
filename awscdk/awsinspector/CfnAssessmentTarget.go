@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A CloudFormation `AWS::Inspector::AssessmentTarget`.
-//
 // The `AWS::Inspector::AssessmentTarget` resource is used to create Amazon Inspector assessment targets, which specify the Amazon EC2 instances that will be analyzed during an assessment run.
 //
 // Example:
@@ -23,12 +21,12 @@ import (
 //   	ResourceGroupArn: jsii.String("resourceGroupArn"),
 //   })
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html
+//
 type CfnAssessmentTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The name of the Amazon Inspector assessment target.
-	//
-	// The name must be unique within the AWS account .
 	AssessmentTargetName() *string
 	SetAssessmentTargetName(val *string)
 	// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
@@ -60,8 +58,6 @@ type CfnAssessmentTarget interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The ARN that specifies the resource group that is used to create the assessment target.
-	//
-	// If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
 	ResourceGroupArn() *string
 	SetResourceGroupArn(val *string)
 	// The stack in which this element is defined.
@@ -345,7 +341,6 @@ func (j *jsiiProxy_CfnAssessmentTarget) UpdatedProperties() *map[string]interfac
 }
 
 
-// Create a new `AWS::Inspector::AssessmentTarget`.
 func NewCfnAssessmentTarget(scope constructs.Construct, id *string, props *CfnAssessmentTargetProps) CfnAssessmentTarget {
 	_init_.Initialize()
 
@@ -363,7 +358,6 @@ func NewCfnAssessmentTarget(scope constructs.Construct, id *string, props *CfnAs
 	return &j
 }
 
-// Create a new `AWS::Inspector::AssessmentTarget`.
 func NewCfnAssessmentTarget_Override(c CfnAssessmentTarget, scope constructs.Construct, id *string, props *CfnAssessmentTargetProps) {
 	_init_.Initialize()
 

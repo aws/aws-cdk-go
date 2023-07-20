@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnScheduledQuery) validateSetScheduledQueryExecutionRoleArnP
 	return nil
 }
 
+func (j *jsiiProxy_CfnScheduledQuery) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnScheduledQuery) validateSetTargetConfigurationParameters(val interface{}) error {
 	return nil
 }

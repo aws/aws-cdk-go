@@ -20,8 +20,12 @@ package awscodestar
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-code.html
+//
 type CfnGitHubRepository_CodeProperty struct {
 	// Information about the Amazon S3 bucket that contains a ZIP file of code to be committed to the repository.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-code.html#cfn-codestar-githubrepository-code-s3
+	//
 	S3 interface{} `field:"required" json:"s3" yaml:"s3"`
 }
 

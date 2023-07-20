@@ -14,8 +14,12 @@ package awssagemaker
 //   	},
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-inferenceenvironment.html
+//
 type CfnModelCard_InferenceEnvironmentProperty struct {
 	// The container used to run the inference environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-inferenceenvironment.html#cfn-sagemaker-modelcard-inferenceenvironment-containerimage
+	//
 	ContainerImage *[]*string `field:"optional" json:"containerImage" yaml:"containerImage"`
 }
 

@@ -13,10 +13,16 @@ package awskendra
 //   	Value: jsii.Number(123),
 //   }
 //
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html
+//
 type CfnIndex_ValueImportanceItemProperty struct {
 	// The document metadata value used for the search boost.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html#cfn-kendra-index-valueimportanceitem-key
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The boost value for a document when the key is part of the metadata of a document.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html#cfn-kendra-index-valueimportanceitem-value
+	//
 	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 
