@@ -50,7 +50,7 @@ type CfnHoursOfOperation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name (ARN) for the hours of operation.
+	// The Amazon Resource Name (ARN) of the hours of operation.
 	AttrHoursOfOperationArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -67,7 +67,7 @@ type CfnHoursOfOperation interface {
 	// The description for the hours of operation.
 	Description() *string
 	SetDescription(val *string)
-	// The Amazon Resource Name (ARN) for the instance.
+	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

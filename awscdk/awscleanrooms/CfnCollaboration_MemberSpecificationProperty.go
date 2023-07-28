@@ -30,6 +30,8 @@ type CfnCollaboration_MemberSpecificationProperty struct {
 	//
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
 	// The abilities granted to the collaboration member.
+	//
+	// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-memberabilities
 	//
 	MemberAbilities *[]*string `field:"required" json:"memberAbilities" yaml:"memberAbilities"`

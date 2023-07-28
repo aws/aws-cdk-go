@@ -35,6 +35,8 @@ type DsRecordProps struct {
 	// > an existing Record Set's `deleteExisting` property from `false -> true` after deployment
 	// > will delete the record!
 	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
+	// The geographical origin for this record to return DNS records based on the user's location.
+	GeoLocation GeoLocation `field:"optional" json:"geoLocation" yaml:"geoLocation"`
 	// The subdomain name for this record. This should be relative to the zone root name.
 	//
 	// For example, if you want to create a record for acme.example.com, specify

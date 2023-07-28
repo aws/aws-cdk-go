@@ -29,8 +29,6 @@ package awsfsx
 //
 type CfnVolume_OntapConfigurationProperty struct {
 	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	//
-	// Provide any whole number in the range of 20–104857600 to specify the size of the volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-sizeinmegabytes
 	//
 	SizeInMegabytes *string `field:"required" json:"sizeInMegabytes" yaml:"sizeInMegabytes"`

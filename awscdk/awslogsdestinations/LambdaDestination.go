@@ -23,6 +23,7 @@ import (
 //   	LogGroup: LogGroup,
 //   	Destination: destinations.NewLambdaDestination(fn),
 //   	FilterPattern: logs.FilterPattern_AllTerms(jsii.String("ERROR"), jsii.String("MainThread")),
+//   	FilterName: jsii.String("ErrorInMainThread"),
 //   })
 //
 type LambdaDestination interface {

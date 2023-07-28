@@ -20,6 +20,7 @@ import (
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	EnablePerformanceInsights: jsii.Boolean(false),
 //   	InstanceIdentifier: jsii.String("instanceIdentifier"),
+//   	IsFromLegacyInstanceProps: jsii.Boolean(false),
 //   	ParameterGroup: parameterGroup,
 //   	Parameters: map[string]*string{
 //   		"parametersKey": jsii.String("parameters"),
@@ -38,6 +39,54 @@ type ClusterInstanceOptions struct {
 	EnablePerformanceInsights *bool `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// The identifier for the database instance.
 	InstanceIdentifier *string `field:"optional" json:"instanceIdentifier" yaml:"instanceIdentifier"`
+	// Only used for migrating existing clusters from using `instanceProps` to `writer` and `readers`.
+	//
+	// Example:
+	//   // existing cluster
+	//   var vpc vpc
+	//
+	//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+	//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
+	//   	}),
+	//   	Instances: jsii.Number(2),
+	//   	InstanceProps: &InstanceProps{
+	//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+	//   		VpcSubnets: &SubnetSelection{
+	//   			SubnetType: ec2.SubnetType_PUBLIC,
+	//   		},
+	//   		Vpc: *Vpc,
+	//   	},
+	//   })
+	//
+	//   // migration
+	//
+	//   instanceProps := map[string]interface{}{
+	//   	"instanceType": ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+	//   	"isFromLegacyInstanceProps": jsii.Boolean(true),
+	//   }
+	//
+	//   myCluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	//   	Engine: rds.DatabaseClusterEngine_*AuroraMysql(&AuroraMysqlClusterEngineProps{
+	//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
+	//   	}),
+	//   	VpcSubnets: &SubnetSelection{
+	//   		SubnetType: ec2.SubnetType_PUBLIC,
+	//   	},
+	//   	Vpc: Vpc,
+	//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance1"), &ProvisionedClusterInstanceProps{
+	//   		InstanceType: instanceProps.instanceType,
+	//   		IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
+	//   	}),
+	//   	Readers: []iClusterInstance{
+	//   		rds.ClusterInstance_*Provisioned(jsii.String("Instance2"), &ProvisionedClusterInstanceProps{
+	//   			InstanceType: instanceProps.instanceType,
+	//   			IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
+	//   		}),
+	//   	},
+	//   })
+	//
+	IsFromLegacyInstanceProps *bool `field:"optional" json:"isFromLegacyInstanceProps" yaml:"isFromLegacyInstanceProps"`
 	// The DB parameter group to associate with the instance.
 	//
 	// This is only needed if you need to configure different parameter

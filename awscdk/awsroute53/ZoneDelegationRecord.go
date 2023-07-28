@@ -16,6 +16,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var geoLocation geoLocation
 //   var hostedZone hostedZone
 //
 //   zoneDelegationRecord := awscdk.Aws_route53.NewZoneDelegationRecord(this, jsii.String("MyZoneDelegationRecord"), &ZoneDelegationRecordProps{
@@ -27,6 +28,7 @@ import (
 //   	// the properties below are optional
 //   	Comment: jsii.String("comment"),
 //   	DeleteExisting: jsii.Boolean(false),
+//   	GeoLocation: geoLocation,
 //   	RecordName: jsii.String("recordName"),
 //   	Ttl: cdk.Duration_Minutes(jsii.Number(30)),
 //   })

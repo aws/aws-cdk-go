@@ -64,7 +64,7 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-uservolumeencryptionenabled
 	//
 	UserVolumeEncryptionEnabled interface{} `field:"optional" json:"userVolumeEncryptionEnabled" yaml:"userVolumeEncryptionEnabled"`
-	// The symmetric AWS KMS key used to encrypt data stored on your WorkSpace.
+	// The ARN of the symmetric AWS KMS key used to encrypt data stored on your WorkSpace.
 	//
 	// Amazon WorkSpaces does not support asymmetric KMS keys.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-volumeencryptionkey

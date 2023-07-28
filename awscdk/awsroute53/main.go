@@ -578,6 +578,19 @@ func init() {
 		"aws-cdk-lib.aws_route53.CommonHostedZoneProps",
 		reflect.TypeOf((*CommonHostedZoneProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_route53.Continent",
+		reflect.TypeOf((*Continent)(nil)).Elem(),
+		map[string]interface{}{
+			"AFRICA": Continent_AFRICA,
+			"ANTARCTICA": Continent_ANTARCTICA,
+			"ASIA": Continent_ASIA,
+			"EUROPE": Continent_EUROPE,
+			"OCEANIA": Continent_OCEANIA,
+			"NORTH_AMERICA": Continent_NORTH_AMERICA,
+			"SOUTH_AMERICA": Continent_SOUTH_AMERICA,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53.CrossAccountZoneDelegationRecord",
 		reflect.TypeOf((*CrossAccountZoneDelegationRecord)(nil)).Elem(),
@@ -619,6 +632,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.DsRecordProps",
 		reflect.TypeOf((*DsRecordProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53.GeoLocation",
+		reflect.TypeOf((*GeoLocation)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "continentCode", GoGetter: "ContinentCode"},
+			_jsii_.MemberProperty{JsiiProperty: "countryCode", GoGetter: "CountryCode"},
+			_jsii_.MemberProperty{JsiiProperty: "subdivisionCode", GoGetter: "SubdivisionCode"},
+		},
+		func() interface{} {
+			return &jsiiProxy_GeoLocation{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53.HostedZone",

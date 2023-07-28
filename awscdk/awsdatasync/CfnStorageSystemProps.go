@@ -42,6 +42,8 @@ import (
 //
 type CfnStorageSystemProps struct {
 	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that connects to and reads from your on-premises storage system's management interface.
+	//
+	// You can only specify one ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html#cfn-datasync-storagesystem-agentarns
 	//
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`

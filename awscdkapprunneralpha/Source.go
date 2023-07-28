@@ -10,20 +10,27 @@ import (
 // Represents the App Runner service source.
 //
 // Example:
-//   apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
-//   	Source: apprunner.Source_FromGitHub(&GithubRepositoryProps{
-//   		RepositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
-//   		Branch: jsii.String("main"),
-//   		ConfigurationSource: apprunner.ConfigurationSourceType_API,
-//   		CodeConfigurationValues: &CodeConfigurationValues{
-//   			Runtime: apprunner.Runtime_PYTHON_3(),
-//   			Port: jsii.String("8000"),
-//   			StartCommand: jsii.String("python app.py"),
-//   			BuildCommand: jsii.String("yum install -y pycairo && pip install -r requirements.txt"),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   service := apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+//   	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+//   		ImageConfiguration: &ImageConfiguration{
+//   			Port: jsii.Number(8000),
 //   		},
-//   		Connection: apprunner.GitHubConnection_FromConnectionArn(jsii.String("CONNECTION_ARN")),
+//   		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
 //   	}),
 //   })
+//
+//   service.AddToRolePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Effect: iam.Effect_ALLOW,
+//   	Actions: []*string{
+//   		jsii.String("s3:GetObject"),
+//   	},
+//   	Resources: []*string{
+//   		jsii.String("*"),
+//   	},
+//   }))
 //
 // Experimental.
 type Source interface {

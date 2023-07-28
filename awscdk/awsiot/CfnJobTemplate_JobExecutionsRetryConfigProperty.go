@@ -20,6 +20,7 @@ package awsiot
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html
 //
 type CfnJobTemplate_JobExecutionsRetryConfigProperty struct {
+	// The list of criteria that determines how many retries are allowed for each failure type for a job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html#cfn-iot-jobtemplate-jobexecutionsretryconfig-retrycriterialist
 	//
 	RetryCriteriaList interface{} `field:"optional" json:"retryCriteriaList" yaml:"retryCriteriaList"`

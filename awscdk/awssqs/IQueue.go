@@ -87,6 +87,8 @@ type IQueue interface {
 	MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// If this queue is server-side encrypted, this is the KMS encryption key.
 	EncryptionMasterKey() awskms.IKey
+	// Whether the contents of the queue are encrypted, and by what type of key.
+	EncryptionType() QueueEncryption
 	// Whether this queue is an Amazon SQS FIFO queue.
 	//
 	// If false, this is a standard queue.
@@ -354,6 +356,16 @@ func (j *jsiiProxy_IQueue) EncryptionMasterKey() awskms.IKey {
 	_jsii_.Get(
 		j,
 		"encryptionMasterKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IQueue) EncryptionType() QueueEncryption {
+	var returns QueueEncryption
+	_jsii_.Get(
+		j,
+		"encryptionType",
 		&returns,
 	)
 	return returns

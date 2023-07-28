@@ -38,6 +38,8 @@ type Queue interface {
 	DeadLetterQueue() *DeadLetterQueue
 	// If this queue is encrypted, this is the KMS key.
 	EncryptionMasterKey() awskms.IKey
+	// Whether the contents of the queue are encrypted, and by what type of key.
+	EncryptionType() QueueEncryption
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -214,6 +216,16 @@ func (j *jsiiProxy_Queue) EncryptionMasterKey() awskms.IKey {
 	_jsii_.Get(
 		j,
 		"encryptionMasterKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Queue) EncryptionType() QueueEncryption {
+	var returns QueueEncryption
+	_jsii_.Get(
+		j,
+		"encryptionType",
 		&returns,
 	)
 	return returns

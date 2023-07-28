@@ -67,6 +67,8 @@ type StateMachine interface {
 	StateMachineArn() *string
 	// The name of the state machine.
 	StateMachineName() *string
+	// Identifier for the state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+	StateMachineRevisionId() *string
 	// Type of the state machine.
 	StateMachineType() StateMachineType
 	// Add the given statement to the role's policy.
@@ -208,6 +210,16 @@ func (j *jsiiProxy_StateMachine) StateMachineName() *string {
 	_jsii_.Get(
 		j,
 		"stateMachineName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StateMachine) StateMachineRevisionId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateMachineRevisionId",
 		&returns,
 	)
 	return returns

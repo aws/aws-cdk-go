@@ -105,7 +105,7 @@ type CfnEnvironment interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Configures the maintenance window you want for the runtime environment.
+	// Configures the maintenance window that you want for the runtime environment.
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	// Specifies whether the runtime environment is publicly accessible.

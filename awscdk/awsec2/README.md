@@ -1294,12 +1294,12 @@ ec2.NewInstance(this, jsii.String("Instance3"), &InstanceProps{
 	}),
 })
 
-// AWS Linux 2022
-// AWS Linux 2022
+// Amazon Linux 2023
+// Amazon Linux 2023
 ec2.NewInstance(this, jsii.String("Instance4"), &InstanceProps{
 	Vpc: Vpc,
 	InstanceType: InstanceType,
-	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 })
 
 // Graviton 3 Processor
@@ -1307,7 +1307,7 @@ ec2.NewInstance(this, jsii.String("Instance4"), &InstanceProps{
 ec2.NewInstance(this, jsii.String("Instance5"), &InstanceProps{
 	Vpc: Vpc,
 	InstanceType: ec2.*instanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
-	MachineImage: ec2.MachineImage_*LatestAmazonLinux2022(&AmazonLinux2022ImageSsmParameterProps{
+	MachineImage: ec2.MachineImage_*LatestAmazonLinux2023(&AmazonLinux2023ImageSsmParameterProps{
 		CpuType: ec2.AmazonLinuxCpuType_ARM_64,
 	}),
 })
@@ -1520,7 +1520,7 @@ var instanceType instanceType
 ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 	Vpc: Vpc,
 	InstanceType: InstanceType,
-	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 
 	Init: ec2.CloudFormationInit_FromElements(ec2.InitService_SystemdConfigFile(jsii.String("simpleserver"), &SystemdConfigFileOptions{
 		Command: jsii.String("/usr/bin/python3 -m http.server 8080"),
@@ -2111,7 +2111,7 @@ instanceProfile := iam.NewInstanceProfile(this, jsii.String("InstanceProfile"), 
 })
 
 template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
-	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 	SecurityGroup: ec2.NewSecurityGroup(this, jsii.String("LaunchTemplateSG"), &SecurityGroupProps{
 		Vpc: vpc,
 	}),
@@ -2145,7 +2145,7 @@ sg2 := ec2.NewSecurityGroup(this, jsii.String("sg2"), &SecurityGroupProps{
 })
 
 launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
-	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 	SecurityGroup: sg1,
 })
 
@@ -2172,7 +2172,7 @@ var instanceType instanceType
 ec2.NewInstance(this, jsii.String("Instance1"), &InstanceProps{
 	Vpc: Vpc,
 	InstanceType: InstanceType,
-	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 	DetailedMonitoring: jsii.Boolean(true),
 })
 ```
@@ -2203,8 +2203,8 @@ ec2.NewInstance(this, jsii.String("Instance1"), &InstanceProps{
 	Vpc: Vpc,
 	InstanceType: InstanceType,
 
-	// Amazon Linux 2 comes with SSM Agent by default
-	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+	// Amazon Linux 2023 comes with SSM Agent by default
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 
 	// Turn on SSM
 	SsmSessionPermissions: jsii.Boolean(true),

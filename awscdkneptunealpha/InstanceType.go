@@ -8,10 +8,13 @@ import (
 // Possible Instances Types to use in Neptune cluster used for defining `DatabaseInstanceProps.instanceType`.
 //
 // Example:
-//   cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   cluster := neptune.NewDatabaseCluster(this, jsii.String("ServerlessDatabase"), &DatabaseClusterProps{
 //   	Vpc: Vpc,
-//   	InstanceType: neptune.InstanceType_R5_LARGE(),
-//   	Instances: jsii.Number(2),
+//   	InstanceType: neptune.InstanceType_SERVERLESS(),
+//   	ServerlessScalingConfiguration: &ServerlessScalingConfiguration{
+//   		MinCapacity: jsii.Number(1),
+//   		MaxCapacity: jsii.Number(5),
+//   	},
 //   })
 //
 // Experimental.
@@ -247,6 +250,17 @@ func InstanceType_R6G_XLARGE() InstanceType {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-neptune-alpha.InstanceType",
 		"R6G_XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_SERVERLESS() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.InstanceType",
+		"SERVERLESS",
 		&returns,
 	)
 	return returns

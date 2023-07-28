@@ -46,7 +46,7 @@ type CfnHoursOfOperationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-config
 	//
 	Config interface{} `field:"required" json:"config" yaml:"config"`
-	// The Amazon Resource Name (ARN) for the instance.
+	// The Amazon Resource Name (ARN) of the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-instancearn
 	//
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`

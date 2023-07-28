@@ -88,7 +88,7 @@ type CfnPhoneNumber interface {
 	// The tags used to organize, track, or control access for this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution group that phone numbers are claimed to.
+	// The Amazon Resource Name (ARN) of Amazon Connect instances or traffic distribution group that phone numbers are claimed to.
 	TargetArn() *string
 	SetTargetArn(val *string)
 	// The type of phone number.

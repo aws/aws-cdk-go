@@ -336,6 +336,10 @@ func init() {
 		"@aws-cdk/aws-neptune-alpha.ParameterGroupProps",
 		reflect.TypeOf((*ParameterGroupProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-neptune-alpha.ServerlessScalingConfiguration",
+		reflect.TypeOf((*ServerlessScalingConfiguration)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-neptune-alpha.SubnetGroup",
 		reflect.TypeOf((*SubnetGroup)(nil)).Elem(),

@@ -416,3 +416,40 @@ domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 	},
 })
 ```
+
+## Define off-peak windows
+
+The domain can be configured to use a daily 10-hour window considered as off-peak hours.
+
+Off-peak windows were introduced on February 16, 2023.
+All domains created before this date have the off-peak window disabled by default.
+You must manually enable and configure the off-peak window for these domains.
+All domains created after this date will have the off-peak window enabled by default.
+You can't disable the off-peak window for a domain after it's enabled.
+
+> Visit [Defining off-peak windows for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html) for more details.
+
+```go
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
+	OffPeakWindowEnabled: jsii.Boolean(true),
+	 // can be omitted if offPeakWindowStart is set
+	OffPeakWindowStart: &WindowStartTime{
+		Hours: jsii.Number(20),
+		Minutes: jsii.Number(0),
+	},
+})
+```
+
+## Configuring service software updates
+
+The domain can be configured to use service software updates.
+
+> Visit [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html) for more details.
+
+```go
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
+	EnableAutoSoftwareUpdate: jsii.Boolean(true),
+})
+```

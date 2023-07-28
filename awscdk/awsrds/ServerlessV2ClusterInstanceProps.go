@@ -32,6 +32,49 @@ type ServerlessV2ClusterInstanceProps struct {
 	EnablePerformanceInsights *bool `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// The identifier for the database instance.
 	InstanceIdentifier *string `field:"optional" json:"instanceIdentifier" yaml:"instanceIdentifier"`
+	// Only used for migrating existing clusters from using `instanceProps` to `writer` and `readers`.
+	//
+	// Example:
+	//   // existing cluster
+	//   declare const vpc: ec2.Vpc;
+	//   const cluster = new rds.DatabaseCluster(this, 'Database', {
+	//     engine: rds.DatabaseClusterEngine.auroraMysql({
+	//       version: rds.AuroraMysqlEngineVersion.VER_3_03_0,
+	//     }),
+	//     instances: 2,
+	//     instanceProps: {
+	//       instanceType: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE3, ec2.InstanceSize.SMALL),
+	//       vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC },
+	//       vpc,
+	//     },
+	//   });
+	//
+	//   // migration
+	//
+	//   const instanceProps = {
+	//     instanceType: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE3, ec2.InstanceSize.SMALL),
+	//     isFromLegacyInstanceProps: true,
+	//   };
+	//
+	//   const myCluster = new rds.DatabaseCluster(this, 'Database', {
+	//     engine: rds.DatabaseClusterEngine.auroraMysql({
+	//       version: rds.AuroraMysqlEngineVersion.VER_3_03_0,
+	//     }),
+	//     vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC },
+	//     vpc,
+	//     writer: rds.ClusterInstance.provisioned('Instance1', {
+	//       instanceType: instanceProps.instanceType,
+	//       isFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
+	//     }),
+	//     readers: [
+	//       rds.ClusterInstance.provisioned('Instance2', {
+	//         instanceType: instanceProps.instanceType,
+	//         isFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
+	//       }),
+	//     ],
+	//   });
+	//
+	IsFromLegacyInstanceProps *bool `field:"optional" json:"isFromLegacyInstanceProps" yaml:"isFromLegacyInstanceProps"`
 	// The DB parameter group to associate with the instance.
 	//
 	// This is only needed if you need to configure different parameter

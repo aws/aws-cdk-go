@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdkapprunneralpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -12,24 +13,32 @@ import (
 // The App Runner Service.
 //
 // Example:
-//   apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
-//   	Source: apprunner.Source_FromGitHub(&GithubRepositoryProps{
-//   		RepositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
-//   		Branch: jsii.String("main"),
-//   		ConfigurationSource: apprunner.ConfigurationSourceType_API,
-//   		CodeConfigurationValues: &CodeConfigurationValues{
-//   			Runtime: apprunner.Runtime_PYTHON_3(),
-//   			Port: jsii.String("8000"),
-//   			StartCommand: jsii.String("python app.py"),
-//   			BuildCommand: jsii.String("yum install -y pycairo && pip install -r requirements.txt"),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   service := apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+//   	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+//   		ImageConfiguration: &ImageConfiguration{
+//   			Port: jsii.Number(8000),
 //   		},
-//   		Connection: apprunner.GitHubConnection_FromConnectionArn(jsii.String("CONNECTION_ARN")),
+//   		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
 //   	}),
 //   })
+//
+//   service.AddToRolePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Effect: iam.Effect_ALLOW,
+//   	Actions: []*string{
+//   		jsii.String("s3:GetObject"),
+//   	},
+//   	Resources: []*string{
+//   		jsii.String("*"),
+//   	},
+//   }))
 //
 // Experimental.
 type Service interface {
 	awscdk.Resource
+	awsiam.IGrantable
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -43,6 +52,9 @@ type Service interface {
 	// Environment variables for this service.
 	// Deprecated: use environmentVariables.
 	Environment() *map[string]*string
+	// The principal to grant permissions to.
+	// Experimental.
+	GrantPrincipal() awsiam.IPrincipal
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -79,6 +91,9 @@ type Service interface {
 	// This method adds a secret as environment variable to the App Runner service.
 	// Experimental.
 	AddSecret(name *string, secret Secret)
+	// Adds a statement to the instance role.
+	// Experimental.
+	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -115,6 +130,7 @@ type Service interface {
 // The jsii proxy struct for Service
 type jsiiProxy_Service struct {
 	internal.Type__awscdkResource
+	internal.Type__awsiamIGrantable
 }
 
 func (j *jsiiProxy_Service) Env() *awscdk.ResourceEnvironment {
@@ -132,6 +148,16 @@ func (j *jsiiProxy_Service) Environment() *map[string]*string {
 	_jsii_.Get(
 		j,
 		"environment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Service) GrantPrincipal() awsiam.IPrincipal {
+	var returns awsiam.IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
 		&returns,
 	)
 	return returns
@@ -382,6 +408,17 @@ func (s *jsiiProxy_Service) AddSecret(name *string, secret Secret) {
 		s,
 		"addSecret",
 		[]interface{}{name, secret},
+	)
+}
+
+func (s *jsiiProxy_Service) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := s.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"addToRolePolicy",
+		[]interface{}{statement},
 	)
 }
 

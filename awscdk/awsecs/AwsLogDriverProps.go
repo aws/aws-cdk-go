@@ -1,6 +1,7 @@
 package awsecs
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 )
 
@@ -49,6 +50,8 @@ type AwsLogDriverProps struct {
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days log events are kept in CloudWatch Logs when the log group is automatically created by this construct.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
+	// When AwsLogDriverMode.NON_BLOCKING is configured, this parameter controls the size of the non-blocking buffer used to temporarily store messages. This parameter is not valid with AwsLogDriverMode.BLOCKING.
+	MaxBufferSize awscdk.Size `field:"optional" json:"maxBufferSize" yaml:"maxBufferSize"`
 	// The delivery mode of log messages from the container to awslogs.
 	Mode AwsLogDriverMode `field:"optional" json:"mode" yaml:"mode"`
 	// This option defines a multiline start pattern using a regular expression.

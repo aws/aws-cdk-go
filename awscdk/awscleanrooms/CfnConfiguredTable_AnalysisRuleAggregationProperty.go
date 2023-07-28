@@ -66,6 +66,9 @@ type CfnConfiguredTable_AnalysisRuleAggregationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-scalarfunctions
 	//
 	ScalarFunctions *[]*string `field:"required" json:"scalarFunctions" yaml:"scalarFunctions"`
+	// Which logical operators (if any) are to be used in an INNER JOIN match condition.
+	//
+	// Default is `AND` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-allowedjoinoperators
 	//
 	AllowedJoinOperators *[]*string `field:"optional" json:"allowedJoinOperators" yaml:"allowedJoinOperators"`

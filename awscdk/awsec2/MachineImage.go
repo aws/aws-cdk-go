@@ -175,6 +175,7 @@ func MachineImage_LatestAmazonLinux2(props *AmazonLinux2ImageSsmParameterProps) 
 // deployment. Be aware this will cause your instances to be replaced when a
 // new version of the image becomes available. Do not store stateful information
 // on the instance if you are using this image.
+// Deprecated: - use latestAmazonLinux2023() instead.
 func MachineImage_LatestAmazonLinux2022(props *AmazonLinux2022ImageSsmParameterProps) IMachineImage {
 	_init_.Initialize()
 

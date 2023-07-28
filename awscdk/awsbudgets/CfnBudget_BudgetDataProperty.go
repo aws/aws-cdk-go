@@ -69,6 +69,7 @@ type CfnBudget_BudgetDataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
 	//
 	TimeUnit *string `field:"required" json:"timeUnit" yaml:"timeUnit"`
+	// Determine the budget amount for an auto-adjusting budget.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-autoadjustdata
 	//
 	AutoAdjustData interface{} `field:"optional" json:"autoAdjustData" yaml:"autoAdjustData"`

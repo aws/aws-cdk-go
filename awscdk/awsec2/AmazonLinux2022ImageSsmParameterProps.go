@@ -4,45 +4,20 @@ package awsec2
 // Properties specific to al2022 images.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var amazonLinux2022Kernel amazonLinux2022Kernel
+//   var userData userData
 //
-//   // Amazon Linux 2
-//   // Amazon Linux 2
-//   ec2.NewInstance(this, jsii.String("Instance2"), &InstanceProps{
-//   	Vpc: Vpc,
-//   	InstanceType: InstanceType,
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
-//   })
-//
-//   // Amazon Linux 2 with kernel 5.x
-//   // Amazon Linux 2 with kernel 5.x
-//   ec2.NewInstance(this, jsii.String("Instance3"), &InstanceProps{
-//   	Vpc: Vpc,
-//   	InstanceType: InstanceType,
-//   	MachineImage: ec2.MachineImage_*LatestAmazonLinux2(&AmazonLinux2ImageSsmParameterProps{
-//   		Kernel: ec2.AmazonLinux2Kernel_KERNEL_5_10(),
-//   	}),
-//   })
-//
-//   // AWS Linux 2022
-//   // AWS Linux 2022
-//   ec2.NewInstance(this, jsii.String("Instance4"), &InstanceProps{
-//   	Vpc: Vpc,
-//   	InstanceType: InstanceType,
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
-//   })
-//
-//   // Graviton 3 Processor
-//   // Graviton 3 Processor
-//   ec2.NewInstance(this, jsii.String("Instance5"), &InstanceProps{
-//   	Vpc: Vpc,
-//   	InstanceType: ec2.*instanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
-//   	MachineImage: ec2.MachineImage_*LatestAmazonLinux2022(&AmazonLinux2022ImageSsmParameterProps{
-//   		CpuType: ec2.AmazonLinuxCpuType_ARM_64,
-//   	}),
-//   })
+//   amazonLinux2022ImageSsmParameterProps := &AmazonLinux2022ImageSsmParameterProps{
+//   	CachedInContext: jsii.Boolean(false),
+//   	CpuType: awscdk.Aws_ec2.AmazonLinuxCpuType_ARM_64,
+//   	Edition: awscdk.*Aws_ec2.AmazonLinuxEdition_STANDARD,
+//   	Kernel: amazonLinux2022Kernel,
+//   	UserData: userData,
+//   }
 //
 type AmazonLinux2022ImageSsmParameterProps struct {
 	// Whether the AMI ID is cached to be stable between deployments.

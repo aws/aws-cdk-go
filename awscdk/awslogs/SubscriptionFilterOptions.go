@@ -14,6 +14,9 @@ package awslogs
 //   subscriptionFilterOptions := &SubscriptionFilterOptions{
 //   	Destination: logSubscriptionDestination,
 //   	FilterPattern: filterPattern,
+//
+//   	// the properties below are optional
+//   	FilterName: jsii.String("filterName"),
 //   }
 //
 type SubscriptionFilterOptions struct {
@@ -23,5 +26,7 @@ type SubscriptionFilterOptions struct {
 	Destination ILogSubscriptionDestination `field:"required" json:"destination" yaml:"destination"`
 	// Log events matching this pattern will be sent to the destination.
 	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
+	// The name of the subscription filter.
+	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 }
 

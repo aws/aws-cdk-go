@@ -12,6 +12,10 @@ func (s *jsiiProxy_Service) validateAddSecretParameters(name *string, secret Sec
 	return nil
 }
 
+func (s *jsiiProxy_Service) validateAddToRolePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
 func (s *jsiiProxy_Service) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -8,40 +8,26 @@ import (
 // Represents a statement in an IAM policy document.
 //
 // Example:
-//   // Add gateway endpoints when creating the VPC
-//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	GatewayEndpoints: map[string]gatewayVpcEndpointOptions{
-//   		"S3": &gatewayVpcEndpointOptions{
-//   			"service": ec2.GatewayVpcEndpointAwsService_S3(),
-//   		},
-//   	},
-//   })
+//   // Option 3: Create a new role that allows the account root principal to assume. Add this role in the `system:masters` and witch to this role from the AWS console.
+//   var cluster cluster
 //
-//   // Alternatively gateway endpoints can be added on the VPC
-//   dynamoDbEndpoint := vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &gatewayVpcEndpointOptions{
-//   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
-//   })
 //
-//   // This allows to customize the endpoint policy
-//   dynamoDbEndpoint.AddToPolicy(
-//   iam.NewPolicyStatement(&PolicyStatementProps{
-//   	 // Restrict to listing and describing tables
-//   	Principals: []iPrincipal{
-//   		iam.NewAnyPrincipal(),
-//   	},
+//   consoleReadOnlyRole := iam.NewRole(this, jsii.String("ConsoleReadOnlyRole"), &RoleProps{
+//   	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
+//   })
+//   consoleReadOnlyRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Actions: []*string{
-//   		jsii.String("dynamodb:DescribeTable"),
-//   		jsii.String("dynamodb:ListTables"),
+//   		jsii.String("eks:AccessKubernetesApi"),
+//   		jsii.String("eks:Describe*"),
+//   		jsii.String("eks:List*"),
 //   	},
 //   	Resources: []*string{
-//   		jsii.String("*"),
+//   		cluster.ClusterArn,
 //   	},
 //   }))
 //
-//   // Add an interface endpoint
-//   vpc.addInterfaceEndpoint(jsii.String("EcrDockerEndpoint"), &InterfaceVpcEndpointOptions{
-//   	Service: ec2.InterfaceVpcEndpointAwsService_ECR_DOCKER(),
-//   })
+//   // Add this role to system:masters RBAC group
+//   cluster.awsAuth.AddMastersRole(consoleReadOnlyRole)
 //
 type PolicyStatement interface {
 	// The Actions added to this statement.

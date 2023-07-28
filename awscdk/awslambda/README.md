@@ -1285,3 +1285,37 @@ lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
 ```
+
+## Exclude Patterns for Assets
+
+When using `lambda.Code.fromAsset(path)` an `exclude` property allows you to ignore particular files for assets by providing patterns for file paths to exclude. Note that this has no effect on `Assets` bundled using the `bundling` property.
+
+The `ignoreMode` property can be used with the `exclude` property to specify the file paths to ignore based on the [.gitignore specification](https://git-scm.com/docs/gitignore) or the [.dockerignore specification](https://docs.docker.com/engine/reference/builder/#dockerignore-file). The default behavior is to ignore file paths based on simple glob patterns.
+
+```go
+lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("my-python-handler")), &AssetOptions{
+		Exclude: []*string{
+			jsii.String("*.ignore"),
+		},
+		IgnoreMode: awscdk.IgnoreMode_DOCKER,
+	}),
+	Runtime: lambda.Runtime_PYTHON_3_9(),
+	Handler: jsii.String("index.handler"),
+})
+```
+
+You can also write to include only certain files by using a negation.
+
+```go
+lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("my-python-handler")), &AssetOptions{
+		Exclude: []*string{
+			jsii.String("*"),
+			jsii.String("!index.py"),
+		},
+	}),
+	Runtime: lambda.Runtime_PYTHON_3_9(),
+	Handler: jsii.String("index.handler"),
+})
+```

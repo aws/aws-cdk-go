@@ -1,7 +1,9 @@
 package awsec2
 
 
-// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+// The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps).
+//
+// For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
 //
 // Default: No minimum or maximum limits.
 //

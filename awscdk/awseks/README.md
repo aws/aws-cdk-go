@@ -997,6 +997,83 @@ var role role
 cluster.awsAuth.AddMastersRole(role)
 ```
 
+To access the Kubernetes resources from the console, make sure your viewing principal is defined
+in the `aws-auth` ConfigMap. Some options to consider:
+
+```go
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv27"
+var cluster cluster
+var your_current_role role
+var vpc vpc
+
+
+// Option 1: Add your current assumed IAM role to system:masters. Make sure to add relevant policies.
+cluster.awsAuth.AddMastersRole(your_current_role)
+
+your_current_role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("eks:AccessKubernetesApi"),
+		jsii.String("eks:Describe*"),
+		jsii.String("eks:List*"),
+	},
+	Resources: []*string{
+		cluster.ClusterArn,
+	},
+}))
+```
+
+```go
+// Option 2: create your custom mastersRole with scoped assumeBy arn as the Cluster prop. Switch to this role from the AWS console.
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv27"
+var vpc vpc
+
+
+mastersRole := iam.NewRole(this, jsii.String("MastersRole"), &RoleProps{
+	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
+})
+
+cluster := eks.NewCluster(this, jsii.String("EksCluster"), &ClusterProps{
+	Vpc: Vpc,
+	Version: eks.KubernetesVersion_V1_27(),
+	KubectlLayer: kubectlv27.NewKubectlV27Layer(this, jsii.String("KubectlLayer")),
+	MastersRole: MastersRole,
+})
+
+mastersRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("eks:AccessKubernetesApi"),
+		jsii.String("eks:Describe*"),
+		jsii.String("eks:List*"),
+	},
+	Resources: []*string{
+		cluster.ClusterArn,
+	},
+}))
+```
+
+```go
+// Option 3: Create a new role that allows the account root principal to assume. Add this role in the `system:masters` and witch to this role from the AWS console.
+var cluster cluster
+
+
+consoleReadOnlyRole := iam.NewRole(this, jsii.String("ConsoleReadOnlyRole"), &RoleProps{
+	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
+})
+consoleReadOnlyRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("eks:AccessKubernetesApi"),
+		jsii.String("eks:Describe*"),
+		jsii.String("eks:List*"),
+	},
+	Resources: []*string{
+		cluster.ClusterArn,
+	},
+}))
+
+// Add this role to system:masters RBAC group
+cluster.awsAuth.AddMastersRole(consoleReadOnlyRole)
+```
+
 ### Cluster Security Group
 
 When you create an Amazon EKS cluster, a [cluster security group](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html)

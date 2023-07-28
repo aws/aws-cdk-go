@@ -22,6 +22,8 @@ type QueueBase interface {
 	AutoCreatePolicy() *bool
 	// If this queue is server-side encrypted, this is the KMS encryption key.
 	EncryptionMasterKey() awskms.IKey
+	// Whether the contents of the queue are encrypted, and by what type of key.
+	EncryptionType() QueueEncryption
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -189,6 +191,16 @@ func (j *jsiiProxy_QueueBase) EncryptionMasterKey() awskms.IKey {
 	_jsii_.Get(
 		j,
 		"encryptionMasterKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_QueueBase) EncryptionType() QueueEncryption {
+	var returns QueueEncryption
+	_jsii_.Get(
+		j,
+		"encryptionType",
 		&returns,
 	)
 	return returns

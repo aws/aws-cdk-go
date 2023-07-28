@@ -29,7 +29,7 @@ import (
 type CfnUserHierarchyGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) for the user hierarchy group.
+	// The Amazon Resource Name (ARN) of the user hierarchy group.
 	AttrUserHierarchyGroupArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

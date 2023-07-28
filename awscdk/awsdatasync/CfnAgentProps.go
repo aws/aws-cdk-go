@@ -54,7 +54,7 @@ type CfnAgentProps struct {
 	SecurityGroupArns *[]*string `field:"optional" json:"securityGroupArns" yaml:"securityGroupArns"`
 	// Specifies the ARN of the subnet where you want to run your DataSync task when using a VPC endpoint.
 	//
-	// This is the subnet where DataSync creates and manages the [network interfaces](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces) for your transfer.
+	// This is the subnet where DataSync creates and manages the [network interfaces](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces) for your transfer. You can only specify one ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
 	//
 	SubnetArns *[]*string `field:"optional" json:"subnetArns" yaml:"subnetArns"`

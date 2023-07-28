@@ -14,10 +14,13 @@ import (
 // Create a clustered database with a given number of instances.
 //
 // Example:
-//   cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   cluster := neptune.NewDatabaseCluster(this, jsii.String("ServerlessDatabase"), &DatabaseClusterProps{
 //   	Vpc: Vpc,
-//   	InstanceType: neptune.InstanceType_R5_LARGE(),
-//   	Instances: jsii.Number(2),
+//   	InstanceType: neptune.InstanceType_SERVERLESS(),
+//   	ServerlessScalingConfiguration: &ServerlessScalingConfiguration{
+//   		MinCapacity: jsii.Number(1),
+//   		MaxCapacity: jsii.Number(5),
+//   	},
 //   })
 //
 // Experimental.

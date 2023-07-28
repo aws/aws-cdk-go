@@ -1069,6 +1069,8 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 	MemoryLimitMiB: jsii.Number(256),
 	Logging: ecs.LogDrivers_AwsLogs(&AwsLogDriverProps{
 		StreamPrefix: jsii.String("EventDemo"),
+		Mode: ecs.AwsLogDriverMode_NON_BLOCKING,
+		MaxBufferSize: awscdk.Size_Mebibytes(jsii.Number(25)),
 	}),
 })
 ```

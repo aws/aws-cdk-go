@@ -14,6 +14,7 @@ package awslogs
 //   	LogGroup: LogGroup,
 //   	Destination: destinations.NewLambdaDestination(fn),
 //   	FilterPattern: logs.FilterPattern_AllTerms(jsii.String("ERROR"), jsii.String("MainThread")),
+//   	FilterName: jsii.String("ErrorInMainThread"),
 //   })
 //
 type SubscriptionFilterProps struct {
@@ -23,6 +24,8 @@ type SubscriptionFilterProps struct {
 	Destination ILogSubscriptionDestination `field:"required" json:"destination" yaml:"destination"`
 	// Log events matching this pattern will be sent to the destination.
 	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
+	// The name of the subscription filter.
+	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 	// The log group to create the subscription on.
 	LogGroup ILogGroup `field:"required" json:"logGroup" yaml:"logGroup"`
 }

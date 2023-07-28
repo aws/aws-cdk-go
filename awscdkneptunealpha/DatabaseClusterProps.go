@@ -11,10 +11,13 @@ import (
 // Properties for a new database cluster.
 //
 // Example:
-//   cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   cluster := neptune.NewDatabaseCluster(this, jsii.String("ServerlessDatabase"), &DatabaseClusterProps{
 //   	Vpc: Vpc,
-//   	InstanceType: neptune.InstanceType_R5_LARGE(),
-//   	Instances: jsii.Number(2),
+//   	InstanceType: neptune.InstanceType_SERVERLESS(),
+//   	ServerlessScalingConfiguration: &ServerlessScalingConfiguration{
+//   		MinCapacity: jsii.Number(1),
+//   		MaxCapacity: jsii.Number(5),
+//   	},
 //   })
 //
 // Experimental.
@@ -104,6 +107,11 @@ type DatabaseClusterProps struct {
 	// Security group.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// Specify minimum and maximum NCUs capacity for a serverless cluster.
+	//
+	// See https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html
+	// Experimental.
+	ServerlessScalingConfiguration *ServerlessScalingConfiguration `field:"optional" json:"serverlessScalingConfiguration" yaml:"serverlessScalingConfiguration"`
 	// Whether to enable storage encryption.
 	// Experimental.
 	StorageEncrypted *bool `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`

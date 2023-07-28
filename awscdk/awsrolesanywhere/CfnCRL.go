@@ -9,11 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Imports the certificate revocation list (CRL).
-//
-// A CRL is a list of certificates that have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates against the CRL before issuing credentials.
-//
-// *Required permissions:* `rolesanywhere:ImportCrl` .
+// Creates a Crl.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,10 +48,10 @@ type CfnCRL interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The x509 v3 specified certificate revocation list (CRL).
+	// x509 v3 Certificate Revocation List to revoke auth for corresponding certificates presented in CreateSession operations.
 	CrlData() *string
 	SetCrlData(val *string)
-	// Specifies whether the certificate revocation list (CRL) is enabled.
+	// The enabled status of the resource.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -68,7 +64,7 @@ type CfnCRL interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the certificate revocation list (CRL).
+	// The customer specified name of the resource.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,7 +80,7 @@ type CfnCRL interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A list of tags to attach to the certificate revocation list (CRL).
+	// A list of Tags.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.

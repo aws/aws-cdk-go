@@ -320,6 +320,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchservice.WindowStartTime",
+		reflect.TypeOf((*WindowStartTime)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.ZoneAwarenessConfig",
 		reflect.TypeOf((*ZoneAwarenessConfig)(nil)).Elem(),
 	)

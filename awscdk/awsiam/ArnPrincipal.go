@@ -11,20 +11,26 @@ import (
 // You cannot specify IAM groups or instance profiles as principals.
 //
 // Example:
-//   var networkLoadBalancer1 networkLoadBalancer
-//   var networkLoadBalancer2 networkLoadBalancer
+//   // Option 3: Create a new role that allows the account root principal to assume. Add this role in the `system:masters` and witch to this role from the AWS console.
+//   var cluster cluster
 //
 //
-//   ec2.NewVpcEndpointService(this, jsii.String("EndpointService"), &VpcEndpointServiceProps{
-//   	VpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
-//   		networkLoadBalancer1,
-//   		networkLoadBalancer2,
-//   	},
-//   	AcceptanceRequired: jsii.Boolean(true),
-//   	AllowedPrincipals: []arnPrincipal{
-//   		iam.NewArnPrincipal(jsii.String("arn:aws:iam::123456789012:root")),
-//   	},
+//   consoleReadOnlyRole := iam.NewRole(this, jsii.String("ConsoleReadOnlyRole"), &RoleProps{
+//   	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
 //   })
+//   consoleReadOnlyRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Actions: []*string{
+//   		jsii.String("eks:AccessKubernetesApi"),
+//   		jsii.String("eks:Describe*"),
+//   		jsii.String("eks:List*"),
+//   	},
+//   	Resources: []*string{
+//   		cluster.ClusterArn,
+//   	},
+//   }))
+//
+//   // Add this role to system:masters RBAC group
+//   cluster.awsAuth.AddMastersRole(consoleReadOnlyRole)
 //
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
 //

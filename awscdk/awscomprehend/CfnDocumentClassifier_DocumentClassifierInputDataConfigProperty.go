@@ -97,7 +97,7 @@ type CfnDocumentClassifier_DocumentClassifierInputDataConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-s3uri
 	//
 	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
-	// This specifies the Amazon S3 location where the test annotations for an entity recognizer are located.
+	// This specifies the Amazon S3 location that contains the test annotations for the document classifier.
 	//
 	// The URI must be in the same AWS Region as the API endpoint that you are calling.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-tests3uri

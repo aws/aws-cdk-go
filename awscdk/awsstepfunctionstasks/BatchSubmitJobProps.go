@@ -104,5 +104,7 @@ type BatchSubmitJobProps struct {
 	DependsOn *[]*BatchJobDependency `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// The payload to be passed as parameters to the batch job.
 	Payload awsstepfunctions.TaskInput `field:"optional" json:"payload" yaml:"payload"`
+	// The tags applied to the job request.
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

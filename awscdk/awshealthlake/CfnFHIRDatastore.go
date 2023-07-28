@@ -89,6 +89,7 @@ type CfnFHIRDatastore interface {
 	// The FHIR version of the Data Store.
 	DatastoreTypeVersion() *string
 	SetDatastoreTypeVersion(val *string)
+	// The identity provider configuration for the datastore.
 	IdentityProviderConfiguration() interface{}
 	SetIdentityProviderConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -47,6 +47,10 @@ type DomainProps struct {
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon OpenSearch Service domain.
 	Ebs *EbsOptions `field:"optional" json:"ebs" yaml:"ebs"`
+	// Specifies whether automatic service software updates are enabled for the domain.
+	// See: https://docs.aws.amazon.com/it_it/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-softwareupdateoptions.html
+	//
+	EnableAutoSoftwareUpdate *bool `field:"optional" json:"enableAutoSoftwareUpdate" yaml:"enableAutoSoftwareUpdate"`
 	// To upgrade an Amazon OpenSearch Service domain to a new version, rather than replacing the entire domain resource, use the EnableVersionUpgrade update policy.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain
 	//
@@ -67,6 +71,21 @@ type DomainProps struct {
 	//
 	// Requires Elasticsearch version 6.0 or later or OpenSearch version 1.0 or later.
 	NodeToNodeEncryption *bool `field:"optional" json:"nodeToNodeEncryption" yaml:"nodeToNodeEncryption"`
+	// Options for enabling a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
+	//
+	// Off-peak windows were introduced on February 16, 2023.
+	// All domains created before this date have the off-peak window disabled by default.
+	// You must manually enable and configure the off-peak window for these domains.
+	// All domains created after this date will have the off-peak window enabled by default.
+	// You can't disable the off-peak window for a domain after it's enabled.
+	// See: https://docs.aws.amazon.com/it_it/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindow.html
+	//
+	OffPeakWindowEnabled *bool `field:"optional" json:"offPeakWindowEnabled" yaml:"offPeakWindowEnabled"`
+	// Start time for the off-peak window, in Coordinated Universal Time (UTC).
+	//
+	// The window length will always be 10 hours, so you can't specify an end time.
+	// For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
+	OffPeakWindowStart *WindowStartTime `field:"optional" json:"offPeakWindowStart" yaml:"offPeakWindowStart"`
 	// Policy to apply when the domain is removed from the stack.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The list of security groups that are associated with the VPC endpoints for the domain.

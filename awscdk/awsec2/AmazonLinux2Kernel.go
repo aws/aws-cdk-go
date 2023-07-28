@@ -30,12 +30,12 @@ import (
 //   	}),
 //   })
 //
-//   // AWS Linux 2022
-//   // AWS Linux 2022
+//   // Amazon Linux 2023
+//   // Amazon Linux 2023
 //   ec2.NewInstance(this, jsii.String("Instance4"), &InstanceProps{
 //   	Vpc: Vpc,
 //   	InstanceType: InstanceType,
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 //   })
 //
 //   // Graviton 3 Processor
@@ -43,7 +43,7 @@ import (
 //   ec2.NewInstance(this, jsii.String("Instance5"), &InstanceProps{
 //   	Vpc: Vpc,
 //   	InstanceType: ec2.*instanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
-//   	MachineImage: ec2.MachineImage_*LatestAmazonLinux2022(&AmazonLinux2022ImageSsmParameterProps{
+//   	MachineImage: ec2.MachineImage_*LatestAmazonLinux2023(&AmazonLinux2023ImageSsmParameterProps{
 //   		CpuType: ec2.AmazonLinuxCpuType_ARM_64,
 //   	}),
 //   })

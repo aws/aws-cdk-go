@@ -23,7 +23,9 @@ package awsiot
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html
 //
 type CfnJobTemplate_JobExecutionsRolloutConfigProperty struct {
-	// Allows you to create an exponential rate of rollout for a job.
+	// The rate of increase for a job rollout.
+	//
+	// This parameter allows you to define an exponential rate for a job rollout.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html#cfn-iot-jobtemplate-jobexecutionsrolloutconfig-exponentialrolloutrate
 	//
 	ExponentialRolloutRate interface{} `field:"optional" json:"exponentialRolloutRate" yaml:"exponentialRolloutRate"`

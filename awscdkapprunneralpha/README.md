@@ -33,6 +33,8 @@ The `Service` construct allows you to create AWS App Runner services with `ECR P
 * `Source.fromGitHub()` - To define the source repository from the `Github repository`.
 * `Source.fromAsset()` - To define the source from local asset directory.
 
+The `Service` construct implements `IGrantable`.
+
 ## ECR Public
 
 To create a `Service` with ECR Public:
@@ -130,7 +132,34 @@ apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
 You are allowed to define `instanceRole` and `accessRole` for the `Service`.
 
 `instanceRole` - The IAM role that provides permissions to your App Runner service. These are permissions that
-your code needs when it calls any AWS APIs.
+your code needs when it calls any AWS APIs. If not defined, a new instance role will be generated
+when required.
+
+To add IAM policy statements to this role, use `addToRolePolicy()`:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+service := apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
+		},
+		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+	}),
+})
+
+service.AddToRolePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Effect: iam.Effect_ALLOW,
+	Actions: []*string{
+		jsii.String("s3:GetObject"),
+	},
+	Resources: []*string{
+		jsii.String("*"),
+	},
+}))
+```
 
 `accessRole` - The IAM role that grants the App Runner service access to a source repository. It's required for
 ECR image repositories (but not for ECR Public repositories). If not defined, a new access role will be generated

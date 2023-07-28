@@ -33,6 +33,9 @@ type CfnConfiguredTable_AnalysisRuleListProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-listcolumns
 	//
 	ListColumns *[]*string `field:"required" json:"listColumns" yaml:"listColumns"`
+	// Which logical operators (if any) are to be used in an INNER JOIN match condition.
+	//
+	// Default is `AND` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-allowedjoinoperators
 	//
 	AllowedJoinOperators *[]*string `field:"optional" json:"allowedJoinOperators" yaml:"allowedJoinOperators"`

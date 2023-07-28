@@ -13,7 +13,7 @@ package awsec2
 //   })
 //
 //   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 //   	SecurityGroup: sg1,
 //   })
 //

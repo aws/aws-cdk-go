@@ -7,15 +7,15 @@ import (
 // Construction properties for a ARecord.
 //
 // Example:
-//   import apigw "github.com/aws/aws-cdk-go/awscdk"
+//   import apigwv2 "github.com/aws/aws-cdk-go/awscdkapigatewayv2alpha"
 //
 //   var zone hostedZone
-//   var restApi lambdaRestApi
+//   var domainName domainName
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGateway(restApi)),
+//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.RegionalDomainName, domainName.RegionalHostedZoneId)),
 //   })
 //
 type ARecordProps struct {
@@ -34,6 +34,8 @@ type ARecordProps struct {
 	// > an existing Record Set's `deleteExisting` property from `false -> true` after deployment
 	// > will delete the record!
 	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
+	// The geographical origin for this record to return DNS records based on the user's location.
+	GeoLocation GeoLocation `field:"optional" json:"geoLocation" yaml:"geoLocation"`
 	// The subdomain name for this record. This should be relative to the zone root name.
 	//
 	// For example, if you want to create a record for acme.example.com, specify

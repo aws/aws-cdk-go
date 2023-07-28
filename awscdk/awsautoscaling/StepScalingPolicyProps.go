@@ -43,6 +43,8 @@ type StepScalingPolicyProps struct {
 	// The intervals for scaling.
 	//
 	// Maps a range of metric values to a particular scaling behavior.
+	//
+	// Must be between 2 and 40 steps.
 	ScalingSteps *[]*ScalingInterval `field:"required" json:"scalingSteps" yaml:"scalingSteps"`
 	// How the adjustment numbers inside 'intervals' are interpreted.
 	AdjustmentType AdjustmentType `field:"optional" json:"adjustmentType" yaml:"adjustmentType"`

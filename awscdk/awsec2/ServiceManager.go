@@ -14,7 +14,7 @@ package awsec2
 //   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 //   	Vpc: Vpc,
 //   	InstanceType: InstanceType,
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 //
 //   	Init: ec2.CloudFormationInit_FromElements(ec2.InitService_SystemdConfigFile(jsii.String("simpleserver"), &SystemdConfigFileOptions{
 //   		Command: jsii.String("/usr/bin/python3 -m http.server 8080"),
