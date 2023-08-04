@@ -25,6 +25,7 @@ import (
 //   	BuildSecrets: map[string]*string{
 //   		"buildSecretsKey": jsii.String("buildSecrets"),
 //   	},
+//   	BuildSsh: jsii.String("buildSsh"),
 //   	CacheFrom: []dockerCacheOption{
 //   		&dockerCacheOption{
 //   			Type: jsii.String("type"),
@@ -59,6 +60,7 @@ import (
 //   	Invalidation: &DockerImageAssetInvalidationOptions{
 //   		BuildArgs: jsii.Boolean(false),
 //   		BuildSecrets: jsii.Boolean(false),
+//   		BuildSsh: jsii.Boolean(false),
 //   		ExtraHash: jsii.Boolean(false),
 //   		File: jsii.Boolean(false),
 //   		NetworkMode: jsii.Boolean(false),
@@ -81,22 +83,34 @@ type AssetImageCodeProps struct {
 	//
 	// See `ignoreMode` to set the matching behavior.
 	// Has no effect on Assets bundled using the `bundling` property.
+	// Default: - nothing is excluded.
+	//
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
+	// Default: SymlinkFollowMode.NEVER
+	//
 	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for `exclude` patterns.
+	// Default: IgnoreMode.GLOB
+	//
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
+	// Default: - hash is only based on source content.
+	//
 	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
 	// Unique identifier of the docker image asset and its potential revisions.
 	//
 	// Required if using AppScopedStagingSynthesizer.
+	// Default: - no asset name.
+	//
 	AssetName *string `field:"optional" json:"assetName" yaml:"assetName"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
+	// Default: - no build args are passed.
+	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Build secrets.
 	//
@@ -111,37 +125,65 @@ type AssetImageCodeProps struct {
 	//
 	// See: https://docs.docker.com/build/buildkit/
 	//
+	// Default: - no build secrets.
+	//
 	BuildSecrets *map[string]*string `field:"optional" json:"buildSecrets" yaml:"buildSecrets"`
+	// SSH agent socket or keys to pass to the `docker build` command.
+	//
+	// Docker BuildKit must be enabled to use the ssh flag.
+	// See: https://docs.docker.com/build/buildkit/
+	//
+	// Default: - no --ssh flag.
+	//
+	BuildSsh *string `field:"optional" json:"buildSsh" yaml:"buildSsh"`
 	// Cache from options to pass to the `docker build` command.
 	// See: https://docs.docker.com/build/cache/backends/
+	//
+	// Default: - no cache from options are passed to the build command.
 	//
 	CacheFrom *[]*awsecrassets.DockerCacheOption `field:"optional" json:"cacheFrom" yaml:"cacheFrom"`
 	// Cache to options to pass to the `docker build` command.
 	// See: https://docs.docker.com/build/cache/backends/
 	//
+	// Default: - no cache to options are passed to the build command.
+	//
 	CacheTo *awsecrassets.DockerCacheOption `field:"optional" json:"cacheTo" yaml:"cacheTo"`
 	// Path to the Dockerfile (relative to the directory).
+	// Default: 'Dockerfile'.
+	//
 	File *string `field:"optional" json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
+	// Default: - hash all parameters.
+	//
 	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `field:"optional" json:"invalidation" yaml:"invalidation"`
 	// Networking mode for the RUN commands during build.
 	//
 	// Support docker API 1.25+.
+	// Default: - no networking mode specified (the default networking mode `NetworkMode.DEFAULT` will be used)
+	//
 	NetworkMode awsecrassets.NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// Outputs to pass to the `docker build` command.
 	// See: https://docs.docker.com/engine/reference/commandline/build/#custom-build-outputs
+	//
+	// Default: - no outputs are passed to the build command (default outputs are used).
 	//
 	Outputs *[]*string `field:"optional" json:"outputs" yaml:"outputs"`
 	// Platform to build for.
 	//
 	// _Requires Docker Buildx_.
+	// Default: - no platform specified (the current machine architecture will be used).
+	//
 	Platform awsecrassets.Platform `field:"optional" json:"platform" yaml:"platform"`
 	// Docker target to build to.
+	// Default: - no target.
+	//
 	Target *string `field:"optional" json:"target" yaml:"target"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
+	//
+	// Default: - use the CMD specified in the docker image or Dockerfile.
 	//
 	Cmd *[]*string `field:"optional" json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
@@ -150,11 +192,15 @@ type AssetImageCodeProps struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
+	// Default: - use the ENTRYPOINT in the docker image or Dockerfile.
+	//
 	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
+	//
+	// Default: - use the WORKDIR in the docker image or Dockerfile.
 	//
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }

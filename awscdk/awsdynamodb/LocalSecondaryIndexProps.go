@@ -26,8 +26,12 @@ type LocalSecondaryIndexProps struct {
 	// The name of the secondary index.
 	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
+	// Default: - No additional attributes.
+	//
 	NonKeyAttributes *[]*string `field:"optional" json:"nonKeyAttributes" yaml:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
+	// Default: ALL.
+	//
 	ProjectionType ProjectionType `field:"optional" json:"projectionType" yaml:"projectionType"`
 	// The attribute of a sort key for the local secondary index.
 	SortKey *Attribute `field:"required" json:"sortKey" yaml:"sortKey"`

@@ -27,6 +27,8 @@ type OriginGroupProps struct {
 	// The primary origin that should serve requests for this group.
 	PrimaryOrigin awscloudfront.IOrigin `field:"required" json:"primaryOrigin" yaml:"primaryOrigin"`
 	// The list of HTTP status codes that, when returned from the primary origin, would cause querying the fallback origin.
+	// Default: - 500, 502, 503 and 504.
+	//
 	FallbackStatusCodes *[]*float64 `field:"optional" json:"fallbackStatusCodes" yaml:"fallbackStatusCodes"`
 }
 

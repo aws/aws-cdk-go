@@ -34,11 +34,15 @@ type SecretPathVolumeOptions struct {
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The path on the container where the volume is mounted.
+	// Default: - the volume is not mounted.
+	//
 	// Experimental.
 	MountPath *string `field:"optional" json:"mountPath" yaml:"mountPath"`
 	// If specified, the container has readonly access to the volume.
 	//
 	// Otherwise, the container has read/write access.
+	// Default: false.
+	//
 	// Experimental.
 	Readonly *bool `field:"optional" json:"readonly" yaml:"readonly"`
 	// The name of the secret.
@@ -49,6 +53,8 @@ type SecretPathVolumeOptions struct {
 	// Experimental.
 	SecretName *string `field:"required" json:"secretName" yaml:"secretName"`
 	// Specifies whether the secret or the secret's keys must be defined.
+	// Default: true.
+	//
 	// Experimental.
 	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
 }

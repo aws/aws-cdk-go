@@ -37,16 +37,22 @@ type PolicyViolationBeta1 struct {
 	// The resources violating this rule.
 	ViolatingResources *[]*PolicyViolatingResourceBeta1 `field:"required" json:"violatingResources" yaml:"violatingResources"`
 	// How to fix the violation.
+	// Default: - no fix is provided.
+	//
 	Fix *string `field:"optional" json:"fix" yaml:"fix"`
 	// Additional metadata to include with the rule results.
 	//
 	// This can be used to provide additional information that is
 	// plugin specific. The data provided here will be rendered as is.
+	// Default: - no rule metadata.
+	//
 	RuleMetadata *map[string]*string `field:"optional" json:"ruleMetadata" yaml:"ruleMetadata"`
 	// The severity of the violation, only used for reporting purposes.
 	//
 	// This is useful for helping the user discriminate between warnings,
 	// errors, information, etc.
+	// Default: - no severity.
+	//
 	Severity *string `field:"optional" json:"severity" yaml:"severity"`
 }
 

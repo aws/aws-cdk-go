@@ -40,13 +40,17 @@ type DnsValidatedCertificateProps struct {
 	//
 	// May contain wildcards, such as ``*.domain.com``.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
-	// The Certifcate name.
+	// The Certificate name.
 	//
-	// Since the Certifcate resource doesn't support providing a physical name, the value provided here will be recorded in the `Name` tag.
+	// Since the Certificate resource doesn't support providing a physical name, the value provided here will be recorded in the `Name` tag.
+	// Default: the full, absolute path of this construct.
+	//
 	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// Alternative domain names on your certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
+	// Default: - No additional FQDNs will be included as alternative domain names.
+	//
 	SubjectAlternativeNames *[]*string `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 	// Enable or disable transparency logging for this certificate.
 	//
@@ -57,8 +61,12 @@ type DnsValidatedCertificateProps struct {
 	// If you want the certificate to be logged immediately, we recommend that you issue a new one.
 	// See: https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency
 	//
+	// Default: true.
+	//
 	TransparencyLoggingEnabled *bool `field:"optional" json:"transparencyLoggingEnabled" yaml:"transparencyLoggingEnabled"`
 	// How to validate this certificate.
+	// Default: CertificateValidation.fromEmail()
+	//
 	Validation CertificateValidation `field:"optional" json:"validation" yaml:"validation"`
 	// Route 53 Hosted Zone used to perform DNS validation of the request.
 	//
@@ -70,20 +78,28 @@ type DnsValidatedCertificateProps struct {
 	// CAUTION: If multiple certificates share the same domains (and same validation records),
 	// this can cause the other certificates to fail renewal and/or not validate.
 	// Not recommended for production use.
+	// Default: false.
+	//
 	CleanupRoute53Records *bool `field:"optional" json:"cleanupRoute53Records" yaml:"cleanupRoute53Records"`
 	// Role to use for the custom resource that creates the validated certificate.
+	// Default: - A new role will be created.
+	//
 	CustomResourceRole awsiam.IRole `field:"optional" json:"customResourceRole" yaml:"customResourceRole"`
 	// AWS region that will host the certificate.
 	//
 	// This is needed especially
 	// for certificates used for CloudFront distributions, which require the region
 	// to be us-east-1.
+	// Default: the region the stack is deployed in.
+	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// An endpoint of Route53 service, which is not necessary as AWS SDK could figure out the right endpoints for most regions, but for some regions such as those in aws-cn partition, the default endpoint is not working now, hence the right endpoint need to be specified through this prop.
 	//
 	// Route53 is not been officially launched in China, it is only available for AWS
 	// internal accounts now. To make DnsValidatedCertificate work for internal accounts
 	// now, a special endpoint needs to be provided.
+	// Default: - The AWS SDK will determine the Route53 endpoint to use based on region.
+	//
 	Route53Endpoint *string `field:"optional" json:"route53Endpoint" yaml:"route53Endpoint"`
 }
 

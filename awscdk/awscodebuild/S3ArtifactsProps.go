@@ -33,11 +33,15 @@ type S3ArtifactsProps struct {
 	// If this is false, build output will not be encrypted.
 	//
 	// This is useful if the artifact to publish a static website or sharing content with others.
+	// Default: true - output will be encrypted.
+	//
 	Encryption *bool `field:"optional" json:"encryption" yaml:"encryption"`
 	// Indicates if the build ID should be included in the path.
 	//
 	// If this is set to true,
 	// then the build artifact will be stored in "<path>/<build-id>/<name>".
+	// Default: true.
+	//
 	IncludeBuildId *bool `field:"optional" json:"includeBuildId" yaml:"includeBuildId"`
 	// The name of the build output ZIP file or folder inside the bucket.
 	//
@@ -46,10 +50,16 @@ type S3ArtifactsProps struct {
 	//
 	// If not set, `overrideArtifactName` will be set and the name from the
 	// buildspec will be used instead.
+	// Default: undefined, and use the name from the buildspec.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// If this is true, all build output will be packaged into a single .zip file. Otherwise, all files will be uploaded to <path>/<name>.
+	// Default: true - files will be archived.
+	//
 	PackageZip *bool `field:"optional" json:"packageZip" yaml:"packageZip"`
 	// The path inside of the bucket for the build output .zip file or folder. If a value is not specified, then build output will be stored at the root of the bucket (or under the <build-id> directory if `includeBuildId` is set to true).
+	// Default: the root of the bucket.
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 

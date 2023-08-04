@@ -41,9 +41,13 @@ type HttpRouteProps struct {
 	// The list of OIDC scopes to include in the authorization.
 	//
 	// These scopes will be merged with the scopes from the attached authorizer.
+	// Default: - no additional authorization scopes.
+	//
 	// Experimental.
 	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// Authorizer for a WebSocket API or an HTTP API.
+	// Default: - No authorizer.
+	//
 	// Experimental.
 	Authorizer IHttpRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 }

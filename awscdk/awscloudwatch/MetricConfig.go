@@ -49,13 +49,19 @@ package awscloudwatch
 //
 type MetricConfig struct {
 	// In case the metric is a math expression, the details of the math expression.
+	// Default: - None.
+	//
 	MathExpression *MetricExpressionConfig `field:"optional" json:"mathExpression" yaml:"mathExpression"`
 	// In case the metric represents a query, the details of the query.
+	// Default: - None.
+	//
 	MetricStat *MetricStatConfig `field:"optional" json:"metricStat" yaml:"metricStat"`
 	// Additional properties which will be rendered if the metric is used in a dashboard.
 	//
 	// Examples are 'label' and 'color', but any key in here will be
 	// added to dashboard graphs.
+	// Default: - None.
+	//
 	RenderingProperties *map[string]interface{} `field:"optional" json:"renderingProperties" yaml:"renderingProperties"`
 }
 

@@ -3,7 +3,7 @@ package awsvpclattice
 
 // The health check configuration of a target group.
 //
-// Health check configurations aren't used for `LAMBDA` and `ALB` target groups.
+// Health check configurations aren't used for target groups of type `LAMBDA` or `ALB` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

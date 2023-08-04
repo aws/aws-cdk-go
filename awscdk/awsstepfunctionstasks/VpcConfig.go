@@ -40,6 +40,8 @@ type VpcConfig struct {
 	// VPC.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// VPC subnets.
+	// Default: - Private Subnets are selected.
+	//
 	Subnets *awsec2.SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 }
 

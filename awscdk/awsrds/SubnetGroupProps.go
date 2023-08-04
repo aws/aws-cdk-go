@@ -47,10 +47,16 @@ type SubnetGroupProps struct {
 	// The VPC to place the subnet group in.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
+	// Default: RemovalPolicy.DESTROY
+	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The name of the subnet group.
+	// Default: - a name is generated.
+	//
 	SubnetGroupName *string `field:"optional" json:"subnetGroupName" yaml:"subnetGroupName"`
 	// Which subnets within the VPC to associate with this group.
+	// Default: - private subnets.
+	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

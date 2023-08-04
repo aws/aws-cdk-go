@@ -9,7 +9,21 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
+// Creates or updates an account-level data protection policy that applies to all log groups in the account.
+//
+// A data protection policy can help safeguard sensitive data that's ingested by your log groups by auditing and masking the sensitive log data. Each account can have only one account-level policy.
+//
+// > Sensitive data is detected and masked when it is ingested into a log group. When you set a data protection policy, log events ingested into the log groups before that time are not masked.
+//
+// If you create a data protection policy for your whole account, it applies to both existing log groups and all log groups that are created later in this account. The account policy is applied to existing log groups with eventual consistency. It might take up to 5 minutes before sensitive data in existing log groups begins to be masked.
+//
+// By default, when a user views a log event that includes masked data, the sensitive data is replaced by asterisks. A user who has the `logs:Unmask` permission can use a [GetLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html) or [FilterLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html) operation with the `unmask` parameter set to `true` to view the unmasked log events. Users with the `logs:Unmask` can also view unmasked data in the CloudWatch Logs console by running a CloudWatch Logs Insights query with the `unmask` query command.
+//
+// For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html) .
+//
+// To create an account-level policy, you must be signed on with the `logs:PutDataProtectionPolicy` and `logs:PutAccountPolicy` permissions.
+//
+// An account-level policy applies to all log groups in the account. You can also create a data protection policy that applies to just one log group. If a log group has its own data protection policy and the account also has an account-level data protection policy, then the two policies are cumulative. Any sensitive term specified in either policy is masked.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,7 +44,9 @@ import (
 type CfnAccountPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// User account id.
+	// The account ID of the account where this policy was created.
+	//
+	// For example, `123456789012` .
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,13 +69,13 @@ type CfnAccountPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The body of the policy document you want to use for this topic.
+	// Specify the data protection policy, in JSON.
 	PolicyDocument() *string
 	SetPolicyDocument(val *string)
-	// The name of the account policy.
+	// A name for the policy.
 	PolicyName() *string
 	SetPolicyName(val *string)
-	// Type of the policy.
+	// Currently the only valid value for this parameter is `DATA_PROTECTION_POLICY` .
 	PolicyType() *string
 	SetPolicyType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -67,7 +83,7 @@ type CfnAccountPolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Scope for policy application.
+	// Currently the only valid value for this parameter is `ALL` , which specifies that the data protection policy applies to all log groups in the account.
 	Scope() *string
 	SetScope(val *string)
 	// The stack in which this element is defined.

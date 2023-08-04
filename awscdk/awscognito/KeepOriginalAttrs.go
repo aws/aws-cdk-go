@@ -21,8 +21,12 @@ package awscognito
 //
 type KeepOriginalAttrs struct {
 	// Whether the email address of the user should remain the original value until the new email address is verified.
+	// Default: - false.
+	//
 	Email *bool `field:"optional" json:"email" yaml:"email"`
 	// Whether the phone number of the user should remain the original value until the new phone number is verified.
+	// Default: - false.
+	//
 	Phone *bool `field:"optional" json:"phone" yaml:"phone"`
 }
 

@@ -186,4 +186,4 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 })
 ```
 
-See the documentation of `@aws-cdk/aws-route53` for more information.
+See the documentation of `aws-cdk-lib/aws-route53` for more information.

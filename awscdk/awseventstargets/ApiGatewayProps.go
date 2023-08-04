@@ -53,35 +53,57 @@ type ApiGatewayProps struct {
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
+	// Default: - no dead-letter queue.
+	//
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
+	// Default: Duration.hours(24)
+	//
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
+	// Default: 185.
+	//
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The role to assume before invoking the target (i.e., the pipeline) when the given rule is triggered.
+	// Default: - a new role will be created.
+	//
 	EventRole awsiam.IRole `field:"optional" json:"eventRole" yaml:"eventRole"`
 	// The headers to be set when requesting API.
+	// Default: no header parameters.
+	//
 	HeaderParameters *map[string]*string `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// The method for api resource invoked by the rule.
+	// Default: '*' that treated as ANY.
+	//
 	Method *string `field:"optional" json:"method" yaml:"method"`
 	// The api resource invoked by the rule.
 	//
 	// We can use wildcards('*') to specify the path. In that case,
 	// an equal number of real values must be specified for pathParameterValues.
+	// Default: '/'.
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The path parameter values to be used to populate to wildcards("*") of requesting api path.
+	// Default: no path parameters.
+	//
 	PathParameterValues *[]*string `field:"optional" json:"pathParameterValues" yaml:"pathParameterValues"`
 	// This will be the post request body send to the API.
+	// Default: the entire EventBridge event.
+	//
 	PostBody awsevents.RuleTargetInput `field:"optional" json:"postBody" yaml:"postBody"`
 	// The query parameters to be set when requesting API.
+	// Default: no querystring parameters.
+	//
 	QueryStringParameters *map[string]*string `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 	// The deploy stage of api gateway invoked by the rule.
+	// Default: the value of deploymentStage.stageName of target api gateway.
+	//
 	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 }
 

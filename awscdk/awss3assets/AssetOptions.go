@@ -34,11 +34,16 @@ type AssetOptions struct {
 	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
+	// Default: - based on `assetHashType`.
+	//
 	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
+	// Default: - the default is `AssetHashType.SOURCE`, but if `assetHash` is
+	// explicitly specified this value defaults to `AssetHashType.CUSTOM`.
+	//
 	AssetHashType awscdk.AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
@@ -46,15 +51,24 @@ type AssetOptions struct {
 	// container is responsible for putting content at `/asset-output`.
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
+	// Default: - uploaded as-is to S3 if the asset is a regular file or a .zip file,
+	// archived into a .zip file and uploaded to S3 otherwise
+	//
 	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 	// File paths matching the patterns will be excluded.
 	//
 	// See `ignoreMode` to set the matching behavior.
 	// Has no effect on Assets bundled using the `bundling` property.
+	// Default: - nothing is excluded.
+	//
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
+	// Default: SymlinkFollowMode.NEVER
+	//
 	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for `exclude` patterns.
+	// Default: IgnoreMode.GLOB
+	//
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Whether or not the asset needs to exist beyond deployment time;
 	//
@@ -67,10 +81,14 @@ type AssetOptions struct {
 	// For example, Lambda Function assets are copied over to Lambda during
 	// deployment. Therefore, it is not necessary to store the asset in S3, so
 	// we consider those deployTime assets.
+	// Default: false.
+	//
 	DeployTime *bool `field:"optional" json:"deployTime" yaml:"deployTime"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
+	// Default: - No principals that can read file asset.
+	//
 	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
 }
 

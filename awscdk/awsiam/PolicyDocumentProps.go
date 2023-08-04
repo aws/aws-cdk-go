@@ -36,6 +36,8 @@ package awsiam
 //
 type PolicyDocumentProps struct {
 	// Automatically assign Statement Ids to all statements.
+	// Default: false.
+	//
 	AssignSids *bool `field:"optional" json:"assignSids" yaml:"assignSids"`
 	// Try to minimize the policy by merging statements.
 	//
@@ -49,8 +51,12 @@ type PolicyDocumentProps struct {
 	// - Combine Actions if the rest of the statement is exactly the same.
 	// - We will never combine NotPrincipals, NotResources or NotActions, because doing
 	//   so would change the meaning of the policy document.
+	// Default: - false, unless the feature flag `@aws-cdk/aws-iam:minimizePolicies` is set.
+	//
 	Minimize *bool `field:"optional" json:"minimize" yaml:"minimize"`
 	// Initial statements to add to the policy document.
+	// Default: - No statements.
+	//
 	Statements *[]PolicyStatement `field:"optional" json:"statements" yaml:"statements"`
 }
 

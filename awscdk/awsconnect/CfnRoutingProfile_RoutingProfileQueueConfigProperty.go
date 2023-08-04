@@ -20,15 +20,19 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html
 //
 type CfnRoutingProfile_RoutingProfileQueueConfigProperty struct {
-	// The delay, in seconds, a contact should wait in the queue before they are routed to an available agent.
+	// The delay, in seconds, a contact should be in the queue before they are routed to an available agent.
+	//
+	// For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html#cfn-connect-routingprofile-routingprofilequeueconfig-delay
 	//
 	Delay *float64 `field:"required" json:"delay" yaml:"delay"`
 	// The order in which contacts are to be handled for the queue.
+	//
+	// For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html#cfn-connect-routingprofile-routingprofilequeueconfig-priority
 	//
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
-	// Contains the channel and queue identifier for a routing profile.
+	// Contains information about a queue resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html#cfn-connect-routingprofile-routingprofilequeueconfig-queuereference
 	//
 	QueueReference interface{} `field:"required" json:"queueReference" yaml:"queueReference"`

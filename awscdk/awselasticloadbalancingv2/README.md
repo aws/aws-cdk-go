@@ -1,6 +1,6 @@
 # Amazon Elastic Load Balancing V2 Construct Library
 
-The `@aws-cdk/aws-elasticloadbalancingv2` package provides constructs for
+The `aws-cdk-lib/aws-elasticloadbalancingv2` package provides constructs for
 configuring application and network load balancers.
 
 For more information, see the AWS documentation for
@@ -147,7 +147,7 @@ Balancer that the other two convenience methods don't:
   redirect response (ALB only).
 * **Authentication**: use `ListenerAction.authenticateOidc()` to
   perform OpenID authentication before serving a request (see the
-  `@aws-cdk/aws-elasticloadbalancingv2-actions` package for direct authentication
+  `aws-cdk-lib/aws-elasticloadbalancingv2-actions` package for direct authentication
   integration with Cognito) (ALB only).
 
 Here's an example of serving a fixed response at the `/ok` URL:
@@ -368,7 +368,7 @@ tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTarge
 ## Using Lambda Targets
 
 To use a Lambda Function as a target, use the integration class in the
-`@aws-cdk/aws-elasticloadbalancingv2-targets` package:
+`aws-cdk-lib/aws-elasticloadbalancingv2-targets` package:
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
@@ -399,7 +399,7 @@ Only a single Lambda function can be added to a single listener rule.
 ## Using Application Load Balancer Targets
 
 To use a single application load balancer as a target for the network load balancer, use the integration class in the
-`@aws-cdk/aws-elasticloadbalancingv2-targets` package:
+`aws-cdk-lib/aws-elasticloadbalancingv2-targets` package:
 
 ```go
 import targets "github.com/aws/aws-cdk-go/awscdk"

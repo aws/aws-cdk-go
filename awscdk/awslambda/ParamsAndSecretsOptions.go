@@ -35,6 +35,8 @@ import (
 //
 type ParamsAndSecretsOptions struct {
 	// Whether the Parameters and Secrets Extension will cache parameters and secrets.
+	// Default: true.
+	//
 	CacheEnabled *bool `field:"optional" json:"cacheEnabled" yaml:"cacheEnabled"`
 	// The maximum number of secrets and parameters to cache.
 	//
@@ -43,14 +45,20 @@ type ParamsAndSecretsOptions struct {
 	//
 	// Note: This variable is ignored if parameterStoreTtl and secretsManagerTtl
 	// are 0.
+	// Default: 1000.
+	//
 	CacheSize *float64 `field:"optional" json:"cacheSize" yaml:"cacheSize"`
 	// The port for the local HTTP server.
 	//
 	// Valid port numbers are 1 - 65535.
+	// Default: 2773.
+	//
 	HttpPort *float64 `field:"optional" json:"httpPort" yaml:"httpPort"`
 	// The level of logging provided by the Parameters and Secrets Extension.
 	//
 	// Note: Set to debug to see the cache configuration.
+	// Default: - Logging level will be `info`.
+	//
 	LogLevel ParamsAndSecretsLogLevel `field:"optional" json:"logLevel" yaml:"logLevel"`
 	// The maximum number of connection for HTTP clients that the Parameters and Secrets Extension uses to make requests to Parameter Store or Secrets Manager.
 	//
@@ -59,11 +67,15 @@ type ParamsAndSecretsOptions struct {
 	// Note: Every running copy of this Lambda function may open the number of
 	// connections specified by this property. Thus, the total number of connections
 	// may exceed this number.
+	// Default: 3.
+	//
 	MaxConnections *float64 `field:"optional" json:"maxConnections" yaml:"maxConnections"`
 	// The timeout for requests to Parameter Store.
 	//
 	// A value of 0 means that there is no
 	// timeout.
+	// Default: 0.
+	//
 	ParameterStoreTimeout awscdk.Duration `field:"optional" json:"parameterStoreTimeout" yaml:"parameterStoreTimeout"`
 	// The time-to-live of a parameter in the cache.
 	//
@@ -71,11 +83,15 @@ type ParamsAndSecretsOptions struct {
 	// The maximum time-to-live is 300 seconds.
 	//
 	// Note: This variable is ignored if cacheSize is 0.
+	// Default: 300 seconds.
+	//
 	ParameterStoreTtl awscdk.Duration `field:"optional" json:"parameterStoreTtl" yaml:"parameterStoreTtl"`
 	// The timeout for requests to Secrets Manager.
 	//
 	// A value of 0 means that there is
 	// no timeout.
+	// Default: 0.
+	//
 	SecretsManagerTimeout awscdk.Duration `field:"optional" json:"secretsManagerTimeout" yaml:"secretsManagerTimeout"`
 	// The time-to-live of a secret in the cache.
 	//
@@ -83,6 +99,8 @@ type ParamsAndSecretsOptions struct {
 	// The maximum time-to-live is 300 seconds.
 	//
 	// Note: This variable is ignored if cacheSize is 0.
+	// Default: 300 seconds.
+	//
 	SecretsManagerTtl awscdk.Duration `field:"optional" json:"secretsManagerTtl" yaml:"secretsManagerTtl"`
 }
 

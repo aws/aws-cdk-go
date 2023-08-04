@@ -34,15 +34,23 @@ type ContinuousLoggingProps struct {
 	// Apply the provided conversion pattern.
 	//
 	// This is a Log4j Conversion Pattern to customize driver and executor logs.
+	// Default: `%d{yy/MM/dd HH:mm:ss} %p %c{1}: %m%n`.
+	//
 	// Experimental.
 	ConversionPattern *string `field:"optional" json:"conversionPattern" yaml:"conversionPattern"`
 	// Specify a custom CloudWatch log group name.
+	// Default: - a log group is created with name `/aws-glue/jobs/logs-v2/`.
+	//
 	// Experimental.
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// Specify a custom CloudWatch log stream prefix.
+	// Default: - the job run ID.
+	//
 	// Experimental.
 	LogStreamPrefix *string `field:"optional" json:"logStreamPrefix" yaml:"logStreamPrefix"`
 	// Filter out non-useful Apache Spark driver/executor and Apache Hadoop YARN heartbeat log messages.
+	// Default: true.
+	//
 	// Experimental.
 	Quiet *bool `field:"optional" json:"quiet" yaml:"quiet"`
 }

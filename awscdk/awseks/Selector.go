@@ -29,6 +29,8 @@ type Selector struct {
 	// A pod must contain
 	// all of the labels that are specified in the selector for it to be
 	// considered a match.
+	// Default: - all pods within the namespace will be selected.
+	//
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 }
 

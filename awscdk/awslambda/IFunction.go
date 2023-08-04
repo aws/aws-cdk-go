@@ -17,7 +17,13 @@ type IFunction interface {
 	awscdk.IResource
 	// Adds an event source to this function.
 	//
-	// Event sources are implemented in the.
+	// Event sources are implemented in the aws-cdk-lib/aws-lambda-event-sources module.
+	//
+	// The following example adds an SQS Queue as an event source:
+	// ```
+	// import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
+	// myFunction.addEventSource(new SqsEventSource(myQueue));
+	// ```.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
@@ -40,6 +46,8 @@ type IFunction interface {
 	// Metric for the Duration of this Lambda How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
+	// Default: average over 5 minutes.
+	//
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
@@ -48,10 +56,14 @@ type IFunction interface {
 	// Metric for the number of invocations of this Lambda How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
+	// Default: sum over 5 minutes.
+	//
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of throttled invocations of this Lambda How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
+	// Default: sum over 5 minutes.
+	//
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The system architectures compatible with this lambda function.
 	Architecture() Architecture

@@ -24,9 +24,6 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html
 //
 type CfnDataSet_NewDefaultValuesProperty struct {
-	// A list of static default values for a given date time parameter.
-	//
-	// The valid format for this property is `yyyy-MM-dd’T’HH:mm:ss’Z’` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html#cfn-quicksight-dataset-newdefaultvalues-datetimestaticvalues
 	//
 	DateTimeStaticValues *[]*string `field:"optional" json:"dateTimeStaticValues" yaml:"dateTimeStaticValues"`

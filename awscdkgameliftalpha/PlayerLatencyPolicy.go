@@ -31,6 +31,8 @@ type PlayerLatencyPolicy struct {
 	// Experimental.
 	MaximumIndividualPlayerLatency awscdk.Duration `field:"required" json:"maximumIndividualPlayerLatency" yaml:"maximumIndividualPlayerLatency"`
 	// The length of time, in seconds, that the policy is enforced while placing a new game session.
+	// Default: the policy is enforced until the queue times out.
+	//
 	// Experimental.
 	PolicyDuration awscdk.Duration `field:"optional" json:"policyDuration" yaml:"policyDuration"`
 }

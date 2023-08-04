@@ -37,6 +37,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "configuration", GoGetter: "Configuration"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "dataReplicationMode", GoGetter: "DataReplicationMode"},
+			_jsii_.MemberProperty{JsiiProperty: "dataReplicationPrimaryBrokerArn", GoGetter: "DataReplicationPrimaryBrokerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "deploymentMode", GoGetter: "DeploymentMode"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionOptions", GoGetter: "EncryptionOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "engineType", GoGetter: "EngineType"},

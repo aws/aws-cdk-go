@@ -39,7 +39,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html
 //
 type CfnQueueProps struct {
-	// The identifier for the hours of operation.
+	// The Amazon Resource Name (ARN) of the hours of operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-hoursofoperationarn
 	//
 	HoursOfOperationArn *string `field:"required" json:"hoursOfOperationArn" yaml:"hoursOfOperationArn"`
@@ -63,7 +63,7 @@ type CfnQueueProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-outboundcallerconfig
 	//
 	OutboundCallerConfig interface{} `field:"optional" json:"outboundCallerConfig" yaml:"outboundCallerConfig"`
-	// The quick connects available to agents who are working the queue.
+	// The Amazon Resource Names (ARN) of the of the quick connects available to agents who are working the queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-quickconnectarns
 	//
 	QuickConnectArns *[]*string `field:"optional" json:"quickConnectArns" yaml:"quickConnectArns"`
@@ -71,7 +71,9 @@ type CfnQueueProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

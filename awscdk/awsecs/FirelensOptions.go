@@ -19,12 +19,18 @@ type FirelensOptions struct {
 	//
 	// Both configFileType and configFileValue must be used together
 	// to define a custom configuration source.
+	// Default: - determined by checking configFileValue with S3 ARN.
+	//
 	ConfigFileType FirelensConfigFileType `field:"optional" json:"configFileType" yaml:"configFileType"`
 	// Custom configuration file, S3 ARN or a file path Both configFileType and configFileValue must be used together to define a custom configuration source.
+	// Default: - no config file value.
+	//
 	ConfigFileValue *string `field:"optional" json:"configFileValue" yaml:"configFileValue"`
 	// By default, Amazon ECS adds additional fields in your log entries that help identify the source of the logs.
 	//
 	// You can disable this action by setting enable-ecs-log-metadata to false.
+	// Default: - true.
+	//
 	EnableECSLogMetadata *bool `field:"optional" json:"enableECSLogMetadata" yaml:"enableECSLogMetadata"`
 }
 

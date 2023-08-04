@@ -14,6 +14,8 @@ package awslogsdestinations
 //
 type LambdaDestinationOptions struct {
 	// Whether or not to add Lambda Permissions.
+	// Default: true.
+	//
 	AddPermissions *bool `field:"optional" json:"addPermissions" yaml:"addPermissions"`
 }
 

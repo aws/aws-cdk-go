@@ -22,6 +22,8 @@ type ScheduledEc2TaskDefinitionOptions struct {
 	// The task definition to use for tasks in the service. One of image or taskDefinition must be specified.
 	//
 	// [disable-awslint:ref-via-interface].
+	// Default: - none.
+	//
 	TaskDefinition awsecs.Ec2TaskDefinition `field:"required" json:"taskDefinition" yaml:"taskDefinition"`
 }
 

@@ -27,8 +27,12 @@ import (
 //
 type EncryptionConfiguration struct {
 	// Type of S3 server-side encryption enabled.
+	// Default: EncryptionOption.S3_MANAGED
+	//
 	EncryptionOption EncryptionOption `field:"required" json:"encryptionOption" yaml:"encryptionOption"`
 	// KMS key ARN or ID.
+	// Default: - No KMS key for Encryption Option SSE_S3 and default master key for Encryption Option SSE_KMS and CSE_KMS.
+	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

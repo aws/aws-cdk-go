@@ -34,8 +34,12 @@ import (
 //
 type ModelClientOptions struct {
 	// The maximum number of retries when invocation requests are failing.
+	// Default: 0.
+	//
 	InvocationsMaxRetries *float64 `field:"optional" json:"invocationsMaxRetries" yaml:"invocationsMaxRetries"`
 	// The timeout duration for an invocation request.
+	// Default: Duration.minutes(1)
+	//
 	InvocationsTimeout awscdk.Duration `field:"optional" json:"invocationsTimeout" yaml:"invocationsTimeout"`
 }
 

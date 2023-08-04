@@ -29,14 +29,20 @@ type OpenIdConnectConfig struct {
 	// Example:
 	//   -"ABCD|CDEF"
 	//
+	// Default: - * (All).
+	//
 	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
 	// The number of milliseconds an OIDC token is valid after being authenticated by OIDC provider.
 	//
 	// `auth_time` claim in OIDC token is required for this validation to work.
+	// Default: - no validation.
+	//
 	TokenExpiryFromAuth *float64 `field:"optional" json:"tokenExpiryFromAuth" yaml:"tokenExpiryFromAuth"`
 	// The number of milliseconds an OIDC token is valid after being issued to a user.
 	//
 	// This validation uses `iat` claim of OIDC token.
+	// Default: - no validation.
+	//
 	TokenExpiryFromIssue *float64 `field:"optional" json:"tokenExpiryFromIssue" yaml:"tokenExpiryFromIssue"`
 }
 

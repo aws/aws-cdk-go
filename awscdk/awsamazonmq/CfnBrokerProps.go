@@ -35,6 +35,8 @@ package awsamazonmq
 //   		Id: jsii.String("id"),
 //   		Revision: jsii.Number(123),
 //   	},
+//   	DataReplicationMode: jsii.String("dataReplicationMode"),
+//   	DataReplicationPrimaryBrokerArn: jsii.String("dataReplicationPrimaryBrokerArn"),
 //   	EncryptionOptions: &EncryptionOptionsProperty{
 //   		UseAwsOwnedKey: jsii.Boolean(false),
 //
@@ -145,6 +147,12 @@ type CfnBrokerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-datareplicationmode
+	//
+	DataReplicationMode *string `field:"optional" json:"dataReplicationMode" yaml:"dataReplicationMode"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-datareplicationprimarybrokerarn
+	//
+	DataReplicationPrimaryBrokerArn *string `field:"optional" json:"dataReplicationPrimaryBrokerArn" yaml:"dataReplicationPrimaryBrokerArn"`
 	// Encryption options for the broker.
 	//
 	// Does not apply to RabbitMQ brokers.

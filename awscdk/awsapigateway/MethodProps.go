@@ -63,8 +63,12 @@ type MethodProps struct {
 	// specify the `RestApi` object.
 	Resource IResource `field:"required" json:"resource" yaml:"resource"`
 	// The backend system that the method calls when it receives a request.
+	// Default: - a new `MockIntegration`.
+	//
 	Integration Integration `field:"optional" json:"integration" yaml:"integration"`
 	// Method options.
+	// Default: - No options.
+	//
 	Options *MethodOptions `field:"optional" json:"options" yaml:"options"`
 }
 

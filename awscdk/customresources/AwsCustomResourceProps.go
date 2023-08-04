@@ -35,6 +35,9 @@ type AwsCustomResourceProps struct {
 	// A name for the singleton Lambda function implementing this custom resource.
 	//
 	// The function name will remain the same after the first AwsCustomResource is created in a stack.
+	// Default: - AWS CloudFormation generates a unique physical ID and uses that
+	// ID for the function's name. For more information, see Name Type.
+	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Whether to install the latest AWS SDK v2.
 	//
@@ -46,14 +49,24 @@ type AwsCustomResourceProps struct {
 	//
 	// The default can be controlled using the context key
 	// `@aws-cdk/customresources:installLatestAwsSdkDefault` is.
+	// Default: - The value of `@aws-cdk/customresources:installLatestAwsSdkDefault`, otherwise `true`.
+	//
 	InstallLatestAwsSdk *bool `field:"optional" json:"installLatestAwsSdk" yaml:"installLatestAwsSdk"`
 	// The number of days log events of the singleton Lambda function implementing this custom resource are kept in CloudWatch Logs.
+	// Default: logs.RetentionDays.INFINITE
+	//
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// The AWS SDK call to make when the resource is created.
+	// Default: - the call when the resource is updated.
+	//
 	OnCreate *AwsSdkCall `field:"optional" json:"onCreate" yaml:"onCreate"`
 	// The AWS SDK call to make when the resource is deleted.
+	// Default: - no call.
+	//
 	OnDelete *AwsSdkCall `field:"optional" json:"onDelete" yaml:"onDelete"`
 	// The AWS SDK call to make when the resource is updated.
+	// Default: - no call.
+	//
 	OnUpdate *AwsSdkCall `field:"optional" json:"onUpdate" yaml:"onUpdate"`
 	// The policy that will be added to the execution role of the Lambda function implementing this custom resource provider.
 	//
@@ -69,25 +82,39 @@ type AwsCustomResourceProps struct {
 	// resources.
 	// See: Policy.fromSdkCalls
 	//
+	// Default: - no policy added.
+	//
 	Policy AwsCustomResourcePolicy `field:"optional" json:"policy" yaml:"policy"`
 	// The policy to apply when this resource is removed from the application.
+	// Default: cdk.RemovalPolicy.Destroy
+	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Cloudformation Resource type.
+	// Default: - Custom::AWS.
+	//
 	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// The execution role for the singleton Lambda function implementing this custom resource provider.
 	//
 	// This role will apply to all `AwsCustomResource`
 	// instances in the stack. The role must be assumable by the
 	// `lambda.amazonaws.com` service principal.
+	// Default: - a new role is created.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The timeout for the singleton Lambda function implementing this custom resource.
+	// Default: Duration.minutes(2)
+	//
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The vpc to provision the lambda function in.
+	// Default: - the function is not provisioned inside a vpc.
+	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Which subnets from the VPC to place the lambda function in.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
+	// Default: - the Vpc default strategy if not specified.
+	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

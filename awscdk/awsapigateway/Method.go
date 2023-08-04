@@ -105,20 +105,34 @@ type Method interface {
 	// Returns the given named metric for this API method.
 	Metric(metricName *string, stage IStage, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of requests served from the API cache in a given period.
+	// Default: - sum over 5 minutes.
+	//
 	MetricCacheHitCount(stage IStage, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of requests served from the backend in a given period, when API caching is enabled.
+	// Default: - sum over 5 minutes.
+	//
 	MetricCacheMissCount(stage IStage, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of client-side errors captured in a given period.
+	// Default: - sum over 5 minutes.
+	//
 	MetricClientError(stage IStage, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the total number API requests in a given period.
+	// Default: - sample count over 5 minutes.
+	//
 	MetricCount(stage IStage, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
+	// Default: - average over 5 minutes.
+	//
 	MetricIntegrationLatency(stage IStage, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time between when API Gateway receives a request from a client and when it returns a response to the client.
 	//
 	// The latency includes the integration latency and other API Gateway overhead.
+	// Default: - average over 5 minutes.
+	//
 	MetricLatency(stage IStage, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of server-side errors captured in a given period.
+	// Default: - sum over 5 minutes.
+	//
 	MetricServerError(stage IStage, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string

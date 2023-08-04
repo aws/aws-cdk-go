@@ -24,11 +24,15 @@ type Device struct {
 	// Experimental.
 	HostPath *string `field:"required" json:"hostPath" yaml:"hostPath"`
 	// The path inside the container at which to expose the host device.
+	// Default: Same path as the host.
+	//
 	// Experimental.
 	ContainerPath *string `field:"optional" json:"containerPath" yaml:"containerPath"`
 	// The explicit permissions to provide to the container for the device.
 	//
 	// By default, the container has permissions for read, write, and mknod for the device.
+	// Default: Readonly.
+	//
 	// Experimental.
 	Permissions *[]DevicePermission `field:"optional" json:"permissions" yaml:"permissions"`
 }

@@ -28,14 +28,20 @@ type ScheduledTaskBase interface {
 	// Specifies whether to propagate the tags from the task definition to the task.
 	//
 	// If no value is specified, the tags are not propagated.
+	// Default: - Tags will not be propagated.
+	//
 	PropagateTags() awsecs.PropagatedTagSource
 	// In what subnets to place the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking).
+	// Default: Private subnets.
+	//
 	SubnetSelection() *awsec2.SubnetSelection
 	// The metadata that you apply to the task to help you categorize and organize them.
 	//
 	// Each tag consists of a key and an optional value, both of which you define.
+	// Default: - No tags are applied to the task.
+	//
 	Tags() *[]*awseventstargets.Tag
 	// Adds task as a target of the scheduled event rule.
 	AddTaskAsTarget(ecsTaskTarget awseventstargets.EcsTask)

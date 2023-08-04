@@ -54,6 +54,8 @@ type IEksContainerDefinition interface {
 	// If both are specified, then `cpuLimit` must be at least as large as `cpuReservation`.
 	// See: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 	//
+	// Default: - No CPU limit.
+	//
 	// Experimental.
 	CpuLimit() *float64
 	// The soft limit of CPUs to reserve for the container Must be an even multiple of 0.25.
@@ -63,6 +65,8 @@ type IEksContainerDefinition interface {
 	// At least one of `cpuReservation` and `cpuLimit` is required.
 	// If both are specified, then `cpuLimit` must be at least as large as `cpuReservation`.
 	// See: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+	//
+	// Default: - No CPUs reserved.
 	//
 	// Experimental.
 	CpuReservation() *float64
@@ -79,6 +83,8 @@ type IEksContainerDefinition interface {
 	// If both `gpuReservation` and `gpuLimit` are specified, then `gpuLimit` must be equal to `gpuReservation`.
 	// See: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 	//
+	// Default: - No GPU limit.
+	//
 	// Experimental.
 	GpuLimit() *float64
 	// The soft limit of CPUs to reserve for the container Must be an even multiple of 0.25.
@@ -88,6 +94,8 @@ type IEksContainerDefinition interface {
 	// If both `gpuReservation` and `gpuLimit` are specified, then `gpuLimit` must be equal to `gpuReservation`.
 	// See: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 	//
+	// Default: - No GPUs reserved.
+	//
 	// Experimental.
 	GpuReservation() *float64
 	// The image that this container will run.
@@ -95,6 +103,8 @@ type IEksContainerDefinition interface {
 	Image() awsecs.ContainerImage
 	// The image pull policy for this container.
 	// See: https://kubernetes.io/docs/concepts/containers/images/#updating-images
+	//
+	// Default: - `ALWAYS` if the `:latest` tag is specified, `IF_NOT_PRESENT` otherwise.
 	//
 	// Experimental.
 	ImagePullPolicy() ImagePullPolicy
@@ -109,6 +119,8 @@ type IEksContainerDefinition interface {
 	// *Note*: To maximize your resource utilization, provide your jobs with as much memory as possible
 	// for the specific instance type that you are using.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html
+	//
+	// Default: - No memory limit.
 	//
 	// Experimental.
 	MemoryLimit() awscdk.Size
@@ -131,9 +143,13 @@ type IEksContainerDefinition interface {
 	// for the specific instance type that you are using.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html
 	//
+	// Default: - No memory reserved.
+	//
 	// Experimental.
 	MemoryReservation() awscdk.Size
 	// The name of this container.
+	// Default: : `'Default'`.
+	//
 	// Experimental.
 	Name() *string
 	// If specified, gives this container elevated permissions on the host container instance.
@@ -145,6 +161,8 @@ type IEksContainerDefinition interface {
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems
 	//
+	// Default: false.
+	//
 	// Experimental.
 	Privileged() *bool
 	// If specified, gives this container readonly access to its root file system.
@@ -153,6 +171,8 @@ type IEksContainerDefinition interface {
 	//
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems
+	//
+	// Default: false.
 	//
 	// Experimental.
 	ReadonlyRootFilesystem() *bool
@@ -164,6 +184,8 @@ type IEksContainerDefinition interface {
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups
 	//
+	// Default: none.
+	//
 	// Experimental.
 	RunAsGroup() *float64
 	// If specified, the container is run as a user with a `uid` other than 0.
@@ -174,6 +196,8 @@ type IEksContainerDefinition interface {
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups
 	//
+	// Default: - the container is *not* required to run as a non-root user.
+	//
 	// Experimental.
 	RunAsRoot() *bool
 	// If specified, this container is run as the specified user ID (`uid`).
@@ -182,6 +206,8 @@ type IEksContainerDefinition interface {
 	//
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups
+	//
+	// Default: - the user that is specified in the image metadata.
 	//
 	// Experimental.
 	RunAsUser() *float64

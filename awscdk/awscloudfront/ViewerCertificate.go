@@ -85,7 +85,7 @@ func ViewerCertificate_FromAcmCertificate(certificate awscertificatemanager.ICer
 	return returns
 }
 
-// Generate a viewer certifcate configuration using the CloudFront default certificate (e.g. d111111abcdef8.cloudfront.net) and a `SecurityPolicyProtocol.TLS_V1` security policy.
+// Generate a viewer certificate configuration using the CloudFront default certificate (e.g. d111111abcdef8.cloudfront.net) and a `SecurityPolicyProtocol.TLS_V1` security policy.
 func ViewerCertificate_FromCloudFrontDefaultCertificate(aliases ...*string) ViewerCertificate {
 	_init_.Initialize()
 

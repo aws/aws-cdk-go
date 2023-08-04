@@ -30,6 +30,40 @@ import (
 //   		JunctionPath: jsii.String("junctionPath"),
 //   		OntapVolumeType: jsii.String("ontapVolumeType"),
 //   		SecurityStyle: jsii.String("securityStyle"),
+//   		SnaplockConfiguration: &SnaplockConfigurationProperty{
+//   			SnaplockType: jsii.String("snaplockType"),
+//
+//   			// the properties below are optional
+//   			AuditLogVolume: jsii.String("auditLogVolume"),
+//   			AutocommitPeriod: &AutocommitPeriodProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Value: jsii.Number(123),
+//   			},
+//   			PrivilegedDelete: jsii.String("privilegedDelete"),
+//   			RetentionPeriod: &SnaplockRetentionPeriodProperty{
+//   				DefaultRetention: &RetentionPeriodProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Value: jsii.Number(123),
+//   				},
+//   				MaximumRetention: &RetentionPeriodProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Value: jsii.Number(123),
+//   				},
+//   				MinimumRetention: &RetentionPeriodProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Value: jsii.Number(123),
+//   				},
+//   			},
+//   			VolumeAppendModeEnabled: jsii.String("volumeAppendModeEnabled"),
+//   		},
 //   		SnapshotPolicy: jsii.String("snapshotPolicy"),
 //   		StorageEfficiencyEnabled: jsii.String("storageEfficiencyEnabled"),
 //   		TieringPolicy: &TieringPolicyProperty{

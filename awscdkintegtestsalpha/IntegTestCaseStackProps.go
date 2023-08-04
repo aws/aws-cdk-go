@@ -32,29 +32,44 @@ type IntegTestCaseStackProps struct {
 	// first before the old resource is destroyed which prevents any outage.
 	//
 	// e.g. ['AWS::IAM::Role']
+	// Default: - do not allow destruction of any resources on update.
+	//
 	// Experimental.
 	AllowDestroy *[]*string `field:"optional" json:"allowDestroy" yaml:"allowDestroy"`
 	// Additional options to use for each CDK command.
+	// Default: - runner default options.
+	//
 	// Experimental.
 	CdkCommandOptions *cloudassemblyschema.CdkCommands `field:"optional" json:"cdkCommandOptions" yaml:"cdkCommandOptions"`
 	// Whether or not to include asset hashes in the diff Asset hashes can introduces a lot of unneccessary noise into tests, but there are some cases where asset hashes _should_ be included.
 	//
 	// For example
 	// any tests involving custom resources or bundling.
+	// Default: false.
+	//
 	// Experimental.
 	DiffAssets *bool `field:"optional" json:"diffAssets" yaml:"diffAssets"`
 	// Additional commands to run at predefined points in the test workflow.
 	//
 	// e.g. { postDeploy: ['yarn', 'test'] }
+	// Default: - no hooks.
+	//
 	// Experimental.
 	Hooks *cloudassemblyschema.Hooks `field:"optional" json:"hooks" yaml:"hooks"`
 	// Limit deployment to these regions.
+	// Default: - can run in any region.
+	//
 	// Experimental.
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 	// Run update workflow on this test case This should only be set to false to test scenarios that are not possible to test as part of the update workflow.
+	// Default: true.
+	//
 	// Experimental.
 	StackUpdateWorkflow *bool `field:"optional" json:"stackUpdateWorkflow" yaml:"stackUpdateWorkflow"`
 	// Include runtime versioning information in this Stack.
+	// Default: `analyticsReporting` setting of containing `App`, or value of
+	// 'aws:cdk:version-reporting' context key.
+	//
 	// Experimental.
 	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
 	// Enable this flag to allow native cross region stack references.
@@ -63,9 +78,13 @@ type IntegTestCaseStackProps struct {
 	// in both the producing stack and consuming stack in order to perform the export/import
 	//
 	// This feature is currently experimental.
+	// Default: false.
+	//
 	// Experimental.
 	CrossRegionReferences *bool `field:"optional" json:"crossRegionReferences" yaml:"crossRegionReferences"`
 	// A description of the stack.
+	// Default: - No description.
+	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The AWS environment (account/region) where this stack will be deployed.
@@ -127,12 +146,19 @@ type IntegTestCaseStackProps struct {
 	//   // which will only resolve to actual values by CloudFormation during deployment.
 	//   new MyStack(app, 'Stack1');
 	//
+	// Default: - The environment of the containing `Stage` if available,
+	// otherwise create the stack will be environment-agnostic.
+	//
 	// Experimental.
 	Env *awscdk.Environment `field:"optional" json:"env" yaml:"env"`
 	// Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
+	// Default: - no permissions boundary is applied.
+	//
 	// Experimental.
 	PermissionsBoundary awscdk.PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Name to deploy the stack with.
+	// Default: - Derived from construct path.
+	//
 	// Experimental.
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Enable this flag to suppress indentation in generated CloudFormation templates.
@@ -140,6 +166,8 @@ type IntegTestCaseStackProps struct {
 	// If not specified, the value of the `@aws-cdk/core:suppressTemplateIndentation`
 	// context key will be used. If that is not specified, then the
 	// default value `false` will be used.
+	// Default: - the value of `@aws-cdk/core:suppressTemplateIndentation`, or `false` if that is not set.
+	//
 	// Experimental.
 	SuppressTemplateIndentation *bool `field:"optional" json:"suppressTemplateIndentation" yaml:"suppressTemplateIndentation"`
 	// Synthesis method to use while deploying this stack.
@@ -153,12 +181,18 @@ type IntegTestCaseStackProps struct {
 	// `@aws-cdk/core:newStyleStackSynthesis` is set to `true` or the CDK major
 	// version is v2. In CDK v1 `LegacyStackSynthesizer` is the default if no
 	// other synthesizer is specified.
+	// Default: - The synthesizer specified on `App`, or `DefaultStackSynthesizer` otherwise.
+	//
 	// Experimental.
 	Synthesizer awscdk.IStackSynthesizer `field:"optional" json:"synthesizer" yaml:"synthesizer"`
 	// Stack tags that will be applied to all the taggable resources and the stack itself.
+	// Default: {}.
+	//
 	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// Whether to enable termination protection for this stack.
+	// Default: false.
+	//
 	// Experimental.
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 }

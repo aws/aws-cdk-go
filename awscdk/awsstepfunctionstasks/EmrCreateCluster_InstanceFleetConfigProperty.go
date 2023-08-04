@@ -77,14 +77,24 @@ type EmrCreateCluster_InstanceFleetConfigProperty struct {
 	// Valid values are MASTER,CORE,and TASK.
 	InstanceFleetType EmrCreateCluster_InstanceRoleType `field:"required" json:"instanceFleetType" yaml:"instanceFleetType"`
 	// The instance type configurations that define the EC2 instances in the instance fleet.
+	// Default: No instanceTpeConfigs.
+	//
 	InstanceTypeConfigs *[]*EmrCreateCluster_InstanceTypeConfigProperty `field:"optional" json:"instanceTypeConfigs" yaml:"instanceTypeConfigs"`
 	// The launch specification for the instance fleet.
+	// Default: No launchSpecifications.
+	//
 	LaunchSpecifications *EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty `field:"optional" json:"launchSpecifications" yaml:"launchSpecifications"`
 	// The friendly name of the instance fleet.
+	// Default: No name.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	// Default: No targetOnDemandCapacity.
+	//
 	TargetOnDemandCapacity *float64 `field:"optional" json:"targetOnDemandCapacity" yaml:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	// Default: No targetSpotCapacity.
+	//
 	TargetSpotCapacity *float64 `field:"optional" json:"targetSpotCapacity" yaml:"targetSpotCapacity"`
 }
 

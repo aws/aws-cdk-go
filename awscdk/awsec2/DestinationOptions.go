@@ -19,10 +19,16 @@ package awsec2
 //
 type DestinationOptions struct {
 	// The format for the flow log.
+	// Default: FlowLogFileFormat.PLAIN_TEXT
+	//
 	FileFormat FlowLogFileFormat `field:"optional" json:"fileFormat" yaml:"fileFormat"`
 	// Use Hive-compatible prefixes for flow logs stored in Amazon S3.
+	// Default: false.
+	//
 	HiveCompatiblePartitions *bool `field:"optional" json:"hiveCompatiblePartitions" yaml:"hiveCompatiblePartitions"`
 	// Partition the flow log per hour.
+	// Default: false.
+	//
 	PerHourPartition *bool `field:"optional" json:"perHourPartition" yaml:"perHourPartition"`
 }
 

@@ -20,6 +20,8 @@ type CfnApplication_AutoStartConfigurationProperty struct {
 	// Defaults to true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostartconfiguration.html#cfn-emrserverless-application-autostartconfiguration-enabled
 	//
+	// Default: - true.
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

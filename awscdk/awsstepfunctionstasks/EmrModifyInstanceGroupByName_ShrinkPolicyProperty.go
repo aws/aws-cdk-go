@@ -33,8 +33,12 @@ type EmrModifyInstanceGroupByName_ShrinkPolicyProperty struct {
 	// The desired timeout for decommissioning an instance.
 	//
 	// Overrides the default YARN decommissioning timeout.
+	// Default: - EMR selected default.
+	//
 	DecommissionTimeout awscdk.Duration `field:"optional" json:"decommissionTimeout" yaml:"decommissionTimeout"`
 	// Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
+	// Default: - None.
+	//
 	InstanceResizePolicy *EmrModifyInstanceGroupByName_InstanceResizePolicyProperty `field:"optional" json:"instanceResizePolicy" yaml:"instanceResizePolicy"`
 }
 

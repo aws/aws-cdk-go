@@ -35,6 +35,8 @@ import (
 // Experimental.
 type HttpsActionProps struct {
 	// The IAM role that allows access to AWS service.
+	// Default: a new role will be created.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Use Sigv4 authorization.

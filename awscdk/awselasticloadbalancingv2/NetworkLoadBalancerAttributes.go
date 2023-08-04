@@ -49,10 +49,17 @@ type NetworkLoadBalancerAttributes struct {
 	// ARN of the load balancer.
 	LoadBalancerArn *string `field:"required" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The canonical hosted zone ID of this load balancer.
+	// Default: - When not provided, LB cannot be used as Route53 Alias target.
+	//
 	LoadBalancerCanonicalHostedZoneId *string `field:"optional" json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// The DNS name of this load balancer.
+	// Default: - When not provided, LB cannot be used as Route53 Alias target.
+	//
 	LoadBalancerDnsName *string `field:"optional" json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// The VPC to associate with the load balancer.
+	// Default: - When not provided, listeners cannot be created on imported load
+	// balancers.
+	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

@@ -21,16 +21,29 @@ type CustomWidgetProps struct {
 	// The title of the widget.
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// Height of the widget.
+	// Default: - 6 for Alarm and Graph widgets.
+	// 3 for single value widgets where most recent value of a metric is displayed.
+	//
 	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// Parameters passed to the lambda function.
+	// Default: - no parameters are passed to the lambda function.
+	//
 	Params interface{} `field:"optional" json:"params" yaml:"params"`
 	// Update the widget on refresh.
+	// Default: true.
+	//
 	UpdateOnRefresh *bool `field:"optional" json:"updateOnRefresh" yaml:"updateOnRefresh"`
 	// Update the widget on resize.
+	// Default: true.
+	//
 	UpdateOnResize *bool `field:"optional" json:"updateOnResize" yaml:"updateOnResize"`
 	// Update the widget on time range change.
+	// Default: true.
+	//
 	UpdateOnTimeRangeChange *bool `field:"optional" json:"updateOnTimeRangeChange" yaml:"updateOnTimeRangeChange"`
 	// Width of the widget, in a grid of 24 units wide.
+	// Default: 6.
+	//
 	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 

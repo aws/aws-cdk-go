@@ -47,8 +47,12 @@ type UserPoolResourceServerOptions struct {
 	// A unique resource server identifier for the resource server.
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// Oauth scopes.
+	// Default: - No scopes will be added.
+	//
 	Scopes *[]ResourceServerScope `field:"optional" json:"scopes" yaml:"scopes"`
 	// A friendly name for the resource server.
+	// Default: - same as `identifier`.
+	//
 	UserPoolResourceServerName *string `field:"optional" json:"userPoolResourceServerName" yaml:"userPoolResourceServerName"`
 }
 

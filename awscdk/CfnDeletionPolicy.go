@@ -21,6 +21,12 @@ const (
 	// the stack will be in Delete_Complete state; however, resources that are retained continue to exist and continue to incur
 	// applicable charges until you delete those resources.
 	CfnDeletionPolicy_RETAIN CfnDeletionPolicy = "RETAIN"
+	// RetainExceptOnCreate behaves like Retain for stack operations, except for the stack operation that initially created the resource.
+	//
+	// If the stack operation that created the resource is rolled back, CloudFormation deletes the resource. For all other stack operations,
+	// such as stack deletion, CloudFormation retains the resource and its contents. The result is that new, empty, and unused resources are deleted,
+	// while in-use resources and their data are retained.
+	CfnDeletionPolicy_RETAIN_EXCEPT_ON_CREATE CfnDeletionPolicy = "RETAIN_EXCEPT_ON_CREATE"
 	// For resources that support snapshots (AWS::EC2::Volume, AWS::ElastiCache::CacheCluster, AWS::ElastiCache::ReplicationGroup, AWS::RDS::DBInstance, AWS::RDS::DBCluster, and AWS::Redshift::Cluster), AWS CloudFormation creates a snapshot for the resource before deleting it.
 	//
 	// Note that when AWS CloudFormation completes the stack deletion, the stack will be in the

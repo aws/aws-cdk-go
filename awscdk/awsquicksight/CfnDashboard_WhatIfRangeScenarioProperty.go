@@ -28,6 +28,8 @@ type CfnDashboard_WhatIfRangeScenarioProperty struct {
 	// The target value that you want to meet for the provided date range.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-whatifrangescenario.html#cfn-quicksight-dashboard-whatifrangescenario-value
 	//
+	// Default: - 0.
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

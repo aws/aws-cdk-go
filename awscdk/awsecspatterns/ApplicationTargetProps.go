@@ -35,8 +35,12 @@ type ApplicationTargetProps struct {
 	// Requires that priority is set.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
+	// Default: No host condition.
+	//
 	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Name of the listener the target group attached to.
+	// Default: - default listener (first added listener).
+	//
 	Listener *string `field:"optional" json:"listener" yaml:"listener"`
 	// Rule applies if the requested path matches the given path pattern.
 	//
@@ -44,6 +48,8 @@ type ApplicationTargetProps struct {
 	//
 	// Requires that priority is set.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Default: No path condition.
 	//
 	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Priority of this target group.
@@ -53,10 +59,14 @@ type ApplicationTargetProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
+	// Default: Target groups are used as defaults.
+	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The protocol used for the port mapping.
 	//
 	// Only applicable when using application load balancers.
+	// Default: ecs.Protocol.TCP
+	//
 	Protocol awsecs.Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

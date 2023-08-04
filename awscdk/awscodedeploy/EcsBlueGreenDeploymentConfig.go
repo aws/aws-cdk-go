@@ -55,6 +55,8 @@ type EcsBlueGreenDeploymentConfig struct {
 	// By default, CodeDeploy will not wait for deployment approval.  After re-routing test traffic to the 'green' ECS task set
 	// and running any 'AfterAllowTestTraffic' and 'BeforeAllowTraffic' lifecycle hooks, the deployment will immediately
 	// re-route production traffic to the 'green' ECS task set.
+	// Default: 0.
+	//
 	DeploymentApprovalWaitTime awscdk.Duration `field:"optional" json:"deploymentApprovalWaitTime" yaml:"deploymentApprovalWaitTime"`
 	// Specify how long CodeDeploy waits before it terminates the original 'blue' ECS task set when a blue-green deployment is complete.
 	//
@@ -64,6 +66,8 @@ type EcsBlueGreenDeploymentConfig struct {
 	//
 	// By default, the deployment will immediately terminate the 'blue' ECS task set after production traffic is successfully
 	// routed to the 'green' ECS task set.
+	// Default: 0.
+	//
 	TerminationWaitTime awscdk.Duration `field:"optional" json:"terminationWaitTime" yaml:"terminationWaitTime"`
 	// The load balancer listener used to route test traffic to the 'green' ECS task set during a blue-green deployment.
 	//
@@ -75,6 +79,8 @@ type EcsBlueGreenDeploymentConfig struct {
 	//
 	// If a test listener is not specified, the deployment will proceed to routing the production listener to the 'green' ECS task set
 	// and will skip the AfterAllowTestTraffic hook.
+	// Default: No test listener will be added.
+	//
 	TestListener awselasticloadbalancingv2.IListener `field:"optional" json:"testListener" yaml:"testListener"`
 }
 

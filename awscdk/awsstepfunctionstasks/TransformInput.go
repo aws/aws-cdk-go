@@ -33,10 +33,16 @@ type TransformInput struct {
 	// S3 location of the channel data.
 	TransformDataSource *TransformDataSource `field:"required" json:"transformDataSource" yaml:"transformDataSource"`
 	// The compression type of the transform data.
+	// Default: NONE.
+	//
 	CompressionType CompressionType `field:"optional" json:"compressionType" yaml:"compressionType"`
 	// Multipurpose internet mail extension (MIME) type of the data.
+	// Default: - None.
+	//
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// Method to use to split the transform job's data files into smaller batches.
+	// Default: NONE.
+	//
 	SplitType SplitType `field:"optional" json:"splitType" yaml:"splitType"`
 }
 

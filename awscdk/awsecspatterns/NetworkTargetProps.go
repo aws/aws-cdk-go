@@ -21,6 +21,8 @@ type NetworkTargetProps struct {
 	// Only applicable when using application/network load balancers.
 	ContainerPort *float64 `field:"required" json:"containerPort" yaml:"containerPort"`
 	// Name of the listener the target group attached to.
+	// Default: - default listener (first added listener).
+	//
 	Listener *string `field:"optional" json:"listener" yaml:"listener"`
 }
 

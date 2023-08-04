@@ -39,26 +39,40 @@ type SlackChannelConfigurationProps struct {
 	//
 	SlackWorkspaceId *string `field:"required" json:"slackWorkspaceId" yaml:"slackWorkspaceId"`
 	// A list of IAM managed policies that are applied as channel guardrails.
+	// Default: - The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+	//
 	GuardrailPolicies *[]awsiam.IManagedPolicy `field:"optional" json:"guardrailPolicies" yaml:"guardrailPolicies"`
 	// Specifies the logging level for this configuration.
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs.
+	// Default: LoggingLevel.NONE
+	//
 	LoggingLevel LoggingLevel `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
+	// Default: logs.RetentionDays.INFINITE
+	//
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
+	// Default: - Default AWS SDK retry options.
+	//
 	LogRetentionRetryOptions *awslogs.LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	// Default: - A new role is created.
+	//
 	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The SNS topics that deliver notifications to AWS Chatbot.
+	// Default: None.
+	//
 	NotificationTopics *[]awssns.ITopic `field:"optional" json:"notificationTopics" yaml:"notificationTopics"`
 	// The permission role of Slack channel configuration.
+	// Default: - A role will be created.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

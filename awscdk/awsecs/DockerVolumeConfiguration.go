@@ -32,10 +32,16 @@ type DockerVolumeConfiguration struct {
 	// Specifies whether the Docker volume should be created if it does not already exist.
 	//
 	// If true is specified, the Docker volume will be created for you.
+	// Default: false.
+	//
 	Autoprovision *bool `field:"optional" json:"autoprovision" yaml:"autoprovision"`
 	// A map of Docker driver-specific options passed through.
+	// Default: No options.
+	//
 	DriverOpts *map[string]*string `field:"optional" json:"driverOpts" yaml:"driverOpts"`
 	// Custom metadata to add to your Docker volume.
+	// Default: No labels.
+	//
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 }
 

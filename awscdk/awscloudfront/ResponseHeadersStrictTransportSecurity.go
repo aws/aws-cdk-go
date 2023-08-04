@@ -101,8 +101,12 @@ type ResponseHeadersStrictTransportSecurity struct {
 	// A Boolean that determines whether CloudFront overrides the Strict-Transport-Security HTTP response header received from the origin with the one specified in this response headers policy.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 	// A Boolean that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+	// Default: false.
+	//
 	IncludeSubdomains *bool `field:"optional" json:"includeSubdomains" yaml:"includeSubdomains"`
 	// A Boolean that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+	// Default: false.
+	//
 	Preload *bool `field:"optional" json:"preload" yaml:"preload"`
 }
 

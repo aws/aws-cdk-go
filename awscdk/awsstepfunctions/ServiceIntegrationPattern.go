@@ -6,6 +6,8 @@ package awsstepfunctions
 //
 // Here, they are named as FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN respectfully.
 //
+// Default: FIRE_AND_FORGET.
+//
 type ServiceIntegrationPattern string
 
 const (

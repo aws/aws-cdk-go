@@ -84,7 +84,7 @@ type CfnUser interface {
 	// The landing directory (folder) for a user when they log in to the server using the client.
 	HomeDirectory() *string
 	SetHomeDirectory(val *string)
-	// Logical directory mappings that specify what Amazon S3 paths and keys should be visible to your user and how you want to make them visible.
+	// Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible.
 	HomeDirectoryMappings() interface{}
 	SetHomeDirectoryMappings(val interface{})
 	// The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.

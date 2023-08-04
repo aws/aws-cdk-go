@@ -39,11 +39,11 @@ type CfnConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-accessrole
 	//
 	AccessRole *string `field:"required" json:"accessRole" yaml:"accessRole"`
-	// A structure that contains the parameters for a connector object.
+	// A structure that contains the parameters for an AS2 connector object.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-as2config
 	//
 	As2Config interface{} `field:"required" json:"as2Config" yaml:"as2Config"`
-	// The URL of the partner's AS2 endpoint.
+	// The URL of the partner's AS2 or SFTP endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-url
 	//
 	Url *string `field:"required" json:"url" yaml:"url"`

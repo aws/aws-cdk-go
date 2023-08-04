@@ -22,9 +22,13 @@ import (
 // Experimental.
 type EbsStorageInfo struct {
 	// The AWS KMS key for encrypting data at rest.
+	// Default: Uses AWS managed CMK (aws/kafka).
+	//
 	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
+	// Default: 1000.
+	//
 	// Experimental.
 	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 }

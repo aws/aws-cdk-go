@@ -35,18 +35,26 @@ type InstanceProductionVariantProps struct {
 	//
 	// EI instances
 	// provide on-demand GPU computing for inference.
+	// Default: - none.
+	//
 	// Experimental.
 	AcceleratorType AcceleratorType `field:"optional" json:"acceleratorType" yaml:"acceleratorType"`
 	// Number of instances to launch initially.
+	// Default: 1.
+	//
 	// Experimental.
 	InitialInstanceCount *float64 `field:"optional" json:"initialInstanceCount" yaml:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
 	//
 	// The traffic to a production variant is determined by the ratio of the
 	// variant weight to the sum of all variant weight values across all production variants.
+	// Default: 1.0
+	//
 	// Experimental.
 	InitialVariantWeight *float64 `field:"optional" json:"initialVariantWeight" yaml:"initialVariantWeight"`
 	// Instance type of the production variant.
+	// Default: InstanceType.T2_MEDIUM
+	//
 	// Experimental.
 	InstanceType InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 }

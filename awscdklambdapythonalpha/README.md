@@ -34,7 +34,7 @@ python.NewPythonFunction(this, jsii.String("MyFunction"), &PythonFunctionProps{
 })
 ```
 
-All other properties of `lambda.Function` are supported, see also the [AWS Lambda construct library](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-lambda).
+All other properties of `lambda.Function` are supported, see also the [AWS Lambda construct library](https://github.com/aws/aws-cdk/tree/main/packages/aws-cdk-lib/aws-lambda).
 
 ## Python Layer
 

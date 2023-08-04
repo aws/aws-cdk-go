@@ -25,10 +25,16 @@ package awsappmesh
 //
 type MeshProps struct {
 	// Egress filter to be applied to the Mesh.
+	// Default: DROP_ALL.
+	//
 	EgressFilter MeshFilterType `field:"optional" json:"egressFilter" yaml:"egressFilter"`
 	// The name of the Mesh being defined.
+	// Default: - A name is automatically generated.
+	//
 	MeshName *string `field:"optional" json:"meshName" yaml:"meshName"`
 	// Defines how upstream clients will discover VirtualNodes in the Mesh.
+	// Default: - No Service Discovery.
+	//
 	ServiceDiscovery *MeshServiceDiscovery `field:"optional" json:"serviceDiscovery" yaml:"serviceDiscovery"`
 }
 

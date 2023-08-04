@@ -21,33 +21,49 @@ import (
 //
 type BackupVaultProps struct {
 	// A resource-based policy that is used to manage access permissions on the backup vault.
+	// Default: - access is not restricted.
+	//
 	AccessPolicy awsiam.PolicyDocument `field:"optional" json:"accessPolicy" yaml:"accessPolicy"`
 	// The name of a logical container where backups are stored.
 	//
 	// Backup vaults
 	// are identified by names that are unique to the account used to create
 	// them and the AWS Region where they are created.
+	// Default: - A CDK generated name.
+	//
 	BackupVaultName *string `field:"optional" json:"backupVaultName" yaml:"backupVaultName"`
 	// Whether to add statements to the vault access policy that prevents anyone from deleting a recovery point.
+	// Default: false.
+	//
 	BlockRecoveryPointDeletion *bool `field:"optional" json:"blockRecoveryPointDeletion" yaml:"blockRecoveryPointDeletion"`
 	// The server-side encryption key to use to protect your backups.
+	// Default: - an Amazon managed KMS key.
+	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Configuration for AWS Backup Vault Lock.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html
+	//
+	// Default: - AWS Backup Vault Lock is disabled.
 	//
 	LockConfiguration *LockConfiguration `field:"optional" json:"lockConfiguration" yaml:"lockConfiguration"`
 	// The vault events to send.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html
 	//
+	// Default: - all vault events if `notificationTopic` is defined.
+	//
 	NotificationEvents *[]BackupVaultEvents `field:"optional" json:"notificationEvents" yaml:"notificationEvents"`
 	// A SNS topic to send vault events to.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html
+	//
+	// Default: - no notifications.
 	//
 	NotificationTopic awssns.ITopic `field:"optional" json:"notificationTopic" yaml:"notificationTopic"`
 	// The removal policy to apply to the vault.
 	//
 	// Note that removing a vault
 	// that contains recovery points will fail.
+	// Default: RemovalPolicy.RETAIN
+	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

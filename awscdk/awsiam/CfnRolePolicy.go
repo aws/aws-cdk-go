@@ -9,7 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Schema for IAM Role Policy.
+// Adds or updates an inline policy document that is embedded in the specified IAM role.
+//
+// When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using [`CreateRole`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) . You can update a role's trust policy using [`UpdateAssumeRolePolicy`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html) . For information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html) in the *IAM User Guide* .
+//
+// A role can also have a managed policy attached to it. To attach a managed policy to a role, use [`AWS::IAM::Role`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html) . To create a new managed policy, use [`AWS::IAM::ManagedPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html) . For information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide* .
+//
+// For information about the maximum number of inline policies that you can embed with a role, see [IAM and AWS STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,7 +61,7 @@ type CfnRolePolicy interface {
 	// The policy document.
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
-	// The friendly name (not ARN) identifying the policy.
+	// The name of the policy document.
 	PolicyName() *string
 	SetPolicyName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -63,7 +69,7 @@ type CfnRolePolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The name of the policy document.
+	// The name of the role to associate the policy with.
 	RoleName() *string
 	SetRoleName(val *string)
 	// The stack in which this element is defined.

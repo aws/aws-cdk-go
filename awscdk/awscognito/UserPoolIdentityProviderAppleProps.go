@@ -50,6 +50,8 @@ type UserPoolIdentityProviderAppleProps struct {
 	// The user pool to which this construct provides identities.
 	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
+	// Default: - no attribute mapping.
+	//
 	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Apple APIs.
 	// See: https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230948-clientid
@@ -63,6 +65,8 @@ type UserPoolIdentityProviderAppleProps struct {
 	TeamId *string `field:"required" json:"teamId" yaml:"teamId"`
 	// The list of apple permissions to obtain for getting access to the apple profile.
 	// See: https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230955-scope
+	//
+	// Default: [ name ].
 	//
 	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 }

@@ -36,6 +36,8 @@ package awscdkservicecatalogappregistryalpha
 // Experimental.
 type ApplicationAssociatorProps struct {
 	// Application associator properties.
+	// Default: - Empty array.
+	//
 	// Experimental.
 	Applications *[]TargetApplication `field:"required" json:"applications" yaml:"applications"`
 }

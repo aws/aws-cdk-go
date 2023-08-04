@@ -22,6 +22,8 @@ type CfnAnalysis_GradientStopProperty struct {
 	// Determines gradient offset value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gradientstop.html#cfn-quicksight-analysis-gradientstop-gradientoffset
 	//
+	// Default: - 0.
+	//
 	GradientOffset *float64 `field:"required" json:"gradientOffset" yaml:"gradientOffset"`
 	// Determines the color.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gradientstop.html#cfn-quicksight-analysis-gradientstop-color

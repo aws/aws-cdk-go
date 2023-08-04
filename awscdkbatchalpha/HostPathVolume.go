@@ -27,6 +27,8 @@ import (
 type HostPathVolume interface {
 	EksVolume
 	// The path on the container where the container is mounted.
+	// Default: - the container is not mounted.
+	//
 	// Experimental.
 	ContainerPath() *string
 	// The name of this volume.
@@ -46,6 +48,8 @@ type HostPathVolume interface {
 	// If specified, the container has readonly access to the volume.
 	//
 	// Otherwise, the container has read/write access.
+	// Default: false.
+	//
 	// Experimental.
 	Readonly() *bool
 }

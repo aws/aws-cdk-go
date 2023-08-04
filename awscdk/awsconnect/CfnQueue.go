@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Connect::Queue.
+// Contains information about a queue.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,7 +46,7 @@ import (
 type CfnQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) for the queue.
+	// The Amazon Resource Name (ARN) of the queue.
 	AttrQueueArn() *string
 	// The type of queue.
 	AttrType() *string
@@ -62,7 +62,7 @@ type CfnQueue interface {
 	// The description of the queue.
 	Description() *string
 	SetDescription(val *string)
-	// The identifier for the hours of operation.
+	// The Amazon Resource Name (ARN) of the hours of operation.
 	HoursOfOperationArn() *string
 	SetHoursOfOperationArn(val *string)
 	// The identifier of the Amazon Connect instance.
@@ -89,7 +89,7 @@ type CfnQueue interface {
 	// The outbound caller ID name, number, and outbound whisper flow.
 	OutboundCallerConfig() interface{}
 	SetOutboundCallerConfig(val interface{})
-	// The quick connects available to agents who are working the queue.
+	// The Amazon Resource Names (ARN) of the of the quick connects available to agents who are working the queue.
 	QuickConnectArns() *[]*string
 	SetQuickConnectArns(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -104,7 +104,7 @@ type CfnQueue interface {
 	// The status of the queue.
 	Status() *string
 	SetStatus(val *string)
-	// An array of key-value pairs to apply to this resource.
+	// The tags used to organize, track, or control access for this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

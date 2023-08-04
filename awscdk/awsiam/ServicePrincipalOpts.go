@@ -19,6 +19,8 @@ package awsiam
 //
 type ServicePrincipalOpts struct {
 	// Additional conditions to add to the Service Principal.
+	// Default: - No conditions.
+	//
 	Conditions *map[string]interface{} `field:"optional" json:"conditions" yaml:"conditions"`
 	// The region in which you want to reference the service.
 	//
@@ -38,6 +40,8 @@ type ServicePrincipalOpts struct {
 	//   whose name comes from the `@aws-cdk/region-info` package, using the region to override
 	//   the stack region. If there is no entry for this service principal in the database,, the input
 	//   service name is returned literally. This is legacy behavior and is not recommended.
+	// Default: - the resolving Stack's region.
+	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

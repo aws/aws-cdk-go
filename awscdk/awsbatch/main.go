@@ -252,6 +252,10 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_RetryStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.RuntimePlatformProperty",
+		reflect.TypeOf((*CfnJobDefinition_RuntimePlatformProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.SecretProperty",
 		reflect.TypeOf((*CfnJobDefinition_SecretProperty)(nil)).Elem(),
 	)

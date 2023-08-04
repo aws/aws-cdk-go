@@ -33,14 +33,22 @@ type EmailSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
+	// Default: - No dead letter queue enabled.
+	//
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
+	// Default: - all messages are delivered.
+	//
 	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// The filter policy that is applied on the message body.
 	//
 	// To apply a filter policy to the message attributes, use `filterPolicy`. A maximum of one of `filterPolicyWithMessageBody` and `filterPolicy` may be used.
+	// Default: - all messages are delivered.
+	//
 	FilterPolicyWithMessageBody *map[string]awssns.FilterOrPolicy `field:"optional" json:"filterPolicyWithMessageBody" yaml:"filterPolicyWithMessageBody"`
 	// Indicates if the full notification JSON should be sent to the email address or just the message text.
+	// Default: false (Message text).
+	//
 	Json *bool `field:"optional" json:"json" yaml:"json"`
 }
 

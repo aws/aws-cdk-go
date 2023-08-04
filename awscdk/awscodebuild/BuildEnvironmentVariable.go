@@ -47,6 +47,8 @@ type BuildEnvironmentVariable struct {
 	// (see https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager for details).
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The type of environment variable.
+	// Default: PlainText.
+	//
 	Type BuildEnvironmentVariableType `field:"optional" json:"type" yaml:"type"`
 }
 

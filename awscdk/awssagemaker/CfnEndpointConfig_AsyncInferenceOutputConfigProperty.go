@@ -32,6 +32,7 @@ type CfnEndpointConfig_AsyncInferenceOutputConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-notificationconfig
 	//
 	NotificationConfig interface{} `field:"optional" json:"notificationConfig" yaml:"notificationConfig"`
+	// The Amazon S3 location to upload failure inference responses to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-s3failurepath
 	//
 	S3FailurePath *string `field:"optional" json:"s3FailurePath" yaml:"s3FailurePath"`

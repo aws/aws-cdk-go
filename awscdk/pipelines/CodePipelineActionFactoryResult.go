@@ -27,6 +27,8 @@ type CodePipelineActionFactoryResult struct {
 	// If you add 1 action, return the value 1 here.
 	RunOrdersConsumed *float64 `field:"required" json:"runOrdersConsumed" yaml:"runOrdersConsumed"`
 	// If a CodeBuild project got created, the project.
+	// Default: - This factory did not create a CodeBuild project.
+	//
 	Project awscodebuild.IProject `field:"optional" json:"project" yaml:"project"`
 }
 

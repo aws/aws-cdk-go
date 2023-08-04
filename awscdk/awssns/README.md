@@ -25,7 +25,7 @@ Note that FIFO topics require a topic name to be provided. The required `.fifo` 
 Various subscriptions can be added to the topic by calling the
 `.addSubscription(...)` method on the topic. It accepts a *subscription* object,
 default implementations of which can be found in the
-`@aws-cdk/aws-sns-subscriptions` package:
+`aws-cdk-lib/aws-sns-subscriptions` package:
 
 Add an HTTPS Subscription to your topic:
 
@@ -167,7 +167,7 @@ sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
 
 SNS topics can be used as targets for CloudWatch event rules.
 
-Use the `@aws-cdk/aws-events-targets.SnsTopic`:
+Use the `aws-cdk-lib/aws-events-targets.SnsTopic`:
 
 ```go
 import codecommit "github.com/aws/aws-cdk-go/awscdk"

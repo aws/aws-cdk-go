@@ -22,6 +22,8 @@ type PartitionIndex struct {
 	// Experimental.
 	KeyNames *[]*string `field:"required" json:"keyNames" yaml:"keyNames"`
 	// The name of the partition index.
+	// Default: - a name will be generated for you.
+	//
 	// Experimental.
 	IndexName *string `field:"optional" json:"indexName" yaml:"indexName"`
 }

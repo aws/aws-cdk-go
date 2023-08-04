@@ -64,6 +64,8 @@ import (
 //   		Id: jsii.String("id"),
 //   		Revision: jsii.Number(123),
 //   	},
+//   	DataReplicationMode: jsii.String("dataReplicationMode"),
+//   	DataReplicationPrimaryBrokerArn: jsii.String("dataReplicationPrimaryBrokerArn"),
 //   	EncryptionOptions: &EncryptionOptionsProperty{
 //   		UseAwsOwnedKey: jsii.Boolean(false),
 //
@@ -175,6 +177,10 @@ type CfnBroker interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	DataReplicationMode() *string
+	SetDataReplicationMode(val *string)
+	DataReplicationPrimaryBrokerArn() *string
+	SetDataReplicationPrimaryBrokerArn(val *string)
 	// The deployment mode of the broker.
 	//
 	// Available values:.
@@ -569,6 +575,26 @@ func (j *jsiiProxy_CfnBroker) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBroker) DataReplicationMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dataReplicationMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBroker) DataReplicationPrimaryBrokerArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dataReplicationPrimaryBrokerArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBroker) DeploymentMode() *string {
 	var returns *string
 	_jsii_.Get(
@@ -844,6 +870,22 @@ func (j *jsiiProxy_CfnBroker)SetConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"configuration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBroker)SetDataReplicationMode(val *string) {
+	_jsii_.Set(
+		j,
+		"dataReplicationMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBroker)SetDataReplicationPrimaryBrokerArn(val *string) {
+	_jsii_.Set(
+		j,
+		"dataReplicationPrimaryBrokerArn",
 		val,
 	)
 }

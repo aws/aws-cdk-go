@@ -34,6 +34,8 @@ type SelectedSubnets struct {
 	// If this value is true, don't validate anything about the subnets. The count
 	// or identities are not known yet, and the validation will most likely fail
 	// which will prevent a successful lookup.
+	// Default: false.
+	//
 	IsPendingLookup *bool `field:"optional" json:"isPendingLookup" yaml:"isPendingLookup"`
 }
 

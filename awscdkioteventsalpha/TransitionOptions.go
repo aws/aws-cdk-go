@@ -88,9 +88,13 @@ type TransitionOptions struct {
 	// Experimental.
 	When Expression `field:"required" json:"when" yaml:"when"`
 	// The name of the event.
+	// Default: string combining the names of the States as `${originStateName}_to_${targetStateName}`.
+	//
 	// Experimental.
 	EventName *string `field:"optional" json:"eventName" yaml:"eventName"`
 	// The actions to be performed with the transition.
+	// Default: - no actions will be performed.
+	//
 	// Experimental.
 	Executing *[]IAction `field:"optional" json:"executing" yaml:"executing"`
 }

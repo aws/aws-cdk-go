@@ -16,12 +16,16 @@ package awscdkintegtestsalpha
 // Experimental.
 type AssertionsProviderProps struct {
 	// The handler to use for the lambda function.
+	// Default: index.handler
+	//
 	// Experimental.
 	Handler *string `field:"optional" json:"handler" yaml:"handler"`
 	// This determines the uniqueness of each AssertionsProvider.
 	//
 	// You should only need to provide something different here if you
 	// _know_ that you need a separate provider.
+	// Default: - the default uuid is used.
+	//
 	// Experimental.
 	Uuid *string `field:"optional" json:"uuid" yaml:"uuid"`
 }

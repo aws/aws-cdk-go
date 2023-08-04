@@ -41,10 +41,16 @@ type Permission struct {
 	// a wildcard (``lambda:*``) to grant permission to all Lambda actions. For a
 	// list of actions, see Actions and Condition Context Keys for AWS Lambda in
 	// the IAM User Guide.
+	// Default: 'lambda:InvokeFunction'.
+	//
 	Action *string `field:"optional" json:"action" yaml:"action"`
 	// A unique token that must be supplied by the principal invoking the function.
+	// Default: - The caller would not need to present a token.
+	//
 	EventSourceToken *string `field:"optional" json:"eventSourceToken" yaml:"eventSourceToken"`
 	// The authType for the function URL that you are granting permissions for.
+	// Default: - No functionUrlAuthType.
+	//
 	FunctionUrlAuthType FunctionUrlAuthType `field:"optional" json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
 	// The organization you want to grant permissions to.
 	//
@@ -55,6 +61,8 @@ type Permission struct {
 	//
 	// You can use this property to ensure that all source principals are owned by
 	// a specific organization.
+	// Default: - No organizationId.
+	//
 	OrganizationId *string `field:"optional" json:"organizationId" yaml:"organizationId"`
 	// The scope to which the permission constructs be attached.
 	//
@@ -62,6 +70,8 @@ type Permission struct {
 	// the Lambda function construct itself, but this would need to be different
 	// in cases such as cross-stack references where the Permissions would need
 	// to sit closer to the consumer of this permission (i.e., the caller).
+	// Default: - The instance of lambda.IFunction
+	//
 	Scope constructs.Construct `field:"optional" json:"scope" yaml:"scope"`
 	// The AWS account ID (without hyphens) of the source owner.
 	//

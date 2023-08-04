@@ -27,8 +27,12 @@ import (
 //
 type ClusterInstanceBindOptions struct {
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
+	// Default: no enhanced monitoring.
+	//
 	MonitoringInterval awscdk.Duration `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
+	// Default: - A role is automatically created for you.
+	//
 	MonitoringRole awsiam.IRole `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
 	// The promotion tier of the cluster instance.
 	//
@@ -37,12 +41,18 @@ type ClusterInstanceBindOptions struct {
 	//
 	// For provisioned instances this just determines the failover priority.
 	// If multiple instances have the same priority then one will be picked at random.
+	// Default: 2.
+	//
 	PromotionTier *float64 `field:"optional" json:"promotionTier" yaml:"promotionTier"`
 	// The removal policy on the cluster.
+	// Default: - RemovalPolicy.DESTROY (cluster snapshot can restore)
+	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Existing subnet group for the cluster.
 	//
 	// This is only needed when using the isFromLegacyInstanceProps.
+	// Default: - cluster subnet group is used.
+	//
 	SubnetGroup ISubnetGroup `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
 }
 

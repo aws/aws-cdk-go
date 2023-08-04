@@ -21,9 +21,13 @@ type DomainsConfig struct {
 	//
 	// The file must be a text file and must contain
 	// a single domain per line. The content type of the S3 object must be `plain/text`.
+	// Default: - use `domains`.
+	//
 	// Experimental.
 	DomainFileUrl *string `field:"optional" json:"domainFileUrl" yaml:"domainFileUrl"`
 	// A list of domains.
+	// Default: - use `domainFileUrl`.
+	//
 	// Experimental.
 	Domains *[]*string `field:"optional" json:"domains" yaml:"domains"`
 }

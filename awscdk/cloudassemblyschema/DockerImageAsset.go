@@ -46,6 +46,7 @@ package cloudassemblyschema
 //   		DockerBuildSecrets: map[string]*string{
 //   			"dockerBuildSecretsKey": jsii.String("dockerBuildSecrets"),
 //   		},
+//   		DockerBuildSsh: jsii.String("dockerBuildSsh"),
 //   		DockerBuildTarget: jsii.String("dockerBuildTarget"),
 //   		DockerFile: jsii.String("dockerFile"),
 //   		DockerOutputs: []*string{

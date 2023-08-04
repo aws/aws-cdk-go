@@ -35,6 +35,8 @@ type SourceCodeProviderConfig struct {
 	//
 	// Either `accessToken` or `oauthToken` must be specified if `repository`
 	// is sepcified.
+	// Default: - do not use a token.
+	//
 	// Experimental.
 	AccessToken awscdk.SecretValue `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// OAuth token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key.
@@ -43,6 +45,8 @@ type SourceCodeProviderConfig struct {
 	//
 	// Either `accessToken` or `oauthToken` must be specified if `repository`
 	// is specified.
+	// Default: - do not use a token.
+	//
 	// Experimental.
 	OauthToken awscdk.SecretValue `field:"optional" json:"oauthToken" yaml:"oauthToken"`
 }

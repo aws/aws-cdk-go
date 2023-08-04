@@ -108,6 +108,10 @@ import (
 //   				Value: jsii.String("value"),
 //   			},
 //   		},
+//   		RuntimePlatform: &RuntimePlatformProperty{
+//   			CpuArchitecture: jsii.String("cpuArchitecture"),
+//   			OperatingSystemFamily: jsii.String("operatingSystemFamily"),
+//   		},
 //   		Secrets: []interface{}{
 //   			&SecretProperty{
 //   				Name: jsii.String("name"),
@@ -301,6 +305,10 @@ import (
 //   							Type: jsii.String("type"),
 //   							Value: jsii.String("value"),
 //   						},
+//   					},
+//   					RuntimePlatform: &RuntimePlatformProperty{
+//   						CpuArchitecture: jsii.String("cpuArchitecture"),
+//   						OperatingSystemFamily: jsii.String("operatingSystemFamily"),
 //   					},
 //   					Secrets: []interface{}{
 //   						&SecretProperty{

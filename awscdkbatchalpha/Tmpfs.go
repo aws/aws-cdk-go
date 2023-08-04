@@ -36,6 +36,8 @@ type Tmpfs struct {
 	//
 	// For more information, see
 	// [TmpfsMountOptions](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Tmpfs.html).
+	// Default: none.
+	//
 	// Experimental.
 	MountOptions *[]TmpfsMountOption `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 }

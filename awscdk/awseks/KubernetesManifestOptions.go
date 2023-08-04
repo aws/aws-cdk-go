@@ -17,10 +17,14 @@ package awseks
 //
 type KubernetesManifestOptions struct {
 	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
+	// Default: false.
+	//
 	IngressAlb *bool `field:"optional" json:"ingressAlb" yaml:"ingressAlb"`
 	// Specify the ALB scheme that should be applied to `Ingress` resources.
 	//
 	// Only applicable if `ingressAlb` is set to `true`.
+	// Default: AlbScheme.INTERNAL
+	//
 	IngressAlbScheme AlbScheme `field:"optional" json:"ingressAlbScheme" yaml:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
@@ -39,8 +43,13 @@ type KubernetesManifestOptions struct {
 	// empty.
 	// See: https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#alternative-kubectl-apply-f-directory-prune-l-your-label
 	//
+	// Default: - based on the prune option of the cluster, which is `true` unless
+	// otherwise specified.
+	//
 	Prune *bool `field:"optional" json:"prune" yaml:"prune"`
 	// A flag to signify if the manifest validation should be skipped.
+	// Default: false.
+	//
 	SkipValidation *bool `field:"optional" json:"skipValidation" yaml:"skipValidation"`
 }
 

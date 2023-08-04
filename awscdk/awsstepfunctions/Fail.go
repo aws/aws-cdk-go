@@ -53,6 +53,7 @@ import (
 //   sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 //   	Definition: Definition,
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
+//   	Comment: jsii.String("a super cool state machine"),
 //   })
 //
 type Fail interface {

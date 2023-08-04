@@ -19,6 +19,8 @@ type EcsDeploymentGroupAttributes struct {
 	// The physical, human-readable name of the CodeDeploy ECS Deployment Group that we are referencing.
 	DeploymentGroupName *string `field:"required" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
+	// Default: EcsDeploymentConfig.ALL_AT_ONCE
+	//
 	DeploymentConfig IEcsDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 

@@ -24,14 +24,24 @@ type ApplicationLoadBalancerRedirectConfig struct {
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the listener.
+	// Default: true.
+	//
 	Open *bool `field:"optional" json:"open" yaml:"open"`
 	// The port number to listen to.
+	// Default: 80.
+	//
 	SourcePort *float64 `field:"optional" json:"sourcePort" yaml:"sourcePort"`
 	// The protocol of the listener being created.
+	// Default: HTTP.
+	//
 	SourceProtocol ApplicationProtocol `field:"optional" json:"sourceProtocol" yaml:"sourceProtocol"`
 	// The port number to redirect to.
+	// Default: 443.
+	//
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 	// The protocol of the redirection target.
+	// Default: HTTPS.
+	//
 	TargetProtocol ApplicationProtocol `field:"optional" json:"targetProtocol" yaml:"targetProtocol"`
 }
 

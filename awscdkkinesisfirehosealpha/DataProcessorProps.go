@@ -34,12 +34,18 @@ type DataProcessorProps struct {
 	// The length of time Kinesis Data Firehose will buffer incoming data before calling the processor.
 	//
 	// s.
+	// Default: Duration.minutes(1)
+	//
 	// Experimental.
 	BufferInterval awscdk.Duration `field:"optional" json:"bufferInterval" yaml:"bufferInterval"`
 	// The amount of incoming data Kinesis Data Firehose will buffer before calling the processor.
+	// Default: Size.mebibytes(3)
+	//
 	// Experimental.
 	BufferSize awscdk.Size `field:"optional" json:"bufferSize" yaml:"bufferSize"`
 	// The number of times Kinesis Data Firehose will retry the processor invocation after a failure due to network timeout or invocation limits.
+	// Default: 3.
+	//
 	// Experimental.
 	Retries *float64 `field:"optional" json:"retries" yaml:"retries"`
 }

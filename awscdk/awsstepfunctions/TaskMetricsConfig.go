@@ -20,10 +20,16 @@ package awsstepfunctions
 //
 type TaskMetricsConfig struct {
 	// The dimensions to attach to metrics.
+	// Default: - No metrics.
+	//
 	MetricDimensions *map[string]interface{} `field:"optional" json:"metricDimensions" yaml:"metricDimensions"`
 	// Prefix for plural metric names of activity actions.
+	// Default: - No such metrics.
+	//
 	MetricPrefixPlural *string `field:"optional" json:"metricPrefixPlural" yaml:"metricPrefixPlural"`
 	// Prefix for singular metric names of activity actions.
+	// Default: - No such metrics.
+	//
 	MetricPrefixSingular *string `field:"optional" json:"metricPrefixSingular" yaml:"metricPrefixSingular"`
 }
 

@@ -41,10 +41,16 @@ type S3DataSource struct {
 	// S3 Uri.
 	S3Location S3Location `field:"required" json:"s3Location" yaml:"s3Location"`
 	// List of one or more attribute names to use that are found in a specified augmented manifest file.
+	// Default: - No attribute names.
+	//
 	AttributeNames *[]*string `field:"optional" json:"attributeNames" yaml:"attributeNames"`
 	// S3 Data Distribution Type.
+	// Default: - None.
+	//
 	S3DataDistributionType S3DataDistributionType `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
 	// S3 Data Type.
+	// Default: S3_PREFIX.
+	//
 	S3DataType S3DataType `field:"optional" json:"s3DataType" yaml:"s3DataType"`
 }
 

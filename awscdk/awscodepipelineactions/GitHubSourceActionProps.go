@@ -36,8 +36,14 @@ type GitHubSourceActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Default: 1.
+	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Default: - a name will be generated, based on the stage and action names,
+	// if any of the action's variables were referenced - otherwise,
+	// no namespace will be set.
+	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// A GitHub OAuth token to use for authentication.
 	//
@@ -62,6 +68,8 @@ type GitHubSourceActionProps struct {
 	// The name of the repo, without the username.
 	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// The branch to use.
+	// Default: "master".
+	//
 	Branch *string `field:"optional" json:"branch" yaml:"branch"`
 	// How AWS CodePipeline should be triggered.
 	//
@@ -71,6 +79,8 @@ type GitHubSourceActionProps struct {
 	//
 	// To use `WEBHOOK`, your GitHub Personal Access Token should have
 	// **admin:repo_hook** scope (in addition to the regular **repo** scope).
+	// Default: GitHubTrigger.WEBHOOK
+	//
 	Trigger GitHubTrigger `field:"optional" json:"trigger" yaml:"trigger"`
 }
 

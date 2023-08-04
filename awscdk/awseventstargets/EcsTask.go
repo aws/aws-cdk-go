@@ -43,6 +43,8 @@ type EcsTask interface {
 	// The security groups associated with the task.
 	//
 	// Only applicable with awsvpc network mode.
+	// Default: - A new security group is created.
+	//
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// Allows using tasks as target of EventBridge events.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig

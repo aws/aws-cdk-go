@@ -45,8 +45,12 @@ type BaseServiceProps struct {
 	//
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
+	// Default: none.
+	//
 	CustomHealthCheck *HealthCheckCustomConfig `field:"optional" json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
+	// Default: none.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
@@ -54,8 +58,12 @@ type BaseServiceProps struct {
 	// check with the records that you specify in DnsConfig. Only one of healthCheckConfig or healthCheckCustomConfig can
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
+	// Default: none.
+	//
 	HealthCheck *HealthCheckConfig `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
+	// Default: CloudFormation-generated name.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

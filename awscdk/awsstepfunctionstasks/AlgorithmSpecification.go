@@ -40,14 +40,22 @@ type AlgorithmSpecification struct {
 	//
 	// This must be an algorithm resource that you created or subscribe to on AWS Marketplace.
 	// If you specify a value for this parameter, you can't specify a value for TrainingImage.
+	// Default: - No algorithm is specified.
+	//
 	AlgorithmName *string `field:"optional" json:"algorithmName" yaml:"algorithmName"`
 	// List of metric definition objects.
 	//
 	// Each object specifies the metric name and regular expressions used to parse algorithm logs.
+	// Default: - No metrics.
+	//
 	MetricDefinitions *[]*MetricDefinition `field:"optional" json:"metricDefinitions" yaml:"metricDefinitions"`
 	// Registry path of the Docker image that contains the training algorithm.
+	// Default: - No Docker image is specified.
+	//
 	TrainingImage DockerImage `field:"optional" json:"trainingImage" yaml:"trainingImage"`
 	// Input mode that the algorithm supports.
+	// Default: 'File' mode.
+	//
 	TrainingInputMode InputMode `field:"optional" json:"trainingInputMode" yaml:"trainingInputMode"`
 }
 

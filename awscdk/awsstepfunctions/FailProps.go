@@ -45,14 +45,21 @@ package awsstepfunctions
 //   sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 //   	Definition: Definition,
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
+//   	Comment: jsii.String("a super cool state machine"),
 //   })
 //
 type FailProps struct {
 	// A description for the cause of the failure.
+	// Default: No description.
+	//
 	Cause *string `field:"optional" json:"cause" yaml:"cause"`
 	// An optional description for this state.
+	// Default: No comment.
+	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Error code used to represent this failure.
+	// Default: No error code.
+	//
 	Error *string `field:"optional" json:"error" yaml:"error"`
 }
 

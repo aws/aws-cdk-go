@@ -34,18 +34,24 @@ type StateProps struct {
 	//
 	// The conditions of the events will be evaluated when entering this state.
 	// If the condition of the event evaluates to `true`, the actions of the event will be executed.
+	// Default: - no events will trigger on entering this state.
+	//
 	// Experimental.
 	OnEnter *[]*Event `field:"optional" json:"onEnter" yaml:"onEnter"`
 	// Specifies the events on exit.
 	//
 	// The conditions of the events are evaluated when an exiting this state.
 	// If the condition evaluates to `true`, the actions of the event will be executed.
+	// Default: - no events will trigger on exiting this state.
+	//
 	// Experimental.
 	OnExit *[]*Event `field:"optional" json:"onExit" yaml:"onExit"`
 	// Specifies the events on input.
 	//
 	// The conditions of the events will be evaluated when any input is received.
 	// If the condition of the event evaluates to `true`, the actions of the event will be executed.
+	// Default: - no events will trigger on input in this state.
+	//
 	// Experimental.
 	OnInput *[]*Event `field:"optional" json:"onInput" yaml:"onInput"`
 }

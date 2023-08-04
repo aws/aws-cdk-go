@@ -59,6 +59,26 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.Column",
 		reflect.TypeOf((*Column)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.ColumnCountMismatchHandlingAction",
+		reflect.TypeOf((*ColumnCountMismatchHandlingAction)(nil)).Elem(),
+		map[string]interface{}{
+			"DISABLED": ColumnCountMismatchHandlingAction_DISABLED,
+			"FAIL": ColumnCountMismatchHandlingAction_FAIL,
+			"SET_TO_NULL": ColumnCountMismatchHandlingAction_SET_TO_NULL,
+			"DROP_ROW": ColumnCountMismatchHandlingAction_DROP_ROW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.CompressionType",
+		reflect.TypeOf((*CompressionType)(nil)).Elem(),
+		map[string]interface{}{
+			"NONE": CompressionType_NONE,
+			"BZIP2": CompressionType_BZIP2,
+			"GZIP": CompressionType_GZIP,
+			"SNAPPY": CompressionType_SNAPPY,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Connection",
 		reflect.TypeOf((*Connection)(nil)).Elem(),
@@ -333,6 +353,17 @@ func init() {
 			return &jsiiProxy_InputFormat{}
 		},
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.InvalidCharHandlingAction",
+		reflect.TypeOf((*InvalidCharHandlingAction)(nil)).Elem(),
+		map[string]interface{}{
+			"DISABLED": InvalidCharHandlingAction_DISABLED,
+			"FAIL": InvalidCharHandlingAction_FAIL,
+			"SET_TO_NULL": InvalidCharHandlingAction_SET_TO_NULL,
+			"DROP_ROW": InvalidCharHandlingAction_DROP_ROW,
+			"REPLACE": InvalidCharHandlingAction_REPLACE,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Job",
 		reflect.TypeOf((*Job)(nil)).Elem(),
@@ -438,6 +469,24 @@ func init() {
 		map[string]interface{}{
 			"GAUGE": MetricType_GAUGE,
 			"COUNT": MetricType_COUNT,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.NumericOverflowHandlingAction",
+		reflect.TypeOf((*NumericOverflowHandlingAction)(nil)).Elem(),
+		map[string]interface{}{
+			"DISABLED": NumericOverflowHandlingAction_DISABLED,
+			"FAIL": NumericOverflowHandlingAction_FAIL,
+			"SET_TO_NULL": NumericOverflowHandlingAction_SET_TO_NULL,
+			"DROP_ROW": NumericOverflowHandlingAction_DROP_ROW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.OrcColumnMappingType",
+		reflect.TypeOf((*OrcColumnMappingType)(nil)).Elem(),
+		map[string]interface{}{
+			"NAME": OrcColumnMappingType_NAME,
+			"POSITION": OrcColumnMappingType_POSITION,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -569,6 +618,60 @@ func init() {
 		reflect.TypeOf((*SparkUIProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.StorageParameter",
+		reflect.TypeOf((*StorageParameter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_StorageParameter{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.StorageParameters",
+		reflect.TypeOf((*StorageParameters)(nil)).Elem(),
+		map[string]interface{}{
+			"SKIP_HEADER_LINE_COUNT": StorageParameters_SKIP_HEADER_LINE_COUNT,
+			"DATA_CLEANSING_ENABLED": StorageParameters_DATA_CLEANSING_ENABLED,
+			"COMPRESSION_TYPE": StorageParameters_COMPRESSION_TYPE,
+			"INVALID_CHAR_HANDLING": StorageParameters_INVALID_CHAR_HANDLING,
+			"REPLACEMENT_CHAR": StorageParameters_REPLACEMENT_CHAR,
+			"NUMERIC_OVERFLOW_HANDLING": StorageParameters_NUMERIC_OVERFLOW_HANDLING,
+			"SURPLUS_BYTES_HANDLING": StorageParameters_SURPLUS_BYTES_HANDLING,
+			"SURPLUS_CHAR_HANDLING": StorageParameters_SURPLUS_CHAR_HANDLING,
+			"COLUMN_COUNT_MISMATCH_HANDLING": StorageParameters_COLUMN_COUNT_MISMATCH_HANDLING,
+			"NUM_ROWS": StorageParameters_NUM_ROWS,
+			"SERIALIZATION_NULL_FORMAT": StorageParameters_SERIALIZATION_NULL_FORMAT,
+			"ORC_SCHEMA_RESOLUTION": StorageParameters_ORC_SCHEMA_RESOLUTION,
+			"WRITE_PARALLEL": StorageParameters_WRITE_PARALLEL,
+			"WRITE_MAX_FILESIZE_MB": StorageParameters_WRITE_MAX_FILESIZE_MB,
+			"WRITE_KMS_KEY_ID": StorageParameters_WRITE_KMS_KEY_ID,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.SurplusBytesHandlingAction",
+		reflect.TypeOf((*SurplusBytesHandlingAction)(nil)).Elem(),
+		map[string]interface{}{
+			"SET_TO_NULL": SurplusBytesHandlingAction_SET_TO_NULL,
+			"DISABLED": SurplusBytesHandlingAction_DISABLED,
+			"FAIL": SurplusBytesHandlingAction_FAIL,
+			"DROP_ROW": SurplusBytesHandlingAction_DROP_ROW,
+			"TRUNCATE": SurplusBytesHandlingAction_TRUNCATE,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.SurplusCharHandlingAction",
+		reflect.TypeOf((*SurplusCharHandlingAction)(nil)).Elem(),
+		map[string]interface{}{
+			"SET_TO_NULL": SurplusCharHandlingAction_SET_TO_NULL,
+			"DISABLED": SurplusCharHandlingAction_DISABLED,
+			"FAIL": SurplusCharHandlingAction_FAIL,
+			"DROP_ROW": SurplusCharHandlingAction_DROP_ROW,
+			"TRUNCATE": SurplusCharHandlingAction_TRUNCATE,
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Table",
 		reflect.TypeOf((*Table)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -596,6 +699,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "s3Prefix", GoGetter: "S3Prefix"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "storageParameters", GoGetter: "StorageParameters"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -637,6 +741,14 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_WorkerType{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.WriteParallel",
+		reflect.TypeOf((*WriteParallel)(nil)).Elem(),
+		map[string]interface{}{
+			"ON": WriteParallel_ON,
+			"OFF": WriteParallel_OFF,
 		},
 	)
 }

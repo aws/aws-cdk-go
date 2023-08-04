@@ -25,6 +25,8 @@ type SubnetProps struct {
 	// The VPC which this subnet is part of.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Controls if a public IP is associated to an instance at launch.
+	// Default: true in Subnet.Public, false in Subnet.Private or Subnet.Isolated.
+	//
 	MapPublicIpOnLaunch *bool `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 }
 

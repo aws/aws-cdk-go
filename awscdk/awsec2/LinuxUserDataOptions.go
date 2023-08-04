@@ -14,6 +14,8 @@ package awsec2
 //
 type LinuxUserDataOptions struct {
 	// Shebang for the UserData script.
+	// Default: "#!/bin/bash"
+	//
 	Shebang *string `field:"optional" json:"shebang" yaml:"shebang"`
 }
 

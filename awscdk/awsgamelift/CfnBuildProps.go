@@ -36,7 +36,7 @@ type CfnBuildProps struct {
 	//
 	// This value determines the type of fleet resources that you use for this build. If your game build contains multiple executables, they all must run on the same operating system. You must specify a valid operating system in this request. There is no default value. You can't change a build's operating system later.
 	//
-	// > The Amazon Linux 2023 OS is not available in the China Regions. > Support is ending in 2023 for the Windows Server 2012 and Amazon Linux (AL1) operating systems. If you have active fleets using these operating systems, you can continue to create new builds using these until their end of support. All other users must use Windows Server 2016, Amazon Linux 2, or Amazon Linux 2023. For more information, including specific end-of-support dates, see the Amazon GameLift FAQs for [Windows Server](https://docs.aws.amazon.com/gamelift/faq/win2012/) and [Linux Server](https://docs.aws.amazon.com/gamelift/faq/al1/) .
+	// > If you have active fleets using the Windows Server 2012 operating system, you can continue to create new builds using this OS until October 10, 2023, when Microsoft ends its support. All others must use Windows Server 2016 when creating new Windows-based builds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-operatingsystem
 	//
 	OperatingSystem *string `field:"optional" json:"operatingSystem" yaml:"operatingSystem"`

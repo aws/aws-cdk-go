@@ -27,9 +27,13 @@ type WebSocketRouteOptions struct {
 	// The authorize to this route.
 	//
 	// You can only set authorizer to a $connect route.
+	// Default: - No Authorizer.
+	//
 	// Experimental.
 	Authorizer IWebSocketRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// Should the route send a response to the client.
+	// Default: false.
+	//
 	// Experimental.
 	ReturnResponse *bool `field:"optional" json:"returnResponse" yaml:"returnResponse"`
 }

@@ -26,10 +26,14 @@ package awscognito
 //
 type SignInUrlOptions struct {
 	// Whether to return the FIPS-compliant endpoint.
+	// Default: return the standard URL.
+	//
 	Fips *bool `field:"optional" json:"fips" yaml:"fips"`
 	// Where to redirect to after sign in.
 	RedirectUri *string `field:"required" json:"redirectUri" yaml:"redirectUri"`
 	// The path in the URI where the sign-in page is located.
+	// Default: '/login'.
+	//
 	SignInPath *string `field:"optional" json:"signInPath" yaml:"signInPath"`
 }
 

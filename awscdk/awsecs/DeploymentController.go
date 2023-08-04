@@ -32,6 +32,8 @@ package awsecs
 //
 type DeploymentController struct {
 	// The deployment controller type to use.
+	// Default: DeploymentControllerType.ECS
+	//
 	Type DeploymentControllerType `field:"optional" json:"type" yaml:"type"`
 }
 

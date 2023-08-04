@@ -229,6 +229,8 @@ type CfnServiceProps struct {
 	// A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the `LATEST` platform version is used. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
 	//
+	// Default: - "LATEST".
+	//
 	PlatformVersion *string `field:"optional" json:"platformVersion" yaml:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition to the task.
 	//

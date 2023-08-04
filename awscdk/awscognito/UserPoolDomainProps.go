@@ -73,9 +73,13 @@ type UserPoolDomainProps struct {
 	// Associate a cognito prefix domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html
 	//
+	// Default: - not set if `customDomain` is specified, otherwise, throws an error.
+	//
 	CognitoDomain *CognitoDomainOptions `field:"optional" json:"cognitoDomain" yaml:"cognitoDomain"`
 	// Associate a custom domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html
+	//
+	// Default: - not set if `cognitoDomain` is specified, otherwise, throws an error.
 	//
 	CustomDomain *CustomDomainOptions `field:"optional" json:"customDomain" yaml:"customDomain"`
 	// The user pool to which this domain should be associated.

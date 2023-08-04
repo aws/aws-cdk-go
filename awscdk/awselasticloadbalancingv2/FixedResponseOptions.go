@@ -24,8 +24,12 @@ type FixedResponseOptions struct {
 	// Content Type of the response.
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
+	// Default: - Automatically determined.
+	//
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The response body.
+	// Default: - No body.
+	//
 	MessageBody *string `field:"optional" json:"messageBody" yaml:"messageBody"`
 }
 

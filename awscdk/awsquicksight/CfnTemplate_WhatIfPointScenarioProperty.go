@@ -23,6 +23,8 @@ type CfnTemplate_WhatIfPointScenarioProperty struct {
 	// The target value that you want to meet for the provided date.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-whatifpointscenario.html#cfn-quicksight-template-whatifpointscenario-value
 	//
+	// Default: - 0.
+	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

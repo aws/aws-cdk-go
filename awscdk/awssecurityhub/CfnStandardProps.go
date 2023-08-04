@@ -32,6 +32,8 @@ type CfnStandardProps struct {
 	//
 	StandardsArn *string `field:"required" json:"standardsArn" yaml:"standardsArn"`
 	// Specifies which controls are to be disabled in a standard.
+	//
+	// *Maximum* : `100`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html#cfn-securityhub-standard-disabledstandardscontrols
 	//
 	DisabledStandardsControls interface{} `field:"optional" json:"disabledStandardsControls" yaml:"disabledStandardsControls"`

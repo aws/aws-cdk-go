@@ -28,6 +28,8 @@ type TagCondition struct {
 	// `accounting` is the value.
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// An operation that is applied to a key-value pair used to filter resources in a selection.
+	// Default: STRING_EQUALS.
+	//
 	Operation TagOperation `field:"optional" json:"operation" yaml:"operation"`
 }
 

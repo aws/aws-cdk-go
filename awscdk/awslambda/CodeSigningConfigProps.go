@@ -31,6 +31,8 @@ type CodeSigningConfigProps struct {
 	// List of signing profiles that defines a trusted user who can sign a code package.
 	SigningProfiles *[]awssigner.ISigningProfile `field:"required" json:"signingProfiles" yaml:"signingProfiles"`
 	// Code signing configuration description.
+	// Default: - No description.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Code signing configuration policy for deployment validation failure.
 	//
@@ -38,6 +40,8 @@ type CodeSigningConfigProps struct {
 	// if signature validation checks fail.
 	// If you set the policy to Warn, Lambda allows the deployment and
 	// creates a CloudWatch log.
+	// Default: UntrustedArtifactOnDeployment.WARN
+	//
 	UntrustedArtifactOnDeployment UntrustedArtifactOnDeployment `field:"optional" json:"untrustedArtifactOnDeployment" yaml:"untrustedArtifactOnDeployment"`
 }
 

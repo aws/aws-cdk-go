@@ -28,14 +28,24 @@ type ConnectionProps struct {
 	// The authorization type for the connection.
 	Authorization Authorization `field:"required" json:"authorization" yaml:"authorization"`
 	// Additional string parameters to add to the invocation bodies.
+	// Default: - No additional parameters.
+	//
 	BodyParameters *map[string]HttpParameter `field:"optional" json:"bodyParameters" yaml:"bodyParameters"`
 	// The name of the connection.
+	// Default: - A name is automatically generated.
+	//
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// The name of the connection.
+	// Default: - none.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional string parameters to add to the invocation headers.
+	// Default: - No additional parameters.
+	//
 	HeaderParameters *map[string]HttpParameter `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// Additional string parameters to add to the invocation query strings.
+	// Default: - No additional parameters.
+	//
 	QueryStringParameters *map[string]HttpParameter `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 

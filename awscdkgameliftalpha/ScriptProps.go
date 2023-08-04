@@ -36,12 +36,18 @@ type ScriptProps struct {
 	// }.
 	// See: https://docs.aws.amazon.com/gamelift/latest/developerguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-access-storage-loc
 	//
+	// Default: - a role will be created with default permissions.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Name of this realtime server script.
+	// Default: No name.
+	//
 	// Experimental.
 	ScriptName *string `field:"optional" json:"scriptName" yaml:"scriptName"`
 	// Version of this realtime server script.
+	// Default: No version.
+	//
 	// Experimental.
 	ScriptVersion *string `field:"optional" json:"scriptVersion" yaml:"scriptVersion"`
 }

@@ -19,6 +19,8 @@ type PortRange struct {
 	// The first port in the range of ports, inclusive.
 	FromPort *float64 `field:"required" json:"fromPort" yaml:"fromPort"`
 	// The last port in the range of ports, inclusive.
+	// Default: - same as `fromPort`.
+	//
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 

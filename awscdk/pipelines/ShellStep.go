@@ -39,8 +39,12 @@ type ShellStep interface {
 	// The list of FileSets consumed by this Step.
 	DependencyFileSets() *[]FileSet
 	// Environment variables to set.
+	// Default: - No environment variables.
+	//
 	Env() *map[string]*string
 	// Set environment variables based on Stack Outputs.
+	// Default: - No environment variables created from stack outputs.
+	//
 	EnvFromCfnOutputs() *map[string]StackOutputReference
 	// Identifier for this step.
 	Id() *string
@@ -53,6 +57,8 @@ type ShellStep interface {
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
+	// Default: - No installation commands.
+	//
 	InstallCommands() *[]*string
 	// Whether or not this is a Source step.
 	//

@@ -31,12 +31,18 @@ type ParameterGroupProps struct {
 	// Experimental.
 	Parameters *map[string]*string `field:"required" json:"parameters" yaml:"parameters"`
 	// Description for this parameter group.
+	// Default: a CDK generated description.
+	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Parameter group family.
+	// Default: - NEPTUNE_1.
+	//
 	// Experimental.
 	Family ParameterGroupFamily `field:"optional" json:"family" yaml:"family"`
 	// The name of the parameter group.
+	// Default: A CDK generated name for the parameter group.
+	//
 	// Experimental.
 	ParameterGroupName *string `field:"optional" json:"parameterGroupName" yaml:"parameterGroupName"`
 }

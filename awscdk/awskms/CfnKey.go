@@ -93,6 +93,9 @@ type CfnKey interface {
 	SetMultiRegion(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// The source of the key material for the KMS key.
+	Origin() *string
+	SetOrigin(val *string)
 	// Specifies the number of days in the waiting period before AWS KMS deletes a KMS key that has been removed from a CloudFormation stack.
 	PendingWindowInDays() *float64
 	SetPendingWindowInDays(val *float64)
@@ -407,6 +410,16 @@ func (j *jsiiProxy_CfnKey) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKey) Origin() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"origin",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKey) PendingWindowInDays() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -569,6 +582,14 @@ func (j *jsiiProxy_CfnKey)SetMultiRegion(val interface{}) {
 	_jsii_.Set(
 		j,
 		"multiRegion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKey)SetOrigin(val *string) {
+	_jsii_.Set(
+		j,
+		"origin",
 		val,
 	)
 }

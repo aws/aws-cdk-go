@@ -18,6 +18,8 @@ import (
 //
 type Ec2HealthCheckOptions struct {
 	// Specified the time Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
+	// Default: Duration.seconds(0)
+	//
 	Grace awscdk.Duration `field:"optional" json:"grace" yaml:"grace"`
 }
 

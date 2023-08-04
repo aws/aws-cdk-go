@@ -130,14 +130,22 @@ type RuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the target.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// Parameters used when the rule invokes Amazon AWS Batch Job/Queue.
+	// Default: no parameters set.
+	//
 	BatchParameters *CfnRule_BatchParametersProperty `field:"optional" json:"batchParameters" yaml:"batchParameters"`
 	// Contains information about a dead-letter queue configuration.
+	// Default: no dead-letter queue set.
+	//
 	DeadLetterConfig *CfnRule_DeadLetterConfigProperty `field:"optional" json:"deadLetterConfig" yaml:"deadLetterConfig"`
 	// The Amazon ECS task definition and task count to use, if the event target is an Amazon ECS task.
 	EcsParameters *CfnRule_EcsParametersProperty `field:"optional" json:"ecsParameters" yaml:"ecsParameters"`
 	// Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge API destination.
+	// Default: - None.
+	//
 	HttpParameters *CfnRule_HttpParametersProperty `field:"optional" json:"httpParameters" yaml:"httpParameters"`
 	// What input to send to the event target.
+	// Default: the entire event.
+	//
 	Input RuleTargetInput `field:"optional" json:"input" yaml:"input"`
 	// Settings that control shard assignment, when the target is a Kinesis stream.
 	//
@@ -145,6 +153,8 @@ type RuleTargetConfig struct {
 	// partition key.
 	KinesisParameters *CfnRule_KinesisParametersProperty `field:"optional" json:"kinesisParameters" yaml:"kinesisParameters"`
 	// A RetryPolicy object that includes information about the retry policy settings.
+	// Default: EventBridge default retry policy.
+	//
 	RetryPolicy *CfnRule_RetryPolicyProperty `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// Role to use to invoke this event target.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
@@ -160,6 +170,8 @@ type RuleTargetConfig struct {
 	// if so, we generate a more complex setup,
 	// including an additional stack containing the EventBusPolicy.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html
+	//
+	// Default: the target is not backed by any resource.
 	//
 	TargetResource constructs.IConstruct `field:"optional" json:"targetResource" yaml:"targetResource"`
 }

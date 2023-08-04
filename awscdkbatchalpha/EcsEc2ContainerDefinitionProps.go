@@ -56,31 +56,45 @@ type EcsEc2ContainerDefinitionProps struct {
 	// The command that's passed to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
+	// Default: - no command.
+	//
 	// Experimental.
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The environment variables to pass to a container.
 	//
 	// Cannot start with `AWS_BATCH`.
 	// We don't recommend using plaintext environment variables for sensitive information, such as credential data.
+	// Default: - no environment variables.
+	//
 	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The role used by Amazon ECS container and AWS Fargate agents to make AWS API calls on your behalf.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html
+	//
+	// Default: - a Role will be created.
 	//
 	// Experimental.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The role that the container can assume.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html
 	//
+	// Default: - no job role.
+	//
 	// Experimental.
 	JobRole awsiam.IRole `field:"optional" json:"jobRole" yaml:"jobRole"`
 	// Linux-specific modifications that are applied to the container, such as details for device mappings.
+	// Default: none.
+	//
 	// Experimental.
 	LinuxParameters LinuxParameters `field:"optional" json:"linuxParameters" yaml:"linuxParameters"`
 	// The loging configuration for this Job.
+	// Default: - the log configuration of the Docker daemon.
+	//
 	// Experimental.
 	Logging awsecs.LogDriver `field:"optional" json:"logging" yaml:"logging"`
 	// Gives the container readonly access to its root filesystem.
+	// Default: false.
+	//
 	// Experimental.
 	ReadonlyRootFilesystem *bool `field:"optional" json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// A map from environment variable names to the secrets for the container.
@@ -89,26 +103,38 @@ type EcsEc2ContainerDefinitionProps struct {
 	// to reference the secret by the environment variable name defined in this property.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html
 	//
+	// Default: - no secrets.
+	//
 	// Experimental.
 	Secrets *map[string]Secret `field:"optional" json:"secrets" yaml:"secrets"`
 	// The user name to use inside the container.
+	// Default: - no user.
+	//
 	// Experimental.
 	User *string `field:"optional" json:"user" yaml:"user"`
 	// The volumes to mount to this container.
 	//
 	// Automatically added to the job definition.
+	// Default: - no volumes.
+	//
 	// Experimental.
 	Volumes *[]EcsVolume `field:"optional" json:"volumes" yaml:"volumes"`
 	// The number of physical GPUs to reserve for the container.
 	//
 	// Make sure that the number of GPUs reserved for all containers in a job doesn't exceed
 	// the number of available GPUs on the compute resource that the job is launched on.
+	// Default: - no gpus.
+	//
 	// Experimental.
 	Gpu *float64 `field:"optional" json:"gpu" yaml:"gpu"`
 	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+	// Default: false.
+	//
 	// Experimental.
 	Privileged *bool `field:"optional" json:"privileged" yaml:"privileged"`
 	// Limits to set for the user this docker container will run as.
+	// Default: - no ulimits.
+	//
 	// Experimental.
 	Ulimits *[]*Ulimit `field:"optional" json:"ulimits" yaml:"ulimits"`
 }

@@ -101,10 +101,14 @@ type ResponseHeadersXSSProtection struct {
 	// When this setting is false, the value of the X-XSS-Protection header is 0.
 	Protection *bool `field:"required" json:"protection" yaml:"protection"`
 	// A Boolean that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+	// Default: false.
+	//
 	ModeBlock *bool `field:"optional" json:"modeBlock" yaml:"modeBlock"`
 	// A reporting URI, which CloudFront uses as the value of the report directive in the X-XSS-Protection header.
 	//
 	// You cannot specify a ReportUri when ModeBlock is true.
+	// Default: - no report uri.
+	//
 	ReportUri *string `field:"optional" json:"reportUri" yaml:"reportUri"`
 }
 

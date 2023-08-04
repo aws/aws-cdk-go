@@ -93,6 +93,10 @@ package awsbatch
 //   				Value: jsii.String("value"),
 //   			},
 //   		},
+//   		RuntimePlatform: &RuntimePlatformProperty{
+//   			CpuArchitecture: jsii.String("cpuArchitecture"),
+//   			OperatingSystemFamily: jsii.String("operatingSystemFamily"),
+//   		},
 //   		Secrets: []interface{}{
 //   			&SecretProperty{
 //   				Name: jsii.String("name"),

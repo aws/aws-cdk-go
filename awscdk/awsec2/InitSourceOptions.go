@@ -23,6 +23,8 @@ package awsec2
 //
 type InitSourceOptions struct {
 	// Restart the given services after this archive has been extracted.
+	// Default: - Do not restart any service.
+	//
 	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 }
 

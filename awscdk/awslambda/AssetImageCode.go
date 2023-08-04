@@ -31,6 +31,7 @@ import (
 //   	BuildSecrets: map[string]*string{
 //   		"buildSecretsKey": jsii.String("buildSecrets"),
 //   	},
+//   	BuildSsh: jsii.String("buildSsh"),
 //   	CacheFrom: []dockerCacheOption{
 //   		&dockerCacheOption{
 //   			Type: jsii.String("type"),
@@ -65,6 +66,7 @@ import (
 //   	Invalidation: &DockerImageAssetInvalidationOptions{
 //   		BuildArgs: jsii.Boolean(false),
 //   		BuildSecrets: jsii.Boolean(false),
+//   		BuildSsh: jsii.Boolean(false),
 //   		ExtraHash: jsii.Boolean(false),
 //   		File: jsii.Boolean(false),
 //   		NetworkMode: jsii.Boolean(false),

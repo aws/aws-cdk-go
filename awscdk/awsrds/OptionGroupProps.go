@@ -101,6 +101,8 @@ type OptionGroupProps struct {
 	// The database engine that this option group is associated with.
 	Engine IInstanceEngine `field:"required" json:"engine" yaml:"engine"`
 	// A description of the option group.
+	// Default: a CDK generated description.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

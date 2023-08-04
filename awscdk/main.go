@@ -358,6 +358,7 @@ func init() {
 		map[string]interface{}{
 			"DELETE": CfnDeletionPolicy_DELETE,
 			"RETAIN": CfnDeletionPolicy_RETAIN,
+			"RETAIN_EXCEPT_ON_CREATE": CfnDeletionPolicy_RETAIN_EXCEPT_ON_CREATE,
 			"SNAPSHOT": CfnDeletionPolicy_SNAPSHOT,
 		},
 	)
@@ -2498,6 +2499,7 @@ func init() {
 			"DESTROY": RemovalPolicy_DESTROY,
 			"RETAIN": RemovalPolicy_RETAIN,
 			"SNAPSHOT": RemovalPolicy_SNAPSHOT,
+			"RETAIN_ON_UPDATE_OR_DELETE": RemovalPolicy_RETAIN_ON_UPDATE_OR_DELETE,
 		},
 	)
 	_jsii_.RegisterStruct(

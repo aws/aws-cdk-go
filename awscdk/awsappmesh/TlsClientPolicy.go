@@ -42,14 +42,20 @@ type TlsClientPolicy struct {
 	// Represents the object for TLS validation context.
 	Validation *TlsValidation `field:"required" json:"validation" yaml:"validation"`
 	// Whether the policy is enforced.
+	// Default: true.
+	//
 	Enforce *bool `field:"optional" json:"enforce" yaml:"enforce"`
 	// Represents a client TLS certificate.
 	//
 	// The certificate will be sent only if the server requests it, enabling mutual TLS.
+	// Default: - client TLS certificate is not provided.
+	//
 	MutualTlsCertificate MutualTlsCertificate `field:"optional" json:"mutualTlsCertificate" yaml:"mutualTlsCertificate"`
 	// TLS is enforced on the ports specified here.
 	//
 	// If no ports are specified, TLS will be enforced on all the ports.
+	// Default: - all ports.
+	//
 	Ports *[]*float64 `field:"optional" json:"ports" yaml:"ports"`
 }
 

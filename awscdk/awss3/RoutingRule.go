@@ -25,14 +25,24 @@ package awss3
 //
 type RoutingRule struct {
 	// Specifies a condition that must be met for the specified redirect to apply.
+	// Default: - No condition.
+	//
 	Condition *RoutingRuleCondition `field:"optional" json:"condition" yaml:"condition"`
 	// The host name to use in the redirect request.
+	// Default: - The host name used in the original request.
+	//
 	HostName *string `field:"optional" json:"hostName" yaml:"hostName"`
 	// The HTTP redirect code to use on the response.
+	// Default: "301" - Moved Permanently.
+	//
 	HttpRedirectCode *string `field:"optional" json:"httpRedirectCode" yaml:"httpRedirectCode"`
 	// Protocol to use when redirecting requests.
+	// Default: - The protocol used in the original request.
+	//
 	Protocol RedirectProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// Specifies the object key prefix to use in the redirect request.
+	// Default: - The key will not be replaced.
+	//
 	ReplaceKey ReplaceKey `field:"optional" json:"replaceKey" yaml:"replaceKey"`
 }
 

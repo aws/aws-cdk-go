@@ -61,6 +61,8 @@ type Stage interface {
 	//
 	// If any plugin reports any violation,
 	// synthesis will be interrupted and the report displayed to the user.
+	// Default: - no validation plugins are used.
+	//
 	PolicyValidationBeta1() *[]IPolicyValidationPluginBeta1
 	// The default region for all resources defined within this stage.
 	Region() *string

@@ -32,6 +32,8 @@ type PortProps struct {
 	// This value must be higher than `fromPort`.
 	//
 	// For fleets using Windows and Linux builds, only ports 1026-60000 are valid.
+	// Default: the `fromPort` value.
+	//
 	// Experimental.
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }

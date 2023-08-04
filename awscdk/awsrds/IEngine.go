@@ -20,16 +20,23 @@ type IEngine interface {
 	// This property is used when creating a Database Proxy.
 	// Most engines don't belong to any family
 	// (and because of that, you can't create Database Proxies for their Clusters or Instances).
+	// Default: - the engine doesn't belong to any family.
+	//
 	EngineFamily() *string
 	// The type of the engine, for example "mysql".
 	EngineType() *string
 	// The exact version of the engine that is used, for example "5.1.42".
+	// Default: - use the default version for this engine type.
+	//
 	EngineVersion() *EngineVersion
 	// The family to use for ParameterGroups using this engine.
 	//
 	// This is usually equal to "<engineType><engineMajorVersion>",
 	// but can sometimes be a variation of that.
 	// You can pass this property when creating new ParameterGroup.
+	// Default: - the ParameterGroup family is not known
+	// (which means the major version of the engine is also not known).
+	//
 	ParameterGroupFamily() *string
 }
 

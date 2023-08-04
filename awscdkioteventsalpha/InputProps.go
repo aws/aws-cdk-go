@@ -91,6 +91,8 @@ type InputProps struct {
 	// Experimental.
 	AttributeJsonPaths *[]*string `field:"required" json:"attributeJsonPaths" yaml:"attributeJsonPaths"`
 	// The name of the input.
+	// Default: - CloudFormation will generate a unique name of the input.
+	//
 	// Experimental.
 	InputName *string `field:"optional" json:"inputName" yaml:"inputName"`
 }

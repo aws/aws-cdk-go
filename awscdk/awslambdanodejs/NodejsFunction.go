@@ -141,7 +141,13 @@ type NodejsFunction interface {
 	AddEnvironment(key *string, value *string, options *awslambda.EnvironmentOptions) awslambda.Function
 	// Adds an event source to this function.
 	//
-	// Event sources are implemented in the.
+	// Event sources are implemented in the aws-cdk-lib/aws-lambda-event-sources module.
+	//
+	// The following example adds an SQS Queue as an event source:
+	// ```
+	// import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
+	// myFunction.addEventSource(new SqsEventSource(myQueue));
+	// ```.
 	AddEventSource(source awslambda.IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
 	AddEventSourceMapping(id *string, options *awslambda.EventSourceMappingOptions) awslambda.EventSourceMapping
@@ -641,6 +647,8 @@ func NodejsFunction_MetricAll(metricName *string, props *awscloudwatch.MetricOpt
 }
 
 // Metric for the number of concurrent executions across all Lambdas.
+// Default: max over 5 minutes.
+//
 func NodejsFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -660,6 +668,8 @@ func NodejsFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOpt
 }
 
 // Metric for the Duration executing all Lambdas.
+// Default: average over 5 minutes.
+//
 func NodejsFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -679,6 +689,8 @@ func NodejsFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awsclo
 }
 
 // Metric for the number of Errors executing all Lambdas.
+// Default: sum over 5 minutes.
+//
 func NodejsFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -698,6 +710,8 @@ func NodejsFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloud
 }
 
 // Metric for the number of invocations of all Lambdas.
+// Default: sum over 5 minutes.
+//
 func NodejsFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -717,6 +731,8 @@ func NodejsFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) aws
 }
 
 // Metric for the number of throttled invocations of all Lambdas.
+// Default: sum over 5 minutes.
+//
 func NodejsFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -736,6 +752,8 @@ func NodejsFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscl
 }
 
 // Metric for the number of unreserved concurrent executions across all Lambdas.
+// Default: max over 5 minutes.
+//
 func NodejsFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 

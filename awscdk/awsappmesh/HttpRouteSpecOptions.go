@@ -37,14 +37,22 @@ type HttpRouteSpecOptions struct {
 	//
 	// When a Virtual Router has multiple routes, route match is performed in the
 	// order of specified value, where 0 is the highest priority, and first matched route is selected.
+	// Default: - no particular priority.
+	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// List of targets that traffic is routed to when a request matches the route.
 	WeightedTargets *[]*WeightedTarget `field:"required" json:"weightedTargets" yaml:"weightedTargets"`
 	// The criterion for determining a request match for this Route.
+	// Default: - matches on '/'.
+	//
 	Match *HttpRouteMatch `field:"optional" json:"match" yaml:"match"`
 	// The retry policy.
+	// Default: - no retry policy.
+	//
 	RetryPolicy *HttpRetryPolicy `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// An object that represents a http timeout.
+	// Default: - None.
+	//
 	Timeout *HttpTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

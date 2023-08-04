@@ -14,6 +14,8 @@ package awsec2
 //
 type LaunchTemplateRequireImdsv2AspectProps struct {
 	// Whether warning annotations from this Aspect should be suppressed or not.
+	// Default: - false.
+	//
 	SuppressWarnings *bool `field:"optional" json:"suppressWarnings" yaml:"suppressWarnings"`
 }
 

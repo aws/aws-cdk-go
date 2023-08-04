@@ -30,9 +30,13 @@ type HttpRouteAuthorizerConfig struct {
 	// Experimental.
 	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// The list of OIDC scopes to include in the authorization.
+	// Default: - no authorization scopes.
+	//
 	// Experimental.
 	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// The authorizer id.
+	// Default: - No authorizer id (useful for AWS_IAM route authorizer).
+	//
 	// Experimental.
 	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 }

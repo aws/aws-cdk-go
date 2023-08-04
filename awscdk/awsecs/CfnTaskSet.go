@@ -30,7 +30,6 @@ import (
 //   		&LoadBalancerProperty{
 //   			ContainerName: jsii.String("containerName"),
 //   			ContainerPort: jsii.Number(123),
-//   			LoadBalancerName: jsii.String("loadBalancerName"),
 //   			TargetGroupArn: jsii.String("targetGroupArn"),
 //   		},
 //   	},

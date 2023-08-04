@@ -16,10 +16,16 @@ package awscdk
 //
 type UniqueResourceNameOptions struct {
 	// Non-alphanumeric characters allowed in the unique resource name.
+	// Default: - none.
+	//
 	AllowedSpecialCharacters *string `field:"optional" json:"allowedSpecialCharacters" yaml:"allowedSpecialCharacters"`
 	// The maximum length of the unique resource name.
+	// Default: - 256.
+	//
 	MaxLength *float64 `field:"optional" json:"maxLength" yaml:"maxLength"`
 	// The separator used between the path components.
+	// Default: - none.
+	//
 	Separator *string `field:"optional" json:"separator" yaml:"separator"`
 }
 

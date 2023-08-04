@@ -25,6 +25,8 @@ type ReplicaRegion struct {
 	// The name of the region.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The customer-managed encryption key to use for encrypting the secret value.
+	// Default: - A default KMS key for the account and region is used.
+	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

@@ -19,6 +19,8 @@ type WithoutPolicyUpdatesOptions struct {
 	// It is your own responsibility to make sure the role has the required permissions.
 	//
 	// If this is `true`, any grant permissions will be added to the resource instead.
+	// Default: false.
+	//
 	AddGrantsToResources *bool `field:"optional" json:"addGrantsToResources" yaml:"addGrantsToResources"`
 }
 

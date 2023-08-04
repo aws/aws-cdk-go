@@ -149,6 +149,8 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	// If so, specify true; if not, specify false. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
 	//
+	// Default: - false.
+	//
 	Compress interface{} `field:"optional" json:"compress" yaml:"compress"`
 	// This field is deprecated.
 	//
@@ -157,9 +159,13 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	// The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as `Cache-Control max-age` , `Cache-Control s-maxage` , and `Expires` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
 	//
+	// Default: - 86400.
+	//
 	DefaultTtl *float64 `field:"optional" json:"defaultTtl" yaml:"defaultTtl"`
 	// The value of `ID` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for this cache behavior.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
+	//
+	// Default: - "".
 	//
 	FieldLevelEncryptionId *string `field:"optional" json:"fieldLevelEncryptionId" yaml:"fieldLevelEncryptionId"`
 	// This field is deprecated.
@@ -193,6 +199,8 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	// The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as `Cache-Control max-age` , `Cache-Control s-maxage` , and `Expires` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
 	//
+	// Default: - 31536000.
+	//
 	MaxTtl *float64 `field:"optional" json:"maxTtl" yaml:"maxTtl"`
 	// This field is deprecated.
 	//
@@ -202,6 +210,8 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	//
 	// You must specify `0` for `MinTTL` if you configure CloudFront to forward all headers to your origin (under `Headers` , if you specify `1` for `Quantity` and `*` for `Name` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
+	//
+	// Default: - 0.
 	//
 	MinTtl *float64 `field:"optional" json:"minTtl" yaml:"minTtl"`
 	// The unique identifier of the origin request policy that is attached to this cache behavior.
@@ -224,6 +234,8 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	//
 	// If so, specify `true` ; if not, specify `false` . If you specify `true` for `SmoothStreaming` , you can still distribute other content using this cache behavior if the content matches the value of `PathPattern` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
+	//
+	// Default: - false.
 	//
 	SmoothStreaming interface{} `field:"optional" json:"smoothStreaming" yaml:"smoothStreaming"`
 	// A list of key groups that CloudFront can use to validate signed URLs or signed cookies.

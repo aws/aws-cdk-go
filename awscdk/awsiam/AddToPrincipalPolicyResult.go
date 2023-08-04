@@ -25,6 +25,8 @@ type AddToPrincipalPolicyResult struct {
 	// Whether the statement was added to the identity's policies.
 	StatementAdded *bool `field:"required" json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
+	// Default: - Required if `statementAdded` is true.
+	//
 	PolicyDependable constructs.IDependable `field:"optional" json:"policyDependable" yaml:"policyDependable"`
 }
 

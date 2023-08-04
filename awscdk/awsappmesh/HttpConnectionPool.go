@@ -41,8 +41,12 @@ package awsappmesh
 //
 type HttpConnectionPool struct {
 	// The maximum connections in the pool.
+	// Default: - none.
+	//
 	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 	// The maximum pending requests in the pool.
+	// Default: - none.
+	//
 	MaxPendingRequests *float64 `field:"required" json:"maxPendingRequests" yaml:"maxPendingRequests"`
 }
 

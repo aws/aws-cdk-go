@@ -22,6 +22,8 @@ import (
 //
 type MathExpressionOptions struct {
 	// Color for this metric when added to a Graph in a Dashboard.
+	// Default: - Automatic color.
+	//
 	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Label for this expression when added to a Graph in a Dashboard.
 	//
@@ -45,21 +47,29 @@ type MathExpressionOptions struct {
 	// math expression produces more than one time series, the maximum
 	// will be shown for each individual time series produce by this
 	// math expression.
+	// Default: - Expression value is used as label.
+	//
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The period over which the expression's statistics are applied.
 	//
 	// This period overrides all periods in the metrics used in this
 	// math expression.
+	// Default: Duration.minutes(5)
+	//
 	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Account to evaluate search expressions within.
 	//
 	// Specifying a searchAccount has no effect to the account used
 	// for metrics within the expression (passed via usingMetrics).
+	// Default: - Deployment account.
+	//
 	SearchAccount *string `field:"optional" json:"searchAccount" yaml:"searchAccount"`
 	// Region to evaluate search expressions within.
 	//
 	// Specifying a searchRegion has no effect to the region used
 	// for metrics within the expression (passed via usingMetrics).
+	// Default: - Deployment region.
+	//
 	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
 }
 

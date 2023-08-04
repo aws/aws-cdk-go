@@ -43,8 +43,14 @@ type S3DeployActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Default: 1.
+	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Default: - a name will be generated, based on the stage and action names,
+	// if any of the action's variables were referenced - otherwise,
+	// no namespace will be set.
+	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -53,6 +59,8 @@ type S3DeployActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your `IAction.bind`
 	// method in the `ActionBindOptions.role` property.
+	// Default: a new Role will be generated.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The Amazon S3 bucket that is the deploy target.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
@@ -61,17 +69,25 @@ type S3DeployActionProps struct {
 	// The specified canned ACL to objects deployed to Amazon S3.
 	//
 	// This overwrites any existing ACL that was applied to the object.
+	// Default: - the original object ACL.
+	//
 	AccessControl awss3.BucketAccessControl `field:"optional" json:"accessControl" yaml:"accessControl"`
 	// The caching behavior for requests/responses for objects in the bucket.
 	//
 	// The final cache control property will be the result of joining all of the provided array elements with a comma
 	// (plus a space after the comma).
+	// Default: - none, decided by the HTTP client.
+	//
 	CacheControl *[]CacheControl `field:"optional" json:"cacheControl" yaml:"cacheControl"`
 	// The AWS KMS encryption key for the host bucket.
 	//
 	// The encryptionKey parameter encrypts uploaded artifacts with the provided AWS KMS key.
+	// Default: - none.
+	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Should the deploy action extract the artifact before deploying to Amazon S3.
+	// Default: true.
+	//
 	Extract *bool `field:"optional" json:"extract" yaml:"extract"`
 	// The key of the target object.
 	//

@@ -35,14 +35,24 @@ import (
 //
 type HttpHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
+	// Default: 2.
+	//
 	HealthyThreshold *float64 `field:"optional" json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The time period between each health check execution.
+	// Default: Duration.seconds(5)
+	//
 	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// The destination path for the health check request.
+	// Default: /.
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The amount of time to wait when receiving a response from the health check.
+	// Default: Duration.seconds(2)
+	//
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
+	// Default: - 2.
+	//
 	UnhealthyThreshold *float64 `field:"optional" json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 

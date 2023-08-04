@@ -1,8 +1,8 @@
 # AWS Step Functions Construct Library
 
-The `@aws-cdk/aws-stepfunctions` package contains constructs for building
+The `aws-cdk-lib/aws-stepfunctions` package contains constructs for building
 serverless workflows using objects. Use this in conjunction with the
-`@aws-cdk/aws-stepfunctions-tasks` package, which contains classes used
+`aws-cdk-lib/aws-stepfunctions-tasks` package, which contains classes used
 to call other AWS services.
 
 Defining a workflow looks like this (for the [Step Functions Job Poller
@@ -52,11 +52,12 @@ definition := submitJob.Next(waitX).Next(getStatus).Next(sfn.NewChoice(this, jsi
 sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 	Definition: Definition,
 	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
+	Comment: jsii.String("a super cool state machine"),
 })
 ```
 
 You can find more sample snippets and learn more about the service integrations
-in the `@aws-cdk/aws-stepfunctions-tasks` package.
+in the `aws-cdk-lib/aws-stepfunctions-tasks` package.
 
 ## State Machine
 
@@ -241,7 +242,7 @@ information, see the States Language spec.
 
 A `Task` represents some work that needs to be done. Do not use the `Task` class directly.
 
-Instead, use one of the classes in the `@aws-cdk/aws-stepfunctions-tasks` module,
+Instead, use one of the classes in the `aws-cdk-lib/aws-stepfunctions-tasks` module,
 which provide a much more ergonomic way to integrate with various AWS services.
 
 ### Pass
@@ -527,6 +528,7 @@ chain := sfn.Chain_Start(custom).Next(finalStatus)
 sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 	Definition: chain,
 	Timeout: awscdk.Duration_Seconds(jsii.Number(30)),
+	Comment: jsii.String("a super cool state machine"),
 })
 
 // don't forget permissions. You need to assign them

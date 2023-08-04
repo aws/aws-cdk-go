@@ -30,14 +30,20 @@ type CustomReason struct {
 	// A glob string that will match on the job exit code.
 	//
 	// For example, `'40*'` will match 400, 404, 40123456789012.
+	// Default: - will not match on the exit code.
+	//
 	// Experimental.
 	OnExitCode *string `field:"optional" json:"onExitCode" yaml:"onExitCode"`
 	// A glob string that will match on the reason returned by the exiting job For example, `'CannotPullContainerError*'` indicates that container needed to start the job could not be pulled.
+	// Default: - will not match on the reason.
+	//
 	// Experimental.
 	OnReason *string `field:"optional" json:"onReason" yaml:"onReason"`
 	// A glob string that will match on the statusReason returned by the exiting job.
 	//
 	// For example, `'Host EC2*'` indicates that the spot instance has been reclaimed.
+	// Default: - will not match on the status reason.
+	//
 	// Experimental.
 	OnStatusReason *string `field:"optional" json:"onStatusReason" yaml:"onStatusReason"`
 }

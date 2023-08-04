@@ -25,6 +25,8 @@ type CfnResourceProps struct {
 	// CloudFormation resource type (e.g. `AWS::S3::Bucket`).
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Resource properties.
+	// Default: - No resource properties.
+	//
 	Properties *map[string]interface{} `field:"optional" json:"properties" yaml:"properties"`
 }
 

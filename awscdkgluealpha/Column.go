@@ -28,6 +28,8 @@ type Column struct {
 	// Experimental.
 	Type *Type `field:"required" json:"type" yaml:"type"`
 	// Coment describing the column.
+	// Default: none.
+	//
 	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }

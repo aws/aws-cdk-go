@@ -24,10 +24,14 @@ type CapacityProviderStrategy struct {
 	// Only one
 	// capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default
 	// value of 0 is used.
+	// Default: - none.
+	//
 	Base *float64 `field:"optional" json:"base" yaml:"base"`
 	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The weight value is taken into consideration after the base value, if defined, is satisfied.
+	// Default: - 0.
+	//
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

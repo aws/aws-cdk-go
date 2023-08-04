@@ -60,6 +60,8 @@ type CfnWorkgroupProps struct {
 	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-enhancedvpcrouting
 	//
+	// Default: - false.
+	//
 	EnhancedVpcRouting interface{} `field:"optional" json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
 	// The namespace the workgroup is associated with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-namespacename
@@ -73,6 +75,8 @@ type CfnWorkgroupProps struct {
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-publiclyaccessible
+	//
+	// Default: - false.
 	//
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// A list of security group IDs to associate with the workgroup.

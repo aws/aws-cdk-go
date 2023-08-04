@@ -96,24 +96,44 @@ type EmrContainersStartJobRun interface {
 	// Make the indicated state the default transition of this state.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
+	// Default: - sum over 5 minutes.
+	//
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
+	// Default: - sum over 5 minutes.
+	//
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
+	// Default: - sum over 5 minutes.
+	//
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
+	// Default: - average over 5 minutes.
+	//
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
+	// Default: - sum over 5 minutes.
+	//
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
+	// Default: - average over 5 minutes.
+	//
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
+	// Default: - sum over 5 minutes.
+	//
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
+	// Default: - sum over 5 minutes.
+	//
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
+	// Default: - average over 5 minutes.
+	//
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
+	// Default: - sum over 5 minutes.
+	//
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain

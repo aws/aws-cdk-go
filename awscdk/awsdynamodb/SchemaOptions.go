@@ -14,6 +14,8 @@ type SchemaOptions struct {
 	// Partition key attribute definition.
 	PartitionKey *Attribute `field:"required" json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
+	// Default: no sort key.
+	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
 }
 

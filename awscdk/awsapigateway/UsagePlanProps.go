@@ -26,14 +26,24 @@ package awsapigateway
 //
 type UsagePlanProps struct {
 	// API Stages to be associated with the usage plan.
+	// Default: none.
+	//
 	ApiStages *[]*UsagePlanPerApiStage `field:"optional" json:"apiStages" yaml:"apiStages"`
 	// Represents usage plan purpose.
+	// Default: none.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Name for this usage plan.
+	// Default: none.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Number of requests clients can make in a given time period.
+	// Default: none.
+	//
 	Quota *QuotaSettings `field:"optional" json:"quota" yaml:"quota"`
 	// Overall throttle settings for the API.
+	// Default: none.
+	//
 	Throttle *ThrottleSettings `field:"optional" json:"throttle" yaml:"throttle"`
 }
 

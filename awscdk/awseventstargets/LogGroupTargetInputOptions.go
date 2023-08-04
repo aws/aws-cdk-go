@@ -24,8 +24,12 @@ type LogGroupTargetInputOptions struct {
 	// CloudWatch logs will be incorrect. This is a likely scenario if
 	// doing something like: EventField.fromPath('$.detail') since in most cases
 	// the `detail` field contains JSON data.
+	// Default: EventField.detailType
+	//
 	Message interface{} `field:"optional" json:"message" yaml:"message"`
 	// The timestamp that will appear in the CloudWatch Logs record.
+	// Default: EventField.time
+	//
 	Timestamp interface{} `field:"optional" json:"timestamp" yaml:"timestamp"`
 }
 

@@ -57,14 +57,24 @@ type EmrCreateCluster_InstanceTypeConfigProperty struct {
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	//
 	// Expressed in USD.
+	// Default: - None.
+	//
 	BidPrice *string `field:"optional" json:"bidPrice" yaml:"bidPrice"`
 	// The bid price, as a percentage of On-Demand price.
+	// Default: - None.
+	//
 	BidPriceAsPercentageOfOnDemandPrice *float64 `field:"optional" json:"bidPriceAsPercentageOfOnDemandPrice" yaml:"bidPriceAsPercentageOfOnDemandPrice"`
 	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+	// Default: - None.
+	//
 	Configurations *[]*EmrCreateCluster_ConfigurationProperty `field:"optional" json:"configurations" yaml:"configurations"`
 	// The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by InstanceType.
+	// Default: - None.
+	//
 	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `field:"optional" json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in the InstanceFleetConfig.
+	// Default: - None.
+	//
 	WeightedCapacity *float64 `field:"optional" json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 

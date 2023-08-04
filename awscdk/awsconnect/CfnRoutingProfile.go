@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Connect::RoutingProfile.
+// Creates a new routing profile.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -68,7 +68,7 @@ type CfnRoutingProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The identifier of the default outbound queue for this routing profile.
+	// The Amazon Resource Name (ARN) of the default outbound queue for the routing profile.
 	DefaultOutboundQueueArn() *string
 	SetDefaultOutboundQueueArn(val *string)
 	// The description of the routing profile.
@@ -95,7 +95,7 @@ type CfnRoutingProfile interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The queues to associate with this routing profile.
+	// The inbound queues associated with the routing profile.
 	QueueConfigs() interface{}
 	SetQueueConfigs(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -107,7 +107,7 @@ type CfnRoutingProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// The tags used to organize, track, or control access for this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

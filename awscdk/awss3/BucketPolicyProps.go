@@ -23,6 +23,8 @@ type BucketPolicyProps struct {
 	// The Amazon S3 bucket that the policy applies to.
 	Bucket IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// Policy to apply when the policy is removed from this stack.
+	// Default: - RemovalPolicy.DESTROY.
+	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

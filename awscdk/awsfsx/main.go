@@ -358,6 +358,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnVolume.AutocommitPeriodProperty",
+		reflect.TypeOf((*CfnVolume_AutocommitPeriodProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnVolume.ClientConfigurationsProperty",
 		reflect.TypeOf((*CfnVolume_ClientConfigurationsProperty)(nil)).Elem(),
 	)
@@ -376,6 +380,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnVolume.OriginSnapshotProperty",
 		reflect.TypeOf((*CfnVolume_OriginSnapshotProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnVolume.RetentionPeriodProperty",
+		reflect.TypeOf((*CfnVolume_RetentionPeriodProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnVolume.SnaplockConfigurationProperty",
+		reflect.TypeOf((*CfnVolume_SnaplockConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnVolume.SnaplockRetentionPeriodProperty",
+		reflect.TypeOf((*CfnVolume_SnaplockRetentionPeriodProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnVolume.TieringPolicyProperty",

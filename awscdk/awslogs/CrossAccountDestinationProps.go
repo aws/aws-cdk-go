@@ -30,6 +30,8 @@ type CrossAccountDestinationProps struct {
 	// The log destination target's ARN.
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// The name of the log destination.
+	// Default: Automatically generated.
+	//
 	DestinationName *string `field:"optional" json:"destinationName" yaml:"destinationName"`
 }
 

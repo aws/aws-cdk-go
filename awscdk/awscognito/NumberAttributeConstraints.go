@@ -15,8 +15,12 @@ package awscognito
 //
 type NumberAttributeConstraints struct {
 	// Maximum value of this attribute.
+	// Default: - no maximum value.
+	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// Minimum value of this attribute.
+	// Default: - no minimum value.
+	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

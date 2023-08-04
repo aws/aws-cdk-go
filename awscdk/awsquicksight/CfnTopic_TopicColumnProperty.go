@@ -132,9 +132,13 @@ type CfnTopic_TopicColumnProperty struct {
 	// A Boolean value that indicates whether the column is included in the query results.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html#cfn-quicksight-topic-topiccolumn-isincludedintopic
 	//
+	// Default: - false.
+	//
 	IsIncludedInTopic interface{} `field:"optional" json:"isIncludedInTopic" yaml:"isIncludedInTopic"`
 	// A Boolean value that indicates whether to aggregate the column data when it's used in a filter context.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html#cfn-quicksight-topic-topiccolumn-neveraggregateinfilter
+	//
+	// Default: - false.
 	//
 	NeverAggregateInFilter interface{} `field:"optional" json:"neverAggregateInFilter" yaml:"neverAggregateInFilter"`
 	// The list of aggregation types that are not allowed for the column.

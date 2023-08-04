@@ -14,6 +14,8 @@ package awsappmesh
 //
 type HealthCheckBindOptions struct {
 	// Port for Health Check interface.
+	// Default: - no default port is provided.
+	//
 	DefaultPort *float64 `field:"optional" json:"defaultPort" yaml:"defaultPort"`
 }
 

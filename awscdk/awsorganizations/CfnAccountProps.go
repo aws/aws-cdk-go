@@ -68,6 +68,8 @@ type CfnAccountProps struct {
 	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) that is used to validate this parameter. The pattern can include uppercase letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-account.html#cfn-organizations-account-rolename
 	//
+	// Default: - "OrganizationAccountAccessRole".
+	//
 	RoleName *string `field:"optional" json:"roleName" yaml:"roleName"`
 	// A list of tags that you want to attach to the newly created account.
 	//

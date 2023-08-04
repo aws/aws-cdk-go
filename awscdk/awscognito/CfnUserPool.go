@@ -269,7 +269,7 @@ type CfnUserPool interface {
 	// You can choose to set case sensitivity on the username input for the selected sign-in option.
 	UsernameConfiguration() interface{}
 	SetUsernameConfiguration(val interface{})
-	// Enables advanced security risk detection.
+	// User pool add-ons.
 	UserPoolAddOns() interface{}
 	SetUserPoolAddOns(val interface{})
 	// A string used to name the user pool.

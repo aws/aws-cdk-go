@@ -14,6 +14,8 @@ type RedirectTarget struct {
 	// Name of the host where requests are redirected.
 	HostName *string `field:"required" json:"hostName" yaml:"hostName"`
 	// Protocol to use when redirecting requests.
+	// Default: - The protocol used in the original request.
+	//
 	Protocol RedirectProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

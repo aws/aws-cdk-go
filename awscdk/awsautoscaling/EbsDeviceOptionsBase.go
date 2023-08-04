@@ -17,6 +17,8 @@ package awsautoscaling
 //
 type EbsDeviceOptionsBase struct {
 	// Indicates whether to delete the volume when the instance is terminated.
+	// Default: - true for Amazon EC2 Auto Scaling, false otherwise (e.g. EBS)
+	//
 	DeleteOnTermination *bool `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
@@ -26,13 +28,19 @@ type EbsDeviceOptionsBase struct {
 	// you need at least 100 GiB storage on the volume.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
+	// Default: - none, required for `EbsDeviceVolumeType.IO1`
+	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The throughput that the volume supports, in MiB/s Takes a minimum of 125 and maximum of 1000.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
+	// Default: - 125 MiB/s. Only valid on gp3 volumes.
+	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+	//
+	// Default: `EbsDeviceVolumeType.GP2`
 	//
 	VolumeType EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 }

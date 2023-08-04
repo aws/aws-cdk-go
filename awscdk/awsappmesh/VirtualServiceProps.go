@@ -28,6 +28,8 @@ type VirtualServiceProps struct {
 	// such as "my-service.default.svc.cluster.local".
 	//
 	// Example value: `service.domain.local`
+	// Default: - A name is automatically generated.
+	//
 	VirtualServiceName *string `field:"optional" json:"virtualServiceName" yaml:"virtualServiceName"`
 }
 

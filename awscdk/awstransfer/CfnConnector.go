@@ -9,9 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates the connector, which captures the parameters for an outbound connection for the AS2 protocol.
+// Creates the connector, which captures the parameters for an outbound connection for the AS2 or SFTP protocol.
 //
-// The connector is required for sending files to an externally hosted AS2 server. For more details about connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector) .
+// The connector is required for sending files to an externally hosted AS2 or SFTP server. For more details about AS2 connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector) .
+//
+// > You must specify exactly one configuration object: either for AS2 ( `As2Config` ) or SFTP ( `SftpConfig` ).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,7 +46,7 @@ type CfnConnector interface {
 	// With AS2, you can send files by calling `StartFileTransfer` and specifying the file paths in the request parameter, `SendFilePaths` .
 	AccessRole() *string
 	SetAccessRole(val *string)
-	// A structure that contains the parameters for a connector object.
+	// A structure that contains the parameters for an AS2 connector object.
 	As2Config() interface{}
 	SetAs2Config(val interface{})
 	// Specifies the unique Amazon Resource Name (ARN) for the workflow.
@@ -102,7 +104,7 @@ type CfnConnector interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The URL of the partner's AS2 endpoint.
+	// The URL of the partner's AS2 or SFTP endpoint.
 	Url() *string
 	SetUrl(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

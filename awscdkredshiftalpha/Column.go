@@ -31,12 +31,18 @@ type Column struct {
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A comment to attach to the column.
+	// Default: - no comment.
+	//
 	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Boolean value that indicates whether the column is to be configured as DISTKEY.
+	// Default: - column is not DISTKEY.
+	//
 	// Experimental.
 	DistKey *bool `field:"optional" json:"distKey" yaml:"distKey"`
 	// The encoding to use for the column.
+	// Default: - Amazon Redshift determines the encoding based on the data type.
+	//
 	// Experimental.
 	Encoding ColumnEncoding `field:"optional" json:"encoding" yaml:"encoding"`
 	// The unique identifier of the column.
@@ -44,9 +50,13 @@ type Column struct {
 	// This is not the name of the column, and renaming this identifier will cause a new column to be created and the old column to be dropped.
 	//
 	// **NOTE** - This field will be set, however, only by setting the `@aws-cdk/aws-redshift:columnId` feature flag will this field be used.
+	// Default: - the column name is used as the identifier.
+	//
 	// Experimental.
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// Boolean value that indicates whether the column is to be configured as SORTKEY.
+	// Default: - column is not a SORTKEY.
+	//
 	// Experimental.
 	SortKey *bool `field:"optional" json:"sortKey" yaml:"sortKey"`
 }

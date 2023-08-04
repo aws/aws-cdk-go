@@ -21,6 +21,8 @@ type AssertionResultData struct {
 	// Experimental.
 	Status Status `field:"required" json:"status" yaml:"status"`
 	// Any message returned with the assertion result typically this will be the diff if there is any.
+	// Default: - none.
+	//
 	// Experimental.
 	Message *string `field:"optional" json:"message" yaml:"message"`
 }

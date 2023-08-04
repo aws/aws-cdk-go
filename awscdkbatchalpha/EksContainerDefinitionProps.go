@@ -41,6 +41,8 @@ type EksContainerDefinitionProps struct {
 	// or example, $$(VAR_NAME) is passed as $(VAR_NAME) whether or not the VAR_NAME environment variable exists.
 	// See: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/
 	//
+	// Default: - no args.
+	//
 	// Experimental.
 	Args *[]*string `field:"optional" json:"args" yaml:"args"`
 	// The entrypoint for the container.
@@ -56,6 +58,8 @@ type EksContainerDefinitionProps struct {
 	// The entrypoint can't be updated.
 	// See: https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint
 	//
+	// Default: - no command.
+	//
 	// Experimental.
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The hard limit of CPUs to present to this container. Must be an even multiple of 0.25.
@@ -65,6 +69,8 @@ type EksContainerDefinitionProps struct {
 	// At least one of `cpuReservation` and `cpuLimit` is required.
 	// If both are specified, then `cpuLimit` must be at least as large as `cpuReservation`.
 	// See: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+	//
+	// Default: - No CPU limit.
 	//
 	// Experimental.
 	CpuLimit *float64 `field:"optional" json:"cpuLimit" yaml:"cpuLimit"`
@@ -76,12 +82,16 @@ type EksContainerDefinitionProps struct {
 	// If both are specified, then `cpuLimit` must be at least as large as `cpuReservation`.
 	// See: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 	//
+	// Default: - No CPUs reserved.
+	//
 	// Experimental.
 	CpuReservation *float64 `field:"optional" json:"cpuReservation" yaml:"cpuReservation"`
 	// The environment variables to pass to this container.
 	//
 	// *Note*: Environment variables cannot start with "AWS_BATCH".
 	// This naming convention is reserved for variables that AWS Batch sets.
+	// Default: - no environment variables.
+	//
 	// Experimental.
 	Env *map[string]*string `field:"optional" json:"env" yaml:"env"`
 	// The hard limit of GPUs to present to this container.
@@ -90,6 +100,8 @@ type EksContainerDefinitionProps struct {
 	//
 	// If both `gpuReservation` and `gpuLimit` are specified, then `gpuLimit` must be equal to `gpuReservation`.
 	// See: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+	//
+	// Default: - No GPU limit.
 	//
 	// Experimental.
 	GpuLimit *float64 `field:"optional" json:"gpuLimit" yaml:"gpuLimit"`
@@ -100,10 +112,14 @@ type EksContainerDefinitionProps struct {
 	// If both `gpuReservation` and `gpuLimit` are specified, then `gpuLimit` must be equal to `gpuReservation`.
 	// See: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 	//
+	// Default: - No GPUs reserved.
+	//
 	// Experimental.
 	GpuReservation *float64 `field:"optional" json:"gpuReservation" yaml:"gpuReservation"`
 	// The image pull policy for this container.
 	// See: https://kubernetes.io/docs/concepts/containers/images/#updating-images
+	//
+	// Default: - `ALWAYS` if the `:latest` tag is specified, `IF_NOT_PRESENT` otherwise.
 	//
 	// Experimental.
 	ImagePullPolicy ImagePullPolicy `field:"optional" json:"imagePullPolicy" yaml:"imagePullPolicy"`
@@ -118,6 +134,8 @@ type EksContainerDefinitionProps struct {
 	// *Note*: To maximize your resource utilization, provide your jobs with as much memory as possible
 	// for the specific instance type that you are using.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html
+	//
+	// Default: - No memory limit.
 	//
 	// Experimental.
 	MemoryLimit awscdk.Size `field:"optional" json:"memoryLimit" yaml:"memoryLimit"`
@@ -140,9 +158,13 @@ type EksContainerDefinitionProps struct {
 	// for the specific instance type that you are using.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html
 	//
+	// Default: - No memory reserved.
+	//
 	// Experimental.
 	MemoryReservation awscdk.Size `field:"optional" json:"memoryReservation" yaml:"memoryReservation"`
 	// The name of this container.
+	// Default: : `'Default'`.
+	//
 	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// If specified, gives this container elevated permissions on the host container instance.
@@ -154,6 +176,8 @@ type EksContainerDefinitionProps struct {
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems
 	//
+	// Default: false.
+	//
 	// Experimental.
 	Privileged *bool `field:"optional" json:"privileged" yaml:"privileged"`
 	// If specified, gives this container readonly access to its root file system.
@@ -162,6 +186,8 @@ type EksContainerDefinitionProps struct {
 	//
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems
+	//
+	// Default: false.
 	//
 	// Experimental.
 	ReadonlyRootFilesystem *bool `field:"optional" json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
@@ -173,6 +199,8 @@ type EksContainerDefinitionProps struct {
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups
 	//
+	// Default: none.
+	//
 	// Experimental.
 	RunAsGroup *float64 `field:"optional" json:"runAsGroup" yaml:"runAsGroup"`
 	// If specified, the container is run as a user with a `uid` other than 0.
@@ -183,6 +211,8 @@ type EksContainerDefinitionProps struct {
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups
 	//
+	// Default: - the container is *not* required to run as a non-root user.
+	//
 	// Experimental.
 	RunAsRoot *bool `field:"optional" json:"runAsRoot" yaml:"runAsRoot"`
 	// If specified, this container is run as the specified user ID (`uid`).
@@ -192,12 +222,16 @@ type EksContainerDefinitionProps struct {
 	// *Note*: this is only compatible with Kubernetes < v1.25
 	// See: https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups
 	//
+	// Default: - the user that is specified in the image metadata.
+	//
 	// Experimental.
 	RunAsUser *float64 `field:"optional" json:"runAsUser" yaml:"runAsUser"`
 	// The Volumes to mount to this container.
 	//
 	// Automatically added to the Pod.
 	// See: https://kubernetes.io/docs/concepts/storage/volumes/
+	//
+	// Default: - no volumes.
 	//
 	// Experimental.
 	Volumes *[]EksVolume `field:"optional" json:"volumes" yaml:"volumes"`

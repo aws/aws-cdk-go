@@ -45,8 +45,12 @@ package awsappmesh
 //
 type AccessLogConfig struct {
 	// VirtualGateway CFN configuration for Access Logging.
+	// Default: - no access logging.
+	//
 	VirtualGatewayAccessLog *CfnVirtualGateway_VirtualGatewayAccessLogProperty `field:"optional" json:"virtualGatewayAccessLog" yaml:"virtualGatewayAccessLog"`
 	// VirtualNode CFN configuration for Access Logging.
+	// Default: - no access logging.
+	//
 	VirtualNodeAccessLog *CfnVirtualNode_AccessLogProperty `field:"optional" json:"virtualNodeAccessLog" yaml:"virtualNodeAccessLog"`
 }
 

@@ -19,6 +19,8 @@ type VpnGatewayProps struct {
 	// Default type ipsec.1.
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Explicitly specify an Asn or let aws pick an Asn for you.
+	// Default: 65000.
+	//
 	AmazonSideAsn *float64 `field:"optional" json:"amazonSideAsn" yaml:"amazonSideAsn"`
 }
 

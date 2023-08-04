@@ -15,8 +15,12 @@ package awsses
 //
 type VdmAttributesProps struct {
 	// Whether engagement metrics are enabled for your account.
+	// Default: true.
+	//
 	EngagementMetrics *bool `field:"optional" json:"engagementMetrics" yaml:"engagementMetrics"`
 	// Whether optimized shared delivery is enabled for your account.
+	// Default: true.
+	//
 	OptimizedSharedDelivery *bool `field:"optional" json:"optimizedSharedDelivery" yaml:"optimizedSharedDelivery"`
 }
 

@@ -15,8 +15,12 @@ package awscdk
 //
 type IntrinsicProps struct {
 	// Capture the stack trace of where this token is created.
+	// Default: true.
+	//
 	StackTrace *bool `field:"optional" json:"stackTrace" yaml:"stackTrace"`
 	// Type that this token is expected to evaluate to.
+	// Default: ResolutionTypeHint.STRING
+	//
 	TypeHint ResolutionTypeHint `field:"optional" json:"typeHint" yaml:"typeHint"`
 }
 

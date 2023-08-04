@@ -446,7 +446,7 @@ Path to data must be specified using a dot notation, e.g. to get the string valu
 of the `Title` attribute for the first item returned by `dynamodb.query` it should
 be `Items.0.Title.S`.
 
-To make sure that the newest API calls are available the latest AWS SDK v2 is installed
+To make sure that the newest API calls are available the latest AWS SDK v3 is installed
 in the Lambda function implementing the custom resource. The installation takes around 60
 seconds. If you prefer to optimize for speed, you can disable the installation by setting
 the `installLatestAwsSdk` prop to `false`.
@@ -675,38 +675,3 @@ getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHoste
 	}),
 })
 ```
-
-#### Using AWS SDK for JavaScript v3
-
-`AwsCustomResource` experimentally supports AWS SDK for JavaScript v3 (NODEJS_18_X or higher). In AWS SDK for JavaScript v3, packages are installed for each service. Therefore, specify the package name for `service`. Also, `action` specifies the XxxClient operations provided in the package. This example is the same as `SSM.getParameter` in v2.
-
-```go
-import "github.com/aws/aws-cdk-go/awscdk"
-
-
-type myFact struct {
-	region
-	name
-	value
-}
-
-// change custom resource default runtime
-regionInfo.Fact_Register(NewMyFact(), jsii.Boolean(true))
-
-cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &AwsCustomResourceProps{
-	ResourceType: jsii.String("Custom::SSMParameter"),
-	OnUpdate: &AwsSdkCall{
-		Service: jsii.String("@aws-sdk/client-ssm"),
-		 // 'SSM' in v2
-		Action: jsii.String("GetParameterCommand"),
-		 // 'getParameter' in v2
-		Parameters: map[string]interface{}{
-			"Name": jsii.String("foo"),
-			"WithDecryption": jsii.Boolean(true),
-		},
-		PhysicalResourceId: cr.PhysicalResourceId_FromResponse(jsii.String("Parameter.ARN")),
-	},
-})
-```
-
-If you are using `NODEJS_18_X` or higher, you can also use the existing AWS SDK for JavaScript v2 style.

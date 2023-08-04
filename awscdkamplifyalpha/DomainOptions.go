@@ -24,15 +24,23 @@ package awscdkamplifyalpha
 // Experimental.
 type DomainOptions struct {
 	// Branches which should automatically create subdomains.
+	// Default: - all repository branches ['*', 'pr*'].
+	//
 	// Experimental.
 	AutoSubdomainCreationPatterns *[]*string `field:"optional" json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
 	// The name of the domain.
+	// Default: - the construct's id.
+	//
 	// Experimental.
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// Automatically create subdomains for connected branches.
+	// Default: false.
+	//
 	// Experimental.
 	EnableAutoSubdomain *bool `field:"optional" json:"enableAutoSubdomain" yaml:"enableAutoSubdomain"`
 	// Subdomains.
+	// Default: - use `addSubDomain()` to add subdomains.
+	//
 	// Experimental.
 	SubDomains *[]*SubDomain `field:"optional" json:"subDomains" yaml:"subDomains"`
 }

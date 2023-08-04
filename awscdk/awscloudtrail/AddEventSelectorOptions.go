@@ -29,10 +29,16 @@ package awscloudtrail
 //
 type AddEventSelectorOptions struct {
 	// An optional list of service event sources from which you do not want management events to be logged on your trail.
+	// Default: [].
+	//
 	ExcludeManagementEventSources *[]ManagementEventSources `field:"optional" json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
 	// Specifies whether the event selector includes management events for the trail.
+	// Default: true.
+	//
 	IncludeManagementEvents *bool `field:"optional" json:"includeManagementEvents" yaml:"includeManagementEvents"`
 	// Specifies whether to log read-only events, write-only events, or all events.
+	// Default: ReadWriteType.All
+	//
 	ReadWriteType ReadWriteType `field:"optional" json:"readWriteType" yaml:"readWriteType"`
 }
 

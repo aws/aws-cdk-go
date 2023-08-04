@@ -35,6 +35,8 @@ import (
 // Experimental.
 type IotEventsPutMessageActionProps struct {
 	// The IAM role that allows access to AWS service.
+	// Default: a new role will be created.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether to process the event actions as a batch.
@@ -44,12 +46,16 @@ type IotEventsPutMessageActionProps struct {
 	// When batchMode is true and the rule SQL statement evaluates to an Array,
 	// each Array element is treated as a separate message when Events by calling BatchPutMessage.
 	// The resulting array can't have more than 10 messages.
+	// Default: false.
+	//
 	// Experimental.
 	BatchMode *bool `field:"optional" json:"batchMode" yaml:"batchMode"`
 	// The ID of the message.
 	//
 	// When batchMode is true, you can't specify a messageId--a new UUID value will be assigned.
 	// Assign a value to this property to ensure that only one input (message) with a given messageId will be processed by an AWS IoT Events detector.
+	// Default: - none -- a new UUID value will be assigned.
+	//
 	// Experimental.
 	MessageId *string `field:"optional" json:"messageId" yaml:"messageId"`
 }

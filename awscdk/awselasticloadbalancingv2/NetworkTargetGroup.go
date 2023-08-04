@@ -63,9 +63,13 @@ type NetworkTargetGroup interface {
 	// Set/replace the target group's health check.
 	ConfigureHealthCheck(healthCheck *HealthCheck)
 	// The number of targets that are considered healthy.
+	// Default: Average over 5 minutes.
+	//
 	// Deprecated: Use ``NetworkTargetGroup.metrics.healthyHostCount`` instead
 	MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of targets that are considered unhealthy.
+	// Default: Average over 5 minutes.
+	//
 	// Deprecated: Use ``NetworkTargetGroup.metrics.healthyHostCount`` instead
 	MetricUnHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Register a listener that is load balancing to this target group.

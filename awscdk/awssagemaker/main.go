@@ -615,6 +615,10 @@ func init() {
 		reflect.TypeOf((*CfnEndpoint_DeploymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpoint.RollingUpdatePolicyProperty",
+		reflect.TypeOf((*CfnEndpoint_RollingUpdatePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnEndpoint.TrafficRoutingConfigProperty",
 		reflect.TypeOf((*CfnEndpoint_TrafficRoutingConfigProperty)(nil)).Elem(),
 	)

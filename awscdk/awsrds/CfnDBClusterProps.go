@@ -146,6 +146,8 @@ type CfnDBClusterProps struct {
 	// Valid for: Aurora MySQL DB clusters only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow
 	//
+	// Default: - 0.
+	//
 	BacktrackWindow *float64 `field:"optional" json:"backtrackWindow" yaml:"backtrackWindow"`
 	// The number of days for which automated backups are retained.
 	//
@@ -157,6 +159,8 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backupretentionperiod
+	//
+	// Default: - 1.
 	//
 	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
@@ -211,6 +215,8 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname
+	//
+	// Default: - "default.aurora5.6"
 	//
 	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
@@ -452,6 +458,8 @@ type CfnDBClusterProps struct {
 	// Default: `0`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-monitoringinterval
 	//
+	// Default: - 0.
+	//
 	MonitoringInterval *float64 `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
 	//
@@ -611,6 +619,8 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-restoretype
+	//
+	// Default: - "full-copy".
 	//
 	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
 	// The `ScalingConfiguration` property type specifies the scaling configuration of an Aurora Serverless DB cluster.

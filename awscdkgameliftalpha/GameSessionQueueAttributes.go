@@ -18,11 +18,15 @@ type GameSessionQueueAttributes struct {
 	// The ARN of the gameSessionQueue.
 	//
 	// At least one of `gameSessionQueueArn` and `gameSessionQueueName` must be provided.
+	// Default: derived from `gameSessionQueueName`.
+	//
 	// Experimental.
 	GameSessionQueueArn *string `field:"optional" json:"gameSessionQueueArn" yaml:"gameSessionQueueArn"`
 	// The name of the gameSessionQueue.
 	//
 	// At least one of `gameSessionQueueName` and `gameSessionQueueArn`  must be provided.
+	// Default: derived from `gameSessionQueueArn`.
+	//
 	// Experimental.
 	GameSessionQueueName *string `field:"optional" json:"gameSessionQueueName" yaml:"gameSessionQueueName"`
 }

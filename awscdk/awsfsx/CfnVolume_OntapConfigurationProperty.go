@@ -17,6 +17,40 @@ package awsfsx
 //   	JunctionPath: jsii.String("junctionPath"),
 //   	OntapVolumeType: jsii.String("ontapVolumeType"),
 //   	SecurityStyle: jsii.String("securityStyle"),
+//   	SnaplockConfiguration: &SnaplockConfigurationProperty{
+//   		SnaplockType: jsii.String("snaplockType"),
+//
+//   		// the properties below are optional
+//   		AuditLogVolume: jsii.String("auditLogVolume"),
+//   		AutocommitPeriod: &AutocommitPeriodProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			Value: jsii.Number(123),
+//   		},
+//   		PrivilegedDelete: jsii.String("privilegedDelete"),
+//   		RetentionPeriod: &SnaplockRetentionPeriodProperty{
+//   			DefaultRetention: &RetentionPeriodProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Value: jsii.Number(123),
+//   			},
+//   			MaximumRetention: &RetentionPeriodProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Value: jsii.Number(123),
+//   			},
+//   			MinimumRetention: &RetentionPeriodProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Value: jsii.Number(123),
+//   			},
+//   		},
+//   		VolumeAppendModeEnabled: jsii.String("volumeAppendModeEnabled"),
+//   	},
 //   	SnapshotPolicy: jsii.String("snapshotPolicy"),
 //   	StorageEfficiencyEnabled: jsii.String("storageEfficiencyEnabled"),
 //   	TieringPolicy: &TieringPolicyProperty{
@@ -67,6 +101,10 @@ type CfnVolume_OntapConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-securitystyle
 	//
 	SecurityStyle *string `field:"optional" json:"securityStyle" yaml:"securityStyle"`
+	// The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-snaplockconfiguration
+	//
+	SnaplockConfiguration interface{} `field:"optional" json:"snaplockConfiguration" yaml:"snaplockConfiguration"`
 	// Specifies the snapshot policy for the volume. There are three built-in snapshot policies:.
 	//
 	// - `default` : This is the default policy. A maximum of six hourly snapshots taken five minutes past the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.

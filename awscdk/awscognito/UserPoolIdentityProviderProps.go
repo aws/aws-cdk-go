@@ -43,6 +43,8 @@ type UserPoolIdentityProviderProps struct {
 	// The user pool to which this construct provides identities.
 	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
+	// Default: - no attribute mapping.
+	//
 	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 }
 

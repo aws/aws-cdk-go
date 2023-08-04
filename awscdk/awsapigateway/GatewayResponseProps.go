@@ -31,10 +31,16 @@ type GatewayResponseProps struct {
 	//
 	Type ResponseType `field:"required" json:"type" yaml:"type"`
 	// Custom headers parameters for response.
+	// Default: - no headers.
+	//
 	ResponseHeaders *map[string]*string `field:"optional" json:"responseHeaders" yaml:"responseHeaders"`
 	// Http status code for response.
+	// Default: - standard http status code for the response type.
+	//
 	StatusCode *string `field:"optional" json:"statusCode" yaml:"statusCode"`
 	// Custom templates to get mapped as response.
+	// Default: - Response from api will be returned without applying any transformation.
+	//
 	Templates *map[string]*string `field:"optional" json:"templates" yaml:"templates"`
 	// Rest api resource to target.
 	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`

@@ -78,7 +78,7 @@ type CfnMonitorProps struct {
 	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// The resources to add to a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	//
-	// You can add a combination of Virtual Private Clouds (VPCs) and Amazon CloudFront distributions, or you can add WorkSpaces directories. You can't add all three types of resources.
+	// You can add a combination of Virtual Private Clouds (VPCs) and Amazon CloudFront distributions, or you can add Amazon WorkSpaces directories. You can't add all three types of resources.
 	//
 	// > If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-resourcestoadd

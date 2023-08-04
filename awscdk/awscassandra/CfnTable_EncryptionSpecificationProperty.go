@@ -28,6 +28,8 @@ type CfnTable_EncryptionSpecificationProperty struct {
 	// Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
 	//
+	// Default: - "AWS_OWNED_KMS_KEY".
+	//
 	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
 	// Requires a `kms_key_identifier` in the format of a key ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier

@@ -31,15 +31,22 @@ import (
 // Experimental.
 type EndpointConfigProps struct {
 	// Optional KMS encryption key associated with this stream.
+	// Default: - none.
+	//
 	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Name of the endpoint configuration.
+	// Default: - AWS CloudFormation generates a unique physical ID and uses that ID for the endpoint
+	// configuration's name.
+	//
 	// Experimental.
 	EndpointConfigName *string `field:"optional" json:"endpointConfigName" yaml:"endpointConfigName"`
 	// A list of instance production variants.
 	//
 	// You can always add more variants later by calling
 	// `EndpointConfig#addInstanceProductionVariant`.
+	// Default: - none.
+	//
 	// Experimental.
 	InstanceProductionVariants *[]*InstanceProductionVariantProps `field:"optional" json:"instanceProductionVariants" yaml:"instanceProductionVariants"`
 }

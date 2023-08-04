@@ -31,14 +31,23 @@ type ApplicationLoadBalancerAttributes struct {
 	// ID of the load balancer's security group.
 	SecurityGroupId *string `field:"required" json:"securityGroupId" yaml:"securityGroupId"`
 	// The canonical hosted zone ID of this load balancer.
+	// Default: - When not provided, LB cannot be used as Route53 Alias target.
+	//
 	LoadBalancerCanonicalHostedZoneId *string `field:"optional" json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// The DNS name of this load balancer.
+	// Default: - When not provided, LB cannot be used as Route53 Alias target.
+	//
 	LoadBalancerDnsName *string `field:"optional" json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// Whether the security group allows all outbound traffic or not.
 	//
 	// Unless set to `false`, no egress rules will be added to the security group.
+	// Default: true.
+	//
 	SecurityGroupAllowsAllOutbound *bool `field:"optional" json:"securityGroupAllowsAllOutbound" yaml:"securityGroupAllowsAllOutbound"`
 	// The VPC this load balancer has been created in, if available.
+	// Default: - If the Load Balancer was imported and a VPC was not specified,
+	// the VPC is not available.
+	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

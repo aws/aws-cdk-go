@@ -37,6 +37,8 @@ type ClusterAttributes struct {
 	// Experimental.
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The security groups of the redshift cluster.
+	// Default: no security groups will be attached to the import.
+	//
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }

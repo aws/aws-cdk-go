@@ -39,7 +39,7 @@ package awsvpclattice
 type CfnTargetGroup_TargetGroupConfigProperty struct {
 	// The port on which the targets are listening.
 	//
-	// For HTTP, the default is `80` . For HTTPS, the default is `443`
+	// For HTTP, the default is 80. For HTTPS, the default is 443.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-port
 	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
@@ -59,14 +59,18 @@ type CfnTargetGroup_TargetGroupConfigProperty struct {
 	HealthCheck interface{} `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The type of IP address used for the target group.
 	//
-	// The possible values are `ipv4` and `ipv6` . This is an optional parameter. If not specified, the IP address type defaults to `ipv4` .
+	// The possible values are `ipv4` and `ipv6` . This is an optional parameter. If not specified, the default is `ipv4` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-ipaddresstype
+	//
+	// Default: - "IPV4".
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The protocol version.
 	//
 	// Default value is `HTTP1` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-protocolversion
+	//
+	// Default: - "HTTP1".
 	//
 	ProtocolVersion *string `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`
 }

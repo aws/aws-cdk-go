@@ -148,32 +148,46 @@ type IntegTestCaseProps struct {
 	// first before the old resource is destroyed which prevents any outage.
 	//
 	// e.g. ['AWS::IAM::Role']
+	// Default: - do not allow destruction of any resources on update.
+	//
 	// Experimental.
 	AllowDestroy *[]*string `field:"optional" json:"allowDestroy" yaml:"allowDestroy"`
 	// Additional options to use for each CDK command.
+	// Default: - runner default options.
+	//
 	// Experimental.
 	CdkCommandOptions *cloudassemblyschema.CdkCommands `field:"optional" json:"cdkCommandOptions" yaml:"cdkCommandOptions"`
 	// Whether or not to include asset hashes in the diff Asset hashes can introduces a lot of unneccessary noise into tests, but there are some cases where asset hashes _should_ be included.
 	//
 	// For example
 	// any tests involving custom resources or bundling.
+	// Default: false.
+	//
 	// Experimental.
 	DiffAssets *bool `field:"optional" json:"diffAssets" yaml:"diffAssets"`
 	// Additional commands to run at predefined points in the test workflow.
 	//
 	// e.g. { postDeploy: ['yarn', 'test'] }
+	// Default: - no hooks.
+	//
 	// Experimental.
 	Hooks *cloudassemblyschema.Hooks `field:"optional" json:"hooks" yaml:"hooks"`
 	// Limit deployment to these regions.
+	// Default: - can run in any region.
+	//
 	// Experimental.
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 	// Run update workflow on this test case This should only be set to false to test scenarios that are not possible to test as part of the update workflow.
+	// Default: true.
+	//
 	// Experimental.
 	StackUpdateWorkflow *bool `field:"optional" json:"stackUpdateWorkflow" yaml:"stackUpdateWorkflow"`
 	// Stacks to be deployed during the test.
 	// Experimental.
 	Stacks *[]awscdk.Stack `field:"required" json:"stacks" yaml:"stacks"`
 	// Specify a stack to use for assertions.
+	// Default: - a stack is created for you.
+	//
 	// Experimental.
 	AssertionStack awscdk.Stack `field:"optional" json:"assertionStack" yaml:"assertionStack"`
 }

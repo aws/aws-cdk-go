@@ -18,11 +18,15 @@ type AliasAttributes struct {
 	// The ARN of the alias.
 	//
 	// At least one of `aliasArn` and `aliasId` must be provided.
+	// Default: derived from `aliasId`.
+	//
 	// Experimental.
 	AliasArn *string `field:"optional" json:"aliasArn" yaml:"aliasArn"`
 	// The identifier of the alias.
 	//
 	// At least one of `aliasId` and `aliasArn`  must be provided.
+	// Default: derived from `aliasArn`.
+	//
 	// Experimental.
 	AliasId *string `field:"optional" json:"aliasId" yaml:"aliasId"`
 }

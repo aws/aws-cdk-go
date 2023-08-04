@@ -24,10 +24,16 @@ package awsappmesh
 //
 type VirtualServiceProviderConfig struct {
 	// Mesh the Provider is using.
+	// Default: - none.
+	//
 	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// Virtual Node based provider.
+	// Default: - none.
+	//
 	VirtualNodeProvider *CfnVirtualService_VirtualNodeServiceProviderProperty `field:"optional" json:"virtualNodeProvider" yaml:"virtualNodeProvider"`
 	// Virtual Router based provider.
+	// Default: - none.
+	//
 	VirtualRouterProvider *CfnVirtualService_VirtualRouterServiceProviderProperty `field:"optional" json:"virtualRouterProvider" yaml:"virtualRouterProvider"`
 }
 

@@ -34,8 +34,14 @@ type ManualApprovalActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Default: 1.
+	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Default: - a name will be generated, based on the stage and action names,
+	// if any of the action's variables were referenced - otherwise,
+	// no namespace will be set.
+	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -44,10 +50,14 @@ type ManualApprovalActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your `IAction.bind`
 	// method in the `ActionBindOptions.role` property.
+	// Default: a new Role will be generated.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Any additional information that you want to include in the notification email message.
 	AdditionalInformation *string `field:"optional" json:"additionalInformation" yaml:"additionalInformation"`
 	// URL you want to provide to the reviewer as part of the approval request.
+	// Default: - the approval request will not have an external link.
+	//
 	ExternalEntityLink *string `field:"optional" json:"externalEntityLink" yaml:"externalEntityLink"`
 	// Optional SNS topic to send notifications to when an approval is pending.
 	NotificationTopic awssns.ITopic `field:"optional" json:"notificationTopic" yaml:"notificationTopic"`

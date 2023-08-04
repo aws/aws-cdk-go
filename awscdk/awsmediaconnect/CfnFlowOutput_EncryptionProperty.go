@@ -39,6 +39,8 @@ type CfnFlowOutput_EncryptionProperty struct {
 	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ). Valid key types are: `static-key` , `speke` , and `srt-password` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-keytype
 	//
+	// Default: - "static-key".
+	//
 	KeyType *string `field:"optional" json:"keyType" yaml:"keyType"`
 }
 

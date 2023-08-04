@@ -59,8 +59,12 @@ type OnCloudTrailImagePushedOptions struct {
 	// The scope to use if the source of the rule and its target are in different Stacks (but in the same account & region).
 	//
 	// This helps dealing with cycles that often arise in these situations.
+	// Default: - none (the main scope will be used, even for cross-stack Events).
+	//
 	CrossStackScope constructs.Construct `field:"optional" json:"crossStackScope" yaml:"crossStackScope"`
 	// A description of the rule's purpose.
+	// Default: - No description.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
@@ -69,12 +73,20 @@ type OnCloudTrailImagePushedOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
+	// Default: - No additional filtering based on an event pattern.
+	//
 	EventPattern *awsevents.EventPattern `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
+	// Default: AWS CloudFormation generates a unique physical ID.
+	//
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
+	// Default: - No target is added to the rule. Use `addTarget()` to add a target.
+	//
 	Target awsevents.IRuleTarget `field:"optional" json:"target" yaml:"target"`
 	// Only watch changes to this image tag.
+	// Default: - Watch changes to all tags.
+	//
 	ImageTag *string `field:"optional" json:"imageTag" yaml:"imageTag"`
 }
 

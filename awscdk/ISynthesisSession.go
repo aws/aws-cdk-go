@@ -17,6 +17,8 @@ type ISynthesisSession interface {
 	Outdir() *string
 	SetOutdir(o *string)
 	// Whether the stack should be validated after synthesis to check for error metadata.
+	// Default: - false.
+	//
 	ValidateOnSynth() *bool
 	SetValidateOnSynth(v *bool)
 }

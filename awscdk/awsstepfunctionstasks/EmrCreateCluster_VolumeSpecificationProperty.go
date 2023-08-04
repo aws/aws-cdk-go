@@ -35,6 +35,8 @@ type EmrCreateCluster_VolumeSpecificationProperty struct {
 	// Volume types supported are gp2, io1, standard.
 	VolumeType EmrCreateCluster_EbsBlockDeviceVolumeType `field:"required" json:"volumeType" yaml:"volumeType"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
+	// Default: - EMR selected default.
+	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 }
 

@@ -19,8 +19,12 @@ import (
 //
 type ZoneDelegationOptions struct {
 	// A comment to add on the DNS record created to incorporate the delegation.
+	// Default: none.
+	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The TTL (Time To Live) of the DNS delegation record in DNS caches.
+	// Default: 172800.
+	//
 	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 }
 

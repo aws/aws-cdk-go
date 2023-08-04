@@ -22,10 +22,14 @@ import (
 // Experimental.
 type S3PutObjectActionProps struct {
 	// The IAM role that allows access to AWS service.
+	// Default: a new role will be created.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
+	//
+	// Default: None.
 	//
 	// Experimental.
 	AccessControl awss3.BucketAccessControl `field:"optional" json:"accessControl" yaml:"accessControl"`
@@ -33,6 +37,8 @@ type S3PutObjectActionProps struct {
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
+	//
+	// Default: '${topic()}/${timestamp()}'.
 	//
 	// Experimental.
 	Key *string `field:"optional" json:"key" yaml:"key"`

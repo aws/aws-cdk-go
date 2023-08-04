@@ -38,12 +38,16 @@ import (
 // Experimental.
 type CloudWatchSetAlarmStateActionProps struct {
 	// The IAM role that allows access to AWS service.
+	// Default: a new role will be created.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The value of the alarm state to set.
 	// Experimental.
 	AlarmStateToSet awscloudwatch.AlarmState `field:"required" json:"alarmStateToSet" yaml:"alarmStateToSet"`
 	// The reason for the alarm change.
+	// Default: None.
+	//
 	// Experimental.
 	Reason *string `field:"optional" json:"reason" yaml:"reason"`
 }

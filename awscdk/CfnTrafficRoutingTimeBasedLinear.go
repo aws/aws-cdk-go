@@ -15,10 +15,14 @@ package awscdk
 //
 type CfnTrafficRoutingTimeBasedLinear struct {
 	// The number of minutes between the first and second traffic shifts of a time-based linear deployment.
+	// Default: 5.
+	//
 	BakeTimeMins *float64 `field:"optional" json:"bakeTimeMins" yaml:"bakeTimeMins"`
 	// The percentage of traffic that is shifted at the start of each increment of a time-based linear deployment.
 	//
 	// The step percentage must be 14% or greater.
+	// Default: 15.
+	//
 	StepPercentage *float64 `field:"optional" json:"stepPercentage" yaml:"stepPercentage"`
 }
 

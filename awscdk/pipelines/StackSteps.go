@@ -34,10 +34,16 @@ type StackSteps struct {
 	// The stack you want the steps to run in.
 	Stack awscdk.Stack `field:"required" json:"stack" yaml:"stack"`
 	// Steps that execute after stack is prepared but before stack is deployed.
+	// Default: - no additional steps.
+	//
 	ChangeSet *[]Step `field:"optional" json:"changeSet" yaml:"changeSet"`
 	// Steps that execute after stack is deployed.
+	// Default: - no additional steps.
+	//
 	Post *[]Step `field:"optional" json:"post" yaml:"post"`
 	// Steps that execute before stack is prepared.
+	// Default: - no additional steps.
+	//
 	Pre *[]Step `field:"optional" json:"pre" yaml:"pre"`
 }
 

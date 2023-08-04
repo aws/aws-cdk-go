@@ -64,7 +64,7 @@ type CfnTargetGroupProps struct {
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The target group configuration.
 	//
-	// If `type` is set to `LAMBDA` , this parameter doesn't apply.
+	// If the target group type is `LAMBDA` , this parameter doesn't apply.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html#cfn-vpclattice-targetgroup-config
 	//
 	Config interface{} `field:"optional" json:"config" yaml:"config"`

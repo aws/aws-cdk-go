@@ -58,16 +58,28 @@ type ClusterAttributes struct {
 	// The VPC associated with the cluster.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Autoscaling group added to the cluster if capacity is added.
+	// Default: - No default autoscaling group.
+	//
 	AutoscalingGroup awsautoscaling.IAutoScalingGroup `field:"optional" json:"autoscalingGroup" yaml:"autoscalingGroup"`
 	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// Default: Derived from clusterName.
+	//
 	ClusterArn *string `field:"optional" json:"clusterArn" yaml:"clusterArn"`
 	// The AWS Cloud Map namespace to associate with the cluster.
+	// Default: - No default namespace.
+	//
 	DefaultCloudMapNamespace awsservicediscovery.INamespace `field:"optional" json:"defaultCloudMapNamespace" yaml:"defaultCloudMapNamespace"`
 	// The execute command configuration for the cluster.
+	// Default: - none.
+	//
 	ExecuteCommandConfiguration *ExecuteCommandConfiguration `field:"optional" json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
 	// Specifies whether the cluster has EC2 instance capacity.
+	// Default: true.
+	//
 	HasEc2Capacity *bool `field:"optional" json:"hasEc2Capacity" yaml:"hasEc2Capacity"`
 	// The security groups associated with the container instances registered to the cluster.
+	// Default: - no security groups.
+	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 

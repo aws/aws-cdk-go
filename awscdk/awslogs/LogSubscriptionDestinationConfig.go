@@ -25,6 +25,8 @@ type LogSubscriptionDestinationConfig struct {
 	// The ARN of the subscription's destination.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The role to assume to write log events to the destination.
+	// Default: No role assumed.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

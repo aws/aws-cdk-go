@@ -29,13 +29,17 @@ type CertificateProps struct {
 	//
 	// May contain wildcards, such as ``*.domain.com``.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
-	// The Certifcate name.
+	// The Certificate name.
 	//
-	// Since the Certifcate resource doesn't support providing a physical name, the value provided here will be recorded in the `Name` tag.
+	// Since the Certificate resource doesn't support providing a physical name, the value provided here will be recorded in the `Name` tag.
+	// Default: the full, absolute path of this construct.
+	//
 	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// Alternative domain names on your certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
+	// Default: - No additional FQDNs will be included as alternative domain names.
+	//
 	SubjectAlternativeNames *[]*string `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 	// Enable or disable transparency logging for this certificate.
 	//
@@ -46,8 +50,12 @@ type CertificateProps struct {
 	// If you want the certificate to be logged immediately, we recommend that you issue a new one.
 	// See: https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency
 	//
+	// Default: true.
+	//
 	TransparencyLoggingEnabled *bool `field:"optional" json:"transparencyLoggingEnabled" yaml:"transparencyLoggingEnabled"`
 	// How to validate this certificate.
+	// Default: CertificateValidation.fromEmail()
+	//
 	Validation CertificateValidation `field:"optional" json:"validation" yaml:"validation"`
 }
 

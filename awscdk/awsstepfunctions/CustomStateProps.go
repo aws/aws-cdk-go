@@ -43,6 +43,7 @@ package awsstepfunctions
 //   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 //   	Definition: chain,
 //   	Timeout: awscdk.Duration_Seconds(jsii.Number(30)),
+//   	Comment: jsii.String("a super cool state machine"),
 //   })
 //
 //   // don't forget permissions. You need to assign them

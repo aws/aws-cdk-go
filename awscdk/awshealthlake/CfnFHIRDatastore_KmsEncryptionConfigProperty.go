@@ -26,7 +26,7 @@ type CfnFHIRDatastore_KmsEncryptionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-kmsencryptionconfig.html#cfn-healthlake-fhirdatastore-kmsencryptionconfig-cmktype
 	//
 	CmkType *string `field:"required" json:"cmkType" yaml:"cmkType"`
-	// The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
+	// The KMS encryption key id/alias used to encrypt the data store contents at rest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-kmsencryptionconfig.html#cfn-healthlake-fhirdatastore-kmsencryptionconfig-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

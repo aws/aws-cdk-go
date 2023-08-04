@@ -46,11 +46,16 @@ type FileAssetLocation struct {
 	// The CDK bootstrap stack comes with a key policy that does not require
 	// setting this property, so you only need to set this property if you
 	// have customized the bootstrap stack to require it.
+	// Default: - Asset bucket is not encrypted, or decryption permissions are
+	// defined by a Key Policy.
+	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// Like `s3ObjectUrl`, but not suitable for CloudFormation consumption.
 	//
 	// If there are placeholders in the S3 URL, they will be returned un-replaced
 	// and un-evaluated.
+	// Default: - This feature cannot be used.
+	//
 	S3ObjectUrlWithPlaceholders *string `field:"optional" json:"s3ObjectUrlWithPlaceholders" yaml:"s3ObjectUrlWithPlaceholders"`
 }
 

@@ -25,6 +25,8 @@ type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query service name.
 	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Default: - None.
+	//
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 

@@ -99,6 +99,9 @@ type Table interface {
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
+	// The tables' storage descriptor properties.
+	// Experimental.
+	StorageParameters() *[]StorageParameter
 	// ARN of this table.
 	// Experimental.
 	TableArn() *string
@@ -305,6 +308,16 @@ func (j *jsiiProxy_Table) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Table) StorageParameters() *[]StorageParameter {
+	var returns *[]StorageParameter
+	_jsii_.Get(
+		j,
+		"storageParameters",
 		&returns,
 	)
 	return returns

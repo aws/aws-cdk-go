@@ -15,8 +15,12 @@ package awscognito
 //
 type StringAttributeConstraints struct {
 	// Maximum length of this attribute.
+	// Default: 2048.
+	//
 	MaxLen *float64 `field:"optional" json:"maxLen" yaml:"maxLen"`
 	// Minimum length of this attribute.
+	// Default: 0.
+	//
 	MinLen *float64 `field:"optional" json:"minLen" yaml:"minLen"`
 }
 

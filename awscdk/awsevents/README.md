@@ -171,7 +171,7 @@ ecsTaskTarget := targets.NewEcsTask(&EcsTaskProps{
 
 ## Event Targets
 
-The `@aws-cdk/aws-events-targets` module includes classes that implement the `IRuleTarget`
+The `aws-cdk-lib/aws-events-targets` module includes classes that implement the `IRuleTarget`
 interface for various AWS services.
 
 The following targets are supported:

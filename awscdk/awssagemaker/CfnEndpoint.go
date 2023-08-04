@@ -23,6 +23,13 @@ import (
 //
 //   	// the properties below are optional
 //   	DeploymentConfig: &DeploymentConfigProperty{
+//   		AutoRollbackConfiguration: &AutoRollbackConfigProperty{
+//   			Alarms: []interface{}{
+//   				&AlarmProperty{
+//   					AlarmName: jsii.String("alarmName"),
+//   				},
+//   			},
+//   		},
 //   		BlueGreenUpdatePolicy: &BlueGreenUpdatePolicyProperty{
 //   			TrafficRoutingConfiguration: &TrafficRoutingConfigProperty{
 //   				Type: jsii.String("type"),
@@ -43,13 +50,18 @@ import (
 //   			MaximumExecutionTimeoutInSeconds: jsii.Number(123),
 //   			TerminationWaitInSeconds: jsii.Number(123),
 //   		},
+//   		RollingUpdatePolicy: &RollingUpdatePolicyProperty{
+//   			MaximumBatchSize: &CapacitySizeProperty{
+//   				Type: jsii.String("type"),
+//   				Value: jsii.Number(123),
+//   			},
+//   			WaitIntervalInSeconds: jsii.Number(123),
 //
-//   		// the properties below are optional
-//   		AutoRollbackConfiguration: &AutoRollbackConfigProperty{
-//   			Alarms: []interface{}{
-//   				&AlarmProperty{
-//   					AlarmName: jsii.String("alarmName"),
-//   				},
+//   			// the properties below are optional
+//   			MaximumExecutionTimeoutInSeconds: jsii.Number(123),
+//   			RollbackMaximumBatchSize: &CapacitySizeProperty{
+//   				Type: jsii.String("type"),
+//   				Value: jsii.Number(123),
 //   			},
 //   		},
 //   	},

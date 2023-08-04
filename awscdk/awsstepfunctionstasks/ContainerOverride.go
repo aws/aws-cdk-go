@@ -36,17 +36,27 @@ type ContainerOverride struct {
 	// Name of the container inside the task definition.
 	ContainerDefinition awsecs.ContainerDefinition `field:"required" json:"containerDefinition" yaml:"containerDefinition"`
 	// Command to run inside the container.
+	// Default: - Default command from the Docker image or the task definition.
+	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The number of cpu units reserved for the container.
+	// Default: - The default value from the task definition.
+	//
 	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
 	// The environment variables to send to the container.
 	//
 	// You can add new environment variables, which are added to the container at launch,
 	// or you can override the existing environment variables from the Docker image or the task definition.
+	// Default: - The existing environment variables from the Docker image or the task definition.
+	//
 	Environment *[]*TaskEnvironmentVariable `field:"optional" json:"environment" yaml:"environment"`
 	// The hard limit (in MiB) of memory to present to the container.
+	// Default: - The default value from the task definition.
+	//
 	MemoryLimit *float64 `field:"optional" json:"memoryLimit" yaml:"memoryLimit"`
 	// The soft limit (in MiB) of memory to reserve for the container.
+	// Default: - The default value from the task definition.
+	//
 	MemoryReservation *float64 `field:"optional" json:"memoryReservation" yaml:"memoryReservation"`
 }
 

@@ -18,7 +18,19 @@ import (
 // - To create a static policy, in the `Definition` include a `Static` element that includes the Cedar policy text in the `Statement` element.
 // - To create a policy that is dynamically linked to a policy template, in the `Definition` include a `Templatelinked` element that specifies the policy template ID and the principal and resource to associate with this policy. If the policy template is ever updated, any policies linked to the policy template automatically use the updated template.
 //
-// > If the policy store has validation enabled, then creating a policy causes it to be validated against the schema in the policy store. If the policy doesn't pass validation, the operation fails and the policy isn't stored.
+// > - If policy validation is enabled in the policy store, then updating a static policy causes Verified Permissions to validate the policy against the schema in the policy store. If the updated static policy doesn't pass validation, the operation fails and the update isn't stored.
+// > - When you edit a static policy, You can change only certain elements of a static policy:
+// >
+// > - The action referenced by the policy.
+// > - A condition clause, such as when and unless.
+// >
+// > You can't change these elements of a static policy:
+// >
+// > - Changing a policy from a static policy to a template-linked policy.
+// > - Changing the effect of a static policy from permit or forbid.
+// > - The principal referenced by a static policy.
+// > - The resource referenced by a static policy.
+// > - To update a template-linked policy, you must update the template instead.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

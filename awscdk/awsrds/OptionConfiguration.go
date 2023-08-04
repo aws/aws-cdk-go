@@ -37,19 +37,29 @@ type OptionConfiguration struct {
 	//
 	// If `port` is specified then `vpc`
 	// must also be specified.
+	// Default: - no port.
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Optional list of security groups to use for this option, if `vpc` is specified.
 	//
 	// If no groups are provided, a default one will be created.
+	// Default: - a default group will be created if `port` or `vpc` are specified.
+	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The settings for the option.
+	// Default: - no settings.
+	//
 	Settings *map[string]*string `field:"optional" json:"settings" yaml:"settings"`
 	// The version for the option.
+	// Default: - no version.
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 	// The VPC where a security group should be created for this option.
 	//
 	// If `vpc`
 	// is specified then `port` must also be specified.
+	// Default: - no VPC.
+	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

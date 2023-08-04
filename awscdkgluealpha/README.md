@@ -240,7 +240,28 @@ glue.NewTable(this, jsii.String("MyTable"), &TableProps{
 })
 ```
 
-By default, an S3 bucket will be created to store the table's data and stored in the bucket root. You can also manually pass the `bucket` and `s3Prefix`:
+Glue tables can be configured to contain user-defined properties, to describe the physical storage of table data, through the `storageParameters` property:
+
+```go
+var myDatabase database
+
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	StorageParameters: []storageParameter{
+		glue.*storageParameter_SkipHeaderLineCount(jsii.Number(1)),
+		glue.*storageParameter_CompressionType(glue.CompressionType_GZIP),
+		glue.*storageParameter_Custom(jsii.String("separatorChar"), jsii.String(",")),
+	},
+	// ...
+	Database: myDatabase,
+	Columns: []column{
+		&column{
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+})
+```
 
 ### Partition Keys
 

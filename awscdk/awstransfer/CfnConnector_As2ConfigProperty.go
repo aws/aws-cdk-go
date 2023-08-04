@@ -1,7 +1,7 @@
 package awstransfer
 
 
-// A structure that contains the parameters for a connector object.
+// A structure that contains the parameters for an AS2 connector object.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

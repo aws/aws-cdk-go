@@ -30,6 +30,8 @@ type QueryDefinitionProps struct {
 	// The query string to use for this query definition.
 	QueryString QueryString `field:"required" json:"queryString" yaml:"queryString"`
 	// Specify certain log groups for the query definition.
+	// Default: - no specified log groups.
+	//
 	LogGroups *[]ILogGroup `field:"optional" json:"logGroups" yaml:"logGroups"`
 }
 

@@ -39,21 +39,31 @@ import (
 // Experimental.
 type DomainProps struct {
 	// Branches which should automatically create subdomains.
+	// Default: - all repository branches ['*', 'pr*'].
+	//
 	// Experimental.
 	AutoSubdomainCreationPatterns *[]*string `field:"optional" json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
 	// The name of the domain.
+	// Default: - the construct's id.
+	//
 	// Experimental.
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// Automatically create subdomains for connected branches.
+	// Default: false.
+	//
 	// Experimental.
 	EnableAutoSubdomain *bool `field:"optional" json:"enableAutoSubdomain" yaml:"enableAutoSubdomain"`
 	// Subdomains.
+	// Default: - use `addSubDomain()` to add subdomains.
+	//
 	// Experimental.
 	SubDomains *[]*SubDomain `field:"optional" json:"subDomains" yaml:"subDomains"`
 	// The application to which the domain must be connected.
 	// Experimental.
 	App IApp `field:"required" json:"app" yaml:"app"`
 	// The IAM role with access to Route53 when using enableAutoSubdomain.
+	// Default: the IAM role from App.grantPrincipal
+	//
 	// Experimental.
 	AutoSubDomainIamRole awsiam.IRole `field:"optional" json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`
 }

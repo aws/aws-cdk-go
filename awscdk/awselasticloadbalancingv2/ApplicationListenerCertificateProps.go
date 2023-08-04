@@ -26,6 +26,8 @@ type ApplicationListenerCertificateProps struct {
 	// Certificates to attach.
 	//
 	// Duplicates are not allowed.
+	// Default: - One of 'certificates' and 'certificateArns' is required.
+	//
 	Certificates *[]IListenerCertificate `field:"optional" json:"certificates" yaml:"certificates"`
 }
 

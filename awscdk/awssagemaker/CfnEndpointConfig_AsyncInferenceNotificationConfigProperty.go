@@ -25,6 +25,9 @@ type CfnEndpointConfig_AsyncInferenceNotificationConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-errortopic
 	//
 	ErrorTopic *string `field:"optional" json:"errorTopic" yaml:"errorTopic"`
+	// The Amazon SNS topics where you want the inference response to be included.
+	//
+	// > The inference response is included only if the response size is less than or equal to 128 KB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-includeinferenceresponsein
 	//
 	IncludeInferenceResponseIn *[]*string `field:"optional" json:"includeInferenceResponseIn" yaml:"includeInferenceResponseIn"`

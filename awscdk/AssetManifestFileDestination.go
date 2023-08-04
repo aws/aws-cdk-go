@@ -25,8 +25,12 @@ type AssetManifestFileDestination struct {
 	// Bucket name where the file asset should be written.
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// Prefix to prepend to the asset hash.
+	// Default: ''.
+	//
 	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// Role to use for uploading.
+	// Default: - current role.
+	//
 	Role *RoleOptions `field:"optional" json:"role" yaml:"role"`
 }
 

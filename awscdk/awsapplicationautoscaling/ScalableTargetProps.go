@@ -64,6 +64,8 @@ type ScalableTargetProps struct {
 	//
 	ServiceNamespace ServiceNamespace `field:"required" json:"serviceNamespace" yaml:"serviceNamespace"`
 	// Role that allows Application Auto Scaling to modify your scalable target.
+	// Default: A role is automatically created.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

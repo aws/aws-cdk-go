@@ -35,10 +35,16 @@ type AclTrafficConfig struct {
 	// block, traffic for all ICMP types and codes allowed, regardless of any that
 	// you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR
 	// block, you must specify an ICMP type and code.
+	// Default: 17.
+	//
 	Protocol *float64 `field:"required" json:"protocol" yaml:"protocol"`
 	// The Internet Control Message Protocol (ICMP) code and type.
+	// Default: - Required if specifying 1 (ICMP) for the protocol parameter.
+	//
 	Icmp *AclIcmp `field:"optional" json:"icmp" yaml:"icmp"`
 	// The range of port numbers for the UDP/TCP protocol.
+	// Default: - Required if specifying 6 (TCP) or 17 (UDP) for the protocol parameter.
+	//
 	PortRange *AclPortRange `field:"optional" json:"portRange" yaml:"portRange"`
 }
 

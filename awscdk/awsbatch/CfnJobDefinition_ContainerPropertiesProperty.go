@@ -91,6 +91,10 @@ package awsbatch
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	RuntimePlatform: &RuntimePlatformProperty{
+//   		CpuArchitecture: jsii.String("cpuArchitecture"),
+//   		OperatingSystemFamily: jsii.String("operatingSystemFamily"),
+//   	},
 //   	Secrets: []interface{}{
 //   		&SecretProperty{
 //   			Name: jsii.String("name"),
@@ -245,6 +249,9 @@ type CfnJobDefinition_ContainerPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-resourcerequirements
 	//
 	ResourceRequirements interface{} `field:"optional" json:"resourceRequirements" yaml:"resourceRequirements"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-runtimeplatform
+	//
+	RuntimePlatform interface{} `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
 	// The secrets for the container.
 	//
 	// For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .

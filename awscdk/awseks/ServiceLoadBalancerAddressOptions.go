@@ -19,8 +19,12 @@ import (
 //
 type ServiceLoadBalancerAddressOptions struct {
 	// The namespace the service belongs to.
+	// Default: 'default'.
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// Timeout for waiting on the load balancer address.
+	// Default: Duration.minutes(5)
+	//
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

@@ -28,10 +28,16 @@ package awscognito
 //
 type OAuthFlows struct {
 	// Initiate an authorization code grant flow, which provides an authorization code as the response.
+	// Default: false.
+	//
 	AuthorizationCodeGrant *bool `field:"optional" json:"authorizationCodeGrant" yaml:"authorizationCodeGrant"`
 	// Client should get the access token and ID token from the token endpoint using a combination of client and client_secret.
+	// Default: false.
+	//
 	ClientCredentials *bool `field:"optional" json:"clientCredentials" yaml:"clientCredentials"`
 	// The client should get the access token and ID token directly.
+	// Default: false.
+	//
 	ImplicitCodeGrant *bool `field:"optional" json:"implicitCodeGrant" yaml:"implicitCodeGrant"`
 }
 

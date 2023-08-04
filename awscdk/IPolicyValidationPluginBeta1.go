@@ -49,6 +49,8 @@ type IPolicyValidationPluginBeta1 interface {
 	//
 	// Used for analytics
 	// purposes.
+	// Default: - No rule is reported.
+	//
 	RuleIds() *[]*string
 	// The version of the plugin, following the Semantic Versioning specification (see https://semver.org/). This version is used for analytics purposes, to measure the usage of different plugins and different versions. The value of this property should be kept in sync with the actual version of the software package. If the version is not provided or is not a valid semantic version, it will be reported as `0.0.0`.
 	Version() *string

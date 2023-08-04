@@ -50,7 +50,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html
 //
 type CfnRoutingProfileProps struct {
-	// The identifier of the default outbound queue for this routing profile.
+	// The Amazon Resource Name (ARN) of the default outbound queue for the routing profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-defaultoutboundqueuearn
 	//
 	DefaultOutboundQueueArn *string `field:"required" json:"defaultOutboundQueueArn" yaml:"defaultOutboundQueueArn"`
@@ -70,11 +70,15 @@ type CfnRoutingProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The queues to associate with this routing profile.
+	// The inbound queues associated with the routing profile.
+	//
+	// If no queue is added, the agent can make only outbound calls.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-queueconfigs
 	//
 	QueueConfigs interface{} `field:"optional" json:"queueConfigs" yaml:"queueConfigs"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

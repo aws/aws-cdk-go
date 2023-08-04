@@ -37,26 +37,38 @@ type RedirectOptions struct {
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
+	// Default: - No change.
+	//
 	Host *string `field:"optional" json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+	// Default: - No change.
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The HTTP redirect code.
 	//
 	// The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+	// Default: false.
+	//
 	Permanent *bool `field:"optional" json:"permanent" yaml:"permanent"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
+	// Default: - No change.
+	//
 	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	// Default: - No change.
+	//
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+	// Default: - No change.
+	//
 	Query *string `field:"optional" json:"query" yaml:"query"`
 }
 

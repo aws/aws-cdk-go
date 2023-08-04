@@ -35,4 +35,4 @@ alarm.AddAlarmAction(
 actions.NewSsmIncidentAction(jsii.String("ResponsePlanName")))
 ```
 
-See `@aws-cdk/aws-cloudwatch` for more information.
+See `aws-cdk-lib/aws-cloudwatch` for more information.

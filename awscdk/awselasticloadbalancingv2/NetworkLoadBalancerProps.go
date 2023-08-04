@@ -32,14 +32,24 @@ type NetworkLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
+	// Default: false.
+	//
 	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
+	// Default: false.
+	//
 	InternetFacing *bool `field:"optional" json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
+	// Default: - Automatically generated name.
+	//
 	LoadBalancerName *string `field:"optional" json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
+	// Default: - the Vpc default strategy.
+	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Indicates whether cross-zone load balancing is enabled.
+	// Default: false.
+	//
 	CrossZoneEnabled *bool `field:"optional" json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
 }
 

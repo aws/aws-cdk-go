@@ -33,16 +33,24 @@ type SqsSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
+	// Default: - No dead letter queue enabled.
+	//
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
+	// Default: - all messages are delivered.
+	//
 	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// The filter policy that is applied on the message body.
 	//
 	// To apply a filter policy to the message attributes, use `filterPolicy`. A maximum of one of `filterPolicyWithMessageBody` and `filterPolicy` may be used.
+	// Default: - all messages are delivered.
+	//
 	FilterPolicyWithMessageBody *map[string]awssns.FilterOrPolicy `field:"optional" json:"filterPolicyWithMessageBody" yaml:"filterPolicyWithMessageBody"`
 	// The message to the queue is the same as it was sent to the topic.
 	//
 	// If false, the message will be wrapped in an SNS envelope.
+	// Default: false.
+	//
 	RawMessageDelivery *bool `field:"optional" json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 }
 

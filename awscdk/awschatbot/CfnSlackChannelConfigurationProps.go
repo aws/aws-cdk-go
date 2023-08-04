@@ -61,6 +61,8 @@ type CfnSlackChannelConfigurationProps struct {
 	// Logging levels include `ERROR` , `INFO` , or `NONE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
 	//
+	// Default: - "NONE".
+	//
 	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// The ARNs of the SNS topics that deliver notifications to AWS Chatbot .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
@@ -68,6 +70,8 @@ type CfnSlackChannelConfigurationProps struct {
 	SnsTopicArns *[]*string `field:"optional" json:"snsTopicArns" yaml:"snsTopicArns"`
 	// Enables use of a user role requirement in your chat configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-userrolerequired
+	//
+	// Default: - false.
 	//
 	UserRoleRequired interface{} `field:"optional" json:"userRoleRequired" yaml:"userRoleRequired"`
 }

@@ -23,8 +23,12 @@ import (
 //
 type ResourcePolicyProps struct {
 	// Initial statements to add to the resource policy.
+	// Default: - No statements.
+	//
 	PolicyStatements *[]awsiam.PolicyStatement `field:"optional" json:"policyStatements" yaml:"policyStatements"`
 	// Name of the log group resource policy.
+	// Default: - Uses a unique id based on the construct path.
+	//
 	ResourcePolicyName *string `field:"optional" json:"resourcePolicyName" yaml:"resourcePolicyName"`
 }
 

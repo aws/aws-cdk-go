@@ -26,10 +26,18 @@ type CfnRoutingProfile_MediaConcurrencyProperty struct {
 	//
 	Channel *string `field:"required" json:"channel" yaml:"channel"`
 	// The number of contacts an agent can have on a channel simultaneously.
+	//
+	// Valid Range for `VOICE` : Minimum value of 1. Maximum value of 1.
+	//
+	// Valid Range for `CHAT` : Minimum value of 1. Maximum value of 10.
+	//
+	// Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-mediaconcurrency.html#cfn-connect-routingprofile-mediaconcurrency-concurrency
 	//
 	Concurrency *float64 `field:"required" json:"concurrency" yaml:"concurrency"`
-	// Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+	// Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile.
+	//
+	// For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-mediaconcurrency.html#cfn-connect-routingprofile-mediaconcurrency-crosschannelbehavior
 	//
 	CrossChannelBehavior interface{} `field:"optional" json:"crossChannelBehavior" yaml:"crossChannelBehavior"`

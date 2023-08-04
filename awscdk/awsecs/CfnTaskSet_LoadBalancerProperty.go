@@ -17,7 +17,6 @@ package awsecs
 //   loadBalancerProperty := &LoadBalancerProperty{
 //   	ContainerName: jsii.String("containerName"),
 //   	ContainerPort: jsii.Number(123),
-//   	LoadBalancerName: jsii.String("loadBalancerName"),
 //   	TargetGroupArn: jsii.String("targetGroupArn"),
 //   }
 //
@@ -34,15 +33,9 @@ type CfnTaskSet_LoadBalancerProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containerport
 	//
 	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
-	// The name of the load balancer to associate with the Amazon ECS service or task set.
-	//
-	// A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-loadbalancername
-	//
-	LoadBalancerName *string `field:"optional" json:"loadBalancerName" yaml:"loadBalancerName"`
 	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
 	//
-	// A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you're using a Classic Load Balancer, omit the target group ARN.
+	// A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer.
 	//
 	// For services using the `ECS` deployment controller, you can specify one or multiple target groups. For more information, see [Registering multiple target groups with a service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//

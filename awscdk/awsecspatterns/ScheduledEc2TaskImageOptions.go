@@ -29,18 +29,30 @@ type ScheduledEc2TaskImageOptions struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, but not both.
+	// Default: - none.
+	//
 	Image awsecs.ContainerImage `field:"required" json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
+	// Default: - CMD value built into container image.
+	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The environment variables to pass to the container.
+	// Default: none.
+	//
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The log driver to use.
+	// Default: - AwsLogDriver if enableLogging is true.
+	//
 	LogDriver awsecs.LogDriver `field:"optional" json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
+	// Default: - No secret environment variables.
+	//
 	Secrets *map[string]awsecs.Secret `field:"optional" json:"secrets" yaml:"secrets"`
 	// The minimum number of CPU units to reserve for the container.
+	// Default: none.
+	//
 	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
 	// The hard limit (in MiB) of memory to present to the container.
 	//
@@ -48,6 +60,8 @@ type ScheduledEc2TaskImageOptions struct {
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Default: - No memory limit.
+	//
 	MemoryLimitMiB *float64 `field:"optional" json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
@@ -57,6 +71,8 @@ type ScheduledEc2TaskImageOptions struct {
 	// the available memory on the container instance—whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Default: - No memory reserved.
+	//
 	MemoryReservationMiB *float64 `field:"optional" json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 }
 

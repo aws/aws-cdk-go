@@ -73,12 +73,20 @@ type CloudFormationStackArtifact interface {
 	// Any assets associated with this stack.
 	Assets() *[]interface{}
 	// The role that needs to be assumed to deploy the stack.
+	// Default: - No role is assumed (current credentials are used).
+	//
 	AssumeRoleArn() *string
 	// External ID to use when assuming role for cloudformation deployments.
+	// Default: - No external ID.
+	//
 	AssumeRoleExternalId() *string
 	// Name of SSM parameter with bootstrap stack version.
+	// Default: - Discover SSM parameter by reading stack.
+	//
 	BootstrapStackVersionSsmParameter() *string
 	// The role that is passed to CloudFormation to execute the change set.
+	// Default: - No role is passed (currently assumed role/credentials are used).
+	//
 	CloudFormationExecutionRoleArn() *string
 	// Returns all the artifacts that this artifact depends on.
 	Dependencies() *[]CloudArtifact
@@ -98,6 +106,8 @@ type CloudFormationStackArtifact interface {
 	HierarchicalId() *string
 	Id() *string
 	// The role to use to look up values from the target AWS account.
+	// Default: - No role is assumed (current credentials are used).
+	//
 	LookupRole() *cloudassemblyschema.BootstrapRole
 	// The artifact's manifest.
 	Manifest() *cloudassemblyschema.ArtifactManifest
@@ -108,10 +118,14 @@ type CloudFormationStackArtifact interface {
 	// CloudFormation parameters to pass to the stack.
 	Parameters() *map[string]*string
 	// Version of bootstrap stack required to deploy this stack.
+	// Default: - No bootstrap stack required.
+	//
 	RequiresBootstrapStackVersion() *float64
 	// The physical name of this stack.
 	StackName() *string
 	// If the stack template has already been included in the asset manifest, its asset URL.
+	// Default: - Not uploaded yet, upload just before deploying.
+	//
 	StackTemplateAssetObjectUrl() *string
 	// CloudFormation tags to pass to the stack.
 	Tags() *map[string]*string
@@ -124,6 +138,8 @@ type CloudFormationStackArtifact interface {
 	// Whether termination protection is enabled for this stack.
 	TerminationProtection() *bool
 	// Whether this stack should be validated by the CLI after synthesis.
+	// Default: - false.
+	//
 	ValidateOnSynth() *bool
 	// Returns: all the metadata entries of a specific type in this artifact.
 	FindMetadataByType(type_ *string) *[]*MetadataEntryResult

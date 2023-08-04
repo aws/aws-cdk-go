@@ -14,8 +14,12 @@ package awsappmesh
 //
 type VirtualRouterBaseProps struct {
 	// Listener specification for the VirtualRouter.
+	// Default: - A listener on HTTP port 8080.
+	//
 	Listeners *[]VirtualRouterListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// The name of the VirtualRouter.
+	// Default: - A name is automatically determined.
+	//
 	VirtualRouterName *string `field:"optional" json:"virtualRouterName" yaml:"virtualRouterName"`
 }
 

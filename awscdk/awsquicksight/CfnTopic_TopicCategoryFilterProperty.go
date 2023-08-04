@@ -45,6 +45,8 @@ type CfnTopic_TopicCategoryFilterProperty struct {
 	// A Boolean value that indicates if the filter is inverse.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilter.html#cfn-quicksight-topic-topiccategoryfilter-inverse
 	//
+	// Default: - false.
+	//
 	Inverse interface{} `field:"optional" json:"inverse" yaml:"inverse"`
 }
 

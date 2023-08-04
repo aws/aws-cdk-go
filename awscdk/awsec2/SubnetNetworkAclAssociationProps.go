@@ -27,6 +27,9 @@ type SubnetNetworkAclAssociationProps struct {
 	// The name of the SubnetNetworkAclAssociation.
 	//
 	// It is not recommended to use an explicit name.
+	// Default: If you don't specify a SubnetNetworkAclAssociationName, AWS CloudFormation generates a
+	// unique physical ID and uses that ID for the group name.
+	//
 	SubnetNetworkAclAssociationName *string `field:"optional" json:"subnetNetworkAclAssociationName" yaml:"subnetNetworkAclAssociationName"`
 }
 

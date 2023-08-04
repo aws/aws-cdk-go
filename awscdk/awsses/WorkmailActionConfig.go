@@ -19,6 +19,8 @@ type WorkmailActionConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon WorkMail organization.
 	OrganizationArn *string `field:"required" json:"organizationArn" yaml:"organizationArn"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called.
+	// Default: - No notification is sent to SNS.
+	//
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

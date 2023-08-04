@@ -33,8 +33,12 @@ type ClientVpnRouteProps struct {
 	// The target for the route.
 	Target ClientVpnRouteTarget `field:"required" json:"target" yaml:"target"`
 	// A brief description of the authorization rule.
+	// Default: - no description.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The client VPN endpoint to which to add the route.
+	// Default: clientVpnEndpoint is required.
+	//
 	ClientVpnEndpoint IClientVpnEndpoint `field:"optional" json:"clientVpnEndpoint" yaml:"clientVpnEndpoint"`
 }
 

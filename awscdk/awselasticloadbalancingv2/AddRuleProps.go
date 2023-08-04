@@ -21,6 +21,8 @@ type AddRuleProps struct {
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
+	// Default: - No conditions.
+	//
 	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Priority of this target group.
 	//
@@ -29,6 +31,8 @@ type AddRuleProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
+	// Default: Target groups are used as defaults.
+	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 

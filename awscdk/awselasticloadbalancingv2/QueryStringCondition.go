@@ -19,6 +19,8 @@ type QueryStringCondition struct {
 	// The query string value for the condition.
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// The query string key for the condition.
+	// Default: - Any key can be matched.
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 

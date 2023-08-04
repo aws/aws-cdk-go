@@ -96,7 +96,7 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 })
 ```
 
-See the documentation of `@aws-cdk/aws-cloudfront` for more information.
+See the documentation of `aws-cdk-lib/aws-cloudfront` for more information.
 
 ## Failover Origins (Origin Groups)
 

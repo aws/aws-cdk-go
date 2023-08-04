@@ -25,8 +25,12 @@ type FunctionProps struct {
 	// The source code of the function.
 	Code FunctionCode `field:"required" json:"code" yaml:"code"`
 	// A comment to describe the function.
+	// Default: - same as `functionName`.
+	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// A name to identify the function.
+	// Default: - generated from the `id`.
+	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 }
 

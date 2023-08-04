@@ -90,7 +90,7 @@ type CfnUserPoolClient interface {
 	// The allowed OAuth flows.
 	AllowedOAuthFlows() *[]*string
 	SetAllowedOAuthFlows(val *[]*string)
-	// Set to true if the client is allowed to follow the OAuth protocol when interacting with Amazon Cognito user pools.
+	// Set to `true` to use OAuth 2.0 features in your user pool app client.
 	AllowedOAuthFlowsUserPoolClient() interface{}
 	SetAllowedOAuthFlowsUserPoolClient(val interface{})
 	// The allowed OAuth scopes.

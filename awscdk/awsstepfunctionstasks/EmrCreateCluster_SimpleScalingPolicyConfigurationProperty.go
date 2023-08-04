@@ -26,8 +26,12 @@ type EmrCreateCluster_SimpleScalingPolicyConfigurationProperty struct {
 	// a positive integer.
 	ScalingAdjustment *float64 `field:"required" json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered.
+	// Default: - None.
+	//
 	AdjustmentType EmrCreateCluster_ScalingAdjustmentType `field:"optional" json:"adjustmentType" yaml:"adjustmentType"`
 	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
+	// Default: 0.
+	//
 	CoolDown *float64 `field:"optional" json:"coolDown" yaml:"coolDown"`
 }
 

@@ -42,6 +42,8 @@ type OutputDataConfig struct {
 	// Identifies the S3 path where you want Amazon SageMaker to store the model artifacts.
 	S3OutputLocation S3Location `field:"required" json:"s3OutputLocation" yaml:"s3OutputLocation"`
 	// Optional KMS encryption key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	// Default: - Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

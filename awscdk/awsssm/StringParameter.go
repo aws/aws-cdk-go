@@ -26,6 +26,8 @@ type StringParameter interface {
 	// The encryption key that is used to encrypt this parameter.
 	//
 	// *.
+	// Default: - default master key.
+	//
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
