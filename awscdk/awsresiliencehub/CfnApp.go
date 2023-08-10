@@ -75,7 +75,7 @@ type CfnApp interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The optional description for an app.
+	// Optional description for an application.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -88,7 +88,7 @@ type CfnApp interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name for the application.
+	// Name for the application.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -110,7 +110,7 @@ type CfnApp interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The tags assigned to the resource.
+	// Tags assigned to the resource.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
 	// Deprecated.

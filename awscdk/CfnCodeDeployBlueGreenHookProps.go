@@ -72,8 +72,6 @@ type CfnCodeDeployBlueGreenHookProps struct {
 	// The IAM Role for CloudFormation to use to perform blue-green deployments.
 	ServiceRole *string `field:"required" json:"serviceRole" yaml:"serviceRole"`
 	// Additional options for the blue/green deployment.
-	// Default: - no additional options.
-	//
 	AdditionalOptions *CfnCodeDeployBlueGreenAdditionalOptions `field:"optional" json:"additionalOptions" yaml:"additionalOptions"`
 	// Use lifecycle event hooks to specify a Lambda function that CodeDeploy can call to validate a deployment.
 	//
@@ -81,12 +79,8 @@ type CfnCodeDeployBlueGreenHookProps struct {
 	// Following completion of the validation tests,
 	// the Lambda `CfnCodeDeployBlueGreenLifecycleEventHooks.afterAllowTraffic`
 	// function calls back CodeDeploy and delivers a result of 'Succeeded' or 'Failed'.
-	// Default: - no lifecycle event hooks.
-	//
 	LifecycleEventHooks *CfnCodeDeployBlueGreenLifecycleEventHooks `field:"optional" json:"lifecycleEventHooks" yaml:"lifecycleEventHooks"`
 	// Traffic routing configuration settings.
-	// Default: - time-based canary traffic shifting, with a 15% step percentage and a five minute bake time.
-	//
 	TrafficRoutingConfig *CfnTrafficRoutingConfig `field:"optional" json:"trafficRoutingConfig" yaml:"trafficRoutingConfig"`
 }
 

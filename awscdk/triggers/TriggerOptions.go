@@ -28,8 +28,6 @@ type TriggerOptions struct {
 	// Adds trigger dependencies. Execute this trigger only after these construct scopes have been provisioned.
 	//
 	// You can also use `trigger.executeAfter()` to add additional dependencies.
-	// Default: [].
-	//
 	ExecuteAfter *[]constructs.Construct `field:"optional" json:"executeAfter" yaml:"executeAfter"`
 	// Adds this trigger as a dependency on other constructs.
 	//
@@ -37,16 +35,12 @@ type TriggerOptions struct {
 	// trigger will get executed *before* the given construct(s).
 	//
 	// You can also use `trigger.executeBefore()` to add additional dependants.
-	// Default: [].
-	//
 	ExecuteBefore *[]constructs.Construct `field:"optional" json:"executeBefore" yaml:"executeBefore"`
 	// Re-executes the trigger every time the handler changes.
 	//
 	// This implies that the trigger is associated with the `currentVersion` of
 	// the handler, which gets recreated every time the handler or its
 	// configuration is updated.
-	// Default: true.
-	//
 	ExecuteOnHandlerChange *bool `field:"optional" json:"executeOnHandlerChange" yaml:"executeOnHandlerChange"`
 }
 

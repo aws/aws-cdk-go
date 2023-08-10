@@ -21,12 +21,8 @@ package awsservicediscovery
 //
 type AliasTargetInstanceProps struct {
 	// Custom attributes of the instance.
-	// Default: none.
-	//
 	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
-	// Default: Automatically generated name.
-	//
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// DNS name of the target.
 	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`

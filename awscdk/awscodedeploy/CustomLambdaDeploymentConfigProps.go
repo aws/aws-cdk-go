@@ -36,8 +36,6 @@ type CustomLambdaDeploymentConfigProps struct {
 	//
 	// Must be unique per account/region.
 	// Other parameters cannot be updated if this name is provided.
-	// Default: - automatically generated name.
-	//
 	// Deprecated: Use `LambdaDeploymentConfig`.
 	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }

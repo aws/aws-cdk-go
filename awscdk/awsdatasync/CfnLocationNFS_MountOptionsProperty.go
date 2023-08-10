@@ -1,7 +1,7 @@
 package awsdatasync
 
 
-// Specifies the mount options that DataSync can use to mount your NFS share.
+// Specifies the options that DataSync can use to mount your NFS file server.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

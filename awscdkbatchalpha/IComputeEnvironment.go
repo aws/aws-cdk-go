@@ -33,8 +33,6 @@ type IComputeEnvironment interface {
 	// Experimental.
 	Enabled() *bool
 	// The role Batch uses to perform actions on your behalf in your account, such as provision instances to run your jobs.
-	// Default: - a serviceRole will be created for managed CEs, none for unmanaged CEs.
-	//
 	// Experimental.
 	ServiceRole() awsiam.IRole
 }

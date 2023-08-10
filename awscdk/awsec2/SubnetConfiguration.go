@@ -35,12 +35,8 @@ type SubnetConfiguration struct {
 	// will be equal to `2^(32 - cidrMask) - 2`.
 	//
 	// Valid values are `16--28`.
-	// Default: - Available IP space is evenly divided across subnets.
-	//
 	CidrMask *float64 `field:"optional" json:"cidrMask" yaml:"cidrMask"`
 	// Controls if a public IP is associated to an instance at launch.
-	// Default: true in Subnet.Public, false in Subnet.Private or Subnet.Isolated.
-	//
 	MapPublicIpOnLaunch *bool `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 	// Controls if subnet IP space needs to be reserved.
 	//
@@ -48,8 +44,6 @@ type SubnetConfiguration struct {
 	// resources are provisioned. This space is only dependent on the
 	// number of availability zones and on `cidrMask` - all other subnet
 	// properties are ignored.
-	// Default: false.
-	//
 	Reserved *bool `field:"optional" json:"reserved" yaml:"reserved"`
 }
 

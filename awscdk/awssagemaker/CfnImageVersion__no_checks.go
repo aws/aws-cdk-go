@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnImageVersion) validateSetBaseImageParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnImageVersion) validateSetHorovodParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnImageVersion) validateSetImageNameParameters(val *string) error {
 	return nil
 }

@@ -34,8 +34,6 @@ type WaitProps struct {
 	// Wait duration.
 	Time WaitTime `field:"required" json:"time" yaml:"time"`
 	// An optional description for this state.
-	// Default: No comment.
-	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 

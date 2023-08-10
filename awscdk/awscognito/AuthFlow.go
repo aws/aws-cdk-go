@@ -16,20 +16,12 @@ package awscognito
 //
 type AuthFlow struct {
 	// Enable admin based user password authentication flow.
-	// Default: false.
-	//
 	AdminUserPassword *bool `field:"optional" json:"adminUserPassword" yaml:"adminUserPassword"`
 	// Enable custom authentication flow.
-	// Default: false.
-	//
 	Custom *bool `field:"optional" json:"custom" yaml:"custom"`
 	// Enable auth using username & password.
-	// Default: false.
-	//
 	UserPassword *bool `field:"optional" json:"userPassword" yaml:"userPassword"`
 	// Enable SRP based authentication.
-	// Default: false.
-	//
 	UserSrp *bool `field:"optional" json:"userSrp" yaml:"userSrp"`
 }
 

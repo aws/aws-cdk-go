@@ -245,8 +245,6 @@ func StorageParameter_NumRows(value *float64) StorageParameter {
 // A property that sets the column mapping type for tables that use ORC data format.
 //
 // This property is ignored for other data formats. If this property is omitted, columns are mapped by `OrcColumnMappingType.NAME` by default.
-// Default: OrcColumnMappingType.NAME
-//
 // Experimental.
 func StorageParameter_OrcSchemaResolution(value OrcColumnMappingType) StorageParameter {
 	_init_.Initialize()
@@ -415,8 +413,6 @@ func StorageParameter_WriteMaxFileSizeMb(value *float64) StorageParameter {
 // A property that sets whether CREATE EXTERNAL TABLE AS should write data in parallel.
 //
 // When 'write.parallel' is set to off, CREATE EXTERNAL TABLE AS writes to one or more data files serially onto Amazon S3. This table property also applies to any subsequent INSERT statement into the same external table.
-// Default: WriteParallel.ON
-//
 // Experimental.
 func StorageParameter_WriteParallel(value WriteParallel) StorageParameter {
 	_init_.Initialize()

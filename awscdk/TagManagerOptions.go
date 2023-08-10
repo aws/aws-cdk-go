@@ -16,8 +16,6 @@ type TagManagerOptions struct {
 	// The name of the property in CloudFormation for these tags.
 	//
 	// Normally this is `tags`, but Cognito UserPool uses UserPoolTags.
-	// Default: "tags".
-	//
 	TagPropertyName *string `field:"optional" json:"tagPropertyName" yaml:"tagPropertyName"`
 }
 

@@ -14,6 +14,9 @@ package awsbillingconductor
 //   	LinkedAccountIds: []*string{
 //   		jsii.String("linkedAccountIds"),
 //   	},
+//
+//   	// the properties below are optional
+//   	AutoAssociate: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html
@@ -25,5 +28,8 @@ type CfnBillingGroup_AccountGroupingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-linkedaccountids
 	//
 	LinkedAccountIds *[]*string `field:"required" json:"linkedAccountIds" yaml:"linkedAccountIds"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-autoassociate
+	//
+	AutoAssociate interface{} `field:"optional" json:"autoAssociate" yaml:"autoAssociate"`
 }
 

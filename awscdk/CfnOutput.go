@@ -53,8 +53,6 @@ type CfnOutput interface {
 	//
 	// If the condition evaluates
 	// to `false`, this output value will not be included in the stack.
-	// Default: - No condition is associated with the output.
-	//
 	Condition() CfnCondition
 	SetCondition(val CfnCondition)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -64,16 +62,12 @@ type CfnOutput interface {
 	// A String type that describes the output value.
 	//
 	// The description can be a maximum of 4 K in length.
-	// Default: - No description.
-	//
 	Description() *string
 	SetDescription(val *string)
 	// The name used to export the value of this output across stacks.
 	//
 	// To use the value in another stack, pass the value of
 	// `output.importValue` to it.
-	// Default: - the output is not exported.
-	//
 	ExportName() *string
 	SetExportName(val *string)
 	// Return the `Fn.importValue` expression to import this value into another stack.

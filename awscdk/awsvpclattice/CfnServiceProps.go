@@ -37,8 +37,6 @@ type CfnServiceProps struct {
 	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-service.html#cfn-vpclattice-service-authtype
 	//
-	// Default: - "NONE".
-	//
 	AuthType *string `field:"optional" json:"authType" yaml:"authType"`
 	// The Amazon Resource Name (ARN) of the certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-service.html#cfn-vpclattice-service-certificatearn

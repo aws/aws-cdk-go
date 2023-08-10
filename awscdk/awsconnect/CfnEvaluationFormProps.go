@@ -133,8 +133,6 @@ type CfnEvaluationFormProps struct {
 	// *Allowed values* : `DRAFT` | `ACTIVE`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-status
 	//
-	// Default: - "DRAFT".
-	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 	// A title of the evaluation form.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-title

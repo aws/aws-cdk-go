@@ -43,16 +43,10 @@ package awsec2
 //
 type VpcLookupOptions struct {
 	// Whether to match the default VPC.
-	// Default: Don't care whether we return the default VPC.
-	//
 	IsDefault *bool `field:"optional" json:"isDefault" yaml:"isDefault"`
 	// The ID of the AWS account that owns the VPC.
-	// Default: the account id of the parent stack.
-	//
 	OwnerAccountId *string `field:"optional" json:"ownerAccountId" yaml:"ownerAccountId"`
 	// Optional to override inferred region.
-	// Default: Current stack's environment region.
-	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Whether to look up whether a VPN Gateway is attached to the looked up VPC.
 	//
@@ -62,34 +56,24 @@ type VpcLookupOptions struct {
 	// If you change this property from `false` to `true` or undefined, you may
 	// need to clear the corresponding context entry in `cdk.context.json` in
 	// order to trigger a new lookup.
-	// Default: true.
-	//
 	ReturnVpnGateways *bool `field:"optional" json:"returnVpnGateways" yaml:"returnVpnGateways"`
 	// Optional tag for subnet group name.
 	//
 	// If not provided, we'll look at the aws-cdk:subnet-name tag.
 	// If the subnet does not have the specified tag,
 	// we'll use its type as the name.
-	// Default: aws-cdk:subnet-name.
-	//
 	SubnetGroupNameTag *string `field:"optional" json:"subnetGroupNameTag" yaml:"subnetGroupNameTag"`
 	// Tags on the VPC.
 	//
 	// The VPC must have all of these tags.
-	// Default: Don't filter on tags.
-	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// The ID of the VPC.
 	//
 	// If given, will import exactly this VPC.
-	// Default: Don't filter on vpcId.
-	//
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 	// The name of the VPC.
 	//
 	// If given, will import the VPC with this name.
-	// Default: Don't filter on vpcName.
-	//
 	VpcName *string `field:"optional" json:"vpcName" yaml:"vpcName"`
 }
 

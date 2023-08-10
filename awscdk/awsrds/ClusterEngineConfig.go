@@ -23,16 +23,10 @@ type ClusterEngineConfig struct {
 	// Features supported by the database engine.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html
 	//
-	// Default: - no features.
-	//
 	Features *ClusterEngineFeatures `field:"optional" json:"features" yaml:"features"`
 	// The ParameterGroup to use for the cluster.
-	// Default: - no ParameterGroup will be used.
-	//
 	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The port to use for this cluster, unless the customer specified the port directly.
-	// Default: - use the default port for clusters (3306).
-	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

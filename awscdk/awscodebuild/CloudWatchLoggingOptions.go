@@ -17,16 +17,10 @@ import (
 //
 type CloudWatchLoggingOptions struct {
 	// The current status of the logs in Amazon CloudWatch Logs for a build project.
-	// Default: true.
-	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Log Group to send logs to.
-	// Default: - no log group specified.
-	//
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The prefix of the stream name of the Amazon CloudWatch Logs.
-	// Default: - no prefix.
-	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

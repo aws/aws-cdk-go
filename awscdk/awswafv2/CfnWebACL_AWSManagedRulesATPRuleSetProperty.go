@@ -14,6 +14,7 @@ package awswafv2
 //   	LoginPath: jsii.String("loginPath"),
 //
 //   	// the properties below are optional
+//   	EnableRegexInPath: jsii.Boolean(false),
 //   	RequestInspection: &RequestInspectionProperty{
 //   		PasswordField: &FieldIdentifierProperty{
 //   			Identifier: jsii.String("identifier"),
@@ -72,6 +73,9 @@ type CfnWebACL_AWSManagedRulesATPRuleSetProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-loginpath
 	//
 	LoginPath *string `field:"required" json:"loginPath" yaml:"loginPath"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-enableregexinpath
+	//
+	EnableRegexInPath interface{} `field:"optional" json:"enableRegexInPath" yaml:"enableRegexInPath"`
 	// The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-requestinspection
 	//

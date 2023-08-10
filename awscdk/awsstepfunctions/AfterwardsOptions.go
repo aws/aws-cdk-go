@@ -18,15 +18,11 @@ type AfterwardsOptions struct {
 	//
 	// If this is true, all states which are error handlers (added through 'onError')
 	// and states reachable via error handlers will be included as well.
-	// Default: false.
-	//
 	IncludeErrorHandlers *bool `field:"optional" json:"includeErrorHandlers" yaml:"includeErrorHandlers"`
 	// Whether to include the default/otherwise transition for the current Choice state.
 	//
 	// If this is true and the current Choice does not have a default outgoing
 	// transition, one will be added included when .next() is called on the chain.
-	// Default: false.
-	//
 	IncludeOtherwise *bool `field:"optional" json:"includeOtherwise" yaml:"includeOtherwise"`
 }
 

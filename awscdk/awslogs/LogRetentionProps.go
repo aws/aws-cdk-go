@@ -36,20 +36,12 @@ type LogRetentionProps struct {
 	// The number of days log events are kept in CloudWatch Logs.
 	Retention RetentionDays `field:"required" json:"retention" yaml:"retention"`
 	// The region where the log group should be created.
-	// Default: - same region as the stack.
-	//
 	LogGroupRegion *string `field:"optional" json:"logGroupRegion" yaml:"logGroupRegion"`
 	// Retry options for all AWS API calls.
-	// Default: - AWS SDK default retry options.
-	//
 	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The removalPolicy for the log group when the stack is deleted.
-	// Default: RemovalPolicy.RETAIN
-	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The IAM role for the Lambda function associated with the custom resource.
-	// Default: - A new role is created.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

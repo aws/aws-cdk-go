@@ -45,32 +45,18 @@ package awssns
 //
 type NumericConditions struct {
 	// Match one or more values.
-	// Default: - None.
-	//
 	Allowlist *[]*float64 `field:"optional" json:"allowlist" yaml:"allowlist"`
 	// Match values that are between the specified values.
-	// Default: - None.
-	//
 	Between *BetweenCondition `field:"optional" json:"between" yaml:"between"`
 	// Match values that are strictly between the specified values.
-	// Default: - None.
-	//
 	BetweenStrict *BetweenCondition `field:"optional" json:"betweenStrict" yaml:"betweenStrict"`
 	// Match values that are greater than the specified value.
-	// Default: - None.
-	//
 	GreaterThan *float64 `field:"optional" json:"greaterThan" yaml:"greaterThan"`
 	// Match values that are greater than or equal to the specified value.
-	// Default: - None.
-	//
 	GreaterThanOrEqualTo *float64 `field:"optional" json:"greaterThanOrEqualTo" yaml:"greaterThanOrEqualTo"`
 	// Match values that are less than the specified value.
-	// Default: - None.
-	//
 	LessThan *float64 `field:"optional" json:"lessThan" yaml:"lessThan"`
 	// Match values that are less than or equal to the specified value.
-	// Default: - None.
-	//
 	LessThanOrEqualTo *float64 `field:"optional" json:"lessThanOrEqualTo" yaml:"lessThanOrEqualTo"`
 }
 

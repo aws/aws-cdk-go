@@ -1,7 +1,7 @@
 package awscleanrooms
 
 
-// Enables query structure and specified queries that produce aggregate statistics.
+// A type of analysis rule that enables query structure and specified queries that produce aggregate statistics.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

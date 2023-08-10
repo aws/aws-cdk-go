@@ -38,20 +38,12 @@ type CrossAccountZoneDelegationRecordProps struct {
 	// The delegation role in the parent account.
 	DelegationRole awsiam.IRole `field:"required" json:"delegationRole" yaml:"delegationRole"`
 	// The hosted zone id in the parent account.
-	// Default: - no zone id.
-	//
 	ParentHostedZoneId *string `field:"optional" json:"parentHostedZoneId" yaml:"parentHostedZoneId"`
 	// The hosted zone name in the parent account.
-	// Default: - no zone name.
-	//
 	ParentHostedZoneName *string `field:"optional" json:"parentHostedZoneName" yaml:"parentHostedZoneName"`
 	// The removal policy to apply to the record set.
-	// Default: RemovalPolicy.DESTROY
-	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The resource record cache time to live (TTL).
-	// Default: Duration.days(2)
-	//
 	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 }
 

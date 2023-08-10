@@ -17,8 +17,6 @@ type IInstanceEngine interface {
 	// The application used by this engine to perform rotation for a single-user scenario.
 	SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// Whether this engine supports automatic backups of a read replica instance.
-	// Default: false.
-	//
 	SupportsReadReplicaBackups() *bool
 }
 

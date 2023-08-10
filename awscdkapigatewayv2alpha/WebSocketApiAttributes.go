@@ -14,8 +14,6 @@ type WebSocketApiAttributes struct {
 	// Experimental.
 	WebSocketId *string `field:"required" json:"webSocketId" yaml:"webSocketId"`
 	// The endpoint URL of the WebSocketApi.
-	// Default: - throw san error if apiEndpoint is accessed.
-	//
 	// Experimental.
 	ApiEndpoint *string `field:"optional" json:"apiEndpoint" yaml:"apiEndpoint"`
 }

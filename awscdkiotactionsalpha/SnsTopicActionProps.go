@@ -24,16 +24,12 @@ import (
 // Experimental.
 type SnsTopicActionProps struct {
 	// The IAM role that allows access to AWS service.
-	// Default: a new role will be created.
-	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The message format of the message to publish.
 	//
 	// SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-and-json-formats.html
-	//
-	// Default: SnsActionMessageFormat.RAW
 	//
 	// Experimental.
 	MessageFormat SnsActionMessageFormat `field:"optional" json:"messageFormat" yaml:"messageFormat"`

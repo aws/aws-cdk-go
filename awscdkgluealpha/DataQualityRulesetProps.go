@@ -31,13 +31,9 @@ type DataQualityRulesetProps struct {
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the ruleset.
-	// Default: cloudformation generated name.
-	//
 	// Experimental.
 	RulesetName *string `field:"optional" json:"rulesetName" yaml:"rulesetName"`
 	// Key-Value pairs that define tags for the ruleset.
-	// Default: empty tags.
-	//
 	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }

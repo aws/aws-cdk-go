@@ -27,15 +27,11 @@ type GithubRepositoryProps struct {
 	// Experimental.
 	RepositoryUrl *string `field:"required" json:"repositoryUrl" yaml:"repositoryUrl"`
 	// The branch name that represents a specific version for the repository.
-	// Default: main.
-	//
 	// Experimental.
 	Branch *string `field:"optional" json:"branch" yaml:"branch"`
 	// The code configuration values.
 	//
 	// Will be ignored if configurationSource is `REPOSITORY`.
-	// Default: - no values will be passed. The `apprunner.yaml` from the github reopsitory will be used instead.
-	//
 	// Experimental.
 	CodeConfigurationValues *CodeConfigurationValues `field:"optional" json:"codeConfigurationValues" yaml:"codeConfigurationValues"`
 }

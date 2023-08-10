@@ -15,12 +15,8 @@ package awsappsync
 //
 type CodeConfig struct {
 	// Inline code (mutually exclusive with `s3Location`).
-	// Default: - code is not inline code.
-	//
 	InlineCode *string `field:"optional" json:"inlineCode" yaml:"inlineCode"`
 	// The location of the code in S3 (mutually exclusive with `inlineCode`.
-	// Default: - code is not an s3 location.
-	//
 	S3Location *string `field:"optional" json:"s3Location" yaml:"s3Location"`
 }
 

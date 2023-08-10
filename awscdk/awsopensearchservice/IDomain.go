@@ -33,64 +33,34 @@ type IDomain interface {
 	// Return the given named metric for this domain.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for automated snapshot failures.
-	// Default: maximum over 5 minutes.
-	//
 	MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the cluster blocking index writes.
-	// Default: maximum over 1 minute.
-	//
 	MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is red.
-	// Default: maximum over 5 minutes.
-	//
 	MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is yellow.
-	// Default: maximum over 5 minutes.
-	//
 	MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for CPU utilization.
-	// Default: maximum over 5 minutes.
-	//
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the storage space of nodes in the cluster.
-	// Default: minimum over 5 minutes.
-	//
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for indexing latency.
-	// Default: p99 over 5 minutes.
-	//
 	MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for JVM memory pressure.
-	// Default: maximum over 5 minutes.
-	//
 	MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key errors.
-	// Default: maximum over 5 minutes.
-	//
 	MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key being inaccessible.
-	// Default: maximum over 5 minutes.
-	//
 	MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master CPU utilization.
-	// Default: maximum over 5 minutes.
-	//
 	MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master JVM memory pressure.
-	// Default: maximum over 5 minutes.
-	//
 	MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of nodes.
-	// Default: minimum over 1 hour.
-	//
 	MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for number of searchable documents.
-	// Default: maximum over 5 minutes.
-	//
 	MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for search latency.
-	// Default: p99 over 5 minutes.
-	//
 	MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Arn of the Amazon OpenSearch Service domain.
 	DomainArn() *string

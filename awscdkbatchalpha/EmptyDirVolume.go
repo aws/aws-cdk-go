@@ -33,13 +33,9 @@ import (
 type EmptyDirVolume interface {
 	EksVolume
 	// The path on the container where the container is mounted.
-	// Default: - the container is not mounted.
-	//
 	// Experimental.
 	ContainerPath() *string
 	// The storage type to use for this Volume.
-	// Default: `EmptyDirMediumType.DISK`
-	//
 	// Experimental.
 	Medium() EmptyDirMediumType
 	// The name of this volume.
@@ -52,13 +48,9 @@ type EmptyDirVolume interface {
 	// If specified, the container has readonly access to the volume.
 	//
 	// Otherwise, the container has read/write access.
-	// Default: false.
-	//
 	// Experimental.
 	Readonly() *bool
 	// The maximum size for this Volume.
-	// Default: - no size limit.
-	//
 	// Experimental.
 	SizeLimit() awscdk.Size
 }

@@ -30,18 +30,12 @@ import (
 //
 type VpcLinkProps struct {
 	// The description of the VPC link.
-	// Default: no description.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The network load balancers of the VPC targeted by the VPC link.
 	//
 	// The network load balancers must be owned by the same AWS account of the API owner.
-	// Default: - no targets. Use `addTargets` to add targets
-	//
 	Targets *[]awselasticloadbalancingv2.INetworkLoadBalancer `field:"optional" json:"targets" yaml:"targets"`
 	// The name used to label and identify the VPC link.
-	// Default: - automatically generated name.
-	//
 	VpcLinkName *string `field:"optional" json:"vpcLinkName" yaml:"vpcLinkName"`
 }
 

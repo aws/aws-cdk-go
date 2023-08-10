@@ -22,8 +22,6 @@ type CfnCodeSigningConfig_CodeSigningPoliciesProperty struct {
 	// Default value: `Warn`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
 	//
-	// Default: - "Warn".
-	//
 	UntrustedArtifactOnDeployment *string `field:"required" json:"untrustedArtifactOnDeployment" yaml:"untrustedArtifactOnDeployment"`
 }
 

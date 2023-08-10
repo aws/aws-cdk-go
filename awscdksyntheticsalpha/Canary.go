@@ -108,8 +108,6 @@ type Canary interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Measure the Duration of a single canary run, in seconds.
-	// Default: avg over 5 minutes.
-	//
 	// Experimental.
 	MetricDuration(options *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Measure the number of failed canary runs over a given time period.
@@ -118,8 +116,6 @@ type Canary interface {
 	// Experimental.
 	MetricFailed(options *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Measure the percentage of successful canary runs.
-	// Default: avg over 5 minutes.
-	//
 	// Experimental.
 	MetricSuccessPercent(options *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.

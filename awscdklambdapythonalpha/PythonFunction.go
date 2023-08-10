@@ -700,8 +700,6 @@ func PythonFunction_MetricAll(metricName *string, props *awscloudwatch.MetricOpt
 }
 
 // Metric for the number of concurrent executions across all Lambdas.
-// Default: max over 5 minutes.
-//
 // Experimental.
 func PythonFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
@@ -722,8 +720,6 @@ func PythonFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOpt
 }
 
 // Metric for the Duration executing all Lambdas.
-// Default: average over 5 minutes.
-//
 // Experimental.
 func PythonFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
@@ -744,8 +740,6 @@ func PythonFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awsclo
 }
 
 // Metric for the number of Errors executing all Lambdas.
-// Default: sum over 5 minutes.
-//
 // Experimental.
 func PythonFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
@@ -766,8 +760,6 @@ func PythonFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloud
 }
 
 // Metric for the number of invocations of all Lambdas.
-// Default: sum over 5 minutes.
-//
 // Experimental.
 func PythonFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
@@ -788,8 +780,6 @@ func PythonFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) aws
 }
 
 // Metric for the number of throttled invocations of all Lambdas.
-// Default: sum over 5 minutes.
-//
 // Experimental.
 func PythonFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
@@ -810,8 +800,6 @@ func PythonFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscl
 }
 
 // Metric for the number of unreserved concurrent executions across all Lambdas.
-// Default: max over 5 minutes.
-//
 // Experimental.
 func PythonFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()

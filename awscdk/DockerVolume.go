@@ -26,8 +26,6 @@ type DockerVolume struct {
 	// Only applicable for macOS.
 	// See: https://docs.docker.com/storage/bind-mounts/#configure-mount-consistency-for-macos
 	//
-	// Default: DockerConsistency.DELEGATED
-	//
 	Consistency DockerVolumeConsistency `field:"optional" json:"consistency" yaml:"consistency"`
 }
 

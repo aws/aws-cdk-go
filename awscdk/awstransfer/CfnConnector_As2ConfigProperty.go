@@ -9,6 +9,7 @@ package awstransfer
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   as2ConfigProperty := &As2ConfigProperty{
+//   	BasicAuthSecretId: jsii.String("basicAuthSecretId"),
 //   	Compression: jsii.String("compression"),
 //   	EncryptionAlgorithm: jsii.String("encryptionAlgorithm"),
 //   	LocalProfileId: jsii.String("localProfileId"),
@@ -22,6 +23,12 @@ package awstransfer
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html
 //
 type CfnConnector_As2ConfigProperty struct {
+	// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication.
+	//
+	// If empty, Basic authentication is disabled for the AS2 connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html#cfn-transfer-connector-as2config-basicauthsecretid
+	//
+	BasicAuthSecretId *string `field:"optional" json:"basicAuthSecretId" yaml:"basicAuthSecretId"`
 	// Specifies whether the AS2 file is compressed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html#cfn-transfer-connector-as2config-compression
 	//

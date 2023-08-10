@@ -35,6 +35,18 @@ package awsglue
 //   			Path: jsii.String("path"),
 //   		},
 //   	},
+//   	IcebergTargets: []interface{}{
+//   		&IcebergTargetProperty{
+//   			ConnectionName: jsii.String("connectionName"),
+//   			Exclusions: []*string{
+//   				jsii.String("exclusions"),
+//   			},
+//   			MaximumTraversalDepth: jsii.Number(123),
+//   			Paths: []*string{
+//   				jsii.String("paths"),
+//   			},
+//   		},
+//   	},
 //   	JdbcTargets: []interface{}{
 //   		&JdbcTargetProperty{
 //   			ConnectionName: jsii.String("connectionName"),
@@ -79,6 +91,9 @@ type CfnCrawler_TargetsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
 	//
 	DynamoDbTargets interface{} `field:"optional" json:"dynamoDbTargets" yaml:"dynamoDbTargets"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-icebergtargets
+	//
+	IcebergTargets interface{} `field:"optional" json:"icebergTargets" yaml:"icebergTargets"`
 	// Specifies JDBC targets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
 	//

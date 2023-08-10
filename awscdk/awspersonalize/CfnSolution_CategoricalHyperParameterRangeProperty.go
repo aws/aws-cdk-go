@@ -1,7 +1,7 @@
 package awspersonalize
 
 
-// Provides the name and values of a Categorical hyperparameter.
+// Provides the name and range of a categorical hyperparameter.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

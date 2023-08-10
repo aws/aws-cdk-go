@@ -7,20 +7,17 @@ import (
 // Properties for enabling Spark UI monitoring feature for Spark-based Glue jobs.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var bucket bucket
-//
-//   sparkUIProps := &SparkUIProps{
-//   	Enabled: jsii.Boolean(false),
-//
-//   	// the properties below are optional
-//   	Bucket: bucket,
-//   	Prefix: jsii.String("prefix"),
-//   }
+//   glue.NewJob(this, jsii.String("EnableSparkUI"), &JobProps{
+//   	JobName: jsii.String("EtlJobWithSparkUIPrefix"),
+//   	SparkUI: &SparkUIProps{
+//   		Enabled: jsii.Boolean(true),
+//   	},
+//   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
+//   		GlueVersion: glue.GlueVersion_V3_0(),
+//   		PythonVersion: glue.PythonVersion_THREE,
+//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+//   	}),
+//   })
 //
 // See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 //
@@ -30,13 +27,11 @@ type SparkUIProps struct {
 	// Experimental.
 	Enabled *bool `field:"required" json:"enabled" yaml:"enabled"`
 	// The bucket where the Glue job stores the logs.
-	// Default: a new bucket will be created.
-	//
 	// Experimental.
 	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
-	// Default: '/' - the logs will be written at the root of the bucket.
 	//
+	// Use format `'/foo/bar'`.
 	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }

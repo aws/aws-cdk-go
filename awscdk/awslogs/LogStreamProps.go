@@ -28,8 +28,6 @@ type LogStreamProps struct {
 	// The name of the log stream to create.
 	//
 	// The name must be unique within the log group.
-	// Default: Automatically generated.
-	//
 	LogStreamName *string `field:"optional" json:"logStreamName" yaml:"logStreamName"`
 	// Determine what happens when the log stream resource is removed from the app.
 	//
@@ -38,8 +36,6 @@ type LogStreamProps struct {
 	//
 	// The date-based retention policy of your log group will age out the logs
 	// after a certain time.
-	// Default: RemovalPolicy.Retain
-	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

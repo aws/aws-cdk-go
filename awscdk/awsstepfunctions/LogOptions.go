@@ -24,12 +24,8 @@ type LogOptions struct {
 	// The log group where the execution history events will be logged.
 	Destination awslogs.ILogGroup `field:"required" json:"destination" yaml:"destination"`
 	// Determines whether execution data is included in your log.
-	// Default: false.
-	//
 	IncludeExecutionData *bool `field:"optional" json:"includeExecutionData" yaml:"includeExecutionData"`
 	// Defines which category of execution history events are logged.
-	// Default: ERROR.
-	//
 	Level LogLevel `field:"optional" json:"level" yaml:"level"`
 }
 

@@ -20,8 +20,6 @@ type CfnSpotFleet_SpotFleetMonitoringProperty struct {
 	// Default: `false`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
 	//
-	// Default: - false.
-	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

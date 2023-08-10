@@ -27,13 +27,9 @@ type Event struct {
 	// Experimental.
 	EventName *string `field:"required" json:"eventName" yaml:"eventName"`
 	// The actions to be performed.
-	// Default: - no actions will be performed.
-	//
 	// Experimental.
 	Actions *[]IAction `field:"optional" json:"actions" yaml:"actions"`
 	// The Boolean expression that, when `true`, causes the actions to be performed.
-	// Default: - none (the actions are always executed).
-	//
 	// Experimental.
 	Condition Expression `field:"optional" json:"condition" yaml:"condition"`
 }

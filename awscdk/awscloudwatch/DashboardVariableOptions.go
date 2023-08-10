@@ -41,20 +41,12 @@ type DashboardVariableOptions struct {
 	// Pattern or property value to replace.
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// Optional default value.
-	// Default: - no default value is set.
-	//
 	DefaultValue DefaultValue `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// Optional label in the toolbar.
-	// Default: - the variable's value.
-	//
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// Optional values (required for {@link VariableInputType.RADIO} and {@link VariableInputType.SELECT} dashboard variables).
-	// Default: - no values.
-	//
 	Values Values `field:"optional" json:"values" yaml:"values"`
 	// Whether the variable is visible.
-	// Default: - true.
-	//
 	Visible *bool `field:"optional" json:"visible" yaml:"visible"`
 }
 

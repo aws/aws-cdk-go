@@ -28,8 +28,6 @@ import (
 // Experimental.
 type TlsAuthProps struct {
 	// List of ACM Certificate Authorities to enable TLS authentication.
-	// Default: - none.
-	//
 	// Experimental.
 	CertificateAuthorities *[]awsacmpca.ICertificateAuthority `field:"optional" json:"certificateAuthorities" yaml:"certificateAuthorities"`
 }

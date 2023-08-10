@@ -111,9 +111,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "compliance", GoGetter: "Compliance"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleName", GoGetter: "ConfigRuleName"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluationModes", GoGetter: "EvaluationModes"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "inputParameters", GoGetter: "InputParameters"},
@@ -145,8 +147,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_config.CfnConfigRule.ComplianceProperty",
+		reflect.TypeOf((*CfnConfigRule_ComplianceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConfigRule.CustomPolicyDetailsProperty",
 		reflect.TypeOf((*CfnConfigRule_CustomPolicyDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_config.CfnConfigRule.EvaluationModeConfigurationProperty",
+		reflect.TypeOf((*CfnConfigRule_EvaluationModeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConfigRule.ScopeProperty",

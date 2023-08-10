@@ -38,8 +38,6 @@ type HostVolume interface {
 	// Experimental.
 	Name() *string
 	// Whether or not the container has readonly access to this volume.
-	// Default: false.
-	//
 	// Experimental.
 	Readonly() *bool
 }

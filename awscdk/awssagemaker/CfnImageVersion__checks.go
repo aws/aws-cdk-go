@@ -187,6 +187,23 @@ func (j *jsiiProxy_CfnImageVersion) validateSetBaseImageParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnImageVersion) validateSetHorovodParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnImageVersion) validateSetImageNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

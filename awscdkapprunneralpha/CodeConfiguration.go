@@ -45,8 +45,6 @@ type CodeConfiguration struct {
 	//
 	// Use it to quickly launch an App Runner service without providing a apprunner.yaml file in the
 	// source code repository (or ignoring the file if it exists).
-	// Default: - not specified. Use `apprunner.yaml` instead.
-	//
 	// Experimental.
 	ConfigurationValues *CodeConfigurationValues `field:"optional" json:"configurationValues" yaml:"configurationValues"`
 }

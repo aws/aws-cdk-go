@@ -29,8 +29,6 @@ type LambdaFunctionAssociation struct {
 	//
 	// Only valid for "request" event types (`ORIGIN_REQUEST` or `VIEWER_REQUEST`).
 	// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html
-	// Default: false.
-	//
 	IncludeBody *bool `field:"optional" json:"includeBody" yaml:"includeBody"`
 }
 

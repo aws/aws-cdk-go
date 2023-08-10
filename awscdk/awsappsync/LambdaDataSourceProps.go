@@ -32,16 +32,10 @@ type LambdaDataSourceProps struct {
 	// The API to attach this data source to.
 	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
-	// Default: - None.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
-	// Default: - id of data source.
-	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
-	// Default: -  Create a new role.
-	//
 	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The Lambda function to call to interact with this data source.
 	LambdaFunction awslambda.IFunction `field:"required" json:"lambdaFunction" yaml:"lambdaFunction"`

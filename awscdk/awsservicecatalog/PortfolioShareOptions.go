@@ -17,12 +17,8 @@ type PortfolioShareOptions struct {
 	// The message language of the share.
 	//
 	// Controls status and error message language for share.
-	// Default: - English.
-	//
 	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// Whether to share tagOptions as a part of the portfolio share.
-	// Default: - share not specified.
-	//
 	ShareTagOptions *bool `field:"optional" json:"shareTagOptions" yaml:"shareTagOptions"`
 }
 

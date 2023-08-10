@@ -17,6 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnWorkflow := awscdk.Aws_omics.NewCfnWorkflow(this, jsii.String("MyCfnWorkflow"), &CfnWorkflowProps{
+//   	Accelerators: jsii.String("accelerators"),
 //   	DefinitionUri: jsii.String("definitionUri"),
 //   	Description: jsii.String("description"),
 //   	Engine: jsii.String("engine"),
@@ -40,6 +41,8 @@ type CfnWorkflow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	Accelerators() *string
+	SetAccelerators(val *string)
 	// The ARN for the workflow.
 	AttrArn() *string
 	// When the workflow was created.
@@ -251,6 +254,16 @@ type jsiiProxy_CfnWorkflow struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnWorkflow) Accelerators() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"accelerators",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnWorkflow) AttrArn() *string {
@@ -518,6 +531,14 @@ func NewCfnWorkflow_Override(c CfnWorkflow, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_omics.CfnWorkflow",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetAccelerators(val *string) {
+	_jsii_.Set(
+		j,
+		"accelerators",
+		val,
 	)
 }
 

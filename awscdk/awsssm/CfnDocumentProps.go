@@ -66,8 +66,6 @@ type CfnDocumentProps struct {
 	// JSON is the default format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
 	//
-	// Default: - "JSON".
-	//
 	DocumentFormat *string `field:"optional" json:"documentFormat" yaml:"documentFormat"`
 	// The type of document to create.
 	//
@@ -107,8 +105,6 @@ type CfnDocumentProps struct {
 	//
 	// `Replace` is the default method. If you specify `NewVersion` for the `UpdateMethod` parameter, and the `Name` of the document does not match an existing resource, a new document is created. When you specify `NewVersion` , the default version of the document is changed to the newly created version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-updatemethod
-	//
-	// Default: - "Replace".
 	//
 	UpdateMethod *string `field:"optional" json:"updateMethod" yaml:"updateMethod"`
 	// An optional field specifying the version of the artifact you are creating with the document.

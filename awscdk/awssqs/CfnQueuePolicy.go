@@ -32,6 +32,7 @@ import (
 type CfnQueuePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The provider-assigned unique ID for this managed resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

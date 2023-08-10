@@ -31,8 +31,6 @@ type CfnTable_ClusteringKeyColumnProperty struct {
 	// - `DESC` - The column's data is stored in descending order.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby
 	//
-	// Default: - "ASC".
-	//
 	OrderBy *string `field:"optional" json:"orderBy" yaml:"orderBy"`
 }
 

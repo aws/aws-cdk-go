@@ -30,8 +30,6 @@ type CfnRule_PathMatchProperty struct {
 	// Defaults to false.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatch.html#cfn-vpclattice-rule-pathmatch-casesensitive
 	//
-	// Default: - false.
-	//
 	CaseSensitive interface{} `field:"optional" json:"caseSensitive" yaml:"caseSensitive"`
 }
 

@@ -20,8 +20,6 @@ import (
 //
 type KinesisDestinationProps struct {
 	// The role to assume to write log events to the destination.
-	// Default: - A new Role is created.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

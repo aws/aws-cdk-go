@@ -35,13 +35,8 @@ type ArnComponents struct {
 	//
 	// For example, 123456789012. Note that the ARNs for some resources don't
 	// require an account number, so this component might be omitted.
-	// Default: The account the stack is deployed to.
-	//
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The specific ARN format to use for this ARN value.
-	// Default: - uses value of `sep` as the separator for formatting,
-	// `ArnFormat.SLASH_RESOURCE_NAME` if that property was also not provided
-	//
 	ArnFormat ArnFormat `field:"optional" json:"arnFormat" yaml:"arnFormat"`
 	// The partition that the resource is in.
 	//
@@ -49,15 +44,11 @@ type ArnComponents struct {
 	// partition is aws. If you have resources in other partitions, the
 	// partition is aws-partitionname. For example, the partition for resources
 	// in the China (Beijing) region is aws-cn.
-	// Default: The AWS partition the stack is deployed to.
-	//
 	Partition *string `field:"optional" json:"partition" yaml:"partition"`
 	// The region the resource resides in.
 	//
 	// Note that the ARNs for some resources
 	// do not require a region, so this component might be omitted.
-	// Default: The region the stack is deployed to.
-	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Resource name or path within the resource (i.e. S3 bucket object key) or a wildcard such as ``"*"``. This is service-dependent.
 	ResourceName *string `field:"optional" json:"resourceName" yaml:"resourceName"`

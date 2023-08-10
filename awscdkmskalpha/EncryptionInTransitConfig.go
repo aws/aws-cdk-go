@@ -27,13 +27,9 @@ package awscdkmskalpha
 // Experimental.
 type EncryptionInTransitConfig struct {
 	// Indicates the encryption setting for data in transit between clients and brokers.
-	// Default: - TLS.
-	//
 	// Experimental.
 	ClientBroker ClientBrokerEncryption `field:"optional" json:"clientBroker" yaml:"clientBroker"`
 	// Indicates that data communication among the broker nodes of the cluster is encrypted.
-	// Default: true.
-	//
 	// Experimental.
 	EnableInCluster *bool `field:"optional" json:"enableInCluster" yaml:"enableInCluster"`
 }

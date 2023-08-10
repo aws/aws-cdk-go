@@ -21,8 +21,6 @@ type ISlackChannelConfiguration interface {
 	// Return the given named metric for this SlackChannelConfiguration.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The permission role of Slack channel configuration.
-	// Default: - A role will be created.
-	//
 	Role() awsiam.IRole
 	// The ARN of the Slack channel configuration In the form of arn:aws:chatbot:{region}:{account}:chat-configuration/slack-channel/{slackChannelName}.
 	SlackChannelConfigurationArn() *string

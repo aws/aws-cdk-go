@@ -49,12 +49,8 @@ import (
 //
 type EcsEc2LaunchTargetOptions struct {
 	// Placement constraints.
-	// Default: - None.
-	//
 	PlacementConstraints *[]awsecs.PlacementConstraint `field:"optional" json:"placementConstraints" yaml:"placementConstraints"`
 	// Placement strategies.
-	// Default: - None.
-	//
 	PlacementStrategies *[]awsecs.PlacementStrategy `field:"optional" json:"placementStrategies" yaml:"placementStrategies"`
 }
 

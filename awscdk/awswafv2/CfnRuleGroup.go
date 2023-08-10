@@ -29,6 +29,9 @@ import (
 //   var captcha interface{}
 //   var challenge interface{}
 //   var count interface{}
+//   var forwardedIp interface{}
+//   var httpMethod interface{}
+//   var ip interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -173,6 +176,59 @@ import (
 //   					Limit: jsii.Number(123),
 //
 //   					// the properties below are optional
+//   					CustomKeys: []interface{}{
+//   						&RateBasedStatementCustomKeyProperty{
+//   							Cookie: &RateLimitCookieProperty{
+//   								Name: jsii.String("name"),
+//   								TextTransformations: []interface{}{
+//   									&TextTransformationProperty{
+//   										Priority: jsii.Number(123),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   							},
+//   							ForwardedIp: forwardedIp,
+//   							Header: &RateLimitHeaderProperty{
+//   								Name: jsii.String("name"),
+//   								TextTransformations: []interface{}{
+//   									&TextTransformationProperty{
+//   										Priority: jsii.Number(123),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   							},
+//   							HttpMethod: httpMethod,
+//   							Ip: ip,
+//   							LabelNamespace: &RateLimitLabelNamespaceProperty{
+//   								Namespace: jsii.String("namespace"),
+//   							},
+//   							QueryArgument: &RateLimitQueryArgumentProperty{
+//   								Name: jsii.String("name"),
+//   								TextTransformations: []interface{}{
+//   									&TextTransformationProperty{
+//   										Priority: jsii.Number(123),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   							},
+//   							QueryString: &RateLimitQueryStringProperty{
+//   								TextTransformations: []interface{}{
+//   									&TextTransformationProperty{
+//   										Priority: jsii.Number(123),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   							},
+//   							UriPath: &RateLimitUriPathProperty{
+//   								TextTransformations: []interface{}{
+//   									&TextTransformationProperty{
+//   										Priority: jsii.Number(123),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
 //   					ForwardedIpConfig: &ForwardedIPConfigurationProperty{
 //   						FallbackBehavior: jsii.String("fallbackBehavior"),
 //   						HeaderName: jsii.String("headerName"),

@@ -32,8 +32,6 @@ type BindHookTargetOptions struct {
 	// The role to use when attaching to the lifecycle hook.
 	//
 	// [disable-awslint:ref-via-interface].
-	// Default: : a role is not created unless the target arn is specified.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

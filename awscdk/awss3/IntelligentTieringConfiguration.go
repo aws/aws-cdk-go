@@ -31,20 +31,12 @@ type IntelligentTieringConfiguration struct {
 	// Configuration name.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 90 days to the Archive Access tier.
-	// Default: Objects will not move to Glacier.
-	//
 	ArchiveAccessTierTime awscdk.Duration `field:"optional" json:"archiveAccessTierTime" yaml:"archiveAccessTierTime"`
 	// When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 180 days to the Deep Archive Access tier.
-	// Default: Objects will not move to Glacier Deep Access.
-	//
 	DeepArchiveAccessTierTime awscdk.Duration `field:"optional" json:"deepArchiveAccessTierTime" yaml:"deepArchiveAccessTierTime"`
 	// Add a filter to limit the scope of this configuration to a single prefix.
-	// Default: this configuration will apply to **all** objects in the bucket.
-	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// You can limit the scope of this rule to the key value pairs added below.
-	// Default: No filtering will be performed on tags.
-	//
 	Tags *[]*Tag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -212,7 +212,7 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-apptemplatebody
 	//
 	AppTemplateBody *string `field:"required" json:"appTemplateBody" yaml:"appTemplateBody"`
-	// The name for the application.
+	// Name for the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -224,7 +224,7 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-appassessmentschedule
 	//
 	AppAssessmentSchedule *string `field:"optional" json:"appAssessmentSchedule" yaml:"appAssessmentSchedule"`
-	// The optional description for an app.
+	// Optional description for an application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -232,7 +232,7 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resiliencypolicyarn
 	//
 	ResiliencyPolicyArn *string `field:"optional" json:"resiliencyPolicyArn" yaml:"resiliencyPolicyArn"`
-	// The tags assigned to the resource.
+	// Tags assigned to the resource.
 	//
 	// A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-tags

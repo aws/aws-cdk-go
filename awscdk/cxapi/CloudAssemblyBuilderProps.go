@@ -17,12 +17,8 @@ package cxapi
 //
 type CloudAssemblyBuilderProps struct {
 	// Use the given asset output directory.
-	// Default: - Same as the manifest outdir.
-	//
 	AssetOutdir *string `field:"optional" json:"assetOutdir" yaml:"assetOutdir"`
 	// If this builder is for a nested assembly, the parent assembly builder.
-	// Default: - This is a root assembly.
-	//
 	ParentBuilder CloudAssemblyBuilder `field:"optional" json:"parentBuilder" yaml:"parentBuilder"`
 }
 

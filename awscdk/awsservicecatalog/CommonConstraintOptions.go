@@ -20,14 +20,10 @@ package awsservicecatalog
 //
 type CommonConstraintOptions struct {
 	// The description of the constraint.
-	// Default: - No description provided.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
-	// Default: - English.
-	//
 	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 }
 

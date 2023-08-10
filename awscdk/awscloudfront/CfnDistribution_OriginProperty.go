@@ -113,8 +113,6 @@ type CfnDistribution_OriginProperty struct {
 	// For more information, see [Origin Path](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
 	//
-	// Default: - "".
-	//
 	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
 	// CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
 	//

@@ -46,20 +46,12 @@ type ApplicationLoadBalancerProps struct {
 	// Name of the load balancer.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The domain name for the service, e.g. "api.example.com.".
-	// Default: - No domain name.
-	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
-	// Default: - No Route53 hosted domain zone.
-	//
 	DomainZone awsroute53.IHostedZone `field:"optional" json:"domainZone" yaml:"domainZone"`
 	// The load balancer idle timeout, in seconds.
-	// Default: - CloudFormation sets idle timeout to 60 seconds.
-	//
 	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Determines whether the Load Balancer will be internet-facing.
-	// Default: true.
-	//
 	PublicLoadBalancer *bool `field:"optional" json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 }
 

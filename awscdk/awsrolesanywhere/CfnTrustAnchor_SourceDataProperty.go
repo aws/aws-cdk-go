@@ -1,7 +1,7 @@
 package awsrolesanywhere
 
 
-// The data field of the trust anchor depending on its type.
+// A union object representing the data field of the TrustAnchor depending on its type.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

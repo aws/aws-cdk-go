@@ -46,12 +46,8 @@ type ShellStepProps struct {
 	//   }
 	// });
 	// ```.
-	// Default: - No additional inputs.
-	//
 	AdditionalInputs *map[string]IFileSetProducer `field:"optional" json:"additionalInputs" yaml:"additionalInputs"`
 	// Environment variables to set.
-	// Default: - No environment variables.
-	//
 	Env *map[string]*string `field:"optional" json:"env" yaml:"env"`
 	// Set environment variables based on Stack Outputs.
 	//
@@ -59,30 +55,22 @@ type ShellStepProps struct {
 	// access the `CfnOutput`s of those stacks to get access to
 	// --for example--automatically generated resource names or
 	// endpoint URLs.
-	// Default: - No environment variables created from stack outputs.
-	//
 	EnvFromCfnOutputs *map[string]awscdk.CfnOutput `field:"optional" json:"envFromCfnOutputs" yaml:"envFromCfnOutputs"`
 	// FileSet to run these scripts on.
 	//
 	// The files in the FileSet will be placed in the working directory when
 	// the script is executed. Use `additionalInputs` to download file sets
 	// to other directories as well.
-	// Default: - No input specified.
-	//
 	Input IFileSetProducer `field:"optional" json:"input" yaml:"input"`
 	// Installation commands to run before the regular commands.
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
-	// Default: - No installation commands.
-	//
 	InstallCommands *[]*string `field:"optional" json:"installCommands" yaml:"installCommands"`
 	// The directory that will contain the primary output fileset.
 	//
 	// After running the script, the contents of the given directory
 	// will be treated as the primary output of this Step.
-	// Default: - No primary output.
-	//
 	PrimaryOutputDirectory *string `field:"optional" json:"primaryOutputDirectory" yaml:"primaryOutputDirectory"`
 }
 

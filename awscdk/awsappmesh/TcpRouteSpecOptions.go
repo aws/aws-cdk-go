@@ -34,14 +34,10 @@ type TcpRouteSpecOptions struct {
 	//
 	// When a Virtual Router has multiple routes, route match is performed in the
 	// order of specified value, where 0 is the highest priority, and first matched route is selected.
-	// Default: - no particular priority.
-	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// List of targets that traffic is routed to when a request matches the route.
 	WeightedTargets *[]*WeightedTarget `field:"required" json:"weightedTargets" yaml:"weightedTargets"`
 	// An object that represents a tcp timeout.
-	// Default: - None.
-	//
 	Timeout *TcpTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

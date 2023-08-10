@@ -86,7 +86,7 @@ type CfnResiliencyPolicy interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The tags assigned to the resource.
+	// Tags assigned to the resource.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
 	// The tier for this resiliency policy, ranging from the highest severity ( `MissionCritical` ) to lowest ( `NonCritical` ).

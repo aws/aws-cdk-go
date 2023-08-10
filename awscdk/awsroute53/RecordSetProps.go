@@ -33,8 +33,6 @@ type RecordSetProps struct {
 	// The hosted zone in which to define the new record.
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
-	// Default: no comment.
-	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Whether to delete the same record set in the hosted zone if it already exists (dangerous!).
 	//
@@ -46,8 +44,6 @@ type RecordSetProps struct {
 	// > `deleteExisting` is set to `true` as soon as the resource is added to the stack. Changing
 	// > an existing Record Set's `deleteExisting` property from `false -> true` after deployment
 	// > will delete the record!
-	// Default: false.
-	//
 	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The geographical origin for this record to return DNS records based on the user's location.
 	GeoLocation GeoLocation `field:"optional" json:"geoLocation" yaml:"geoLocation"`
@@ -58,12 +54,8 @@ type RecordSetProps struct {
 	//
 	// You can also specify the fully qualified domain name which terminates with a
 	// ".". For example, "acme.example.com.".
-	// Default: zone root.
-	//
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Default: Duration.minutes(30)
-	//
 	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The record type.
 	RecordType RecordType `field:"required" json:"recordType" yaml:"recordType"`

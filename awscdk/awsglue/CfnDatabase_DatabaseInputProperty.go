@@ -32,6 +32,7 @@ package awsglue
 //   	TargetDatabase: &DatabaseIdentifierProperty{
 //   		CatalogId: jsii.String("catalogId"),
 //   		DatabaseName: jsii.String("databaseName"),
+//   		Region: jsii.String("region"),
 //   	},
 //   }
 //

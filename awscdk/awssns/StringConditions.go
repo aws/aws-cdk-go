@@ -45,16 +45,10 @@ package awssns
 //
 type StringConditions struct {
 	// Match one or more values.
-	// Default: - None.
-	//
 	Allowlist *[]*string `field:"optional" json:"allowlist" yaml:"allowlist"`
 	// Match any value that doesn't include any of the specified values.
-	// Default: - None.
-	//
 	Denylist *[]*string `field:"optional" json:"denylist" yaml:"denylist"`
 	// Matches values that begins with the specified prefixes.
-	// Default: - None.
-	//
 	MatchPrefixes *[]*string `field:"optional" json:"matchPrefixes" yaml:"matchPrefixes"`
 }
 

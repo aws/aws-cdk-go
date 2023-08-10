@@ -25,13 +25,9 @@ type AwsApiCallProps struct {
 	// Use this to limit the data returned by the custom
 	// resource if working with API calls that could potentially result in custom
 	// response objects exceeding the hard limit of 4096 bytes.
-	// Default: - return all data.
-	//
 	// Experimental.
 	OutputPaths *[]*string `field:"optional" json:"outputPaths" yaml:"outputPaths"`
 	// Any parameters to pass to the api call.
-	// Default: - no parameters.
-	//
 	// Experimental.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }

@@ -260,27 +260,17 @@ package awsappmesh
 //
 type RouteSpecConfig struct {
 	// The spec for a grpc route.
-	// Default: - no grpc spec.
-	//
 	GrpcRouteSpec *CfnRoute_GrpcRouteProperty `field:"optional" json:"grpcRouteSpec" yaml:"grpcRouteSpec"`
 	// The spec for an http2 route.
-	// Default: - no http2 spec.
-	//
 	Http2RouteSpec *CfnRoute_HttpRouteProperty `field:"optional" json:"http2RouteSpec" yaml:"http2RouteSpec"`
 	// The spec for an http route.
-	// Default: - no http spec.
-	//
 	HttpRouteSpec *CfnRoute_HttpRouteProperty `field:"optional" json:"httpRouteSpec" yaml:"httpRouteSpec"`
 	// The priority for the route.
 	//
 	// When a Virtual Router has multiple routes, route match is performed in the
 	// order of specified value, where 0 is the highest priority, and first matched route is selected.
-	// Default: - no particular priority.
-	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The spec for a tcp route.
-	// Default: - no tcp spec.
-	//
 	TcpRouteSpec *CfnRoute_TcpRouteProperty `field:"optional" json:"tcpRouteSpec" yaml:"tcpRouteSpec"`
 }
 

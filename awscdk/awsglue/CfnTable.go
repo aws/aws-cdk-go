@@ -94,9 +94,18 @@ import (
 //   			CatalogId: jsii.String("catalogId"),
 //   			DatabaseName: jsii.String("databaseName"),
 //   			Name: jsii.String("name"),
+//   			Region: jsii.String("region"),
 //   		},
 //   		ViewExpandedText: jsii.String("viewExpandedText"),
 //   		ViewOriginalText: jsii.String("viewOriginalText"),
+//   	},
+//
+//   	// the properties below are optional
+//   	OpenTableFormatInput: &OpenTableFormatInputProperty{
+//   		IcebergInput: &IcebergInputProperty{
+//   			MetadataOperation: jsii.String("metadataOperation"),
+//   			Version: jsii.String("version"),
+//   		},
 //   	},
 //   })
 //
@@ -133,6 +142,8 @@ type CfnTable interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	OpenTableFormatInput() interface{}
+	SetOpenTableFormatInput(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -381,6 +392,16 @@ func (j *jsiiProxy_CfnTable) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) OpenTableFormatInput() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"openTableFormatInput",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -477,6 +498,17 @@ func (j *jsiiProxy_CfnTable)SetDatabaseName(val *string) {
 	_jsii_.Set(
 		j,
 		"databaseName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetOpenTableFormatInput(val interface{}) {
+	if err := j.validateSetOpenTableFormatInputParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"openTableFormatInput",
 		val,
 	)
 }

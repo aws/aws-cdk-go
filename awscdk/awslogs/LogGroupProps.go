@@ -44,16 +44,10 @@ import (
 //
 type LogGroupProps struct {
 	// Data Protection Policy for this log group.
-	// Default: - no data protection policy.
-	//
 	DataProtectionPolicy DataProtectionPolicy `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
 	// The KMS customer managed key to encrypt the log group with.
-	// Default: Server-side encrpytion managed by the CloudWatch Logs service.
-	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Name of the log group.
-	// Default: Automatically generated.
-	//
 	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// Determine the removal policy of this log group.
 	//
@@ -61,14 +55,10 @@ type LogGroupProps struct {
 	// from logs even after a deployment that no longer includes the log group.
 	// In that case, use the normal date-based retention policy to age out your
 	// logs.
-	// Default: RemovalPolicy.Retain
-	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// How long, in days, the log contents will be retained.
 	//
 	// To retain all logs, set this value to RetentionDays.INFINITE.
-	// Default: RetentionDays.TWO_YEARS
-	//
 	Retention RetentionDays `field:"optional" json:"retention" yaml:"retention"`
 }
 

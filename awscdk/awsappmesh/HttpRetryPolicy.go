@@ -44,8 +44,6 @@ type HttpRetryPolicy struct {
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
-	// Default: - no retries for http events.
-	//
 	HttpRetryEvents *[]HttpRetryEvent `field:"optional" json:"httpRetryEvents" yaml:"httpRetryEvents"`
 	// TCP events on which to retry.
 	//
@@ -53,8 +51,6 @@ type HttpRetryPolicy struct {
 	// request has started and is encountered when the upstream is temporarily or
 	// permanently unavailable. You must specify at least one value for at least
 	// one types of retry events.
-	// Default: - no retries for tcp events.
-	//
 	TcpRetryEvents *[]TcpRetryEvent `field:"optional" json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
 }
 

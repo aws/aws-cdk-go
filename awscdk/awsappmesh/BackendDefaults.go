@@ -40,8 +40,6 @@ package awsappmesh
 //
 type BackendDefaults struct {
 	// TLS properties for Client policy for backend defaults.
-	// Default: - none.
-	//
 	TlsClientPolicy *TlsClientPolicy `field:"optional" json:"tlsClientPolicy" yaml:"tlsClientPolicy"`
 }
 

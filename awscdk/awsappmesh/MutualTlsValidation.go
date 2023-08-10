@@ -53,11 +53,6 @@ type MutualTlsValidation struct {
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
-	// Default: - If you don't specify SANs on the terminating mesh endpoint,
-	// the Envoy proxy for that node doesn't verify the SAN on a peer client certificate.
-	// If you don't specify SANs on the originating mesh endpoint,
-	// the SAN on the certificate provided by the terminating endpoint must match the mesh endpoint service discovery configuration.
-	//
 	SubjectAlternativeNames SubjectAlternativeNames `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 

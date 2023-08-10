@@ -35,24 +35,14 @@ type AmazonLinux2022ImageSsmParameterProps struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
-	// Default: false.
-	//
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// Initial user data.
-	// Default: - Empty UserData for Linux machines.
-	//
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// CPU Type.
-	// Default: AmazonLinuxCpuType.X86_64
-	//
 	CpuType AmazonLinuxCpuType `field:"optional" json:"cpuType" yaml:"cpuType"`
 	// What edition of Amazon Linux to use.
-	// Default: AmazonLinuxEdition.Standard
-	//
 	Edition AmazonLinuxEdition `field:"optional" json:"edition" yaml:"edition"`
 	// What kernel version of Amazon Linux to use.
-	// Default: AmazonLinux2022Kernel.DEFAULT
-	//
 	Kernel AmazonLinux2022Kernel `field:"optional" json:"kernel" yaml:"kernel"`
 }
 

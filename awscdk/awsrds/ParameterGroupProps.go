@@ -99,12 +99,8 @@ type ParameterGroupProps struct {
 	// The database engine for this parameter group.
 	Engine IEngine `field:"required" json:"engine" yaml:"engine"`
 	// Description for this parameter group.
-	// Default: a CDK generated description.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The parameters in this parameter group.
-	// Default: - None.
-	//
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

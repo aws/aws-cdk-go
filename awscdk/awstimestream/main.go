@@ -203,6 +203,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "retentionProperties", GoGetter: "RetentionProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "schema", GoGetter: "Schema"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
@@ -230,12 +231,20 @@ func init() {
 		reflect.TypeOf((*CfnTable_MagneticStoreWritePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_timestream.CfnTable.PartitionKeyProperty",
+		reflect.TypeOf((*CfnTable_PartitionKeyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_timestream.CfnTable.RetentionPropertiesProperty",
 		reflect.TypeOf((*CfnTable_RetentionPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_timestream.CfnTable.S3ConfigurationProperty",
 		reflect.TypeOf((*CfnTable_S3ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_timestream.CfnTable.SchemaProperty",
+		reflect.TypeOf((*CfnTable_SchemaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_timestream.CfnTableProps",

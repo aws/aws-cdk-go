@@ -36,15 +36,11 @@ type WebSocketAuthorizerProps struct {
 	// Experimental.
 	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 	// Name of the authorizer.
-	// Default: - id of the WebSocketAuthorizer construct.
-	//
 	// Experimental.
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	//
 	// For REQUEST authorizers, this must be a well-formed Lambda function URI.
-	// Default: - required for Request authorizer types.
-	//
 	// Experimental.
 	AuthorizerUri *string `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
 }

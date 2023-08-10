@@ -25,24 +25,16 @@ import (
 //
 type LogConfig struct {
 	// exclude verbose content.
-	// Default: false.
-	//
 	ExcludeVerboseContent interface{} `field:"optional" json:"excludeVerboseContent" yaml:"excludeVerboseContent"`
 	// log level for fields.
-	// Default: - Use AppSync default.
-	//
 	FieldLogLevel FieldLogLevel `field:"optional" json:"fieldLogLevel" yaml:"fieldLogLevel"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// By default AppSync keeps the logs infinitely. When updating this property,
 	// unsetting it doesn't remove the log retention policy.
 	// To remove the retention policy, set the value to `INFINITE`.
-	// Default: RetentionDays.INFINITE
-	//
 	Retention awslogs.RetentionDays `field:"optional" json:"retention" yaml:"retention"`
 	// The role for CloudWatch Logs.
-	// Default: - None.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

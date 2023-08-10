@@ -21,8 +21,6 @@ type CfnApplication_AutoStopConfigurationProperty struct {
 	// Defaults to true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostopconfiguration.html#cfn-emrserverless-application-autostopconfiguration-enabled
 	//
-	// Default: - true.
-	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The amount of idle time in minutes after which your application will automatically stop. Defaults to 15 minutes.
 	//

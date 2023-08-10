@@ -17,8 +17,6 @@ package awsecs
 //
 type DeploymentCircuitBreaker struct {
 	// Whether to enable rollback on deployment failure.
-	// Default: false.
-	//
 	Rollback *bool `field:"optional" json:"rollback" yaml:"rollback"`
 }
 

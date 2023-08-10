@@ -48,16 +48,10 @@ import (
 //
 type ProductStackProps struct {
 	// A Bucket can be passed to store assets, enabling ProductStack Asset support.
-	// Default: - No Bucket provided and Assets will not be supported.
-	//
 	AssetBucket awss3.IBucket `field:"optional" json:"assetBucket" yaml:"assetBucket"`
 	// A ServerSideEncryption can be enabled to encrypt assets that are put into assetBucket.
-	// Default: - No encryption is used.
-	//
 	ServerSideEncryption awss3deployment.ServerSideEncryption `field:"optional" json:"serverSideEncryption" yaml:"serverSideEncryption"`
 	// For AWS_KMS ServerSideEncryption a KMS KeyId must be provided which will be used to encrypt assets.
-	// Default: - No KMS KeyId and SSE_KMS encryption cannot be used.
-	//
 	ServerSideEncryptionAwsKmsKeyId *string `field:"optional" json:"serverSideEncryptionAwsKmsKeyId" yaml:"serverSideEncryptionAwsKmsKeyId"`
 }
 

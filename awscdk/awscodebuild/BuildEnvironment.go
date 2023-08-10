@@ -60,18 +60,12 @@ package awscodebuild
 //
 type BuildEnvironment struct {
 	// The image used for the builds.
-	// Default: LinuxBuildImage.STANDARD_1_0
-	//
 	BuildImage IBuildImage `field:"optional" json:"buildImage" yaml:"buildImage"`
 	// The location of the PEM-encoded certificate for the build project.
-	// Default: - No external certificate is added to the project.
-	//
 	Certificate *BuildEnvironmentCertificate `field:"optional" json:"certificate" yaml:"certificate"`
 	// The type of compute to use for this build.
 	//
 	// See the `ComputeType` enum for the possible values.
-	// Default: taken from `#buildImage#defaultComputeType`.
-	//
 	ComputeType ComputeType `field:"optional" json:"computeType" yaml:"computeType"`
 	// The environment variables that your builds can use.
 	EnvironmentVariables *map[string]*BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
@@ -83,8 +77,6 @@ type BuildEnvironment struct {
 	// images, and the specified build environment image is not one provided by
 	// AWS CodeBuild with Docker support. Otherwise, all associated builds that
 	// attempt to interact with the Docker daemon will fail.
-	// Default: false.
-	//
 	Privileged *bool `field:"optional" json:"privileged" yaml:"privileged"`
 }
 

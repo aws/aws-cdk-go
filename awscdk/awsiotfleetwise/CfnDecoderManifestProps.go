@@ -114,8 +114,6 @@ type CfnDecoderManifestProps struct {
 	// If the status is `ACTIVE` , the decoder manifest can't be edited. If the status is marked `DRAFT` , you can edit the decoder manifest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-status
 	//
-	// Default: - "DRAFT".
-	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// (Optional) Metadata that can be used to manage the decoder manifest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-tags

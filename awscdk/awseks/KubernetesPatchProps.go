@@ -35,12 +35,8 @@ type KubernetesPatchProps struct {
 	// The patch type to pass to `kubectl patch`.
 	//
 	// The default type used by `kubectl patch` is "strategic".
-	// Default: PatchType.STRATEGIC
-	//
 	PatchType PatchType `field:"optional" json:"patchType" yaml:"patchType"`
 	// The kubernetes API namespace.
-	// Default: "default".
-	//
 	ResourceNamespace *string `field:"optional" json:"resourceNamespace" yaml:"resourceNamespace"`
 }
 

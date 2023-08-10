@@ -136,8 +136,6 @@ func PlacementStrategy_Randomly() PlacementStrategy {
 // You can use one of the built-in attributes found on `BuiltInAttributes`
 // or supply your own custom instance attributes. If more than one attribute
 // is supplied, spreading is done in order.
-// Default: attributes instanceId.
-//
 func PlacementStrategy_SpreadAcross(fields ...*string) PlacementStrategy {
 	_init_.Initialize()
 

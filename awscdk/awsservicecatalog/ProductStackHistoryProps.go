@@ -38,18 +38,12 @@ type ProductStackHistoryProps struct {
 	// The ProductStack whose history will be retained as a snapshot.
 	ProductStack ProductStack `field:"required" json:"productStack" yaml:"productStack"`
 	// The description of the product version.
-	// Default: - No description provided.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The directory where template snapshots will be stored.
-	// Default: 'product-stack-snapshots'.
-	//
 	Directory *string `field:"optional" json:"directory" yaml:"directory"`
 	// Whether the specified product template will be validated by CloudFormation.
 	//
 	// If turned off, an invalid template configuration can be stored.
-	// Default: true.
-	//
 	ValidateTemplate *bool `field:"optional" json:"validateTemplate" yaml:"validateTemplate"`
 }
 

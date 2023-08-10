@@ -32,12 +32,8 @@ type AmiContextQuery struct {
 	// Region to query.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Default: - None.
-	//
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Owners to DescribeImages call.
-	// Default: - All owners.
-	//
 	Owners *[]*string `field:"optional" json:"owners" yaml:"owners"`
 }
 

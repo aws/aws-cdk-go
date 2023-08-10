@@ -41,7 +41,7 @@ type CfnBucket interface {
 	// Configures the transfer acceleration state for an Amazon S3 bucket.
 	AccelerateConfiguration() interface{}
 	SetAccelerateConfiguration(val interface{})
-	// A canned access control list (ACL) that grants predefined permissions to the bucket.
+	// > This is a legacy property, and it is not recommended for most use cases.
 	AccessControl() *string
 	SetAccessControl(val *string)
 	// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.

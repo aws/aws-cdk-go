@@ -31,8 +31,6 @@ type CfnServiceNetworkProps struct {
 	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-authtype
 	//
-	// Default: - "NONE".
-	//
 	AuthType *string `field:"optional" json:"authType" yaml:"authType"`
 	// The name of the service network.
 	//

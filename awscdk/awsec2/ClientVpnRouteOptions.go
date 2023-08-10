@@ -29,8 +29,6 @@ type ClientVpnRouteOptions struct {
 	// The target for the route.
 	Target ClientVpnRouteTarget `field:"required" json:"target" yaml:"target"`
 	// A brief description of the authorization rule.
-	// Default: - no description.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

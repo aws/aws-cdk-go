@@ -19,8 +19,6 @@ type ServerDeploymentGroupAttributes struct {
 	// The physical, human-readable name of the CodeDeploy EC2/on-premise Deployment Group that we are referencing.
 	DeploymentGroupName *string `field:"required" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
-	// Default: ServerDeploymentConfig#OneAtATime.
-	//
 	DeploymentConfig IServerDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 

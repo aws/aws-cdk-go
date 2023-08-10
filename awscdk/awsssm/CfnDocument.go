@@ -16,43 +16,13 @@ import (
 // > This resource does not support CloudFormation drift detection.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var application application
+//   var document cfnDocument
 //
-//   var content interface{}
 //
-//   cfnDocument := awscdk.Aws_ssm.NewCfnDocument(this, jsii.String("MyCfnDocument"), &CfnDocumentProps{
-//   	Content: content,
-//
-//   	// the properties below are optional
-//   	Attachments: []interface{}{
-//   		&AttachmentsSourceProperty{
-//   			Key: jsii.String("key"),
-//   			Name: jsii.String("name"),
-//   			Values: []*string{
-//   				jsii.String("values"),
-//   			},
-//   		},
-//   	},
-//   	DocumentFormat: jsii.String("documentFormat"),
-//   	DocumentType: jsii.String("documentType"),
-//   	Name: jsii.String("name"),
-//   	Requires: []interface{}{
-//   		&DocumentRequiresProperty{
-//   			Name: jsii.String("name"),
-//   			Version: jsii.String("version"),
-//   		},
-//   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   	TargetType: jsii.String("targetType"),
-//   	UpdateMethod: jsii.String("updateMethod"),
-//   	VersionName: jsii.String("versionName"),
+//   appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
+//   	Application: Application,
+//   	Location: appconfig.ConfigurationSource_FromCfnDocument(document),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html

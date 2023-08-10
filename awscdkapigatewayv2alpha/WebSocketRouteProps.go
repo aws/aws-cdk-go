@@ -31,13 +31,9 @@ type WebSocketRouteProps struct {
 	// The authorize to this route.
 	//
 	// You can only set authorizer to a $connect route.
-	// Default: - No Authorizer.
-	//
 	// Experimental.
 	Authorizer IWebSocketRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// Should the route send a response to the client.
-	// Default: false.
-	//
 	// Experimental.
 	ReturnResponse *bool `field:"optional" json:"returnResponse" yaml:"returnResponse"`
 	// The key to this route.
@@ -47,8 +43,6 @@ type WebSocketRouteProps struct {
 	// Experimental.
 	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 	// Whether the route requires an API Key to be provided.
-	// Default: false.
-	//
 	// Experimental.
 	ApiKeyRequired *bool `field:"optional" json:"apiKeyRequired" yaml:"apiKeyRequired"`
 }

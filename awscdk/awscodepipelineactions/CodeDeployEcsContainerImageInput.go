@@ -34,8 +34,6 @@ type CodeDeployEcsContainerImageInput struct {
 	// For example, if the task definition template file contains a placeholder like
 	// `"image": "<PLACEHOLDER>"`, then the `taskDefinitionPlaceholder` value should
 	// be `PLACEHOLDER`.
-	// Default: IMAGE.
-	//
 	TaskDefinitionPlaceholder *string `field:"optional" json:"taskDefinitionPlaceholder" yaml:"taskDefinitionPlaceholder"`
 }
 

@@ -27,20 +27,12 @@ import (
 //
 type CertificationValidationProps struct {
 	// Hosted zone to use for DNS validation.
-	// Default: - use email validation.
-	//
 	HostedZone awsroute53.IHostedZone `field:"optional" json:"hostedZone" yaml:"hostedZone"`
 	// A map of hosted zones to use for DNS validation.
-	// Default: - use `hostedZone`.
-	//
 	HostedZones *map[string]awsroute53.IHostedZone `field:"optional" json:"hostedZones" yaml:"hostedZones"`
 	// Validation method.
-	// Default: ValidationMethod.EMAIL
-	//
 	Method ValidationMethod `field:"optional" json:"method" yaml:"method"`
 	// Validation domains to use for email validation.
-	// Default: - Apex domain.
-	//
 	ValidationDomains *map[string]*string `field:"optional" json:"validationDomains" yaml:"validationDomains"`
 }
 

@@ -59,14 +59,8 @@ type CloudFormationDeployStackSetActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	// Default: 1.
-	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	// Default: - a name will be generated, based on the stage and action names,
-	// if any of the action's variables were referenced - otherwise,
-	// no namespace will be set.
-	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -75,16 +69,12 @@ type CloudFormationDeployStackSetActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your `IAction.bind`
 	// method in the `ActionBindOptions.role` property.
-	// Default: a new Role will be generated.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If
 	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
 	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
-	// Default: 0%.
-	//
 	FailureTolerancePercentage *float64 `field:"optional" json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
@@ -92,8 +82,6 @@ type CloudFormationDeployStackSetActionProps struct {
 	// percentage, AWS CloudFormation rounds down to the next whole number. If rounding down would result in zero, AWS CloudFormation sets the number as
 	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
 	// may be lower due to service throttling.
-	// Default: 1%.
-	//
 	MaxAccountConcurrencyPercentage *float64 `field:"optional" json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
 	// The AWS Region the StackSet is in.
 	//
@@ -101,8 +89,6 @@ type CloudFormationDeployStackSetActionProps struct {
 	// You can provide their names with the `PipelineProps.crossRegionReplicationBuckets` property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
-	// Default: - same region as the Pipeline.
-	//
 	StackSetRegion *string `field:"optional" json:"stackSetRegion" yaml:"stackSetRegion"`
 	// The name to associate with the stack set.
 	//
@@ -119,8 +105,6 @@ type CloudFormationDeployStackSetActionProps struct {
 	// Indicates that the template can create and update resources, depending on the types of resources in the template.
 	//
 	// You must use this property if you have IAM resources in your stack template or you create a stack directly from a template containing macros.
-	// Default: - the StackSet will have no IAM capabilities.
-	//
 	CfnCapabilities *[]awscdk.CfnCapabilities `field:"optional" json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// Determines how IAM roles are created and managed.
 	//
@@ -138,26 +122,18 @@ type CloudFormationDeployStackSetActionProps struct {
 	//
 	// Note: This parameter can only be changed when no stack instances exist in
 	// the stack set.
-	// Default: StackSetDeploymentModel.selfManaged()
-	//
 	DeploymentModel StackSetDeploymentModel `field:"optional" json:"deploymentModel" yaml:"deploymentModel"`
 	// A description of the stack set.
 	//
 	// You can use this to describe the stack set’s purpose or other relevant information.
-	// Default: - no description.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The template parameters for your stack set.
 	//
 	// These parameters are shared between all instances of the stack set.
-	// Default: - no parameters will be used.
-	//
 	Parameters StackSetParameters `field:"optional" json:"parameters" yaml:"parameters"`
 	// Specify where to create or update Stack Instances.
 	//
 	// You can specify either AWS Accounts Ids or AWS Organizations Organizational Units.
-	// Default: - don't create or update any Stack Instances.
-	//
 	StackInstances StackInstances `field:"optional" json:"stackInstances" yaml:"stackInstances"`
 }
 

@@ -25,8 +25,6 @@ type ApiMappingOptions struct {
 	// If this is undefined, a mapping will be added for the empty path. Any request
 	// that does not match a mapping will get sent to the API that has been mapped
 	// to the empty path.
-	// Default: - map requests from the domain root (e.g. `example.com`).
-	//
 	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 }
 

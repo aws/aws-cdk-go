@@ -52,8 +52,6 @@ type CfnFlowEntitlement_EncryptionProperty struct {
 	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ). Valid key types are: `static-key` , `speke` , and `srt-password` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-keytype
 	//
-	// Default: - "static-key".
-	//
 	KeyType *string `field:"optional" json:"keyType" yaml:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in.
 	//

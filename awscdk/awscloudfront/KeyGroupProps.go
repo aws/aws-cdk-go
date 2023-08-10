@@ -32,12 +32,8 @@ type KeyGroupProps struct {
 	// A list of public keys to add to the key group.
 	Items *[]IPublicKey `field:"required" json:"items" yaml:"items"`
 	// A comment to describe the key group.
-	// Default: - no comment.
-	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// A name to identify the key group.
-	// Default: - generated from the `id`.
-	//
 	KeyGroupName *string `field:"optional" json:"keyGroupName" yaml:"keyGroupName"`
 }
 

@@ -44,8 +44,6 @@ type ScalingSchedule struct {
 	// When to perform this action.
 	Schedule Schedule `field:"required" json:"schedule" yaml:"schedule"`
 	// When this scheduled action expires.
-	// Default: The rule never expires.
-	//
 	EndTime *time.Time `field:"optional" json:"endTime" yaml:"endTime"`
 	// The new maximum capacity.
 	//
@@ -53,8 +51,6 @@ type ScalingSchedule struct {
 	// capacity, Application Auto Scaling scales in to the maximum capacity.
 	//
 	// At least one of maxCapacity and minCapacity must be supplied.
-	// Default: No new maximum capacity.
-	//
 	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The new minimum capacity.
 	//
@@ -62,12 +58,8 @@ type ScalingSchedule struct {
 	// capacity, Application Auto Scaling scales out to the minimum capacity.
 	//
 	// At least one of maxCapacity and minCapacity must be supplied.
-	// Default: No new minimum capacity.
-	//
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 	// When this scheduled action becomes active.
-	// Default: The rule is activate immediately.
-	//
 	StartTime *time.Time `field:"optional" json:"startTime" yaml:"startTime"`
 }
 

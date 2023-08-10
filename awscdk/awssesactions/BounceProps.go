@@ -32,8 +32,6 @@ type BounceProps struct {
 	// The template containing the message, reply code and status code.
 	Template BounceTemplate `field:"required" json:"template" yaml:"template"`
 	// The SNS topic to notify when the bounce action is taken.
-	// Default: no notification.
-	//
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 

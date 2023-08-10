@@ -37,13 +37,9 @@ type DomainNameProps struct {
 	// Experimental.
 	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
-	// Default: - No friendly certificate name.
-	//
 	// Experimental.
 	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// The type of endpoint for this DomainName.
-	// Default: EndpointType.REGIONAL
-	//
 	// Experimental.
 	EndpointType EndpointType `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// A public certificate issued by ACM to validate that you own a custom domain.
@@ -51,21 +47,15 @@ type DomainNameProps struct {
 	// This parameter is required
 	// only when you configure mutual TLS authentication and you specify an ACM imported or private CA certificate
 	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
-	// Default: - only required when configuring mTLS.
-	//
 	// Experimental.
 	OwnershipCertificate awscertificatemanager.ICertificate `field:"optional" json:"ownershipCertificate" yaml:"ownershipCertificate"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
-	// Default: SecurityPolicy.TLS_1_2
-	//
 	// Experimental.
 	SecurityPolicy SecurityPolicy `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 	// The custom domain name.
 	// Experimental.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The mutual TLS authentication configuration for a custom domain name.
-	// Default: - mTLS is not configured.
-	//
 	// Experimental.
 	Mtls *MTLSConfig `field:"optional" json:"mtls" yaml:"mtls"`
 }

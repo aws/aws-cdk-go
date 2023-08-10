@@ -27,6 +27,17 @@ import (
 //   	// the properties below are optional
 //   	MagneticStoreWriteProperties: magneticStoreWriteProperties,
 //   	RetentionProperties: retentionProperties,
+//   	Schema: &SchemaProperty{
+//   		CompositePartitionKey: []interface{}{
+//   			&PartitionKeyProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				EnforcementInRecord: jsii.String("enforcementInRecord"),
+//   				Name: jsii.String("name"),
+//   			},
+//   		},
+//   	},
 //   	TableName: jsii.String("tableName"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -83,6 +94,9 @@ type CfnTable interface {
 	// This object has the following attributes:.
 	RetentionProperties() interface{}
 	SetRetentionProperties(val interface{})
+	// The schema of the table.
+	Schema() interface{}
+	SetSchema(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -362,6 +376,16 @@ func (j *jsiiProxy_CfnTable) RetentionProperties() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) Schema() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"schema",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -473,6 +497,17 @@ func (j *jsiiProxy_CfnTable)SetRetentionProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"retentionProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetSchema(val interface{}) {
+	if err := j.validateSetSchemaParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"schema",
 		val,
 	)
 }

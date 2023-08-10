@@ -11,8 +11,6 @@ type IMetric interface {
 	// Any warnings related to this metric.
 	//
 	// Should be attached to the consuming construct.
-	// Default: - None.
-	//
 	Warnings() *[]*string
 }
 

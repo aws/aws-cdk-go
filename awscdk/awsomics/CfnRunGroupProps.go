@@ -11,6 +11,7 @@ package awsomics
 //   cfnRunGroupProps := &CfnRunGroupProps{
 //   	MaxCpus: jsii.Number(123),
 //   	MaxDuration: jsii.Number(123),
+//   	MaxGpus: jsii.Number(123),
 //   	MaxRuns: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Tags: map[string]*string{
@@ -29,6 +30,9 @@ type CfnRunGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxduration
 	//
 	MaxDuration *float64 `field:"optional" json:"maxDuration" yaml:"maxDuration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxgpus
+	//
+	MaxGpus *float64 `field:"optional" json:"maxGpus" yaml:"maxGpus"`
 	// The group's maximum concurrent run setting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxruns
 	//

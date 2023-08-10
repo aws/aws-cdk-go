@@ -17,12 +17,8 @@ package awselasticloadbalancingv2
 //
 type BaseLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
-	// Default: - does not search by load balancer arn.
-	//
 	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
-	// Default: - does not match load balancers by tags.
-	//
 	LoadBalancerTags *map[string]*string `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 

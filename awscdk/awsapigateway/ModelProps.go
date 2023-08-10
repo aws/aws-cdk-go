@@ -89,12 +89,8 @@ type ModelProps struct {
 	//
 	// You can also force a
 	// content type in the request or response model mapping.
-	// Default: 'application/json'.
-	//
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// A description that identifies this model.
-	// Default: None.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A name for the model.
 	//
@@ -103,11 +99,6 @@ type ModelProps struct {
 	//  require replacement of this resource. You can perform
 	//  updates that require no or some interruption. If you
 	//  must replace the resource, specify a new name.
-	// Default: <auto> If you don't specify a name,
-	// AWS CloudFormation generates a unique physical ID and
-	// uses that ID for the model name. For more information,
-	// see Name Type.
-	//
 	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
 	// The rest API that this model is part of.
 	//

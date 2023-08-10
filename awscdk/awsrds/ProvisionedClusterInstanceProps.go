@@ -30,20 +30,12 @@ import (
 //
 type ProvisionedClusterInstanceProps struct {
 	// Whether to allow upgrade of major version for the DB instance.
-	// Default: - false.
-	//
 	AllowMajorVersionUpgrade *bool `field:"optional" json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// Whether to enable automatic upgrade of minor version for the DB instance.
-	// Default: - true.
-	//
 	AutoMinorVersionUpgrade *bool `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// Whether to enable Performance Insights for the DB instance.
-	// Default: - false, unless ``performanceInsightRentention`` or ``performanceInsightEncryptionKey`` is set.
-	//
 	EnablePerformanceInsights *bool `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// The identifier for the database instance.
-	// Default: - CloudFormation generated identifier.
-	//
 	InstanceIdentifier *string `field:"optional" json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// Only used for migrating existing clusters from using `instanceProps` to `writer` and `readers`.
 	//
@@ -87,39 +79,25 @@ type ProvisionedClusterInstanceProps struct {
 	//     ],
 	//   });
 	//
-	// Default: false.
-	//
 	IsFromLegacyInstanceProps *bool `field:"optional" json:"isFromLegacyInstanceProps" yaml:"isFromLegacyInstanceProps"`
 	// The DB parameter group to associate with the instance.
 	//
 	// This is only needed if you need to configure different parameter
 	// groups for each individual instance, otherwise you should not
 	// provide this and just use the cluster parameter group.
-	// Default: the cluster parameter group is used.
-	//
 	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The parameters in the DBParameterGroup to create automatically.
 	//
 	// You can only specify parameterGroup or parameters but not both.
 	// You need to use a versioned engine to auto-generate a DBParameterGroup.
-	// Default: - None.
-	//
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	// Default: - default master key.
-	//
 	PerformanceInsightEncryptionKey awskms.IKey `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	// Default: 7.
-	//
 	PerformanceInsightRetention PerformanceInsightRetention `field:"optional" json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Default: - true if the instance is placed in a public subnet.
-	//
 	PubliclyAccessible *bool `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The cluster instance type.
-	// Default: db.t3.medium
-	//
 	InstanceType awsec2.InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The promotion tier of the cluster instance.
 	//
@@ -127,8 +105,6 @@ type ProvisionedClusterInstanceProps struct {
 	//
 	// For provisioned instances this just determines the failover priority.
 	// If multiple instances have the same priority then one will be picked at random.
-	// Default: 2.
-	//
 	PromotionTier *float64 `field:"optional" json:"promotionTier" yaml:"promotionTier"`
 }
 

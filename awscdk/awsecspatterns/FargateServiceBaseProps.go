@@ -45,8 +45,6 @@ type FargateServiceBaseProps struct {
 	// 16384 (16 vCPU) - Available memory values: Between 32GB and 120GB in 8GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	// Default: 256.
-	//
 	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
 	// The amount (in MiB) of memory used by the task.
 	//
@@ -68,26 +66,18 @@ type FargateServiceBaseProps struct {
 	// Between 32768 (32 GB) and 122880 (120 GB) in increments of 8192 (8 GB) - Available cpu values: 16384 (16 vCPU)
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	// Default: 512.
-	//
 	MemoryLimitMiB *float64 `field:"optional" json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	// Default: Latest.
-	//
 	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
 	// The runtime platform of the task definition.
-	// Default: - If the property is undefined, `operatingSystemFamily` is LINUX and `cpuArchitecture` is X86_64.
-	//
 	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
 	//
 	// [disable-awslint:ref-via-interface].
-	// Default: - none.
-	//
 	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
 }
 

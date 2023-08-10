@@ -16,13 +16,9 @@ package awscdkbatchalpha
 // Experimental.
 type SecretVersionInfo struct {
 	// version id of the secret.
-	// Default: - use default version id.
-	//
 	// Experimental.
 	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
 	// version stage of the secret.
-	// Default: - use default version stage.
-	//
 	// Experimental.
 	VersionStage *string `field:"optional" json:"versionStage" yaml:"versionStage"`
 }

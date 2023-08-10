@@ -25,8 +25,6 @@ type DockerImageAssetLocation struct {
 	// The name of the ECR repository.
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 	// The tag of the image in Amazon ECR.
-	// Default: - the hash of the asset, or the `dockerTagPrefix` concatenated with the asset hash if a `dockerTagPrefix` is specified in the stack synthesizer.
-	//
 	ImageTag *string `field:"optional" json:"imageTag" yaml:"imageTag"`
 }
 

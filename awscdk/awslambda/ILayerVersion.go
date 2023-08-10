@@ -19,8 +19,6 @@ type ILayerVersion interface {
 	// permission on the layer version.
 	AddPermission(id *string, permission *LayerVersionPermission)
 	// The runtimes compatible with this Layer.
-	// Default: Runtime.All
-	//
 	CompatibleRuntimes() *[]Runtime
 	// The ARN of the Lambda Layer version that this Layer defines.
 	LayerVersionArn() *string

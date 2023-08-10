@@ -13,8 +13,6 @@ import (
 type IApi interface {
 	awscdk.IResource
 	// Return the given named metric for this Api Gateway.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The default endpoint for an API.

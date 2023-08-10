@@ -85,25 +85,14 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	// An API-specific tag group of related cached parameters.
 	CacheNamespace *string `field:"optional" json:"cacheNamespace" yaml:"cacheNamespace"`
 	// The type of network connection to the integration endpoint.
-	// Default: - ConnectionType.VPC_LINK if `vpcLink` property is configured; ConnectionType.Internet otherwise.
-	//
 	ConnectionType ConnectionType `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// Specifies how to handle request payload content type conversions.
-	// Default: none if this property isn't defined, the request payload is passed
-	// through from the method request to the integration request without
-	// modification, provided that the `passthroughBehaviors` property is
-	// configured to support payload pass-through.
-	//
 	ContentHandling ContentHandling `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// Requires that the caller's identity be passed through from the request.
-	// Default: Caller identity is not passed through.
-	//
 	CredentialsPassthrough *bool `field:"optional" json:"credentialsPassthrough" yaml:"credentialsPassthrough"`
 	// An IAM role that API Gateway assumes.
 	//
 	// Mutually exclusive with `credentialsPassThrough`.
-	// Default: A role is not assumed.
-	//
 	CredentialsRole awsiam.IRole `field:"optional" json:"credentialsRole" yaml:"credentialsRole"`
 	// The response that API Gateway provides after a method's backend completes processing a request.
 	//
@@ -146,8 +135,6 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	// The maximum amount of time an integration will run before it returns without a response.
 	//
 	// Must be between 50 milliseconds and 29 seconds.
-	// Default: Duration.seconds(29)
-	//
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The VpcLink used for the integration.
 	//
@@ -163,8 +150,6 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//     "key": "value"
 	//   }
 	// }.
-	// Default: false.
-	//
 	Authorizer *bool `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// Check if header is to be included inside the execution input.
 	//
@@ -177,8 +162,6 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//      "header2": "value"
 	//   }
 	// }.
-	// Default: false.
-	//
 	Headers *bool `field:"optional" json:"headers" yaml:"headers"`
 	// Check if path is to be included inside the execution input.
 	//
@@ -190,8 +173,6 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//     "resourceName": "resourceValue"
 	//   }
 	// }.
-	// Default: true.
-	//
 	Path *bool `field:"optional" json:"path" yaml:"path"`
 	// Check if querystring is to be included inside the execution input.
 	//
@@ -203,8 +184,6 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//     "key": "value"
 	//   }
 	// }.
-	// Default: true.
-	//
 	Querystring *bool `field:"optional" json:"querystring" yaml:"querystring"`
 	// Which details of the incoming request must be passed onto the underlying state machine, such as, account id, user identity, request id, etc.
 	//
@@ -216,8 +195,6 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//       "key": "value"
 	//   }
 	// }.
-	// Default: - all parameters within request context will be set as false.
-	//
 	RequestContext *RequestContext `field:"optional" json:"requestContext" yaml:"requestContext"`
 }
 

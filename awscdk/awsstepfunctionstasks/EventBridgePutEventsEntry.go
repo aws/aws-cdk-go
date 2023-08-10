@@ -54,8 +54,6 @@ type EventBridgePutEventsEntry struct {
 	//
 	Source *string `field:"required" json:"source" yaml:"source"`
 	// The event bus the entry will be sent to.
-	// Default: - event is sent to account's default event bus.
-	//
 	EventBus awsevents.IEventBus `field:"optional" json:"eventBus" yaml:"eventBus"`
 }
 

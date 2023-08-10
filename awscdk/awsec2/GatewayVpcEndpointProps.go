@@ -55,8 +55,6 @@ type GatewayVpcEndpointProps struct {
 	//     ]
 	//   });
 	//
-	// Default: - All subnets in the VPC.
-	//
 	Subnets *[]*SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 	// The VPC network in which the gateway endpoint will be used.
 	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`

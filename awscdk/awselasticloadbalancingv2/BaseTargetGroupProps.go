@@ -39,13 +39,9 @@ type BaseTargetGroupProps struct {
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
-	// Default: 300.
-	//
 	DeregistrationDelay awscdk.Duration `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
-	//
-	// Default: - The default value for each property in this configuration varies depending on the target.
 	//
 	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
@@ -53,22 +49,16 @@ type BaseTargetGroupProps struct {
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
-	// Default: - Automatically generated.
-	//
 	TargetGroupName *string `field:"optional" json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
-	// Default: - Determined automatically.
-	//
 	TargetType TargetType `field:"optional" json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
 	// only if `TargetType` is `Ip` or `InstanceId`.
-	// Default: - undefined.
-	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

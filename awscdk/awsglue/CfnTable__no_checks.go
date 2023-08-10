@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnTable) validateSetDatabaseNameParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetOpenTableFormatInputParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTable) validateSetTableInputParameters(val interface{}) error {
 	return nil
 }

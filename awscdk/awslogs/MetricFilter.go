@@ -69,8 +69,6 @@ type MetricFilter interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Return the given named metric for this Metric Filter.
-	// Default: avg over 5 minutes.
-	//
 	Metric(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string

@@ -36,20 +36,12 @@ type TableProps struct {
 	// Partition key attribute definition.
 	PartitionKey *Attribute `field:"required" json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	// Default: no sort key.
-	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
-	// Default: PROVISIONED if `replicationRegions` is not specified, PAY_PER_REQUEST otherwise.
-	//
 	BillingMode BillingMode `field:"optional" json:"billingMode" yaml:"billingMode"`
 	// Whether CloudWatch contributor insights is enabled.
-	// Default: false.
-	//
 	ContributorInsightsEnabled *bool `field:"optional" json:"contributorInsightsEnabled" yaml:"contributorInsightsEnabled"`
 	// Enables deletion protection for the table.
-	// Default: false.
-	//
 	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether server-side encryption with an AWS managed customer master key is enabled.
 	//
@@ -61,21 +53,12 @@ type TableProps struct {
 	// > sufficient to enable the key for use with DynamoDB tables.  If you are
 	// > using CDKv1, make sure the feature flag
 	// > `@aws-cdk/aws-kms:defaultKeyPolicies` is set to `true` in your `cdk.json`.
-	// Default: - The table is encrypted with an encryption key managed by DynamoDB, and you are not charged any fee for using it.
-	//
 	Encryption TableEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// External KMS key to use for table encryption.
 	//
 	// This property can only be set if `encryption` is set to `TableEncryption.CUSTOMER_MANAGED`.
-	// Default: - If `encryption` is set to `TableEncryption.CUSTOMER_MANAGED` and this
-	// property is undefined, a new KMS key will be created and associated with this table.
-	// If `encryption` and this property are both undefined, then the table is encrypted with
-	// an encryption key managed by DynamoDB, and you are not charged any fee for using it.
-	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Whether point-in-time recovery is enabled.
-	// Default: - point-in-time recovery is disabled.
-	//
 	PointInTimeRecovery *bool `field:"optional" json:"pointInTimeRecovery" yaml:"pointInTimeRecovery"`
 	// The read capacity for the table.
 	//
@@ -83,32 +66,18 @@ type TableProps struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	// Default: 5.
-	//
 	ReadCapacity *float64 `field:"optional" json:"readCapacity" yaml:"readCapacity"`
 	// The removal policy to apply to the DynamoDB Table.
-	// Default: RemovalPolicy.RETAIN
-	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Regions where replica tables will be created.
-	// Default: - no replica tables are created.
-	//
 	ReplicationRegions *[]*string `field:"optional" json:"replicationRegions" yaml:"replicationRegions"`
 	// The timeout for a table replication operation in a single region.
-	// Default: Duration.minutes(30)
-	//
 	ReplicationTimeout awscdk.Duration `field:"optional" json:"replicationTimeout" yaml:"replicationTimeout"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
-	// Default: - streams are disabled unless `replicationRegions` is specified.
-	//
 	Stream StreamViewType `field:"optional" json:"stream" yaml:"stream"`
 	// Specify the table class.
-	// Default: STANDARD.
-	//
 	TableClass TableClass `field:"optional" json:"tableClass" yaml:"tableClass"`
 	// The name of TTL attribute.
-	// Default: - TTL is disabled.
-	//
 	TimeToLiveAttribute *string `field:"optional" json:"timeToLiveAttribute" yaml:"timeToLiveAttribute"`
 	// Indicates whether CloudFormation stack waits for replication to finish.
 	//
@@ -129,8 +98,6 @@ type TableProps struct {
 	// This will cause the existing replicas to be deleted.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
 	//
-	// Default: true.
-	//
 	WaitForReplicationToFinish *bool `field:"optional" json:"waitForReplicationToFinish" yaml:"waitForReplicationToFinish"`
 	// The write capacity for the table.
 	//
@@ -138,16 +105,10 @@ type TableProps struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	// Default: 5.
-	//
 	WriteCapacity *float64 `field:"optional" json:"writeCapacity" yaml:"writeCapacity"`
 	// Kinesis Data Stream to capture item-level changes for the table.
-	// Default: - no Kinesis Data Stream.
-	//
 	KinesisStream awskinesis.IStream `field:"optional" json:"kinesisStream" yaml:"kinesisStream"`
 	// Enforces a particular physical table name.
-	// Default: <generated>.
-	//
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 }
 

@@ -50,18 +50,12 @@ type IdentityPoolRoleAttachmentProps struct {
 	// Experimental.
 	IdentityPool IIdentityPool `field:"required" json:"identityPool" yaml:"identityPool"`
 	// Default Authenticated (User) Role.
-	// Default: - No default authenticated role will be added.
-	//
 	// Experimental.
 	AuthenticatedRole awsiam.IRole `field:"optional" json:"authenticatedRole" yaml:"authenticatedRole"`
 	// Rules for mapping roles to users.
-	// Default: - no Role Mappings.
-	//
 	// Experimental.
 	RoleMappings *[]*IdentityPoolRoleMapping `field:"optional" json:"roleMappings" yaml:"roleMappings"`
 	// Default Unauthenticated (Guest) Role.
-	// Default: - No default unauthenticated role will be added.
-	//
 	// Experimental.
 	UnauthenticatedRole awsiam.IRole `field:"optional" json:"unauthenticatedRole" yaml:"unauthenticatedRole"`
 }

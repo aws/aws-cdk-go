@@ -39,16 +39,11 @@ type NetworkAclProps struct {
 	// The name of the NetworkAcl.
 	//
 	// It is not recommended to use an explicit name.
-	// Default: If you don't specify a networkAclName, AWS CloudFormation generates a
-	// unique physical ID and uses that ID for the group name.
-	//
 	NetworkAclName *string `field:"optional" json:"networkAclName" yaml:"networkAclName"`
 	// Subnets in the given VPC to associate the ACL with.
 	//
 	// More subnets can always be added later by calling
 	// `associateWithSubnets()`.
-	// Default: - No subnets associated.
-	//
 	SubnetSelection *SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 }
 

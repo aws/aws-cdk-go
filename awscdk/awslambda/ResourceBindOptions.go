@@ -14,8 +14,6 @@ type ResourceBindOptions struct {
 	// The name of the CloudFormation property to annotate with asset metadata.
 	// See: https://github.com/aws/aws-cdk/issues/1432
 	//
-	// Default: Code.
-	//
 	ResourceProperty *string `field:"optional" json:"resourceProperty" yaml:"resourceProperty"`
 }
 

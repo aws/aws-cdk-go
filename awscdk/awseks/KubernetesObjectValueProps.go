@@ -43,12 +43,8 @@ type KubernetesObjectValueProps struct {
 	// (e.g 'service', 'pod'...)
 	ObjectType *string `field:"required" json:"objectType" yaml:"objectType"`
 	// The namespace the object belongs to.
-	// Default: 'default'.
-	//
 	ObjectNamespace *string `field:"optional" json:"objectNamespace" yaml:"objectNamespace"`
 	// Timeout for waiting on a value.
-	// Default: Duration.minutes(5)
-	//
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

@@ -84,9 +84,18 @@ package awsglue
 //   			CatalogId: jsii.String("catalogId"),
 //   			DatabaseName: jsii.String("databaseName"),
 //   			Name: jsii.String("name"),
+//   			Region: jsii.String("region"),
 //   		},
 //   		ViewExpandedText: jsii.String("viewExpandedText"),
 //   		ViewOriginalText: jsii.String("viewOriginalText"),
+//   	},
+//
+//   	// the properties below are optional
+//   	OpenTableFormatInput: &OpenTableFormatInputProperty{
+//   		IcebergInput: &IcebergInputProperty{
+//   			MetadataOperation: jsii.String("metadataOperation"),
+//   			Version: jsii.String("version"),
+//   		},
 //   	},
 //   }
 //
@@ -107,5 +116,8 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-tableinput
 	//
 	TableInput interface{} `field:"required" json:"tableInput" yaml:"tableInput"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-opentableformatinput
+	//
+	OpenTableFormatInput interface{} `field:"optional" json:"openTableFormatInput" yaml:"openTableFormatInput"`
 }
 

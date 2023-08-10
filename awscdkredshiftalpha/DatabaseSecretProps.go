@@ -27,8 +27,6 @@ type DatabaseSecretProps struct {
 	// Experimental.
 	Username *string `field:"required" json:"username" yaml:"username"`
 	// The KMS key to use to encrypt the secret.
-	// Default: default master key.
-	//
 	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }

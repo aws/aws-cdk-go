@@ -133,8 +133,6 @@ type DatabaseInstance interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity connection access to the database.
-	// Default: the default user, obtained from the Secret.
-	//
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// Return the given named metric for this DBInstance.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

@@ -44,8 +44,6 @@ type LogDriverConfig struct {
 	// The configuration options to send to the log driver.
 	Options *map[string]*string `field:"optional" json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
-	// Default: - No secret options provided.
-	//
 	SecretOptions *[]*CfnTaskDefinition_SecretProperty `field:"optional" json:"secretOptions" yaml:"secretOptions"`
 }
 

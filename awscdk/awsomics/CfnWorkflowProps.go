@@ -9,6 +9,7 @@ package awsomics
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnWorkflowProps := &CfnWorkflowProps{
+//   	Accelerators: jsii.String("accelerators"),
 //   	DefinitionUri: jsii.String("definitionUri"),
 //   	Description: jsii.String("description"),
 //   	Engine: jsii.String("engine"),
@@ -29,6 +30,9 @@ package awsomics
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html
 //
 type CfnWorkflowProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-accelerators
+	//
+	Accelerators *string `field:"optional" json:"accelerators" yaml:"accelerators"`
 	// The URI of a definition for the workflow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-definitionuri
 	//

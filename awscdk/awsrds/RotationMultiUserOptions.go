@@ -18,8 +18,6 @@ import (
 //
 type RotationMultiUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Default: - 30 days.
-	//
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -27,24 +25,14 @@ type RotationMultiUserOptions struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
-	// Default: https://secretsmanager.<region>.amazonaws.com
-	//
 	Endpoint awsec2.IInterfaceVpcEndpoint `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// Specifies characters to not include in generated passwords.
-	// Default: " %+~`#$&*()|[]{}:;<>?!'/@\"\\"
-	//
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
-	// Default: true.
-	//
 	RotateImmediatelyOnUpdate *bool `field:"optional" json:"rotateImmediatelyOnUpdate" yaml:"rotateImmediatelyOnUpdate"`
 	// The security group for the Lambda rotation function.
-	// Default: - a new security group is created.
-	//
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Where to place the rotation Lambda function.
-	// Default: - same placement as instance or cluster.
-	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The secret to rotate.
 	//

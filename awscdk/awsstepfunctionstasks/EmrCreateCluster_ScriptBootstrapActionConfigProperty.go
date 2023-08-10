@@ -25,8 +25,6 @@ type EmrCreateCluster_ScriptBootstrapActionConfigProperty struct {
 	// Can be either a location in Amazon S3 or on a local file system.
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// A list of command line arguments to pass to the bootstrap action script.
-	// Default: No args.
-	//
 	Args *[]*string `field:"optional" json:"args" yaml:"args"`
 }
 

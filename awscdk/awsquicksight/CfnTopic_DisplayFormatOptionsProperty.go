@@ -48,8 +48,6 @@ type CfnTopic_DisplayFormatOptionsProperty struct {
 	// Determines the number of fraction digits.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-displayformatoptions.html#cfn-quicksight-topic-displayformatoptions-fractiondigits
 	//
-	// Default: - 0.
-	//
 	FractionDigits *float64 `field:"optional" json:"fractionDigits" yaml:"fractionDigits"`
 	// Determines the grouping separator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-displayformatoptions.html#cfn-quicksight-topic-displayformatoptions-groupingseparator
@@ -76,13 +74,9 @@ type CfnTopic_DisplayFormatOptionsProperty struct {
 	// A Boolean value that indicates whether to use blank cell format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-displayformatoptions.html#cfn-quicksight-topic-displayformatoptions-useblankcellformat
 	//
-	// Default: - false.
-	//
 	UseBlankCellFormat interface{} `field:"optional" json:"useBlankCellFormat" yaml:"useBlankCellFormat"`
 	// A Boolean value that indicates whether to use grouping.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-displayformatoptions.html#cfn-quicksight-topic-displayformatoptions-usegrouping
-	//
-	// Default: - false.
 	//
 	UseGrouping interface{} `field:"optional" json:"useGrouping" yaml:"useGrouping"`
 }

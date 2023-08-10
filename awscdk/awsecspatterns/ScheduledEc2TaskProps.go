@@ -38,61 +38,38 @@ type ScheduledEc2TaskProps struct {
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	// Default: - create a new cluster; if both cluster and vpc are omitted, a new VPC will be created for you.
-	//
 	Cluster awsecs.ICluster `field:"optional" json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	// Default: 1.
-	//
 	DesiredTaskCount *float64 `field:"optional" json:"desiredTaskCount" yaml:"desiredTaskCount"`
 	// Indicates whether the rule is enabled.
-	// Default: true.
-	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies whether to propagate the tags from the task definition to the task.
 	//
 	// If no value is specified, the tags are not propagated.
-	// Default: - Tags will not be propagated.
-	//
 	PropagateTags awsecs.PropagatedTagSource `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// A name for the rule.
-	// Default: - AWS CloudFormation generates a unique physical ID and uses that ID
-	// for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
-	//
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// Existing security groups to use for your service.
-	// Default: - a new security group will be created.
-	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// In what subnets to place the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking).
-	// Default: Private subnets.
-	//
 	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 	// The metadata that you apply to the task to help you categorize and organize them.
 	//
 	// Each tag consists of a key and an optional value, both of which you define.
-	// Default: - No tags are applied to the task.
-	//
 	Tags *[]*awseventstargets.Tag `field:"optional" json:"tags" yaml:"tags"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	// Default: - uses the VPC defined in the cluster or creates a new VPC.
-	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The properties to define if using an existing TaskDefinition in this construct.
 	//
 	// ScheduledEc2TaskDefinitionOptions or ScheduledEc2TaskImageOptions must be defined, but not both.
-	// Default: none.
-	//
 	ScheduledEc2TaskDefinitionOptions *ScheduledEc2TaskDefinitionOptions `field:"optional" json:"scheduledEc2TaskDefinitionOptions" yaml:"scheduledEc2TaskDefinitionOptions"`
 	// The properties to define if the construct is to create a TaskDefinition.
 	//
 	// ScheduledEc2TaskDefinitionOptions or ScheduledEc2TaskImageOptions must be defined, but not both.
-	// Default: none.
-	//
 	ScheduledEc2TaskImageOptions *ScheduledEc2TaskImageOptions `field:"optional" json:"scheduledEc2TaskImageOptions" yaml:"scheduledEc2TaskImageOptions"`
 }
 

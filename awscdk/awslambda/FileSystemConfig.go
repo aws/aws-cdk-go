@@ -40,16 +40,10 @@ type FileSystemConfig struct {
 	// mount path in the lambda runtime environment.
 	LocalMountPath *string `field:"required" json:"localMountPath" yaml:"localMountPath"`
 	// connections object used to allow ingress traffic from lambda function.
-	// Default: - no connections required to add extra ingress rules for Lambda function.
-	//
 	Connections awsec2.Connections `field:"optional" json:"connections" yaml:"connections"`
 	// array of IDependable that lambda function depends on.
-	// Default: - no dependency.
-	//
 	Dependency *[]constructs.IDependable `field:"optional" json:"dependency" yaml:"dependency"`
 	// additional IAM policies required for the lambda function.
-	// Default: - no additional policies required.
-	//
 	Policies *[]awsiam.PolicyStatement `field:"optional" json:"policies" yaml:"policies"`
 }
 

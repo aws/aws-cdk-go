@@ -34,28 +34,20 @@ type VpcContextQuery struct {
 	// Query region.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Default: - None.
-	//
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Whether to populate the subnetGroups field of the `VpcContextResponse`, which contains potentially asymmetric subnet groups.
-	// Default: false.
-	//
 	ReturnAsymmetricSubnets *bool `field:"optional" json:"returnAsymmetricSubnets" yaml:"returnAsymmetricSubnets"`
 	// Whether to populate the `vpnGatewayId` field of the `VpcContextResponse`, which contains the VPN Gateway ID, if one exists.
 	//
 	// You can explicitly
 	// disable this in order to avoid the lookup if you know the VPC does not have
 	// a VPN Gatway attached.
-	// Default: true.
-	//
 	ReturnVpnGateways *bool `field:"optional" json:"returnVpnGateways" yaml:"returnVpnGateways"`
 	// Optional tag for subnet group name.
 	//
 	// If not provided, we'll look at the aws-cdk:subnet-name tag.
 	// If the subnet does not have the specified tag,
 	// we'll use its type as the name.
-	// Default: 'aws-cdk:subnet-name'.
-	//
 	SubnetGroupNameTag *string `field:"optional" json:"subnetGroupNameTag" yaml:"subnetGroupNameTag"`
 }
 

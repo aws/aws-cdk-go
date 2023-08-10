@@ -30,12 +30,8 @@ type MetricExpressionConfig struct {
 	// Metrics used in the math expression.
 	UsingMetrics *map[string]IMetric `field:"required" json:"usingMetrics" yaml:"usingMetrics"`
 	// Account to evaluate search expressions within.
-	// Default: - Deployment account.
-	//
 	SearchAccount *string `field:"optional" json:"searchAccount" yaml:"searchAccount"`
 	// Region to evaluate search expressions within.
-	// Default: - Deployment region.
-	//
 	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
 }
 

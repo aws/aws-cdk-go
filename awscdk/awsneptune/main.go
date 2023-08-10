@@ -34,6 +34,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dbClusterIdentifier", GoGetter: "DbClusterIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "dbClusterParameterGroupName", GoGetter: "DbClusterParameterGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "dbInstanceParameterGroupName", GoGetter: "DbInstanceParameterGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "dbPort", GoGetter: "DbPort"},
 			_jsii_.MemberProperty{JsiiProperty: "dbSubnetGroupName", GoGetter: "DbSubnetGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "deletionProtection", GoGetter: "DeletionProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "enableCloudwatchLogsExports", GoGetter: "EnableCloudwatchLogsExports"},

@@ -42,28 +42,18 @@ import (
 //
 type ExecuteCommandLogConfiguration struct {
 	// Whether or not to enable encryption on the CloudWatch logs.
-	// Default: - encryption will be disabled.
-	//
 	CloudWatchEncryptionEnabled *bool `field:"optional" json:"cloudWatchEncryptionEnabled" yaml:"cloudWatchEncryptionEnabled"`
 	// The name of the CloudWatch log group to send logs to.
 	//
 	// The CloudWatch log group must already be created.
-	// Default: - none.
-	//
 	CloudWatchLogGroup awslogs.ILogGroup `field:"optional" json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
 	// The name of the S3 bucket to send logs to.
 	//
 	// The S3 bucket must already be created.
-	// Default: - none.
-	//
 	S3Bucket awss3.IBucket `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
 	// Whether or not to enable encryption on the S3 bucket.
-	// Default: - encryption will be disabled.
-	//
 	S3EncryptionEnabled *bool `field:"optional" json:"s3EncryptionEnabled" yaml:"s3EncryptionEnabled"`
 	// An optional folder in the S3 bucket to place logs in.
-	// Default: - none.
-	//
 	S3KeyPrefix *string `field:"optional" json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 }
 

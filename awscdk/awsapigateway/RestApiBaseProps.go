@@ -91,8 +91,6 @@ import (
 //
 type RestApiBaseProps struct {
 	// Automatically configure an AWS CloudWatch role for API Gateway.
-	// Default: - false if `@aws-cdk/aws-apigateway:disableCloudWatchRole` is enabled, true otherwise.
-	//
 	CloudWatchRole *bool `field:"optional" json:"cloudWatchRole" yaml:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
@@ -110,19 +108,13 @@ type RestApiBaseProps struct {
 	//
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
-	// Default: true.
-	//
 	Deploy *bool `field:"optional" json:"deploy" yaml:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
-	// Default: - Based on defaults of `StageOptions`.
-	//
 	DeployOptions *StageOptions `field:"optional" json:"deployOptions" yaml:"deployOptions"`
 	// A description of the RestApi construct.
-	// Default: - 'Automatically created by the RestApi construct'.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
@@ -130,49 +122,31 @@ type RestApiBaseProps struct {
 	// API, disable the default endpoint.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
-	// Default: false.
-	//
 	DisableExecuteApiEndpoint *bool `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
-	// Default: - no domain name is defined, use `addDomainName` or directly define a `DomainName`.
-	//
 	DomainName *DomainNameOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
-	// Default: - when no export name is given, output will be created without export.
-	//
 	EndpointExportName *string `field:"optional" json:"endpointExportName" yaml:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
-	// Default: EndpointType.EDGE
-	//
 	EndpointTypes *[]EndpointType `field:"optional" json:"endpointTypes" yaml:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
-	// Default: false.
-	//
 	FailOnWarnings *bool `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
-	// Default: - No parameters.
-	//
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
-	// Default: - No policy.
-	//
 	Policy awsiam.PolicyDocument `field:"optional" json:"policy" yaml:"policy"`
 	// A name for the API Gateway RestApi resource.
-	// Default: - ID of the RestApi construct.
-	//
 	RestApiName *string `field:"optional" json:"restApiName" yaml:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
-	// Default: false.
-	//
 	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
 }
 

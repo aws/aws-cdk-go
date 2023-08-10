@@ -12,6 +12,7 @@ package awsec2
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //
 //   	// the properties below are optional
+//   	AssetId: jsii.String("assetId"),
 //   	AutoPlacement: jsii.String("autoPlacement"),
 //   	HostMaintenance: jsii.String("hostMaintenance"),
 //   	HostRecovery: jsii.String("hostRecovery"),
@@ -27,6 +28,10 @@ type CfnHostProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-availabilityzone
 	//
 	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
+	// The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-assetid
+	//
+	AssetId *string `field:"optional" json:"assetId" yaml:"assetId"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
 	//
 	// For more information, see [Understanding auto-placement and affinity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding) in the *Amazon EC2 User Guide* .

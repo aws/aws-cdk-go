@@ -16,8 +16,6 @@ type StreamOptions struct {
 	// The name of the log stream to create.
 	//
 	// The name must be unique within the log group.
-	// Default: Automatically generated.
-	//
 	LogStreamName *string `field:"optional" json:"logStreamName" yaml:"logStreamName"`
 }
 

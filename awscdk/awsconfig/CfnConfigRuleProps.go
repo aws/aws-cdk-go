@@ -33,8 +33,16 @@ package awsconfig
 //   	},
 //
 //   	// the properties below are optional
+//   	Compliance: &ComplianceProperty{
+//   		Type: jsii.String("type"),
+//   	},
 //   	ConfigRuleName: jsii.String("configRuleName"),
 //   	Description: jsii.String("description"),
+//   	EvaluationModes: []interface{}{
+//   		&EvaluationModeConfigurationProperty{
+//   			Mode: jsii.String("mode"),
+//   		},
+//   	},
 //   	InputParameters: inputParameters,
 //   	MaximumExecutionFrequency: jsii.String("maximumExecutionFrequency"),
 //   	Scope: &ScopeProperty{
@@ -54,6 +62,10 @@ type CfnConfigRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-source
 	//
 	Source interface{} `field:"required" json:"source" yaml:"source"`
+	// Compliance details of the Config rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-compliance
+	//
+	Compliance interface{} `field:"optional" json:"compliance" yaml:"compliance"`
 	// A name for the AWS Config rule.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
@@ -64,6 +76,10 @@ type CfnConfigRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// List of EvaluationModeConfiguration objects.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-evaluationmodes
+	//
+	EvaluationModes interface{} `field:"optional" json:"evaluationModes" yaml:"evaluationModes"`
 	// A string, in JSON format, that is passed to the AWS Config rule Lambda function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-inputparameters
 	//

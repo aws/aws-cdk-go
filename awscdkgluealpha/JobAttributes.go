@@ -27,8 +27,6 @@ type JobAttributes struct {
 	// Experimental.
 	JobName *string `field:"required" json:"jobName" yaml:"jobName"`
 	// The IAM role assumed by Glue to run this job.
-	// Default: - undefined.
-	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }

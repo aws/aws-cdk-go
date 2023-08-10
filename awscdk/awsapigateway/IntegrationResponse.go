@@ -24,9 +24,6 @@ type IntegrationResponse struct {
 	// The status code that API Gateway uses to map the integration response to a MethodResponse status code.
 	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// Specifies how to handle request payload content type conversions.
-	// Default: none the request payload is passed through from the method
-	// request to the integration request without modification.
-	//
 	ContentHandling ContentHandling `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// The response parameters from the backend response that API Gateway sends to the method response.
 	//

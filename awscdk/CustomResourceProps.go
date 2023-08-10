@@ -61,16 +61,10 @@ type CustomResourceProps struct {
 	// ```.
 	ServiceToken *string `field:"required" json:"serviceToken" yaml:"serviceToken"`
 	// Convert all property keys to pascal case.
-	// Default: false.
-	//
 	PascalCaseProperties *bool `field:"optional" json:"pascalCaseProperties" yaml:"pascalCaseProperties"`
 	// Properties to pass to the Lambda.
-	// Default: - No properties.
-	//
 	Properties *map[string]interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// The policy to apply when this resource is removed from the application.
-	// Default: cdk.RemovalPolicy.Destroy
-	//
 	RemovalPolicy RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// For custom resources, you can specify AWS::CloudFormation::CustomResource (the default) as the resource type, or you can specify your own resource type name.
 	//
@@ -87,8 +81,6 @@ type CustomResourceProps struct {
 	// as Custom::PingTester to make them easily identifiable as ping testers
 	// (instead of using AWS::CloudFormation::CustomResource).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#aws-cfn-resource-type-name
-	//
-	// Default: - AWS::CloudFormation::CustomResource.
 	//
 	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 }

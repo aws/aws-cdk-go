@@ -387,8 +387,36 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_OrStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateBasedStatementCustomKeyProperty",
+		reflect.TypeOf((*CfnRuleGroup_RateBasedStatementCustomKeyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateBasedStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_RateBasedStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateLimitCookieProperty",
+		reflect.TypeOf((*CfnRuleGroup_RateLimitCookieProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateLimitHeaderProperty",
+		reflect.TypeOf((*CfnRuleGroup_RateLimitHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateLimitLabelNamespaceProperty",
+		reflect.TypeOf((*CfnRuleGroup_RateLimitLabelNamespaceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateLimitQueryArgumentProperty",
+		reflect.TypeOf((*CfnRuleGroup_RateLimitQueryArgumentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateLimitQueryStringProperty",
+		reflect.TypeOf((*CfnRuleGroup_RateLimitQueryStringProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateLimitUriPathProperty",
+		reflect.TypeOf((*CfnRuleGroup_RateLimitUriPathProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RegexMatchStatementProperty",
@@ -501,6 +529,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.AWSManagedRulesACFPRuleSetProperty",
+		reflect.TypeOf((*CfnWebACL_AWSManagedRulesACFPRuleSetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.AWSManagedRulesATPRuleSetProperty",
@@ -659,8 +691,36 @@ func init() {
 		reflect.TypeOf((*CfnWebACL_OverrideActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateBasedStatementCustomKeyProperty",
+		reflect.TypeOf((*CfnWebACL_RateBasedStatementCustomKeyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateBasedStatementProperty",
 		reflect.TypeOf((*CfnWebACL_RateBasedStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateLimitCookieProperty",
+		reflect.TypeOf((*CfnWebACL_RateLimitCookieProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateLimitHeaderProperty",
+		reflect.TypeOf((*CfnWebACL_RateLimitHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateLimitLabelNamespaceProperty",
+		reflect.TypeOf((*CfnWebACL_RateLimitLabelNamespaceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateLimitQueryArgumentProperty",
+		reflect.TypeOf((*CfnWebACL_RateLimitQueryArgumentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateLimitQueryStringProperty",
+		reflect.TypeOf((*CfnWebACL_RateLimitQueryStringProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateLimitUriPathProperty",
+		reflect.TypeOf((*CfnWebACL_RateLimitUriPathProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.RegexMatchStatementProperty",
@@ -673,6 +733,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.RequestBodyAssociatedResourceTypeConfigProperty",
 		reflect.TypeOf((*CfnWebACL_RequestBodyAssociatedResourceTypeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RequestInspectionACFPProperty",
+		reflect.TypeOf((*CfnWebACL_RequestInspectionACFPProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.RequestInspectionProperty",

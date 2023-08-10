@@ -44,8 +44,6 @@ type CfnEndpointProps struct {
 	// > `Private` is the default access type value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-accesstype
 	//
-	// Default: - "Private".
-	//
 	AccessType *string `field:"optional" json:"accessType" yaml:"accessType"`
 	// The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint.
 	//

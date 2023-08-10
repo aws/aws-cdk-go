@@ -42,8 +42,6 @@ type CfnAcceleratorProps struct {
 	// If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
 	//
-	// Default: - true.
-	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator.
 	//
@@ -61,8 +59,6 @@ type CfnAcceleratorProps struct {
 	//
 	// For a standard accelerator, the value can be IPV4 or DUAL_STACK.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
-	//
-	// Default: - "IPV4".
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Create tags for an accelerator.

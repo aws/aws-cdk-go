@@ -31,23 +31,17 @@ type JobQueueProps struct {
 	//
 	// *Note*: All compute environments that are associated with a job queue must share the same architecture.
 	// AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
-	// Default: none.
-	//
 	// Experimental.
 	ComputeEnvironments *[]*OrderedComputeEnvironment `field:"optional" json:"computeEnvironments" yaml:"computeEnvironments"`
 	// If the job queue is enabled, it is able to accept jobs.
 	//
 	// Otherwise, new jobs can't be added to the queue, but jobs already in the queue can finish.
-	// Default: true.
-	//
 	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name of the job queue.
 	//
 	// It can be up to 128 letters long.
 	// It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	// Default: - no name.
-	//
 	// Experimental.
 	JobQueueName *string `field:"optional" json:"jobQueueName" yaml:"jobQueueName"`
 	// The priority of the job queue.
@@ -55,15 +49,11 @@ type JobQueueProps struct {
 	// Job queues with a higher priority are evaluated first when associated with the same compute environment.
 	// Priority is determined in descending order.
 	// For example, a job queue with a priority of 10 is given scheduling preference over a job queue with a priority of 1.
-	// Default: 1.
-	//
 	// Experimental.
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The SchedulingPolicy for this JobQueue.
 	//
 	// Instructs the Scheduler how to schedule different jobs.
-	// Default: - no scheduling policy.
-	//
 	// Experimental.
 	SchedulingPolicy ISchedulingPolicy `field:"optional" json:"schedulingPolicy" yaml:"schedulingPolicy"`
 }

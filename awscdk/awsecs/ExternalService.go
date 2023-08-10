@@ -145,12 +145,8 @@ type ExternalService interface {
 	// This method returns the specified CloudWatch metric name for this service.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this service's CPU utilization.
-	// Default: average over 5 minutes.
-	//
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this service's memory utilization.
-	// Default: average over 5 minutes.
-	//
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Overriden method to throw error as `registerLoadBalancerTargets` is not supported for external service.
 	RegisterLoadBalancerTargets(_targets ...*EcsTarget)

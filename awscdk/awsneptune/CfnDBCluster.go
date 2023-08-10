@@ -39,6 +39,7 @@ import (
 //   	DbClusterIdentifier: jsii.String("dbClusterIdentifier"),
 //   	DbClusterParameterGroupName: jsii.String("dbClusterParameterGroupName"),
 //   	DbInstanceParameterGroupName: jsii.String("dbInstanceParameterGroupName"),
+//   	DbPort: jsii.Number(123),
 //   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
 //   	DeletionProtection: jsii.Boolean(false),
 //   	EnableCloudwatchLogsExports: []*string{
@@ -122,6 +123,9 @@ type CfnDBCluster interface {
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
 	DbInstanceParameterGroupName() *string
 	SetDbInstanceParameterGroupName(val *string)
+	// The port number on which the DB instances in the DB cluster accept connections.
+	DbPort() *float64
+	SetDbPort(val *float64)
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
@@ -495,6 +499,16 @@ func (j *jsiiProxy_CfnDBCluster) DbInstanceParameterGroupName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) DbPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"dbPort",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) DbSubnetGroupName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -821,6 +835,14 @@ func (j *jsiiProxy_CfnDBCluster)SetDbInstanceParameterGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"dbInstanceParameterGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetDbPort(val *float64) {
+	_jsii_.Set(
+		j,
+		"dbPort",
 		val,
 	)
 }

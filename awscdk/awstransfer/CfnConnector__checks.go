@@ -187,9 +187,25 @@ func (j *jsiiProxy_CfnConnector) validateSetAccessRoleParameters(val *string) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnConnector) validateSetAs2ConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+func (j *jsiiProxy_CfnConnector) validateSetSftpConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnConnector_SftpConfigProperty:
+		val := val.(*CfnConnector_SftpConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnConnector_SftpConfigProperty:
+		val_ := val.(CfnConnector_SftpConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnector_SftpConfigProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

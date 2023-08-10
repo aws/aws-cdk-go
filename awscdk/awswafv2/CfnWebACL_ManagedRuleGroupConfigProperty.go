@@ -11,10 +11,78 @@ package awswafv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   managedRuleGroupConfigProperty := &ManagedRuleGroupConfigProperty{
+//   	AwsManagedRulesAcfpRuleSet: &AWSManagedRulesACFPRuleSetProperty{
+//   		CreationPath: jsii.String("creationPath"),
+//   		RegistrationPagePath: jsii.String("registrationPagePath"),
+//   		RequestInspection: &RequestInspectionACFPProperty{
+//   			PayloadType: jsii.String("payloadType"),
+//
+//   			// the properties below are optional
+//   			AddressFields: []interface{}{
+//   				&FieldIdentifierProperty{
+//   					Identifier: jsii.String("identifier"),
+//   				},
+//   			},
+//   			EmailField: &FieldIdentifierProperty{
+//   				Identifier: jsii.String("identifier"),
+//   			},
+//   			PasswordField: &FieldIdentifierProperty{
+//   				Identifier: jsii.String("identifier"),
+//   			},
+//   			PhoneNumberFields: []interface{}{
+//   				&FieldIdentifierProperty{
+//   					Identifier: jsii.String("identifier"),
+//   				},
+//   			},
+//   			UsernameField: &FieldIdentifierProperty{
+//   				Identifier: jsii.String("identifier"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		EnableRegexInPath: jsii.Boolean(false),
+//   		ResponseInspection: &ResponseInspectionProperty{
+//   			BodyContains: &ResponseInspectionBodyContainsProperty{
+//   				FailureStrings: []*string{
+//   					jsii.String("failureStrings"),
+//   				},
+//   				SuccessStrings: []*string{
+//   					jsii.String("successStrings"),
+//   				},
+//   			},
+//   			Header: &ResponseInspectionHeaderProperty{
+//   				FailureValues: []*string{
+//   					jsii.String("failureValues"),
+//   				},
+//   				Name: jsii.String("name"),
+//   				SuccessValues: []*string{
+//   					jsii.String("successValues"),
+//   				},
+//   			},
+//   			Json: &ResponseInspectionJsonProperty{
+//   				FailureValues: []*string{
+//   					jsii.String("failureValues"),
+//   				},
+//   				Identifier: jsii.String("identifier"),
+//   				SuccessValues: []*string{
+//   					jsii.String("successValues"),
+//   				},
+//   			},
+//   			StatusCode: &ResponseInspectionStatusCodeProperty{
+//   				FailureCodes: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   				SuccessCodes: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	AwsManagedRulesAtpRuleSet: &AWSManagedRulesATPRuleSetProperty{
 //   		LoginPath: jsii.String("loginPath"),
 //
 //   		// the properties below are optional
+//   		EnableRegexInPath: jsii.Boolean(false),
 //   		RequestInspection: &RequestInspectionProperty{
 //   			PasswordField: &FieldIdentifierProperty{
 //   				Identifier: jsii.String("identifier"),
@@ -77,6 +145,9 @@ package awswafv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html
 //
 type CfnWebACL_ManagedRuleGroupConfigProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-awsmanagedrulesacfpruleset
+	//
+	AwsManagedRulesAcfpRuleSet interface{} `field:"optional" json:"awsManagedRulesAcfpRuleSet" yaml:"awsManagedRulesAcfpRuleSet"`
 	// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` .
 	//
 	// Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.

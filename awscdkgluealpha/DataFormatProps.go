@@ -34,8 +34,6 @@ type DataFormatProps struct {
 	// Experimental.
 	SerializationLibrary SerializationLibrary `field:"required" json:"serializationLibrary" yaml:"serializationLibrary"`
 	// Classification string given to tables with this data format.
-	// Default: - No classification is specified.
-	//
 	// Experimental.
 	ClassificationString ClassificationString `field:"optional" json:"classificationString" yaml:"classificationString"`
 }

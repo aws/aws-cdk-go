@@ -39,8 +39,6 @@ type TransformResources struct {
 	// ML compute instance type for the transform job.
 	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s).
-	// Default: - None.
-	//
 	VolumeEncryptionKey awskms.IKey `field:"optional" json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 }
 

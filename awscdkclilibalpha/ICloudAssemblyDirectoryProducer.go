@@ -28,8 +28,6 @@ type ICloudAssemblyDirectoryProducer interface {
 	// The working directory used to run the Cloud Assembly from.
 	//
 	// This is were a `cdk.context.json` files will be written.
-	// Default: - current working directory.
-	//
 	// Experimental.
 	WorkingDirectory() *string
 	// Experimental.

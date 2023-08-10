@@ -23,16 +23,10 @@ type IBuildImage interface {
 	//
 	ImageId() *string
 	// The type of principal that CodeBuild will use to pull this build Docker image.
-	// Default: ImagePullPrincipalType.SERVICE_ROLE
-	//
 	ImagePullPrincipalType() ImagePullPrincipalType
 	// An optional ECR repository that the image is hosted in.
-	// Default: no repository.
-	//
 	Repository() awsecr.IRepository
 	// The secretsManagerCredentials for access to a private registry.
-	// Default: no credentials will be used.
-	//
 	SecretsManagerCredentials() awssecretsmanager.ISecret
 	// The type of build environment.
 	Type() *string

@@ -21,12 +21,8 @@ type IStackSynthesizer interface {
 	// Synthesize the associated stack to the session.
 	Synthesize(session ISynthesisSession)
 	// The qualifier used to bootstrap this stack.
-	// Default: - no qualifier.
-	//
 	BootstrapQualifier() *string
 	// The role used to lookup for this stack.
-	// Default: - no role.
-	//
 	LookupRole() *string
 }
 

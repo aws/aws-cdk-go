@@ -15,12 +15,8 @@ package awsglobalaccelerator
 //
 type AcceleratorProps struct {
 	// The name of the accelerator.
-	// Default: - resource ID.
-	//
 	AcceleratorName *string `field:"optional" json:"acceleratorName" yaml:"acceleratorName"`
 	// Indicates whether the accelerator is enabled.
-	// Default: true.
-	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

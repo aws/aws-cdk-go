@@ -64,30 +64,22 @@ type ManagedPolicyProps struct {
 	// Typically used to store information about the
 	// permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
 	// The policy description is immutable. After a value is assigned, it cannot be changed.
-	// Default: - empty.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Initial PolicyDocument to use for this ManagedPolicy.
 	//
 	// If omited, any
 	// `PolicyStatement` provided in the `statements` property will be applied
 	// against the empty default `PolicyDocument`.
-	// Default: - An empty policy.
-	//
 	Document PolicyDocument `field:"optional" json:"document" yaml:"document"`
 	// Groups to attach this policy to.
 	//
 	// You can also use `attachToGroup(group)` to attach this policy to a group.
-	// Default: - No groups.
-	//
 	Groups *[]IGroup `field:"optional" json:"groups" yaml:"groups"`
 	// The name of the managed policy.
 	//
 	// If you specify multiple policies for an entity,
 	// specify unique names. For example, if you specify a list of policies for
 	// an IAM role, each policy must have a unique name.
-	// Default: - A name is automatically generated.
-	//
 	ManagedPolicyName *string `field:"optional" json:"managedPolicyName" yaml:"managedPolicyName"`
 	// The path for the policy.
 	//
@@ -97,26 +89,18 @@ type ManagedPolicyProps struct {
 	// including most punctuation characters, digits, and upper and lowercased letters.
 	//
 	// For more information about paths, see IAM Identifiers in the IAM User Guide.
-	// Default: - "/".
-	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Roles to attach this policy to.
 	//
 	// You can also use `attachToRole(role)` to attach this policy to a role.
-	// Default: - No roles.
-	//
 	Roles *[]IRole `field:"optional" json:"roles" yaml:"roles"`
 	// Initial set of permissions to add to this policy document.
 	//
 	// You can also use `addPermission(statement)` to add permissions later.
-	// Default: - No statements.
-	//
 	Statements *[]PolicyStatement `field:"optional" json:"statements" yaml:"statements"`
 	// Users to attach this policy to.
 	//
 	// You can also use `attachToUser(user)` to attach this policy to a user.
-	// Default: - No users.
-	//
 	Users *[]IUser `field:"optional" json:"users" yaml:"users"`
 }
 

@@ -51,7 +51,7 @@ type CfnCollectionProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of collection.
 	//
-	// Possible values are `SEARCH` and `TIMESERIES` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+	// Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

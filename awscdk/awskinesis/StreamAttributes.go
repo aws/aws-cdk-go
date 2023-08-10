@@ -20,8 +20,6 @@ type StreamAttributes struct {
 	// The ARN of the stream.
 	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 	// The KMS key securing the contents of the stream if encryption is enabled.
-	// Default: - No encryption.
-	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

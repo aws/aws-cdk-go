@@ -31,8 +31,6 @@ type CfnAnalysis_TopBottomRankedComputationProperty struct {
 	// The result size of a top and bottom ranked computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-topbottomrankedcomputation.html#cfn-quicksight-analysis-topbottomrankedcomputation-resultsize
 	//
-	// Default: - 0.
-	//
 	ResultSize *float64 `field:"optional" json:"resultSize" yaml:"resultSize"`
 	// The value field that is used in a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-topbottomrankedcomputation.html#cfn-quicksight-analysis-topbottomrankedcomputation-value

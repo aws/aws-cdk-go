@@ -31,8 +31,6 @@ type CfnOrganizationProps struct {
 	// If you don't specify this property, the default value is `ALL` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organization.html#cfn-organizations-organization-featureset
 	//
-	// Default: - "ALL".
-	//
 	FeatureSet *string `field:"optional" json:"featureSet" yaml:"featureSet"`
 }
 

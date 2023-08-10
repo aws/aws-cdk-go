@@ -19,8 +19,6 @@ type AwsAuthMapping struct {
 	//
 	Groups *[]*string `field:"required" json:"groups" yaml:"groups"`
 	// The user name within Kubernetes to map to the IAM role.
-	// Default: - By default, the user name is the ARN of the IAM role.
-	//
 	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 

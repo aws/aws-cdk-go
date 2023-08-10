@@ -32,47 +32,31 @@ type Ec2EnvironmentProps struct {
 	// The number of minutes until the running instance is shut down after the environment was last used.
 	//
 	// Setting a value of 0 means the instance will never be automatically shut down."
-	// Default: - The instance will not be shut down automatically.
-	//
 	// Experimental.
 	AutomaticStop awscdk.Duration `field:"optional" json:"automaticStop" yaml:"automaticStop"`
 	// The AWS CodeCommit repository to be cloned.
-	// Default: - do not clone any repository.
-	//
 	// Experimental.
 	ClonedRepositories *[]CloneRepository `field:"optional" json:"clonedRepositories" yaml:"clonedRepositories"`
 	// The connection type used for connecting to an Amazon EC2 environment.
 	//
 	// Valid values are: CONNECT_SSH (default) and CONNECT_SSM (connected through AWS Systems Manager).
-	// Default: - CONNECT_SSH.
-	//
 	// Experimental.
 	ConnectionType ConnectionType `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// Description of the environment.
-	// Default: - no description.
-	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Name of the environment.
-	// Default: - automatically generated name.
-	//
 	// Experimental.
 	Ec2EnvironmentName *string `field:"optional" json:"ec2EnvironmentName" yaml:"ec2EnvironmentName"`
 	// The type of instance to connect to the environment.
-	// Default: - t2.micro
-	//
 	// Experimental.
 	InstanceType awsec2.InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// Owner of the environment.
 	//
 	// The owner has full control of the environment and can invite additional members.
-	// Default: - The identity that CloudFormation executes under will be the owner.
-	//
 	// Experimental.
 	Owner Owner `field:"optional" json:"owner" yaml:"owner"`
 	// The subnetSelection of the VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-	// Default: - all public subnets of the VPC are selected.
-	//
 	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 }

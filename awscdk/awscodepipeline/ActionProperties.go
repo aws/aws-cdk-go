@@ -72,8 +72,6 @@ type ActionProperties struct {
 	// You can provide their names with the `PipelineProps#crossRegionReplicationBuckets` property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
-	// Default: the Action resides in the same region as the Pipeline.
-	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// The optional resource that is backing this Action.
 	//
@@ -86,8 +84,6 @@ type ActionProperties struct {
 	// https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	// Default: - a name will be generated, based on the stage and action names.
-	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }

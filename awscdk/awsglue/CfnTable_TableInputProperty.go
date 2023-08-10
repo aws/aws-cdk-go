@@ -81,6 +81,7 @@ package awsglue
 //   		CatalogId: jsii.String("catalogId"),
 //   		DatabaseName: jsii.String("databaseName"),
 //   		Name: jsii.String("name"),
+//   		Region: jsii.String("region"),
 //   	},
 //   	ViewExpandedText: jsii.String("viewExpandedText"),
 //   	ViewOriginalText: jsii.String("viewOriginalText"),

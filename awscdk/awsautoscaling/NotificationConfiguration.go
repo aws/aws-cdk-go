@@ -28,8 +28,6 @@ type NotificationConfiguration struct {
 	// SNS topic to send notifications about fleet scaling events.
 	Topic awssns.ITopic `field:"required" json:"topic" yaml:"topic"`
 	// Which fleet scaling events triggers a notification.
-	// Default: ScalingEvents.ALL
-	//
 	ScalingEvents ScalingEvents `field:"optional" json:"scalingEvents" yaml:"scalingEvents"`
 }
 

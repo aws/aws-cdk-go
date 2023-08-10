@@ -27,13 +27,9 @@ import (
 // Deprecated: use opensearchservice module instead.
 type EncryptionAtRestOptions struct {
 	// Specify true to enable encryption at rest.
-	// Default: - encryption at rest is disabled.
-	//
 	// Deprecated: use opensearchservice module instead.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Supply if using KMS key for encryption at rest.
-	// Default: - uses default aws/es KMS key.
-	//
 	// Deprecated: use opensearchservice module instead.
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }

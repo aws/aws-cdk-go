@@ -19,12 +19,8 @@ package awslogs
 //
 type DataProtectionPolicyConfig struct {
 	// Description of the data protection policy.
-	// Default: - 'cdk generated data protection policy'.
-	//
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// Name of the data protection policy.
-	// Default: - 'data-protection-policy-cdk'.
-	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Statements within the data protection policy.
 	//

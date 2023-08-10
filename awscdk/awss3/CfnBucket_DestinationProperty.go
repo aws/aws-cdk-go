@@ -25,6 +25,8 @@ type CfnBucket_DestinationProperty struct {
 	//
 	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
 	// Specifies the file format used when exporting data to Amazon S3.
+	//
+	// *Allowed values* : `CSV` | `ORC` | `Parquet`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-format
 	//
 	Format *string `field:"required" json:"format" yaml:"format"`

@@ -45,6 +45,7 @@ type CfnPermission interface {
 	// The action that the principal can use on the function.
 	Action() *string
 	SetAction(val *string)
+	// A statement identifier that differentiates the statement from others in the same policy.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

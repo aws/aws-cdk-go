@@ -20,7 +20,7 @@ package awsresiliencehub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html
 //
 type CfnApp_PhysicalResourceIdProperty struct {
-	// The identifier of the physical resource.
+	// Identifier of the physical resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-identifier
 	//
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`

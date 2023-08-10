@@ -25,8 +25,6 @@ type TemplateRuleAssertion struct {
 	// The assertion condition.
 	Assert awscdk.ICfnRuleConditionExpression `field:"required" json:"assert" yaml:"assert"`
 	// The description for the asssertion.
-	// Default: - no description provided for the assertion.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

@@ -14,8 +14,6 @@ package awsappmesh
 //
 type Http2ConnectionPool struct {
 	// The maximum requests in the pool.
-	// Default: - none.
-	//
 	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 

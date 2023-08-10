@@ -24,8 +24,6 @@ type S3SourceProps struct {
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// The version ID of the object that represents the build input ZIP file to use.
-	// Default: latest.
-	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

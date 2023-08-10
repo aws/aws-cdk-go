@@ -46,28 +46,16 @@ package awsappmesh
 //
 type Http2VirtualNodeListenerOptions struct {
 	// Connection pool for http2 listeners.
-	// Default: - None.
-	//
 	ConnectionPool *Http2ConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
-	// Default: - no healthcheck.
-	//
 	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
-	// Default: - none.
-	//
 	OutlierDetection *OutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Port to listen for connections on.
-	// Default: - 8080.
-	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Timeout for HTTP protocol.
-	// Default: - None.
-	//
 	Timeout *HttpTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Default: - none.
-	//
 	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 

@@ -30,8 +30,6 @@ type PrivateCertificateProps struct {
 	// Alternative domain names on your private certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
-	// Default: - No additional FQDNs will be included as alternative domain names.
-	//
 	SubjectAlternativeNames *[]*string `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 

@@ -32,8 +32,6 @@ type IEcsContainerDefinition interface {
 	//
 	// Cannot start with `AWS_BATCH`.
 	// We don't recommend using plaintext environment variables for sensitive information, such as credential data.
-	// Default: - no environment variables.
-	//
 	// Experimental.
 	Environment() *map[string]*string
 	// The role used by Amazon ECS container and AWS Fargate agents to make AWS API calls on your behalf.
@@ -47,13 +45,9 @@ type IEcsContainerDefinition interface {
 	// The role that the container can assume.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html
 	//
-	// Default: - no jobRole.
-	//
 	// Experimental.
 	JobRole() awsiam.IRole
 	// Linux-specific modifications that are applied to the container, such as details for device mappings.
-	// Default: none.
-	//
 	// Experimental.
 	LinuxParameters() LinuxParameters
 	// The configuration of the log driver.
@@ -66,8 +60,6 @@ type IEcsContainerDefinition interface {
 	// Experimental.
 	Memory() awscdk.Size
 	// Gives the container readonly access to its root filesystem.
-	// Default: false.
-	//
 	// Experimental.
 	ReadonlyRootFilesystem() *bool
 	// A map from environment variable names to the secrets for the container.
@@ -76,20 +68,14 @@ type IEcsContainerDefinition interface {
 	// to reference the secret by the environment variable name defined in this property.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html
 	//
-	// Default: - no secrets.
-	//
 	// Experimental.
 	Secrets() *map[string]Secret
 	// The user name to use inside the container.
-	// Default: - no user.
-	//
 	// Experimental.
 	User() *string
 	// The volumes to mount to this container.
 	//
 	// Automatically added to the job definition.
-	// Default: - no volumes.
-	//
 	// Experimental.
 	Volumes() *[]EcsVolume
 }

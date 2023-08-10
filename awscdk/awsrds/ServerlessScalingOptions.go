@@ -36,16 +36,10 @@ type ServerlessScalingOptions struct {
 	// is a request to connect to it.
 	//
 	// Set to 0 to disable.
-	// Default: - automatic pause enabled after 5 minutes.
-	//
 	AutoPause awscdk.Duration `field:"optional" json:"autoPause" yaml:"autoPause"`
 	// The maximum capacity for an Aurora Serverless database cluster.
-	// Default: - determined by Aurora based on database engine.
-	//
 	MaxCapacity AuroraCapacityUnit `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum capacity for an Aurora Serverless database cluster.
-	// Default: - determined by Aurora based on database engine.
-	//
 	MinCapacity AuroraCapacityUnit `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 }
 

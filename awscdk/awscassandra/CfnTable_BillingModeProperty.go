@@ -31,8 +31,6 @@ type CfnTable_BillingModeProperty struct {
 	// Valid values: `ON_DEMAND` | `PROVISIONED`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode
 	//
-	// Default: - "ON_DEMAND".
-	//
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
 	// The provisioned read capacity and write capacity for the table.
 	//

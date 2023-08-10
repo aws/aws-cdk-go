@@ -35,8 +35,6 @@ type InstanceDefinition struct {
 	// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html
 	//
-	// Default: default value is 1.
-	//
 	// Experimental.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }

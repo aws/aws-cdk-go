@@ -31,8 +31,6 @@ import (
 // Experimental.
 type FirehosePutRecordActionProps struct {
 	// The IAM role that allows access to AWS service.
-	// Default: a new role will be created.
-	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether to deliver the Kinesis Data Firehose stream as a batch by using `PutRecordBatch`.
@@ -40,13 +38,9 @@ type FirehosePutRecordActionProps struct {
 	// When batchMode is true and the rule's SQL statement evaluates to an Array, each Array
 	// element forms one record in the PutRecordBatch request. The resulting array can't have
 	// more than 500 records.
-	// Default: false.
-	//
 	// Experimental.
 	BatchMode *bool `field:"optional" json:"batchMode" yaml:"batchMode"`
 	// A character separator that will be used to separate records written to the Kinesis Data Firehose stream.
-	// Default: - none -- the stream does not use a separator.
-	//
 	// Experimental.
 	RecordSeparator FirehoseRecordSeparator `field:"optional" json:"recordSeparator" yaml:"recordSeparator"`
 }

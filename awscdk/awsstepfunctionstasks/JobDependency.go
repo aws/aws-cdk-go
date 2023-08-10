@@ -15,12 +15,8 @@ package awsstepfunctionstasks
 //
 type JobDependency struct {
 	// The job ID of the AWS Batch job associated with this dependency.
-	// Default: - No jobId.
-	//
 	JobId *string `field:"optional" json:"jobId" yaml:"jobId"`
 	// The type of the job dependency.
-	// Default: - No type.
-	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

@@ -22,8 +22,6 @@ type UserPoolIdentityProviderGoogleProps struct {
 	// The user pool to which this construct provides identities.
 	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	// Default: - no attribute mapping.
-	//
 	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Google APIs.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in#specify_your_apps_client_id
@@ -32,20 +30,14 @@ type UserPoolIdentityProviderGoogleProps struct {
 	// The client secret to be accompanied with clientId for Google APIs to authenticate the client.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in
 	//
-	// Default: none.
-	//
 	// Deprecated: use clientSecretValue instead.
 	ClientSecret *string `field:"optional" json:"clientSecret" yaml:"clientSecret"`
 	// The client secret to be accompanied with clientId for Google APIs to authenticate the client as SecretValue.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in
 	//
-	// Default: none.
-	//
 	ClientSecretValue awscdk.SecretValue `field:"optional" json:"clientSecretValue" yaml:"clientSecretValue"`
 	// The list of google permissions to obtain for getting access to the google profile.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in
-	//
-	// Default: [ profile ].
 	//
 	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 }

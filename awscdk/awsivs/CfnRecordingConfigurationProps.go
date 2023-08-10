@@ -55,8 +55,6 @@ type CfnRecordingConfigurationProps struct {
 	// *Default* : `0`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-recordingreconnectwindowseconds
 	//
-	// Default: - 0.
-	//
 	RecordingReconnectWindowSeconds *float64 `field:"optional" json:"recordingReconnectWindowSeconds" yaml:"recordingReconnectWindowSeconds"`
 	// An array of key-value pairs to apply to this resource.
 	//

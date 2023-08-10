@@ -24,8 +24,6 @@ import (
 type CfnCodeDeployBlueGreenHook interface {
 	CfnHook
 	// Additional options for the blue/green deployment.
-	// Default: - no additional options.
-	//
 	AdditionalOptions() *CfnCodeDeployBlueGreenAdditionalOptions
 	SetAdditionalOptions(val *CfnCodeDeployBlueGreenAdditionalOptions)
 	// Properties of the Amazon ECS applications being deployed.
@@ -41,8 +39,6 @@ type CfnCodeDeployBlueGreenHook interface {
 	// Following completion of the validation tests,
 	// the Lambda `CfnCodeDeployBlueGreenLifecycleEventHooks.afterAllowTraffic`
 	// function calls back CodeDeploy and delivers a result of 'Succeeded' or 'Failed'.
-	// Default: - no lifecycle event hooks.
-	//
 	LifecycleEventHooks() *CfnCodeDeployBlueGreenLifecycleEventHooks
 	SetLifecycleEventHooks(val *CfnCodeDeployBlueGreenLifecycleEventHooks)
 	// The logical ID for this CloudFormation stack element.
@@ -65,8 +61,6 @@ type CfnCodeDeployBlueGreenHook interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() Stack
 	// Traffic routing configuration settings.
-	// Default: - time-based canary traffic shifting, with a 15% step percentage and a five minute bake time.
-	//
 	TrafficRoutingConfig() *CfnTrafficRoutingConfig
 	SetTrafficRoutingConfig(val *CfnTrafficRoutingConfig)
 	// The type of the hook (for example, "AWS::CodeDeploy::BlueGreen").

@@ -22,16 +22,10 @@ type PrivateHostedZoneProps struct {
 	// name, specify a fully qualified domain name.
 	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 	// Whether to add a trailing dot to the zone name.
-	// Default: true.
-	//
 	AddTrailingDot *bool `field:"optional" json:"addTrailingDot" yaml:"addTrailingDot"`
 	// Any comments that you want to include about the hosted zone.
-	// Default: none.
-	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	// Default: disabled.
-	//
 	QueryLogsLogGroupArn *string `field:"optional" json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
 	// A VPC that you want to associate with this hosted zone.
 	//

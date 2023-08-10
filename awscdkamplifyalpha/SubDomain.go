@@ -26,8 +26,6 @@ type SubDomain struct {
 	// The prefix.
 	//
 	// Use '' to map to the root of the domain.
-	// Default: - the branch name.
-	//
 	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }

@@ -24,12 +24,8 @@ package awsstepfunctionstasks
 //
 type QueryExecutionContext struct {
 	// Name of catalog used in query execution.
-	// Default: - No catalog.
-	//
 	CatalogName *string `field:"optional" json:"catalogName" yaml:"catalogName"`
 	// Name of database used in query execution.
-	// Default: - No database.
-	//
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 }
 

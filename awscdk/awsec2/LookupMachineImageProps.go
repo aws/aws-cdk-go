@@ -52,20 +52,12 @@ type LookupMachineImageProps struct {
 	// Additional filters on the AMI.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html
 	//
-	// Default: - No additional filters.
-	//
 	Filters *map[string]*[]*string `field:"optional" json:"filters" yaml:"filters"`
 	// Owner account IDs or aliases.
-	// Default: - All owners.
-	//
 	Owners *[]*string `field:"optional" json:"owners" yaml:"owners"`
 	// Custom userdata for this image.
-	// Default: - Empty user data appropriate for the platform type.
-	//
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// Look for Windows images.
-	// Default: false.
-	//
 	Windows *bool `field:"optional" json:"windows" yaml:"windows"`
 }
 

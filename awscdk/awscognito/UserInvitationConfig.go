@@ -15,16 +15,10 @@ package awscognito
 //
 type UserInvitationConfig struct {
 	// The template to the email body that is sent to the user when an administrator signs them up to the user pool.
-	// Default: 'Your username is {username} and temporary password is {####}.'
-	//
 	EmailBody *string `field:"optional" json:"emailBody" yaml:"emailBody"`
 	// The template to the email subject that is sent to the user when an administrator signs them up to the user pool.
-	// Default: 'Your temporary password'.
-	//
 	EmailSubject *string `field:"optional" json:"emailSubject" yaml:"emailSubject"`
 	// The template to the SMS message that is sent to the user when an administrator signs them up to the user pool.
-	// Default: 'Your username is {username} and temporary password is {####}'.
-	//
 	SmsMessage *string `field:"optional" json:"smsMessage" yaml:"smsMessage"`
 }
 

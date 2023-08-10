@@ -28,8 +28,6 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, not both.
-	// Default: - none.
-	//
 	Image awsecs.ContainerImage `field:"required" json:"image" yaml:"image"`
 	// The command that's passed to the container.
 	//
@@ -40,12 +38,8 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	// [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 	//
 	// For more information about the Docker `CMD` parameter, see https://docs.docker.com/engine/reference/builder/#cmd.
-	// Default: none.
-	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The container name value to be specified in the task definition.
-	// Default: - none.
-	//
 	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The port number on the container that is bound to the user-specified or automatically assigned host port.
 	//
@@ -57,16 +51,10 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	//
 	// For more information, see
 	// [hostPort](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html#ECS-Type-PortMapping-hostPort).
-	// Default: 80.
-	//
 	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
 	// A key/value map of labels to add to the container.
-	// Default: - No labels.
-	//
 	DockerLabels *map[string]*string `field:"optional" json:"dockerLabels" yaml:"dockerLabels"`
 	// Flag to indicate whether to enable logging.
-	// Default: true.
-	//
 	EnableLogging *bool `field:"optional" json:"enableLogging" yaml:"enableLogging"`
 	// The entry point that's passed to the container.
 	//
@@ -75,34 +63,20 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	// [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 	//
 	// For more information about the Docker `ENTRYPOINT` parameter, see https://docs.docker.com/engine/reference/builder/#entrypoint.
-	// Default: none.
-	//
 	EntryPoint *[]*string `field:"optional" json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
-	// Default: - No environment variables.
-	//
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The name of the task execution IAM role that grants the Amazon ECS container agent permission to call AWS APIs on your behalf.
-	// Default: - No value.
-	//
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	// Default: - Automatically generated name.
-	//
 	Family *string `field:"optional" json:"family" yaml:"family"`
 	// The log driver to use.
-	// Default: - AwsLogDriver if enableLogging is true.
-	//
 	LogDriver awsecs.LogDriver `field:"optional" json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
-	// Default: - No secret environment variables.
-	//
 	Secrets *map[string]awsecs.Secret `field:"optional" json:"secrets" yaml:"secrets"`
 	// The name of the task IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	// Default: - A task role is automatically created for you.
-	//
 	TaskRole awsiam.IRole `field:"optional" json:"taskRole" yaml:"taskRole"`
 }
 

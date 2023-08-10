@@ -189,12 +189,8 @@ type Ec2Service interface {
 	// This method returns the specified CloudWatch metric name for this service.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this service's CPU utilization.
-	// Default: average over 5 minutes.
-	//
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this service's memory utilization.
-	// Default: average over 5 minutes.
-	//
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Use this function to create all load balancer targets to be registered in this service, add them to target groups, and attach target groups to listeners accordingly.
 	//

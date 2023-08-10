@@ -23,8 +23,6 @@ type GatewayRouteBaseProps struct {
 	// What protocol the route uses.
 	RouteSpec GatewayRouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the GatewayRoute.
-	// Default: - an automatically generated name.
-	//
 	GatewayRouteName *string `field:"optional" json:"gatewayRouteName" yaml:"gatewayRouteName"`
 }
 

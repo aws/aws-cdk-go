@@ -17,6 +17,9 @@ package awswafv2
 //   var captcha interface{}
 //   var challenge interface{}
 //   var count interface{}
+//   var forwardedIp interface{}
+//   var httpMethod interface{}
+//   var ip interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -132,6 +135,59 @@ package awswafv2
 //   			Limit: jsii.Number(123),
 //
 //   			// the properties below are optional
+//   			CustomKeys: []interface{}{
+//   				&RateBasedStatementCustomKeyProperty{
+//   					Cookie: &RateLimitCookieProperty{
+//   						Name: jsii.String("name"),
+//   						TextTransformations: []interface{}{
+//   							&TextTransformationProperty{
+//   								Priority: jsii.Number(123),
+//   								Type: jsii.String("type"),
+//   							},
+//   						},
+//   					},
+//   					ForwardedIp: forwardedIp,
+//   					Header: &RateLimitHeaderProperty{
+//   						Name: jsii.String("name"),
+//   						TextTransformations: []interface{}{
+//   							&TextTransformationProperty{
+//   								Priority: jsii.Number(123),
+//   								Type: jsii.String("type"),
+//   							},
+//   						},
+//   					},
+//   					HttpMethod: httpMethod,
+//   					Ip: ip,
+//   					LabelNamespace: &RateLimitLabelNamespaceProperty{
+//   						Namespace: jsii.String("namespace"),
+//   					},
+//   					QueryArgument: &RateLimitQueryArgumentProperty{
+//   						Name: jsii.String("name"),
+//   						TextTransformations: []interface{}{
+//   							&TextTransformationProperty{
+//   								Priority: jsii.Number(123),
+//   								Type: jsii.String("type"),
+//   							},
+//   						},
+//   					},
+//   					QueryString: &RateLimitQueryStringProperty{
+//   						TextTransformations: []interface{}{
+//   							&TextTransformationProperty{
+//   								Priority: jsii.Number(123),
+//   								Type: jsii.String("type"),
+//   							},
+//   						},
+//   					},
+//   					UriPath: &RateLimitUriPathProperty{
+//   						TextTransformations: []interface{}{
+//   							&TextTransformationProperty{
+//   								Priority: jsii.Number(123),
+//   								Type: jsii.String("type"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
 //   			ForwardedIpConfig: &ForwardedIPConfigurationProperty{
 //   				FallbackBehavior: jsii.String("fallbackBehavior"),
 //   				HeaderName: jsii.String("headerName"),
@@ -472,7 +528,7 @@ package awswafv2
 type CfnRuleGroup_RuleProperty struct {
 	// The name of the rule.
 	//
-	// You can't change the name of a `Rule` after you create it.
+	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -487,6 +543,8 @@ type CfnRuleGroup_RuleProperty struct {
 	//
 	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+	//
+	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
 	//
 	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`

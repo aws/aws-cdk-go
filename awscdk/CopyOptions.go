@@ -21,16 +21,10 @@ type CopyOptions struct {
 	//
 	// See `ignoreMode` to set the matching behavior.
 	// Has no effect on Assets bundled using the `bundling` property.
-	// Default: - nothing is excluded.
-	//
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Default: SymlinkFollowMode.NEVER
-	//
 	Follow SymlinkFollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for `exclude` patterns.
-	// Default: IgnoreMode.GLOB
-	//
 	IgnoreMode IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 }
 

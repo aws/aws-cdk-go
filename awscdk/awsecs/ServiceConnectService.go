@@ -24,25 +24,17 @@ type ServiceConnectService struct {
 	// Optionally specifies an intermediate dns name to register in the CloudMap namespace.
 	//
 	// This is required if you wish to use the same port mapping name in more than one service.
-	// Default: - port mapping name.
-	//
 	DiscoveryName *string `field:"optional" json:"discoveryName" yaml:"discoveryName"`
 	// The terse DNS alias to use for this port mapping in the service connect mesh.
 	//
 	// Service Connect-enabled clients will be able to reach this service at
 	// http://dnsName:port.
-	// Default: - No alias is created. The service is reachable at `portMappingName.namespace:port`.
-	//
 	DnsName *string `field:"optional" json:"dnsName" yaml:"dnsName"`
 	// Optional.
 	//
 	// The port on the Service Connect agent container to use for traffic ingress to this service.
-	// Default: - none.
-	//
 	IngressPortOverride *float64 `field:"optional" json:"ingressPortOverride" yaml:"ingressPortOverride"`
 	// The port for clients to use to communicate with this service via Service Connect.
-	// Default: the container port specified by the port mapping in portMappingName.
-	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

@@ -23,12 +23,8 @@ package awsapigateway
 //
 type ApiDefinitionConfig struct {
 	// Inline specification (mutually exclusive with `s3Location`).
-	// Default: - API definition is not defined inline.
-	//
 	InlineDefinition interface{} `field:"optional" json:"inlineDefinition" yaml:"inlineDefinition"`
 	// The location of the specification in S3 (mutually exclusive with `inlineDefinition`).
-	// Default: - API definition is not an S3 location.
-	//
 	S3Location *ApiDefinitionS3Location `field:"optional" json:"s3Location" yaml:"s3Location"`
 }
 

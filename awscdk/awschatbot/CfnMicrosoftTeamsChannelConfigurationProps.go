@@ -68,8 +68,6 @@ type CfnMicrosoftTeamsChannelConfigurationProps struct {
 	// Logging levels include `ERROR` , `INFO` , or `NONE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-logginglevel
 	//
-	// Default: - "NONE".
-	//
 	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// The ARNs of the SNS topics that deliver notifications to AWS Chatbot .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-snstopicarns
@@ -77,8 +75,6 @@ type CfnMicrosoftTeamsChannelConfigurationProps struct {
 	SnsTopicArns *[]*string `field:"optional" json:"snsTopicArns" yaml:"snsTopicArns"`
 	// Enables use of a user role requirement in your chat configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-userrolerequired
-	//
-	// Default: - false.
 	//
 	UserRoleRequired interface{} `field:"optional" json:"userRoleRequired" yaml:"userRoleRequired"`
 }

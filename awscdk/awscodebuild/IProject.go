@@ -31,32 +31,24 @@ type IProject interface {
 	// Units: Count
 	//
 	// Valid CloudWatch statistics: Sum.
-	// Default: sum over 5 minutes.
-	//
 	MetricBuilds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Measures the duration of all builds over time.
 	//
 	// Units: Seconds
 	//
 	// Valid CloudWatch statistics: Average (recommended), Maximum, Minimum.
-	// Default: average over 5 minutes.
-	//
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Measures the number of builds that failed because of client error or because of a timeout.
 	//
 	// Units: Count
 	//
 	// Valid CloudWatch statistics: Sum.
-	// Default: sum over 5 minutes.
-	//
 	MetricFailedBuilds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Measures the number of successful builds.
 	//
 	// Units: Count
 	//
 	// Valid CloudWatch statistics: Sum.
-	// Default: sum over 5 minutes.
-	//
 	MetricSucceededBuilds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CodeStar Notification rule triggered when the project events emitted by you specified, it very similar to `onEvent` API.
 	//

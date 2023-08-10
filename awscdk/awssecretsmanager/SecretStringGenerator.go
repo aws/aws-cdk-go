@@ -38,24 +38,14 @@ type SecretStringGenerator struct {
 	//
 	// The string can be a minimum
 	// of ``0`` and a maximum of ``4096`` characters long.
-	// Default: no exclusions.
-	//
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Specifies that the generated password shouldn't include lowercase letters.
-	// Default: false.
-	//
 	ExcludeLowercase *bool `field:"optional" json:"excludeLowercase" yaml:"excludeLowercase"`
 	// Specifies that the generated password shouldn't include digits.
-	// Default: false.
-	//
 	ExcludeNumbers *bool `field:"optional" json:"excludeNumbers" yaml:"excludeNumbers"`
 	// Specifies that the generated password shouldn't include punctuation characters.
-	// Default: false.
-	//
 	ExcludePunctuation *bool `field:"optional" json:"excludePunctuation" yaml:"excludePunctuation"`
 	// Specifies that the generated password shouldn't include uppercase letters.
-	// Default: false.
-	//
 	ExcludeUppercase *bool `field:"optional" json:"excludeUppercase" yaml:"excludeUppercase"`
 	// The JSON key name that's used to add the generated password to the JSON structure specified by the ``secretStringTemplate`` parameter.
 	//
@@ -63,16 +53,10 @@ type SecretStringGenerator struct {
 	// must be also be specified.
 	GenerateStringKey *string `field:"optional" json:"generateStringKey" yaml:"generateStringKey"`
 	// Specifies that the generated password can include the space character.
-	// Default: false.
-	//
 	IncludeSpace *bool `field:"optional" json:"includeSpace" yaml:"includeSpace"`
 	// The desired length of the generated password.
-	// Default: 32.
-	//
 	PasswordLength *float64 `field:"optional" json:"passwordLength" yaml:"passwordLength"`
 	// Specifies whether the generated password must include at least one of every allowed character type.
-	// Default: true.
-	//
 	RequireEachIncludedType *bool `field:"optional" json:"requireEachIncludedType" yaml:"requireEachIncludedType"`
 	// A properly structured JSON string that the generated password can be added to.
 	//

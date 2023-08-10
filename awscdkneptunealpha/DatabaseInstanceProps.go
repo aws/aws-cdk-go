@@ -21,26 +21,18 @@ type DatabaseInstanceProps struct {
 	// Experimental.
 	InstanceType InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The name of the Availability Zone where the DB instance will be located.
-	// Default: - no preference.
-	//
 	// Experimental.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	// Default: - a CloudFormation generated name.
-	//
 	// Experimental.
 	DbInstanceName *string `field:"optional" json:"dbInstanceName" yaml:"dbInstanceName"`
 	// The DB parameter group to associate with the instance.
-	// Default: no parameter group.
-	//
 	// Experimental.
 	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	// Default: RemovalPolicy.Retain
-	//
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }

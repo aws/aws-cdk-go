@@ -37,8 +37,6 @@ type OpenIdConnectProviderProps struct {
 	// cannot register more than 100 client IDs with a single IAM OIDC provider.
 	//
 	// Client IDs are up to 255 characters long.
-	// Default: - no clients are allowed.
-	//
 	ClientIds *[]*string `field:"optional" json:"clientIds" yaml:"clientIds"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates.
 	//
@@ -56,10 +54,6 @@ type OpenIdConnectProviderProps struct {
 	// https://keys.server.example.com/openid-connect. In that case, the
 	// thumbprint string would be the hex-encoded SHA-1 hash value of the
 	// certificate used by https://keys.server.example.com.
-	// Default: - If no thumbprints are specified (an empty array or `undefined`),
-	// the thumbprint of the root certificate authority will be obtained from the
-	// provider's server as described in https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html
-	//
 	Thumbprints *[]*string `field:"optional" json:"thumbprints" yaml:"thumbprints"`
 }
 

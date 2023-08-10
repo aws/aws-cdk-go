@@ -66,12 +66,12 @@ type CfnLocationNFS interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Specifies the mount options that DataSync can use to mount your NFS share.
+	// Specifies the options that DataSync can use to mount your NFS file server.
 	MountOptions() interface{}
 	SetMountOptions(val interface{})
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the Amazon Resource Names (ARNs) of agents that DataSync uses to connect to your NFS file server.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
 	OnPremConfig() interface{}
 	SetOnPremConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -79,14 +79,14 @@ type CfnLocationNFS interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies the IP address or domain name of your NFS file server.
+	// Specifies the Domain Name System (DNS) name or IP version 4 address of the NFS file server that your DataSync agent connects to.
 	ServerHostname() *string
 	SetServerHostname(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies the subdirectory in the NFS file server that DataSync transfers to or from.
+	// Specifies the export path in your NFS file server that you want DataSync to mount.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
 	// Tag Manager which manages the tags for this resource.

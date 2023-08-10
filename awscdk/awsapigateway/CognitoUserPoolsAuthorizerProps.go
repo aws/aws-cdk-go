@@ -27,8 +27,6 @@ type CognitoUserPoolsAuthorizerProps struct {
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
-	// Default: - the unique construct ID.
-	//
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The request header mapping expression for the bearer token.
 	//
@@ -36,15 +34,11 @@ type CognitoUserPoolsAuthorizerProps struct {
 	// this should be `method.request.header.Authorizer` where Authorizer is the header containing the bearer token.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
 	//
-	// Default: `IdentitySource.header('Authorization')`
-	//
 	IdentitySource *string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
-	// Default: Duration.minutes(5)
-	//
 	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 }
 

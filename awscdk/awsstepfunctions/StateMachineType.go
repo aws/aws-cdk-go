@@ -18,8 +18,6 @@ package awsstepfunctions
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html
 //
-// Default: STANDARD.
-//
 type StateMachineType string
 
 const (

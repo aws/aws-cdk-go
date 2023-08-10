@@ -24,18 +24,12 @@ type JenkinsProviderProps struct {
 	// Whether to immediately register a Jenkins Provider for the build category.
 	//
 	// The Provider will always be registered if you create a `JenkinsAction`.
-	// Default: false.
-	//
 	ForBuild *bool `field:"optional" json:"forBuild" yaml:"forBuild"`
 	// Whether to immediately register a Jenkins Provider for the test category.
 	//
 	// The Provider will always be registered if you create a `JenkinsTestAction`.
-	// Default: false.
-	//
 	ForTest *bool `field:"optional" json:"forTest" yaml:"forTest"`
 	// The version of your provider.
-	// Default: '1'.
-	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

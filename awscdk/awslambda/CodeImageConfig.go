@@ -29,8 +29,6 @@ type CodeImageConfig struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	// Default: - use the CMD specified in the docker image or Dockerfile.
-	//
 	Cmd *[]*string `field:"optional" json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
@@ -38,15 +36,11 @@ type CodeImageConfig struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	// Default: - use the ENTRYPOINT in the docker image or Dockerfile.
-	//
 	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
-	//
-	// Default: - use the WORKDIR in the docker image or Dockerfile.
 	//
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }

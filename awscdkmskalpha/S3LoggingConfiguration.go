@@ -27,8 +27,6 @@ type S3LoggingConfiguration struct {
 	// Experimental.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The S3 prefix that is the destination for broker logs.
-	// Default: - no prefix.
-	//
 	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }

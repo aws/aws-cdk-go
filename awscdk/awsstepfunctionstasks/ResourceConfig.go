@@ -42,8 +42,6 @@ import (
 //
 type ResourceConfig struct {
 	// The number of ML compute instances to use.
-	// Default: 1 instance.
-	//
 	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// ML compute instance type.
 	//
@@ -55,16 +53,10 @@ type ResourceConfig struct {
 	// ```.
 	// See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceConfig.html#sagemaker-Type-ResourceConfig-InstanceType
 	//
-	// Default: ec2.InstanceType(ec2.InstanceClass.M4, ec2.InstanceType.XLARGE)
-	//
 	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Size of the ML storage volume that you want to provision.
-	// Default: 10 GB EBS volume.
-	//
 	VolumeSize awscdk.Size `field:"required" json:"volumeSize" yaml:"volumeSize"`
 	// KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job.
-	// Default: - Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
-	//
 	VolumeEncryptionKey awskms.IKey `field:"optional" json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 }
 

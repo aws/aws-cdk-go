@@ -22,8 +22,6 @@ type ScheduledFargateTaskDefinitionOptions struct {
 	// The task definition to use for tasks in the service. Image or taskDefinition must be specified, but not both.
 	//
 	// [disable-awslint:ref-via-interface].
-	// Default: - none.
-	//
 	TaskDefinition awsecs.FargateTaskDefinition `field:"required" json:"taskDefinition" yaml:"taskDefinition"`
 }
 

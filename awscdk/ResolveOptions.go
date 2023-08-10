@@ -35,12 +35,8 @@ type ResolveOptions struct {
 	// The scope from which resolution is performed.
 	Scope constructs.IConstruct `field:"required" json:"scope" yaml:"scope"`
 	// Whether the resolution is being executed during the prepare phase or not.
-	// Default: false.
-	//
 	Preparing *bool `field:"optional" json:"preparing" yaml:"preparing"`
 	// Whether to remove undefined elements from arrays and objects when resolving.
-	// Default: true.
-	//
 	RemoveEmpty *bool `field:"optional" json:"removeEmpty" yaml:"removeEmpty"`
 }
 

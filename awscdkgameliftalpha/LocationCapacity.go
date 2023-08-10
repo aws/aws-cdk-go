@@ -49,18 +49,12 @@ type LocationCapacity struct {
 	// The number of Amazon EC2 instances you want to maintain in the specified fleet location.
 	//
 	// This value must fall between the minimum and maximum size limits.
-	// Default: the default value is 0.
-	//
 	// Experimental.
 	DesiredCapacity *float64 `field:"optional" json:"desiredCapacity" yaml:"desiredCapacity"`
 	// The maximum number of instances that are allowed in the specified fleet location.
-	// Default: the default value is 1.
-	//
 	// Experimental.
 	MaxSize *float64 `field:"optional" json:"maxSize" yaml:"maxSize"`
 	// The minimum number of instances that are allowed in the specified fleet location.
-	// Default: the default value is 0.
-	//
 	// Experimental.
 	MinSize *float64 `field:"optional" json:"minSize" yaml:"minSize"`
 }

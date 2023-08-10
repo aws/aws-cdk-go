@@ -12,9 +12,6 @@ type IRestApi interface {
 	// Gets the "execute-api" ARN.
 	//
 	// Returns: The "execute-api" ARN.
-	// Default: "*" returns the execute API ARN for all methods/resources in
-	// this API.
-	//
 	ArnForExecuteApi(method *string, path *string, stage *string) *string
 	// API Gateway stage that points to the latest deployment (if defined).
 	DeploymentStage() Stage

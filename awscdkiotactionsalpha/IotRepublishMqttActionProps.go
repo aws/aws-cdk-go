@@ -19,14 +19,10 @@ import (
 // Experimental.
 type IotRepublishMqttActionProps struct {
 	// The IAM role that allows access to AWS service.
-	// Default: a new role will be created.
-	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The Quality of Service (QoS) level to use when republishing messages.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html#mqtt-qos
-	//
-	// Default: MqttQualityOfService.ZERO_OR_MORE_TIMES
 	//
 	// Experimental.
 	QualityOfService MqttQualityOfService `field:"optional" json:"qualityOfService" yaml:"qualityOfService"`

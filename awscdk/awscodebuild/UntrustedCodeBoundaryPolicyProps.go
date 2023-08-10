@@ -23,12 +23,8 @@ import (
 //
 type UntrustedCodeBoundaryPolicyProps struct {
 	// Additional statements to add to the default set of statements.
-	// Default: - No additional statements.
-	//
 	AdditionalStatements *[]awsiam.PolicyStatement `field:"optional" json:"additionalStatements" yaml:"additionalStatements"`
 	// The name of the managed policy.
-	// Default: - A name is automatically generated.
-	//
 	ManagedPolicyName *string `field:"optional" json:"managedPolicyName" yaml:"managedPolicyName"`
 }
 

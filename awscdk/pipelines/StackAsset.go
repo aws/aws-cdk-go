@@ -32,12 +32,8 @@ type StackAsset struct {
 	// Type of asset to publish.
 	AssetType AssetType `field:"required" json:"assetType" yaml:"assetType"`
 	// Does this asset represent the CloudFormation template for the stack.
-	// Default: false.
-	//
 	IsTemplate *bool `field:"required" json:"isTemplate" yaml:"isTemplate"`
 	// Role ARN to assume to publish.
-	// Default: - No need to assume any role.
-	//
 	AssetPublishingRoleArn *string `field:"optional" json:"assetPublishingRoleArn" yaml:"assetPublishingRoleArn"`
 }
 

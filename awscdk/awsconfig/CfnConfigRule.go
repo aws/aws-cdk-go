@@ -59,8 +59,16 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	Compliance: &ComplianceProperty{
+//   		Type: jsii.String("type"),
+//   	},
 //   	ConfigRuleName: jsii.String("configRuleName"),
 //   	Description: jsii.String("description"),
+//   	EvaluationModes: []interface{}{
+//   		&EvaluationModeConfigurationProperty{
+//   			Mode: jsii.String("mode"),
+//   		},
+//   	},
 //   	InputParameters: inputParameters,
 //   	MaximumExecutionFrequency: jsii.String("maximumExecutionFrequency"),
 //   	Scope: &ScopeProperty{
@@ -89,6 +97,9 @@ type CfnConfigRule interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Compliance details of the Config rule.
+	Compliance() interface{}
+	SetCompliance(val interface{})
 	// A name for the AWS Config rule.
 	ConfigRuleName() *string
 	SetConfigRuleName(val *string)
@@ -99,6 +110,9 @@ type CfnConfigRule interface {
 	// The description that you provide for the AWS Config rule.
 	Description() *string
 	SetDescription(val *string)
+	// List of EvaluationModeConfiguration objects.
+	EvaluationModes() interface{}
+	SetEvaluationModes(val interface{})
 	// A string, in JSON format, that is passed to the AWS Config rule Lambda function.
 	InputParameters() interface{}
 	SetInputParameters(val interface{})
@@ -338,6 +352,16 @@ func (j *jsiiProxy_CfnConfigRule) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigRule) Compliance() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"compliance",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigRule) ConfigRuleName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -363,6 +387,16 @@ func (j *jsiiProxy_CfnConfigRule) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigRule) EvaluationModes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"evaluationModes",
 		&returns,
 	)
 	return returns
@@ -496,6 +530,17 @@ func NewCfnConfigRule_Override(c CfnConfigRule, scope constructs.Construct, id *
 	)
 }
 
+func (j *jsiiProxy_CfnConfigRule)SetCompliance(val interface{}) {
+	if err := j.validateSetComplianceParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"compliance",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnConfigRule)SetConfigRuleName(val *string) {
 	_jsii_.Set(
 		j,
@@ -508,6 +553,17 @@ func (j *jsiiProxy_CfnConfigRule)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigRule)SetEvaluationModes(val interface{}) {
+	if err := j.validateSetEvaluationModesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"evaluationModes",
 		val,
 	)
 }

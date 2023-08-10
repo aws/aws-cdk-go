@@ -58,30 +58,18 @@ type AuthenticateOidcOptions struct {
 	// Then allow HTTPS outbound traffic to the IdP's IP address using the listener's `connections` property.
 	// See: https://repost.aws/knowledge-center/elb-configure-authentication-alb
 	//
-	// Default: true.
-	//
 	AllowHttpsOutbound *bool `field:"optional" json:"allowHttpsOutbound" yaml:"allowHttpsOutbound"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	// Default: - No extra parameters.
-	//
 	AuthenticationRequestExtraParams *map[string]*string `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated.
-	// Default: UnauthenticatedAction.AUTHENTICATE
-	//
 	OnUnauthenticatedRequest UnauthenticatedAction `field:"optional" json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	// Default: "openid".
-	//
 	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
-	// Default: "AWSELBAuthSessionCookie".
-	//
 	SessionCookieName *string `field:"optional" json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session.
-	// Default: Duration.days(7)
-	//
 	SessionTimeout awscdk.Duration `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 

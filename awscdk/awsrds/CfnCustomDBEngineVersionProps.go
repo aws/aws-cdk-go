@@ -95,8 +95,6 @@ type CfnCustomDBEngineVersionProps struct {
 	// A value that indicates the status of a custom engine version (CEV).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-status
 	//
-	// Default: - "available".
-	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// A list of tags.
 	//

@@ -80,6 +80,14 @@ func validateCfnConfigRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfigRule) validateSetComplianceParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnConfigRule) validateSetEvaluationModesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConfigRule) validateSetScopeParameters(val interface{}) error {
 	return nil
 }

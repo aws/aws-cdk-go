@@ -46,12 +46,8 @@ type PolicyValidationPluginReportBeta1 struct {
 	// List of violations in the report.
 	Violations *[]*PolicyViolationBeta1 `field:"required" json:"violations" yaml:"violations"`
 	// Arbitrary information about the report.
-	// Default: - no metadata.
-	//
 	Metadata *map[string]*string `field:"optional" json:"metadata" yaml:"metadata"`
 	// The version of the plugin that created the report.
-	// Default: - no version.
-	//
 	PluginVersion *string `field:"optional" json:"pluginVersion" yaml:"pluginVersion"`
 }
 

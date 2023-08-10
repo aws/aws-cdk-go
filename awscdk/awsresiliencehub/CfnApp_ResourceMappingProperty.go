@@ -40,7 +40,7 @@ type CfnApp_ResourceMappingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-mappingtype
 	//
 	MappingType *string `field:"required" json:"mappingType" yaml:"mappingType"`
-	// The identifier of this resource.
+	// Identifier of the physical resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-physicalresourceid
 	//
 	PhysicalResourceId interface{} `field:"required" json:"physicalResourceId" yaml:"physicalResourceId"`
@@ -51,7 +51,7 @@ type CfnApp_ResourceMappingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-logicalstackname
 	//
 	LogicalStackName *string `field:"optional" json:"logicalStackName" yaml:"logicalStackName"`
-	// The name of the resource this resource is mapped to.
+	// Name of the resource that the resource is mapped to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-resourcename
 	//
 	ResourceName *string `field:"optional" json:"resourceName" yaml:"resourceName"`

@@ -8,23 +8,21 @@ import (
 // Physical ID of the custom resource.
 //
 // Example:
-//   awsCustom := cr.NewAwsCustomResource(this, jsii.String("aws-custom"), &AwsCustomResourceProps{
+//   getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHostedZone"), &AwsCustomResourceProps{
 //   	OnCreate: &AwsSdkCall{
-//   		Service: jsii.String("..."),
-//   		Action: jsii.String("..."),
-//   		Parameters: map[string]*string{
-//   			"text": jsii.String("..."),
-//   		},
-//   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("...")),
-//   	},
-//   	OnUpdate: &AwsSdkCall{
-//   		Service: jsii.String("..."),
-//   		Action: jsii.String("..."),
+//   		AssumedRoleArn: jsii.String("arn:aws:iam::OTHERACCOUNT:role/CrossAccount/ManageHostedZoneConnections"),
+//   		Service: jsii.String("Route53"),
+//   		Action: jsii.String("associateVPCWithHostedZone"),
 //   		Parameters: map[string]interface{}{
-//   			"text": jsii.String("..."),
-//   			"resourceId": cr.NewPhysicalResourceIdReference(),
+//   			"HostedZoneId": jsii.String("hz-123"),
+//   			"VPC": map[string]*string{
+//   				"VPCId": jsii.String("vpc-123"),
+//   				"VPCRegion": jsii.String("region-for-vpc"),
+//   			},
 //   		},
+//   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("${vpcStack.SharedVpc.VpcId}-${vpcStack.Region}-${PrivateHostedZone.HostedZoneId}")),
 //   	},
+//   	//Will ignore any resource and use the assumedRoleArn as resource and 'sts:AssumeRole' for service:action
 //   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
 //   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 //   	}),

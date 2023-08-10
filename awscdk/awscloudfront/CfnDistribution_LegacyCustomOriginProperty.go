@@ -32,12 +32,8 @@ type CfnDistribution_LegacyCustomOriginProperty struct {
 	OriginSslProtocols *[]*string `field:"required" json:"originSslProtocols" yaml:"originSslProtocols"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpport
 	//
-	// Default: - 80.
-	//
 	HttpPort *float64 `field:"optional" json:"httpPort" yaml:"httpPort"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpsport
-	//
-	// Default: - 443.
 	//
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
 }

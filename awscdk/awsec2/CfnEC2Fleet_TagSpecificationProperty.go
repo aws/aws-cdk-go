@@ -27,8 +27,6 @@ import (
 //
 type CfnEC2Fleet_TagSpecificationProperty struct {
 	// The type of resource to tag.
-	//
-	// `ResourceType` must be `fleet` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-resourcetype
 	//
 	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`

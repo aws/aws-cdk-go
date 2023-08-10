@@ -31,49 +31,33 @@ type LoggingOptions struct {
 	// Specify if Elasticsearch application logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
-	// Default: - false.
-	//
 	// Deprecated: use opensearchservice module instead.
 	AppLogEnabled *bool `field:"optional" json:"appLogEnabled" yaml:"appLogEnabled"`
 	// Log Elasticsearch application logs to this log group.
-	// Default: - a new log group is created if app logging is enabled.
-	//
 	// Deprecated: use opensearchservice module instead.
 	AppLogGroup awslogs.ILogGroup `field:"optional" json:"appLogGroup" yaml:"appLogGroup"`
 	// Specify if Elasticsearch audit logging should be set up.
 	//
 	// Requires Elasticsearch version 6.7 or later and fine grained access control to be enabled.
-	// Default: - false.
-	//
 	// Deprecated: use opensearchservice module instead.
 	AuditLogEnabled *bool `field:"optional" json:"auditLogEnabled" yaml:"auditLogEnabled"`
 	// Log Elasticsearch audit logs to this log group.
-	// Default: - a new log group is created if audit logging is enabled.
-	//
 	// Deprecated: use opensearchservice module instead.
 	AuditLogGroup awslogs.ILogGroup `field:"optional" json:"auditLogGroup" yaml:"auditLogGroup"`
 	// Specify if slow index logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
-	// Default: - false.
-	//
 	// Deprecated: use opensearchservice module instead.
 	SlowIndexLogEnabled *bool `field:"optional" json:"slowIndexLogEnabled" yaml:"slowIndexLogEnabled"`
 	// Log slow indices to this log group.
-	// Default: - a new log group is created if slow index logging is enabled.
-	//
 	// Deprecated: use opensearchservice module instead.
 	SlowIndexLogGroup awslogs.ILogGroup `field:"optional" json:"slowIndexLogGroup" yaml:"slowIndexLogGroup"`
 	// Specify if slow search logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
-	// Default: - false.
-	//
 	// Deprecated: use opensearchservice module instead.
 	SlowSearchLogEnabled *bool `field:"optional" json:"slowSearchLogEnabled" yaml:"slowSearchLogEnabled"`
 	// Log slow searches to this log group.
-	// Default: - a new log group is created if slow search logging is enabled.
-	//
 	// Deprecated: use opensearchservice module instead.
 	SlowSearchLogGroup awslogs.ILogGroup `field:"optional" json:"slowSearchLogGroup" yaml:"slowSearchLogGroup"`
 }

@@ -28,20 +28,12 @@ type ApiDestinationProps struct {
 	// The URL to the HTTP invocation endpoint for the API destination..
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The name for the API destination.
-	// Default: - A unique name will be generated.
-	//
 	ApiDestinationName *string `field:"optional" json:"apiDestinationName" yaml:"apiDestinationName"`
 	// A description for the API destination.
-	// Default: - none.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The method to use for the request to the HTTP invocation endpoint.
-	// Default: HttpMethod.POST
-	//
 	HttpMethod HttpMethod `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// The maximum number of requests per second to send to the HTTP invocation endpoint.
-	// Default: - Not rate limited.
-	//
 	RateLimitPerSecond *float64 `field:"optional" json:"rateLimitPerSecond" yaml:"rateLimitPerSecond"`
 }
 

@@ -52,10 +52,12 @@ type CfnSolution_HpoConfigProperty struct {
 	//
 	AlgorithmHyperParameterRanges interface{} `field:"optional" json:"algorithmHyperParameterRanges" yaml:"algorithmHyperParameterRanges"`
 	// The metric to optimize during HPO.
+	//
+	// > Amazon Personalize doesn't support configuring the `hpoObjective` at this time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html#cfn-personalize-solution-hpoconfig-hpoobjective
 	//
 	HpoObjective interface{} `field:"optional" json:"hpoObjective" yaml:"hpoObjective"`
-	// Describes the resource configuration for hyperparameter optimization (HPO).
+	// Describes the resource configuration for HPO.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html#cfn-personalize-solution-hpoconfig-hporesourceconfig
 	//
 	HpoResourceConfig interface{} `field:"optional" json:"hpoResourceConfig" yaml:"hpoResourceConfig"`

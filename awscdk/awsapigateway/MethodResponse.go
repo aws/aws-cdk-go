@@ -30,8 +30,6 @@ type MethodResponse struct {
 	// Specify response models as
 	// key-value pairs (string-to-string maps), with a content type as the key and a Model
 	// resource name as the value.
-	// Default: None.
-	//
 	ResponseModels *map[string]IModel `field:"optional" json:"responseModels" yaml:"responseModels"`
 	// Response parameters that API Gateway sends to the client that called a method.
 	//
@@ -39,8 +37,6 @@ type MethodResponse struct {
 	// a destination as the key and a Boolean as the value. Specify the destination
 	// using the following pattern: method.response.header.name, where the name is a
 	// valid, unique header name. The Boolean specifies whether a parameter is required.
-	// Default: None.
-	//
 	ResponseParameters *map[string]*bool `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 }
 

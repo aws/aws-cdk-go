@@ -33,8 +33,6 @@ type ScalableInstanceCountProps struct {
 	// Experimental.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
-	// Default: 1.
-	//
 	// Experimental.
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 	// Scalable dimension of the attribute.

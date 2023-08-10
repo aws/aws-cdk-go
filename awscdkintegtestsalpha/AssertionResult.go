@@ -23,8 +23,6 @@ type AssertionResult struct {
 	// Experimental.
 	Assertion *string `field:"required" json:"assertion" yaml:"assertion"`
 	// Whether or not the assertion failed.
-	// Default: false.
-	//
 	// Experimental.
 	Failed *bool `field:"optional" json:"failed" yaml:"failed"`
 }

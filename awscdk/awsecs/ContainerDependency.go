@@ -26,8 +26,6 @@ type ContainerDependency struct {
 	//
 	// Valid values are ContainerDependencyCondition.START, ContainerDependencyCondition.COMPLETE,
 	// ContainerDependencyCondition.SUCCESS and ContainerDependencyCondition.HEALTHY.
-	// Default: ContainerDependencyCondition.HEALTHY
-	//
 	Condition ContainerDependencyCondition `field:"optional" json:"condition" yaml:"condition"`
 }
 

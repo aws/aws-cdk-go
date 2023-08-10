@@ -36,8 +36,6 @@ type RouteBaseProps struct {
 	// Protocol specific spec.
 	RouteSpec RouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the route.
-	// Default: - An automatically generated name.
-	//
 	RouteName *string `field:"optional" json:"routeName" yaml:"routeName"`
 }
 

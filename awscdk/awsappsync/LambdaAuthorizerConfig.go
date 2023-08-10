@@ -35,12 +35,8 @@ type LambdaAuthorizerConfig struct {
 	// How long the results are cached.
 	//
 	// Disable caching by setting this to 0.
-	// Default: Duration.minutes(5)
-	//
 	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 	// A regular expression for validation of tokens before the Lambda function is called.
-	// Default: - no regex filter will be applied.
-	//
 	ValidationRegex *string `field:"optional" json:"validationRegex" yaml:"validationRegex"`
 }
 

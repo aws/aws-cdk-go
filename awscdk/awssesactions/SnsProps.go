@@ -49,8 +49,6 @@ type SnsProps struct {
 	// The SNS topic to notify.
 	Topic awssns.ITopic `field:"required" json:"topic" yaml:"topic"`
 	// The encoding to use for the email within the Amazon SNS notification.
-	// Default: UTF-8.
-	//
 	Encoding EmailEncoding `field:"optional" json:"encoding" yaml:"encoding"`
 }
 

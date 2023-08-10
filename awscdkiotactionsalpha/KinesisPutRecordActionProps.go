@@ -24,8 +24,6 @@ import (
 // Experimental.
 type KinesisPutRecordActionProps struct {
 	// The IAM role that allows access to AWS service.
-	// Default: a new role will be created.
-	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The partition key used to determine to which shard the data is written.

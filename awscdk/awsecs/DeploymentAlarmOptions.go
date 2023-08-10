@@ -38,8 +38,6 @@ package awsecs
 //
 type DeploymentAlarmOptions struct {
 	// Default rollback on alarm.
-	// Default: AlarmBehavior.ROLLBACK_ON_ALARM
-	//
 	Behavior AlarmBehavior `field:"optional" json:"behavior" yaml:"behavior"`
 }
 

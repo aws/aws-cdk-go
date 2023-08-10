@@ -26,28 +26,18 @@ type TopicRuleProps struct {
 	// Experimental.
 	Sql IotSql `field:"required" json:"sql" yaml:"sql"`
 	// The actions associated with the topic rule.
-	// Default: No actions will be perform.
-	//
 	// Experimental.
 	Actions *[]IAction `field:"optional" json:"actions" yaml:"actions"`
 	// A textual description of the topic rule.
-	// Default: None.
-	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether the rule is enabled.
-	// Default: true.
-	//
 	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The action AWS IoT performs when it is unable to perform a rule's action.
-	// Default: - no action will be performed.
-	//
 	// Experimental.
 	ErrorAction IAction `field:"optional" json:"errorAction" yaml:"errorAction"`
 	// The name of the topic rule.
-	// Default: None.
-	//
 	// Experimental.
 	TopicRuleName *string `field:"optional" json:"topicRuleName" yaml:"topicRuleName"`
 }

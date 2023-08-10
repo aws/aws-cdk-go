@@ -24,9 +24,6 @@ type EndpointProps struct {
 	// Experimental.
 	EndpointConfig IEndpointConfig `field:"required" json:"endpointConfig" yaml:"endpointConfig"`
 	// Name of the endpoint.
-	// Default: - AWS CloudFormation generates a unique physical ID and uses that ID for the
-	// endpoint's name.
-	//
 	// Experimental.
 	EndpointName *string `field:"optional" json:"endpointName" yaml:"endpointName"`
 }

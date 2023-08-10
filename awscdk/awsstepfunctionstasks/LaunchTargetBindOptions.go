@@ -26,8 +26,6 @@ type LaunchTargetBindOptions struct {
 	// Task definition to run Docker containers in Amazon ECS.
 	TaskDefinition awsecs.ITaskDefinition `field:"required" json:"taskDefinition" yaml:"taskDefinition"`
 	// A regional grouping of one or more container instances on which you can run tasks and services.
-	// Default: - No cluster.
-	//
 	Cluster awsecs.ICluster `field:"optional" json:"cluster" yaml:"cluster"`
 }
 

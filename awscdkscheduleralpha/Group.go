@@ -106,49 +106,31 @@ type Group interface {
 	// Experimental.
 	GrantWriteSchedules(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this group schedules.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for all invocation attempts.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricAttempts(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for dropped invocations when EventBridge Scheduler stops attempting to invoke the target after a schedule's retry policy has been exhausted.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricDropped(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for failed invocations that also failed to deliver to DLQ.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricFailedToBeSentToDLQ(errorCode *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for invocations delivered to the DLQ.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricSentToDLQ(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for delivery of failed invocations to DLQ when the payload of the event sent to the DLQ exceeds the maximum size allowed by Amazon SQS.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricSentToDLQTrunacted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Emitted when the target returns an exception after EventBridge Scheduler calls the target API.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricTargetErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for invocation failures due to API throttling by the target.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricTargetThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of invocations that were throttled because it exceeds your service quotas.
 	// See: https://docs.aws.amazon.com/scheduler/latest/UserGuide/scheduler-quotas.html
-	//
-	// Default: - sum over 5 minutes.
 	//
 	// Experimental.
 	MetricThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric

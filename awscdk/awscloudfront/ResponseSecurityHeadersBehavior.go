@@ -97,28 +97,16 @@ package awscloudfront
 //
 type ResponseSecurityHeadersBehavior struct {
 	// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-	// Default: - no content security policy.
-	//
 	ContentSecurityPolicy *ResponseHeadersContentSecurityPolicy `field:"optional" json:"contentSecurityPolicy" yaml:"contentSecurityPolicy"`
 	// Determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff.
-	// Default: - no content type options.
-	//
 	ContentTypeOptions *ResponseHeadersContentTypeOptions `field:"optional" json:"contentTypeOptions" yaml:"contentTypeOptions"`
 	// Determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value.
-	// Default: - no frame options.
-	//
 	FrameOptions *ResponseHeadersFrameOptions `field:"optional" json:"frameOptions" yaml:"frameOptions"`
 	// Determines whether CloudFront includes the Referrer-Policy HTTP response header and the header’s value.
-	// Default: - no referrer policy.
-	//
 	ReferrerPolicy *ResponseHeadersReferrerPolicy `field:"optional" json:"referrerPolicy" yaml:"referrerPolicy"`
 	// Determines whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value.
-	// Default: - no strict transport security.
-	//
 	StrictTransportSecurity *ResponseHeadersStrictTransportSecurity `field:"optional" json:"strictTransportSecurity" yaml:"strictTransportSecurity"`
 	// Determines whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value.
-	// Default: - no xss protection.
-	//
 	XssProtection *ResponseHeadersXSSProtection `field:"optional" json:"xssProtection" yaml:"xssProtection"`
 }
 

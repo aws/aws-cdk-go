@@ -67,7 +67,7 @@ type CfnRuleGroup_JsonBodyProperty struct {
 	//
 	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. If the body is larger than the limit, the underlying host service only forwards the contents that are below the limit to AWS WAF for inspection.
 	//
-	// The default limit is 8 KB (8,192 kilobytes) for regional resources and 16 KB (16,384 kilobytes) for CloudFront distributions. For CloudFront distributions, you can increase the limit in the web ACL `AssociationConfig` , for additional processing fees.
+	// The default limit is 8 KB (8,192 bytes) for regional resources and 16 KB (16,384 bytes) for CloudFront distributions. For CloudFront distributions, you can increase the limit in the web ACL `AssociationConfig` , for additional processing fees.
 	//
 	// The options for oversize handling are the following:
 	//

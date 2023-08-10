@@ -22,19 +22,13 @@ import (
 //
 type ApiKeyConfig struct {
 	// Description of API key.
-	// Default: - 'Default API Key created by CDK'.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The time from creation time after which the API key expires.
 	//
 	// It must be a minimum of 1 day and a maximum of 365 days from date of creation.
 	// Rounded down to the nearest hour.
-	// Default: - 7 days rounded down to nearest hour.
-	//
 	Expires awscdk.Expiration `field:"optional" json:"expires" yaml:"expires"`
 	// Unique name of the API Key.
-	// Default: - 'DefaultAPIKey'.
-	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

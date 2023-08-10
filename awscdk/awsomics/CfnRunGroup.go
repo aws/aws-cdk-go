@@ -19,6 +19,7 @@ import (
 //   cfnRunGroup := awscdk.Aws_omics.NewCfnRunGroup(this, jsii.String("MyCfnRunGroup"), &CfnRunGroupProps{
 //   	MaxCpus: jsii.Number(123),
 //   	MaxDuration: jsii.Number(123),
+//   	MaxGpus: jsii.Number(123),
 //   	MaxRuns: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Tags: map[string]*string{
@@ -63,6 +64,8 @@ type CfnRunGroup interface {
 	// The group's maximum duration setting in minutes.
 	MaxDuration() *float64
 	SetMaxDuration(val *float64)
+	MaxGpus() *float64
+	SetMaxGpus(val *float64)
 	// The group's maximum concurrent run setting.
 	MaxRuns() *float64
 	SetMaxRuns(val *float64)
@@ -332,6 +335,16 @@ func (j *jsiiProxy_CfnRunGroup) MaxDuration() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRunGroup) MaxGpus() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maxGpus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRunGroup) MaxRuns() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -462,6 +475,14 @@ func (j *jsiiProxy_CfnRunGroup)SetMaxDuration(val *float64) {
 	_jsii_.Set(
 		j,
 		"maxDuration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRunGroup)SetMaxGpus(val *float64) {
+	_jsii_.Set(
+		j,
+		"maxGpus",
 		val,
 	)
 }

@@ -12,9 +12,6 @@ import (
 type ILifecycleHook interface {
 	awscdk.IResource
 	// The role for the lifecycle hook to execute.
-	// Default: - A default role is created if 'notificationTarget' is specified.
-	// Otherwise, no role is created.
-	//
 	Role() awsiam.IRole
 }
 

@@ -15,8 +15,6 @@ import (
 //
 type GitHubSourceOptions struct {
 	// The action name used for this source in the CodePipeline.
-	// Default: - The repository string.
-	//
 	ActionName *string `field:"optional" json:"actionName" yaml:"actionName"`
 	// A GitHub OAuth token to use for authentication.
 	//
@@ -32,8 +30,6 @@ type GitHubSourceOptions struct {
 	// * **admin:repo_hook** - if you plan to use webhooks (true by default).
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/GitHub-create-personal-token-CLI.html
 	//
-	// Default: - SecretValue.secretsManager('github-token')
-	//
 	Authentication awscdk.SecretValue `field:"optional" json:"authentication" yaml:"authentication"`
 	// How AWS CodePipeline should be triggered.
 	//
@@ -43,8 +39,6 @@ type GitHubSourceOptions struct {
 	//
 	// To use `WEBHOOK`, your GitHub Personal Access Token should have
 	// **admin:repo_hook** scope (in addition to the regular **repo** scope).
-	// Default: GitHubTrigger.WEBHOOK
-	//
 	Trigger awscodepipelineactions.GitHubTrigger `field:"optional" json:"trigger" yaml:"trigger"`
 }
 

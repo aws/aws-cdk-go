@@ -16,8 +16,6 @@ package awscdk
 //
 type CfnCodeDeployBlueGreenAdditionalOptions struct {
 	// Specifies time to wait, in minutes, before terminating the blue resources.
-	// Default: - 5 minutes.
-	//
 	TerminationWaitTimeInMinutes *float64 `field:"optional" json:"terminationWaitTimeInMinutes" yaml:"terminationWaitTimeInMinutes"`
 }
 

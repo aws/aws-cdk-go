@@ -36,20 +36,14 @@ package awscognito
 //
 type NumberAttributeProps struct {
 	// Maximum value of this attribute.
-	// Default: - no maximum value.
-	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// Minimum value of this attribute.
-	// Default: - no minimum value.
-	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	// Default: false.
-	//
 	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 }
 

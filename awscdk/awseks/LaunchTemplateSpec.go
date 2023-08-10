@@ -36,8 +36,6 @@ type LaunchTemplateSpec struct {
 	// The Launch template ID.
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The launch template version to be used (optional).
-	// Default: - the default version of the launch template.
-	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

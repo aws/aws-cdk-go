@@ -19,12 +19,8 @@ import (
 //
 type EndpointConfiguration struct {
 	// A list of endpoint types of an API or its custom domain name.
-	// Default: EndpointType.EDGE
-	//
 	Types *[]EndpointType `field:"required" json:"types" yaml:"types"`
 	// A list of VPC Endpoints against which to create Route53 ALIASes.
-	// Default: - no ALIASes are created for the endpoint.
-	//
 	VpcEndpoints *[]awsec2.IVpcEndpoint `field:"optional" json:"vpcEndpoints" yaml:"vpcEndpoints"`
 }
 

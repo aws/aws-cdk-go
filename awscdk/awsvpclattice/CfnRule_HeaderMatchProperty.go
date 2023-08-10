@@ -38,8 +38,6 @@ type CfnRule_HeaderMatchProperty struct {
 	// Defaults to false.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatch.html#cfn-vpclattice-rule-headermatch-casesensitive
 	//
-	// Default: - false.
-	//
 	CaseSensitive interface{} `field:"optional" json:"caseSensitive" yaml:"caseSensitive"`
 }
 

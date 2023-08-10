@@ -179,6 +179,90 @@ func validateCfnConfigRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfigRule) validateSetComplianceParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnConfigRule_ComplianceProperty:
+		val := val.(*CfnConfigRule_ComplianceProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnConfigRule_ComplianceProperty:
+		val_ := val.(CfnConfigRule_ComplianceProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigRule_ComplianceProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnConfigRule) validateSetEvaluationModesParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *[]interface{}:
+		val := val.(*[]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnConfigRule_EvaluationModeConfigurationProperty:
+				v := v.(*CfnConfigRule_EvaluationModeConfigurationProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnConfigRule_EvaluationModeConfigurationProperty:
+				v_ := v.(CfnConfigRule_EvaluationModeConfigurationProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnConfigRule_EvaluationModeConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case []interface{}:
+		val_ := val.([]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnConfigRule_EvaluationModeConfigurationProperty:
+				v := v.(*CfnConfigRule_EvaluationModeConfigurationProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnConfigRule_EvaluationModeConfigurationProperty:
+				v_ := v.(CfnConfigRule_EvaluationModeConfigurationProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnConfigRule_EvaluationModeConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnConfigRule) validateSetScopeParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

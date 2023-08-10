@@ -25,38 +25,24 @@ import (
 // Experimental.
 type IdentityPoolProps struct {
 	// Enables the Basic (Classic) authentication flow.
-	// Default: - Classic Flow not allowed.
-	//
 	// Experimental.
 	AllowClassicFlow *bool `field:"optional" json:"allowClassicFlow" yaml:"allowClassicFlow"`
 	// Wwhether the identity pool supports unauthenticated logins.
-	// Default: - false.
-	//
 	// Experimental.
 	AllowUnauthenticatedIdentities *bool `field:"optional" json:"allowUnauthenticatedIdentities" yaml:"allowUnauthenticatedIdentities"`
 	// The Default Role to be assumed by Authenticated Users.
-	// Default: - A Default Authenticated Role will be added.
-	//
 	// Experimental.
 	AuthenticatedRole awsiam.IRole `field:"optional" json:"authenticatedRole" yaml:"authenticatedRole"`
 	// Authentication providers for using in identity pool.
-	// Default: - No Authentication Providers passed directly to Identity Pool.
-	//
 	// Experimental.
 	AuthenticationProviders *IdentityPoolAuthenticationProviders `field:"optional" json:"authenticationProviders" yaml:"authenticationProviders"`
 	// The name of the Identity Pool.
-	// Default: - automatically generated name by CloudFormation at deploy time.
-	//
 	// Experimental.
 	IdentityPoolName *string `field:"optional" json:"identityPoolName" yaml:"identityPoolName"`
 	// Rules for mapping roles to users.
-	// Default: - no Role Mappings.
-	//
 	// Experimental.
 	RoleMappings *[]*IdentityPoolRoleMapping `field:"optional" json:"roleMappings" yaml:"roleMappings"`
 	// The Default Role to be assumed by Unauthenticated Users.
-	// Default: - A Default Unauthenticated Role will be added.
-	//
 	// Experimental.
 	UnauthenticatedRole awsiam.IRole `field:"optional" json:"unauthenticatedRole" yaml:"unauthenticatedRole"`
 }

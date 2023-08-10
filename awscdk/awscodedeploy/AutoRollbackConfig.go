@@ -65,16 +65,10 @@ package awscodedeploy
 //
 type AutoRollbackConfig struct {
 	// Whether to automatically roll back a deployment during which one of the configured CloudWatch alarms for this Deployment Group went off.
-	// Default: true if you've provided any Alarms with the `alarms` property, false otherwise.
-	//
 	DeploymentInAlarm *bool `field:"optional" json:"deploymentInAlarm" yaml:"deploymentInAlarm"`
 	// Whether to automatically roll back a deployment that fails.
-	// Default: true.
-	//
 	FailedDeployment *bool `field:"optional" json:"failedDeployment" yaml:"failedDeployment"`
 	// Whether to automatically roll back a deployment that was manually stopped.
-	// Default: false.
-	//
 	StoppedDeployment *bool `field:"optional" json:"stoppedDeployment" yaml:"stoppedDeployment"`
 }
 

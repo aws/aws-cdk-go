@@ -24,13 +24,9 @@ import (
 // Experimental.
 type SqsQueueActionProps struct {
 	// The IAM role that allows access to AWS service.
-	// Default: a new role will be created.
-	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Specifies whether to use Base64 encoding.
-	// Default: false.
-	//
 	// Experimental.
 	UseBase64 *bool `field:"optional" json:"useBase64" yaml:"useBase64"`
 }

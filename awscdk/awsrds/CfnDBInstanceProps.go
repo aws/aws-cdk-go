@@ -232,8 +232,6 @@ type CfnDBInstanceProps struct {
 	// - Can't be set to 0 if the DB instance is a source to read replicas.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-backupretentionperiod
 	//
-	// Default: - 1.
-	//
 	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
 	//
@@ -790,8 +788,6 @@ type CfnDBInstanceProps struct {
 	// Valid Values: `0, 1, 5, 10, 15, 30, 60`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-monitoringinterval
 	//
-	// Default: - 0.
-	//
 	MonitoringInterval *float64 `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
 	//
@@ -920,8 +916,6 @@ type CfnDBInstanceProps struct {
 	// Valid Values: `0 - 15`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-promotiontier
 	//
-	// Default: - 1.
-	//
 	PromotionTier *float64 `field:"optional" json:"promotionTier" yaml:"promotionTier"`
 	// Indicates whether the DB instance is an internet-facing instance.
 	//
@@ -1006,9 +1000,9 @@ type CfnDBInstanceProps struct {
 	//
 	// If you specify the `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified `KmsKeyId` property is used.
 	//
-	// If you specify the `SnapshotIdentifier` and the specified snapshot is encrypted, don't specify this property. The value is inherited from the snapshot, and the specified `KmsKeyId` property is used.
+	// If you specify the `DBSnapshotIdentifier` and the specified snapshot is encrypted, don't specify this property. The value is inherited from the snapshot, and the specified `KmsKeyId` property is used.
 	//
-	// If you specify the `SnapshotIdentifier` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB instance is encrypted. Specify the `KmsKeyId` property for the KMS key to use for encryption. If you don't want the restored DB instance to be encrypted, then don't set this property or set it to `false` .
+	// If you specify the `DBSnapshotIdentifier` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB instance is encrypted. Specify the `KmsKeyId` property for the KMS key to use for encryption. If you don't want the restored DB instance to be encrypted, then don't set this property or set it to `false` .
 	//
 	// *Amazon Aurora*
 	//

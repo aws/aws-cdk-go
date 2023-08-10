@@ -32,8 +32,6 @@ type ArtifactsBucketLocation struct {
 	// The S3 bucket prefix.
 	//
 	// Specify this if you want a more specific path within the artifacts bucket.
-	// Default: - no prefix.
-	//
 	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }

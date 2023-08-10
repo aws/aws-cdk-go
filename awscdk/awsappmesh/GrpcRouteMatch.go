@@ -33,22 +33,14 @@ type GrpcRouteMatch struct {
 	// Create metadata based gRPC route match.
 	//
 	// All specified metadata must match for the route to match.
-	// Default: - do not match on metadata.
-	//
 	Metadata *[]HeaderMatch `field:"optional" json:"metadata" yaml:"metadata"`
 	// The method name to match from the request.
 	//
 	// If the method name is specified, service name must be also provided.
-	// Default: - do not match on method name.
-	//
 	MethodName *string `field:"optional" json:"methodName" yaml:"methodName"`
 	// The port to match from the request.
-	// Default: - do not match on port.
-	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Create service name based gRPC route match.
-	// Default: - do not match on service name.
-	//
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 

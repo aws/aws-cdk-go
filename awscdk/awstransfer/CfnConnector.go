@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates the connector, which captures the parameters for an outbound connection for the AS2 or SFTP protocol.
+// Creates the connector, which captures the parameters for a connection for the AS2 or SFTP protocol.
 //
-// The connector is required for sending files to an externally hosted AS2 or SFTP server. For more details about AS2 connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector) .
+// For AS2, the connector is required for sending files to an externally hosted AS2 server. For SFTP, the connector is required when sending files to an SFTP server or receiving files from an SFTP server. For more details about connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector) and [Create SFTP connectors](https://docs.aws.amazon.com/transfer/latest/userguide/configure-sftp-connector.html) .
 //
 // > You must specify exactly one configuration object: either for AS2 ( `As2Config` ) or SFTP ( `SftpConfig` ).
 //
@@ -24,11 +24,17 @@ import (
 //
 //   cfnConnector := awscdk.Aws_transfer.NewCfnConnector(this, jsii.String("MyCfnConnector"), &CfnConnectorProps{
 //   	AccessRole: jsii.String("accessRole"),
-//   	As2Config: as2Config,
 //   	Url: jsii.String("url"),
 //
 //   	// the properties below are optional
+//   	As2Config: as2Config,
 //   	LoggingRole: jsii.String("loggingRole"),
+//   	SftpConfig: &SftpConfigProperty{
+//   		TrustedHostKeys: []*string{
+//   			jsii.String("trustedHostKeys"),
+//   		},
+//   		UserSecretId: jsii.String("userSecretId"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -43,13 +49,13 @@ type CfnConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// With AS2, you can send files by calling `StartFileTransfer` and specifying the file paths in the request parameter, `SendFilePaths` .
+	// Connectors are used to send files using either the AS2 or SFTP protocol.
 	AccessRole() *string
 	SetAccessRole(val *string)
 	// A structure that contains the parameters for an AS2 connector object.
 	As2Config() interface{}
 	SetAs2Config(val interface{})
-	// Specifies the unique Amazon Resource Name (ARN) for the workflow.
+	// Specifies the unique Amazon Resource Name (ARN) for the connector.
 	AttrArn() *string
 	// A unique identifier for the connector.
 	AttrConnectorId() *string
@@ -82,6 +88,9 @@ type CfnConnector interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Configuration for an SFTP connector.
+	SftpConfig() interface{}
+	SetSftpConfig(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -361,6 +370,16 @@ func (j *jsiiProxy_CfnConnector) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnector) SftpConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sftpConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnector) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -461,9 +480,6 @@ func (j *jsiiProxy_CfnConnector)SetAccessRole(val *string) {
 }
 
 func (j *jsiiProxy_CfnConnector)SetAs2Config(val interface{}) {
-	if err := j.validateSetAs2ConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"as2Config",
@@ -475,6 +491,17 @@ func (j *jsiiProxy_CfnConnector)SetLoggingRole(val *string) {
 	_jsii_.Set(
 		j,
 		"loggingRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnector)SetSftpConfig(val interface{}) {
+	if err := j.validateSetSftpConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sftpConfig",
 		val,
 	)
 }

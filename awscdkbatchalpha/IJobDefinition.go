@@ -23,20 +23,14 @@ type IJobDefinition interface {
 	// The default parameters passed to the container These parameters can be referenced in the `command` that you give to the container.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters
 	//
-	// Default: none.
-	//
 	// Experimental.
 	Parameters() *map[string]interface{}
 	// The number of times to retry a job.
 	//
 	// The job is retried on failure the same number of attempts as the value.
-	// Default: 1.
-	//
 	// Experimental.
 	RetryAttempts() *float64
 	// Defines the retry behavior for this job.
-	// Default: - no `RetryStrategy`.
-	//
 	// Experimental.
 	RetryStrategies() *[]RetryStrategy
 	// The priority of this Job.
@@ -44,16 +38,12 @@ type IJobDefinition interface {
 	// Only used in Fairshare Scheduling
 	// to decide which job to run first when there are multiple jobs
 	// with the same share identifier.
-	// Default: none.
-	//
 	// Experimental.
 	SchedulingPriority() *float64
 	// The timeout time for jobs that are submitted with this job definition.
 	//
 	// After the amount of time you specify passes,
 	// Batch terminates your jobs if they aren't finished.
-	// Default: - no timeout.
-	//
 	// Experimental.
 	Timeout() awscdk.Duration
 }

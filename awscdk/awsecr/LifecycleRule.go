@@ -21,8 +21,6 @@ import (
 //
 type LifecycleRule struct {
 	// Describes the purpose of the rule.
-	// Default: No description.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The maximum age of images to retain. The value must represent a number of days.
 	//
@@ -42,8 +40,6 @@ type LifecycleRule struct {
 	//
 	// All rules without a specified priority will have incrementing priorities
 	// automatically assigned to them, higher than any rules that DO have priorities.
-	// Default: Automatically assigned.
-	//
 	RulePriority *float64 `field:"optional" json:"rulePriority" yaml:"rulePriority"`
 	// Select images that have ALL the given prefixes in their tag.
 	//
@@ -53,8 +49,6 @@ type LifecycleRule struct {
 	//
 	// Only one rule is allowed to select untagged images, and it must
 	// have the highest rulePriority.
-	// Default: TagStatus.Tagged if tagPrefixList is given, TagStatus.Any otherwise
-	//
 	TagStatus TagStatus `field:"optional" json:"tagStatus" yaml:"tagStatus"`
 }
 

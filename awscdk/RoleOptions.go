@@ -19,8 +19,6 @@ type RoleOptions struct {
 	// ARN of the role to assume.
 	AssumeRoleArn *string `field:"required" json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// External ID to use when assuming the role.
-	// Default: - No external ID.
-	//
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 }
 

@@ -169,6 +169,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maxCpus", GoGetter: "MaxCpus"},
 			_jsii_.MemberProperty{JsiiProperty: "maxDuration", GoGetter: "MaxDuration"},
+			_jsii_.MemberProperty{JsiiProperty: "maxGpus", GoGetter: "MaxGpus"},
 			_jsii_.MemberProperty{JsiiProperty: "maxRuns", GoGetter: "MaxRuns"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -332,6 +333,7 @@ func init() {
 		"aws-cdk-lib.aws_omics.CfnWorkflow",
 		reflect.TypeOf((*CfnWorkflow)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accelerators", GoGetter: "Accelerators"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},

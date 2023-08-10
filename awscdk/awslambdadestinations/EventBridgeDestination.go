@@ -35,8 +35,6 @@ type jsiiProxy_EventBridgeDestination struct {
 	internal.Type__awslambdaIDestination
 }
 
-// Default: - use the default event bus.
-//
 func NewEventBridgeDestination(eventBus awsevents.IEventBus) EventBridgeDestination {
 	_init_.Initialize()
 
@@ -51,8 +49,6 @@ func NewEventBridgeDestination(eventBus awsevents.IEventBus) EventBridgeDestinat
 	return &j
 }
 
-// Default: - use the default event bus.
-//
 func NewEventBridgeDestination_Override(e EventBridgeDestination, eventBus awsevents.IEventBus) {
 	_init_.Initialize()
 

@@ -103,8 +103,6 @@ type CfnNodegroupProps struct {
 	// If an update fails because pods could not be drained, you can force the update after it fails to terminate the old node whether or not any pods are running on the node.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-forceupdateenabled
 	//
-	// Default: - false.
-	//
 	ForceUpdateEnabled interface{} `field:"optional" json:"forceUpdateEnabled" yaml:"forceUpdateEnabled"`
 	// Specify the instance types for a node group.
 	//

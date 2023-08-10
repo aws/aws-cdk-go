@@ -29,12 +29,8 @@ type LambdaProps struct {
 	// The Lambda function to invoke.
 	Function awslambda.IFunction `field:"required" json:"function" yaml:"function"`
 	// The invocation type of the Lambda function.
-	// Default: Event.
-	//
 	InvocationType LambdaInvocationType `field:"optional" json:"invocationType" yaml:"invocationType"`
 	// The SNS topic to notify when the Lambda action is taken.
-	// Default: no notification.
-	//
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 

@@ -26,14 +26,10 @@ type NoncurrentVersionTransition struct {
 	// The storage class to which you want the object to transition.
 	StorageClass StorageClass `field:"required" json:"storageClass" yaml:"storageClass"`
 	// Indicates the number of days after creation when objects are transitioned to the specified storage class.
-	// Default: - No transition count.
-	//
 	TransitionAfter awscdk.Duration `field:"required" json:"transitionAfter" yaml:"transitionAfter"`
 	// Indicates the number of noncurrent version objects to be retained.
 	//
 	// Can be up to 100 noncurrent versions retained.
-	// Default: - No noncurrent version retained.
-	//
 	NoncurrentVersionsToRetain *float64 `field:"optional" json:"noncurrentVersionsToRetain" yaml:"noncurrentVersionsToRetain"`
 }
 

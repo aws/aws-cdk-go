@@ -62,8 +62,6 @@ type CfnFlowEntitlementProps struct {
 	// The percentage of the entitlement data transfer fee that you want the subscriber to be responsible for.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-datatransfersubscriberfeepercent
 	//
-	// Default: - 0.
-	//
 	DataTransferSubscriberFeePercent *float64 `field:"optional" json:"dataTransferSubscriberFeePercent" yaml:"dataTransferSubscriberFeePercent"`
 	// The type of encryption that MediaConnect will use on the output that is associated with the entitlement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption

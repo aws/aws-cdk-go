@@ -31,8 +31,6 @@ type IJobQueue interface {
 	// If the job queue is enabled, it is able to accept jobs.
 	//
 	// Otherwise, new jobs can't be added to the queue, but jobs already in the queue can finish.
-	// Default: true.
-	//
 	// Experimental.
 	Enabled() *bool
 	// The ARN of this job queue.
@@ -54,8 +52,6 @@ type IJobQueue interface {
 	// The SchedulingPolicy for this JobQueue.
 	//
 	// Instructs the Scheduler how to schedule different jobs.
-	// Default: - no scheduling policy.
-	//
 	// Experimental.
 	SchedulingPolicy() ISchedulingPolicy
 }

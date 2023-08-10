@@ -37,20 +37,14 @@ type AddRoutesOptions struct {
 	//
 	// These scopes will override the default authorization scopes on the gateway.
 	// Set to [] to remove default scopes.
-	// Default: - uses defaultAuthorizationScopes if configured on the API, otherwise none.
-	//
 	// Experimental.
 	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// Authorizer to be associated to these routes.
 	//
 	// Use NoneAuthorizer to remove the default authorizer for the api.
-	// Default: - uses the default authorizer if one is specified on the HttpApi.
-	//
 	// Experimental.
 	Authorizer IHttpRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// The HTTP methods to be configured.
-	// Default: HttpMethod.ANY
-	//
 	// Experimental.
 	Methods *[]HttpMethod `field:"optional" json:"methods" yaml:"methods"`
 }

@@ -51,7 +51,8 @@ type CfnMapping interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() Stack
 	// Returns: A reference to a value in the map based on the two keys.
-	FindInMap(key1 *string, key2 *string) *string
+	// If mapping is lazy, the value from the map or default value is returned instead of the reference and the mapping is not rendered in the template.
+	FindInMap(key1 *string, key2 *string, defaultValue *string) *string
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
 	// Sets a value in the map based on the two keys.
@@ -202,7 +203,7 @@ func CfnMapping_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnMapping) FindInMap(key1 *string, key2 *string) *string {
+func (c *jsiiProxy_CfnMapping) FindInMap(key1 *string, key2 *string, defaultValue *string) *string {
 	if err := c.validateFindInMapParameters(key1, key2); err != nil {
 		panic(err)
 	}
@@ -211,7 +212,7 @@ func (c *jsiiProxy_CfnMapping) FindInMap(key1 *string, key2 *string) *string {
 	_jsii_.Invoke(
 		c,
 		"findInMap",
-		[]interface{}{key1, key2},
+		[]interface{}{key1, key2, defaultValue},
 		&returns,
 	)
 

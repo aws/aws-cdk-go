@@ -29,8 +29,6 @@ type CachingConfig struct {
 	// The caching keys for a resolver that has caching enabled.
 	//
 	// Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-	// Default: - No caching keys.
-	//
 	CachingKeys *[]*string `field:"optional" json:"cachingKeys" yaml:"cachingKeys"`
 }
 

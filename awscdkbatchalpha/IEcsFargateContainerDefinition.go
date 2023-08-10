@@ -17,18 +17,12 @@ type IEcsFargateContainerDefinition interface {
 	// (for example, to pull container images), the private subnet requires a NAT gateway be attached to route requests to the internet.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html
 	//
-	// Default: false.
-	//
 	// Experimental.
 	AssignPublicIp() *bool
 	// The size for ephemeral storage.
-	// Default: - 20 GiB.
-	//
 	// Experimental.
 	EphemeralStorageSize() awscdk.Size
 	// Which version of Fargate to use when running this container.
-	// Default: LATEST.
-	//
 	// Experimental.
 	FargatePlatformVersion() awsecs.FargatePlatformVersion
 }

@@ -14,35 +14,23 @@ type IHttpApi interface {
 	// Experimental.
 	AddVpcLink(options *VpcLinkProps) VpcLink
 	// Metric for the number of client-side errors captured in a given period.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the total number API requests in a given period.
-	// Default: - SampleCount over 5 minutes.
-	//
 	// Experimental.
 	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the amount of data processed in bytes.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
-	// Default: - no statistic.
-	//
 	// Experimental.
 	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time between when API Gateway receives a request from a client and when it returns a response to the client.
 	//
 	// The latency includes the integration latency and other API Gateway overhead.
-	// Default: - no statistic.
-	//
 	// Experimental.
 	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of server-side errors captured in a given period.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The identifier of this API Gateway HTTP API.

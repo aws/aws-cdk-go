@@ -32,8 +32,6 @@ type EmrCreateCluster_ScalingActionProperty struct {
 	// Not available for instance groups.
 	//
 	// Instance groups use the market type specified for the group.
-	// Default: - EMR selected default.
-	//
 	Market EmrCreateCluster_InstanceMarket `field:"optional" json:"market" yaml:"market"`
 }
 

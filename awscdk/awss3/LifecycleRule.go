@@ -62,12 +62,8 @@ type LifecycleRule struct {
 	//
 	// The underlying configuration is expressed in whole numbers of days. Providing a Duration that
 	// does not represent a whole number of days will result in a runtime or deployment error.
-	// Default: - Incomplete uploads are never aborted.
-	//
 	AbortIncompleteMultipartUploadAfter awscdk.Duration `field:"optional" json:"abortIncompleteMultipartUploadAfter" yaml:"abortIncompleteMultipartUploadAfter"`
 	// Whether this rule is enabled.
-	// Default: true.
-	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon Glacier.
 	//
@@ -77,8 +73,6 @@ type LifecycleRule struct {
 	//
 	// The underlying configuration is expressed in whole numbers of days. Providing a Duration that
 	// does not represent a whole number of days will result in a runtime or deployment error.
-	// Default: - No expiration timeout.
-	//
 	Expiration awscdk.Duration `field:"optional" json:"expiration" yaml:"expiration"`
 	// Indicates when objects are deleted from Amazon S3 and Amazon Glacier.
 	//
@@ -87,14 +81,10 @@ type LifecycleRule struct {
 	// If you specify an expiration and transition time, you must use the same
 	// time unit for both properties (either in days or by date). The
 	// expiration time must also be later than the transition time.
-	// Default: - No expiration date.
-	//
 	ExpirationDate *time.Time `field:"optional" json:"expirationDate" yaml:"expirationDate"`
 	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions.
 	//
 	// If set to true, the delete marker will be expired.
-	// Default: false.
-	//
 	ExpiredObjectDeleteMarker *bool `field:"optional" json:"expiredObjectDeleteMarker" yaml:"expiredObjectDeleteMarker"`
 	// A unique identifier for this rule.
 	//
@@ -111,15 +101,11 @@ type LifecycleRule struct {
 	//
 	// The underlying configuration is expressed in whole numbers of days. Providing a Duration that
 	// does not represent a whole number of days will result in a runtime or deployment error.
-	// Default: - No noncurrent version expiration.
-	//
 	NoncurrentVersionExpiration awscdk.Duration `field:"optional" json:"noncurrentVersionExpiration" yaml:"noncurrentVersionExpiration"`
 	// Indicates a maximum number of noncurrent versions to retain.
 	//
 	// If there are this many more noncurrent versions,
 	// Amazon S3 permanently deletes them.
-	// Default: - No noncurrent versions to retain.
-	//
 	NoncurrentVersionsToRetain *float64 `field:"optional" json:"noncurrentVersionsToRetain" yaml:"noncurrentVersionsToRetain"`
 	// One or more transition rules that specify when non-current objects transition to a specified storage class.
 	//
@@ -129,28 +115,18 @@ type LifecycleRule struct {
 	// must be later than the transition time.
 	NoncurrentVersionTransitions *[]*NoncurrentVersionTransition `field:"optional" json:"noncurrentVersionTransitions" yaml:"noncurrentVersionTransitions"`
 	// Specifies the minimum object size in bytes for this rule to apply to.
-	// Default: - No rule.
-	//
 	ObjectSizeGreaterThan *float64 `field:"optional" json:"objectSizeGreaterThan" yaml:"objectSizeGreaterThan"`
 	// Specifies the maximum object size in bytes for this rule to apply to.
-	// Default: - No rule.
-	//
 	ObjectSizeLessThan *float64 `field:"optional" json:"objectSizeLessThan" yaml:"objectSizeLessThan"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
-	// Default: - Rule applies to all objects.
-	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The TagFilter property type specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
-	// Default: - Rule applies to all objects.
-	//
 	TagFilters *map[string]interface{} `field:"optional" json:"tagFilters" yaml:"tagFilters"`
 	// One or more transition rules that specify when an object transitions to a specified storage class.
 	//
 	// If you specify an expiration and transition time, you must use the same
 	// time unit for both properties (either in days or by date). The
 	// expiration time must also be later than the transition time.
-	// Default: - No transition rules.
-	//
 	Transitions *[]*Transition `field:"optional" json:"transitions" yaml:"transitions"`
 }
 

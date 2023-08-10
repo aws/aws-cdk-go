@@ -21,16 +21,10 @@ type S3ActionConfig struct {
 	// The name of the Amazon S3 bucket that you want to send incoming mail to.
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket.
-	// Default: - Emails are not encrypted.
-	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The key prefix of the Amazon S3 bucket.
-	// Default: - No prefix.
-	//
 	ObjectKeyPrefix *string `field:"optional" json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 	// The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket.
-	// Default: - No notification is sent to SNS.
-	//
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

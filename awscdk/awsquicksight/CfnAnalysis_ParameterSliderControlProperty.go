@@ -44,13 +44,9 @@ type CfnAnalysis_ParameterSliderControlProperty struct {
 	// The smaller value that is displayed at the left of the slider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameterslidercontrol.html#cfn-quicksight-analysis-parameterslidercontrol-maximumvalue
 	//
-	// Default: - 0.
-	//
 	MaximumValue *float64 `field:"required" json:"maximumValue" yaml:"maximumValue"`
 	// The larger value that is displayed at the right of the slider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameterslidercontrol.html#cfn-quicksight-analysis-parameterslidercontrol-minimumvalue
-	//
-	// Default: - 0.
 	//
 	MinimumValue *float64 `field:"required" json:"minimumValue" yaml:"minimumValue"`
 	// The ID of the `ParameterSliderControl` .
@@ -63,8 +59,6 @@ type CfnAnalysis_ParameterSliderControlProperty struct {
 	SourceParameterName *string `field:"required" json:"sourceParameterName" yaml:"sourceParameterName"`
 	// The number of increments that the slider bar is divided into.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameterslidercontrol.html#cfn-quicksight-analysis-parameterslidercontrol-stepsize
-	//
-	// Default: - 0.
 	//
 	StepSize *float64 `field:"required" json:"stepSize" yaml:"stepSize"`
 	// The title of the `ParameterSliderControl` .

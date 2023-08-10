@@ -43,16 +43,12 @@ type MixedInstancesPolicy struct {
 	// Launch template to use.
 	LaunchTemplate awsec2.ILaunchTemplate `field:"required" json:"launchTemplate" yaml:"launchTemplate"`
 	// InstancesDistribution to use.
-	// Default: - The value for each property in it uses a default value.
-	//
 	InstancesDistribution *InstancesDistribution `field:"optional" json:"instancesDistribution" yaml:"instancesDistribution"`
 	// Launch template overrides.
 	//
 	// The maximum number of instance types that can be associated with an Auto Scaling group is 40.
 	//
 	// The maximum number of distinct launch templates you can define for an Auto Scaling group is 20.
-	// Default: - Do not provide any overrides.
-	//
 	LaunchTemplateOverrides *[]*LaunchTemplateOverrides `field:"optional" json:"launchTemplateOverrides" yaml:"launchTemplateOverrides"`
 }
 

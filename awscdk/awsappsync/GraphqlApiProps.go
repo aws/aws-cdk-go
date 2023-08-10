@@ -30,31 +30,19 @@ type GraphqlApiProps struct {
 	// GraphQL schema definition. Specify how you want to define your schema.
 	//
 	// SchemaFile.fromAsset(filePath: string) allows schema definition through schema.graphql file
-	// Default: - schema will be generated code-first (i.e. addType, addObjectType, etc.)
-	//
 	Schema ISchema `field:"required" json:"schema" yaml:"schema"`
 	// Optional authorization configuration.
-	// Default: - API Key authorization.
-	//
 	AuthorizationConfig *AuthorizationConfig `field:"optional" json:"authorizationConfig" yaml:"authorizationConfig"`
 	// The domain name configuration for the GraphQL API.
 	//
 	// The Route 53 hosted zone and CName DNS record must be configured in addition to this setting to
 	// enable custom domain URL.
-	// Default: - no domain name.
-	//
 	DomainName *DomainOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Logging configuration for this api.
-	// Default: - None.
-	//
 	LogConfig *LogConfig `field:"optional" json:"logConfig" yaml:"logConfig"`
 	// A value indicating whether the API is accessible from anywhere (GLOBAL) or can only be access from a VPC (PRIVATE).
-	// Default: - GLOBAL.
-	//
 	Visibility Visibility `field:"optional" json:"visibility" yaml:"visibility"`
 	// A flag indicating whether or not X-Ray tracing is enabled for the GraphQL API.
-	// Default: - false.
-	//
 	XrayEnabled *bool `field:"optional" json:"xrayEnabled" yaml:"xrayEnabled"`
 }
 

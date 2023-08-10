@@ -15,8 +15,6 @@ type IPlacementGroup interface {
 	// The number of partitions.
 	//
 	// Valid only when Strategy is set to PARTITION.
-	// Default: 0.
-	//
 	Partitions() *float64
 	// The name of this placement group.
 	PlacementGroupName() *string
@@ -33,12 +31,8 @@ type IPlacementGroup interface {
 	// available over time, so you can try your request again later.
 	// Placement groups can spread instances across racks or hosts.
 	// You can use host level spread placement groups only with AWS Outposts.
-	// Default: - no spread level.
-	//
 	SpreadLevel() PlacementGroupSpreadLevel
 	// Which strategy to use when launching instances.
-	// Default: - `PlacementGroupStrategy.PARTITION` if `partitions` is defined, `CLUSTER` otherwise
-	//
 	Strategy() PlacementGroupStrategy
 }
 

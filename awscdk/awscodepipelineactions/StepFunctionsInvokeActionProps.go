@@ -40,14 +40,8 @@ type StepFunctionsInvokeActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	// Default: 1.
-	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	// Default: - a name will be generated, based on the stage and action names,
-	// if any of the action's variables were referenced - otherwise,
-	// no namespace will be set.
-	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -56,8 +50,6 @@ type StepFunctionsInvokeActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your `IAction.bind`
 	// method in the `ActionBindOptions.role` property.
-	// Default: a new Role will be generated.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The state machine to invoke.
 	StateMachine awsstepfunctions.IStateMachine `field:"required" json:"stateMachine" yaml:"stateMachine"`
@@ -66,18 +58,12 @@ type StepFunctionsInvokeActionProps struct {
 	// By default, the action execution ID is used as the state machine execution name.
 	// If a prefix is provided, it is prepended to the action execution ID with a hyphen and
 	// together used as the state machine execution name.
-	// Default: - action execution ID.
-	//
 	ExecutionNamePrefix *string `field:"optional" json:"executionNamePrefix" yaml:"executionNamePrefix"`
 	// The optional output Artifact of the Action.
-	// Default: the Action will not have any outputs.
-	//
 	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// Represents the input to the StateMachine.
 	//
 	// This includes input artifact, input type and the statemachine input.
-	// Default: - none.
-	//
 	StateMachineInput StateMachineInput `field:"optional" json:"stateMachineInput" yaml:"stateMachineInput"`
 }
 

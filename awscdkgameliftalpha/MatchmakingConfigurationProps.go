@@ -43,39 +43,27 @@ type MatchmakingConfigurationProps struct {
 	// Experimental.
 	RuleSet IMatchmakingRuleSet `field:"required" json:"ruleSet" yaml:"ruleSet"`
 	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
-	// Default: 300 seconds.
-	//
 	// Experimental.
 	AcceptanceTimeout awscdk.Duration `field:"optional" json:"acceptanceTimeout" yaml:"acceptanceTimeout"`
 	// Information to add to all events related to the matchmaking configuration.
-	// Default: no custom data added to events.
-	//
 	// Experimental.
 	CustomEventData *string `field:"optional" json:"customEventData" yaml:"customEventData"`
 	// A human-readable description of the matchmaking configuration.
-	// Default: no description is provided.
-	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An SNS topic ARN that is set up to receive matchmaking notifications.
 	// See: https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html
-	//
-	// Default: no notification target.
 	//
 	// Experimental.
 	NotificationTarget awssns.ITopic `field:"optional" json:"notificationTarget" yaml:"notificationTarget"`
 	// The maximum duration, that a matchmaking ticket can remain in process before timing out.
 	//
 	// Requests that fail due to timing out can be resubmitted as needed.
-	// Default: 300 seconds.
-	//
 	// Experimental.
 	RequestTimeout awscdk.Duration `field:"optional" json:"requestTimeout" yaml:"requestTimeout"`
 	// A flag that determines whether a match that was created with this configuration must be accepted by the matched players.
 	//
 	// With this option enabled, matchmaking tickets use the status `REQUIRES_ACCEPTANCE` to indicate when a completed potential match is waiting for player acceptance.
-	// Default: Acceptance is not required.
-	//
 	// Experimental.
 	RequireAcceptance *bool `field:"optional" json:"requireAcceptance" yaml:"requireAcceptance"`
 }

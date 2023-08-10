@@ -56,8 +56,6 @@ type JsonSchema struct {
 	AnyOf *[]*JsonSchema `field:"optional" json:"anyOf" yaml:"anyOf"`
 	Contains interface{} `field:"optional" json:"contains" yaml:"contains"`
 	// The default value if you use an enum.
-	// Default: - not set.
-	//
 	Default interface{} `field:"optional" json:"default" yaml:"default"`
 	Definitions *map[string]*JsonSchema `field:"optional" json:"definitions" yaml:"definitions"`
 	Dependencies *map[string]interface{} `field:"optional" json:"dependencies" yaml:"dependencies"`

@@ -34,15 +34,11 @@ type HostPathVolumeOptions struct {
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The path on the container where the volume is mounted.
-	// Default: - the volume is not mounted.
-	//
 	// Experimental.
 	MountPath *string `field:"optional" json:"mountPath" yaml:"mountPath"`
 	// If specified, the container has readonly access to the volume.
 	//
 	// Otherwise, the container has read/write access.
-	// Default: false.
-	//
 	// Experimental.
 	Readonly *bool `field:"optional" json:"readonly" yaml:"readonly"`
 	// The path of the file or directory on the host to mount into containers on the pod.

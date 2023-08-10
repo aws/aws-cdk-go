@@ -21,8 +21,6 @@ type SamlProviderProps struct {
 	// any of the following characters: _+=,.@-
 	//
 	// Length must be between 1 and 128 characters.
-	// Default: - a CloudFormation generated name.
-	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

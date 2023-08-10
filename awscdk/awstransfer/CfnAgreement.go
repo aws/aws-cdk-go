@@ -44,7 +44,7 @@ type CfnAgreement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// With AS2, you can send files by calling `StartFileTransfer` and specifying the file paths in the request parameter, `SendFilePaths` .
+	// Connectors are used to send files using either the AS2 or SFTP protocol.
 	AccessRole() *string
 	SetAccessRole(val *string)
 	// The unique identifier for the AS2 agreement, returned after the API call succeeds.

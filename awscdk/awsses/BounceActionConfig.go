@@ -28,12 +28,8 @@ type BounceActionConfig struct {
 	// The SMTP reply code, as defined by RFC 5321.
 	SmtpReplyCode *string `field:"required" json:"smtpReplyCode" yaml:"smtpReplyCode"`
 	// The SMTP enhanced status code, as defined by RFC 3463.
-	// Default: - No status code.
-	//
 	StatusCode *string `field:"optional" json:"statusCode" yaml:"statusCode"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken.
-	// Default: - No notification is sent to SNS.
-	//
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

@@ -31,8 +31,6 @@ type LoadBalancerListener struct {
 	// By default, connections will be allowed from anywhere. Set this to an empty list
 	// to deny connections, or supply a custom list of peers to allow connections from
 	// (IP ranges or security groups).
-	// Default: Anywhere.
-	//
 	AllowConnectionsFrom *[]awsec2.IConnectable `field:"optional" json:"allowConnectionsFrom" yaml:"allowConnectionsFrom"`
 	// What public protocol to use for load balancing.
 	//
@@ -43,8 +41,6 @@ type LoadBalancerListener struct {
 	// Instance listening port.
 	//
 	// Same as the externalPort if not specified.
-	// Default: externalPort.
-	//
 	InternalPort *float64 `field:"optional" json:"internalPort" yaml:"internalPort"`
 	// What public protocol to use for load balancing.
 	//
@@ -59,8 +55,6 @@ type LoadBalancerListener struct {
 	// SSL policy names.
 	PolicyNames *[]*string `field:"optional" json:"policyNames" yaml:"policyNames"`
 	// the ARN of the SSL certificate.
-	// Default: - none.
-	//
 	SslCertificateArn *string `field:"optional" json:"sslCertificateArn" yaml:"sslCertificateArn"`
 }
 

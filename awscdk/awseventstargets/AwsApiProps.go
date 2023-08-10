@@ -38,29 +38,21 @@ type AwsApiProps struct {
 	// API version to use for the service.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
 	//
-	// Default: - use latest available API version.
-	//
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The regex pattern to use to catch API errors.
 	//
 	// The `code` property of the
 	// `Error` object will be tested against this pattern. If there is a match an
 	// error will not be thrown.
-	// Default: - do not catch errors.
-	//
 	CatchErrorPattern *string `field:"optional" json:"catchErrorPattern" yaml:"catchErrorPattern"`
 	// The parameters for the service action.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
-	//
-	// Default: - no parameters.
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The IAM policy statement to allow the API call.
 	//
 	// Use only if
 	// resource restriction is needed.
-	// Default: - extract the permission from the API call.
-	//
 	PolicyStatement awsiam.PolicyStatement `field:"optional" json:"policyStatement" yaml:"policyStatement"`
 }
 

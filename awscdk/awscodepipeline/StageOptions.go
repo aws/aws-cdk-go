@@ -34,12 +34,8 @@ type StageOptions struct {
 	//
 	// Only applicable
 	// if `transitionToEnabled` is set to `false`.
-	// Default: 'Transition disabled'.
-	//
 	TransitionDisabledReason *string `field:"optional" json:"transitionDisabledReason" yaml:"transitionDisabledReason"`
 	// Whether to enable transition to this stage.
-	// Default: true.
-	//
 	TransitionToEnabled *bool `field:"optional" json:"transitionToEnabled" yaml:"transitionToEnabled"`
 	Placement *StagePlacement `field:"optional" json:"placement" yaml:"placement"`
 }

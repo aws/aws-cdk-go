@@ -31,8 +31,6 @@ type CfnTopic_TopicDateRangeFilterProperty struct {
 	// If set to true, the filter includes the start and end dates. If set to false, the filter excludes them.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicdaterangefilter.html#cfn-quicksight-topic-topicdaterangefilter-inclusive
 	//
-	// Default: - false.
-	//
 	Inclusive interface{} `field:"optional" json:"inclusive" yaml:"inclusive"`
 }
 

@@ -37,8 +37,6 @@ type EcrPublicProps struct {
 	// The image configuration for the image from ECR Public.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
-	// Default: - no image configuration will be passed. The default `port` will be 8080.
-	//
 	// Experimental.
 	ImageConfiguration *ImageConfiguration `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
 }

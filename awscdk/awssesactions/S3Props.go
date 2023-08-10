@@ -51,16 +51,10 @@ type S3Props struct {
 	// The S3 bucket that incoming email will be saved to.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The master key that SES should use to encrypt your emails before saving them to the S3 bucket.
-	// Default: no encryption.
-	//
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The key prefix of the S3 bucket.
-	// Default: no prefix.
-	//
 	ObjectKeyPrefix *string `field:"optional" json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 	// The SNS topic to notify when the S3 action is taken.
-	// Default: no notification.
-	//
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 

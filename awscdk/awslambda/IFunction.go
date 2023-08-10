@@ -46,8 +46,6 @@ type IFunction interface {
 	// Metric for the Duration of this Lambda How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Default: average over 5 minutes.
-	//
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
@@ -56,14 +54,10 @@ type IFunction interface {
 	// Metric for the number of invocations of this Lambda How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Default: sum over 5 minutes.
-	//
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of throttled invocations of this Lambda How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Default: sum over 5 minutes.
-	//
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The system architectures compatible with this lambda function.
 	Architecture() Architecture

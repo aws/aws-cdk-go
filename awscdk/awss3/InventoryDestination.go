@@ -33,12 +33,8 @@ type InventoryDestination struct {
 	//
 	// If no account ID is provided, the owner is not validated before exporting data.
 	// It's recommended to set an account ID to prevent problems if the destination bucket ownership changes.
-	// Default: - No account ID.
-	//
 	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
 	// The prefix to be used when saving the inventory.
-	// Default: - No prefix.
-	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

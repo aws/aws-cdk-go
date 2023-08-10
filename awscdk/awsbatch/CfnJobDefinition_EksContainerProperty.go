@@ -100,6 +100,9 @@ type CfnJobDefinition_EksContainerProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-resources
 	//
 	Resources interface{} `field:"optional" json:"resources" yaml:"resources"`
+	// The security context for a job.
+	//
+	// For more information, see [Configure a security context for a pod or container](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the *Kubernetes documentation* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-securitycontext
 	//
 	SecurityContext interface{} `field:"optional" json:"securityContext" yaml:"securityContext"`

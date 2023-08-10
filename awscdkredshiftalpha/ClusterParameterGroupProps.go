@@ -22,8 +22,6 @@ type ClusterParameterGroupProps struct {
 	// Experimental.
 	Parameters *map[string]*string `field:"required" json:"parameters" yaml:"parameters"`
 	// Description for this parameter group.
-	// Default: a CDK generated description.
-	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }

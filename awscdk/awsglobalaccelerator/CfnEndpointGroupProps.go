@@ -56,15 +56,11 @@ type CfnEndpointGroupProps struct {
 	// The default value is 30.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
 	//
-	// Default: - 30.
-	//
 	HealthCheckIntervalSeconds *float64 `field:"optional" json:"healthCheckIntervalSeconds" yaml:"healthCheckIntervalSeconds"`
 	// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks.
 	//
 	// The default is slash (/).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
-	//
-	// Default: - "/".
 	//
 	HealthCheckPath *string `field:"optional" json:"healthCheckPath" yaml:"healthCheckPath"`
 	// The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group.
@@ -72,15 +68,11 @@ type CfnEndpointGroupProps struct {
 	// The default port is the port for the listener that this endpoint group is associated with. If the listener port is a list, Global Accelerator uses the first specified port in the list of ports.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
 	//
-	// Default: - -1.
-	//
 	HealthCheckPort *float64 `field:"optional" json:"healthCheckPort" yaml:"healthCheckPort"`
 	// The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group.
 	//
 	// The default value is TCP.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
-	//
-	// Default: - "TCP".
 	//
 	HealthCheckProtocol *string `field:"optional" json:"healthCheckProtocol" yaml:"healthCheckProtocol"`
 	// Allows you to override the destination ports used to route traffic to an endpoint.
@@ -94,8 +86,6 @@ type CfnEndpointGroupProps struct {
 	// The default value is 3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
 	//
-	// Default: - 3.
-	//
 	ThresholdCount *float64 `field:"optional" json:"thresholdCount" yaml:"thresholdCount"`
 	// The percentage of traffic to send to an AWS Regions .
 	//
@@ -105,8 +95,6 @@ type CfnEndpointGroupProps struct {
 	//
 	// The default value is 100.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
-	//
-	// Default: - 100.
 	//
 	TrafficDialPercentage *float64 `field:"optional" json:"trafficDialPercentage" yaml:"trafficDialPercentage"`
 }

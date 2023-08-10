@@ -26,29 +26,19 @@ type Monitoring struct {
 	// Amazon S3 Bucket for monitoring log publishing.
 	//
 	// You can configure your jobs to send log information to Amazon S3.
-	// Default: - if `logging` is manually set to `true` and a `logBucket` is not provided, a `logBucket` will be automatically generated`.
-	//
 	LogBucket awss3.IBucket `field:"optional" json:"logBucket" yaml:"logBucket"`
 	// Enable logging for this job.
 	//
 	// If set to true, will automatically create a Cloudwatch Log Group and S3 bucket.
 	// This will be set to `true` implicitly if values are provided for `logGroup` or `logBucket`.
-	// Default: true - true if values are provided for `logGroup` or `logBucket`, false otherwise.
-	//
 	Logging *bool `field:"optional" json:"logging" yaml:"logging"`
 	// A log group for CloudWatch monitoring.
 	//
 	// You can configure your jobs to send log information to CloudWatch Logs.
-	// Default: - if `logging` is manually set to `true` and a `logGroup` is not provided, a `logGroup` will be automatically generated`.
-	//
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// A log stream name prefix for Cloudwatch monitoring.
-	// Default: - Log streams created in this log group have no default prefix.
-	//
 	LogStreamNamePrefix *string `field:"optional" json:"logStreamNamePrefix" yaml:"logStreamNamePrefix"`
 	// Monitoring configurations for the persistent application UI.
-	// Default: true.
-	//
 	PersistentAppUI *bool `field:"optional" json:"persistentAppUI" yaml:"persistentAppUI"`
 }
 

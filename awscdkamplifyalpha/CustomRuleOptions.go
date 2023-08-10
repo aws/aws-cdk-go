@@ -32,14 +32,10 @@ type CustomRuleOptions struct {
 	// The condition for a URL rewrite or redirect rule, e.g. country code.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
-	// Default: - no condition.
-	//
 	// Experimental.
 	Condition *string `field:"optional" json:"condition" yaml:"condition"`
 	// The status code for a URL rewrite or redirect rule.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
-	//
-	// Default: PERMANENT_REDIRECT.
 	//
 	// Experimental.
 	Status RedirectStatus `field:"optional" json:"status" yaml:"status"`

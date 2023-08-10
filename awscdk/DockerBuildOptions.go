@@ -25,24 +25,16 @@ package awscdk
 //
 type DockerBuildOptions struct {
 	// Build args.
-	// Default: - no build args.
-	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Name of the Dockerfile, must relative to the docker build path.
-	// Default: `Dockerfile`.
-	//
 	File *string `field:"optional" json:"file" yaml:"file"`
 	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
 	//
 	// Example value: `linux/amd64`.
-	// Default: - no platform specified.
-	//
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// Set build target for multi-stage container builds. Any stage defined afterwards will be ignored.
 	//
 	// Example value: `build-env`.
-	// Default: - Build all stages defined in the Dockerfile.
-	//
 	TargetStage *string `field:"optional" json:"targetStage" yaml:"targetStage"`
 }
 

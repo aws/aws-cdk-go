@@ -26,18 +26,12 @@ type BuildProps struct {
 	// Experimental.
 	Content Content `field:"required" json:"content" yaml:"content"`
 	// Name of this build.
-	// Default: No name.
-	//
 	// Experimental.
 	BuildName *string `field:"optional" json:"buildName" yaml:"buildName"`
 	// Version of this build.
-	// Default: No version.
-	//
 	// Experimental.
 	BuildVersion *string `field:"optional" json:"buildVersion" yaml:"buildVersion"`
 	// The operating system that the game server binaries are built to run on.
-	// Default: No version.
-	//
 	// Experimental.
 	OperatingSystem OperatingSystem `field:"optional" json:"operatingSystem" yaml:"operatingSystem"`
 	// The IAM role assumed by GameLift to access server build in S3.
@@ -57,8 +51,6 @@ type BuildProps struct {
 	//  }]
 	// }.
 	// See: https://docs.aws.amazon.com/gamelift/latest/developerguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-access-storage-loc
-	//
-	// Default: - a role will be created with default permissions.
 	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`

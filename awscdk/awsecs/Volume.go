@@ -42,8 +42,6 @@ type Volume struct {
 	// The supervisor container uses a small amount of the task's memory.
 	// The supervisor container is visible when querying the task metadata version 4 endpoint,
 	// but is not visible in CloudWatch Container Insights.
-	// Default: No Elastic FileSystem is setup.
-	//
 	EfsVolumeConfiguration *EfsVolumeConfiguration `field:"optional" json:"efsVolumeConfiguration" yaml:"efsVolumeConfiguration"`
 	// This property is specified when you are using bind mount host volumes.
 	//

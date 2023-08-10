@@ -48,19 +48,13 @@ type ManagedKafkaEventSourceProps struct {
 	// * Maximum value of:
 	//   * 1000 for `DynamoEventSource`
 	// * 10000 for `KinesisEventSource`, `ManagedKafkaEventSource` and `SelfManagedKafkaEventSource`.
-	// Default: 100.
-	//
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	// Default: true.
-	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5).
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-batching
-	//
-	// Default: - Duration.seconds(0) for Kinesis, DynamoDB, and SQS event sources, Duration.millis(500) for MSK, self-managed Kafka, and Amazon MQ.
 	//
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The Kafka topic to subscribe to.
@@ -70,18 +64,12 @@ type ManagedKafkaEventSourceProps struct {
 	// The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value.  The value must have a lenght between 1 and 200 and full the pattern '[a-zA-Z0-9-\/*:_+=.@-]*'.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id
 	//
-	// Default: - none.
-	//
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
 	// Add filter criteria to Event Source.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html
 	//
-	// Default: - none.
-	//
 	Filters *[]*map[string]interface{} `field:"optional" json:"filters" yaml:"filters"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
-	// Default: none.
-	//
 	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 	// An MSK cluster construct.
 	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`

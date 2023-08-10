@@ -11,7 +11,11 @@ package awsglue
 //   cfnClassifierProps := &CfnClassifierProps{
 //   	CsvClassifier: &CsvClassifierProperty{
 //   		AllowSingleColumn: jsii.Boolean(false),
+//   		ContainsCustomDatatype: []*string{
+//   			jsii.String("containsCustomDatatype"),
+//   		},
 //   		ContainsHeader: jsii.String("containsHeader"),
+//   		CustomDatatypeConfigured: jsii.Boolean(false),
 //   		Delimiter: jsii.String("delimiter"),
 //   		DisableValueTrimming: jsii.Boolean(false),
 //   		Header: []*string{

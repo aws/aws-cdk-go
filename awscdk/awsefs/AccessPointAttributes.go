@@ -14,16 +14,10 @@ package awsefs
 //
 type AccessPointAttributes struct {
 	// The ARN of the AccessPoint One of this, or `accessPointId` is required.
-	// Default: - determined based on accessPointId.
-	//
 	AccessPointArn *string `field:"optional" json:"accessPointArn" yaml:"accessPointArn"`
 	// The ID of the AccessPoint One of this, or `accessPointArn` is required.
-	// Default: - determined based on accessPointArn.
-	//
 	AccessPointId *string `field:"optional" json:"accessPointId" yaml:"accessPointId"`
 	// The EFS file system.
-	// Default: - no EFS file system.
-	//
 	FileSystem IFileSystem `field:"optional" json:"fileSystem" yaml:"fileSystem"`
 }
 

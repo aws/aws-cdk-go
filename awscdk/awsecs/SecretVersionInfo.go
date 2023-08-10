@@ -40,12 +40,8 @@ package awsecs
 //
 type SecretVersionInfo struct {
 	// version id of the secret.
-	// Default: - use default version id.
-	//
 	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
 	// version stage of the secret.
-	// Default: - use default version stage.
-	//
 	VersionStage *string `field:"optional" json:"versionStage" yaml:"versionStage"`
 }
 

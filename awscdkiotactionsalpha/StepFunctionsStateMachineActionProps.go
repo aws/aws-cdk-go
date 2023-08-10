@@ -22,16 +22,12 @@ import (
 // Experimental.
 type StepFunctionsStateMachineActionProps struct {
 	// The IAM role that allows access to AWS service.
-	// Default: a new role will be created.
-	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Name of the state machine execution prefix.
 	//
 	// The name given to the state machine execution consists of this prefix followed by a UUID. Step Functions creates a unique name for each state machine execution if one is not provided.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/stepfunctions-rule-action.html#stepfunctions-rule-action-parameters
-	//
-	// Default: : None - Step Functions creates a unique name for each state machine execution if one is not provided.
 	//
 	// Experimental.
 	ExecutionNamePrefix *string `field:"optional" json:"executionNamePrefix" yaml:"executionNamePrefix"`

@@ -22,8 +22,6 @@ package awsappmesh
 //
 type LoggingFormatConfig struct {
 	// CFN configuration for Access Logging Format.
-	// Default: - no access logging format.
-	//
 	FormatConfig *CfnVirtualNode_LoggingFormatProperty `field:"optional" json:"formatConfig" yaml:"formatConfig"`
 }
 

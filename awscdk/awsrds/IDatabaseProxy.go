@@ -12,9 +12,6 @@ import (
 type IDatabaseProxy interface {
 	awscdk.IResource
 	// Grant the given identity connection access to the proxy.
-	// Default: - if the Proxy had been provided a single Secret value,
-	// the user will be taken from that Secret.
-	//
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// DB Proxy ARN.
 	DbProxyArn() *string

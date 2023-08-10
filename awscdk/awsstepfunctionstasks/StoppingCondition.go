@@ -42,8 +42,6 @@ import (
 //
 type StoppingCondition struct {
 	// The maximum length of time, in seconds, that the training or compilation job can run.
-	// Default: - 1 hour.
-	//
 	MaxRuntime awscdk.Duration `field:"optional" json:"maxRuntime" yaml:"maxRuntime"`
 }
 

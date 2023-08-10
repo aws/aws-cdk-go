@@ -52,8 +52,6 @@ type IManagedComputeEnvironment interface {
 	// Spot instances are less expensive EC2 instances that can be
 	// reclaimed by EC2 at any time; your job will be given two minutes
 	// of notice before reclamation.
-	// Default: false.
-	//
 	// Experimental.
 	Spot() *bool
 	// Whether or not any running jobs will be immediately terminated when an infrastructure update occurs.
@@ -61,8 +59,6 @@ type IManagedComputeEnvironment interface {
 	// If this is enabled, any terminated jobs may be retried, depending on the job's
 	// retry policy.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html
-	//
-	// Default: false.
 	//
 	// Experimental.
 	TerminateOnUpdate() *bool
@@ -73,15 +69,11 @@ type IManagedComputeEnvironment interface {
 	// will be allowed to run until `updateTimeout` has expired.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html
 	//
-	// Default: 30 minutes.
-	//
 	// Experimental.
 	UpdateTimeout() awscdk.Duration
 	// Whether or not the AMI is updated to the latest one supported by Batch when an infrastructure update occurs.
 	//
 	// If you specify a specific AMI, this property will be ignored.
-	// Default: true.
-	//
 	// Experimental.
 	UpdateToLatestImageVersion() *bool
 	// The VPC Subnets this Compute Environment will launch instances in.

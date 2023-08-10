@@ -39,12 +39,8 @@ type HttpsRedirectProps struct {
 	//
 	// If provided, the certificate must be
 	// stored in us-east-1 (N. Virginia)
-	// Default: - A new certificate is created in us-east-1 (N. Virginia)
-	//
 	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
 	// The domain names that will redirect to `targetDomain`.
-	// Default: - the domain name of the hosted zone.
-	//
 	RecordNames *[]*string `field:"optional" json:"recordNames" yaml:"recordNames"`
 }
 

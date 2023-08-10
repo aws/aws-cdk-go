@@ -119,8 +119,6 @@ type Application interface {
 	// Units: Milliseconds
 	//
 	// Reporting Level: Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricBackPressuredTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time (in milliseconds) this task or operator is busy (neither idle nor back pressured) per second.
@@ -131,8 +129,6 @@ type Application interface {
 	// Units: Milliseconds
 	//
 	// Reporting Level: Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricBusyTimePerMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The overall percentage of CPU utilization across task managers.
@@ -144,8 +140,6 @@ type Application interface {
 	// Units: Percentage
 	//
 	// Reporting Level: Application.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The last watermark this application/operator/task/thread has received.
@@ -153,8 +147,6 @@ type Application interface {
 	// Units: Milliseconds
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - maximum over 5 minutes.
-	//
 	// Experimental.
 	MetricCurrentInputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The last watermark this application/operator/task/thread has received.
@@ -162,8 +154,6 @@ type Application interface {
 	// Units: Milliseconds
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - maximum over 5 minutes.
-	//
 	// Experimental.
 	MetricCurrentOutputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time elapsed during an outage for failing/recovering jobs.
@@ -171,8 +161,6 @@ type Application interface {
 	// Units: Milliseconds
 	//
 	// Reporting Level: Application.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricDowntime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of times this job has fully restarted since it was submitted.
@@ -182,8 +170,6 @@ type Application interface {
 	// Units: Count
 	//
 	// Reporting Level: Application.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricFullRestarts(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Overall heap memory utilization across task managers.
@@ -195,8 +181,6 @@ type Application interface {
 	// Units: Percentage
 	//
 	// Reporting Level: Application.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricHeapMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time (in milliseconds) this task or operator is idle (has no data to process) per second.
@@ -207,8 +191,6 @@ type Application interface {
 	// Units: Milliseconds
 	//
 	// Reporting Level: Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricIdleTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of Kinesis Processing Units that are used to run your stream processing application.
@@ -219,8 +201,6 @@ type Application interface {
 	// Units: Count
 	//
 	// Reporting Level: Application.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricKpus(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time it took to complete the last checkpoint.
@@ -228,8 +208,6 @@ type Application interface {
 	// Units: Milliseconds
 	//
 	// Reporting Level: Application.
-	// Default: - maximum over 5 minutes.
-	//
 	// Experimental.
 	MetricLastCheckpointDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total size of the last checkpoint.
@@ -237,8 +215,6 @@ type Application interface {
 	// Units: Bytes
 	//
 	// Reporting Level: Application.
-	// Default: - maximum over 5 minutes.
-	//
 	// Experimental.
 	MetricLastCheckpointSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of managed memory.
@@ -246,8 +222,6 @@ type Application interface {
 	// Units: Bytes
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricManagedMemoryTotal(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of managed memory currently used.
@@ -255,8 +229,6 @@ type Application interface {
 	// Units: Bytes
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricManagedMemoryUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Derived from managedMemoryUsed/managedMemoryTotal.
@@ -264,8 +236,6 @@ type Application interface {
 	// Units: Percentage
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricManagedMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of times checkpointing has failed.
@@ -273,8 +243,6 @@ type Application interface {
 	// Units: Count
 	//
 	// Reporting Level: Application.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricNumberOfFailedCheckpoints(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records this operator or task has dropped due to arriving late.
@@ -282,8 +250,6 @@ type Application interface {
 	// Units: Count
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricNumLateRecordsDropped(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of records this application, operator, or task has received.
@@ -291,8 +257,6 @@ type Application interface {
 	// Units: Count
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricNumRecordsIn(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of records this application, operator or task has received per second.
@@ -300,8 +264,6 @@ type Application interface {
 	// Units: Count/Second
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricNumRecordsInPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of records this application, operator or task has emitted.
@@ -309,8 +271,6 @@ type Application interface {
 	// Units: Count
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricNumRecordsOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of records this application, operator or task has emitted per second.
@@ -318,8 +278,6 @@ type Application interface {
 	// Units: Count/Second
 	//
 	// Reporting Level: Application, Operator, Task, Parallelism.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricNumRecordsOutPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of old garbage collection operations that have occurred across all task managers.
@@ -327,8 +285,6 @@ type Application interface {
 	// Units: Count
 	//
 	// Reporting Level: Application.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricOldGenerationGCCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total time spent performing old garbage collection operations.
@@ -336,8 +292,6 @@ type Application interface {
 	// Units: Milliseconds
 	//
 	// Reporting Level: Application.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricOldGenerationGCTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of live threads used by the application.
@@ -345,8 +299,6 @@ type Application interface {
 	// Units: Count
 	//
 	// Reporting Level: Application.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricThreadsCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time that the job has been running without interruption.
@@ -354,8 +306,6 @@ type Application interface {
 	// Units: Milliseconds
 	//
 	// Reporting Level: Application.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.

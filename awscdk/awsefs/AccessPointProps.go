@@ -37,19 +37,13 @@ type AccessPointProps struct {
 	// If the
 	// root directory specified by `path` does not exist, EFS creates the root directory and applies the
 	// permissions specified here. If the specified `path` does not exist, you must specify `createAcl`.
-	// Default: - None. The directory specified by `path` must exist.
-	//
 	CreateAcl *Acl `field:"optional" json:"createAcl" yaml:"createAcl"`
 	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
-	// Default: '/'.
-	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 	//
 	// Specify this to enforce a user identity using an access point.
 	// See:  - [Enforcing a User Identity Using an Access Point](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)
-	//
-	// Default: - user identity not enforced.
 	//
 	PosixUser *PosixUser `field:"optional" json:"posixUser" yaml:"posixUser"`
 	// The efs filesystem.

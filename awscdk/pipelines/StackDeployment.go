@@ -27,14 +27,10 @@ type StackDeployment interface {
 	// Template path on disk to CloudAssembly.
 	AbsoluteTemplatePath() *string
 	// Account where the stack should be deployed.
-	// Default: - Pipeline account.
-	//
 	Account() *string
 	// Assets referenced by this stack.
 	Assets() *[]*StackAsset
 	// Role to assume before deploying this stack.
-	// Default: - Don't assume any role.
-	//
 	AssumeRoleArn() *string
 	// Steps that take place after stack is prepared but before stack deploys.
 	//
@@ -43,8 +39,6 @@ type StackDeployment interface {
 	// Construct path for this stack.
 	ConstructPath() *string
 	// Execution role to pass to CloudFormation.
-	// Default: - No execution role.
-	//
 	ExecutionRoleArn() *string
 	// Steps to execute after stack deploys.
 	Post() *[]Step
@@ -53,8 +47,6 @@ type StackDeployment interface {
 	// If your pipeline engine disables 'prepareStep', then this will happen before stack deploys.
 	Pre() *[]Step
 	// Region where the stack should be deployed.
-	// Default: - Pipeline region.
-	//
 	Region() *string
 	// Artifact ID for this stack.
 	StackArtifactId() *string

@@ -69,8 +69,6 @@ type CfnConfiguredTable_AnalysisRuleProperty struct {
 	//
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
 	// The type of analysis rule.
-	//
-	// Valid values are `AGGREGATION` and `LIST`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrule.html#cfn-cleanrooms-configuredtable-analysisrule-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

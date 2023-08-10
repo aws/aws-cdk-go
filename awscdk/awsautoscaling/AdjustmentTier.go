@@ -29,15 +29,11 @@ type AdjustmentTier struct {
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is higher than this value.
-	// Default: -Infinity if this is the first tier, otherwise the upperBound of the previous tier.
-	//
 	LowerBound *float64 `field:"optional" json:"lowerBound" yaml:"lowerBound"`
 	// Upper bound where this scaling tier applies.
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is lower than this value.
-	// Default: +Infinity.
-	//
 	UpperBound *float64 `field:"optional" json:"upperBound" yaml:"upperBound"`
 }
 

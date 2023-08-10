@@ -36,16 +36,10 @@ type TransformOutput struct {
 	// S3 path where you want Amazon SageMaker to store the results of the transform job.
 	S3OutputPath *string `field:"required" json:"s3OutputPath" yaml:"s3OutputPath"`
 	// MIME type used to specify the output data.
-	// Default: - None.
-	//
 	Accept *string `field:"optional" json:"accept" yaml:"accept"`
 	// Defines how to assemble the results of the transform job as a single S3 object.
-	// Default: - None.
-	//
 	AssembleWith AssembleWith `field:"optional" json:"assembleWith" yaml:"assembleWith"`
 	// AWS KMS key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	// Default: - default KMS key for Amazon S3 for your role's account.
-	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

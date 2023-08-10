@@ -13,8 +13,6 @@ type IClusterEngine interface {
 	// Method called when the engine is used to create a new cluster.
 	BindToCluster(scope constructs.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig
 	// Whether the IAM Roles used for data importing and exporting need to be combined for this Engine, or can they be kept separate.
-	// Default: false.
-	//
 	CombineImportAndExportRoles() *bool
 	// The application used by this engine to perform rotation for a multi-user scenario.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication

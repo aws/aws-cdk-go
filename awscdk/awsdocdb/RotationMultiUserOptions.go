@@ -37,8 +37,6 @@ type RotationMultiUserOptions struct {
 	// ```.
 	Secret awssecretsmanager.ISecret `field:"required" json:"secret" yaml:"secret"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Default: Duration.days(30)
-	//
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 }
 

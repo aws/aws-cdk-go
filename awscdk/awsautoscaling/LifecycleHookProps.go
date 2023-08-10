@@ -35,30 +35,18 @@ type LifecycleHookProps struct {
 	// The state of the Amazon EC2 instance to which you want to attach the lifecycle hook.
 	LifecycleTransition LifecycleTransition `field:"required" json:"lifecycleTransition" yaml:"lifecycleTransition"`
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
-	// Default: Continue.
-	//
 	DefaultResult DefaultResult `field:"optional" json:"defaultResult" yaml:"defaultResult"`
 	// Maximum time between calls to RecordLifecycleActionHeartbeat for the hook.
 	//
 	// If the lifecycle hook times out, perform the action in DefaultResult.
-	// Default: - No heartbeat timeout.
-	//
 	HeartbeatTimeout awscdk.Duration `field:"optional" json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// Name of the lifecycle hook.
-	// Default: - Automatically generated name.
-	//
 	LifecycleHookName *string `field:"optional" json:"lifecycleHookName" yaml:"lifecycleHookName"`
 	// Additional data to pass to the lifecycle hook target.
-	// Default: - No metadata.
-	//
 	NotificationMetadata *string `field:"optional" json:"notificationMetadata" yaml:"notificationMetadata"`
 	// The target of the lifecycle hook.
-	// Default: - No target.
-	//
 	NotificationTarget ILifecycleHookTarget `field:"optional" json:"notificationTarget" yaml:"notificationTarget"`
 	// The role that allows publishing to the notification target.
-	// Default: - A role will be created if a target is provided. Otherwise, no role is created.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The AutoScalingGroup to add the lifecycle hook to.
 	AutoScalingGroup IAutoScalingGroup `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`

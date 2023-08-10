@@ -29,14 +29,10 @@ type ProxyTargetConfig struct {
 	// The database clusters to which this proxy connects.
 	//
 	// Either this or `dbInstances` will be set and the other `undefined`.
-	// Default: - `undefined` if `dbInstances` is set.
-	//
 	DbClusters *[]IDatabaseCluster `field:"optional" json:"dbClusters" yaml:"dbClusters"`
 	// The database instances to which this proxy connects.
 	//
 	// Either this or `dbClusters` will be set and the other `undefined`.
-	// Default: - `undefined` if `dbClusters` is set.
-	//
 	DbInstances *[]IDatabaseInstance `field:"optional" json:"dbInstances" yaml:"dbInstances"`
 }
 

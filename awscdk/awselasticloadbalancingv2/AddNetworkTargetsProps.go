@@ -27,41 +27,26 @@ import (
 //
 type AddNetworkTargetsProps struct {
 	// The port on which the listener listens for requests.
-	// Default: Determined from protocol if known.
-	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
-	// Default: Duration.minutes(5)
-	//
 	DeregistrationDelay awscdk.Duration `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
-	// Default: - The default value for each property in this configuration varies depending on the target.
-	//
 	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Indicates whether client IP preservation is enabled.
-	// Default: false if the target group type is IP address and the
-	// target group protocol is TCP or TLS. Otherwise, true.
-	//
 	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
-	// Default: - inherits the protocol of the listener.
-	//
 	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// Indicates whether Proxy Protocol version 2 is enabled.
-	// Default: false.
-	//
 	ProxyProtocolV2 *bool `field:"optional" json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
-	// Default: Automatically generated.
-	//
 	TargetGroupName *string `field:"optional" json:"targetGroupName" yaml:"targetGroupName"`
 	// The targets to add to this target group.
 	//

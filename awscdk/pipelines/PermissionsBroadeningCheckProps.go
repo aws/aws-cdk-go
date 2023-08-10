@@ -25,8 +25,6 @@ type PermissionsBroadeningCheckProps struct {
 	// This should be the same Stage object you are passing to `addStage()`.
 	Stage awscdk.Stage `field:"required" json:"stage" yaml:"stage"`
 	// Topic to send notifications when a human needs to give manual confirmation.
-	// Default: - no notification.
-	//
 	NotificationTopic awssns.ITopic `field:"optional" json:"notificationTopic" yaml:"notificationTopic"`
 }
 

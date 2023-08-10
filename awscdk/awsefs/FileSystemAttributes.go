@@ -22,12 +22,8 @@ type FileSystemAttributes struct {
 	// The security group of the file system.
 	SecurityGroup awsec2.ISecurityGroup `field:"required" json:"securityGroup" yaml:"securityGroup"`
 	// The File System's Arn.
-	// Default: - determined based on fileSystemId.
-	//
 	FileSystemArn *string `field:"optional" json:"fileSystemArn" yaml:"fileSystemArn"`
 	// The File System's ID.
-	// Default: - determined based on fileSystemArn.
-	//
 	FileSystemId *string `field:"optional" json:"fileSystemId" yaml:"fileSystemId"`
 }
 

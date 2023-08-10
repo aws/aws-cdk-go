@@ -23,15 +23,11 @@ type CfnComputeEnvironment_UpdatePolicyProperty struct {
 	// The default value is 30.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-updatepolicy.html#cfn-batch-computeenvironment-updatepolicy-jobexecutiontimeoutminutes
 	//
-	// Default: - 30.
-	//
 	JobExecutionTimeoutMinutes *float64 `field:"optional" json:"jobExecutionTimeoutMinutes" yaml:"jobExecutionTimeoutMinutes"`
 	// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
 	//
 	// The default value is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-updatepolicy.html#cfn-batch-computeenvironment-updatepolicy-terminatejobsonupdate
-	//
-	// Default: - false.
 	//
 	TerminateJobsOnUpdate interface{} `field:"optional" json:"terminateJobsOnUpdate" yaml:"terminateJobsOnUpdate"`
 }

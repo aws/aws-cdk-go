@@ -23,16 +23,10 @@ import (
 //
 type ClusterEngineBindOptions struct {
 	// The customer-provided ParameterGroup.
-	// Default: - none.
-	//
 	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The role used for S3 exporting.
-	// Default: - none.
-	//
 	S3ExportRole awsiam.IRole `field:"optional" json:"s3ExportRole" yaml:"s3ExportRole"`
 	// The role used for S3 importing.
-	// Default: - none.
-	//
 	S3ImportRole awsiam.IRole `field:"optional" json:"s3ImportRole" yaml:"s3ImportRole"`
 }
 

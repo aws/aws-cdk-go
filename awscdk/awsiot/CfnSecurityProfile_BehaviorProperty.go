@@ -58,6 +58,8 @@ type CfnSecurityProfile_BehaviorProperty struct {
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The criteria that determine if a device is behaving normally in regard to the `metric` .
+	//
+	// > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria
 	//
 	Criteria interface{} `field:"optional" json:"criteria" yaml:"criteria"`

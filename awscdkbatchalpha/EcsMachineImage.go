@@ -22,13 +22,9 @@ import (
 // Experimental.
 type EcsMachineImage struct {
 	// The machine image to use.
-	// Default: - chosen by batch.
-	//
 	// Experimental.
 	Image awsec2.IMachineImage `field:"optional" json:"image" yaml:"image"`
 	// Tells Batch which instance type to launch this image on.
-	// Default: - 'ECS_AL2' for non-gpu instances, 'ECS_AL2_NVIDIA' for gpu instances.
-	//
 	// Experimental.
 	ImageType EcsMachineImageType `field:"optional" json:"imageType" yaml:"imageType"`
 }

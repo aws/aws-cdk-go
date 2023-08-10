@@ -16,12 +16,8 @@ package awscodebuild
 //
 type LoggingOptions struct {
 	// Information about Amazon CloudWatch Logs for a build project.
-	// Default: - enabled.
-	//
 	CloudWatch *CloudWatchLoggingOptions `field:"optional" json:"cloudWatch" yaml:"cloudWatch"`
 	// Information about logs built to an S3 bucket for a build project.
-	// Default: - disabled.
-	//
 	S3 *S3LoggingOptions `field:"optional" json:"s3" yaml:"s3"`
 }
 

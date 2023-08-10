@@ -26,8 +26,6 @@ type CfnDashboard_NumericEqualityDrillDownFilterProperty struct {
 	// The value of the double input numeric drill down filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericequalitydrilldownfilter.html#cfn-quicksight-dashboard-numericequalitydrilldownfilter-value
 	//
-	// Default: - 0.
-	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

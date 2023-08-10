@@ -26,12 +26,8 @@ type UserPoolConfig struct {
 	// The Cognito user pool to use as identity source.
 	UserPool awscognito.IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// the optional app id regex.
-	// Default: -  None.
-	//
 	AppIdClientRegex *string `field:"optional" json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// Default auth action.
-	// Default: ALLOW.
-	//
 	DefaultAction UserPoolDefaultAction `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 }
 

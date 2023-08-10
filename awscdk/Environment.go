@@ -35,8 +35,6 @@ type Environment struct {
 	// Note that certain features, such as cross-stack references and
 	// environmental context providers require concrete region information and
 	// will cause this stack to emit synthesis errors.
-	// Default: Aws.ACCOUNT_ID which means that the stack will be account-agnostic.
-	//
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The AWS region for this environment.
 	//
@@ -46,8 +44,6 @@ type Environment struct {
 	// Note that certain features, such as cross-stack references and
 	// environmental context providers require concrete region information and
 	// will cause this stack to emit synthesis errors.
-	// Default: Aws.REGION which means that the stack will be region-agnostic.
-	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

@@ -33,21 +33,15 @@ type TokenAuthorizerProps struct {
 	//
 	// The IAM role must be
 	// assumable by 'apigateway.amazonaws.com'.
-	// Default: - A resource policy is added to the Lambda function allowing apigateway.amazonaws.com to invoke the function.
-	//
 	AssumeRole awsiam.IRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
-	// Default: - the unique construct ID.
-	//
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
-	// Default: Duration.minutes(5)
-	//
 	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 	// The request header mapping expression for the bearer token.
 	//
@@ -55,15 +49,11 @@ type TokenAuthorizerProps struct {
 	// this should be `method.request.header.Authorizer` where Authorizer is the header containing the bearer token.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
 	//
-	// Default: `IdentitySource.header('Authorization')`
-	//
 	IdentitySource *string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// An optional regex to be matched against the authorization token.
 	//
 	// When matched the authorizer lambda is invoked,
 	// otherwise a 401 Unauthorized is returned to the client.
-	// Default: - no regex filter will be applied.
-	//
 	ValidationRegex *string `field:"optional" json:"validationRegex" yaml:"validationRegex"`
 }
 

@@ -22,8 +22,6 @@ type CfnDashboard_GradientStopProperty struct {
 	// Determines gradient offset value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gradientstop.html#cfn-quicksight-dashboard-gradientstop-gradientoffset
 	//
-	// Default: - 0.
-	//
 	GradientOffset *float64 `field:"required" json:"gradientOffset" yaml:"gradientOffset"`
 	// Determines the color.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gradientstop.html#cfn-quicksight-dashboard-gradientstop-color

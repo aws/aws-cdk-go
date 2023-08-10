@@ -169,8 +169,6 @@ type RestApiAttributes struct {
 	// The resource ID of the root resource.
 	RootResourceId *string `field:"required" json:"rootResourceId" yaml:"rootResourceId"`
 	// The name of the API Gateway RestApi.
-	// Default: - ID of the RestApi construct.
-	//
 	RestApiName *string `field:"optional" json:"restApiName" yaml:"restApiName"`
 }
 

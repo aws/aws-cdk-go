@@ -33,12 +33,8 @@ package awsappmesh
 //
 type ServiceDiscoveryConfig struct {
 	// Cloud Map based Service Discovery.
-	// Default: - no Cloud Map based service discovery.
-	//
 	Cloudmap *CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty `field:"optional" json:"cloudmap" yaml:"cloudmap"`
 	// DNS based Service Discovery.
-	// Default: - no DNS based service discovery.
-	//
 	Dns *CfnVirtualNode_DnsServiceDiscoveryProperty `field:"optional" json:"dns" yaml:"dns"`
 }
 

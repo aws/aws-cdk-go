@@ -116,12 +116,8 @@ type ResponseHeadersCorsBehavior struct {
 	// A list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
 	//
 	// You can specify `['*']` to expose all headers.
-	// Default: - no headers exposed.
-	//
 	AccessControlExposeHeaders *[]*string `field:"optional" json:"accessControlExposeHeaders" yaml:"accessControlExposeHeaders"`
 	// A number that CloudFront uses as the value for the Access-Control-Max-Age HTTP response header.
-	// Default: - no max age.
-	//
 	AccessControlMaxAge awscdk.Duration `field:"optional" json:"accessControlMaxAge" yaml:"accessControlMaxAge"`
 }
 

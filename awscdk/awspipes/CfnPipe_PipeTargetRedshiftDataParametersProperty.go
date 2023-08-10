@@ -55,8 +55,6 @@ type CfnPipe_PipeTargetRedshiftDataParametersProperty struct {
 	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html#cfn-pipes-pipe-pipetargetredshiftdataparameters-withevent
 	//
-	// Default: - false.
-	//
 	WithEvent interface{} `field:"optional" json:"withEvent" yaml:"withEvent"`
 }
 

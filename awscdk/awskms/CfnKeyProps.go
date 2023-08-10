@@ -120,8 +120,6 @@ type CfnKeyProps struct {
 	// - `SM2`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
 	//
-	// Default: - "SYMMETRIC_DEFAULT".
-	//
 	KeySpec *string `field:"optional" json:"keySpec" yaml:"keySpec"`
 	// Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is `ENCRYPT_DECRYPT` . This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the `KeyUsage` value after the KMS key is created.
 	//
@@ -135,8 +133,6 @@ type CfnKeyProps struct {
 	// - For asymmetric KMS keys with SM2 (China Regions only) key material, specify `ENCRYPT_DECRYPT` or `SIGN_VERIFY` .
 	// - For HMAC KMS keys, specify `GENERATE_VERIFY_MAC` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
-	//
-	// Default: - "ENCRYPT_DECRYPT".
 	//
 	KeyUsage *string `field:"optional" json:"keyUsage" yaml:"keyUsage"`
 	// Creates a multi-Region primary key that you can replicate in other AWS Regions .
@@ -156,15 +152,11 @@ type CfnKeyProps struct {
 	// To create a replica of this primary key in a different AWS Region , create an [AWS::KMS::ReplicaKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html) resource in a CloudFormation stack in the replica Region. Specify the key ARN of this primary key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
 	//
-	// Default: - false.
-	//
 	MultiRegion interface{} `field:"optional" json:"multiRegion" yaml:"multiRegion"`
 	// The source of the key material for the KMS key.
 	//
 	// You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-origin
-	//
-	// Default: - "AWS_KMS".
 	//
 	Origin *string `field:"optional" json:"origin" yaml:"origin"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a KMS key that has been removed from a CloudFormation stack.

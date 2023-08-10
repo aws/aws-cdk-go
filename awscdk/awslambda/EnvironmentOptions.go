@@ -18,8 +18,6 @@ type EnvironmentOptions struct {
 	// If not set, an error will be thrown.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration
 	//
-	// Default: false - using the function in Lambda@Edge will throw.
-	//
 	RemoveInEdge *bool `field:"optional" json:"removeInEdge" yaml:"removeInEdge"`
 }
 

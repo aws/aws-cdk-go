@@ -16,8 +16,6 @@ package awscdk
 //
 type CfnConditionProps struct {
 	// The expression that the condition will evaluate.
-	// Default: - None.
-	//
 	Expression ICfnConditionExpression `field:"optional" json:"expression" yaml:"expression"`
 }
 

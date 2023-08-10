@@ -17,14 +17,10 @@ package awsecs
 //
 type InferenceAccelerator struct {
 	// The Elastic Inference accelerator device name.
-	// Default: - empty.
-	//
 	DeviceName *string `field:"optional" json:"deviceName" yaml:"deviceName"`
 	// The Elastic Inference accelerator type to use.
 	//
 	// The allowed values are: eia2.medium, eia2.large and eia2.xlarge.
-	// Default: - empty.
-	//
 	DeviceType *string `field:"optional" json:"deviceType" yaml:"deviceType"`
 }
 

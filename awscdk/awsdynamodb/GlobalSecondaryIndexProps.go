@@ -32,30 +32,20 @@ type GlobalSecondaryIndexProps struct {
 	// The name of the secondary index.
 	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
-	// Default: - No additional attributes.
-	//
 	NonKeyAttributes *[]*string `field:"optional" json:"nonKeyAttributes" yaml:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
-	// Default: ALL.
-	//
 	ProjectionType ProjectionType `field:"optional" json:"projectionType" yaml:"projectionType"`
 	// Partition key attribute definition.
 	PartitionKey *Attribute `field:"required" json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	// Default: no sort key.
-	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
 	// The read capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
-	// Default: 5.
-	//
 	ReadCapacity *float64 `field:"optional" json:"readCapacity" yaml:"readCapacity"`
 	// The write capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
-	// Default: 5.
-	//
 	WriteCapacity *float64 `field:"optional" json:"writeCapacity" yaml:"writeCapacity"`
 }
 

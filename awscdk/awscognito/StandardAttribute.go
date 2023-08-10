@@ -42,14 +42,10 @@ type StandardAttribute struct {
 	// For any user pool attribute that's mapped to an identity provider attribute, this must be set to `true`.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	// Default: true.
-	//
 	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 	// Specifies whether the attribute is required upon user registration.
 	//
 	// If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-	// Default: false.
-	//
 	Required *bool `field:"optional" json:"required" yaml:"required"`
 }
 

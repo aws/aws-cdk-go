@@ -48,8 +48,6 @@ type PosixUser struct {
 	// The POSIX user ID used for all file system operations using this access point.
 	Uid *string `field:"required" json:"uid" yaml:"uid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
-	// Default: - None.
-	//
 	SecondaryGids *[]*string `field:"optional" json:"secondaryGids" yaml:"secondaryGids"`
 }
 

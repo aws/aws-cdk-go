@@ -20,13 +20,9 @@ type DeviceTracking struct {
 	// Only applicable to a new device.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html
 	//
-	// Default: false.
-	//
 	ChallengeRequiredOnNewDevice *bool `field:"required" json:"challengeRequiredOnNewDevice" yaml:"challengeRequiredOnNewDevice"`
 	// If true, a device is only remembered on user prompt.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html
-	//
-	// Default: false.
 	//
 	DeviceOnlyRememberedOnUserPrompt *bool `field:"required" json:"deviceOnlyRememberedOnUserPrompt" yaml:"deviceOnlyRememberedOnUserPrompt"`
 }

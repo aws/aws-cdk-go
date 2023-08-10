@@ -10,7 +10,11 @@ package awsglue
 //
 //   csvClassifierProperty := &CsvClassifierProperty{
 //   	AllowSingleColumn: jsii.Boolean(false),
+//   	ContainsCustomDatatype: []*string{
+//   		jsii.String("containsCustomDatatype"),
+//   	},
 //   	ContainsHeader: jsii.String("containsHeader"),
+//   	CustomDatatypeConfigured: jsii.Boolean(false),
 //   	Delimiter: jsii.String("delimiter"),
 //   	DisableValueTrimming: jsii.Boolean(false),
 //   	Header: []*string{
@@ -27,6 +31,9 @@ type CfnClassifier_CsvClassifierProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
 	//
 	AllowSingleColumn interface{} `field:"optional" json:"allowSingleColumn" yaml:"allowSingleColumn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containscustomdatatype
+	//
+	ContainsCustomDatatype *[]*string `field:"optional" json:"containsCustomDatatype" yaml:"containsCustomDatatype"`
 	// Indicates whether the CSV file contains a header.
 	//
 	// A value of `UNKNOWN` specifies that the classifier will detect whether the CSV file contains headings.
@@ -37,6 +44,9 @@ type CfnClassifier_CsvClassifierProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
 	//
 	ContainsHeader *string `field:"optional" json:"containsHeader" yaml:"containsHeader"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-customdatatypeconfigured
+	//
+	CustomDatatypeConfigured interface{} `field:"optional" json:"customDatatypeConfigured" yaml:"customDatatypeConfigured"`
 	// A custom symbol to denote what separates each column entry in the row.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter
 	//

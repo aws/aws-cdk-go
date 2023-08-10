@@ -19,13 +19,9 @@ import (
 //
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
-	// Default: - none, not used anymore.
-	//
 	// Deprecated: Unused since the upgrade to AWS SDK v3, which uses a different retry strategy.
 	Base awscdk.Duration `field:"optional" json:"base" yaml:"base"`
 	// The maximum amount of retries.
-	// Default: 5.
-	//
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 }
 

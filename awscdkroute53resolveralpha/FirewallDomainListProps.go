@@ -25,8 +25,6 @@ type FirewallDomainListProps struct {
 	// Experimental.
 	Domains FirewallDomains `field:"required" json:"domains" yaml:"domains"`
 	// A name for the domain list.
-	// Default: - a CloudFormation generated name.
-	//
 	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }

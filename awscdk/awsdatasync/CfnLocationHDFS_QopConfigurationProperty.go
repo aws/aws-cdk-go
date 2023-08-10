@@ -21,15 +21,11 @@ type CfnLocationHDFS_QopConfigurationProperty struct {
 	// This setting corresponds to your `dfs.data.transfer.protection` setting in the `hdfs-site.xml` file on your Hadoop cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html#cfn-datasync-locationhdfs-qopconfiguration-datatransferprotection
 	//
-	// Default: - "PRIVACY".
-	//
 	DataTransferProtection *string `field:"optional" json:"dataTransferProtection" yaml:"dataTransferProtection"`
 	// The Remote Procedure Call (RPC) protection setting configured on the HDFS cluster.
 	//
 	// This setting corresponds to your `hadoop.rpc.protection` setting in your `core-site.xml` file on your Hadoop cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html#cfn-datasync-locationhdfs-qopconfiguration-rpcprotection
-	//
-	// Default: - "PRIVACY".
 	//
 	RpcProtection *string `field:"optional" json:"rpcProtection" yaml:"rpcProtection"`
 }

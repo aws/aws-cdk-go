@@ -43,32 +43,24 @@ type GitHubRepositoryProps struct {
 	// Experimental.
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 	// The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
-	// Default: - not specified.
-	//
 	// Experimental.
 	ContentsS3Version *string `field:"optional" json:"contentsS3Version" yaml:"contentsS3Version"`
 	// A comment or description about the new repository.
 	//
 	// This description is displayed in GitHub after the repository
 	// is created.
-	// Default: - no description.
-	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether to enable issues for the GitHub repository.
 	//
 	// You can use GitHub issues to track information
 	// and bugs for your repository.
-	// Default: true.
-	//
 	// Experimental.
 	EnableIssues *bool `field:"optional" json:"enableIssues" yaml:"enableIssues"`
 	// Indicates whether the GitHub repository is a private repository.
 	//
 	// If so, you choose who can see and commit to
 	// this repository.
-	// Default: RepositoryVisibility.PUBLIC
-	//
 	// Experimental.
 	Visibility RepositoryVisibility `field:"optional" json:"visibility" yaml:"visibility"`
 }

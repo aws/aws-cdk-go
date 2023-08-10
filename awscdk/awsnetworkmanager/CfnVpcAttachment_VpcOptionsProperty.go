@@ -21,13 +21,9 @@ type CfnVpcAttachment_VpcOptionsProperty struct {
 	// If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. The default value is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-vpcoptions.html#cfn-networkmanager-vpcattachment-vpcoptions-appliancemodesupport
 	//
-	// Default: - false.
-	//
 	ApplianceModeSupport interface{} `field:"optional" json:"applianceModeSupport" yaml:"applianceModeSupport"`
 	// Indicates whether IPv6 is supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-vpcoptions.html#cfn-networkmanager-vpcattachment-vpcoptions-ipv6support
-	//
-	// Default: - false.
 	//
 	Ipv6Support interface{} `field:"optional" json:"ipv6Support" yaml:"ipv6Support"`
 }

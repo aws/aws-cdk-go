@@ -26,8 +26,6 @@ type CfnAnalysis_ArcAxisConfigurationProperty struct {
 	// The reserved range of the arc axis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-arcaxisconfiguration.html#cfn-quicksight-analysis-arcaxisconfiguration-reserverange
 	//
-	// Default: - 0.
-	//
 	ReserveRange *float64 `field:"optional" json:"reserveRange" yaml:"reserveRange"`
 }
 

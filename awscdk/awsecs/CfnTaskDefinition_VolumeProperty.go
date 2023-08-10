@@ -66,6 +66,8 @@ type CfnTaskDefinition_VolumeProperty struct {
 	// The name of the volume.
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
+	//
+	// This is required wwhen you use an Amazon EFS volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

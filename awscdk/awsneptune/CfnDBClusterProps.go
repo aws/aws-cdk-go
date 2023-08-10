@@ -28,6 +28,7 @@ import (
 //   	DbClusterIdentifier: jsii.String("dbClusterIdentifier"),
 //   	DbClusterParameterGroupName: jsii.String("dbClusterParameterGroupName"),
 //   	DbInstanceParameterGroupName: jsii.String("dbInstanceParameterGroupName"),
+//   	DbPort: jsii.Number(123),
 //   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
 //   	DeletionProtection: jsii.Boolean(false),
 //   	EnableCloudwatchLogsExports: []*string{
@@ -77,8 +78,6 @@ type CfnDBClusterProps struct {
 	// An update may require some interruption. See [ModifyDBInstance](https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance) in the Amazon Neptune User Guide for more information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-backupretentionperiod
 	//
-	// Default: - 1.
-	//
 	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// *If set to `true` , tags are copied to any snapshot of the DB cluster that is created.*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-copytagstosnapshot
@@ -107,6 +106,14 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbinstanceparametergroupname
 	//
 	DbInstanceParameterGroupName *string `field:"optional" json:"dbInstanceParameterGroupName" yaml:"dbInstanceParameterGroupName"`
+	// The port number on which the DB instances in the DB cluster accept connections.
+	//
+	// If not specified, the default port used is `8182`.
+	//
+	// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbport
+	//
+	DbPort *float64 `field:"optional" json:"dbPort" yaml:"dbPort"`
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbsubnetgroupname
 	//
@@ -157,8 +164,6 @@ type CfnDBClusterProps struct {
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-restoretype
-	//
-	// Default: - "full-copy".
 	//
 	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
 	// Contains the scaling configuration of an Neptune Serverless DB cluster.

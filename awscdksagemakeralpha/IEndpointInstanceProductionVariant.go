@@ -14,58 +14,36 @@ type IEndpointInstanceProductionVariant interface {
 	// Experimental.
 	AutoScaleInstanceCount(scalingProps *awsapplicationautoscaling.EnableScalingProps) ScalableInstanceCount
 	// Return the given named metric for Endpoint.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	Metric(namespace *string, metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for CPU utilization.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for disk utilization.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricDiskUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for GPU memory utilization.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricGpuMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for GPU utilization.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricGpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of invocations by HTTP response code.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricInvocationResponseCode(responseCode InvocationHttpResponseCode, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of invocations.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of invocations per instance.
-	// Default: - sum over 5 minutes.
-	//
 	// Experimental.
 	MetricInvocationsPerInstance(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for memory utilization.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for model latency.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricModelLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for overhead latency.
-	// Default: - average over 5 minutes.
-	//
 	// Experimental.
 	MetricOverheadLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The name of the production variant.

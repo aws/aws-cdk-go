@@ -33,13 +33,8 @@ type S3DownloadOptions struct {
 	// The key of the file to download.
 	BucketKey *string `field:"required" json:"bucketKey" yaml:"bucketKey"`
 	// The name of the local file.
-	// Default: Linux   - /tmp/bucketKey
-	// Windows - %TEMP%/bucketKey.
-	//
 	LocalFile *string `field:"optional" json:"localFile" yaml:"localFile"`
 	// The region of the S3 Bucket (needed for access via VPC Gateway).
-	// Default: none.
-	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

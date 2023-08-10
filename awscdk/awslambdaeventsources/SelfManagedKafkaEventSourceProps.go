@@ -54,19 +54,13 @@ type SelfManagedKafkaEventSourceProps struct {
 	// * Maximum value of:
 	//   * 1000 for `DynamoEventSource`
 	// * 10000 for `KinesisEventSource`, `ManagedKafkaEventSource` and `SelfManagedKafkaEventSource`.
-	// Default: 100.
-	//
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	// Default: true.
-	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5).
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-batching
-	//
-	// Default: - Duration.seconds(0) for Kinesis, DynamoDB, and SQS event sources, Duration.millis(500) for MSK, self-managed Kafka, and Amazon MQ.
 	//
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The Kafka topic to subscribe to.
@@ -76,42 +70,26 @@ type SelfManagedKafkaEventSourceProps struct {
 	// The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value.  The value must have a lenght between 1 and 200 and full the pattern '[a-zA-Z0-9-\/*:_+=.@-]*'.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id
 	//
-	// Default: - none.
-	//
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
 	// Add filter criteria to Event Source.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html
 	//
-	// Default: - none.
-	//
 	Filters *[]*map[string]interface{} `field:"optional" json:"filters" yaml:"filters"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
-	// Default: none.
-	//
 	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 	// The list of host and port pairs that are the addresses of the Kafka brokers in a "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.xyz.com:xxxx`.
 	BootstrapServers *[]*string `field:"required" json:"bootstrapServers" yaml:"bootstrapServers"`
 	// The authentication method for your Kafka cluster.
-	// Default: AuthenticationMethod.SASL_SCRAM_512_AUTH
-	//
 	AuthenticationMethod AuthenticationMethod `field:"optional" json:"authenticationMethod" yaml:"authenticationMethod"`
 	// The secret with the root CA certificate used by your Kafka brokers for TLS encryption This field is required if your Kafka brokers use certificates signed by a private CA.
-	// Default: - none.
-	//
 	RootCACertificate awssecretsmanager.ISecret `field:"optional" json:"rootCACertificate" yaml:"rootCACertificate"`
 	// If your Kafka brokers are only reachable via VPC, provide the security group here.
-	// Default: - none, required if setting vpc.
-	//
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// If your Kafka brokers are only reachable via VPC provide the VPC here.
-	// Default: none.
-	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// If your Kafka brokers are only reachable via VPC, provide the subnets selection here.
-	// Default: - none, required if setting vpc.
-	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

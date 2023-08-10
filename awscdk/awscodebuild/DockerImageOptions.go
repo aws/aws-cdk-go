@@ -15,8 +15,6 @@ import (
 //
 type DockerImageOptions struct {
 	// The credentials, stored in Secrets Manager, used for accessing the repository holding the image, if the repository is private.
-	// Default: no credentials will be used (we assume the repository is public).
-	//
 	SecretsManagerCredentials awssecretsmanager.ISecret `field:"optional" json:"secretsManagerCredentials" yaml:"secretsManagerCredentials"`
 }
 

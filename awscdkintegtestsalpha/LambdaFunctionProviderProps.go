@@ -15,8 +15,6 @@ package awscdkintegtestsalpha
 // Experimental.
 type LambdaFunctionProviderProps struct {
 	// The handler to use for the lambda function.
-	// Default: index.handler
-	//
 	// Experimental.
 	Handler *string `field:"optional" json:"handler" yaml:"handler"`
 }

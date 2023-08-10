@@ -52,60 +52,41 @@ import (
 //
 type EcsRunTaskProps struct {
 	// An optional description for this state.
-	// Default: - No comment.
-	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Credentials for an IAM Role that the State Machine assumes for executing the task.
 	//
 	// This enables cross-account resource invocations.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-access-cross-acct-resources.html
 	//
-	// Default: - None (Task is executed using the State Machine's execution role).
-	//
 	Credentials *awsstepfunctions.Credentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Timeout for the heartbeat.
-	// Default: - None.
-	//
 	// Deprecated: use `heartbeatTimeout`.
 	Heartbeat awscdk.Duration `field:"optional" json:"heartbeat" yaml:"heartbeat"`
 	// Timeout for the heartbeat.
 	//
 	// [disable-awslint:duration-prop-type] is needed because all props interface in
 	// aws-stepfunctions-tasks extend this interface.
-	// Default: - None.
-	//
 	HeartbeatTimeout awsstepfunctions.Timeout `field:"optional" json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Default: - The entire task input (JSON path '$').
-	//
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Default: - `IntegrationPattern.REQUEST_RESPONSE` for most tasks.
-	// `IntegrationPattern.RUN_JOB` for the following exceptions:
-	// `BatchSubmitJob`, `EmrAddStep`, `EmrCreateCluster`, `EmrTerminationCluster`, and `EmrContainersStartJobRun`.
-	//
 	IntegrationPattern awsstepfunctions.IntegrationPattern `field:"optional" json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Default: - The entire JSON node determined by the state input, the task result,
-	// and resultPath is passed to the next state (JSON path '$').
-	//
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Default: - Replaces the entire input with the result (JSON path '$').
-	//
 	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -113,19 +94,13 @@ type EcsRunTaskProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Default: - None.
-	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the task.
 	//
 	// [disable-awslint:duration-prop-type] is needed because all props interface in
 	// aws-stepfunctions-tasks extend this interface.
-	// Default: - None.
-	//
 	TaskTimeout awsstepfunctions.Timeout `field:"optional" json:"taskTimeout" yaml:"taskTimeout"`
 	// Timeout for the task.
-	// Default: - None.
-	//
 	// Deprecated: use `taskTimeout`.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The ECS cluster to run the task on.
@@ -142,34 +117,22 @@ type EcsRunTaskProps struct {
 	// consider using CustomState.
 	TaskDefinition awsecs.TaskDefinition `field:"required" json:"taskDefinition" yaml:"taskDefinition"`
 	// Assign public IP addresses to each task.
-	// Default: false.
-	//
 	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// Container setting overrides.
 	//
 	// Specify the container to use and the overrides to apply.
-	// Default: - No overrides.
-	//
 	ContainerOverrides *[]*ContainerOverride `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`
 	// Specifies whether to propagate the tags from the task definition to the task.
 	//
 	// An error will be received if you specify the SERVICE option when running a task.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-propagateTags
 	//
-	// Default: - No tags are propagated.
-	//
 	PropagatedTagSource awsecs.PropagatedTagSource `field:"optional" json:"propagatedTagSource" yaml:"propagatedTagSource"`
 	// The revision number of ECS task definiton family.
-	// Default: - '$latest'.
-	//
 	RevisionNumber *float64 `field:"optional" json:"revisionNumber" yaml:"revisionNumber"`
 	// Existing security groups to use for the tasks.
-	// Default: - A new security group is created.
-	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Subnets to place the task's ENIs.
-	// Default: - Public subnets if assignPublicIp is set. Private subnets otherwise.
-	//
 	Subnets *awsec2.SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 }
 

@@ -14,8 +14,6 @@ package awsstepfunctions
 //
 type FindStateOptions struct {
 	// Whether or not to follow error-handling transitions.
-	// Default: false.
-	//
 	IncludeErrorHandlers *bool `field:"optional" json:"includeErrorHandlers" yaml:"includeErrorHandlers"`
 }
 

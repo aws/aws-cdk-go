@@ -20,6 +20,17 @@ import (
 //   	// the properties below are optional
 //   	MagneticStoreWriteProperties: magneticStoreWriteProperties,
 //   	RetentionProperties: retentionProperties,
+//   	Schema: &SchemaProperty{
+//   		CompositePartitionKey: []interface{}{
+//   			&PartitionKeyProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				EnforcementInRecord: jsii.String("enforcementInRecord"),
+//   				Name: jsii.String("name"),
+//   			},
+//   		},
+//   	},
 //   	TableName: jsii.String("tableName"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -96,6 +107,10 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
 	//
 	RetentionProperties interface{} `field:"optional" json:"retentionProperties" yaml:"retentionProperties"`
+	// The schema of the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-schema
+	//
+	Schema interface{} `field:"optional" json:"schema" yaml:"schema"`
 	// The name of the Timestream table.
 	//
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.

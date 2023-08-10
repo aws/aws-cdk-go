@@ -30,15 +30,11 @@ type SignalsOptions struct {
 	//
 	// If this number is less than 100, a percentage of signals may be failure
 	// signals while still succeeding the creation or update in CloudFormation.
-	// Default: 100.
-	//
 	MinSuccessPercentage *float64 `field:"optional" json:"minSuccessPercentage" yaml:"minSuccessPercentage"`
 	// How long to wait for the signals to be sent.
 	//
 	// This should reflect how long it takes your instances to start up
 	// (including instance start time and instance initialization time).
-	// Default: Duration.minutes(5)
-	//
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

@@ -9,8 +9,6 @@ package awsappmesh
 //   	EgressFilter: appmesh.MeshFilterType_ALLOW_ALL,
 //   })
 //
-// Default: DROP_ALL.
-//
 type MeshFilterType string
 
 const (

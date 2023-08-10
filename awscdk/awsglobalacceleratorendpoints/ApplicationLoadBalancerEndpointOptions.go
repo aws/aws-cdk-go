@@ -25,14 +25,10 @@ type ApplicationLoadBalancerEndpointOptions struct {
 	//
 	// Client IP address preservation is supported only in specific AWS Regions.
 	// See the GlobalAccelerator Developer Guide for a list.
-	// Default: true if available.
-	//
 	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	// Default: 128.
-	//
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

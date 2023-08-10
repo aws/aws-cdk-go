@@ -27,18 +27,12 @@ type WaiterStateMachineProps struct {
 	//
 	// By default there is no backoff. Each retry will wait the amount of time
 	// specified by `interval`.
-	// Default: 1 (no backoff).
-	//
 	// Experimental.
 	BackoffRate *float64 `field:"optional" json:"backoffRate" yaml:"backoffRate"`
 	// The interval (number of seconds) to wait between attempts.
-	// Default: Duration.seconds(5)
-	//
 	// Experimental.
 	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// The total time that the state machine will wait for a successful response.
-	// Default: Duration.minutes(30)
-	//
 	// Experimental.
 	TotalTimeout awscdk.Duration `field:"optional" json:"totalTimeout" yaml:"totalTimeout"`
 }

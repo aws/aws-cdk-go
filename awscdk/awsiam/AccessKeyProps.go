@@ -24,15 +24,11 @@ type AccessKeyProps struct {
 	//
 	// This value can only be incremented. Incrementing this
 	// value will cause CloudFormation to replace the Access Key resource.
-	// Default: - No serial value.
-	//
 	Serial *float64 `field:"optional" json:"serial" yaml:"serial"`
 	// The status of the access key.
 	//
 	// An Active access key is allowed to be used
 	// to make API calls; An Inactive key cannot.
-	// Default: - The access key is active.
-	//
 	Status AccessKeyStatus `field:"optional" json:"status" yaml:"status"`
 }
 

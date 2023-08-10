@@ -19,8 +19,6 @@ type NetworkListenerProps struct {
 	// Name of the listener.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The port on which the listener listens for requests.
-	// Default: 80.
-	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

@@ -65,21 +65,13 @@ type IntegrationConfig struct {
 	// changes, a new deployment is triggered.
 	// This property should contain values associated with the Integration that upon changing
 	// should trigger a fresh the Deployment needs to be refreshed.
-	// Default: undefined deployments are not triggered for any change to this integration.
-	//
 	DeploymentToken *string `field:"optional" json:"deploymentToken" yaml:"deploymentToken"`
 	// The integration's HTTP method type.
-	// Default: - no integration method specified.
-	//
 	IntegrationHttpMethod *string `field:"optional" json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
 	// Integration options.
-	// Default: - no integration options.
-	//
 	Options *IntegrationOptions `field:"optional" json:"options" yaml:"options"`
 	// The Uniform Resource Identifier (URI) for the integration.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#uri
-	//
-	// Default: - no URI. Usually applies to MOCK integration
 	//
 	Uri *string `field:"optional" json:"uri" yaml:"uri"`
 }

@@ -21,8 +21,6 @@ type StopActionConfig struct {
 	// The only acceptable value is RuleSet.
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken.
-	// Default: - No notification is sent to SNS.
-	//
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

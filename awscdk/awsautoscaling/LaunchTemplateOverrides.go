@@ -25,16 +25,12 @@ import (
 //
 type LaunchTemplateOverrides struct {
 	// The instance type, such as m3.xlarge. You must use an instance type that is supported in your requested Region and Availability Zones.
-	// Default: - Do not override instance type.
-	//
 	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Provides the launch template to be used when launching the instance type.
 	//
 	// For example, some instance types might
 	// require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template
 	// that's defined for your mixed instances policy.
-	// Default: - Do not override launch template.
-	//
 	LaunchTemplate awsec2.ILaunchTemplate `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
 	// The number of capacity units provided by the specified instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic.
 	//
@@ -46,8 +42,6 @@ type LaunchTemplateOverrides struct {
 	// an instance with a WeightedCapacity of 5 units, the instance is provisioned, and the desired capacity is exceeded
 	// by 3 units.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html
-	//
-	// Default: - Do not provide weight.
 	//
 	WeightedCapacity *float64 `field:"optional" json:"weightedCapacity" yaml:"weightedCapacity"`
 }

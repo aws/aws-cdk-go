@@ -11,6 +11,7 @@ package awsglue
 //   databaseIdentifierProperty := &DatabaseIdentifierProperty{
 //   	CatalogId: jsii.String("catalogId"),
 //   	DatabaseName: jsii.String("databaseName"),
+//   	Region: jsii.String("region"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
@@ -24,5 +25,8 @@ type CfnDatabase_DatabaseIdentifierProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
 	//
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-region
+	//
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

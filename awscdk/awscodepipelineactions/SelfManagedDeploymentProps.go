@@ -27,8 +27,6 @@ type SelfManagedDeploymentProps struct {
 	// `AWSCloudFormationStackSetAdministrationRole`.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
 	//
-	// Default: - Assume an existing role named `AWSCloudFormationStackSetAdministrationRole` in the same account as the pipeline.
-	//
 	AdministrationRole awsiam.IRole `field:"optional" json:"administrationRole" yaml:"administrationRole"`
 	// The name of the IAM role in the target accounts used to perform stack set operations.
 	//
@@ -41,8 +39,6 @@ type SelfManagedDeploymentProps struct {
 	// Administrator permissions would be commonly granted to these, but if you can
 	// scope the permissions down frome there you would be safer.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
-	//
-	// Default: AWSCloudFormationStackSetExecutionRole.
 	//
 	ExecutionRoleName *string `field:"optional" json:"executionRoleName" yaml:"executionRoleName"`
 }

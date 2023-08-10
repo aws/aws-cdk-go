@@ -98,8 +98,6 @@ type CfnLocationHDFSProps struct {
 	// By default, data is replicated to three DataNodes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-replicationfactor
 	//
-	// Default: - 3.
-	//
 	ReplicationFactor *float64 `field:"optional" json:"replicationFactor" yaml:"replicationFactor"`
 	// The user name used to identify the client on the host operating system.
 	//

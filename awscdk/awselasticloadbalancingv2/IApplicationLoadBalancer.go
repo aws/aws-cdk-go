@@ -16,8 +16,6 @@ type IApplicationLoadBalancer interface {
 	// Add a new listener to this load balancer.
 	AddListener(id *string, props *BaseApplicationListenerProps) ApplicationListener
 	// The IP Address Type for this load balancer.
-	// Default: IpAddressType.IPV4
-	//
 	IpAddressType() IpAddressType
 	// A list of listeners that have been added to the load balancer.
 	//

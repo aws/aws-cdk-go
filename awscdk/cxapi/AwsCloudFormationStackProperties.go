@@ -25,12 +25,8 @@ type AwsCloudFormationStackProperties struct {
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// The name to use for the CloudFormation stack.
-	// Default: - name derived from artifact ID.
-	//
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Whether to enable termination protection for this stack.
-	// Default: false.
-	//
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 }
 

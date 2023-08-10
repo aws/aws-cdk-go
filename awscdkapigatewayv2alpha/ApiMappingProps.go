@@ -32,13 +32,9 @@ type ApiMappingProps struct {
 	// Api mapping key.
 	//
 	// The path where this stage should be mapped to on the domain.
-	// Default: - undefined for the root path mapping.
-	//
 	// Experimental.
 	ApiMappingKey *string `field:"optional" json:"apiMappingKey" yaml:"apiMappingKey"`
 	// stage for the ApiMapping resource required for WebSocket API defaults to default stage of an HTTP API.
-	// Default: - Default stage of the passed API for HTTP API, required for WebSocket API.
-	//
 	// Experimental.
 	Stage IStage `field:"optional" json:"stage" yaml:"stage"`
 }

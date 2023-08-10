@@ -144,20 +144,12 @@ type Cluster interface {
 	// This method returns the specifed CloudWatch metric for this cluster.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this clusters CPU reservation.
-	// Default: average over 5 minutes.
-	//
 	MetricCpuReservation(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this clusters CPU utilization.
-	// Default: average over 5 minutes.
-	//
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this clusters memory reservation.
-	// Default: average over 5 minutes.
-	//
 	MetricMemoryReservation(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this clusters memory utilization.
-	// Default: average over 5 minutes.
-	//
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string

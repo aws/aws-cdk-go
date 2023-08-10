@@ -18,8 +18,6 @@ type CommonGatewayRouteSpecOptions struct {
 	// When a Virtual Gateway has multiple gateway routes, gateway route match
 	// is performed in the order of specified value, where 0 is the highest priority,
 	// and first matched gateway route is selected.
-	// Default: - no particular priority.
-	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 

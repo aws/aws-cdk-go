@@ -28,12 +28,8 @@ type NatInstanceProps struct {
 	// passing in a fully configured Security Group using the `securityGroup`
 	// property, or by configuring it using the `.securityGroup` or
 	// `.connections` members after passing the NAT Instance Provider to a Vpc.
-	// Default: NatTrafficDirection.INBOUND_AND_OUTBOUND
-	//
 	DefaultAllowedTraffic NatTrafficDirection `field:"optional" json:"defaultAllowedTraffic" yaml:"defaultAllowedTraffic"`
 	// Name of SSH keypair to grant access to instance.
-	// Default: - No SSH access will be possible.
-	//
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// The machine image (AMI) to use.
 	//
@@ -49,12 +45,8 @@ type NatInstanceProps struct {
 	//   })
 	// })
 	// ```.
-	// Default: - Latest NAT instance image.
-	//
 	MachineImage IMachineImage `field:"optional" json:"machineImage" yaml:"machineImage"`
 	// Security Group for NAT instances.
-	// Default: - A new security group will be created.
-	//
 	SecurityGroup ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 }
 

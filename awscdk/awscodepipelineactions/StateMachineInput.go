@@ -38,8 +38,6 @@ type StateMachineInput interface {
 	//
 	// When InputType is set to FilePath, this field is required.
 	// An input artifact is also required when InputType is set to FilePath.
-	// Default: - none.
-	//
 	Input() interface{}
 	// The optional input Artifact of the Action.
 	//
@@ -47,12 +45,8 @@ type StateMachineInput interface {
 	// and is used to source the input for the state machine execution.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-StepFunctions.html#action-reference-StepFunctions-example
 	//
-	// Default: - the Action will not have any inputs.
-	//
 	InputArtifact() awscodepipeline.Artifact
 	// Optional StateMachine InputType InputType can be Literal or FilePath.
-	// Default: - Literal.
-	//
 	InputType() *string
 }
 

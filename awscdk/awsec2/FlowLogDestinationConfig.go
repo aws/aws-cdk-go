@@ -37,28 +37,16 @@ import (
 //
 type FlowLogDestinationConfig struct {
 	// The type of destination to publish the flow logs to.
-	// Default: - CLOUD_WATCH_LOGS.
-	//
 	LogDestinationType FlowLogDestinationType `field:"required" json:"logDestinationType" yaml:"logDestinationType"`
 	// Options for writing flow logs to a supported destination.
-	// Default: - undefined.
-	//
 	DestinationOptions *DestinationOptions `field:"optional" json:"destinationOptions" yaml:"destinationOptions"`
 	// The IAM Role that has access to publish to CloudWatch logs.
-	// Default: - default IAM role is created for you.
-	//
 	IamRole awsiam.IRole `field:"optional" json:"iamRole" yaml:"iamRole"`
 	// S3 bucket key prefix to publish the flow logs to.
-	// Default: - undefined.
-	//
 	KeyPrefix *string `field:"optional" json:"keyPrefix" yaml:"keyPrefix"`
 	// The CloudWatch Logs Log Group to publish the flow logs to.
-	// Default: - default log group is created for you.
-	//
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// S3 bucket to publish the flow logs to.
-	// Default: - undefined.
-	//
 	S3Bucket awss3.IBucket `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
 }
 

@@ -51,30 +51,20 @@ type CommonDestinationProps struct {
 	// If true, log errors when data transformation or data delivery fails.
 	//
 	// If `logGroup` is provided, this will be implicitly set to `true`.
-	// Default: true - errors are logged.
-	//
 	// Experimental.
 	Logging *bool `field:"optional" json:"logging" yaml:"logging"`
 	// The CloudWatch log group where log streams will be created to hold error logs.
-	// Default: - if `logging` is set to `true`, a log group will be created for you.
-	//
 	// Experimental.
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The data transformation that should be performed on the data before writing to the destination.
-	// Default: - no data transformation will occur.
-	//
 	// Experimental.
 	Processor awscdkkinesisfirehosealpha.IDataProcessor `field:"optional" json:"processor" yaml:"processor"`
 	// The IAM role associated with this destination.
 	//
 	// Assumed by Kinesis Data Firehose to invoke processors and write to destinations.
-	// Default: - a role will be created with default permissions.
-	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The configuration for backing up source records to S3.
-	// Default: - source records will not be backed up to S3.
-	//
 	// Experimental.
 	S3Backup *DestinationS3BackupProps `field:"optional" json:"s3Backup" yaml:"s3Backup"`
 }

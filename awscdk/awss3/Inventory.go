@@ -37,32 +37,18 @@ type Inventory struct {
 	// The destination of the inventory.
 	Destination *InventoryDestination `field:"required" json:"destination" yaml:"destination"`
 	// Whether the inventory is enabled or disabled.
-	// Default: true.
-	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The format of the inventory.
-	// Default: InventoryFormat.CSV
-	//
 	Format InventoryFormat `field:"optional" json:"format" yaml:"format"`
 	// Frequency at which the inventory should be generated.
-	// Default: InventoryFrequency.WEEKLY
-	//
 	Frequency InventoryFrequency `field:"optional" json:"frequency" yaml:"frequency"`
 	// If the inventory should contain all the object versions or only the current one.
-	// Default: InventoryObjectVersion.ALL
-	//
 	IncludeObjectVersions InventoryObjectVersion `field:"optional" json:"includeObjectVersions" yaml:"includeObjectVersions"`
 	// The inventory configuration ID.
-	// Default: - generated ID.
-	//
 	InventoryId *string `field:"optional" json:"inventoryId" yaml:"inventoryId"`
 	// The inventory will only include objects that meet the prefix filter criteria.
-	// Default: - No objects prefix.
-	//
 	ObjectsPrefix *string `field:"optional" json:"objectsPrefix" yaml:"objectsPrefix"`
 	// A list of optional fields to be included in the inventory result.
-	// Default: - No optional fields.
-	//
 	OptionalFields *[]*string `field:"optional" json:"optionalFields" yaml:"optionalFields"`
 }
 

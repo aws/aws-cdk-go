@@ -53,14 +53,8 @@ type CodeDeployEcsDeployActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	// Default: 1.
-	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	// Default: - a name will be generated, based on the stage and action names,
-	// if any of the action's variables were referenced - otherwise,
-	// no namespace will be set.
-	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -69,8 +63,6 @@ type CodeDeployEcsDeployActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your `IAction.bind`
 	// method in the `ActionBindOptions.role` property.
-	// Default: a new Role will be generated.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The CodeDeploy ECS Deployment Group to deploy to.
 	DeploymentGroup awscodedeploy.IEcsDeploymentGroup `field:"required" json:"deploymentGroup" yaml:"deploymentGroup"`
@@ -83,8 +75,6 @@ type CodeDeployEcsDeployActionProps struct {
 	//
 	// Use this property if you want to use a different name for this file than the default 'appspec.yaml'.
 	// If you use this property, you don't need to specify the `appSpecTemplateInput` property.
-	// Default: - one of this property, or `appSpecTemplateInput`, is required.
-	//
 	AppSpecTemplateFile awscodepipeline.ArtifactPath `field:"optional" json:"appSpecTemplateFile" yaml:"appSpecTemplateFile"`
 	// The artifact containing the CodeDeploy AppSpec file.
 	//
@@ -96,8 +86,6 @@ type CodeDeployEcsDeployActionProps struct {
 	// If you use this property, it's assumed the file is called 'appspec.yaml'.
 	// If your AppSpec file uses a different filename, leave this property empty,
 	// and use the `appSpecTemplateFile` property instead.
-	// Default: - one of this property, or `appSpecTemplateFile`, is required.
-	//
 	AppSpecTemplateInput awscodepipeline.Artifact `field:"optional" json:"appSpecTemplateInput" yaml:"appSpecTemplateInput"`
 	// Configuration for dynamically updated images in the task definition.
 	//
@@ -112,8 +100,6 @@ type CodeDeployEcsDeployActionProps struct {
 	//
 	// Use this property if you want to use a different name for this file than the default 'taskdef.json'.
 	// If you use this property, you don't need to specify the `taskDefinitionTemplateInput` property.
-	// Default: - one of this property, or `taskDefinitionTemplateInput`, is required.
-	//
 	TaskDefinitionTemplateFile awscodepipeline.ArtifactPath `field:"optional" json:"taskDefinitionTemplateFile" yaml:"taskDefinitionTemplateFile"`
 	// The artifact containing the ECS task definition template file.
 	//
@@ -123,8 +109,6 @@ type CodeDeployEcsDeployActionProps struct {
 	// If you use this property, it's assumed the file is called 'taskdef.json'.
 	// If your task definition template uses a different filename, leave this property empty,
 	// and use the `taskDefinitionTemplateFile` property instead.
-	// Default: - one of this property, or `taskDefinitionTemplateFile`, is required.
-	//
 	TaskDefinitionTemplateInput awscodepipeline.Artifact `field:"optional" json:"taskDefinitionTemplateInput" yaml:"taskDefinitionTemplateInput"`
 }
 

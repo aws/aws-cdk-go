@@ -20,12 +20,8 @@ import (
 //
 type EventDestination interface {
 	// A list of CloudWatch dimensions upon which to categorize your emails.
-	// Default: - do not send events to CloudWatch.
-	//
 	Dimensions() *[]*CloudWatchDimension
 	// A SNS topic to use as event destination.
-	// Default: - do not send events to a SNS topic.
-	//
 	Topic() awssns.ITopic
 }
 

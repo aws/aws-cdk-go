@@ -150,78 +150,48 @@ type Domain interface {
 	// Deprecated: use opensearchservice module instead.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for automated snapshot failures.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the cluster blocking index writes.
-	// Default: maximum over 1 minute.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is red.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is yellow.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for CPU utilization.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the storage space of nodes in the cluster.
-	// Default: minimum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for indexing latency.
-	// Default: p99 over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for JVM memory pressure.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key errors.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key being inaccessible.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master CPU utilization.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master JVM memory pressure.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of nodes.
-	// Default: minimum over 1 hour.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for number of searchable documents.
-	// Default: maximum over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for search latency.
-	// Default: p99 over 5 minutes.
-	//
 	// Deprecated: use opensearchservice module instead.
 	MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.

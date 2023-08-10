@@ -31,13 +31,9 @@ type HttpJwtAuthorizerProps struct {
 	// Experimental.
 	JwtAudience *[]*string `field:"required" json:"jwtAudience" yaml:"jwtAudience"`
 	// The name of the authorizer.
-	// Default: - same value as `id` passed in the constructor.
-	//
 	// Experimental.
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
-	// Default: ['$request.header.Authorization']
-	//
 	// Experimental.
 	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 }

@@ -113,13 +113,9 @@ type Trail interface {
 	// Log all Lambda data events for all lambda functions the account.
 	// See: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html
 	//
-	// Default: false.
-	//
 	LogAllLambdaDataEvents(options *AddEventSelectorOptions)
 	// Log all S3 data events for all objects for all buckets in the account.
 	// See: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html
-	//
-	// Default: false.
 	//
 	LogAllS3DataEvents(options *AddEventSelectorOptions)
 	// Returns a string representation of this construct.

@@ -22,8 +22,6 @@ type ApiDefinitionS3Location struct {
 	// The S3 key.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// An optional version.
-	// Default: - latest version.
-	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

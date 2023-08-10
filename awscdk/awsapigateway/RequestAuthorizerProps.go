@@ -36,21 +36,15 @@ type RequestAuthorizerProps struct {
 	//
 	// The IAM role must be
 	// assumable by 'apigateway.amazonaws.com'.
-	// Default: - A resource policy is added to the Lambda function allowing apigateway.amazonaws.com to invoke the function.
-	//
 	AssumeRole awsiam.IRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
-	// Default: - the unique construct ID.
-	//
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
-	// Default: Duration.minutes(5)
-	//
 	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 	// An array of request header mapping expressions for identities.
 	//

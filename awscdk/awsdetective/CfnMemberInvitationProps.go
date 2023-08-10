@@ -40,8 +40,6 @@ type CfnMemberInvitationProps struct {
 	// If set to true, the member account does not receive an invitation email.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
 	//
-	// Default: - false.
-	//
 	DisableEmailNotification interface{} `field:"optional" json:"disableEmailNotification" yaml:"disableEmailNotification"`
 	// Customized text to include in the invitation email message.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message

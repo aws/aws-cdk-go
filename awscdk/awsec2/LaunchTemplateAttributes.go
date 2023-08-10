@@ -18,18 +18,12 @@ type LaunchTemplateAttributes struct {
 	// The identifier of the Launch Template.
 	//
 	// Exactly one of `launchTemplateId` and `launchTemplateName` may be set.
-	// Default: None.
-	//
 	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the Launch Template.
 	//
 	// Exactly one of `launchTemplateId` and `launchTemplateName` may be set.
-	// Default: None.
-	//
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 	// The version number of this launch template to use.
-	// Default: Version: "$Default".
-	//
 	VersionNumber *string `field:"optional" json:"versionNumber" yaml:"versionNumber"`
 }
 

@@ -38,66 +38,44 @@ type ProviderProps struct {
 	// periodically based on the configured query interval as long as it returns
 	// `false`. If the function still returns `false` and the alloted timeout has
 	// passed, the operation will fail.
-	// Default: - provider is synchronous. This means that the `onEvent` handler
-	// is expected to finish all lifecycle operations within the initial invocation.
-	//
 	IsCompleteHandler awslambda.IFunction `field:"optional" json:"isCompleteHandler" yaml:"isCompleteHandler"`
 	// The number of days framework log events are kept in CloudWatch Logs.
 	//
 	// When
 	// updating this property, unsetting it doesn't remove the log retention policy.
 	// To remove the retention policy, set the value to `INFINITE`.
-	// Default: logs.RetentionDays.INFINITE
-	//
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// AWS KMS key used to encrypt provider lambda's environment variables.
-	// Default: -  AWS Lambda creates and uses an AWS managed customer master key (CMK).
-	//
 	ProviderFunctionEnvEncryption awskms.IKey `field:"optional" json:"providerFunctionEnvEncryption" yaml:"providerFunctionEnvEncryption"`
 	// Provider Lambda name.
 	//
 	// The provider lambda function name.
-	// Default: -  CloudFormation default name from unique physical ID.
-	//
 	ProviderFunctionName *string `field:"optional" json:"providerFunctionName" yaml:"providerFunctionName"`
 	// Time between calls to the `isComplete` handler which determines if the resource has been stabilized.
 	//
 	// The first `isComplete` will be called immediately after `handler` and then
 	// every `queryInterval` seconds, and until `timeout` has been reached or until
 	// `isComplete` returns `true`.
-	// Default: Duration.seconds(5)
-	//
 	QueryInterval awscdk.Duration `field:"optional" json:"queryInterval" yaml:"queryInterval"`
 	// AWS Lambda execution role.
 	//
 	// The role that will be assumed by the AWS Lambda.
 	// Must be assumable by the 'lambda.amazonaws.com' service principal.
-	// Default: - A default role will be created.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Security groups to attach to the provider functions.
 	//
 	// Only used if 'vpc' is supplied.
-	// Default: - If `vpc` is not supplied, no security groups are attached. Otherwise, a dedicated security
-	// group is created for each function.
-	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Total timeout for the entire operation.
 	//
 	// The maximum timeout is 2 hours (yes, it can exceed the AWS Lambda 15 minutes).
-	// Default: Duration.minutes(30)
-	//
 	TotalTimeout awscdk.Duration `field:"optional" json:"totalTimeout" yaml:"totalTimeout"`
 	// The vpc to provision the lambda functions in.
-	// Default: - functions are not provisioned inside a vpc.
-	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Which subnets from the VPC to place the lambda functions in.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Default: - the Vpc default strategy if not specified.
-	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

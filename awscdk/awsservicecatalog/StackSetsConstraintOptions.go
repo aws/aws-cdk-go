@@ -35,14 +35,10 @@ import (
 //
 type StackSetsConstraintOptions struct {
 	// The description of the constraint.
-	// Default: - No description provided.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
-	// Default: - English.
-	//
 	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// List of accounts to deploy stacks to.
 	Accounts *[]*string `field:"required" json:"accounts" yaml:"accounts"`
@@ -53,8 +49,6 @@ type StackSetsConstraintOptions struct {
 	// List of regions to deploy stacks to.
 	Regions *[]*string `field:"required" json:"regions" yaml:"regions"`
 	// Wether to allow end users to create, update, and delete stacks.
-	// Default: false.
-	//
 	AllowStackSetInstanceOperations *bool `field:"optional" json:"allowStackSetInstanceOperations" yaml:"allowStackSetInstanceOperations"`
 }
 

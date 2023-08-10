@@ -38,14 +38,10 @@ type NetworkListenerProps struct {
 	// ALPN enables the application layer to negotiate which protocols should be used over a secure connection, such as HTTP/1 and HTTP/2.
 	//
 	// Can only be specified together with Protocol TLS.
-	// Default: - None.
-	//
 	AlpnPolicy AlpnPolicy `field:"optional" json:"alpnPolicy" yaml:"alpnPolicy"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
-	// Default: - No certificates.
-	//
 	Certificates *[]IListenerCertificate `field:"optional" json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
@@ -54,8 +50,6 @@ type NetworkListenerProps struct {
 	// all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
-	// Default: - None.
-	//
 	DefaultAction NetworkListenerAction `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
@@ -64,16 +58,10 @@ type NetworkListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
-	// Default: - None.
-	//
 	DefaultTargetGroups *[]INetworkTargetGroup `field:"optional" json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Protocol for listener, expects TCP, TLS, UDP, or TCP_UDP.
-	// Default: - TLS if certificates are provided. TCP otherwise.
-	//
 	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// SSL Policy.
-	// Default: - Current predefined security policy.
-	//
 	SslPolicy SslPolicy `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
 	// The load balancer to attach this listener to.
 	LoadBalancer INetworkLoadBalancer `field:"required" json:"loadBalancer" yaml:"loadBalancer"`

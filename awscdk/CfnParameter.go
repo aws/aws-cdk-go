@@ -22,13 +22,9 @@ import (
 type CfnParameter interface {
 	CfnElement
 	// A regular expression that represents the patterns to allow for String types.
-	// Default: - No constraints on patterns allowed for parameter.
-	//
 	AllowedPattern() *string
 	SetAllowedPattern(val *string)
 	// An array containing the list of values allowed for the parameter.
-	// Default: - No constraints on values allowed for parameter.
-	//
 	AllowedValues() *[]*string
 	SetAllowedValues(val *[]*string)
 	// A string that explains a constraint when the constraint is violated.
@@ -36,8 +32,6 @@ type CfnParameter interface {
 	// For example, without a constraint description, a parameter that has an allowed
 	// pattern of [A-Za-z0-9]+ displays the following error message when the user specifies
 	// an invalid value:.
-	// Default: - No description with customized error message when user specifies invalid values.
-	//
 	ConstraintDescription() *string
 	SetConstraintDescription(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -48,13 +42,9 @@ type CfnParameter interface {
 	//
 	// If you define constraints for the parameter, you must specify
 	// a value that adheres to those constraints.
-	// Default: - No default value for parameter.
-	//
 	Default() interface{}
 	SetDefault(val interface{})
 	// A string of up to 4000 characters that describes the parameter.
-	// Default: - No description for the parameter.
-	//
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,23 +58,15 @@ type CfnParameter interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// An integer value that determines the largest number of characters you want to allow for String types.
-	// Default: - None.
-	//
 	MaxLength() *float64
 	SetMaxLength(val *float64)
 	// A numeric value that determines the largest numeric value you want to allow for Number types.
-	// Default: - None.
-	//
 	MaxValue() *float64
 	SetMaxValue(val *float64)
 	// An integer value that determines the smallest number of characters you want to allow for String types.
-	// Default: - None.
-	//
 	MinLength() *float64
 	SetMinLength(val *float64)
 	// A numeric value that determines the smallest numeric value you want to allow for Number types.
-	// Default: - None.
-	//
 	MinValue() *float64
 	SetMinValue(val *float64)
 	// The tree node.
@@ -97,8 +79,6 @@ type CfnParameter interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() Stack
 	// The data type for the parameter (DataType).
-	// Default: String.
-	//
 	Type() *string
 	SetType(val *string)
 	// The parameter value as a Token.

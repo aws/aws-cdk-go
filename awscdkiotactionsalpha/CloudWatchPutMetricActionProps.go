@@ -23,8 +23,6 @@ import (
 // Experimental.
 type CloudWatchPutMetricActionProps struct {
 	// The IAM role that allows access to AWS service.
-	// Default: a new role will be created.
-	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The CloudWatch metric name.
@@ -59,8 +57,6 @@ type CloudWatchPutMetricActionProps struct {
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
-	//
-	// Default: - none -- Defaults to the current Unix epoch time.
 	//
 	// Experimental.
 	MetricTimestamp *string `field:"optional" json:"metricTimestamp" yaml:"metricTimestamp"`

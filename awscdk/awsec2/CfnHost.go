@@ -22,6 +22,7 @@ import (
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //
 //   	// the properties below are optional
+//   	AssetId: jsii.String("assetId"),
 //   	AutoPlacement: jsii.String("autoPlacement"),
 //   	HostMaintenance: jsii.String("hostMaintenance"),
 //   	HostRecovery: jsii.String("hostRecovery"),
@@ -35,6 +36,9 @@ import (
 type CfnHost interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
+	AssetId() *string
+	SetAssetId(val *string)
 	// The ID of the host.
 	AttrHostId() *string
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
@@ -232,6 +236,16 @@ type CfnHost interface {
 type jsiiProxy_CfnHost struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnHost) AssetId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"assetId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnHost) AttrHostId() *string {
@@ -439,6 +453,14 @@ func NewCfnHost_Override(c CfnHost, scope constructs.Construct, id *string, prop
 		"aws-cdk-lib.aws_ec2.CfnHost",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnHost)SetAssetId(val *string) {
+	_jsii_.Set(
+		j,
+		"assetId",
+		val,
 	)
 }
 

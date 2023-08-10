@@ -38,16 +38,10 @@ type ProductionVariant struct {
 	// The name of the production variant.
 	VariantName *string `field:"required" json:"variantName" yaml:"variantName"`
 	// The size of the Elastic Inference (EI) instance to use for the production variant.
-	// Default: - None.
-	//
 	AcceleratorType AcceleratorType `field:"optional" json:"acceleratorType" yaml:"acceleratorType"`
 	// Number of instances to launch initially.
-	// Default: - 1.
-	//
 	InitialInstanceCount *float64 `field:"optional" json:"initialInstanceCount" yaml:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
-	// Default: - 1.0
-	//
 	InitialVariantWeight *float64 `field:"optional" json:"initialVariantWeight" yaml:"initialVariantWeight"`
 }
 

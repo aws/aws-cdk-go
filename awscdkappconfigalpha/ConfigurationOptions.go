@@ -1,0 +1,60 @@
+package awscdkappconfigalpha
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+)
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var deploymentStrategy deploymentStrategy
+//   var environment environment
+//   var key key
+//   var validator iValidator
+//
+//   configurationOptions := &ConfigurationOptions{
+//   	DeploymentKey: key,
+//   	DeploymentStrategy: deploymentStrategy,
+//   	DeployTo: []iEnvironment{
+//   		environment,
+//   	},
+//   	Description: jsii.String("description"),
+//   	Name: jsii.String("name"),
+//   	Type: appconfig_alpha.ConfigurationType_FREEFORM,
+//   	Validators: []*iValidator{
+//   		validator,
+//   	},
+//   }
+//
+// Experimental.
+type ConfigurationOptions struct {
+	// The deployment key of the configuration.
+	// Experimental.
+	DeploymentKey awskms.IKey `field:"optional" json:"deploymentKey" yaml:"deploymentKey"`
+	// The deployment strategy for the configuration.
+	// Experimental.
+	DeploymentStrategy IDeploymentStrategy `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
+	// The list of environments to deploy the configuration to.
+	//
+	// If this parameter is not specified and there is only one environment
+	// associated to the application, then we will deploy to that one. Otherwise,
+	// there will be no deployment.
+	// Experimental.
+	DeployTo *[]IEnvironment `field:"optional" json:"deployTo" yaml:"deployTo"`
+	// The description of the configuration.
+	// Experimental.
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the configuration.
+	// Experimental.
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The type of configuration.
+	// Experimental.
+	Type ConfigurationType `field:"optional" json:"type" yaml:"type"`
+	// The validators for the configuration.
+	// Experimental.
+	Validators *[]IValidator `field:"optional" json:"validators" yaml:"validators"`
+}
+

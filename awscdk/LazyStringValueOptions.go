@@ -14,8 +14,6 @@ package awscdk
 //
 type LazyStringValueOptions struct {
 	// Use the given name as a display hint.
-	// Default: - No hint.
-	//
 	DisplayHint *string `field:"optional" json:"displayHint" yaml:"displayHint"`
 }
 

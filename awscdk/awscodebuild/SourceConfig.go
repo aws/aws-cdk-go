@@ -59,8 +59,6 @@ type SourceConfig struct {
 	// `AWS::CodeBuild::Project.SourceVersion`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-sourceversion
 	//
-	// Default: the latest version.
-	//
 	SourceVersion *string `field:"optional" json:"sourceVersion" yaml:"sourceVersion"`
 }
 

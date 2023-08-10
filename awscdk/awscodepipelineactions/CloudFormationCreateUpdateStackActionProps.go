@@ -40,14 +40,8 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	// Default: 1.
-	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	// Default: - a name will be generated, based on the stage and action names,
-	// if any of the action's variables were referenced - otherwise,
-	// no namespace will be set.
-	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -56,8 +50,6 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your `IAction.bind`
 	// method in the `ActionBindOptions.role` property.
-	// Default: a new Role will be generated.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
@@ -81,8 +73,6 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
-	// Default: - action resides in the same account as the pipeline.
-	//
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// Acknowledge certain changes made as part of deployment.
 	//
@@ -93,16 +83,12 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// For more information, see the link below.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
-	// Default: None, unless `adminPermissions` is true.
-	//
 	CfnCapabilities *[]awscdk.CfnCapabilities `field:"optional" json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
 	// permissions unless `adminPermissions` is true, in which case the role will have
 	// full permissions.
-	// Default: A fresh role with full or no permissions (depending on the value of `adminPermissions`).
-	//
 	DeploymentRole awsiam.IRole `field:"optional" json:"deploymentRole" yaml:"deploymentRole"`
 	// The list of additional input Artifacts for this Action.
 	//
@@ -122,8 +108,6 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
-	// Default: Automatically generated artifact name.
-	//
 	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
@@ -132,8 +116,6 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	//
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
-	// Default: No output artifact generated.
-	//
 	OutputFileName *string `field:"optional" json:"outputFileName" yaml:"outputFileName"`
 	// Additional template parameters.
 	//
@@ -148,8 +130,6 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// All parameter names must be present in the stack template.
 	//
 	// Note: the entire object cannot be more than 1kB.
-	// Default: No overrides.
-	//
 	ParameterOverrides *map[string]interface{} `field:"optional" json:"parameterOverrides" yaml:"parameterOverrides"`
 	// The AWS region the given Action resides in.
 	//
@@ -157,8 +137,6 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// You can provide their names with the `PipelineProps#crossRegionReplicationBuckets` property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
-	// Default: the Action resides in the same region as the Pipeline.
-	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Replace the stack if it's in a failed state.
 	//
@@ -169,8 +147,6 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	//
 	// If this is not set to true and the stack is in a failed state,
 	// the deployment fails.
-	// Default: false.
-	//
 	ReplaceOnFailure *bool `field:"optional" json:"replaceOnFailure" yaml:"replaceOnFailure"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
@@ -180,8 +156,6 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	//
 	// Note that if you include sensitive information, such as passwords, restrict access to this
 	// file.
-	// Default: No template configuration based on input artifacts.
-	//
 	TemplateConfiguration awscodepipeline.ArtifactPath `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 

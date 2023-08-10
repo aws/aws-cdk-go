@@ -41,14 +41,10 @@ package awscdk
 //
 type CfnRuleProps struct {
 	// Assertions which define the rule.
-	// Default: - No assertions for the rule.
-	//
 	Assertions *[]*CfnRuleAssertion `field:"optional" json:"assertions" yaml:"assertions"`
 	// If the rule condition evaluates to false, the rule doesn't take effect.
 	//
 	// If the function in the rule condition evaluates to true, expressions in each assert are evaluated and applied.
-	// Default: - Rule's assertions will always take effect.
-	//
 	RuleCondition ICfnConditionExpression `field:"optional" json:"ruleCondition" yaml:"ruleCondition"`
 }
 

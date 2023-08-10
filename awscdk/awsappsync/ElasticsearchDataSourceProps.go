@@ -34,18 +34,12 @@ type ElasticsearchDataSourceProps struct {
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
 	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
-	// Default: - None.
-	//
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
-	// Default: - id of data source.
-	//
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
-	// Default: -  Create a new role.
-	//
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
 	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The elasticsearch domain containing the endpoint for the data source.

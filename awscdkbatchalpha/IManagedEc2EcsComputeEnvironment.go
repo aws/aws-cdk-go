@@ -18,16 +18,11 @@ type IManagedEc2EcsComputeEnvironment interface {
 	// Experimental.
 	AddInstanceType(instanceType awsec2.InstanceType)
 	// The allocation strategy to use if not enough instances of the best fitting instance type can be allocated.
-	// Default: - `BEST_FIT_PROGRESSIVE` if not using Spot instances,
-	// `SPOT_CAPACITY_OPTIMIZED` if using Spot instances.
-	//
 	// Experimental.
 	AllocationStrategy() AllocationStrategy
 	// Configure which AMIs this Compute Environment can launch.
 	//
 	// Leave this `undefined` to allow Batch to choose the latest AMIs it supports for each instance that it launches.
-	// Default: - ECS_AL2 compatible AMI ids for non-GPU instances, ECS_AL2_NVIDIA compatible AMI ids for GPU instances.
-	//
 	// Experimental.
 	Images() *[]*EcsMachineImage
 	// The instance classes that this Compute Environment can launch.
@@ -37,8 +32,6 @@ type IManagedEc2EcsComputeEnvironment interface {
 	// Experimental.
 	InstanceClasses() *[]awsec2.InstanceClass
 	// The execution Role that instances launched by this Compute Environment will use.
-	// Default: - a role will be created.
-	//
 	// Experimental.
 	InstanceRole() awsiam.IRole
 	// The instance types that this Compute Environment can launch.
@@ -52,13 +45,9 @@ type IManagedEc2EcsComputeEnvironment interface {
 	// launch template and this Compute Environment, **the
 	// `securityGroup`s on the Compute Environment override the
 	// ones on the launch template.
-	// Default: no launch template.
-	//
 	// Experimental.
 	LaunchTemplate() awsec2.ILaunchTemplate
 	// The minimum vCPUs that an environment should maintain, even if the compute environment is DISABLED.
-	// Default: 0.
-	//
 	// Experimental.
 	MinvCpus() *float64
 	// The EC2 placement group to associate with your compute resources.
@@ -69,8 +58,6 @@ type IManagedEc2EcsComputeEnvironment interface {
 	// within a single Availability Zone with high network flow potential.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
 	//
-	// Default: - no placement group.
-	//
 	// Experimental.
 	PlacementGroup() awsec2.IPlacementGroup
 	// The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched.
@@ -79,14 +66,10 @@ type IManagedEc2EcsComputeEnvironment interface {
 	// less than 20% of the current On-Demand price for that Instance.
 	// You always pay the lowest market price and never more than your maximum percentage.
 	// For most use cases, Batch recommends leaving this field empty.
-	// Default: - 100%.
-	//
 	// Experimental.
 	SpotBidPercentage() *float64
 	// The service-linked role that Spot Fleet needs to launch instances on your behalf.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html
-	//
-	// Default: - a new Role will be created.
 	//
 	// Experimental.
 	SpotFleetRole() awsiam.IRole
@@ -95,8 +78,6 @@ type IManagedEc2EcsComputeEnvironment interface {
 	// The optimal instance type is equivalent to adding the
 	// C4, M4, and R4 instance classes. You can specify other instance classes
 	// (of the same architecture) in addition to the optimal instance classes.
-	// Default: true.
-	//
 	// Experimental.
 	UseOptimalInstanceClasses() *bool
 }

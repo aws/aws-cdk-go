@@ -21,6 +21,9 @@ import (
 //   		LinkedAccountIds: []*string{
 //   			jsii.String("linkedAccountIds"),
 //   		},
+//
+//   		// the properties below are optional
+//   		AutoAssociate: jsii.Boolean(false),
 //   	},
 //   	ComputationPreference: &ComputationPreferenceProperty{
 //   		PricingPlanArn: jsii.String("pricingPlanArn"),

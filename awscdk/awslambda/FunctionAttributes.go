@@ -27,8 +27,6 @@ type FunctionAttributes struct {
 	// Format: arn:<partition>:lambda:<region>:<account-id>:function:<function-name>.
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64).
-	// Default: - Architecture.X86_64
-	//
 	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// The IAM execution role associated with this function.
 	//
@@ -42,9 +40,6 @@ type FunctionAttributes struct {
 	//
 	// Set this to property *ONLY IF* the imported function is in the same account as the stack
 	// it's imported in.
-	// Default: - depends: true, if the Stack is configured with an explicit `env` (account and region) and the account is the same as this function.
-	// For environment-agnostic stacks this will default to `false`.
-	//
 	SameEnvironment *bool `field:"optional" json:"sameEnvironment" yaml:"sameEnvironment"`
 	// The security group of this Lambda, if in a VPC.
 	//
@@ -60,8 +55,6 @@ type FunctionAttributes struct {
 	// Set this property *ONLY IF* you are committing to manage the imported function's permissions outside of
 	// CDK. You are acknowledging that your CDK code alone will have insufficient permissions to access the
 	// imported function.
-	// Default: false.
-	//
 	SkipPermissions *bool `field:"optional" json:"skipPermissions" yaml:"skipPermissions"`
 }
 

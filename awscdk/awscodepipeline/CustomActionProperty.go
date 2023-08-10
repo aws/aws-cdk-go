@@ -28,13 +28,9 @@ type CustomActionProperty struct {
 	// Whether this property is required.
 	Required *bool `field:"required" json:"required" yaml:"required"`
 	// The description of the property.
-	// Default: the description will be empty.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Whether this property is a key.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-key
-	//
-	// Default: false.
 	//
 	Key *bool `field:"optional" json:"key" yaml:"key"`
 	// Whether this property is queryable.
@@ -42,16 +38,10 @@ type CustomActionProperty struct {
 	// Note that only a single property of a custom Action can be queryable.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-queryable
 	//
-	// Default: false.
-	//
 	Queryable *bool `field:"optional" json:"queryable" yaml:"queryable"`
 	// Whether this property is secret, like a password, or access key.
-	// Default: false.
-	//
 	Secret *bool `field:"optional" json:"secret" yaml:"secret"`
 	// The type of the property, like 'String', 'Number', or 'Boolean'.
-	// Default: 'String'.
-	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

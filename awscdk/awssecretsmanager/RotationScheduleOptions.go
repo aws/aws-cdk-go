@@ -24,20 +24,12 @@ type RotationScheduleOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
 	//
 	// A value of zero will disable automatic rotation - `Duration.days(0)`.
-	// Default: Duration.days(30)
-	//
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// Hosted rotation.
-	// Default: - either `rotationLambda` or `hostedRotation` must be specified.
-	//
 	HostedRotation HostedRotation `field:"optional" json:"hostedRotation" yaml:"hostedRotation"`
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
-	// Default: true.
-	//
 	RotateImmediatelyOnUpdate *bool `field:"optional" json:"rotateImmediatelyOnUpdate" yaml:"rotateImmediatelyOnUpdate"`
 	// A Lambda function that can rotate the secret.
-	// Default: - either `rotationLambda` or `hostedRotation` must be specified.
-	//
 	RotationLambda awslambda.IFunction `field:"optional" json:"rotationLambda" yaml:"rotationLambda"`
 }
 

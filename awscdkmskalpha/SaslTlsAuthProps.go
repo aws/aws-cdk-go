@@ -30,26 +30,18 @@ import (
 // Experimental.
 type SaslTlsAuthProps struct {
 	// Enable IAM access control.
-	// Default: false.
-	//
 	// Experimental.
 	Iam *bool `field:"optional" json:"iam" yaml:"iam"`
 	// KMS Key to encrypt SASL/SCRAM secrets.
 	//
 	// You must use a customer master key (CMK) when creating users in secrets manager.
 	// You cannot use a Secret with Amazon MSK that uses the default Secrets Manager encryption key.
-	// Default: - CMK will be created with alias msk/{clusterName}/sasl/scram.
-	//
 	// Experimental.
 	Key awskms.IKey `field:"optional" json:"key" yaml:"key"`
 	// Enable SASL/SCRAM authentication.
-	// Default: false.
-	//
 	// Experimental.
 	Scram *bool `field:"optional" json:"scram" yaml:"scram"`
 	// List of ACM Certificate Authorities to enable TLS authentication.
-	// Default: - none.
-	//
 	// Experimental.
 	CertificateAuthorities *[]awsacmpca.ICertificateAuthority `field:"optional" json:"certificateAuthorities" yaml:"certificateAuthorities"`
 }

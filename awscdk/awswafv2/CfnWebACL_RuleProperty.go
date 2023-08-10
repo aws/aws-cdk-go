@@ -13,7 +13,7 @@ package awswafv2
 type CfnWebACL_RuleProperty struct {
 	// The name of the rule.
 	//
-	// You can't change the name of a `Rule` after you create it.
+	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -28,6 +28,8 @@ type CfnWebACL_RuleProperty struct {
 	//
 	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+	//
+	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
 	//
 	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`

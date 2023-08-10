@@ -22,12 +22,8 @@ type AutoVerifiedAttrs struct {
 	//
 	// Note: If both `email` and `phone` is set, Cognito only verifies the phone number. To also verify email, see here -
 	// https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html
-	// Default: - true, if email is turned on for `signIn`. false, otherwise.
-	//
 	Email *bool `field:"optional" json:"email" yaml:"email"`
 	// Whether the phone number of the user should be auto verified at sign up.
-	// Default: - true, if phone is turned on for `signIn`. false, otherwise.
-	//
 	Phone *bool `field:"optional" json:"phone" yaml:"phone"`
 }
 

@@ -36,12 +36,8 @@ type PublicKeyProps struct {
 	//
 	EncodedKey *string `field:"required" json:"encodedKey" yaml:"encodedKey"`
 	// A comment to describe the public key.
-	// Default: - no comment.
-	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// A name to identify the public key.
-	// Default: - generated from the `id`.
-	//
 	PublicKeyName *string `field:"optional" json:"publicKeyName" yaml:"publicKeyName"`
 }
 

@@ -266,8 +266,11 @@ func Fn_ConditionOr(conditions ...ICfnConditionExpression) ICfnRuleConditionExpr
 
 // The intrinsic function ``Fn::FindInMap`` returns the value corresponding to keys in a two-level map that is declared in the Mappings section.
 //
+// Warning: do not use with lazy mappings as this function will not guarentee a lazy mapping to render in the template.
+// Prefer to use `CfnMapping.findInMap` in general.
+//
 // Returns: a token represented as a string.
-func Fn_FindInMap(mapName *string, topLevelKey *string, secondLevelKey *string) *string {
+func Fn_FindInMap(mapName *string, topLevelKey *string, secondLevelKey *string, defaultValue *string) *string {
 	_init_.Initialize()
 
 	if err := validateFn_FindInMapParameters(mapName, topLevelKey, secondLevelKey); err != nil {
@@ -278,7 +281,7 @@ func Fn_FindInMap(mapName *string, topLevelKey *string, secondLevelKey *string) 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.Fn",
 		"findInMap",
-		[]interface{}{mapName, topLevelKey, secondLevelKey},
+		[]interface{}{mapName, topLevelKey, secondLevelKey, defaultValue},
 		&returns,
 	)
 

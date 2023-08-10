@@ -45,20 +45,12 @@ type FileSystemProps struct {
 	// The ID of the backup.
 	//
 	// Specifies the backup to use if you're creating a file system from an existing backup.
-	// Default: - no backup will be used.
-	//
 	BackupId *string `field:"optional" json:"backupId" yaml:"backupId"`
 	// The KMS key used for encryption to protect your data at rest.
-	// Default: - the aws/fsx default KMS key for the AWS account being deployed into.
-	//
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
-	// Default: RemovalPolicy.RETAIN
-	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Security Group to assign to this file system.
-	// Default: - creates new security group which allows all outbound traffic.
-	//
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 }
 

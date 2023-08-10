@@ -31,8 +31,6 @@ type CfnHookTypeConfigProps struct {
 	// Defaults to `default` alias. Hook types currently support default configuration alias.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-configurationalias
 	//
-	// Default: - "default".
-	//
 	ConfigurationAlias *string `field:"optional" json:"configurationAlias" yaml:"configurationAlias"`
 	// The Amazon Resource Number (ARN) for the hook to set `Configuration` for.
 	//

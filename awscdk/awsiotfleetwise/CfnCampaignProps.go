@@ -112,8 +112,6 @@ type CfnCampaignProps struct {
 	// Default: `SNAPPY`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-compression
 	//
-	// Default: - "OFF".
-	//
 	Compression *string `field:"optional" json:"compression" yaml:"compression"`
 	// (Optional) The destination where the campaign sends data.
 	//
@@ -144,8 +142,6 @@ type CfnCampaignProps struct {
 	// Default: `OFF`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-diagnosticsmode
 	//
-	// Default: - "OFF".
-	//
 	DiagnosticsMode *string `field:"optional" json:"diagnosticsMode" yaml:"diagnosticsMode"`
 	// (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	//
@@ -153,8 +149,6 @@ type CfnCampaignProps struct {
 	//
 	// Default: 253402214400 (December 31, 9999, 00:00:00 UTC).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-expirytime
-	//
-	// Default: - "253402214400".
 	//
 	ExpiryTime *string `field:"optional" json:"expiryTime" yaml:"expiryTime"`
 	// (Optional) How long (in milliseconds) to collect raw data after a triggering event initiates the collection.
@@ -164,8 +158,6 @@ type CfnCampaignProps struct {
 	// Default: `0`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-posttriggercollectionduration
 	//
-	// Default: - 0.
-	//
 	PostTriggerCollectionDuration *float64 `field:"optional" json:"postTriggerCollectionDuration" yaml:"postTriggerCollectionDuration"`
 	// (Optional) A number indicating the priority of one campaign over another campaign for a certain vehicle or fleet.
 	//
@@ -173,8 +165,6 @@ type CfnCampaignProps struct {
 	//
 	// Default: `0`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-priority
-	//
-	// Default: - 0.
 	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// (Optional) A list of information about signals to collect.
@@ -188,8 +178,6 @@ type CfnCampaignProps struct {
 	// Default: `OFF`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-spoolingmode
 	//
-	// Default: - "OFF".
-	//
 	SpoolingMode *string `field:"optional" json:"spoolingMode" yaml:"spoolingMode"`
 	// (Optional) The time, in milliseconds, to deliver a campaign after it was approved.
 	//
@@ -197,8 +185,6 @@ type CfnCampaignProps struct {
 	//
 	// Default: `0`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-starttime
-	//
-	// Default: - "0".
 	//
 	StartTime *string `field:"optional" json:"startTime" yaml:"startTime"`
 	// (Optional) Metadata that can be used to manage the campaign.

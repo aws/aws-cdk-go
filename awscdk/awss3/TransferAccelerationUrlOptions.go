@@ -14,8 +14,6 @@ package awss3
 //
 type TransferAccelerationUrlOptions struct {
 	// Dual-stack support to connect to the bucket over IPv6.
-	// Default: - false.
-	//
 	DualStack *bool `field:"optional" json:"dualStack" yaml:"dualStack"`
 }
 

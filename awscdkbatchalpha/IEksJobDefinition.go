@@ -14,8 +14,6 @@ type IEksJobDefinition interface {
 	// The DNS Policy of the pod used by this Job Definition.
 	// See: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy
 	//
-	// Default: `DnsPolicy.CLUSTER_FIRST`
-	//
 	// Experimental.
 	DnsPolicy() DnsPolicy
 	// The name of the service account that's used to run the container.
@@ -24,8 +22,6 @@ type IEksJobDefinition interface {
 	// roughly analogous to IAM users.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html
 	//
-	// Default: - the default service account of the container.
-	//
 	// Experimental.
 	ServiceAccount() *string
 	// If specified, the Pod used by this Job Definition will use the host's network IP address.
@@ -33,8 +29,6 @@ type IEksJobDefinition interface {
 	// Otherwise, the Kubernetes pod networking model is enabled.
 	// Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
 	// See: https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking
-	//
-	// Default: true.
 	//
 	// Experimental.
 	UseHostNetwork() *bool

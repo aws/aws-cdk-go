@@ -50,6 +50,8 @@ type CfnDatasetProps struct {
 	//
 	SchemaArn *string `field:"required" json:"schemaArn" yaml:"schemaArn"`
 	// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+	//
+	// If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasetimportjob
 	//
 	DatasetImportJob interface{} `field:"optional" json:"datasetImportJob" yaml:"datasetImportJob"`

@@ -25,12 +25,8 @@ type ClusterParameterGroupProps struct {
 	// The parameters in this parameter group.
 	Parameters *map[string]*string `field:"required" json:"parameters" yaml:"parameters"`
 	// The name of the cluster parameter group.
-	// Default: A CDK generated name for the cluster parameter group.
-	//
 	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// Description for this parameter group.
-	// Default: a CDK generated description.
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

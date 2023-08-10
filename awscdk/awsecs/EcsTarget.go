@@ -37,14 +37,10 @@ type EcsTarget struct {
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
-	// Default: - Container port of the first added port mapping.
-	//
 	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
 	// The protocol used for the port mapping.
 	//
 	// Only applicable when using application load balancers.
-	// Default: Protocol.TCP
-	//
 	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

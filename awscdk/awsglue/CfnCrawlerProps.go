@@ -39,6 +39,18 @@ package awsglue
 //   				Path: jsii.String("path"),
 //   			},
 //   		},
+//   		IcebergTargets: []interface{}{
+//   			&IcebergTargetProperty{
+//   				ConnectionName: jsii.String("connectionName"),
+//   				Exclusions: []*string{
+//   					jsii.String("exclusions"),
+//   				},
+//   				MaximumTraversalDepth: jsii.Number(123),
+//   				Paths: []*string{
+//   					jsii.String("paths"),
+//   				},
+//   			},
+//   		},
 //   		JdbcTargets: []interface{}{
 //   			&JdbcTargetProperty{
 //   				ConnectionName: jsii.String("connectionName"),

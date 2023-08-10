@@ -79,14 +79,8 @@ type CodeBuildActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	// Default: 1.
-	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	// Default: - a name will be generated, based on the stage and action names,
-	// if any of the action's variables were referenced - otherwise,
-	// no namespace will be set.
-	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -95,36 +89,26 @@ type CodeBuildActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your `IAction.bind`
 	// method in the `ActionBindOptions.role` property.
-	// Default: a new Role will be generated.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The source to use as input for this action.
 	Input awscodepipeline.Artifact `field:"required" json:"input" yaml:"input"`
 	// The action's Project.
 	Project awscodebuild.IProject `field:"required" json:"project" yaml:"project"`
 	// Whether to check for the presence of any secrets in the environment variables of the default type, BuildEnvironmentVariableType.PLAINTEXT. Since using a secret for the value of that kind of variable would result in it being displayed in plain text in the AWS Console, the construct will throw an exception if it detects a secret was passed there. Pass this property as false if you want to skip this validation, and keep using a secret in a plain text environment variable.
-	// Default: true.
-	//
 	CheckSecretsInPlainTextEnvVariables *bool `field:"optional" json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
 	// Combine the build artifacts for a batch builds.
 	//
 	// Enabling this will combine the build artifacts into the same location for batch builds.
 	// If `executeBatchBuild` is not set to `true`, this property is ignored.
-	// Default: false.
-	//
 	CombineBatchBuildArtifacts *bool `field:"optional" json:"combineBatchBuildArtifacts" yaml:"combineBatchBuildArtifacts"`
 	// The environment variables to pass to the CodeBuild project when this action executes.
 	//
 	// If a variable with the same name was set both on the project level, and here,
 	// this value will take precedence.
-	// Default: - No additional environment variables are specified.
-	//
 	EnvironmentVariables *map[string]*awscodebuild.BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// Trigger a batch build.
 	//
 	// Enabling this will enable batch builds on the CodeBuild project.
-	// Default: false.
-	//
 	ExecuteBatchBuild *bool `field:"optional" json:"executeBatchBuild" yaml:"executeBatchBuild"`
 	// The list of additional input Artifacts for this action.
 	//
@@ -142,12 +126,8 @@ type CodeBuildActionProps struct {
 	// you have to use the 'secondary-artifacts' section instead.
 	// See https://docs.aws.amazon.com/codebuild/latest/userguide/sample-multi-in-out.html
 	// for details.
-	// Default: the action will not have any outputs.
-	//
 	Outputs *[]awscodepipeline.Artifact `field:"optional" json:"outputs" yaml:"outputs"`
 	// The type of the action that determines its CodePipeline Category - Build, or Test.
-	// Default: CodeBuildActionType.BUILD
-	//
 	Type CodeBuildActionType `field:"optional" json:"type" yaml:"type"`
 }
 

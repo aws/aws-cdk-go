@@ -36,19 +36,13 @@ type BaseStreamEventSourceProps struct {
 	// * Maximum value of:
 	//   * 1000 for `DynamoEventSource`
 	// * 10000 for `KinesisEventSource`, `ManagedKafkaEventSource` and `SelfManagedKafkaEventSource`.
-	// Default: 100.
-	//
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	// Default: true.
-	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5).
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-batching
-	//
-	// Default: - Duration.seconds(0) for Kinesis, DynamoDB, and SQS event sources, Duration.millis(500) for MSK, self-managed Kafka, and Amazon MQ.
 	//
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 }

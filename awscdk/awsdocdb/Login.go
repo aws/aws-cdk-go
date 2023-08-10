@@ -26,22 +26,14 @@ type Login struct {
 	// Username.
 	Username *string `field:"required" json:"username" yaml:"username"`
 	// Specifies characters to not include in generated passwords.
-	// Default: "\"@/".
-	//
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// KMS encryption key to encrypt the generated secret.
-	// Default: default master key.
-	//
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.
-	// Default: a Secrets Manager generated password.
-	//
 	Password awscdk.SecretValue `field:"optional" json:"password" yaml:"password"`
 	// The physical name of the secret, that will be generated.
-	// Default: Secretsmanager will generate a physical name for the secret.
-	//
 	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
 }
 

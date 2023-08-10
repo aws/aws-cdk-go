@@ -26,16 +26,10 @@ package pipelines
 //
 type AddStageOpts struct {
 	// Additional steps to run after all of the stacks in the stage.
-	// Default: - No additional steps.
-	//
 	Post *[]Step `field:"optional" json:"post" yaml:"post"`
 	// Additional steps to run before any of the stacks in the stage.
-	// Default: - No additional steps.
-	//
 	Pre *[]Step `field:"optional" json:"pre" yaml:"pre"`
 	// Instructions for stack level steps.
-	// Default: - No additional instructions.
-	//
 	StackSteps *[]*StackSteps `field:"optional" json:"stackSteps" yaml:"stackSteps"`
 }
 

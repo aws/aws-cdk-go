@@ -9,16 +9,10 @@ import (
 // Contains all metrics for a Target Group of a Network Load Balancer.
 type INetworkTargetGroupMetrics interface {
 	// Return the given named metric for this Network Target Group.
-	// Default: Average over 5 minutes.
-	//
 	Custom(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of targets that are considered healthy.
-	// Default: Average over 5 minutes.
-	//
 	HealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of targets that are considered unhealthy.
-	// Default: Average over 5 minutes.
-	//
 	UnHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 }
 

@@ -26,14 +26,9 @@ type HostVolumeOptions struct {
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// if set, the container will have readonly access to the volume.
-	// Default: false.
-	//
 	// Experimental.
 	Readonly *bool `field:"optional" json:"readonly" yaml:"readonly"`
 	// The path on the host machine this container will have access to.
-	// Default: - Docker will choose the host path.
-	// The data may not persist after the containers that use it stop running.
-	//
 	// Experimental.
 	HostPath *string `field:"optional" json:"hostPath" yaml:"hostPath"`
 }

@@ -59,14 +59,10 @@ type CommonEcsRunTaskProps struct {
 	//
 	// Key is the name of the container to override, value is the
 	// values you want to override.
-	// Default: - No overrides.
-	//
 	ContainerOverrides *[]*ContainerOverride `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`
 	// The service integration pattern indicates different ways to call RunTask in ECS.
 	//
 	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
-	// Default: FIRE_AND_FORGET.
-	//
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `field:"optional" json:"integrationPattern" yaml:"integrationPattern"`
 }
 

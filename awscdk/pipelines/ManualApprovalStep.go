@@ -37,8 +37,6 @@ import (
 type ManualApprovalStep interface {
 	Step
 	// The comment associated with this manual approval.
-	// Default: - No comment.
-	//
 	Comment() *string
 	// StackOutputReferences this step consumes.
 	ConsumedStackOutputs() *[]StackOutputReference

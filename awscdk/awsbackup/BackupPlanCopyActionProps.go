@@ -28,12 +28,8 @@ type BackupPlanCopyActionProps struct {
 	// Specifies the duration after creation that a copied recovery point is deleted from the destination vault.
 	//
 	// Must be at least 90 days greater than `moveToColdStorageAfter`, if specified.
-	// Default: - recovery point is never deleted.
-	//
 	DeleteAfter awscdk.Duration `field:"optional" json:"deleteAfter" yaml:"deleteAfter"`
 	// Specifies the duration after creation that a copied recovery point is moved to cold storage.
-	// Default: - recovery point is never moved to cold storage.
-	//
 	MoveToColdStorageAfter awscdk.Duration `field:"optional" json:"moveToColdStorageAfter" yaml:"moveToColdStorageAfter"`
 }
 

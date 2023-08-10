@@ -37,19 +37,13 @@ type BackupSelectionProps struct {
 	//
 	// If `true`, the `AWSBackupServiceRolePolicyForRestores` managed
 	// policy will be attached to the role.
-	// Default: false.
-	//
 	AllowRestores *bool `field:"optional" json:"allowRestores" yaml:"allowRestores"`
 	// The name for this selection.
-	// Default: - a CDK generated name.
-	//
 	BackupSelectionName *string `field:"optional" json:"backupSelectionName" yaml:"backupSelectionName"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
 	// will be attached to this role.
-	// Default: - a new role will be created.
-	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The backup plan for this selection.
 	BackupPlan IBackupPlan `field:"required" json:"backupPlan" yaml:"backupPlan"`

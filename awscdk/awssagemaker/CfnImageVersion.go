@@ -27,6 +27,19 @@ import (
 //   cfnImageVersion := awscdk.Aws_sagemaker.NewCfnImageVersion(this, jsii.String("MyCfnImageVersion"), &CfnImageVersionProps{
 //   	BaseImage: jsii.String("baseImage"),
 //   	ImageName: jsii.String("imageName"),
+//
+//   	// the properties below are optional
+//   	Alias: jsii.String("alias"),
+//   	Aliases: []*string{
+//   		jsii.String("aliases"),
+//   	},
+//   	Horovod: jsii.Boolean(false),
+//   	JobType: jsii.String("jobType"),
+//   	MlFramework: jsii.String("mlFramework"),
+//   	Processor: jsii.String("processor"),
+//   	ProgrammingLang: jsii.String("programmingLang"),
+//   	ReleaseNotes: jsii.String("releaseNotes"),
+//   	VendorGuidance: jsii.String("vendorGuidance"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
@@ -34,6 +47,12 @@ import (
 type CfnImageVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The alias of the image version.
+	Alias() *string
+	SetAlias(val *string)
+	// List of aliases for the image version.
+	Aliases() *[]*string
+	SetAliases(val *[]*string)
 	// The URI of the container image version referenced by ImageVersion.
 	AttrContainerImage() *string
 	// The Amazon Resource Name (ARN) of the parent Image.
@@ -60,9 +79,15 @@ type CfnImageVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Indicates Horovod compatibility.
+	Horovod() interface{}
+	SetHorovod(val interface{})
 	// The name of the parent image.
 	ImageName() *string
 	SetImageName(val *string)
+	// Indicates SageMaker job type compatibility.
+	JobType() *string
+	SetJobType(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -73,13 +98,25 @@ type CfnImageVersion interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The machine learning framework vended in the image version.
+	MlFramework() *string
+	SetMlFramework(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Indicates CPU or GPU compatibility.
+	Processor() *string
+	SetProcessor(val *string)
+	// The supported programming language and its version.
+	ProgrammingLang() *string
+	SetProgrammingLang(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The maintainer description of the image version.
+	ReleaseNotes() *string
+	SetReleaseNotes(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -97,6 +134,9 @@ type CfnImageVersion interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The availability of the image version specified by the maintainer.
+	VendorGuidance() *string
+	SetVendorGuidance(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -230,6 +270,26 @@ type jsiiProxy_CfnImageVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnImageVersion) Alias() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"alias",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageVersion) Aliases() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"aliases",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImageVersion) AttrContainerImage() *string {
 	var returns *string
 	_jsii_.Get(
@@ -320,11 +380,31 @@ func (j *jsiiProxy_CfnImageVersion) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImageVersion) Horovod() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"horovod",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImageVersion) ImageName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"imageName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageVersion) JobType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jobType",
 		&returns,
 	)
 	return returns
@@ -340,6 +420,16 @@ func (j *jsiiProxy_CfnImageVersion) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImageVersion) MlFramework() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"mlFramework",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImageVersion) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -350,11 +440,41 @@ func (j *jsiiProxy_CfnImageVersion) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImageVersion) Processor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"processor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageVersion) ProgrammingLang() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"programmingLang",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImageVersion) Ref() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageVersion) ReleaseNotes() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"releaseNotes",
 		&returns,
 	)
 	return returns
@@ -390,6 +510,16 @@ func (j *jsiiProxy_CfnImageVersion) UpdatedProperties() *map[string]interface{} 
 	return returns
 }
 
+func (j *jsiiProxy_CfnImageVersion) VendorGuidance() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vendorGuidance",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnImageVersion(scope constructs.Construct, id *string, props *CfnImageVersionProps) CfnImageVersion {
 	_init_.Initialize()
@@ -418,6 +548,22 @@ func NewCfnImageVersion_Override(c CfnImageVersion, scope constructs.Construct, 
 	)
 }
 
+func (j *jsiiProxy_CfnImageVersion)SetAlias(val *string) {
+	_jsii_.Set(
+		j,
+		"alias",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageVersion)SetAliases(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"aliases",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnImageVersion)SetBaseImage(val *string) {
 	if err := j.validateSetBaseImageParameters(val); err != nil {
 		panic(err)
@@ -429,6 +575,17 @@ func (j *jsiiProxy_CfnImageVersion)SetBaseImage(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnImageVersion)SetHorovod(val interface{}) {
+	if err := j.validateSetHorovodParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"horovod",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnImageVersion)SetImageName(val *string) {
 	if err := j.validateSetImageNameParameters(val); err != nil {
 		panic(err)
@@ -436,6 +593,54 @@ func (j *jsiiProxy_CfnImageVersion)SetImageName(val *string) {
 	_jsii_.Set(
 		j,
 		"imageName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageVersion)SetJobType(val *string) {
+	_jsii_.Set(
+		j,
+		"jobType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageVersion)SetMlFramework(val *string) {
+	_jsii_.Set(
+		j,
+		"mlFramework",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageVersion)SetProcessor(val *string) {
+	_jsii_.Set(
+		j,
+		"processor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageVersion)SetProgrammingLang(val *string) {
+	_jsii_.Set(
+		j,
+		"programmingLang",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageVersion)SetReleaseNotes(val *string) {
+	_jsii_.Set(
+		j,
+		"releaseNotes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageVersion)SetVendorGuidance(val *string) {
+	_jsii_.Set(
+		j,
+		"vendorGuidance",
 		val,
 	)
 }

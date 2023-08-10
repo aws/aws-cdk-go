@@ -29,18 +29,12 @@ type LambdaInvokeFunctionProps struct {
 	// Experimental.
 	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 	// The type of invocation to use.
-	// Default: InvocationType.REQUEST_RESPONE
-	//
 	// Experimental.
 	InvocationType InvocationType `field:"optional" json:"invocationType" yaml:"invocationType"`
 	// Whether to return the logs as part of the response.
-	// Default: LogType.NONE
-	//
 	// Experimental.
 	LogType LogType `field:"optional" json:"logType" yaml:"logType"`
 	// Payload to send as part of the invoke.
-	// Default: - no payload.
-	//
 	// Experimental.
 	Payload *string `field:"optional" json:"payload" yaml:"payload"`
 }

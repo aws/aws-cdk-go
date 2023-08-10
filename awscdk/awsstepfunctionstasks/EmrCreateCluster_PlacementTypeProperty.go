@@ -22,14 +22,10 @@ type EmrCreateCluster_PlacementTypeProperty struct {
 	//
 	// AvailabilityZone is used for uniform instance groups, while AvailabilityZones
 	// (plural) is used for instance fleets.
-	// Default: - EMR selected default.
-	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone.
 	//
 	// AvailabilityZones is used for instance fleets, while AvailabilityZone (singular) is used for uniform instance groups.
-	// Default: - EMR selected default.
-	//
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 }
 

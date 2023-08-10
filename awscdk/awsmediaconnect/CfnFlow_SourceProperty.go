@@ -96,15 +96,11 @@ type CfnFlow_SourceProperty struct {
 	// The maximum latency in milliseconds for a RIST or Zixi-based source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-maxlatency
 	//
-	// Default: - 2000.
-	//
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`
 	// The minimum latency in milliseconds for SRT-based streams.
 	//
 	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-minlatency
-	//
-	// Default: - 2000.
 	//
 	MinLatency *float64 `field:"optional" json:"minLatency" yaml:"minLatency"`
 	// The name of the source.

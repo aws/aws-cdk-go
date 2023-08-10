@@ -40,8 +40,6 @@ type jsiiProxy_ClientAttributes struct {
 }
 
 // Creates a ClientAttributes with the specified attributes.
-// Default: - a ClientAttributes object without any attributes.
-//
 func NewClientAttributes() ClientAttributes {
 	_init_.Initialize()
 
@@ -57,8 +55,6 @@ func NewClientAttributes() ClientAttributes {
 }
 
 // Creates a ClientAttributes with the specified attributes.
-// Default: - a ClientAttributes object without any attributes.
-//
 func NewClientAttributes_Override(c ClientAttributes) {
 	_init_.Initialize()
 

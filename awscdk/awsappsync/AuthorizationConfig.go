@@ -23,12 +23,8 @@ package awsappsync
 //
 type AuthorizationConfig struct {
 	// Additional authorization modes.
-	// Default: - No other modes.
-	//
 	AdditionalAuthorizationModes *[]*AuthorizationMode `field:"optional" json:"additionalAuthorizationModes" yaml:"additionalAuthorizationModes"`
 	// Optional authorization configuration.
-	// Default: - API Key authorization.
-	//
 	DefaultAuthorization *AuthorizationMode `field:"optional" json:"defaultAuthorization" yaml:"defaultAuthorization"`
 }
 

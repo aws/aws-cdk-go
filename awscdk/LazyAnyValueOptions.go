@@ -15,12 +15,8 @@ package awscdk
 //
 type LazyAnyValueOptions struct {
 	// Use the given name as a display hint.
-	// Default: - No hint.
-	//
 	DisplayHint *string `field:"optional" json:"displayHint" yaml:"displayHint"`
 	// If the produced value is an array and it is empty, return 'undefined' instead.
-	// Default: false.
-	//
 	OmitEmptyArray *bool `field:"optional" json:"omitEmptyArray" yaml:"omitEmptyArray"`
 }
 

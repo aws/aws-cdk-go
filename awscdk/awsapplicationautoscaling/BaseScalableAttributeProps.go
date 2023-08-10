@@ -29,8 +29,6 @@ type BaseScalableAttributeProps struct {
 	// Maximum capacity to scale to.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
-	// Default: 1.
-	//
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 	// Scalable dimension of the attribute.
 	Dimension *string `field:"required" json:"dimension" yaml:"dimension"`

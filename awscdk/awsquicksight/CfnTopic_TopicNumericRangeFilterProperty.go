@@ -38,8 +38,6 @@ type CfnTopic_TopicNumericRangeFilterProperty struct {
 	// If set to true, topics whose numeric field value is equal to the endpoint values will be included in the filter. If set to false, topics whose numeric field value is equal to the endpoint values will be excluded from the filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnumericrangefilter.html#cfn-quicksight-topic-topicnumericrangefilter-inclusive
 	//
-	// Default: - false.
-	//
 	Inclusive interface{} `field:"optional" json:"inclusive" yaml:"inclusive"`
 }
 

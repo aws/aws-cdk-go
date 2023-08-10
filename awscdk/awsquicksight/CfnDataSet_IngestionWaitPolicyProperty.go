@@ -23,15 +23,11 @@ type CfnDataSet_IngestionWaitPolicyProperty struct {
 	// Default timeout is 36 hours. Applicable only when `DataSetImportMode` mode is set to SPICE and `WaitForSpiceIngestion` is set to true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours
 	//
-	// Default: - 36.
-	//
 	IngestionWaitTimeInHours *float64 `field:"optional" json:"ingestionWaitTimeInHours" yaml:"ingestionWaitTimeInHours"`
 	// Wait for SPICE ingestion to finish to mark dataset creation or update as successful.
 	//
 	// Default (true). Applicable only when `DataSetImportMode` mode is set to SPICE.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion
-	//
-	// Default: - true.
 	//
 	WaitForSpiceIngestion interface{} `field:"optional" json:"waitForSpiceIngestion" yaml:"waitForSpiceIngestion"`
 }

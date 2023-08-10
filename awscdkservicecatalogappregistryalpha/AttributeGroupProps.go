@@ -35,8 +35,6 @@ type AttributeGroupProps struct {
 	// Experimental.
 	Attributes *map[string]interface{} `field:"required" json:"attributes" yaml:"attributes"`
 	// Description for attribute group.
-	// Default: - No description provided.
-	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }

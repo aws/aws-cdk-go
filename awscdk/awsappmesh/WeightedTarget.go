@@ -22,12 +22,8 @@ type WeightedTarget struct {
 	// The VirtualNode the route points to.
 	VirtualNode IVirtualNode `field:"required" json:"virtualNode" yaml:"virtualNode"`
 	// The port to match from the request.
-	// Default: - do not match on port.
-	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The weight for the target.
-	// Default: 1.
-	//
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

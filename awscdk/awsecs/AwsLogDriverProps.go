@@ -45,24 +45,14 @@ type AwsLogDriverProps struct {
 	// A log message consists of a line that matches the pattern and any
 	// following lines that don’t match the pattern. Thus the matched line is
 	// the delimiter between log messages.
-	// Default: - No multiline matching.
-	//
 	DatetimeFormat *string `field:"optional" json:"datetimeFormat" yaml:"datetimeFormat"`
 	// The log group to log to.
-	// Default: - A log group is automatically created.
-	//
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days log events are kept in CloudWatch Logs when the log group is automatically created by this construct.
-	// Default: - Logs never expire.
-	//
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When AwsLogDriverMode.NON_BLOCKING is configured, this parameter controls the size of the non-blocking buffer used to temporarily store messages. This parameter is not valid with AwsLogDriverMode.BLOCKING.
-	// Default: - 1 megabyte if driver mode is non-blocking, otherwise this property is not set.
-	//
 	MaxBufferSize awscdk.Size `field:"optional" json:"maxBufferSize" yaml:"maxBufferSize"`
 	// The delivery mode of log messages from the container to awslogs.
-	// Default: - AwsLogDriverMode.BLOCKING
-	//
 	Mode AwsLogDriverMode `field:"optional" json:"mode" yaml:"mode"`
 	// This option defines a multiline start pattern using a regular expression.
 	//
@@ -71,8 +61,6 @@ type AwsLogDriverProps struct {
 	// the delimiter between log messages.
 	//
 	// This option is ignored if datetimeFormat is also configured.
-	// Default: - No multiline matching.
-	//
 	MultilinePattern *string `field:"optional" json:"multilinePattern" yaml:"multilinePattern"`
 }
 

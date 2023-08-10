@@ -82,8 +82,6 @@ type VpcContextResponse struct {
 	// Element count: #(availabilityZones) · #(isolatedGroups).
 	IsolatedSubnetRouteTableIds *[]*string `field:"optional" json:"isolatedSubnetRouteTableIds" yaml:"isolatedSubnetRouteTableIds"`
 	// The ID of the AWS account that owns the VPC.
-	// Default: the account id of the parent stack.
-	//
 	OwnerAccountId *string `field:"optional" json:"ownerAccountId" yaml:"ownerAccountId"`
 	// IDs of all private subnets.
 	//
@@ -110,8 +108,6 @@ type VpcContextResponse struct {
 	// Element count: #(availabilityZones) · #(publicGroups).
 	PublicSubnetRouteTableIds *[]*string `field:"optional" json:"publicSubnetRouteTableIds" yaml:"publicSubnetRouteTableIds"`
 	// The region in which the VPC is in.
-	// Default: - Region of the parent stack.
-	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// The subnet groups discovered for the given VPC.
 	//
@@ -119,12 +115,8 @@ type VpcContextResponse struct {
 	// if the VPC has any.
 	// This property will only be populated if `VpcContextQuery.returnAsymmetricSubnets`
 	// is true.
-	// Default: - no subnet groups will be returned unless `VpcContextQuery.returnAsymmetricSubnets` is true
-	//
 	SubnetGroups *[]*VpcSubnetGroup `field:"optional" json:"subnetGroups" yaml:"subnetGroups"`
 	// VPC cidr.
-	// Default: - CIDR information not available.
-	//
 	VpcCidrBlock *string `field:"optional" json:"vpcCidrBlock" yaml:"vpcCidrBlock"`
 	// The VPN gateway ID.
 	VpnGatewayId *string `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`

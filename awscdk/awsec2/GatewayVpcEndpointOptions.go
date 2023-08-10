@@ -61,8 +61,6 @@ type GatewayVpcEndpointOptions struct {
 	//   	},
 	//   })
 	//
-	// Default: - All subnets in the VPC.
-	//
 	Subnets *[]*SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 }
 

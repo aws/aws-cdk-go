@@ -22,8 +22,6 @@ type CfnPipe_BatchRetryStrategyProperty struct {
 	// If the value of `attempts` is greater than one, the job is retried on failure the same number of attempts as the value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchretrystrategy.html#cfn-pipes-pipe-batchretrystrategy-attempts
 	//
-	// Default: - 0.
-	//
 	Attempts *float64 `field:"optional" json:"attempts" yaml:"attempts"`
 }
 

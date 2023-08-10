@@ -202,6 +202,10 @@ func init() {
 		reflect.TypeOf((*CfnCrawler_DynamoDBTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnCrawler.IcebergTargetProperty",
+		reflect.TypeOf((*CfnCrawler_IcebergTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnCrawler.JdbcTargetProperty",
 		reflect.TypeOf((*CfnCrawler_JdbcTargetProperty)(nil)).Elem(),
 	)
@@ -1049,6 +1053,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberProperty{JsiiProperty: "openTableFormatInput", GoGetter: "OpenTableFormatInput"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -1072,6 +1077,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnTable.ColumnProperty",
 		reflect.TypeOf((*CfnTable_ColumnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.IcebergInputProperty",
+		reflect.TypeOf((*CfnTable_IcebergInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.OpenTableFormatInputProperty",
+		reflect.TypeOf((*CfnTable_OpenTableFormatInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnTable.OrderProperty",

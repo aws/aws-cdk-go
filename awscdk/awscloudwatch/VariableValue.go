@@ -31,8 +31,6 @@ type VariableValue struct {
 	// Value of the selected item.
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// Optional label for the selected item.
-	// Default: - the variable's value.
-	//
 	Label *string `field:"optional" json:"label" yaml:"label"`
 }
 

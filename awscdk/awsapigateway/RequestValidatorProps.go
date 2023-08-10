@@ -19,16 +19,10 @@ package awsapigateway
 //
 type RequestValidatorProps struct {
 	// The name of this request validator.
-	// Default: None.
-	//
 	RequestValidatorName *string `field:"optional" json:"requestValidatorName" yaml:"requestValidatorName"`
 	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
-	// Default: false.
-	//
 	ValidateRequestBody *bool `field:"optional" json:"validateRequestBody" yaml:"validateRequestBody"`
 	// Indicates whether to validate request parameters.
-	// Default: false.
-	//
 	ValidateRequestParameters *bool `field:"optional" json:"validateRequestParameters" yaml:"validateRequestParameters"`
 	// The rest API that this model is part of.
 	//

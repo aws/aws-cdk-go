@@ -25,8 +25,6 @@ type EcsVolumeOptions struct {
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// if set, the container will have readonly access to the volume.
-	// Default: false.
-	//
 	// Experimental.
 	Readonly *bool `field:"optional" json:"readonly" yaml:"readonly"`
 }

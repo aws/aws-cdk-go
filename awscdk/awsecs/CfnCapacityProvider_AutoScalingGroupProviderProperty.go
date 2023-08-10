@@ -25,11 +25,11 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html
 //
 type CfnCapacityProvider_AutoScalingGroupProviderProperty struct {
-	// The Amazon Resource Name (ARN) that identifies the Auto Scaling group.
+	// The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
 	//
 	AutoScalingGroupArn *string `field:"required" json:"autoScalingGroupArn" yaml:"autoScalingGroupArn"`
-	// The managed scaling settings for the Auto Scaling group capacity provider.
+	// he managed scaling settings for the Auto Scaling group capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
 	//
 	ManagedScaling interface{} `field:"optional" json:"managedScaling" yaml:"managedScaling"`

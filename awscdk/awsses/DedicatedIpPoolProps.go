@@ -14,8 +14,6 @@ package awsses
 //
 type DedicatedIpPoolProps struct {
 	// A name for the dedicated IP pool.
-	// Default: - a CloudFormation generated name.
-	//
 	DedicatedIpPoolName *string `field:"optional" json:"dedicatedIpPoolName" yaml:"dedicatedIpPoolName"`
 }
 

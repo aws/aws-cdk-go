@@ -20,8 +20,6 @@ type CfnLaunchProfile_VolumeConfigurationProperty struct {
 	// <p>The number of I/O operations per second for the root volume that is attached to             streaming session.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-volumeconfiguration.html#cfn-nimblestudio-launchprofile-volumeconfiguration-iops
 	//
-	// Default: - 3000.
-	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// <p>The size of the root volume that is attached to the streaming session.
 	//
@@ -29,15 +27,11 @@ type CfnLaunchProfile_VolumeConfigurationProperty struct {
 	//             size is measured in GiBs.</p>
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-volumeconfiguration.html#cfn-nimblestudio-launchprofile-volumeconfiguration-size
 	//
-	// Default: - 500.
-	//
 	Size *float64 `field:"optional" json:"size" yaml:"size"`
 	// <p>The throughput to provision for the root volume that is attached to the streaming             session.
 	//
 	// The throughput is measured in MiB/s.</p>
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-volumeconfiguration.html#cfn-nimblestudio-launchprofile-volumeconfiguration-throughput
-	//
-	// Default: - 125.
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 }

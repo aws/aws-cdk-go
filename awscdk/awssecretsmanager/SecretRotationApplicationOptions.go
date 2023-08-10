@@ -14,8 +14,6 @@ package awssecretsmanager
 //
 type SecretRotationApplicationOptions struct {
 	// Whether the rotation application uses the mutli user scheme.
-	// Default: false.
-	//
 	IsMultiUser *bool `field:"optional" json:"isMultiUser" yaml:"isMultiUser"`
 }
 

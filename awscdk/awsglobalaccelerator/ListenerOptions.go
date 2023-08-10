@@ -53,16 +53,10 @@ type ListenerOptions struct {
 	// By default, each connection from each client is routed to seperate
 	// endpoints. Set client affinity to SOURCE_IP to route all connections from
 	// a single client to the same endpoint.
-	// Default: ClientAffinity.NONE
-	//
 	ClientAffinity ClientAffinity `field:"optional" json:"clientAffinity" yaml:"clientAffinity"`
 	// Name of the listener.
-	// Default: - logical ID of the resource.
-	//
 	ListenerName *string `field:"optional" json:"listenerName" yaml:"listenerName"`
 	// The protocol for the connections from clients to the accelerator.
-	// Default: ConnectionProtocol.TCP
-	//
 	Protocol ConnectionProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

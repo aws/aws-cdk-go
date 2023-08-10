@@ -108,6 +108,26 @@ glue.NewJob(this, jsii.String("RayJob"), &JobProps{
 })
 ```
 
+### Enable Spark UI
+
+Enable Spark UI setting the `sparkUI` property.
+
+```go
+glue.NewJob(this, jsii.String("EnableSparkUI"), &JobProps{
+	JobName: jsii.String("EtlJobWithSparkUIPrefix"),
+	SparkUI: &SparkUIProps{
+		Enabled: jsii.Boolean(true),
+	},
+	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
+		GlueVersion: glue.GlueVersion_V3_0(),
+		PythonVersion: glue.PythonVersion_THREE,
+		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+	}),
+})
+```
+
+The `sparkUI` property also allows the specification of an s3 bucket and a bucket prefix.
+
 See [documentation](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) for more information on adding jobs in Glue.
 
 ## Connection

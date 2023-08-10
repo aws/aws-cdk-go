@@ -84,7 +84,7 @@ func (j *jsiiProxy_CfnConnector) validateSetAccessRoleParameters(val *string) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnConnector) validateSetAs2ConfigParameters(val interface{}) error {
+func (j *jsiiProxy_CfnConnector) validateSetSftpConfigParameters(val interface{}) error {
 	return nil
 }
 

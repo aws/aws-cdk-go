@@ -39,16 +39,10 @@ import (
 //
 type SynthesizeStackArtifactOptions struct {
 	// Identifiers of additional dependencies.
-	// Default: - No additional dependencies.
-	//
 	AdditionalDependencies *[]*string `field:"optional" json:"additionalDependencies" yaml:"additionalDependencies"`
 	// The role that needs to be assumed to deploy the stack.
-	// Default: - No role is assumed (current credentials are used).
-	//
 	AssumeRoleArn *string `field:"optional" json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The externalID to use with the assumeRoleArn.
-	// Default: - No externalID is used.
-	//
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// SSM parameter where the bootstrap stack version number can be found.
 	//
@@ -59,28 +53,16 @@ type SynthesizeStackArtifactOptions struct {
 	//   outputs.
 	// - If this value is set, the bootstrap stack can have any name because
 	//   we won't need to look it up.
-	// Default: - Bootstrap stack version number looked up.
-	//
 	BootstrapStackVersionSsmParameter *string `field:"optional" json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// The role that is passed to CloudFormation to execute the change set.
-	// Default: - No role is passed (currently assumed role/credentials are used).
-	//
 	CloudFormationExecutionRoleArn *string `field:"optional" json:"cloudFormationExecutionRoleArn" yaml:"cloudFormationExecutionRoleArn"`
 	// The role to use to look up values from the target AWS account.
-	// Default: - None.
-	//
 	LookupRole *cloudassemblyschema.BootstrapRole `field:"optional" json:"lookupRole" yaml:"lookupRole"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
-	// Default: - No parameters.
-	//
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// Version of bootstrap stack required to deploy this stack.
-	// Default: - No bootstrap stack required.
-	//
 	RequiresBootstrapStackVersion *float64 `field:"optional" json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 	// If the stack template has already been included in the asset manifest, its asset URL.
-	// Default: - Not uploaded yet, upload just before deploying.
-	//
 	StackTemplateAssetObjectUrl *string `field:"optional" json:"stackTemplateAssetObjectUrl" yaml:"stackTemplateAssetObjectUrl"`
 }
 

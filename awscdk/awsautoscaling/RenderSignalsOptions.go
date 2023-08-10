@@ -15,12 +15,8 @@ package awsautoscaling
 //
 type RenderSignalsOptions struct {
 	// The desiredCapacity of the ASG.
-	// Default: - desired capacity not configured.
-	//
 	DesiredCapacity *float64 `field:"optional" json:"desiredCapacity" yaml:"desiredCapacity"`
 	// The minSize of the ASG.
-	// Default: - minCapacity not configured.
-	//
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 }
 

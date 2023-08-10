@@ -27,36 +27,20 @@ type IStateMachine interface {
 	// Grant the given identity read permissions for this state machine.
 	GrantTaskResponse(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this State Machine's executions.
-	// Default: - sum over 5 minutes.
-	//
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that were aborted.
-	// Default: - sum over 5 minutes.
-	//
 	MetricAborted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that failed.
-	// Default: - sum over 5 minutes.
-	//
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that were started.
-	// Default: - sum over 5 minutes.
-	//
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that succeeded.
-	// Default: - sum over 5 minutes.
-	//
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that were throttled.
-	// Default: sum over 5 minutes.
-	//
 	MetricThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the interval, in milliseconds, between the time the execution starts and the time it closes.
-	// Default: - sum over 5 minutes.
-	//
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that timed out.
-	// Default: - sum over 5 minutes.
-	//
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The ARN of the state machine.
 	StateMachineArn() *string

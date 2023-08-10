@@ -15,19 +15,16 @@ import (
 // A Glue Job.
 //
 // Example:
-//   var bucket bucket
-//
-//   glue.NewJob(this, jsii.String("ScalaSparkEtlJob"), &JobProps{
-//   	Executable: glue.JobExecutable_ScalaEtl(&ScalaJobExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V4_0(),
-//   		Script: glue.Code_FromBucket(bucket, jsii.String("src/com/example/HelloWorld.scala")),
-//   		ClassName: jsii.String("com.example.HelloWorld"),
-//   		ExtraJars: []code{
-//   			glue.*code_*FromBucket(bucket, jsii.String("jars/HelloWorld.jar")),
-//   		},
+//   glue.NewJob(this, jsii.String("EnableSparkUI"), &JobProps{
+//   	JobName: jsii.String("EtlJobWithSparkUIPrefix"),
+//   	SparkUI: &SparkUIProps{
+//   		Enabled: jsii.Boolean(true),
+//   	},
+//   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
+//   		GlueVersion: glue.GlueVersion_V3_0(),
+//   		PythonVersion: glue.PythonVersion_THREE,
+//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
 //   	}),
-//   	WorkerType: glue.WorkerType_G_8X(),
-//   	Description: jsii.String("an example Scala ETL job"),
 //   })
 //
 // Experimental.
