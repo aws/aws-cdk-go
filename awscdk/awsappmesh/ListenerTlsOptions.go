@@ -61,6 +61,8 @@ type ListenerTlsOptions struct {
 	// Represents a listener's TLS validation context.
 	//
 	// The client certificate will only be validated if the client provides it, enabling mutual TLS.
+	// Default: - client TLS certificate is not required.
+	//
 	MutualTlsValidation *MutualTlsValidation `field:"optional" json:"mutualTlsValidation" yaml:"mutualTlsValidation"`
 }
 

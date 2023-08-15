@@ -31,19 +31,29 @@ type EventInvokeConfigProps struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
+	// Default: Duration.hours(6)
+	//
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
+	// Default: - no destination.
+	//
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
+	// Default: - no destination.
+	//
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
+	// Default: 2.
+	//
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The Lambda function.
 	Function IFunction `field:"required" json:"function" yaml:"function"`
 	// The qualifier.
+	// Default: - latest version.
+	//
 	Qualifier *string `field:"optional" json:"qualifier" yaml:"qualifier"`
 }
 

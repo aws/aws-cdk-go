@@ -34,6 +34,8 @@ type CfnCustomerGatewayProps struct {
 	// Default: 65000.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn
 	//
+	// Default: - 65000.
+	//
 	BgpAsn *float64 `field:"required" json:"bgpAsn" yaml:"bgpAsn"`
 	// IPv4 address for the customer gateway device's outside interface.
 	//

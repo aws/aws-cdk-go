@@ -21,6 +21,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/documentdb/latest/developerguide/backup-restore.db-cluster-snapshots.html#backup-restore.backup-window
 //
+// Default: - The retention period for automated backups is 1 day.
+// The preferred backup window will be a 30-minute window selected at random
+// from an 8-hour block of time for each AWS Region.
+//
 type BackupProps struct {
 	// How many days to retain the backup.
 	Retention awscdk.Duration `field:"required" json:"retention" yaml:"retention"`
@@ -29,6 +33,10 @@ type BackupProps struct {
 	// Must be at least 30 minutes long.
 	//
 	// Example: '01:00-02:00'.
+	// Default: - a 30-minute window selected at random from an 8-hour block of
+	// time for each AWS Region. To see the time blocks available, see
+	// https://docs.aws.amazon.com/documentdb/latest/developerguide/backup-restore.db-cluster-snapshots.html#backup-restore.backup-window
+	//
 	PreferredWindow *string `field:"optional" json:"preferredWindow" yaml:"preferredWindow"`
 }
 

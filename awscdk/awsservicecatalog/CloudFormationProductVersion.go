@@ -23,12 +23,18 @@ type CloudFormationProductVersion struct {
 	// The S3 template that points to the provisioning version template.
 	CloudFormationTemplate CloudFormationTemplate `field:"required" json:"cloudFormationTemplate" yaml:"cloudFormationTemplate"`
 	// The description of the product version.
+	// Default: - No description provided.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the product version.
+	// Default: - No product version name provided.
+	//
 	ProductVersionName *string `field:"optional" json:"productVersionName" yaml:"productVersionName"`
 	// Whether the specified product template will be validated by CloudFormation.
 	//
 	// If turned off, an invalid template configuration can be stored.
+	// Default: true.
+	//
 	ValidateTemplate *bool `field:"optional" json:"validateTemplate" yaml:"validateTemplate"`
 }
 

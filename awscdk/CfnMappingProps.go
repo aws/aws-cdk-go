@@ -24,6 +24,8 @@ type CfnMappingProps struct {
 	// For example, if you want to set values based on a region, you can create a mapping
 	// that uses the region name as a key and contains the values you want to specify for
 	// each specific region.
+	// Default: - No mapping.
+	//
 	Mapping *map[string]*map[string]interface{} `field:"optional" json:"mapping" yaml:"mapping"`
 }
 

@@ -64,6 +64,7 @@ type CfnRunGroup interface {
 	// The group's maximum duration setting in minutes.
 	MaxDuration() *float64
 	SetMaxDuration(val *float64)
+	// The maximum GPUs that can be used by a run group.
 	MaxGpus() *float64
 	SetMaxGpus(val *float64)
 	// The group's maximum concurrent run setting.

@@ -27,9 +27,13 @@ import (
 // Experimental.
 type ResourceCreationLimitPolicy struct {
 	// The maximum number of game sessions that an individual can create during the policy period.
+	// Default: no limit on the number of game sessions that an individual can create during the policy period.
+	//
 	// Experimental.
 	NewGameSessionsPerCreator *float64 `field:"optional" json:"newGameSessionsPerCreator" yaml:"newGameSessionsPerCreator"`
 	// The time span used in evaluating the resource creation limit policy.
+	// Default: no policy period.
+	//
 	// Experimental.
 	PolicyPeriod awscdk.Duration `field:"optional" json:"policyPeriod" yaml:"policyPeriod"`
 }

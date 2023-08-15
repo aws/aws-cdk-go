@@ -58,8 +58,12 @@ package awscloudfront
 //
 type OriginBindConfig struct {
 	// The failover configuration for this Origin.
+	// Default: - nothing is returned.
+	//
 	FailoverConfig *OriginFailoverConfig `field:"optional" json:"failoverConfig" yaml:"failoverConfig"`
 	// The CloudFormation OriginProperty configuration for this Origin.
+	// Default: - nothing is returned.
+	//
 	OriginProperty *CfnDistribution_OriginProperty `field:"optional" json:"originProperty" yaml:"originProperty"`
 }
 

@@ -13,24 +13,33 @@ package awscdk
 //
 type AppProps struct {
 	// Include runtime versioning information in the Stacks of this app.
+	// Default: Value of 'aws:cdk:version-reporting' context key.
+	//
 	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
 	// Automatically call `synth()` before the program exits.
 	//
 	// If you set this, you don't have to call `synth()` explicitly. Note that
 	// this feature is only available for certain programming languages, and
 	// calling `synth()` is still recommended.
+	// Default: true if running via CDK CLI (`CDK_OUTDIR` is set), `false`
+	// otherwise.
+	//
 	AutoSynth *bool `field:"optional" json:"autoSynth" yaml:"autoSynth"`
 	// Additional context values for the application.
 	//
 	// Context set by the CLI or the `context` key in `cdk.json` has precedence.
 	//
 	// Context can be read from any construct using `node.getContext(key)`.
+	// Default: - no additional context.
+	//
 	Context *map[string]interface{} `field:"optional" json:"context" yaml:"context"`
 	// The stack synthesizer to use by default for all Stacks in the App.
 	//
 	// The Stack Synthesizer controls aspects of synthesis and deployment,
 	// like how assets are referenced and what IAM roles to use. For more
 	// information, see the README of the main CDK package.
+	// Default: - A `DefaultStackSynthesizer` with default settings.
+	//
 	DefaultStackSynthesizer IReusableStackSynthesizer `field:"optional" json:"defaultStackSynthesizer" yaml:"defaultStackSynthesizer"`
 	// The output directory into which to emit synthesized artifacts.
 	//
@@ -39,8 +48,13 @@ type AppProps struct {
 	// directory the CLI will fail to pick up the generated Cloud Assembly.
 	//
 	// This property is intended for internal and testing use.
+	// Default: - If this value is _not_ set, considers the environment variable `CDK_OUTDIR`.
+	//   If `CDK_OUTDIR` is not defined, uses a temp directory.
+	//
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
 	// Validation plugins to run after synthesis.
+	// Default: - no validation plugins.
+	//
 	PolicyValidationBeta1 *[]IPolicyValidationPluginBeta1 `field:"optional" json:"policyValidationBeta1" yaml:"policyValidationBeta1"`
 	// Additional context values for the application.
 	//
@@ -68,10 +82,16 @@ type AppProps struct {
 	//   	},
 	//   })
 	//
+	// Default: - no additional context.
+	//
 	PostCliContext *map[string]interface{} `field:"optional" json:"postCliContext" yaml:"postCliContext"`
 	// Include construct creation stack trace in the `aws:cdk:trace` metadata key of all constructs.
+	// Default: true stack traces are included unless `aws:cdk:disable-stack-trace` is set in the context.
+	//
 	StackTraces *bool `field:"optional" json:"stackTraces" yaml:"stackTraces"`
 	// Include construct tree metadata as part of the Cloud Assembly.
+	// Default: true.
+	//
 	TreeMetadata *bool `field:"optional" json:"treeMetadata" yaml:"treeMetadata"`
 }
 

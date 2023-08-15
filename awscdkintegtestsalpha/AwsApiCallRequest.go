@@ -42,6 +42,8 @@ type AwsApiCallRequest struct {
 	// a single value to use, then this should be set to 'true'. For example,
 	// you could make a StepFunctions.startExecution api call and retreive the
 	// `executionArn` from the response.
+	// Default: 'false'.
+	//
 	// Experimental.
 	FlattenResponse *string `field:"optional" json:"flattenResponse" yaml:"flattenResponse"`
 	// Restrict the data returned by the API call to specific paths in the API response.
@@ -49,9 +51,13 @@ type AwsApiCallRequest struct {
 	// Use this to limit the data returned by the custom
 	// resource if working with API calls that could potentially result in custom
 	// response objects exceeding the hard limit of 4096 bytes.
+	// Default: - return all data.
+	//
 	// Experimental.
 	OutputPaths *[]*string `field:"optional" json:"outputPaths" yaml:"outputPaths"`
 	// Any parameters to pass to the api call.
+	// Default: - no parameters.
+	//
 	// Experimental.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }

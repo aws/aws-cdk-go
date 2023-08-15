@@ -46,6 +46,8 @@ type CfnApiKeyProps struct {
 	// Specifies whether the ApiKey can be used by callers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-enabled
 	//
+	// Default: - false.
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value.
 	//

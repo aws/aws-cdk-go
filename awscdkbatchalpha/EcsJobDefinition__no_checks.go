@@ -20,6 +20,10 @@ func (e *jsiiProxy_EcsJobDefinition) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
+func (e *jsiiProxy_EcsJobDefinition) validateGrantSubmitJobParameters(identity awsiam.IGrantable, queue IJobQueue) error {
+	return nil
+}
+
 func validateEcsJobDefinition_FromJobDefinitionArnParameters(scope constructs.Construct, id *string, jobDefinitionArn *string) error {
 	return nil
 }

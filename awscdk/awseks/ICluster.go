@@ -66,6 +66,8 @@ type ICluster interface {
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Default: - No security group.
+	//
 	ClusterHandlerSecurityGroup() awsec2.ISecurityGroup
 	// The physical name of the Cluster.
 	ClusterName() *string
@@ -75,6 +77,8 @@ type ICluster interface {
 	ClusterSecurityGroupId() *string
 	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
+	//
+	// Default: - IpFamily.IP_V4
 	//
 	IpFamily() IpFamily
 	// Custom environment variables when running `kubectl` against this cluster.

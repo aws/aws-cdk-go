@@ -36,11 +36,15 @@ type DeploymentProps struct {
 	// The Rest API to deploy.
 	Api IRestApi `field:"required" json:"api" yaml:"api"`
 	// A description of the purpose of the API Gateway deployment.
+	// Default: - No description.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// When an API Gateway model is updated, a new deployment will automatically be created.
 	//
 	// If this is true, the old API Gateway Deployment resource will not be deleted.
 	// This will allow manually reverting back to a previous deployment in case for example.
+	// Default: false.
+	//
 	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
 }
 

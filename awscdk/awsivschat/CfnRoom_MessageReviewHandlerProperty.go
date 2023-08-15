@@ -23,6 +23,8 @@ type CfnRoom_MessageReviewHandlerProperty struct {
 	// *Default* : `ALLOW`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-room-messagereviewhandler.html#cfn-ivschat-room-messagereviewhandler-fallbackresult
 	//
+	// Default: - "ALLOW".
+	//
 	FallbackResult *string `field:"optional" json:"fallbackResult" yaml:"fallbackResult"`
 	// Identifier of the message review handler.
 	//

@@ -21,8 +21,12 @@ package awsecs
 //
 type FirelensConfig struct {
 	// The log router to use.
+	// Default: - fluentbit.
+	//
 	Type FirelensLogRouterType `field:"required" json:"type" yaml:"type"`
 	// Firelens options.
+	// Default: - no additional options.
+	//
 	Options *FirelensOptions `field:"optional" json:"options" yaml:"options"`
 }
 

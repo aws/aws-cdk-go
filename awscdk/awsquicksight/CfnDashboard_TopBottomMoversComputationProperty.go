@@ -31,6 +31,8 @@ type CfnDashboard_TopBottomMoversComputationProperty struct {
 	// The mover size setup of the top and bottom movers computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-topbottommoverscomputation.html#cfn-quicksight-dashboard-topbottommoverscomputation-moversize
 	//
+	// Default: - 0.
+	//
 	MoverSize *float64 `field:"optional" json:"moverSize" yaml:"moverSize"`
 	// The name of a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-topbottommoverscomputation.html#cfn-quicksight-dashboard-topbottommoverscomputation-name

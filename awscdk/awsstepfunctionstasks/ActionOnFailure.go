@@ -15,6 +15,8 @@ package awsstepfunctionstasks
 //
 // Here, they are named as TERMINATE_JOB_FLOW, TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE respectively.
 //
+// Default: CONTINUE.
+//
 type ActionOnFailure string
 
 const (

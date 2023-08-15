@@ -384,11 +384,17 @@ type CfnTaskDefinitionProps struct {
 	NetworkMode *string `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
-	// The valid values are `host` or `task` . If `host` is specified, then all containers within the tasks that specified the `host` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If `task` is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference* .
+	// The valid values are `host` or `task` . On Fargate for Linux containers, the only valid value is `task` . For example, monitoring sidecars might need `pidMode` to access information about other containers running in the same task.
 	//
-	// If the `host` PID mode is used, be aware that there is a heightened risk of undesired process namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/) .
+	// If `host` is specified, all containers within the tasks that specified the `host` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
 	//
-	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
+	// If `task` is specified, all containers within the specified task share the same process namespace.
+	//
+	// If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference* .
+	//
+	// If the `host` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/) .
+	//
+	// > This parameter is not supported for Windows containers. > This parameter is only supported for tasks that are hosted on AWS Fargate if the tasks are using platform version `1.4.0` or later (Linux). This isn't supported for Windows containers on Fargate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
 	//
 	PidMode *string `field:"optional" json:"pidMode" yaml:"pidMode"`

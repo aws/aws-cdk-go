@@ -30,6 +30,8 @@ type IFairshareSchedulingPolicy interface {
 	// maximum available vCPU if there's only one fair share identifier,
 	// 6.25% if there are two fair share identifiers,
 	// and 1.56% if there are three fair share identifiers.
+	// Default: - no vCPU is reserved.
+	//
 	// Experimental.
 	ComputeReservation() *float64
 	// The amount of time to use to measure the usage of each job.
@@ -39,6 +41,8 @@ type IFairshareSchedulingPolicy interface {
 	// The decay is linear and gives preference to newer jobs.
 	//
 	// The maximum supported value is 604800 seconds (1 week).
+	// Default: - 0: only the current job usage is considered.
+	//
 	// Experimental.
 	ShareDecay() awscdk.Duration
 	// The shares that this Scheduling Policy applies to.

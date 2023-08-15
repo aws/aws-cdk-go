@@ -60,6 +60,8 @@ func NewAccessLog_Override(a AccessLog) {
 }
 
 // Path to a file to write access logs to.
+// Default: - no file based access logging.
+//
 func AccessLog_FromFilePath(filePath *string, loggingFormat LoggingFormat) AccessLog {
 	_init_.Initialize()
 

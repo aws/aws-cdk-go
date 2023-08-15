@@ -46,5 +46,10 @@ const (
 	// you should allow Batch to choose from as many different instance types as possible.
 	// Experimental.
 	AllocationStrategy_SPOT_CAPACITY_OPTIMIZED AllocationStrategy = "SPOT_CAPACITY_OPTIMIZED"
+	// The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price.
+	//
+	// The Batch team recommends this over `SPOT_CAPACITY_OPTIMIZED` in most instances.
+	// Experimental.
+	AllocationStrategy_SPOT_PRICE_CAPACITY_OPTIMIZED AllocationStrategy = "SPOT_PRICE_CAPACITY_OPTIMIZED"
 )
 

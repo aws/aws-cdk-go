@@ -45,10 +45,16 @@ type OAuthAuthorizationProps struct {
 	// (Can only choose POST, GET or PUT).
 	HttpMethod HttpMethod `field:"required" json:"httpMethod" yaml:"httpMethod"`
 	// Additional string parameters to add to the OAuth request body.
+	// Default: - No additional parameters.
+	//
 	BodyParameters *map[string]HttpParameter `field:"optional" json:"bodyParameters" yaml:"bodyParameters"`
 	// Additional string parameters to add to the OAuth request header.
+	// Default: - No additional parameters.
+	//
 	HeaderParameters *map[string]HttpParameter `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// Additional string parameters to add to the OAuth request query string.
+	// Default: - No additional parameters.
+	//
 	QueryStringParameters *map[string]HttpParameter `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 

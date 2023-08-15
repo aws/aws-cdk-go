@@ -27,6 +27,8 @@ type SubscriptionFilterOptions struct {
 	// Log events matching this pattern will be sent to the destination.
 	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
 	// The name of the subscription filter.
+	// Default: Automatically generated.
+	//
 	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 }
 

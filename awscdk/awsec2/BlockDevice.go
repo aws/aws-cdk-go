@@ -33,6 +33,8 @@ type BlockDevice struct {
 	//
 	// If set to false for the root device, the instance might fail the Amazon EC2 health check.
 	// Amazon EC2 Auto Scaling launches a replacement instance if the instance fails the health check.
+	// Default: true - device mapping is left untouched.
+	//
 	MappingEnabled *bool `field:"optional" json:"mappingEnabled" yaml:"mappingEnabled"`
 }
 

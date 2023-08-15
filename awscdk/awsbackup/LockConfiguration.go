@@ -34,6 +34,8 @@ type LockConfiguration struct {
 	// Before the lock date, you can delete Vault Lock from the vault or change
 	// the Vault Lock configuration. On and after the lock date, the Vault Lock
 	// becomes immutable and cannot be changed or deleted.
+	// Default: - Vault Lock can be deleted or changed at any time.
+	//
 	ChangeableFor awscdk.Duration `field:"optional" json:"changeableFor" yaml:"changeableFor"`
 	// The maximum retention period that the vault retains its recovery points.
 	//
@@ -44,6 +46,8 @@ type LockConfiguration struct {
 	// and you should either modify your lifecycle settings or use a different
 	// vault. Recovery points already saved in the vault prior to Vault Lock are
 	// not affected.
+	// Default: - Vault Lock does not enforce a maximum retention period.
+	//
 	MaxRetention awscdk.Duration `field:"optional" json:"maxRetention" yaml:"maxRetention"`
 }
 

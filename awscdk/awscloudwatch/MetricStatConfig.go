@@ -45,10 +45,16 @@ type MetricStatConfig struct {
 	// Aggregation function to use (can be either simple or a percentile).
 	Statistic *string `field:"required" json:"statistic" yaml:"statistic"`
 	// Account which this metric comes from.
+	// Default: Deployment account.
+	//
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The dimensions to apply to the alarm.
+	// Default: [].
+	//
 	Dimensions *[]*Dimension `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// Region which this metric comes from.
+	// Default: Deployment region.
+	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Unit used to filter the metric stream.
 	//
@@ -58,6 +64,8 @@ type MetricStatConfig struct {
 	//
 	// This field has been renamed from plain `unit` to clearly communicate
 	// its purpose.
+	// Default: - Refer to all metric datums.
+	//
 	UnitFilter Unit `field:"optional" json:"unitFilter" yaml:"unitFilter"`
 }
 

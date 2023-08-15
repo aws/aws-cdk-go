@@ -25,6 +25,8 @@ type EventBusAttributes struct {
 	// The JSON policy of this event bus resource.
 	EventBusPolicy *string `field:"required" json:"eventBusPolicy" yaml:"eventBusPolicy"`
 	// The partner event source to associate with this event bus resource.
+	// Default: - no partner event source.
+	//
 	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
 }
 

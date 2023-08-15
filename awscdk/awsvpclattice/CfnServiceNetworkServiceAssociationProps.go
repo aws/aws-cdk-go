@@ -29,6 +29,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkserviceassociation.html
 //
 type CfnServiceNetworkServiceAssociationProps struct {
+	// The DNS information of the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkserviceassociation.html#cfn-vpclattice-servicenetworkserviceassociation-dnsentry
 	//
 	DnsEntry interface{} `field:"optional" json:"dnsEntry" yaml:"dnsEntry"`

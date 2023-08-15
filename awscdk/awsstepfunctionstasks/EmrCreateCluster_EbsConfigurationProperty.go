@@ -33,8 +33,12 @@ package awsstepfunctionstasks
 //
 type EmrCreateCluster_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
+	// Default: - None.
+	//
 	EbsBlockDeviceConfigs *[]*EmrCreateCluster_EbsBlockDeviceConfigProperty `field:"optional" json:"ebsBlockDeviceConfigs" yaml:"ebsBlockDeviceConfigs"`
 	// Indicates whether an Amazon EBS volume is EBS-optimized.
+	// Default: - EMR selected default.
+	//
 	EbsOptimized *bool `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
 }
 

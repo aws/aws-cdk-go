@@ -25,6 +25,8 @@ type VpcSubnet struct {
 	// The identifier of the subnet.
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// CIDR range of the subnet.
+	// Default: - CIDR information not available.
+	//
 	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 }
 

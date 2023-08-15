@@ -35,6 +35,8 @@ type RoleMappingRule struct {
 	// Experimental.
 	MappedRole awsiam.IRole `field:"required" json:"mappedRole" yaml:"mappedRole"`
 	// How to match with the Claim value.
+	// Default: RoleMappingMatchType.EQUALS
+	//
 	// Experimental.
 	MatchType RoleMappingMatchType `field:"optional" json:"matchType" yaml:"matchType"`
 }

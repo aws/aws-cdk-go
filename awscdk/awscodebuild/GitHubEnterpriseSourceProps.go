@@ -43,6 +43,8 @@ type GitHubEnterpriseSourceProps struct {
 	// Example:
 	//   "mybranch"
 	//
+	// Default: the default branch's HEAD commit ID is used.
+	//
 	BranchOrRef *string `field:"optional" json:"branchOrRef" yaml:"branchOrRef"`
 	// This parameter is used for the `context` parameter in the GitHub commit status.
 	//
@@ -52,6 +54,8 @@ type GitHubEnterpriseSourceProps struct {
 	//   "My build #$CODEBUILD_BUILD_NUMBER"
 	//
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
+	//
+	// Default: "AWS CodeBuild $AWS_REGION ($PROJECT_NAME)".
 	//
 	BuildStatusContext *string `field:"optional" json:"buildStatusContext" yaml:"buildStatusContext"`
 	// The URL that the build will report back to the source provider.
@@ -63,6 +67,8 @@ type GitHubEnterpriseSourceProps struct {
 	//
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 	//
+	// Default: - link to the AWS Console for CodeBuild to a particular build execution.
+	//
 	BuildStatusUrl *string `field:"optional" json:"buildStatusUrl" yaml:"buildStatusUrl"`
 	// The depth of history to download.
 	//
@@ -71,21 +77,33 @@ type GitHubEnterpriseSourceProps struct {
 	// then the full history is downloaded with each build of the project.
 	CloneDepth *float64 `field:"optional" json:"cloneDepth" yaml:"cloneDepth"`
 	// Whether to fetch submodules while cloning git repo.
+	// Default: false.
+	//
 	FetchSubmodules *bool `field:"optional" json:"fetchSubmodules" yaml:"fetchSubmodules"`
 	// Whether to ignore SSL errors when connecting to the repository.
+	// Default: false.
+	//
 	IgnoreSslErrors *bool `field:"optional" json:"ignoreSslErrors" yaml:"ignoreSslErrors"`
 	// Whether to send notifications on your build's start and end.
+	// Default: true.
+	//
 	ReportBuildStatus *bool `field:"optional" json:"reportBuildStatus" yaml:"reportBuildStatus"`
 	// Whether to create a webhook that will trigger a build every time an event happens in the repository.
+	// Default: true if any `webhookFilters` were provided, false otherwise.
+	//
 	Webhook *bool `field:"optional" json:"webhook" yaml:"webhook"`
 	// A list of webhook filters that can constraint what events in the repository will trigger a build.
 	//
 	// A build is triggered if any of the provided filter groups match.
 	// Only valid if `webhook` was not provided as false.
+	// Default: every push and every Pull Request (create or update) triggers a build.
+	//
 	WebhookFilters *[]FilterGroup `field:"optional" json:"webhookFilters" yaml:"webhookFilters"`
 	// Trigger a batch build from a webhook instead of a standard one.
 	//
 	// Enabling this will enable batch builds on the CodeBuild project.
+	// Default: false.
+	//
 	WebhookTriggersBatchBuild *bool `field:"optional" json:"webhookTriggersBatchBuild" yaml:"webhookTriggersBatchBuild"`
 }
 

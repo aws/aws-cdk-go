@@ -156,21 +156,33 @@ type SourceConfiguration struct {
 	// The number of times that CloudFront attempts to connect to the origin.
 	//
 	// You can specify 1, 2, or 3 as the number of attempts.
+	// Default: 3.
+	//
 	ConnectionAttempts *float64 `field:"optional" json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// You can specify a number of seconds between 1 and 10 (inclusive).
+	// Default: cdk.Duration.seconds(10)
+	//
 	ConnectionTimeout awscdk.Duration `field:"optional" json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A custom origin source - for all non-s3 sources.
 	CustomOriginSource *CustomOriginConfig `field:"optional" json:"customOriginSource" yaml:"customOriginSource"`
 	// HTTP status code to failover to second origin.
+	// Default: [500, 502, 503, 504].
+	//
 	FailoverCriteriaStatusCodes *[]FailoverStatusCode `field:"optional" json:"failoverCriteriaStatusCodes" yaml:"failoverCriteriaStatusCodes"`
 	// A custom origin source for failover in case the s3OriginSource returns invalid status code.
+	// Default: - no failover configuration.
+	//
 	FailoverCustomOriginSource *CustomOriginConfig `field:"optional" json:"failoverCustomOriginSource" yaml:"failoverCustomOriginSource"`
 	// An s3 origin source for failover in case the s3OriginSource returns invalid status code.
+	// Default: - no failover configuration.
+	//
 	FailoverS3OriginSource *S3OriginConfig `field:"optional" json:"failoverS3OriginSource" yaml:"failoverS3OriginSource"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
+	//
+	// Default: - origin shield not enabled.
 	//
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
 	// An s3 origin source - if you're using s3 for your assets.

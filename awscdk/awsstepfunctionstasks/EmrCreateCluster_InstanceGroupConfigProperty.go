@@ -107,18 +107,30 @@ type EmrCreateCluster_InstanceGroupConfigProperty struct {
 	// The EC2 instance type for all instances in the instance group.
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster.
+	// Default: - None.
+	//
 	AutoScalingPolicy *EmrCreateCluster_AutoScalingPolicyProperty `field:"optional" json:"autoScalingPolicy" yaml:"autoScalingPolicy"`
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	//
 	// Expressed in USD.
+	// Default: - None.
+	//
 	BidPrice *string `field:"optional" json:"bidPrice" yaml:"bidPrice"`
 	// The list of configurations supplied for an EMR cluster instance group.
+	// Default: - None.
+	//
 	Configurations *[]*EmrCreateCluster_ConfigurationProperty `field:"optional" json:"configurations" yaml:"configurations"`
 	// EBS configurations that will be attached to each EC2 instance in the instance group.
+	// Default: - None.
+	//
 	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `field:"optional" json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// Market type of the EC2 instances used to create a cluster node.
+	// Default: - EMR selected default.
+	//
 	Market EmrCreateCluster_InstanceMarket `field:"optional" json:"market" yaml:"market"`
 	// Friendly name given to the instance group.
+	// Default: - None.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

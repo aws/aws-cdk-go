@@ -35,11 +35,15 @@ type CfnChannelProps struct {
 	// *Default* : `false`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
 	//
+	// Default: - false.
+	//
 	Authorized interface{} `field:"optional" json:"authorized" yaml:"authorized"`
 	// Whether the channel allows insecure RTMP ingest.
 	//
 	// *Default* : `false`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-insecureingest
+	//
+	// Default: - false.
 	//
 	InsecureIngest interface{} `field:"optional" json:"insecureIngest" yaml:"insecureIngest"`
 	// Channel latency mode. Valid values:.
@@ -52,9 +56,13 @@ type CfnChannelProps struct {
 	// *Default* : `LOW`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
 	//
+	// Default: - "LOW".
+	//
 	LatencyMode *string `field:"optional" json:"latencyMode" yaml:"latencyMode"`
 	// Channel name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
+	//
+	// Default: - "-".
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An optional transcode preset for the channel.
@@ -69,6 +77,8 @@ type CfnChannelProps struct {
 	//
 	// *Default* : "" (empty string, recording is disabled).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+	//
+	// Default: - "".
 	//
 	RecordingConfigurationArn *string `field:"optional" json:"recordingConfigurationArn" yaml:"recordingConfigurationArn"`
 	// An array of key-value pairs to apply to this resource.
@@ -93,6 +103,8 @@ type CfnChannelProps struct {
 	//
 	// *Default* : `STANDARD`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
+	//
+	// Default: - "STANDARD".
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }

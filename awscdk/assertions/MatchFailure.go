@@ -33,6 +33,8 @@ type MatchFailure struct {
 	// set the path as `['/foo', '[5]']`.
 	Path *[]*string `field:"required" json:"path" yaml:"path"`
 	// The cost of this particular mismatch.
+	// Default: 1.
+	//
 	Cost *float64 `field:"optional" json:"cost" yaml:"cost"`
 }
 

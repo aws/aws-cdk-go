@@ -51,6 +51,8 @@ func NewStateTransitionMetric_Override(s StateTransitionMetric) {
 }
 
 // Return the given named metric for the service's state transition metrics.
+// Default: average over 5 minutes.
+//
 func StateTransitionMetric_Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -70,6 +72,8 @@ func StateTransitionMetric_Metric(metricName *string, props *awscloudwatch.Metri
 }
 
 // Metric for the number of available state transitions per second.
+// Default: average over 5 minutes.
+//
 func StateTransitionMetric_MetricConsumedCapacity(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -89,6 +93,8 @@ func StateTransitionMetric_MetricConsumedCapacity(props *awscloudwatch.MetricOpt
 }
 
 // Metric for the number of available state transitions.
+// Default: average over 5 minutes.
+//
 func StateTransitionMetric_MetricProvisionedBucketSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -108,6 +114,8 @@ func StateTransitionMetric_MetricProvisionedBucketSize(props *awscloudwatch.Metr
 }
 
 // Metric for the provisioned steady-state execution rate.
+// Default: average over 5 minutes.
+//
 func StateTransitionMetric_MetricProvisionedRefillRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -127,6 +135,8 @@ func StateTransitionMetric_MetricProvisionedRefillRate(props *awscloudwatch.Metr
 }
 
 // Metric for the number of throttled state transitions.
+// Default: sum over 5 minutes.
+//
 func StateTransitionMetric_MetricThrottledEvents(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 

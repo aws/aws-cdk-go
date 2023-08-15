@@ -20,6 +20,8 @@ import (
 //
 type Identity interface {
 	// The hosted zone associated with this identity.
+	// Default: - no hosted zone is associated and no records are created.
+	//
 	HostedZone() awsroute53.IPublicHostedZone
 	// The value of the identity.
 	Value() *string

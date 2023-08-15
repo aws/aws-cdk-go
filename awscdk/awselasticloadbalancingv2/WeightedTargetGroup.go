@@ -23,6 +23,8 @@ type WeightedTargetGroup struct {
 	// The target group's weight.
 	//
 	// Range is [0..1000).
+	// Default: 1.
+	//
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

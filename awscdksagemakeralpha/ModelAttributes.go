@@ -33,9 +33,13 @@ type ModelAttributes struct {
 	// Experimental.
 	ModelArn *string `field:"required" json:"modelArn" yaml:"modelArn"`
 	// The IAM execution role associated with this model.
+	// Default: - When not provided, any role-related operations will no-op.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The security groups for this model, if in a VPC.
+	// Default: - When not provided, the connections to/from this model cannot be managed.
+	//
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }

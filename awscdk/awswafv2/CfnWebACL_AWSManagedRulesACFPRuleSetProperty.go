@@ -1,6 +1,8 @@
 package awswafv2
 
 
+// Not currently supported by AWS CloudFormation .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -77,18 +79,23 @@ package awswafv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html
 //
 type CfnWebACL_AWSManagedRulesACFPRuleSetProperty struct {
+	// Not currently supported by AWS CloudFormation .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-creationpath
 	//
 	CreationPath *string `field:"required" json:"creationPath" yaml:"creationPath"`
+	// Not currently supported by AWS CloudFormation .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-registrationpagepath
 	//
 	RegistrationPagePath *string `field:"required" json:"registrationPagePath" yaml:"registrationPagePath"`
+	// Not currently supported by AWS CloudFormation .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-requestinspection
 	//
 	RequestInspection interface{} `field:"required" json:"requestInspection" yaml:"requestInspection"`
+	// Not currently supported by AWS CloudFormation .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-enableregexinpath
 	//
 	EnableRegexInPath interface{} `field:"optional" json:"enableRegexInPath" yaml:"enableRegexInPath"`
+	// Not currently supported by AWS CloudFormation .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-responseinspection
 	//
 	ResponseInspection interface{} `field:"optional" json:"responseInspection" yaml:"responseInspection"`

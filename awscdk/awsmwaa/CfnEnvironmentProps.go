@@ -88,7 +88,9 @@ type CfnEnvironmentProps struct {
 	//
 	// If no value is specified, defaults to the latest version.
 	//
-	// *Allowed Values* : `2.0.2` | `1.10.12` | `2.2.2` | `2.4.3` | `2.5.1` (latest)
+	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
+	//
+	// *Allowed Values* : `2.0.2` | `1.10.12` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` (latest)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
 	//
 	AirflowVersion *string `field:"optional" json:"airflowVersion" yaml:"airflowVersion"`
@@ -185,9 +187,9 @@ type CfnEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-startupscripts3path
 	//
 	StartupScriptS3Path *string `field:"optional" json:"startupScriptS3Path" yaml:"startupScriptS3Path"`
-	// The key-value tag pairs associated to your environment.
+	// The key-value tag pairs associated to your environment. For example, `"Environment": "Staging"` . To learn more, see [Tagging](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
 	//
-	// For example, `"Environment": "Staging"` . To learn more, see [Tagging](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// If you specify new tags for an existing environment, the update requires service interruption before taking effect.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
 	//
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`

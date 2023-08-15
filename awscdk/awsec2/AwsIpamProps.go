@@ -25,6 +25,8 @@ type AwsIpamProps struct {
 	// Default length for Subnet ipv4 Network mask.
 	//
 	// Specify this option only if you do not specify all Subnets using SubnetConfiguration with a cidrMask.
+	// Default: - Default ipv4 Subnet Mask for subnets in Vpc.
+	//
 	DefaultSubnetIpv4NetmaskLength *float64 `field:"optional" json:"defaultSubnetIpv4NetmaskLength" yaml:"defaultSubnetIpv4NetmaskLength"`
 }
 

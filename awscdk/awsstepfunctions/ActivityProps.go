@@ -14,6 +14,8 @@ package awsstepfunctions
 //
 type ActivityProps struct {
 	// The name for this activity.
+	// Default: - If not supplied, a name is generated.
+	//
 	ActivityName *string `field:"optional" json:"activityName" yaml:"activityName"`
 }
 

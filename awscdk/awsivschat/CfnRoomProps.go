@@ -42,9 +42,13 @@ type CfnRoomProps struct {
 	// Messages are expected to be UTF-8 encoded and this limit applies specifically to rune/code-point count, not number of bytes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-room.html#cfn-ivschat-room-maximummessagelength
 	//
+	// Default: - 500.
+	//
 	MaximumMessageLength *float64 `field:"optional" json:"maximumMessageLength" yaml:"maximumMessageLength"`
 	// Maximum number of messages per second that can be sent to the room (by all clients).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-room.html#cfn-ivschat-room-maximummessageratepersecond
+	//
+	// Default: - 10.
 	//
 	MaximumMessageRatePerSecond *float64 `field:"optional" json:"maximumMessageRatePerSecond" yaml:"maximumMessageRatePerSecond"`
 	// Configuration information for optional review of messages.

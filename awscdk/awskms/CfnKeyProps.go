@@ -14,12 +14,11 @@ import (
 //   var keyPolicy interface{}
 //
 //   cfnKeyProps := &CfnKeyProps{
-//   	KeyPolicy: keyPolicy,
-//
-//   	// the properties below are optional
+//   	BypassPolicyLockoutSafetyCheck: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	Enabled: jsii.Boolean(false),
 //   	EnableKeyRotation: jsii.Boolean(false),
+//   	KeyPolicy: keyPolicy,
 //   	KeySpec: jsii.String("keySpec"),
 //   	KeyUsage: jsii.String("keyUsage"),
 //   	MultiRegion: jsii.Boolean(false),
@@ -36,25 +35,14 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
 //
 type CfnKeyProps struct {
-	// The key policy that authorizes use of the KMS key. The key policy must conform to the following rules.
+	// Skips ("bypasses") the key policy lockout safety check.
 	//
-	// - The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, refer to the scenario in the [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section of the **AWS Key Management Service Developer Guide** .
-	// - Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS . When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS . For more information, see [Changes that I make are not always immediately visible](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency) in the *AWS Identity and Access Management User Guide* .
+	// The default value is false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-bypasspolicylockoutsafetycheck
 	//
-	// If you are unsure of which policy to use, consider the *default key policy* . This is the key policy that AWS KMS applies to KMS keys that are created by using the CreateKey API with no specified key policy. It gives the AWS account that owns the key permission to perform all operations on the key. It also allows you write IAM policies to authorize access to the key. For details, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) in the *AWS Key Management Service Developer Guide* .
+	// Default: - false.
 	//
-	// A key policy document can include only the following characters:
-	//
-	// - Printable ASCII characters
-	// - Printable characters in the Basic Latin and Latin-1 Supplement character set
-	// - The tab ( `\u0009` ), line feed ( `\u000A` ), and carriage return ( `\u000D` ) special characters
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `32768`.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
-	//
-	KeyPolicy interface{} `field:"required" json:"keyPolicy" yaml:"keyPolicy"`
+	BypassPolicyLockoutSafetyCheck interface{} `field:"optional" json:"bypassPolicyLockoutSafetyCheck" yaml:"bypassPolicyLockoutSafetyCheck"`
 	// A description of the KMS key.
 	//
 	// Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
@@ -83,6 +71,25 @@ type CfnKeyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
 	//
 	EnableKeyRotation interface{} `field:"optional" json:"enableKeyRotation" yaml:"enableKeyRotation"`
+	// The key policy that authorizes use of the KMS key. The key policy must conform to the following rules.
+	//
+	// - The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, refer to the scenario in the [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section of the **AWS Key Management Service Developer Guide** .
+	// - Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS . When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS . For more information, see [Changes that I make are not always immediately visible](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency) in the *AWS Identity and Access Management User Guide* .
+	//
+	// If you are unsure of which policy to use, consider the *default key policy* . This is the key policy that AWS KMS applies to KMS keys that are created by using the CreateKey API with no specified key policy. It gives the AWS account that owns the key permission to perform all operations on the key. It also allows you write IAM policies to authorize access to the key. For details, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) in the *AWS Key Management Service Developer Guide* .
+	//
+	// A key policy document can include only the following characters:
+	//
+	// - Printable ASCII characters
+	// - Printable characters in the Basic Latin and Latin-1 Supplement character set
+	// - The tab ( `\u0009` ), line feed ( `\u000A` ), and carriage return ( `\u000D` ) special characters
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `32768`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
+	//
+	KeyPolicy interface{} `field:"optional" json:"keyPolicy" yaml:"keyPolicy"`
 	// Specifies the type of KMS key to create.
 	//
 	// The default value, `SYMMETRIC_DEFAULT` , creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, `SYMMETRIC_DEFAULT` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the `KeySpec` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *AWS Key Management Service Developer Guide* .
@@ -120,6 +127,8 @@ type CfnKeyProps struct {
 	// - `SM2`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
 	//
+	// Default: - "SYMMETRIC_DEFAULT".
+	//
 	KeySpec *string `field:"optional" json:"keySpec" yaml:"keySpec"`
 	// Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is `ENCRYPT_DECRYPT` . This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the `KeyUsage` value after the KMS key is created.
 	//
@@ -133,6 +142,8 @@ type CfnKeyProps struct {
 	// - For asymmetric KMS keys with SM2 (China Regions only) key material, specify `ENCRYPT_DECRYPT` or `SIGN_VERIFY` .
 	// - For HMAC KMS keys, specify `GENERATE_VERIFY_MAC` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+	//
+	// Default: - "ENCRYPT_DECRYPT".
 	//
 	KeyUsage *string `field:"optional" json:"keyUsage" yaml:"keyUsage"`
 	// Creates a multi-Region primary key that you can replicate in other AWS Regions .
@@ -152,11 +163,15 @@ type CfnKeyProps struct {
 	// To create a replica of this primary key in a different AWS Region , create an [AWS::KMS::ReplicaKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html) resource in a CloudFormation stack in the replica Region. Specify the key ARN of this primary key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
 	//
+	// Default: - false.
+	//
 	MultiRegion interface{} `field:"optional" json:"multiRegion" yaml:"multiRegion"`
 	// The source of the key material for the KMS key.
 	//
 	// You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-origin
+	//
+	// Default: - "AWS_KMS".
 	//
 	Origin *string `field:"optional" json:"origin" yaml:"origin"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a KMS key that has been removed from a CloudFormation stack.

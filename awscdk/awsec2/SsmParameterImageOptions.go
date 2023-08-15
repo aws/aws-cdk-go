@@ -62,12 +62,20 @@ type SsmParameterImageOptions struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
+	// Default: false.
+	//
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// Operating system.
+	// Default: OperatingSystemType.LINUX
+	//
 	Os OperatingSystemType `field:"optional" json:"os" yaml:"os"`
 	// The version of the SSM parameter.
+	// Default: no version specified.
+	//
 	ParameterVersion *string `field:"optional" json:"parameterVersion" yaml:"parameterVersion"`
 	// Custom UserData.
+	// Default: - UserData appropriate for the OS.
+	//
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 

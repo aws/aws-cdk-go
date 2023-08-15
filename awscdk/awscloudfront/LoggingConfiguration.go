@@ -22,10 +22,16 @@ import (
 //
 type LoggingConfiguration struct {
 	// Bucket to log requests to.
+	// Default: - A logging bucket is automatically created.
+	//
 	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// Whether to include the cookies in the logs.
+	// Default: false.
+	//
 	IncludeCookies *bool `field:"optional" json:"includeCookies" yaml:"includeCookies"`
 	// Where in the bucket to store logs.
+	// Default: - No prefix.
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

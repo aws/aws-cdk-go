@@ -39,27 +39,41 @@ import (
 //
 type SnapshotCredentials interface {
 	// KMS encryption key to encrypt the generated secret.
+	// Default: - default master key.
+	//
 	EncryptionKey() awskms.IKey
 	// The characters to exclude from the generated password.
 	//
 	// Only used if `generatePassword` if true.
+	// Default: - the DatabaseSecret default exclude character set (" %+~`#$&*()|[]{}:;<>?!'/@\"\\")
+	//
 	ExcludeCharacters() *string
 	// Whether a new password should be generated.
 	GeneratePassword() *bool
 	// The master user password.
 	//
 	// Do not put passwords in your CDK code directly.
+	// Default: - the existing password from the snapshot.
+	//
 	Password() awscdk.SecretValue
 	// Whether to replace the generated secret when the criteria for the password change.
+	// Default: false.
+	//
 	ReplaceOnPasswordCriteriaChanges() *bool
 	// A list of regions where to replicate the generated secret.
+	// Default: - Secret is not replicated.
+	//
 	ReplicaRegions() *[]*awssecretsmanager.ReplicaRegion
 	// Secret used to instantiate this Login.
+	// Default: - none.
+	//
 	Secret() awssecretsmanager.ISecret
 	// The master user name.
 	//
 	// Must be the **current** master user name of the snapshot.
 	// It is not possible to change the master user name of a RDS instance.
+	// Default: - the existing username from the snapshot.
+	//
 	Username() *string
 }
 

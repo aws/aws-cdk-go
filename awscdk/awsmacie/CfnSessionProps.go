@@ -25,11 +25,15 @@ type CfnSessionProps struct {
 	// - SIX_HOURS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
 	//
+	// Default: - "SIX_HOURS".
+	//
 	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
 	// The status of Amazon Macie for the account.
 	//
 	// Valid values are: `ENABLED` , start or resume all Macie activities for the account; and, `PAUSED` , suspend all Macie activities for the account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+	//
+	// Default: - "ENABLED".
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }

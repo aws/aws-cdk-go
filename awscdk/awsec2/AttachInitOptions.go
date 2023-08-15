@@ -43,6 +43,8 @@ type AttachInitOptions struct {
 	// UserData to add commands to.
 	UserData UserData `field:"required" json:"userData" yaml:"userData"`
 	// ConfigSet to activate.
+	// Default: ['default'].
+	//
 	ConfigSets *[]*string `field:"optional" json:"configSets" yaml:"configSets"`
 	// Whether to embed a hash into the userData.
 	//
@@ -52,20 +54,28 @@ type AttachInitOptions struct {
 	//
 	// If `false`, no such hash will be embedded, and if the CloudFormation Init
 	// config changes nothing will happen to the running instance.
+	// Default: true.
+	//
 	EmbedFingerprint *bool `field:"optional" json:"embedFingerprint" yaml:"embedFingerprint"`
 	// Don't fail the instance creation when cfn-init fails.
 	//
 	// You can use this to prevent CloudFormation from rolling back when
 	// instances fail to start up, to help in debugging.
+	// Default: false.
+	//
 	IgnoreFailures *bool `field:"optional" json:"ignoreFailures" yaml:"ignoreFailures"`
 	// Include --role argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the IAM instance profile attached to the EC2 instance.
+	// Default: false.
+	//
 	IncludeRole *bool `field:"optional" json:"includeRole" yaml:"includeRole"`
 	// Include --url argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the cloudformation endpoint in the deployed region
 	// e.g. https://cloudformation.us-east-1.amazonaws.com
+	// Default: false.
+	//
 	IncludeUrl *bool `field:"optional" json:"includeUrl" yaml:"includeUrl"`
 	// Print the results of running cfn-init to the Instance System Log.
 	//
@@ -76,10 +86,14 @@ type AttachInitOptions struct {
 	// (Be aware that the system log is refreshed at certain points in
 	// time of the instance life cycle, and successful execution may
 	// not always show up).
+	// Default: true.
+	//
 	PrintLog *bool `field:"optional" json:"printLog" yaml:"printLog"`
 	// When provided, signals this resource instead of the attached resource.
 	//
 	// You can use this to support signaling LaunchTemplate while attaching AutoScalingGroup.
+	// Default: - if this property is undefined cfn-signal signals the attached resource.
+	//
 	SignalResource awscdk.CfnResource `field:"optional" json:"signalResource" yaml:"signalResource"`
 }
 

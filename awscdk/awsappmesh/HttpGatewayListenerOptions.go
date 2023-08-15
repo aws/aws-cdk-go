@@ -37,12 +37,20 @@ package awsappmesh
 //
 type HttpGatewayListenerOptions struct {
 	// Connection pool for http listeners.
+	// Default: - None.
+	//
 	ConnectionPool *HttpConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
+	// Default: - no healthcheck.
+	//
 	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Port to listen for connections on.
+	// Default: - 8080.
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Represents the configuration for enabling TLS on a listener.
+	// Default: - none.
+	//
 	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 

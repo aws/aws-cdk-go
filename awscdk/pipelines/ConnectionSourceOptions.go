@@ -47,6 +47,8 @@ type ConnectionSourceOptions struct {
 	//
 	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
 	// The action name used for this source in the CodePipeline.
+	// Default: - The repository string.
+	//
 	ActionName *string `field:"optional" json:"actionName" yaml:"actionName"`
 	// If this is set, the next CodeBuild job clones the repository (instead of CodePipeline downloading the files).
 	//
@@ -56,12 +58,16 @@ type ConnectionSourceOptions struct {
 	// **Note**: if this option is true, only CodeBuild jobs can use the output artifact.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
+	// Default: false.
+	//
 	CodeBuildCloneOutput *bool `field:"optional" json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
 	// If unspecified,
 	// the default value is true, and the field does not display by default.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
+	//
+	// Default: true.
 	//
 	TriggerOnPush *bool `field:"optional" json:"triggerOnPush" yaml:"triggerOnPush"`
 }

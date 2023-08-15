@@ -21,9 +21,13 @@ type CustomEndpointOptions struct {
 	// Deprecated: use opensearchservice module instead.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The certificate to use.
+	// Default: - create a new one.
+	//
 	// Deprecated: use opensearchservice module instead.
 	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
 	// The hosted zone in Route53 to create the CNAME record in.
+	// Default: - do not create a CNAME.
+	//
 	// Deprecated: use opensearchservice module instead.
 	HostedZone awsroute53.IHostedZone `field:"optional" json:"hostedZone" yaml:"hostedZone"`
 }

@@ -25,6 +25,8 @@ type CloudFormationTemplateConfig struct {
 	// The http url of the template in S3.
 	HttpUrl *string `field:"required" json:"httpUrl" yaml:"httpUrl"`
 	// The S3 bucket containing product stack assets.
+	// Default: - None - no assets are used in this product.
+	//
 	AssetBucket awss3.IBucket `field:"optional" json:"assetBucket" yaml:"assetBucket"`
 }
 

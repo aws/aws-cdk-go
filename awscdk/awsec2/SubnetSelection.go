@@ -27,10 +27,16 @@ package awsec2
 //
 type SubnetSelection struct {
 	// Select subnets only in the given AZs.
+	// Default: no filtering on AZs is done.
+	//
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 	// If true, return at most one subnet per AZ.
+	// Default: false.
+	//
 	OnePerAz *bool `field:"optional" json:"onePerAz" yaml:"onePerAz"`
 	// List of provided subnet filters.
+	// Default: - none.
+	//
 	SubnetFilters *[]SubnetFilter `field:"optional" json:"subnetFilters" yaml:"subnetFilters"`
 	// Select the subnet group with the given name.
 	//
@@ -44,6 +50,8 @@ type SubnetSelection struct {
 	// `subnetConfiguration`.
 	//
 	// At most one of `subnetType` and `subnetGroupName` can be supplied.
+	// Default: - Selection by type instead of by name.
+	//
 	SubnetGroupName *string `field:"optional" json:"subnetGroupName" yaml:"subnetGroupName"`
 	// Explicitly select individual subnets.
 	//
@@ -52,10 +60,14 @@ type SubnetSelection struct {
 	// individual subnets.
 	//
 	// Cannot be specified together with `subnetType` or `subnetGroupName`.
+	// Default: - Use all subnets in a selected group (all private subnets by default).
+	//
 	Subnets *[]ISubnet `field:"optional" json:"subnets" yaml:"subnets"`
 	// Select all subnets of the given type.
 	//
 	// At most one of `subnetType` and `subnetGroupName` can be supplied.
+	// Default: SubnetType.PRIVATE_WITH_EGRESS (or ISOLATED or PUBLIC if there are no PRIVATE_WITH_EGRESS subnets)
+	//
 	SubnetType SubnetType `field:"optional" json:"subnetType" yaml:"subnetType"`
 }
 

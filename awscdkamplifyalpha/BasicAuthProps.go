@@ -31,9 +31,13 @@ type BasicAuthProps struct {
 	// Experimental.
 	Username *string `field:"required" json:"username" yaml:"username"`
 	// The encryption key to use to encrypt the password when it's generated in Secrets Manager.
+	// Default: - default master key.
+	//
 	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The password.
+	// Default: - A Secrets Manager generated password.
+	//
 	// Experimental.
 	Password awscdk.SecretValue `field:"optional" json:"password" yaml:"password"`
 }

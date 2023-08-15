@@ -26,11 +26,15 @@ type AdvancedSecurityOptions struct {
 	// ARN for the master user.
 	//
 	// Only specify this or masterUserName, but not both.
+	// Default: - fine-grained access control is disabled.
+	//
 	// Deprecated: use opensearchservice module instead.
 	MasterUserArn *string `field:"optional" json:"masterUserArn" yaml:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify this or masterUserArn, but not both.
+	// Default: - fine-grained access control is disabled.
+	//
 	// Deprecated: use opensearchservice module instead.
 	MasterUserName *string `field:"optional" json:"masterUserName" yaml:"masterUserName"`
 	// Password for the master user.
@@ -38,6 +42,8 @@ type AdvancedSecurityOptions struct {
 	// You can use `SecretValue.unsafePlainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
+	// Default: - A Secrets Manager generated password.
+	//
 	// Deprecated: use opensearchservice module instead.
 	MasterUserPassword awscdk.SecretValue `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 }

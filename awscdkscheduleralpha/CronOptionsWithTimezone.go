@@ -32,24 +32,38 @@ import (
 // Experimental.
 type CronOptionsWithTimezone struct {
 	// The day of the month to run this rule at.
+	// Default: - Every day of the month.
+	//
 	// Experimental.
 	Day *string `field:"optional" json:"day" yaml:"day"`
 	// The hour to run this rule at.
+	// Default: - Every hour.
+	//
 	// Experimental.
 	Hour *string `field:"optional" json:"hour" yaml:"hour"`
 	// The minute to run this rule at.
+	// Default: - Every minute.
+	//
 	// Experimental.
 	Minute *string `field:"optional" json:"minute" yaml:"minute"`
 	// The month to run this rule at.
+	// Default: - Every month.
+	//
 	// Experimental.
 	Month *string `field:"optional" json:"month" yaml:"month"`
 	// The day of the week to run this rule at.
+	// Default: - Any day of the week.
+	//
 	// Experimental.
 	WeekDay *string `field:"optional" json:"weekDay" yaml:"weekDay"`
 	// The year to run this rule at.
+	// Default: - Every year.
+	//
 	// Experimental.
 	Year *string `field:"optional" json:"year" yaml:"year"`
 	// The timezone to run the schedule in.
+	// Default: - TimeZone.ETC_UTC
+	//
 	// Experimental.
 	TimeZone awscdk.TimeZone `field:"optional" json:"timeZone" yaml:"timeZone"`
 }

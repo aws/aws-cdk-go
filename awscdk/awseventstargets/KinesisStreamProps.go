@@ -23,8 +23,12 @@ type KinesisStreamProps struct {
 	// The message to send to the stream.
 	//
 	// Must be a valid JSON text passed to the target stream.
+	// Default: - the entire CloudWatch event.
+	//
 	Message awsevents.RuleTargetInput `field:"optional" json:"message" yaml:"message"`
 	// Partition Key Path for records sent to this stream.
+	// Default: - eventId as the partition key.
+	//
 	PartitionKeyPath *string `field:"optional" json:"partitionKeyPath" yaml:"partitionKeyPath"`
 }
 

@@ -37,6 +37,8 @@ type EfsVolumeOptions struct {
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// if set, the container will have readonly access to the volume.
+	// Default: false.
+	//
 	// Experimental.
 	Readonly *bool `field:"optional" json:"readonly" yaml:"readonly"`
 	// The EFS File System that supports this volume.
@@ -49,10 +51,14 @@ type EfsVolumeOptions struct {
 	// If an access point is used, `enableTransitEncryption` must be `true`.
 	// See: https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html
 	//
+	// Default: - no accessPointId.
+	//
 	// Experimental.
 	AccessPointId *string `field:"optional" json:"accessPointId" yaml:"accessPointId"`
 	// Enables encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
 	// See: https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html
+	//
+	// Default: false.
 	//
 	// Experimental.
 	EnableTransitEncryption *bool `field:"optional" json:"enableTransitEncryption" yaml:"enableTransitEncryption"`
@@ -61,6 +67,8 @@ type EfsVolumeOptions struct {
 	// If this parameter is omitted, the root of the Amazon EFS volume is used instead.
 	// Specifying `/` has the same effect as omitting this parameter.
 	// The maximum length is 4,096 characters.
+	// Default: - root of the EFS File System.
+	//
 	// Experimental.
 	RootDirectory *string `field:"optional" json:"rootDirectory" yaml:"rootDirectory"`
 	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
@@ -68,12 +76,16 @@ type EfsVolumeOptions struct {
 	// The value must be between 0 and 65,535.
 	// See: https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html
 	//
+	// Default: - chosen by the EFS Mount Helper.
+	//
 	// Experimental.
 	TransitEncryptionPort *float64 `field:"optional" json:"transitEncryptionPort" yaml:"transitEncryptionPort"`
 	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
 	//
 	// If specified, `enableTransitEncryption` must be `true`.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints
+	//
+	// Default: false.
 	//
 	// Experimental.
 	UseJobRole *bool `field:"optional" json:"useJobRole" yaml:"useJobRole"`

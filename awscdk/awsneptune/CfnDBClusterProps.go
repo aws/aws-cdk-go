@@ -78,6 +78,8 @@ type CfnDBClusterProps struct {
 	// An update may require some interruption. See [ModifyDBInstance](https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance) in the Amazon Neptune User Guide for more information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-backupretentionperiod
 	//
+	// Default: - 1.
+	//
 	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// *If set to `true` , tags are copied to any snapshot of the DB cluster that is created.*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-copytagstosnapshot
@@ -164,6 +166,8 @@ type CfnDBClusterProps struct {
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-restoretype
+	//
+	// Default: - "full-copy".
 	//
 	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
 	// Contains the scaling configuration of an Neptune Serverless DB cluster.

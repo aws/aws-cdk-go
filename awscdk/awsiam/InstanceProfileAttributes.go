@@ -19,6 +19,8 @@ type InstanceProfileAttributes struct {
 	// Format: arn:<partition>:iam::<account-id>:instance-profile/<instance-profile-name-with-path>.
 	InstanceProfileArn *string `field:"required" json:"instanceProfileArn" yaml:"instanceProfileArn"`
 	// The role associated with the InstanceProfile.
+	// Default: - no role.
+	//
 	Role IRole `field:"optional" json:"role" yaml:"role"`
 }
 

@@ -45,6 +45,8 @@ type GraphqlApi interface {
 	// an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	ApiId() *string
 	// the configured API key, if present.
+	// Default: - no api key.
+	//
 	ApiKey() *string
 	// The AppSyncDomainName of the associated custom domain.
 	AppSyncDomainName() *string

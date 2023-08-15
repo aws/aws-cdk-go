@@ -15,6 +15,8 @@ package awscdkgameliftalpha
 // Experimental.
 type AliasOptions struct {
 	// Description for the alias.
+	// Default: No description.
+	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }

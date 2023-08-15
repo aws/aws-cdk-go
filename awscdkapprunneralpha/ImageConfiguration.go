@@ -31,20 +31,30 @@ package awscdkapprunneralpha
 // Experimental.
 type ImageConfiguration struct {
 	// Environment variables that are available to your running App Runner service.
+	// Default: - no environment variables.
+	//
 	// Deprecated: use environmentVariables.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// Environment secrets that are available to your running App Runner service.
+	// Default: - no environment secrets.
+	//
 	// Experimental.
 	EnvironmentSecrets *map[string]Secret `field:"optional" json:"environmentSecrets" yaml:"environmentSecrets"`
 	// Environment variables that are available to your running App Runner service.
+	// Default: - no environment variables.
+	//
 	// Experimental.
 	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The port that your application listens to in the container.
+	// Default: 8080.
+	//
 	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// An optional command that App Runner runs to start the application in the source image.
 	//
 	// If specified, this command overrides the Docker image’s default start command.
+	// Default: - no start command.
+	//
 	// Experimental.
 	StartCommand *string `field:"optional" json:"startCommand" yaml:"startCommand"`
 }

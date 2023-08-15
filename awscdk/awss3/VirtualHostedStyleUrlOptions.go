@@ -13,6 +13,8 @@ package awss3
 //
 type VirtualHostedStyleUrlOptions struct {
 	// Specifies the URL includes the region.
+	// Default: - true.
+	//
 	Regional *bool `field:"optional" json:"regional" yaml:"regional"`
 }
 

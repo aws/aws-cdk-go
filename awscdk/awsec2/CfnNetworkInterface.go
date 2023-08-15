@@ -77,7 +77,7 @@ type CfnNetworkInterface interface {
 	// A description for the network interface.
 	Description() *string
 	SetDescription(val *string)
-	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address.
+	// If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address.
 	EnablePrimaryIpv6() interface{}
 	SetEnablePrimaryIpv6(val interface{})
 	// The security group IDs associated with this network interface.

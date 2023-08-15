@@ -108,6 +108,7 @@ type CfnBillingGroup interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A map that contains tag keys and tag values that are attached to a billing group.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

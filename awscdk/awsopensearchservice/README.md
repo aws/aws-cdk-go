@@ -198,6 +198,32 @@ domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 masterUserPassword := domain.MasterUserPassword
 ```
 
+## SAML authentication
+
+You can enable SAML authentication to use your existing identity provider
+to offer single sign-on (SSO) for dashboards on Amazon OpenSearch Service domains
+running OpenSearch or Elasticsearch 6.7 or later.
+To use SAML authentication, fine-grained access control must be enabled.
+
+```go
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
+	EnforceHttps: jsii.Boolean(true),
+	NodeToNodeEncryption: jsii.Boolean(true),
+	EncryptionAtRest: &EncryptionAtRestOptions{
+		Enabled: jsii.Boolean(true),
+	},
+	FineGrainedAccessControl: &AdvancedSecurityOptions{
+		MasterUserName: jsii.String("master-user"),
+		SamlAuthenticationEnabled: jsii.Boolean(true),
+		SamlAuthenticationOptions: &SAMLOptionsProperty{
+			IdpEntityId: jsii.String("entity-id"),
+			IdpMetadataContent: jsii.String("metadata-content-with-quotes-escaped"),
+		},
+	},
+})
+```
+
 ## Using unsigned basic auth
 
 For convenience, the domain can be configured to allow unsigned HTTP requests

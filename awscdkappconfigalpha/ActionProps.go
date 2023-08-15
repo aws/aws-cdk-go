@@ -28,9 +28,13 @@ type ActionProps struct {
 	// Experimental.
 	EventDestination IEventDestination `field:"required" json:"eventDestination" yaml:"eventDestination"`
 	// The description for the action.
+	// Default: - No description.
+	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The execution role for the action.
+	// Default: - A role is generated.
+	//
 	// Experimental.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The flag that specifies whether or not to create the execution role.
@@ -38,9 +42,13 @@ type ActionProps struct {
 	// If set to true, then the role will not be auto-generated under the assumption
 	// there is already the corresponding resource-based policy attached to the event
 	// destination. If false, the execution role will be generated if not provided.
+	// Default: false.
+	//
 	// Experimental.
 	InvokeWithoutExecutionRole *bool `field:"optional" json:"invokeWithoutExecutionRole" yaml:"invokeWithoutExecutionRole"`
 	// The name for the action.
+	// Default: - A name is generated.
+	//
 	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }

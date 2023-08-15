@@ -51,6 +51,8 @@ type SecretRotationProps struct {
 	// The VPC where the Lambda rotation function will run.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	// Default: Duration.days(30)
+	//
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -58,16 +60,28 @@ type SecretRotationProps struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
+	// Default: https://secretsmanager.<region>.amazonaws.com
+	//
 	Endpoint awsec2.IInterfaceVpcEndpoint `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// Characters which should not appear in the generated password.
+	// Default: - no additional characters are explicitly excluded.
+	//
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The master secret for a multi user rotation scheme.
+	// Default: - single user rotation scheme.
+	//
 	MasterSecret ISecret `field:"optional" json:"masterSecret" yaml:"masterSecret"`
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
+	// Default: true.
+	//
 	RotateImmediatelyOnUpdate *bool `field:"optional" json:"rotateImmediatelyOnUpdate" yaml:"rotateImmediatelyOnUpdate"`
 	// The security group for the Lambda rotation function.
+	// Default: - a new security group is created.
+	//
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
+	// Default: - the Vpc default strategy if not specified.
+	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

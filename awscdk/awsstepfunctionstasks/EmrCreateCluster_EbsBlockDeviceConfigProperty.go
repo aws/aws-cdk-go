@@ -30,6 +30,8 @@ type EmrCreateCluster_EbsBlockDeviceConfigProperty struct {
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 	VolumeSpecification *EmrCreateCluster_VolumeSpecificationProperty `field:"required" json:"volumeSpecification" yaml:"volumeSpecification"`
 	// Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group.
+	// Default: EMR selected default.
+	//
 	VolumesPerInstance *float64 `field:"optional" json:"volumesPerInstance" yaml:"volumesPerInstance"`
 }
 

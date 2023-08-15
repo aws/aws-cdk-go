@@ -38,17 +38,25 @@ type FileAssetSource struct {
 	// For example, Lambda Function assets are copied over to Lambda during
 	// deployment. Therefore, it is not necessary to store the asset in S3, so
 	// we consider those deployTime assets.
+	// Default: false.
+	//
 	DeployTime *bool `field:"optional" json:"deployTime" yaml:"deployTime"`
 	// An external command that will produce the packaged asset.
 	//
 	// The command should produce the location of a ZIP file on `stdout`.
+	// Default: - Exactly one of `fileName` and `executable` is required.
+	//
 	Executable *[]*string `field:"optional" json:"executable" yaml:"executable"`
 	// The path, relative to the root of the cloud assembly, in which this asset source resides.
 	//
 	// This can be a path to a file or a directory, depending on the
 	// packaging type.
+	// Default: - Exactly one of `fileName` and `executable` is required.
+	//
 	FileName *string `field:"optional" json:"fileName" yaml:"fileName"`
 	// Which type of packaging to perform.
+	// Default: - Required if `fileName` is specified.
+	//
 	Packaging FileAssetPackaging `field:"optional" json:"packaging" yaml:"packaging"`
 }
 

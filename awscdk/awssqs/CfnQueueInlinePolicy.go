@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Schema for SQS QueueInlinePolicy.
+// The `AWS::SQS::QueueInlinePolicy` resource associates one Amazon SQS queue with one policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -49,10 +49,10 @@ type CfnQueueInlinePolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// A policy document that contains permissions to add to the specified SQS queue.
+	// A policy document that contains the permissions for the specified Amazon SQS queues.
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
-	// The URL of the SQS queue.
+	// The URLs of the queues to which you want to add the policy.
 	Queue() *string
 	SetQueue(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

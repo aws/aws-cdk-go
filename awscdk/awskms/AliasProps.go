@@ -39,6 +39,8 @@ type AliasProps struct {
 	// specify another alias.
 	TargetKey IKey `field:"required" json:"targetKey" yaml:"targetKey"`
 	// Policy to apply when the alias is removed from this stack.
+	// Default: - The alias will be deleted.
+	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

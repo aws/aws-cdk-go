@@ -23,8 +23,12 @@ type PortProps struct {
 	// String representation for this object.
 	StringRepresentation *string `field:"required" json:"stringRepresentation" yaml:"stringRepresentation"`
 	// The starting port for the range.
+	// Default: - Not included in the rule.
+	//
 	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// The ending port for the range.
+	// Default: - Not included in the rule.
+	//
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 

@@ -27,10 +27,14 @@ import (
 //
 type ResultConfiguration struct {
 	// Encryption option used if enabled in S3.
+	// Default: - SSE_S3 encrpytion is enabled with default encryption key.
+	//
 	EncryptionConfiguration *EncryptionConfiguration `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// S3 path of query results.
 	//
 	// Example value: `s3://query-results-bucket/folder/`.
+	// Default: - Query Result Location set in Athena settings for this workgroup.
+	//
 	OutputLocation *awss3.Location `field:"optional" json:"outputLocation" yaml:"outputLocation"`
 }
 

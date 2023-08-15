@@ -43,6 +43,8 @@ type EfsVolume interface {
 	// If an access point is used, `enableTransitEncryption` must be `true`.
 	// See: https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html
 	//
+	// Default: - no accessPointId.
+	//
 	// Experimental.
 	AccessPointId() *string
 	// The path on the container that this volume will be mounted to.
@@ -50,6 +52,8 @@ type EfsVolume interface {
 	ContainerPath() *string
 	// Enables encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
 	// See: https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html
+	//
+	// Default: false.
 	//
 	// Experimental.
 	EnableTransitEncryption() *bool
@@ -60,6 +64,8 @@ type EfsVolume interface {
 	// Experimental.
 	Name() *string
 	// Whether or not the container has readonly access to this volume.
+	// Default: false.
+	//
 	// Experimental.
 	Readonly() *bool
 	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
@@ -67,6 +73,8 @@ type EfsVolume interface {
 	// If this parameter is omitted, the root of the Amazon EFS volume is used instead.
 	// Specifying `/` has the same effect as omitting this parameter.
 	// The maximum length is 4,096 characters.
+	// Default: - root of the EFS File System.
+	//
 	// Experimental.
 	RootDirectory() *string
 	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
@@ -74,12 +82,16 @@ type EfsVolume interface {
 	// The value must be between 0 and 65,535.
 	// See: https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html
 	//
+	// Default: - chosen by the EFS Mount Helper.
+	//
 	// Experimental.
 	TransitEncryptionPort() *float64
 	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
 	//
 	// If specified, `enableTransitEncryption` must be `true`.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints
+	//
+	// Default: false.
 	//
 	// Experimental.
 	UseJobRole() *bool

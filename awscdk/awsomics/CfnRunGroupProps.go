@@ -30,6 +30,7 @@ type CfnRunGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxduration
 	//
 	MaxDuration *float64 `field:"optional" json:"maxDuration" yaml:"maxDuration"`
+	// The maximum GPUs that can be used by a run group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxgpus
 	//
 	MaxGpus *float64 `field:"optional" json:"maxGpus" yaml:"maxGpus"`

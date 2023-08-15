@@ -38,6 +38,8 @@ type DatabaseInstanceAttributes struct {
 	// The security groups of the instance.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"required" json:"securityGroups" yaml:"securityGroups"`
 	// The engine of the existing database Instance.
+	// Default: - the imported Instance's engine is unknown.
+	//
 	Engine IInstanceEngine `field:"optional" json:"engine" yaml:"engine"`
 	// The AWS Region-unique, immutable identifier for the DB instance.
 	//

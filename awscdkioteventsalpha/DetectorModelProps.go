@@ -89,6 +89,8 @@ type DetectorModelProps struct {
 	// Experimental.
 	InitialState State `field:"required" json:"initialState" yaml:"initialState"`
 	// A brief description of the detector model.
+	// Default: none.
+	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The value used to identify a detector instance.
@@ -100,9 +102,13 @@ type DetectorModelProps struct {
 	// This parameter uses a JSON-path expression to select the attribute-value pair in the message
 	// payload that is used for identification. To route the message to the correct detector instance,
 	// the device must send a message payload that contains the same attribute-value.
+	// Default: - none (single detector instance will be created and all inputs will be routed to it).
+	//
 	// Experimental.
 	DetectorKey *string `field:"optional" json:"detectorKey" yaml:"detectorKey"`
 	// The name of the detector model.
+	// Default: - CloudFormation will generate a unique name of the detector model.
+	//
 	// Experimental.
 	DetectorModelName *string `field:"optional" json:"detectorModelName" yaml:"detectorModelName"`
 	// Information about the order in which events are evaluated and how actions are executed.
@@ -111,9 +117,13 @@ type DetectorModelProps struct {
 	// that the events are defined.
 	// When setting to BATCH, variables within a state are updated and events within a state are
 	// performed only after all event conditions are evaluated.
+	// Default: EventEvaluation.BATCH
+	//
 	// Experimental.
 	EvaluationMethod EventEvaluation `field:"optional" json:"evaluationMethod" yaml:"evaluationMethod"`
 	// The role that grants permission to AWS IoT Events to perform its operations.
+	// Default: - a role will be created with default permissions.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }

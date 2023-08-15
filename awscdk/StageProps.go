@@ -56,21 +56,33 @@ type StageProps struct {
 	//   	},
 	//   })
 	//
+	// Default: - The environments should be configured on the `Stack`s.
+	//
 	Env *Environment `field:"optional" json:"env" yaml:"env"`
 	// The output directory into which to emit synthesized artifacts.
 	//
 	// Can only be specified if this stage is the root stage (the app). If this is
 	// specified and this stage is nested within another stage, an error will be
 	// thrown.
+	// Default: - for nested stages, outdir will be determined as a relative
+	// directory to the outdir of the app. For apps, if outdir is not specified, a
+	// temporary directory will be created.
+	//
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
 	// Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
+	// Default: - no permissions boundary is applied.
+	//
 	PermissionsBoundary PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Validation plugins to run during synthesis.
 	//
 	// If any plugin reports any violation,
 	// synthesis will be interrupted and the report displayed to the user.
+	// Default: - no validation plugins are used.
+	//
 	PolicyValidationBeta1 *[]IPolicyValidationPluginBeta1 `field:"optional" json:"policyValidationBeta1" yaml:"policyValidationBeta1"`
 	// Name of this stage.
+	// Default: - Derived from the id.
+	//
 	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 

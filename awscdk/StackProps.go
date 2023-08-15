@@ -31,6 +31,9 @@ package awscdk
 //
 type StackProps struct {
 	// Include runtime versioning information in this Stack.
+	// Default: `analyticsReporting` setting of containing `App`, or value of
+	// 'aws:cdk:version-reporting' context key.
+	//
 	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
 	// Enable this flag to allow native cross region stack references.
 	//
@@ -38,8 +41,12 @@ type StackProps struct {
 	// in both the producing stack and consuming stack in order to perform the export/import
 	//
 	// This feature is currently experimental.
+	// Default: false.
+	//
 	CrossRegionReferences *bool `field:"optional" json:"crossRegionReferences" yaml:"crossRegionReferences"`
 	// A description of the stack.
+	// Default: - No description.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The AWS environment (account/region) where this stack will be deployed.
 	//
@@ -110,16 +117,25 @@ type StackProps struct {
 	//   // which will only resolve to actual values by CloudFormation during deployment.
 	//   NewMyStack(app, jsii.String("Stack1"))
 	//
+	// Default: - The environment of the containing `Stage` if available,
+	// otherwise create the stack will be environment-agnostic.
+	//
 	Env *Environment `field:"optional" json:"env" yaml:"env"`
 	// Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
+	// Default: - no permissions boundary is applied.
+	//
 	PermissionsBoundary PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Name to deploy the stack with.
+	// Default: - Derived from construct path.
+	//
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Enable this flag to suppress indentation in generated CloudFormation templates.
 	//
 	// If not specified, the value of the `@aws-cdk/core:suppressTemplateIndentation`
 	// context key will be used. If that is not specified, then the
 	// default value `false` will be used.
+	// Default: - the value of `@aws-cdk/core:suppressTemplateIndentation`, or `false` if that is not set.
+	//
 	SuppressTemplateIndentation *bool `field:"optional" json:"suppressTemplateIndentation" yaml:"suppressTemplateIndentation"`
 	// Synthesis method to use while deploying this stack.
 	//
@@ -132,10 +148,16 @@ type StackProps struct {
 	// `@aws-cdk/core:newStyleStackSynthesis` is set to `true` or the CDK major
 	// version is v2. In CDK v1 `LegacyStackSynthesizer` is the default if no
 	// other synthesizer is specified.
+	// Default: - The synthesizer specified on `App`, or `DefaultStackSynthesizer` otherwise.
+	//
 	Synthesizer IStackSynthesizer `field:"optional" json:"synthesizer" yaml:"synthesizer"`
 	// Stack tags that will be applied to all the taggable resources and the stack itself.
+	// Default: {}.
+	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// Whether to enable termination protection for this stack.
+	// Default: false.
+	//
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 }
 

@@ -40,6 +40,8 @@ type CfnKeyPairProps struct {
 	// Default: `pem`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-keyformat
 	//
+	// Default: - "pem".
+	//
 	KeyFormat *string `field:"optional" json:"keyFormat" yaml:"keyFormat"`
 	// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
 	//
@@ -47,6 +49,8 @@ type CfnKeyPairProps struct {
 	//
 	// Default: `rsa`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-keytype
+	//
+	// Default: - "rsa".
 	//
 	KeyType *string `field:"optional" json:"keyType" yaml:"keyType"`
 	// The public key material.

@@ -25,6 +25,8 @@ type S3EventSelector struct {
 	// S3 bucket.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// Data events for objects whose key matches this prefix will be logged.
+	// Default: - all objects.
+	//
 	ObjectPrefix *string `field:"optional" json:"objectPrefix" yaml:"objectPrefix"`
 }
 

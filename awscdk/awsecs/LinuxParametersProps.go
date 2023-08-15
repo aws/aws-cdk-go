@@ -23,6 +23,8 @@ import (
 //
 type LinuxParametersProps struct {
 	// Specifies whether to run an init process inside the container that forwards signals and reaps processes.
+	// Default: false.
+	//
 	InitProcessEnabled *bool `field:"optional" json:"initProcessEnabled" yaml:"initProcessEnabled"`
 	// The total amount of swap memory a container can use.
 	//
@@ -31,8 +33,12 @@ type LinuxParametersProps struct {
 	//
 	// This parameter is only supported when you are using the EC2 launch type.
 	// Accepted values are positive integers.
+	// Default: No swap.
+	//
 	MaxSwap awscdk.Size `field:"optional" json:"maxSwap" yaml:"maxSwap"`
 	// The value for the size of the /dev/shm volume.
+	// Default: No shared memory.
+	//
 	SharedMemorySize *float64 `field:"optional" json:"sharedMemorySize" yaml:"sharedMemorySize"`
 	// This allows you to tune a container's memory swappiness behavior.
 	//
@@ -45,6 +51,8 @@ type LinuxParametersProps struct {
 	// This parameter is only supported when you are using the EC2 launch type.
 	// Accepted values are whole numbers between 0 and 100. If a value is not
 	// specified for maxSwap then this parameter is ignored.
+	// Default: 60.
+	//
 	Swappiness *float64 `field:"optional" json:"swappiness" yaml:"swappiness"`
 }
 

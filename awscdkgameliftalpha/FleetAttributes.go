@@ -25,14 +25,20 @@ type FleetAttributes struct {
 	// The ARN of the fleet.
 	//
 	// At least one of `fleetArn` and `fleetId` must be provided.
+	// Default: derived from `fleetId`.
+	//
 	// Experimental.
 	FleetArn *string `field:"optional" json:"fleetArn" yaml:"fleetArn"`
 	// The identifier of the fleet.
 	//
 	// At least one of `fleetId` and `fleetArn`  must be provided.
+	// Default: derived from `fleetArn`.
+	//
 	// Experimental.
 	FleetId *string `field:"optional" json:"fleetId" yaml:"fleetId"`
 	// The IAM role assumed by GameLift fleet instances to access AWS ressources.
+	// Default: the imported fleet cannot be granted access to other resources as an `iam.IGrantable`.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }

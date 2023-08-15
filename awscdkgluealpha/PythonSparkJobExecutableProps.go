@@ -31,15 +31,21 @@ type PythonSparkJobExecutableProps struct {
 	// Only individual files are supported, directories are not supported.
 	// See:  `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
+	// Default: [] - no extra files are copied to the working directory.
+	//
 	// Experimental.
 	ExtraFiles *[]Code `field:"optional" json:"extraFiles" yaml:"extraFiles"`
 	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script. Only individual files are supported, directories are not supported.
 	// See:  `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
+	// Default: [] - no extra jars are added to the classpath.
+	//
 	// Experimental.
 	ExtraJars *[]Code `field:"optional" json:"extraJars" yaml:"extraJars"`
 	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
 	// See:  `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Default: false - priority is not given to user-provided jars.
 	//
 	// Experimental.
 	ExtraJarsFirst *bool `field:"optional" json:"extraJarsFirst" yaml:"extraJarsFirst"`
@@ -47,6 +53,8 @@ type PythonSparkJobExecutableProps struct {
 	//
 	// Only individual files are supported, directories are not supported.
 	// See:  `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Default: - no extra python files and argument is not set.
 	//
 	// Experimental.
 	ExtraPythonFiles *[]Code `field:"optional" json:"extraPythonFiles" yaml:"extraPythonFiles"`

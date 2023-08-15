@@ -31,6 +31,8 @@ type EqualsAssertionProps struct {
 	//
 	// This is only necessary if assertions are being
 	// executed outside of `integ-runner`.
+	// Default: false.
+	//
 	// Experimental.
 	FailDeployment *bool `field:"optional" json:"failDeployment" yaml:"failDeployment"`
 }

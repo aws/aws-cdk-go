@@ -46,6 +46,8 @@ type CfnEventSubscriptionProps struct {
 	// If the event notification subscription isn't activated, the subscription is created but not active.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-enabled
 	//
+	// Default: - true.
+	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// A list of event categories for a particular source type ( `SourceType` ) that you want to subscribe to.
 	//

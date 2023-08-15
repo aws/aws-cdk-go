@@ -25,6 +25,8 @@ type ContainerImageAssetCacheOption struct {
 	// Example:
 	//   "registry"
 	//
+	// Default: - unspecified.
+	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Any parameters to pass into the docker cache backend configuration.
 	//
@@ -38,6 +40,8 @@ type ContainerImageAssetCacheOption struct {
 	//   	"ref": fmt.Sprintf("12345678.dkr.ecr.us-west-2.amazonaws.com/cache:%v", branch),
 	//   	"mode": jsii.String("max"),
 	//   }
+	//
+	// Default: {} No options provided.
 	//
 	Params *map[string]*string `field:"optional" json:"params" yaml:"params"`
 }

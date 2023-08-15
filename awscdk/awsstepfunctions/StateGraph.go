@@ -47,6 +47,8 @@ type StateGraph interface {
 	//
 	// Read/write. Only makes sense on the top-level graph, subgraphs
 	// do not support this feature.
+	// Default: No timeout.
+	//
 	Timeout() awscdk.Duration
 	SetTimeout(val awscdk.Duration)
 	// Register a Policy Statement used by states in this graph.

@@ -18,6 +18,8 @@ type CustomizeRolesOptions struct {
 	//
 	// Set this to `false` if you still want to create the resources _and_
 	// you also want to create the policy report.
+	// Default: true.
+	//
 	PreventSynthesis *bool `field:"optional" json:"preventSynthesis" yaml:"preventSynthesis"`
 	// A list of precreated IAM roles to substitute for roles that CDK is creating.
 	//
@@ -41,6 +43,8 @@ type CustomizeRolesOptions struct {
 	//   		"MyRole": jsii.String("my-precreated-role"),
 	//   	},
 	//   })
+	//
+	// Default: - there are no precreated roles. Synthesis will fail if `preventSynthesis=true`
 	//
 	UsePrecreatedRoles *map[string]*string `field:"optional" json:"usePrecreatedRoles" yaml:"usePrecreatedRoles"`
 }

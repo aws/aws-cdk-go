@@ -24,14 +24,20 @@ import (
 //
 type S3SourceOptions struct {
 	// The action name used for this source in the CodePipeline.
+	// Default: - The bucket name.
+	//
 	ActionName *string `field:"optional" json:"actionName" yaml:"actionName"`
 	// The role that will be assumed by the pipeline prior to executing the `S3Source` action.
+	// Default: - a new role will be generated.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// How should CodePipeline detect source changes for this Action.
 	//
 	// Note that if this is S3Trigger.EVENTS, you need to make sure to include the source Bucket in a CloudTrail Trail,
 	// as otherwise the CloudWatch Events will not be emitted.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/log-s3-data-events.html
+	//
+	// Default: S3Trigger.POLL
 	//
 	Trigger awscodepipelineactions.S3Trigger `field:"optional" json:"trigger" yaml:"trigger"`
 }

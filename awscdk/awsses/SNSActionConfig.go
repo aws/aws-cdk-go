@@ -15,8 +15,12 @@ package awsses
 //
 type SNSActionConfig struct {
 	// The encoding to use for the email within the Amazon SNS notification.
+	// Default: 'UTF-8'.
+	//
 	Encoding *string `field:"optional" json:"encoding" yaml:"encoding"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify.
+	// Default: - No notification is sent to SNS.
+	//
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

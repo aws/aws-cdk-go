@@ -60,10 +60,16 @@ import (
 type CodeBuildStep interface {
 	ShellStep
 	// Custom execution role to be used for the Code Build Action.
+	// Default: - A role is automatically created.
+	//
 	ActionRole() awsiam.IRole
 	// Build environment.
+	// Default: - No value specified at construction time, use defaults.
+	//
 	BuildEnvironment() *awscodebuild.BuildEnvironment
 	// Caching strategy to use.
+	// Default: - No cache.
+	//
 	Cache() awscodebuild.Cache
 	// Commands to run.
 	Commands() *[]*string
@@ -74,13 +80,19 @@ type CodeBuildStep interface {
 	// The list of FileSets consumed by this Step.
 	DependencyFileSets() *[]FileSet
 	// Environment variables to set.
+	// Default: - No environment variables.
+	//
 	Env() *map[string]*string
 	// Set environment variables based on Stack Outputs.
+	// Default: - No environment variables created from stack outputs.
+	//
 	EnvFromCfnOutputs() *map[string]StackOutputReference
 	// ProjectFileSystemLocation objects for CodeBuild build projects.
 	//
 	// A ProjectFileSystemLocation object specifies the identifier, location, mountOptions, mountPoint,
 	// and type of a file system created using Amazon Elastic File System.
+	// Default: - no file system locations.
+	//
 	FileSystemLocations() *[]awscodebuild.IFileSystemLocation
 	// The CodeBuild Project's principal.
 	GrantPrincipal() awsiam.IPrincipal
@@ -95,6 +107,8 @@ type CodeBuildStep interface {
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
+	// Default: - No installation commands.
+	//
 	InstallCommands() *[]*string
 	// Whether or not this is a Source step.
 	//
@@ -103,6 +117,8 @@ type CodeBuildStep interface {
 	// Information about logs for CodeBuild projects.
 	//
 	// A CodeBuilde project can create logs in Amazon CloudWatch Logs, an S3 bucket, or both.
+	// Default: - no log configuration is set.
+	//
 	Logging() *awscodebuild.LoggingOptions
 	// Output FileSets.
 	//
@@ -112,6 +128,8 @@ type CodeBuildStep interface {
 	// Additional configuration that can only be configured via BuildSpec.
 	//
 	// Contains exported variables.
+	// Default: - Contains the exported variables.
+	//
 	PartialBuildSpec() awscodebuild.BuildSpec
 	// The primary FileSet produced by this Step.
 	//
@@ -123,21 +141,35 @@ type CodeBuildStep interface {
 	// Will only be available after the pipeline has been built.
 	Project() awscodebuild.IProject
 	// Name for the generated CodeBuild project.
+	// Default: - No value specified at construction time, use defaults.
+	//
 	ProjectName() *string
 	// Custom execution role to be used for the CodeBuild project.
+	// Default: - No value specified at construction time, use defaults.
+	//
 	Role() awsiam.IRole
 	// Policy statements to add to role used during the synth.
+	// Default: - No value specified at construction time, use defaults.
+	//
 	RolePolicyStatements() *[]awsiam.PolicyStatement
 	// Which security group to associate with the script's project network interfaces.
+	// Default: - No value specified at construction time, use defaults.
+	//
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// Which subnets to use.
+	// Default: - No value specified at construction time, use defaults.
+	//
 	SubnetSelection() *awsec2.SubnetSelection
 	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
+	// Default: Duration.hours(1)
+	//
 	Timeout() awscdk.Duration
 	// The VPC where to execute the SimpleSynth.
+	// Default: - No value specified at construction time, use defaults.
+	//
 	Vpc() awsec2.IVpc
 	// Add an additional FileSet to the set of file sets required by this step.
 	//

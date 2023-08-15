@@ -25,6 +25,8 @@ import (
 //
 type CodeCommitSourceOptions struct {
 	// The action name used for this source in the CodePipeline.
+	// Default: - The repository name.
+	//
 	ActionName *string `field:"optional" json:"actionName" yaml:"actionName"`
 	// If this is set, the next CodeBuild job clones the repository (instead of CodePipeline downloading the files).
 	//
@@ -34,12 +36,18 @@ type CodeCommitSourceOptions struct {
 	// **Note**: if this option is true, only CodeBuild jobs can use the output artifact.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeCommit.html
 	//
+	// Default: false.
+	//
 	CodeBuildCloneOutput *bool `field:"optional" json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Role to be used by on commit event rule.
 	//
 	// Used only when trigger value is CodeCommitTrigger.EVENTS.
+	// Default: a new role will be created.
+	//
 	EventRole awsiam.IRole `field:"optional" json:"eventRole" yaml:"eventRole"`
 	// How should CodePipeline detect source changes for this Action.
+	// Default: CodeCommitTrigger.EVENTS
+	//
 	Trigger awscodepipelineactions.CodeCommitTrigger `field:"optional" json:"trigger" yaml:"trigger"`
 }
 

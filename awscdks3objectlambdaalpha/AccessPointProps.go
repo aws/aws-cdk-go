@@ -38,18 +38,28 @@ type AccessPointProps struct {
 	// Experimental.
 	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`
 	// The name of the S3 object lambda access point.
+	// Default: a unique name will be generated.
+	//
 	// Experimental.
 	AccessPointName *string `field:"optional" json:"accessPointName" yaml:"accessPointName"`
 	// Whether CloudWatch metrics are enabled for the access point.
+	// Default: false.
+	//
 	// Experimental.
 	CloudWatchMetricsEnabled *bool `field:"optional" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
 	// Additional JSON that provides supplemental data passed to the Lambda function on every request.
+	// Default: - No data.
+	//
 	// Experimental.
 	Payload *map[string]interface{} `field:"optional" json:"payload" yaml:"payload"`
 	// Whether the Lambda function can process `GetObject-PartNumber` requests.
+	// Default: false.
+	//
 	// Experimental.
 	SupportsGetObjectPartNumber *bool `field:"optional" json:"supportsGetObjectPartNumber" yaml:"supportsGetObjectPartNumber"`
 	// Whether the Lambda function can process `GetObject-Range` requests.
+	// Default: false.
+	//
 	// Experimental.
 	SupportsGetObjectRange *bool `field:"optional" json:"supportsGetObjectRange" yaml:"supportsGetObjectRange"`
 }

@@ -73,12 +73,18 @@ import (
 // Experimental.
 type SourceConfig struct {
 	// The code repository configuration (mutually exclusive  with `imageRepository`).
+	// Default: - no code repository.
+	//
 	// Experimental.
 	CodeRepository *CodeRepositoryProps `field:"optional" json:"codeRepository" yaml:"codeRepository"`
 	// The ECR repository (required to grant the pull privileges for the iam role).
+	// Default: - no ECR repository.
+	//
 	// Experimental.
 	EcrRepository awsecr.IRepository `field:"optional" json:"ecrRepository" yaml:"ecrRepository"`
 	// The image repository configuration (mutually exclusive  with `codeRepository`).
+	// Default: - no image repository.
+	//
 	// Experimental.
 	ImageRepository *ImageRepository `field:"optional" json:"imageRepository" yaml:"imageRepository"`
 }

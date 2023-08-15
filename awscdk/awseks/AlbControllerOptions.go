@@ -20,12 +20,16 @@ type AlbControllerOptions struct {
 	// CDK ships with the appropriate policies for those versions.
 	//
 	// However, if you are using a custom version, this is required (and validated).
+	// Default: - Corresponds to the predefined version.
+	//
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
 	// The repository to pull the controller image from.
 	//
 	// Note that the default repository works for most regions, but not all.
 	// If the repository is not applicable to your region, use a custom repository
 	// according to the information here: https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases.
+	// Default: '602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon/aws-load-balancer-controller'
+	//
 	Repository *string `field:"optional" json:"repository" yaml:"repository"`
 }
 

@@ -35,10 +35,14 @@ type SparkSubmitJobDriver struct {
 	// The arguments for a job application in a task input object containing an array of strings.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 10280.
+	// Default: - No arguments defined.
+	//
 	EntryPointArguments awsstepfunctions.TaskInput `field:"optional" json:"entryPointArguments" yaml:"entryPointArguments"`
 	// The Spark submit parameters that are used for job runs.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 102400.
+	// Default: - No spark submit parameters.
+	//
 	SparkSubmitParameters *string `field:"optional" json:"sparkSubmitParameters" yaml:"sparkSubmitParameters"`
 }
 

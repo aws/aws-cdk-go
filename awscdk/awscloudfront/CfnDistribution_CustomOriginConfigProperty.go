@@ -39,11 +39,15 @@ type CfnDistribution_CustomOriginConfigProperty struct {
 	// Specify the HTTP port that the origin listens on.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpport
 	//
+	// Default: - 80.
+	//
 	HttpPort *float64 `field:"optional" json:"httpPort" yaml:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin.
 	//
 	// Specify the HTTPS port that the origin listens on.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
+	//
+	// Default: - 443.
 	//
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
@@ -53,6 +57,8 @@ type CfnDistribution_CustomOriginConfigProperty struct {
 	// For more information, see [Origin Keep-alive Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
 	//
+	// Default: - 5.
+	//
 	OriginKeepaliveTimeout *float64 `field:"optional" json:"originKeepaliveTimeout" yaml:"originKeepaliveTimeout"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin.
 	//
@@ -60,6 +66,8 @@ type CfnDistribution_CustomOriginConfigProperty struct {
 	//
 	// For more information, see [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
+	//
+	// Default: - 30.
 	//
 	OriginReadTimeout *float64 `field:"optional" json:"originReadTimeout" yaml:"originReadTimeout"`
 	// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS.

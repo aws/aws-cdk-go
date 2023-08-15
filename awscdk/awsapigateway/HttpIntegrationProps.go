@@ -52,10 +52,16 @@ package awsapigateway
 //
 type HttpIntegrationProps struct {
 	// HTTP method to use when invoking the backend URL.
+	// Default: GET.
+	//
 	HttpMethod *string `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// Integration options, such as request/resopnse mapping, content handling, etc.
+	// Default: defaults based on `IntegrationOptions` defaults.
+	//
 	Options *IntegrationOptions `field:"optional" json:"options" yaml:"options"`
 	// Determines whether to use proxy integration or custom integration.
+	// Default: true.
+	//
 	Proxy *bool `field:"optional" json:"proxy" yaml:"proxy"`
 }
 

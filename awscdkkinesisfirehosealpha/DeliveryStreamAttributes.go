@@ -25,16 +25,22 @@ type DeliveryStreamAttributes struct {
 	// The ARN of the delivery stream.
 	//
 	// At least one of deliveryStreamArn and deliveryStreamName must be provided.
+	// Default: - derived from `deliveryStreamName`.
+	//
 	// Experimental.
 	DeliveryStreamArn *string `field:"optional" json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
 	// The name of the delivery stream.
 	//
 	// At least one of deliveryStreamName and deliveryStreamArn  must be provided.
+	// Default: - derived from `deliveryStreamArn`.
+	//
 	// Experimental.
 	DeliveryStreamName *string `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// The IAM role associated with this delivery stream.
 	//
 	// Assumed by Kinesis Data Firehose to read from sources and encrypt data server-side.
+	// Default: - the imported stream cannot be granted access to other resources as an `iam.IGrantable`.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }

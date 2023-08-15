@@ -18,8 +18,12 @@ type InstanceRequireImdsv2AspectProps struct {
 	//
 	// You can set this to `true` if `LaunchTemplateImdsAspect` is being used alongside this Aspect to
 	// suppress false-positive warnings because any Launch Templates associated with Instances will still be covered.
+	// Default: - false.
+	//
 	SuppressLaunchTemplateWarning *bool `field:"optional" json:"suppressLaunchTemplateWarning" yaml:"suppressLaunchTemplateWarning"`
 	// Whether warning annotations from this Aspect should be suppressed or not.
+	// Default: - false.
+	//
 	SuppressWarnings *bool `field:"optional" json:"suppressWarnings" yaml:"suppressWarnings"`
 }
 

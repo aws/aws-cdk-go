@@ -22,8 +22,12 @@ type NoneDataSourceProps struct {
 	// The API to attach this data source to.
 	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
+	// Default: - None.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
+	// Default: - id of data source.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

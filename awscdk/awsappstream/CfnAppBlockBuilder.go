@@ -56,11 +56,15 @@ import (
 type CfnAppBlockBuilder interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The access endpoints of the app block builder.
 	AccessEndpoints() interface{}
 	SetAccessEndpoints(val interface{})
+	// The ARN of the app block.
 	AppBlockArns() *[]*string
 	SetAppBlockArns(val *[]*string)
+	// The ARN of the app block builder.
 	AttrArn() *string
+	// The time when the app block builder was created.
 	AttrCreatedTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -113,6 +117,7 @@ type CfnAppBlockBuilder interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags of the app block builder.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

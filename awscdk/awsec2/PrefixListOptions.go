@@ -14,6 +14,8 @@ package awsec2
 //
 type PrefixListOptions struct {
 	// The maximum number of entries for the prefix list.
+	// Default: Automatically-calculated.
+	//
 	MaxEntries *float64 `field:"optional" json:"maxEntries" yaml:"maxEntries"`
 }
 

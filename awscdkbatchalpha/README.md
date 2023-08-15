@@ -135,19 +135,23 @@ computeEnv.AddInstanceClass(ec2.InstanceClass_R4)
 
 #### Allocation Strategies
 
-| Allocation Strategy     | Optimized for      | Downsides                     |
-| ----------------------- | -------------      | ----------------------------- |
-| BEST_FIT                | Cost               | May limit throughput          |
-| BEST_FIT_PROGRESSIVE    | Throughput         | May increase cost             |
-| SPOT_CAPACITY_OPTIMIZED | Least interruption | Only useful on Spot instances |
+| Allocation Strategy           | Optimized for              | Downsides                     |
+| -----------------------       | -------------              | ----------------------------- |
+| BEST_FIT                      | Cost                       | May limit throughput          |
+| BEST_FIT_PROGRESSIVE          | Throughput                 | May increase cost             |
+| SPOT_CAPACITY_OPTIMIZED       | Least interruption         | Only useful on Spot instances |
+| SPOT_PRICE_CAPACITY_OPTIMIZED | Least interruption + Price | Only useful on Spot instances |
 
 Batch provides different Allocation Strategies to help it choose which instances to provision.
 If your workflow tolerates interruptions, you should enable `spot` on your `ComputeEnvironment`
-and use `SPOT_CAPACITY_OPTIMIZED` (this is the default if `spot` is enabled).
+and use `SPOT_PRICE_CAPACITY_OPTIMIZED` (this is the default if `spot` is enabled).
 This will tell Batch to choose the instance types from the ones you’ve specified that have
-the most spot capacity available to minimize the chance of interruption.
+the most spot capacity available to minimize the chance of interruption and have the lowest price.
 To get the most benefit from your spot instances,
 you should allow Batch to choose from as many different instance types as possible.
+If you only care about minimal interruptions and not want Batch to optimize for cost, use
+`SPOT_CAPACITY_OPTIMIZED`. `SPOT_PRICE_CAPACITY_OPTIMIZED` is recommended over `SPOT_CAPACITY_OPTIMIZED`
+for most use cases.
 
 If your workflow does not tolerate interruptions and you want to minimize your costs at the expense
 of potentially longer waiting times, use `AllocationStrategy.BEST_FIT`.
@@ -200,7 +204,8 @@ computeEnv := batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2C
 You can specify the maximum and minimum vCPUs a managed `ComputeEnvironment` can have at any given time.
 Batch will *always* maintain `minvCpus` worth of instances in your ComputeEnvironment, even if it is not executing any jobs,
 and even if it is disabled. Batch will scale the instances up to `maxvCpus` worth of instances as
-jobs exit the JobQueue and enter the ComputeEnvironment. If you use `AllocationStrategy.BEST_FIT_PROGRESSIVE` or `AllocationStrategy.SPOT_CAPACITY_OPTIMIZED`,
+jobs exit the JobQueue and enter the ComputeEnvironment. If you use `AllocationStrategy.BEST_FIT_PROGRESSIVE`,
+`AllocationStrategy.SPOT_PRICE_CAPACITY_OPTIMIZED`, or `AllocationStrategy.SPOT_CAPACITY_OPTIMIZED`,
 batch may exceed `maxvCpus`; it will never exceed `maxvCpus` by more than a single instance type. This example configures a
 `minvCpus` of 10 and a `maxvCpus` of 100:
 
@@ -689,3 +694,38 @@ B => 2 vCPU - WAITING
 In this situation, Batch will allocate **Job A** to compute resource #1 because it is the most cost efficient resource that matches the vCPU requirement. However, with this `BEST_FIT` strategy, **Job B** will not be allocated to our other available compute resource even though it is strong enough to handle it. Instead, it will wait until the first job is finished processing or wait a similar `m5.xlarge` resource to be provisioned.
 
 The alternative would be to use the `BEST_FIT_PROGRESSIVE` strategy in order for the remaining job to be handled in larger containers regardless of vCPU requirement and costs.
+
+### Permissions
+
+You can grant any Principal the `batch:submitJob` permission on both a job definition and a job queue like this:
+
+```go
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+import iam "github.com/aws/aws-cdk-go/awscdk"
+
+var vpc iVpc
+
+
+ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+		Cpu: jsii.Number(256),
+	}),
+})
+
+queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+	ComputeEnvironments: []orderedComputeEnvironment{
+		&orderedComputeEnvironment{
+			ComputeEnvironment: batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("managedEc2CE"), &ManagedEc2EcsComputeEnvironmentProps{
+				Vpc: *Vpc,
+			}),
+			Order: jsii.Number(1),
+		},
+	},
+	Priority: jsii.Number(10),
+})
+
+user := iam.NewUser(this, jsii.String("MyUser"))
+ecsJob.GrantSubmitJob(user, queue)
+```

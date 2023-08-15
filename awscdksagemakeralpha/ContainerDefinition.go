@@ -34,12 +34,19 @@ type ContainerDefinition struct {
 	// must be specified for all other ContainerDefinitions in that pipeline.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-containerhostname
 	//
+	// Default: - Amazon SageMaker will automatically assign a unique name based on the position of
+	// this ContainerDefinition in an inference pipeline.
+	//
 	// Experimental.
 	ContainerHostname *string `field:"optional" json:"containerHostname" yaml:"containerHostname"`
 	// A map of environment variables to pass into the container.
+	// Default: - none.
+	//
 	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// S3 path to the model artifacts.
+	// Default: - none.
+	//
 	// Experimental.
 	ModelData ModelData `field:"optional" json:"modelData" yaml:"modelData"`
 }

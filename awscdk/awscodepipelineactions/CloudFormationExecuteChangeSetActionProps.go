@@ -71,8 +71,14 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Default: 1.
+	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Default: - a name will be generated, based on the stage and action names,
+	// if any of the action's variables were referenced - otherwise,
+	// no namespace will be set.
+	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -81,6 +87,8 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your `IAction.bind`
 	// method in the `ActionBindOptions.role` property.
+	// Default: a new Role will be generated.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Name of the change set to execute.
 	ChangeSetName *string `field:"required" json:"changeSetName" yaml:"changeSetName"`
@@ -90,10 +98,14 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
+	// Default: - action resides in the same account as the pipeline.
+	//
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
+	// Default: Automatically generated artifact name.
+	//
 	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
@@ -102,6 +114,8 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	//
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
+	// Default: No output artifact generated.
+	//
 	OutputFileName *string `field:"optional" json:"outputFileName" yaml:"outputFileName"`
 	// The AWS region the given Action resides in.
 	//
@@ -109,6 +123,8 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// You can provide their names with the `PipelineProps#crossRegionReplicationBuckets` property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Default: the Action resides in the same region as the Pipeline.
+	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

@@ -13,6 +13,8 @@ import (
 type IStage interface {
 	awscdk.IResource
 	// Return the given named metric for this HTTP Api Gateway Stage.
+	// Default: - average over 5 minutes.
+	//
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The name of the stage;

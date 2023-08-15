@@ -132,9 +132,13 @@ type CfnTopic_TopicCalculatedFieldProperty struct {
 	// A boolean value that indicates if a calculated field is included in the topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html#cfn-quicksight-topic-topiccalculatedfield-isincludedintopic
 	//
+	// Default: - false.
+	//
 	IsIncludedInTopic interface{} `field:"optional" json:"isIncludedInTopic" yaml:"isIncludedInTopic"`
 	// A Boolean value that indicates whether to never aggregate calculated field in filters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html#cfn-quicksight-topic-topiccalculatedfield-neveraggregateinfilter
+	//
+	// Default: - false.
 	//
 	NeverAggregateInFilter interface{} `field:"optional" json:"neverAggregateInFilter" yaml:"neverAggregateInFilter"`
 	// The list of aggregation types that are not allowed for the calculated field.

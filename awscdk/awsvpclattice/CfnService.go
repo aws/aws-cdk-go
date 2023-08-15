@@ -75,6 +75,7 @@ type CfnService interface {
 	// The custom domain name of the service.
 	CustomDomainName() *string
 	SetCustomDomainName(val *string)
+	// The DNS information of the service.
 	DnsEntry() interface{}
 	SetDnsEntry(val interface{})
 	// The logical ID for this CloudFormation stack element.

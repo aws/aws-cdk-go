@@ -67,7 +67,7 @@ type CfnConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-loggingrole
 	//
 	LoggingRole *string `field:"optional" json:"loggingRole" yaml:"loggingRole"`
-	// Configuration for an SFTP connector.
+	// A structure that contains the parameters for an SFTP connector object.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-sftpconfig
 	//
 	SftpConfig interface{} `field:"optional" json:"sftpConfig" yaml:"sftpConfig"`

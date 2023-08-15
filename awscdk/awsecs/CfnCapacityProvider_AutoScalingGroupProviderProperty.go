@@ -29,7 +29,7 @@ type CfnCapacityProvider_AutoScalingGroupProviderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
 	//
 	AutoScalingGroupArn *string `field:"required" json:"autoScalingGroupArn" yaml:"autoScalingGroupArn"`
-	// he managed scaling settings for the Auto Scaling group capacity provider.
+	// The managed scaling settings for the Auto Scaling group capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
 	//
 	ManagedScaling interface{} `field:"optional" json:"managedScaling" yaml:"managedScaling"`

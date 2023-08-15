@@ -27,7 +27,13 @@ type CfnTaskDefinition_SystemControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-namespace
 	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
-	// The value for the namespaced kernel parameter that's specified in `namespace` .
+	// The namespaced kernel parameter to set a `value` for.
+	//
+	// Valid IPC namespace values: `"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"` , and `Sysctls` that start with `"fs.mqueue.*"`
+	//
+	// Valid network namespace values: `Sysctls` that start with `"net.*"`
+	//
+	// All of these values are supported by Fargate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-value
 	//
 	Value *string `field:"optional" json:"value" yaml:"value"`

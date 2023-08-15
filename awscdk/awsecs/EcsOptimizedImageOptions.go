@@ -30,6 +30,8 @@ type EcsOptimizedImageOptions struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
+	// Default: false.
+	//
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 }
 

@@ -13,6 +13,8 @@ package awscodedeploy
 //
 type ServerDeploymentConfigProps struct {
 	// The physical, human-readable name of the Deployment Configuration.
+	// Default: - automatically generated name.
+	//
 	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 	// Minimum number of healthy hosts.
 	MinimumHealthyHosts MinimumHealthyHosts `field:"required" json:"minimumHealthyHosts" yaml:"minimumHealthyHosts"`

@@ -524,6 +524,8 @@ type CfnDashboard_GrowthRateComputationProperty struct {
 	// The period size setup of a growth rate computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-growthratecomputation.html#cfn-quicksight-dashboard-growthratecomputation-periodsize
 	//
+	// Default: - 0.
+	//
 	PeriodSize *float64 `field:"optional" json:"periodSize" yaml:"periodSize"`
 	// The value field that is used in a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-growthratecomputation.html#cfn-quicksight-dashboard-growthratecomputation-value

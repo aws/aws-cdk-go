@@ -319,6 +319,8 @@ func VpnConnection_MetricAll(metricName *string, props *awscloudwatch.MetricOpti
 }
 
 // Metric for the tunnel data in of all VPN connections in the account/region.
+// Default: sum over 5 minutes.
+//
 func VpnConnection_MetricAllTunnelDataIn(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -338,6 +340,8 @@ func VpnConnection_MetricAllTunnelDataIn(props *awscloudwatch.MetricOptions) aws
 }
 
 // Metric for the tunnel data out of all VPN connections.
+// Default: sum over 5 minutes.
+//
 func VpnConnection_MetricAllTunnelDataOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -357,6 +361,8 @@ func VpnConnection_MetricAllTunnelDataOut(props *awscloudwatch.MetricOptions) aw
 }
 
 // Metric for the tunnel state of all VPN connections in the account/region.
+// Default: average over 5 minutes.
+//
 func VpnConnection_MetricAllTunnelState(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 

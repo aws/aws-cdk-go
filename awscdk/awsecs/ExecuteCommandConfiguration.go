@@ -41,12 +41,18 @@ import (
 //
 type ExecuteCommandConfiguration struct {
 	// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+	// Default: - none.
+	//
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The log configuration for the results of the execute command actions.
 	//
 	// The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
+	// Default: - none.
+	//
 	LogConfiguration *ExecuteCommandLogConfiguration `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 	// The log settings to use for logging the execute command session.
+	// Default: - none.
+	//
 	Logging ExecuteCommandLogging `field:"optional" json:"logging" yaml:"logging"`
 }
 

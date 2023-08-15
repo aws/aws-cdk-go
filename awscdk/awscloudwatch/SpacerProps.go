@@ -15,8 +15,12 @@ package awscloudwatch
 //
 type SpacerProps struct {
 	// Height of the spacer.
+	// Default: : 1.
+	//
 	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// Width of the spacer.
+	// Default: 1.
+	//
 	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 

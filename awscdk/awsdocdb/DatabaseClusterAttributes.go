@@ -34,16 +34,28 @@ type DatabaseClusterAttributes struct {
 	// Identifier for the cluster.
 	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Cluster endpoint address.
+	// Default: - no cluster endpoint address.
+	//
 	ClusterEndpointAddress *string `field:"optional" json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// Endpoint addresses of individual instances.
+	// Default: - no instance endpoint addresses.
+	//
 	InstanceEndpointAddresses *[]*string `field:"optional" json:"instanceEndpointAddresses" yaml:"instanceEndpointAddresses"`
 	// Identifier for the instances.
+	// Default: - no instance identifiers.
+	//
 	InstanceIdentifiers *[]*string `field:"optional" json:"instanceIdentifiers" yaml:"instanceIdentifiers"`
 	// The database port.
+	// Default: - none.
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Reader endpoint address.
+	// Default: - no reader endpoint address.
+	//
 	ReaderEndpointAddress *string `field:"optional" json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The security group of the database cluster.
+	// Default: - no security groups.
+	//
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 }
 

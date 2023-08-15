@@ -23,6 +23,7 @@ func init() {
 			"BEST_FIT": AllocationStrategy_BEST_FIT,
 			"BEST_FIT_PROGRESSIVE": AllocationStrategy_BEST_FIT_PROGRESSIVE,
 			"SPOT_CAPACITY_OPTIMIZED": AllocationStrategy_SPOT_CAPACITY_OPTIMIZED,
+			"SPOT_PRICE_CAPACITY_OPTIMIZED": AllocationStrategy_SPOT_PRICE_CAPACITY_OPTIMIZED,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -143,6 +144,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantSubmitJob", GoMethod: "GrantSubmitJob"},
 			_jsii_.MemberProperty{JsiiProperty: "jobDefinitionArn", GoGetter: "JobDefinitionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobDefinitionName", GoGetter: "JobDefinitionName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},

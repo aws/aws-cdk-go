@@ -94,18 +94,32 @@ package awscloudfront
 //
 type ResponseHeadersPolicyProps struct {
 	// A comment to describe the response headers policy.
+	// Default: - no comment.
+	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
+	// Default: - no cors behavior.
+	//
 	CorsBehavior *ResponseHeadersCorsBehavior `field:"optional" json:"corsBehavior" yaml:"corsBehavior"`
 	// A configuration for a set of custom HTTP response headers.
+	// Default: - no custom headers behavior.
+	//
 	CustomHeadersBehavior *ResponseCustomHeadersBehavior `field:"optional" json:"customHeadersBehavior" yaml:"customHeadersBehavior"`
 	// A list of HTTP response headers that CloudFront removes from HTTP responses that it sends to viewers.
+	// Default: - no headers are removed.
+	//
 	RemoveHeaders *[]*string `field:"optional" json:"removeHeaders" yaml:"removeHeaders"`
 	// A unique name to identify the response headers policy.
+	// Default: - generated from the `id`.
+	//
 	ResponseHeadersPolicyName *string `field:"optional" json:"responseHeadersPolicyName" yaml:"responseHeadersPolicyName"`
 	// A configuration for a set of security-related HTTP response headers.
+	// Default: - no security headers behavior.
+	//
 	SecurityHeadersBehavior *ResponseSecurityHeadersBehavior `field:"optional" json:"securityHeadersBehavior" yaml:"securityHeadersBehavior"`
 	// The percentage of responses that you want CloudFront to add the Server-Timing header to.
+	// Default: - no Server-Timing header is added to HTTP responses.
+	//
 	ServerTimingSamplingRate *float64 `field:"optional" json:"serverTimingSamplingRate" yaml:"serverTimingSamplingRate"`
 }
 

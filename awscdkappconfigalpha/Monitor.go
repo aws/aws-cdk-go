@@ -30,6 +30,8 @@ type Monitor struct {
 	// Experimental.
 	Alarm awscloudwatch.IAlarm `field:"required" json:"alarm" yaml:"alarm"`
 	// The IAM role for AWS AppConfig to view the alarm state.
+	// Default: - A role is generated.
+	//
 	// Experimental.
 	AlarmRole awsiam.IRole `field:"optional" json:"alarmRole" yaml:"alarmRole"`
 }

@@ -41,7 +41,7 @@ import (
 type CfnBillingGroupProps struct {
 	// The set of accounts that will be under the billing group.
 	//
-	// The set of accounts resemble the linked accounts in a consolidated family.
+	// The set of accounts resemble the linked accounts in a consolidated billing family.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-accountgrouping
 	//
 	AccountGrouping interface{} `field:"required" json:"accountGrouping" yaml:"accountGrouping"`
@@ -61,6 +61,7 @@ type CfnBillingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// A map that contains tag keys and tag values that are attached to a billing group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -24,6 +24,8 @@ type GetContextValueOptions struct {
 	// The context provider to query.
 	Provider *string `field:"required" json:"provider" yaml:"provider"`
 	// Whether to include the stack's account and region automatically.
+	// Default: true.
+	//
 	IncludeEnvironment *bool `field:"optional" json:"includeEnvironment" yaml:"includeEnvironment"`
 	// Provider-specific properties.
 	Props *map[string]interface{} `field:"optional" json:"props" yaml:"props"`

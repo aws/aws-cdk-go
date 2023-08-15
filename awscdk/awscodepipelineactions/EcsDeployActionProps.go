@@ -45,8 +45,14 @@ type EcsDeployActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Default: 1.
+	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Default: - a name will be generated, based on the stage and action names,
+	// if any of the action's variables were referenced - otherwise,
+	// no namespace will be set.
+	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -55,6 +61,8 @@ type EcsDeployActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your `IAction.bind`
 	// method in the `ActionBindOptions.role` property.
+	// Default: a new Role will be generated.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The ECS Service to deploy.
 	Service awsecs.IBaseService `field:"required" json:"service" yaml:"service"`
@@ -62,6 +70,8 @@ type EcsDeployActionProps struct {
 	//
 	// Value must be between 1-60.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ECS.html
+	//
+	// Default: - 60 minutes.
 	//
 	DeploymentTimeout awscdk.Duration `field:"optional" json:"deploymentTimeout" yaml:"deploymentTimeout"`
 	// The name of the JSON image definitions file to use for deployments.
@@ -73,6 +83,8 @@ type EcsDeployActionProps struct {
 	// If you use this property, you don't need to specify the `input` property.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-image-definitions
 	//
+	// Default: - one of this property, or `input`, is required.
+	//
 	ImageFile awscodepipeline.ArtifactPath `field:"optional" json:"imageFile" yaml:"imageFile"`
 	// The input artifact that contains the JSON image definitions file to use for deployments.
 	//
@@ -83,6 +95,8 @@ type EcsDeployActionProps struct {
 	// If your build uses a different file, leave this property empty,
 	// and use the `imageFile` property instead.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-image-definitions
+	//
+	// Default: - one of this property, or `imageFile`, is required.
 	//
 	Input awscodepipeline.Artifact `field:"optional" json:"input" yaml:"input"`
 }

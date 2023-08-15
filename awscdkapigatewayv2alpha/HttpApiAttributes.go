@@ -21,6 +21,8 @@ type HttpApiAttributes struct {
 	// Experimental.
 	HttpApiId *string `field:"required" json:"httpApiId" yaml:"httpApiId"`
 	// The endpoint URL of the HttpApi.
+	// Default: - throws an error if apiEndpoint is accessed.
+	//
 	// Experimental.
 	ApiEndpoint *string `field:"optional" json:"apiEndpoint" yaml:"apiEndpoint"`
 }

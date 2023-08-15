@@ -11,7 +11,7 @@ import (
 
 // Creates a policy of a specified type that you can attach to a root, an organizational unit (OU), or an individual AWS account .
 //
-// For more information about policies and their use, see [Managing Organization Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html) .
+// For more information about policies and their use, see [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html) .
 //
 // If the request includes tags, then the requester must have the `organizations:TagResource` permission.
 //

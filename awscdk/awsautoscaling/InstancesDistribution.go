@@ -45,6 +45,8 @@ type InstancesDistribution struct {
 	//
 	// The only valid value is prioritized,
 	// which is also the default value.
+	// Default: OnDemandAllocationStrategy.PRIORITIZED
+	//
 	OnDemandAllocationStrategy OnDemandAllocationStrategy `field:"optional" json:"onDemandAllocationStrategy" yaml:"onDemandAllocationStrategy"`
 	// The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances.
 	//
@@ -52,11 +54,15 @@ type InstancesDistribution struct {
 	// base portion is provisioned first as your group scales. Defaults to 0 if not specified. If you specify weights
 	// for the instance types in the overrides, set the value of OnDemandBaseCapacity in terms of the number of
 	// capacity units, and not the number of instances.
+	// Default: 0.
+	//
 	OnDemandBaseCapacity *float64 `field:"optional" json:"onDemandBaseCapacity" yaml:"onDemandBaseCapacity"`
 	// Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond OnDemandBaseCapacity.
 	//
 	// Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances).
 	// Defaults to 100 if not specified. If set to 100, only On-Demand Instances are provisioned.
+	// Default: 100.
+	//
 	OnDemandPercentageAboveBaseCapacity *float64 `field:"optional" json:"onDemandPercentageAboveBaseCapacity" yaml:"onDemandPercentageAboveBaseCapacity"`
 	// If the allocation strategy is lowest-price, the Auto Scaling group launches instances using the Spot pools with the lowest price, and evenly allocates your instances across the number of Spot pools that you specify.
 	//
@@ -68,18 +74,24 @@ type InstancesDistribution struct {
 	// and set the order of instance types in the list of launch template overrides from highest to lowest priority
 	// (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best-effort basis but
 	// optimizes for capacity first.
+	// Default: SpotAllocationStrategy.LOWEST_PRICE
+	//
 	SpotAllocationStrategy SpotAllocationStrategy `field:"optional" json:"spotAllocationStrategy" yaml:"spotAllocationStrategy"`
 	// The number of Spot Instance pools to use to allocate your Spot capacity.
 	//
 	// The Spot pools are determined from the different instance
 	// types in the overrides. Valid only when the Spot allocation strategy is lowest-price. Value must be in the range of 1 to 20.
 	// Defaults to 2 if not specified.
+	// Default: 2.
+	//
 	SpotInstancePools *float64 `field:"optional" json:"spotInstancePools" yaml:"spotInstancePools"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	//
 	// If you leave the value at its default (empty),
 	// Amazon EC2 Auto Scaling uses the On-Demand price as the maximum Spot price. To remove a value that you previously set, include
 	// the property but specify an empty string ("") for the value.
+	// Default: "" - On-Demand price.
+	//
 	SpotMaxPrice *string `field:"optional" json:"spotMaxPrice" yaml:"spotMaxPrice"`
 }
 

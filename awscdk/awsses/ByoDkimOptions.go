@@ -27,6 +27,8 @@ type ByoDkimOptions struct {
 	// The public key.
 	//
 	// If specified, a TXT record with the public key is created.
+	// Default: - the validation TXT record with the public key is not created.
+	//
 	PublicKey *string `field:"optional" json:"publicKey" yaml:"publicKey"`
 }
 

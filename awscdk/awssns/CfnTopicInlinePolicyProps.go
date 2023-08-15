@@ -18,7 +18,7 @@ package awssns
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicinlinepolicy.html
 //
 type CfnTopicInlinePolicyProps struct {
-	// A policy document that contains permissions to add to the specified SNS topics.
+	// A policy document that contains permissions to add to the specified Amazon SNS topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicinlinepolicy.html#cfn-sns-topicinlinepolicy-policydocument
 	//
 	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`

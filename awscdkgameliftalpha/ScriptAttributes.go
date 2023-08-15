@@ -27,6 +27,8 @@ type ScriptAttributes struct {
 	// Experimental.
 	ScriptArn *string `field:"required" json:"scriptArn" yaml:"scriptArn"`
 	// The IAM role assumed by GameLift to access server script in S3.
+	// Default: - undefined.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }

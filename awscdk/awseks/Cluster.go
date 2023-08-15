@@ -69,6 +69,8 @@ type Cluster interface {
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Default: - No security group.
+	//
 	ClusterHandlerSecurityGroup() awsec2.ISecurityGroup
 	// The Name of the created EKS Cluster.
 	ClusterName() *string
@@ -112,6 +114,8 @@ type Cluster interface {
 	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
 	//
+	// Default: - IpFamily.IP_V4
+	//
 	IpFamily() IpFamily
 	// Custom environment variables when running `kubectl` against this cluster.
 	KubectlEnvironment() *map[string]*string
@@ -120,6 +124,9 @@ type Cluster interface {
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.
 	//
 	// This role is directly passed to the lambda handler that sends Kube Ctl commands to the cluster.
+	// Default: - if not specified, the default role created by a lambda function will
+	// be used.
+	//
 	KubectlLambdaRole() awsiam.IRole
 	// An AWS Lambda layer that includes `kubectl` and `helm`.
 	//
@@ -128,12 +135,18 @@ type Cluster interface {
 	// The amount of memory allocated to the kubectl provider's lambda function.
 	KubectlMemory() awscdk.Size
 	// Subnets to host the `kubectl` compute resources.
+	// Default: - If not specified, the k8s endpoint is expected to be accessible
+	// publicly.
+	//
 	KubectlPrivateSubnets() *[]awsec2.ISubnet
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.
 	KubectlRole() awsiam.IRole
 	// A security group to use for `kubectl` execution.
+	// Default: - If not specified, the k8s endpoint is expected to be accessible
+	// publicly.
+	//
 	KubectlSecurityGroup() awsec2.ISecurityGroup
 	// The tree node.
 	Node() constructs.Node

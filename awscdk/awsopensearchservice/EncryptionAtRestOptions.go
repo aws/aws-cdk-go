@@ -19,19 +19,22 @@ import (
 //   	},
 //   	FineGrainedAccessControl: &AdvancedSecurityOptions{
 //   		MasterUserName: jsii.String("master-user"),
-//   	},
-//   	Logging: &LoggingOptions{
-//   		AuditLogEnabled: jsii.Boolean(true),
-//   		SlowSearchLogEnabled: jsii.Boolean(true),
-//   		AppLogEnabled: jsii.Boolean(true),
-//   		SlowIndexLogEnabled: jsii.Boolean(true),
+//   		SamlAuthenticationEnabled: jsii.Boolean(true),
+//   		SamlAuthenticationOptions: &SAMLOptionsProperty{
+//   			IdpEntityId: jsii.String("entity-id"),
+//   			IdpMetadataContent: jsii.String("metadata-content-with-quotes-escaped"),
+//   		},
 //   	},
 //   })
 //
 type EncryptionAtRestOptions struct {
 	// Specify true to enable encryption at rest.
+	// Default: - encryption at rest is disabled.
+	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Supply if using KMS key for encryption at rest.
+	// Default: - uses default aws/es KMS key.
+	//
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

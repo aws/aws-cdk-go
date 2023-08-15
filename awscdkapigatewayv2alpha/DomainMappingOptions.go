@@ -27,6 +27,8 @@ type DomainMappingOptions struct {
 	// The API mapping key.
 	//
 	// Leave it undefined for the root path mapping.
+	// Default: - empty key for the root path mapping.
+	//
 	// Experimental.
 	MappingKey *string `field:"optional" json:"mappingKey" yaml:"mappingKey"`
 }

@@ -31,8 +31,12 @@ type GenericLogDriverProps struct {
 	// in the Amazon Elastic Container Service Developer Guide.
 	LogDriver *string `field:"required" json:"logDriver" yaml:"logDriver"`
 	// The configuration options to send to the log driver.
+	// Default: - the log driver options.
+	//
 	Options *map[string]*string `field:"optional" json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
+	// Default: - no secret options provided.
+	//
 	SecretOptions *map[string]Secret `field:"optional" json:"secretOptions" yaml:"secretOptions"`
 }
 

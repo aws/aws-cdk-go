@@ -52,6 +52,8 @@ type MessageAttribute struct {
 	// The data type for the attribute.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
+	// Default: determined by type inspection if possible, fallback is String.
+	//
 	DataType MessageAttributeDataType `field:"optional" json:"dataType" yaml:"dataType"`
 }
 

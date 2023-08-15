@@ -48,18 +48,32 @@ type EcsDeploymentGroupProps struct {
 	// Alarms can also be added after the Deployment Group is created using the `#addAlarm` method.
 	// See: https://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-create-alarms.html
 	//
+	// Default: [].
+	//
 	Alarms *[]awscloudwatch.IAlarm `field:"optional" json:"alarms" yaml:"alarms"`
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
+	// Default: One will be created for you.
+	//
 	Application IEcsApplication `field:"optional" json:"application" yaml:"application"`
 	// The auto-rollback configuration for this Deployment Group.
+	// Default: - default AutoRollbackConfig.
+	//
 	AutoRollback *AutoRollbackConfig `field:"optional" json:"autoRollback" yaml:"autoRollback"`
 	// The Deployment Configuration this Deployment Group uses.
+	// Default: EcsDeploymentConfig.ALL_AT_ONCE
+	//
 	DeploymentConfig IEcsDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 	// The physical, human-readable name of the CodeDeploy Deployment Group.
+	// Default: An auto-generated name will be used.
+	//
 	DeploymentGroupName *string `field:"optional" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// Whether to continue a deployment even if fetching the alarm status from CloudWatch failed.
+	// Default: false.
+	//
 	IgnorePollAlarmsFailure *bool `field:"optional" json:"ignorePollAlarmsFailure" yaml:"ignorePollAlarmsFailure"`
 	// The service Role of this Deployment Group.
+	// Default: - A new Role will be created.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

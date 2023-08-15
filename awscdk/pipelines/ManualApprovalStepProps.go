@@ -14,6 +14,8 @@ package pipelines
 //
 type ManualApprovalStepProps struct {
 	// The comment to display with this manual approval.
+	// Default: - No comment.
+	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 

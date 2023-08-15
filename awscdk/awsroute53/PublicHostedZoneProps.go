@@ -38,12 +38,20 @@ type PublicHostedZoneProps struct {
 	// name, specify a fully qualified domain name.
 	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 	// Whether to add a trailing dot to the zone name.
+	// Default: true.
+	//
 	AddTrailingDot *bool `field:"optional" json:"addTrailingDot" yaml:"addTrailingDot"`
 	// Any comments that you want to include about the hosted zone.
+	// Default: none.
+	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
+	// Default: disabled.
+	//
 	QueryLogsLogGroupArn *string `field:"optional" json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
 	// Whether to create a CAA record to restrict certificate authorities allowed to issue certificates for this domain to Amazon only.
+	// Default: false.
+	//
 	CaaAmazon *bool `field:"optional" json:"caaAmazon" yaml:"caaAmazon"`
 	// A principal which is trusted to assume a role for zone delegation.
 	//
@@ -58,9 +66,13 @@ type PublicHostedZoneProps struct {
 	// region-specific service principals for every opt-in region you are going to
 	// be delegating to; or don't use this feature and create separate roles
 	// with appropriate permissions for every opt-in region instead.
+	// Default: - No delegation configuration.
+	//
 	// Deprecated: Create the Role yourself and call `hostedZone.grantDelegation()`.
 	CrossAccountZoneDelegationPrincipal awsiam.IPrincipal `field:"optional" json:"crossAccountZoneDelegationPrincipal" yaml:"crossAccountZoneDelegationPrincipal"`
 	// The name of the role created for cross account delegation.
+	// Default: - A role name is generated automatically.
+	//
 	// Deprecated: Create the Role yourself and call `hostedZone.grantDelegation()`.
 	CrossAccountZoneDelegationRoleName *string `field:"optional" json:"crossAccountZoneDelegationRoleName" yaml:"crossAccountZoneDelegationRoleName"`
 }

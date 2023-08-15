@@ -27,7 +27,7 @@ package awswafv2
 type CfnWebACL_ResponseInspectionJsonProperty struct {
 	// Values for the specified identifier in the response JSON that indicate a failed login attempt.
 	//
-	// To be counted as a failed login, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+	// To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 	//
 	// JSON example: `"FailureValues": [ "False", "Failed" ]`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionjson.html#cfn-wafv2-webacl-responseinspectionjson-failurevalues
@@ -43,7 +43,7 @@ type CfnWebACL_ResponseInspectionJsonProperty struct {
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// Values for the specified identifier in the response JSON that indicate a successful login attempt.
 	//
-	// To be counted as a successful login, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+	// To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 	//
 	// JSON example: `"SuccessValues": [ "True", "Succeeded" ]`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionjson.html#cfn-wafv2-webacl-responseinspectionjson-successvalues

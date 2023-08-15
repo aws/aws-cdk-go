@@ -76,6 +76,7 @@ type CfnServiceNetworkServiceAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The DNS information of the service.
 	DnsEntry() interface{}
 	SetDnsEntry(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -24,6 +24,8 @@ type JenkinsProviderAttributes struct {
 	//
 	ServerUrl *string `field:"required" json:"serverUrl" yaml:"serverUrl"`
 	// The version of your provider.
+	// Default: '1'.
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

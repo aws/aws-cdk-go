@@ -23,6 +23,8 @@ type OriginFailoverConfig struct {
 	// The origin to use as the fallback origin.
 	FailoverOrigin IOrigin `field:"required" json:"failoverOrigin" yaml:"failoverOrigin"`
 	// The HTTP status codes of the response that trigger querying the failover Origin.
+	// Default: - 500, 502, 503 and 504.
+	//
 	StatusCodes *[]*float64 `field:"optional" json:"statusCodes" yaml:"statusCodes"`
 }
 

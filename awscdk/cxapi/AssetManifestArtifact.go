@@ -73,6 +73,8 @@ type AssetManifestArtifact interface {
 	CloudArtifact
 	Assembly() CloudAssembly
 	// Name of SSM parameter with bootstrap stack version.
+	// Default: - Discover SSM parameter by reading stack.
+	//
 	BootstrapStackVersionSsmParameter() *string
 	// The Asset Manifest contents.
 	Contents() *cloudassemblyschema.AssetManifest

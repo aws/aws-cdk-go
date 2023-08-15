@@ -35,6 +35,8 @@ type TemplateRule struct {
 	// Name of the rule.
 	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
 	// Specify when to apply rule with a rule-specific intrinsic function.
+	// Default: - no rule condition provided.
+	//
 	Condition awscdk.ICfnRuleConditionExpression `field:"optional" json:"condition" yaml:"condition"`
 }
 

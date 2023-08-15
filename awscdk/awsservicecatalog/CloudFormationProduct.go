@@ -41,6 +41,8 @@ import (
 type CloudFormationProduct interface {
 	Product
 	// The asset bucket of a product created via product stack.
+	// Default: - Empty - no assets are used in this product.
+	//
 	AssetBuckets() *[]awss3.IBucket
 	// The environment this resource belongs to.
 	//

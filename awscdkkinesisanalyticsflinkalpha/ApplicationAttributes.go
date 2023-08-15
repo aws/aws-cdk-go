@@ -31,6 +31,8 @@ type ApplicationAttributes struct {
 	// Experimental.
 	ApplicationArn *string `field:"required" json:"applicationArn" yaml:"applicationArn"`
 	// The security groups for this Flink application if deployed in a VPC.
+	// Default: - no security groups.
+	//
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }

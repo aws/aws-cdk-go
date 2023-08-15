@@ -18,6 +18,8 @@ type OrganizationsDeploymentProps struct {
 	// Whether AWS CloudFormation StackSets automatically deploys to AWS
 	// Organizations accounts that are added to a target organization or
 	// organizational unit (OU).
+	// Default: Disabled.
+	//
 	AutoDeployment StackSetOrganizationsAutoDeployment `field:"optional" json:"autoDeployment" yaml:"autoDeployment"`
 }
 

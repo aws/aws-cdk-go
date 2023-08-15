@@ -31,6 +31,8 @@ type SourceConfig struct {
 	// An S3 object key in the source bucket that points to a zip file.
 	ZipObjectKey *string `field:"required" json:"zipObjectKey" yaml:"zipObjectKey"`
 	// A set of markers to substitute in the source content.
+	// Default: - no markers.
+	//
 	Markers *map[string]interface{} `field:"optional" json:"markers" yaml:"markers"`
 }
 

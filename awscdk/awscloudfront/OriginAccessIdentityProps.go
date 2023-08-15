@@ -14,6 +14,8 @@ package awscloudfront
 //
 type OriginAccessIdentityProps struct {
 	// Any comments you want to include about the origin access identity.
+	// Default: "Allows CloudFront to reach the bucket".
+	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 

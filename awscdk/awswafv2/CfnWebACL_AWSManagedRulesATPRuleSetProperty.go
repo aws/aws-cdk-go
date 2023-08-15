@@ -73,6 +73,7 @@ type CfnWebACL_AWSManagedRulesATPRuleSetProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-loginpath
 	//
 	LoginPath *string `field:"required" json:"loginPath" yaml:"loginPath"`
+	// Not currently supported by AWS CloudFormation .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-enableregexinpath
 	//
 	EnableRegexInPath interface{} `field:"optional" json:"enableRegexInPath" yaml:"enableRegexInPath"`
@@ -82,9 +83,9 @@ type CfnWebACL_AWSManagedRulesATPRuleSetProperty struct {
 	RequestInspection interface{} `field:"optional" json:"requestInspection" yaml:"requestInspection"`
 	// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
 	//
-	// The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that submit too many failed login attempts in a short amount of time.
-	//
 	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	//
+	// The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-responseinspection
 	//
 	ResponseInspection interface{} `field:"optional" json:"responseInspection" yaml:"responseInspection"`

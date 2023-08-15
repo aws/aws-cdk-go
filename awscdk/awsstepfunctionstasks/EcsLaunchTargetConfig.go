@@ -18,6 +18,8 @@ package awsstepfunctionstasks
 //
 type EcsLaunchTargetConfig struct {
 	// Additional parameters to pass to the base task.
+	// Default: - No additional parameters passed.
+	//
 	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

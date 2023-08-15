@@ -27,6 +27,9 @@ type AddToResourcePolicyResult struct {
 	// Whether the statement was added.
 	StatementAdded *bool `field:"required" json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
+	// Default: - If `statementAdded` is true, the resource object itself.
+	// Otherwise, no dependable.
+	//
 	PolicyDependable constructs.IDependable `field:"optional" json:"policyDependable" yaml:"policyDependable"`
 }
 

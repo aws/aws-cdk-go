@@ -28,6 +28,8 @@ import (
 type SecretPathVolume interface {
 	EksVolume
 	// The path on the container where the container is mounted.
+	// Default: - the container is not mounted.
+	//
 	// Experimental.
 	ContainerPath() *string
 	// The name of this volume.
@@ -38,11 +40,15 @@ type SecretPathVolume interface {
 	// Experimental.
 	Name() *string
 	// Specifies whether the secret or the secret's keys must be defined.
+	// Default: true.
+	//
 	// Experimental.
 	Optional() *bool
 	// If specified, the container has readonly access to the volume.
 	//
 	// Otherwise, the container has read/write access.
+	// Default: false.
+	//
 	// Experimental.
 	Readonly() *bool
 	// The name of the secret.

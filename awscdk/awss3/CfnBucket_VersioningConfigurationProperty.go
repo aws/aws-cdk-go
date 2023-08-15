@@ -20,6 +20,8 @@ type CfnBucket_VersioningConfigurationProperty struct {
 	// The versioning state of the bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfiguration.html#cfn-s3-bucket-versioningconfiguration-status
 	//
+	// Default: - "Suspended".
+	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 }
 

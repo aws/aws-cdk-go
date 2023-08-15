@@ -60,6 +60,8 @@ type EmrCreateCluster_ScalingRuleProperty struct {
 	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
 	Trigger *EmrCreateCluster_ScalingTriggerProperty `field:"required" json:"trigger" yaml:"trigger"`
 	// A friendly, more verbose description of the automatic scaling rule.
+	// Default: - None.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

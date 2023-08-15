@@ -30,6 +30,8 @@ import (
 //
 type TableAttributes struct {
 	// KMS encryption key, if this table uses a customer-managed encryption key.
+	// Default: - no key.
+	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The name of the global indexes set for this Table.
 	//
@@ -37,11 +39,15 @@ type TableAttributes struct {
 	// or `localIndexes`,
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
+	// Default: - no global indexes.
+	//
 	GlobalIndexes *[]*string `field:"optional" json:"globalIndexes" yaml:"globalIndexes"`
 	// If set to true, grant methods always grant permissions for all indexes.
 	//
 	// If false is provided, grant methods grant the permissions
 	// only when `globalIndexes` or `localIndexes` is specified.
+	// Default: - false.
+	//
 	GrantIndexPermissions *bool `field:"optional" json:"grantIndexPermissions" yaml:"grantIndexPermissions"`
 	// The name of the local indexes set for this Table.
 	//
@@ -49,16 +55,24 @@ type TableAttributes struct {
 	// or `globalIndexes`,
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
+	// Default: - no local indexes.
+	//
 	LocalIndexes *[]*string `field:"optional" json:"localIndexes" yaml:"localIndexes"`
 	// The ARN of the dynamodb table.
 	//
 	// One of this, or `tableName`, is required.
+	// Default: - no table arn.
+	//
 	TableArn *string `field:"optional" json:"tableArn" yaml:"tableArn"`
 	// The table name of the dynamodb table.
 	//
 	// One of this, or `tableArn`, is required.
+	// Default: - no table name.
+	//
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// The ARN of the table's stream.
+	// Default: - no table stream.
+	//
 	TableStreamArn *string `field:"optional" json:"tableStreamArn" yaml:"tableStreamArn"`
 }
 

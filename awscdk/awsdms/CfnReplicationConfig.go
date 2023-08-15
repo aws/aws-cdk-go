@@ -65,7 +65,7 @@ type CfnReplicationConfig interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Configuration parameters for provisioning a AWS DMS Serverless replication.
+	// Configuration parameters for provisioning an AWS DMS Serverless replication.
 	ComputeConfig() interface{}
 	SetComputeConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -89,18 +89,19 @@ type CfnReplicationConfig interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of this AWS DMS Serverless replication configuration.
 	ReplicationConfigArn() *string
 	SetReplicationConfigArn(val *string)
-	// A unique identifier of replication configuration.
+	// A unique identifier that you want to use to create a `ReplicationConfigArn` that is returned as part of the output from this action.
 	ReplicationConfigIdentifier() *string
 	SetReplicationConfigIdentifier(val *string)
-	// JSON settings for Servereless replications that are provisioned using this replication configuration.
+	// Optional JSON settings for AWS DMS Serverless replications that are provisioned using this replication configuration.
 	ReplicationSettings() interface{}
 	SetReplicationSettings(val interface{})
 	// The type of AWS DMS Serverless replication to provision using this replication configuration.
 	ReplicationType() *string
 	SetReplicationType(val *string)
-	// A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource.
+	// Optional unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource.
 	ResourceIdentifier() *string
 	SetResourceIdentifier(val *string)
 	// The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration.
@@ -110,16 +111,16 @@ type CfnReplicationConfig interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// JSON settings for specifying supplemental data.
+	// Optional JSON settings for specifying supplemental data.
 	SupplementalSettings() interface{}
 	SetSupplementalSettings(val interface{})
 	// JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration.
 	TableMappings() interface{}
 	SetTableMappings(val interface{})
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>.
+	// One or more optional tags associated with resources used by the AWS DMS Serverless replication.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration.
+	// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS serverless replication configuration.
 	TargetEndpointArn() *string
 	SetTargetEndpointArn(val *string)
 	// Deprecated.

@@ -42,6 +42,8 @@ type RolloutStrategyProps struct {
 	// 100% of its targets, before considering the deployment to be complete.
 	// If an alarm is triggered during this time, AWS AppConfig rolls back
 	// the deployment.
+	// Default: Duration.minutes(0)
+	//
 	// Experimental.
 	FinalBakeTime awscdk.Duration `field:"optional" json:"finalBakeTime" yaml:"finalBakeTime"`
 }

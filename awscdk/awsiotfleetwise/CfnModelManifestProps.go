@@ -53,6 +53,8 @@ type CfnModelManifestProps struct {
 	// If the status is `ACTIVE` , the vehicle model can't be edited. If the status is `DRAFT` , you can edit the vehicle model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-modelmanifest.html#cfn-iotfleetwise-modelmanifest-status
 	//
+	// Default: - "DRAFT".
+	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// (Optional) Metadata that can be used to manage the vehicle model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-modelmanifest.html#cfn-iotfleetwise-modelmanifest-tags

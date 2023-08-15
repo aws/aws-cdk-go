@@ -14,32 +14,34 @@ import (
 // A container orchestrated by ECS that uses EC2 resources.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
-//   multiNodeJob := batch.NewMultiNodeJobDefinition(this, jsii.String("JobDefinition"), &MultiNodeJobDefinitionProps{
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R4, ec2.InstanceSize_LARGE),
-//   	Containers: []multiNodeContainer{
-//   		&multiNodeContainer{
-//   			Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("mainMPIContainer"), &EcsEc2ContainerDefinitionProps{
-//   				Image: ecs.ContainerImage_FromRegistry(jsii.String("yourregsitry.com/yourMPIImage:latest")),
-//   				Cpu: jsii.Number(256),
-//   				Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
-//   			}),
-//   			StartNode: jsii.Number(0),
-//   			EndNode: jsii.Number(5),
-//   		},
-//   	},
-//   })
-//   // convenience method
-//   multiNodeJob.AddContainer(&multiNodeContainer{
-//   	StartNode: jsii.Number(6),
-//   	EndNode: jsii.Number(10),
-//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("multiContainer"), &EcsEc2ContainerDefinitionProps{
-//   		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   var vpc iVpc
+//
+//
+//   ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 //   		Cpu: jsii.Number(256),
-//   		Memory: cdk.Size_*Mebibytes(jsii.Number(2048)),
 //   	}),
 //   })
+//
+//   queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+//   	ComputeEnvironments: []orderedComputeEnvironment{
+//   		&orderedComputeEnvironment{
+//   			ComputeEnvironment: batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("managedEc2CE"), &ManagedEc2EcsComputeEnvironmentProps{
+//   				Vpc: *Vpc,
+//   			}),
+//   			Order: jsii.Number(1),
+//   		},
+//   	},
+//   	Priority: jsii.Number(10),
+//   })
+//
+//   user := iam.NewUser(this, jsii.String("MyUser"))
+//   ecsJob.GrantSubmitJob(user, queue)
 //
 // Experimental.
 type EcsEc2ContainerDefinition interface {

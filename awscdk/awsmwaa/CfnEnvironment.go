@@ -193,6 +193,8 @@ type CfnEnvironment interface {
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// The key-value tag pairs associated to your environment.
+	//
+	// For example, `"Environment": "Staging"` . To learn more, see [Tagging](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
 	TagsRaw() interface{}
 	SetTagsRaw(val interface{})
 	// Deprecated.

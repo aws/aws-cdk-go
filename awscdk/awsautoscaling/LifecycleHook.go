@@ -61,6 +61,9 @@ type LifecycleHook interface {
 	//   cross-environment scenarios.
 	PhysicalName() *string
 	// The role that allows the ASG to publish to the notification target.
+	// Default: - A default role is created if 'notificationTarget' is specified.
+	// Otherwise, no role is created.
+	//
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

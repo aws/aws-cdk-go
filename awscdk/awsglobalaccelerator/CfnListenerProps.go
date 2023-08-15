@@ -36,6 +36,8 @@ type CfnListenerProps struct {
 	// The protocol for the connections from clients to the accelerator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
 	//
+	// Default: - "TCP".
+	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request.
 	//
@@ -47,6 +49,8 @@ type CfnListenerProps struct {
 	//
 	// The default value is `NONE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+	//
+	// Default: - "NONE".
 	//
 	ClientAffinity *string `field:"optional" json:"clientAffinity" yaml:"clientAffinity"`
 }

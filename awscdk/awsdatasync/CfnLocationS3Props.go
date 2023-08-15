@@ -48,6 +48,8 @@ type CfnLocationS3Props struct {
 	// For more information about S3 storage classes, see [Amazon S3 Storage Classes](https://docs.aws.amazon.com/s3/storage-classes/) . Some storage classes have behaviors that can affect your S3 storage costs. For detailed information, see [Considerations When Working with Amazon S3 Storage Classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
 	//
+	// Default: - "STANDARD".
+	//
 	S3StorageClass *string `field:"optional" json:"s3StorageClass" yaml:"s3StorageClass"`
 	// A subdirectory in the Amazon S3 bucket.
 	//

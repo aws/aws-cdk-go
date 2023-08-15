@@ -14,6 +14,8 @@ package awscodedeploy
 //
 type BaseDeploymentConfigOptions struct {
 	// The physical, human-readable name of the Deployment Configuration.
+	// Default: - automatically generated name.
+	//
 	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 

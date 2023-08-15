@@ -26,17 +26,17 @@ package awswafv2
 type CfnWebACL_ResponseInspectionBodyContainsProperty struct {
 	// Strings in the body of the response that indicate a failed login attempt.
 	//
-	// To be counted as a failed login, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+	// To be counted as a failure, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
 	//
-	// JSON example: `"FailureStrings": [ "Login failed" ]`.
+	// JSON example: `"FailureStrings": [ "Request failed" ]`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionbodycontains.html#cfn-wafv2-webacl-responseinspectionbodycontains-failurestrings
 	//
 	FailureStrings *[]*string `field:"required" json:"failureStrings" yaml:"failureStrings"`
 	// Strings in the body of the response that indicate a successful login attempt.
 	//
-	// To be counted as a successful login, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+	// To be counted as a success, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
 	//
-	// JSON example: `"SuccessStrings": [ "Login successful", "Welcome to our site!" ]`
+	// JSON example: `"SuccessStrings": [ "Login successful" ]`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionbodycontains.html#cfn-wafv2-webacl-responseinspectionbodycontains-successstrings
 	//
 	SuccessStrings *[]*string `field:"required" json:"successStrings" yaml:"successStrings"`

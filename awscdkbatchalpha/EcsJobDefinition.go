@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdkbatchalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -13,25 +14,33 @@ import (
 //
 // Example:
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import efs "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myFileSystem iFileSystem
+//   var vpc iVpc
 //
 //
-//   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
 //   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
 //   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 //   		Cpu: jsii.Number(256),
-//   		Volumes: []ecsVolume{
-//   			batch.*ecsVolume_Efs(&EfsVolumeOptions{
-//   				Name: jsii.String("myVolume"),
-//   				FileSystem: myFileSystem,
-//   				ContainerPath: jsii.String("/Volumes/myVolume"),
-//   			}),
-//   		},
 //   	}),
 //   })
+//
+//   queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+//   	ComputeEnvironments: []orderedComputeEnvironment{
+//   		&orderedComputeEnvironment{
+//   			ComputeEnvironment: batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("managedEc2CE"), &ManagedEc2EcsComputeEnvironmentProps{
+//   				Vpc: *Vpc,
+//   			}),
+//   			Order: jsii.Number(1),
+//   		},
+//   	},
+//   	Priority: jsii.Number(10),
+//   })
+//
+//   user := iam.NewUser(this, jsii.String("MyUser"))
+//   ecsJob.GrantSubmitJob(user, queue)
 //
 // Experimental.
 type EcsJobDefinition interface {
@@ -129,6 +138,9 @@ type EcsJobDefinition interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Grants the `batch:submitJob` permission to the identity on both this job definition and the `queue`.
+	// Experimental.
+	GrantSubmitJob(identity awsiam.IGrantable, queue IJobQueue)
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -461,6 +473,17 @@ func (e *jsiiProxy_EcsJobDefinition) GetResourceNameAttribute(nameAttr *string) 
 	)
 
 	return returns
+}
+
+func (e *jsiiProxy_EcsJobDefinition) GrantSubmitJob(identity awsiam.IGrantable, queue IJobQueue) {
+	if err := e.validateGrantSubmitJobParameters(identity, queue); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"grantSubmitJob",
+		[]interface{}{identity, queue},
+	)
 }
 
 func (e *jsiiProxy_EcsJobDefinition) ToString() *string {

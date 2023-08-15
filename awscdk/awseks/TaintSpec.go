@@ -16,10 +16,16 @@ package awseks
 //
 type TaintSpec struct {
 	// Effect type.
+	// Default: - None.
+	//
 	Effect TaintEffect `field:"optional" json:"effect" yaml:"effect"`
 	// Taint key.
+	// Default: - None.
+	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Taint value.
+	// Default: - None.
+	//
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

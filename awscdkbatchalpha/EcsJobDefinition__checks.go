@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,6 +46,18 @@ func (e *jsiiProxy_EcsJobDefinition) validateGetResourceArnAttributeParameters(a
 func (e *jsiiProxy_EcsJobDefinition) validateGetResourceNameAttributeParameters(nameAttr *string) error {
 	if nameAttr == nil {
 		return fmt.Errorf("parameter nameAttr is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (e *jsiiProxy_EcsJobDefinition) validateGrantSubmitJobParameters(identity awsiam.IGrantable, queue IJobQueue) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	if queue == nil {
+		return fmt.Errorf("parameter queue is required, but nil was provided")
 	}
 
 	return nil

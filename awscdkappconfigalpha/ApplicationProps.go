@@ -10,9 +10,13 @@ package awscdkappconfigalpha
 // Experimental.
 type ApplicationProps struct {
 	// The description for the application.
+	// Default: - No description.
+	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the application.
+	// Default: - A name is generated.
+	//
 	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }

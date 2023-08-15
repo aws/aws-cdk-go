@@ -19,6 +19,8 @@ package awsstepfunctions
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html
 //
+// Default: ERROR.
+//
 type LogLevel string
 
 const (

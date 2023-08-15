@@ -37,10 +37,14 @@ type ApplicationConfiguration struct {
 	// A list of additional configurations to apply within a configuration object.
 	//
 	// Array Members: Maximum number of 100 items.
+	// Default: - No other configurations.
+	//
 	NestedConfig *[]*ApplicationConfiguration `field:"optional" json:"nestedConfig" yaml:"nestedConfig"`
 	// A set of properties specified within a configuration classification.
 	//
 	// Map Entries: Maximum number of 100 items.
+	// Default: - No properties.
+	//
 	Properties *map[string]*string `field:"optional" json:"properties" yaml:"properties"`
 }
 

@@ -36,11 +36,15 @@ type HostedZoneProviderProps struct {
 	// The zone domain e.g. example.com.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Whether the zone that is being looked up is a private hosted zone.
+	// Default: false.
+	//
 	PrivateZone *bool `field:"optional" json:"privateZone" yaml:"privateZone"`
 	// Specifies the ID of the VPC associated with a private hosted zone.
 	//
 	// If a VPC ID is provided and privateZone is false, no results will be returned
 	// and an error will be raised.
+	// Default: - No VPC ID.
+	//
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

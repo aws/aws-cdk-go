@@ -28,6 +28,8 @@ type VolumeAttributes struct {
 	// The EBS Volume's ID.
 	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 	// The customer-managed encryption key that is used to encrypt the Volume.
+	// Default: None -- The EBS Volume is not using a customer-managed KMS key for encryption.
+	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

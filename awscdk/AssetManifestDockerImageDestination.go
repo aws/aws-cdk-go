@@ -25,8 +25,12 @@ type AssetManifestDockerImageDestination struct {
 	// Repository name where the docker image asset should be written.
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 	// Prefix to add to the asset hash to make the Docker image tag.
+	// Default: ''.
+	//
 	DockerTagPrefix *string `field:"optional" json:"dockerTagPrefix" yaml:"dockerTagPrefix"`
 	// Role to use to perform the upload.
+	// Default: - No role.
+	//
 	Role *RoleOptions `field:"optional" json:"role" yaml:"role"`
 }
 

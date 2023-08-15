@@ -17,6 +17,8 @@ package awscdkgameliftalpha
 // Experimental.
 type RuleSetContentProps struct {
 	// RuleSet body content.
+	// Default: use a default empty RuleSet body.
+	//
 	// Experimental.
 	Content IRuleSetBody `field:"optional" json:"content" yaml:"content"`
 }

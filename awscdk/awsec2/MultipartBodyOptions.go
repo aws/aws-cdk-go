@@ -26,8 +26,12 @@ type MultipartBodyOptions struct {
 	// For Linux shell scripts use `text/x-shellscript`.
 	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
 	// The body of message.
+	// Default: undefined - body will not be added to part.
+	//
 	Body *string `field:"optional" json:"body" yaml:"body"`
 	// `Content-Transfer-Encoding` header specifying part encoding.
+	// Default: undefined - body is not encoded.
+	//
 	TransferEncoding *string `field:"optional" json:"transferEncoding" yaml:"transferEncoding"`
 }
 

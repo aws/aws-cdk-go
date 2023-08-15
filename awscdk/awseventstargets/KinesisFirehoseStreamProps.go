@@ -22,6 +22,8 @@ type KinesisFirehoseStreamProps struct {
 	// The message to send to the stream.
 	//
 	// Must be a valid JSON text passed to the target stream.
+	// Default: - the entire Event Bridge event.
+	//
 	Message awsevents.RuleTargetInput `field:"optional" json:"message" yaml:"message"`
 }
 

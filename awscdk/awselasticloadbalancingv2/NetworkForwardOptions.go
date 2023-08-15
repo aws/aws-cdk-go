@@ -20,6 +20,8 @@ type NetworkForwardOptions struct {
 	// For how long clients should be directed to the same target group.
 	//
 	// Range between 1 second and 7 days.
+	// Default: - No stickiness.
+	//
 	StickinessDuration awscdk.Duration `field:"optional" json:"stickinessDuration" yaml:"stickinessDuration"`
 }
 

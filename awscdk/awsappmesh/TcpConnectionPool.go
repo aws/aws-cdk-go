@@ -14,6 +14,8 @@ package awsappmesh
 //
 type TcpConnectionPool struct {
 	// The maximum connections in the pool.
+	// Default: - none.
+	//
 	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 }
 

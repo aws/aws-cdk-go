@@ -28,6 +28,8 @@ type EfsFileSystemLocationProps struct {
 	// The location in the container where you mount the file system.
 	MountPoint *string `field:"required" json:"mountPoint" yaml:"mountPoint"`
 	// The mount options for a file system such as Amazon EFS.
+	// Default: 'nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2'.
+	//
 	MountOptions *string `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 }
 

@@ -28,8 +28,12 @@ package awsecs
 //
 type RuntimePlatform struct {
 	// The CpuArchitecture for Fargate Runtime Platform.
+	// Default: - Undefined.
+	//
 	CpuArchitecture CpuArchitecture `field:"optional" json:"cpuArchitecture" yaml:"cpuArchitecture"`
 	// The operating system for Fargate Runtime Platform.
+	// Default: - Undefined.
+	//
 	OperatingSystemFamily OperatingSystemFamily `field:"optional" json:"operatingSystemFamily" yaml:"operatingSystemFamily"`
 }
 

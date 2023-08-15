@@ -49,18 +49,28 @@ type DataProtectionPolicyProps struct {
 	// Amazon Kinesis Data Firehose delivery stream to send audit findings to.
 	//
 	// The delivery stream must already exist.
+	// Default: - no firehose delivery stream audit destination.
+	//
 	DeliveryStreamNameAuditDestination *string `field:"optional" json:"deliveryStreamNameAuditDestination" yaml:"deliveryStreamNameAuditDestination"`
 	// Description of the data protection policy.
+	// Default: - 'cdk generated data protection policy'.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// CloudWatch Logs log group to send audit findings to.
 	//
 	// The log group must already exist prior to creating the data protection policy.
+	// Default: - no CloudWatch Logs audit destination.
+	//
 	LogGroupAuditDestination ILogGroup `field:"optional" json:"logGroupAuditDestination" yaml:"logGroupAuditDestination"`
 	// Name of the data protection policy.
+	// Default: - 'data-protection-policy-cdk'.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// S3 bucket to send audit findings to.
 	//
 	// The bucket must already exist.
+	// Default: - no S3 bucket audit destination.
+	//
 	S3BucketAuditDestination awss3.IBucket `field:"optional" json:"s3BucketAuditDestination" yaml:"s3BucketAuditDestination"`
 }
 

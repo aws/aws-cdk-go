@@ -23,10 +23,14 @@ type CfnParametersCodeProps struct {
 	// The CloudFormation parameter that represents the name of the S3 Bucket where the Lambda code will be located in.
 	//
 	// Must be of type 'String'.
+	// Default: a new parameter will be created.
+	//
 	BucketNameParam awscdk.CfnParameter `field:"optional" json:"bucketNameParam" yaml:"bucketNameParam"`
 	// The CloudFormation parameter that represents the path inside the S3 Bucket where the Lambda code will be located at.
 	//
 	// Must be of type 'String'.
+	// Default: a new parameter will be created.
+	//
 	ObjectKeyParam awscdk.CfnParameter `field:"optional" json:"objectKeyParam" yaml:"objectKeyParam"`
 }
 

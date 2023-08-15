@@ -14,20 +14,34 @@ import (
 // Jobs exit the queue in FIFO order unless a `SchedulingPolicy` is linked.
 //
 // Example:
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var vpc iVpc
 //
-//   sharedComputeEnv := batch.NewFargateComputeEnvironment(this, jsii.String("spotEnv"), &FargateComputeEnvironmentProps{
-//   	Vpc: Vpc,
-//   	Spot: jsii.Boolean(true),
+//
+//   ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+//   		Cpu: jsii.Number(256),
+//   	}),
 //   })
-//   lowPriorityQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-//   	Priority: jsii.Number(1),
-//   })
-//   highPriorityQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+//
+//   queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+//   	ComputeEnvironments: []orderedComputeEnvironment{
+//   		&orderedComputeEnvironment{
+//   			ComputeEnvironment: batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("managedEc2CE"), &ManagedEc2EcsComputeEnvironmentProps{
+//   				Vpc: *Vpc,
+//   			}),
+//   			Order: jsii.Number(1),
+//   		},
+//   	},
 //   	Priority: jsii.Number(10),
 //   })
-//   lowPriorityQueue.AddComputeEnvironment(sharedComputeEnv, jsii.Number(1))
-//   highPriorityQueue.AddComputeEnvironment(sharedComputeEnv, jsii.Number(1))
+//
+//   user := iam.NewUser(this, jsii.String("MyUser"))
+//   ecsJob.GrantSubmitJob(user, queue)
 //
 // Experimental.
 type JobQueue interface {

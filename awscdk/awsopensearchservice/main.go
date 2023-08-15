@@ -311,6 +311,10 @@ func init() {
 		"aws-cdk-lib.aws_opensearchservice.LoggingOptions",
 		reflect.TypeOf((*LoggingOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchservice.SAMLOptionsProperty",
+		reflect.TypeOf((*SAMLOptionsProperty)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_opensearchservice.TLSSecurityPolicy",
 		reflect.TypeOf((*TLSSecurityPolicy)(nil)).Elem(),

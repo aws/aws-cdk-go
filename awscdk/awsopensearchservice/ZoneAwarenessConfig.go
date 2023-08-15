@@ -25,6 +25,8 @@ type ZoneAwarenessConfig struct {
 	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
 	//
 	// Valid values are 2 and 3.
+	// Default: - 2 if zone awareness is enabled.
+	//
 	AvailabilityZoneCount *float64 `field:"optional" json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
 	// Indicates whether to enable zone awareness for the Amazon OpenSearch Service domain.
 	//
@@ -36,6 +38,8 @@ type ZoneAwarenessConfig struct {
 	// see [Configuring a Multi-AZ Domain]
 	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html)
 	// in the Amazon OpenSearch Service Developer Guide.
+	// Default: - false.
+	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

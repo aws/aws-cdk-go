@@ -3,7 +3,10 @@ package awswafv2
 
 // Additional information that's used by a managed rule group. Many managed rule groups don't require this.
 //
-// Use the `AWSManagedRulesBotControlRuleSet` configuration object to configure the protection level that you want the Bot Control rule group to use.
+// The rule groups used for intelligent threat mitigation require additional configuration:
+//
+// - Use the `AWSManagedRulesATPRuleSet` configuration object to configure the account takeover prevention managed rule group. The configuration includes the sign-in page of your application and the locations in the login request payload of data such as the username and password.
+// - Use the `AWSManagedRulesBotControlRuleSet` configuration object to configure the protection level that you want the Bot Control rule group to use.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -145,6 +148,7 @@ package awswafv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html
 //
 type CfnWebACL_ManagedRuleGroupConfigProperty struct {
+	// Not currently supported by AWS CloudFormation .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-awsmanagedrulesacfpruleset
 	//
 	AwsManagedRulesAcfpRuleSet interface{} `field:"optional" json:"awsManagedRulesAcfpRuleSet" yaml:"awsManagedRulesAcfpRuleSet"`
@@ -168,15 +172,15 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-loginpath
 	//
 	LoginPath *string `field:"optional" json:"loginPath" yaml:"loginPath"`
-	// > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` `RequestInspection` .
+	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-passwordfield
 	//
 	PasswordField interface{} `field:"optional" json:"passwordField" yaml:"passwordField"`
-	// > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` `RequestInspection` .
+	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-payloadtype
 	//
 	PayloadType *string `field:"optional" json:"payloadType" yaml:"payloadType"`
-	// > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` `RequestInspection` .
+	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-usernamefield
 	//
 	UsernameField interface{} `field:"optional" json:"usernameField" yaml:"usernameField"`

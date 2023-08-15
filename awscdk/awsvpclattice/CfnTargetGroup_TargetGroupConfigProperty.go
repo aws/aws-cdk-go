@@ -62,11 +62,15 @@ type CfnTargetGroup_TargetGroupConfigProperty struct {
 	// The possible values are `ipv4` and `ipv6` . This is an optional parameter. If not specified, the default is `ipv4` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-ipaddresstype
 	//
+	// Default: - "IPV4".
+	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The protocol version.
 	//
 	// Default value is `HTTP1` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-protocolversion
+	//
+	// Default: - "HTTP1".
 	//
 	ProtocolVersion *string `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`
 }

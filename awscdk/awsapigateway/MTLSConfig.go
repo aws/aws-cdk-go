@@ -28,6 +28,8 @@ type MTLSConfig struct {
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
+	// Default: - latest version.
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

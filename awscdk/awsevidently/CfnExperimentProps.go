@@ -127,7 +127,7 @@ type CfnExperimentProps struct {
 	//
 	// When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
 	//
-	// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
+	// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-segment
 	//
 	Segment *string `field:"optional" json:"segment" yaml:"segment"`

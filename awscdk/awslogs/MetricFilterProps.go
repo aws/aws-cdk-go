@@ -23,14 +23,20 @@ type MetricFilterProps struct {
 	// The namespace of the metric to emit.
 	MetricNamespace *string `field:"required" json:"metricNamespace" yaml:"metricNamespace"`
 	// The value to emit if the pattern does not match a particular event.
+	// Default: No metric emitted.
+	//
 	DefaultValue *float64 `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The fields to use as dimensions for the metric.
 	//
 	// One metric filter can include as many as three dimensions.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-logs-metricfilter-metrictransformation-dimensions
 	//
+	// Default: - No dimensions attached to metrics.
+	//
 	Dimensions *map[string]*string `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The name of the metric filter.
+	// Default: - Cloudformation generated name.
+	//
 	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 	// The value to emit for the metric.
 	//
@@ -43,9 +49,13 @@ type MetricFilterProps struct {
 	//
 	// If you want to specify a field from a matched space-delimited structure,
 	// use '$fieldName'.
+	// Default: "1".
+	//
 	MetricValue *string `field:"optional" json:"metricValue" yaml:"metricValue"`
 	// The unit to assign to the metric.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-logs-metricfilter-metrictransformation-unit
+	//
+	// Default: - No unit attached to metrics.
 	//
 	Unit awscloudwatch.Unit `field:"optional" json:"unit" yaml:"unit"`
 	// The log group to create the filter on.

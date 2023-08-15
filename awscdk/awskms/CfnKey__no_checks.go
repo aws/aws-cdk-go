@@ -80,15 +80,15 @@ func validateCfnKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnKey) validateSetBypassPolicyLockoutSafetyCheckParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnKey) validateSetEnabledParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnKey) validateSetEnableKeyRotationParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnKey) validateSetKeyPolicyParameters(val interface{}) error {
 	return nil
 }
 

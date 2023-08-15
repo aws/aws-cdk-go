@@ -30,8 +30,12 @@ type EventBusProps struct {
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
+	// Default: - no dead-letter queue.
+	//
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Role to be used to publish the event.
+	// Default: a new role is created.
+	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

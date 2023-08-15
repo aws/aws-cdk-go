@@ -31,9 +31,13 @@ import (
 // Experimental.
 type HttpLambdaAuthorizerProps struct {
 	// Friendly authorizer name.
+	// Default: - same value as `id` passed in the constructor.
+	//
 	// Experimental.
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
+	// Default: ['$request.header.Authorization']
+	//
 	// Experimental.
 	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// The types of responses the lambda can return.
@@ -42,12 +46,16 @@ type HttpLambdaAuthorizerProps struct {
 	// response format 2.0 will be used.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response
 	//
+	// Default: [HttpLambdaResponseType.IAM]
+	//
 	// Experimental.
 	ResponseTypes *[]HttpLambdaResponseType `field:"optional" json:"responseTypes" yaml:"responseTypes"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to `Duration.seconds(0)`.
+	// Default: Duration.minutes(5)
+	//
 	// Experimental.
 	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 }

@@ -12,14 +12,14 @@ import (
 // Define a new IAM user.
 //
 // Example:
-//   var definition iChainable
-//   user := iam.NewUser(this, jsii.String("MyUser"))
-//   stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-//   	Definition: Definition,
+//   user := awscdk.NewUser(this, jsii.String("MyUser"), &UserProps{
+//   	Password: awscdk.SecretValue_PlainText(jsii.String("1234")),
 //   })
+//   group := awscdk.NewGroup(this, jsii.String("MyGroup"))
 //
-//   //give user permission to send task success to the state machine
-//   stateMachine.grant(user, jsii.String("states:SendTaskSuccess"))
+//   policy := awscdk.NewPolicy(this, jsii.String("MyPolicy"))
+//   policy.AttachToUser(user)
+//   group.attachInlinePolicy(policy)
 //
 type User interface {
 	awscdk.Resource

@@ -31,10 +31,14 @@ type ScalingInterval struct {
 	// The lower bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is higher than this value.
+	// Default: Threshold automatically derived from neighbouring intervals.
+	//
 	Lower *float64 `field:"optional" json:"lower" yaml:"lower"`
 	// The upper bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is lower than this value.
+	// Default: Threshold automatically derived from neighbouring intervals.
+	//
 	Upper *float64 `field:"optional" json:"upper" yaml:"upper"`
 }
 

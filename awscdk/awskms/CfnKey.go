@@ -47,6 +47,9 @@ type CfnKey interface {
 	//
 	// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
 	AttrKeyId() *string
+	// Skips ("bypasses") the key policy lockout safety check.
+	BypassPolicyLockoutSafetyCheck() interface{}
+	SetBypassPolicyLockoutSafetyCheck(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -275,6 +278,16 @@ func (j *jsiiProxy_CfnKey) AttrKeyId() *string {
 	_jsii_.Get(
 		j,
 		"attrKeyId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnKey) BypassPolicyLockoutSafetyCheck() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"bypassPolicyLockoutSafetyCheck",
 		&returns,
 	)
 	return returns
@@ -518,6 +531,17 @@ func NewCfnKey_Override(c CfnKey, scope constructs.Construct, id *string, props 
 	)
 }
 
+func (j *jsiiProxy_CfnKey)SetBypassPolicyLockoutSafetyCheck(val interface{}) {
+	if err := j.validateSetBypassPolicyLockoutSafetyCheckParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"bypassPolicyLockoutSafetyCheck",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnKey)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -549,9 +573,6 @@ func (j *jsiiProxy_CfnKey)SetEnableKeyRotation(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnKey)SetKeyPolicy(val interface{}) {
-	if err := j.validateSetKeyPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"keyPolicy",

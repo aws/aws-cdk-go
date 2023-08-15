@@ -1,7 +1,7 @@
 package awstransfer
 
 
-// Configuration for an SFTP connector.
+// A structure that contains the parameters for an SFTP connector object.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,11 +18,22 @@ package awstransfer
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html
 //
 type CfnConnector_SftpConfigProperty struct {
-	// List of public host keys, for the external server to which you are connecting.
+	// The public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.
+	//
+	// You can use the `ssh-keyscan` command against the SFTP server to retrieve the necessary key.
+	//
+	// The three standard SSH public key format elements are `<key type>` , `<body base64>` , and an optional `<comment>` , with spaces between each element.
+	//
+	// For the trusted host key, AWS Transfer Family accepts RSA and ECDSA keys.
+	//
+	// - For RSA keys, the key type is `ssh-rsa` .
+	// - For ECDSA keys, the key type is either `ecdsa-sha2-nistp256` , `ecdsa-sha2-nistp384` , or `ecdsa-sha2-nistp521` , depending on the size of the key you generated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-trustedhostkeys
 	//
 	TrustedHostKeys *[]*string `field:"optional" json:"trustedHostKeys" yaml:"trustedHostKeys"`
-	// ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+	// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both.
+	//
+	// The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-usersecretid
 	//
 	UserSecretId *string `field:"optional" json:"userSecretId" yaml:"userSecretId"`

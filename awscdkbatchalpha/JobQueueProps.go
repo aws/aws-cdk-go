@@ -4,20 +4,34 @@ package awscdkbatchalpha
 // Props to configure a JobQueue.
 //
 // Example:
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var vpc iVpc
 //
-//   sharedComputeEnv := batch.NewFargateComputeEnvironment(this, jsii.String("spotEnv"), &FargateComputeEnvironmentProps{
-//   	Vpc: Vpc,
-//   	Spot: jsii.Boolean(true),
+//
+//   ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+//   		Cpu: jsii.Number(256),
+//   	}),
 //   })
-//   lowPriorityQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-//   	Priority: jsii.Number(1),
-//   })
-//   highPriorityQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+//
+//   queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+//   	ComputeEnvironments: []orderedComputeEnvironment{
+//   		&orderedComputeEnvironment{
+//   			ComputeEnvironment: batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("managedEc2CE"), &ManagedEc2EcsComputeEnvironmentProps{
+//   				Vpc: *Vpc,
+//   			}),
+//   			Order: jsii.Number(1),
+//   		},
+//   	},
 //   	Priority: jsii.Number(10),
 //   })
-//   lowPriorityQueue.AddComputeEnvironment(sharedComputeEnv, jsii.Number(1))
-//   highPriorityQueue.AddComputeEnvironment(sharedComputeEnv, jsii.Number(1))
+//
+//   user := iam.NewUser(this, jsii.String("MyUser"))
+//   ecsJob.GrantSubmitJob(user, queue)
 //
 // Experimental.
 type JobQueueProps struct {
@@ -31,17 +45,23 @@ type JobQueueProps struct {
 	//
 	// *Note*: All compute environments that are associated with a job queue must share the same architecture.
 	// AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
+	// Default: none.
+	//
 	// Experimental.
 	ComputeEnvironments *[]*OrderedComputeEnvironment `field:"optional" json:"computeEnvironments" yaml:"computeEnvironments"`
 	// If the job queue is enabled, it is able to accept jobs.
 	//
 	// Otherwise, new jobs can't be added to the queue, but jobs already in the queue can finish.
+	// Default: true.
+	//
 	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name of the job queue.
 	//
 	// It can be up to 128 letters long.
 	// It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	// Default: - no name.
+	//
 	// Experimental.
 	JobQueueName *string `field:"optional" json:"jobQueueName" yaml:"jobQueueName"`
 	// The priority of the job queue.
@@ -49,11 +69,15 @@ type JobQueueProps struct {
 	// Job queues with a higher priority are evaluated first when associated with the same compute environment.
 	// Priority is determined in descending order.
 	// For example, a job queue with a priority of 10 is given scheduling preference over a job queue with a priority of 1.
+	// Default: 1.
+	//
 	// Experimental.
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The SchedulingPolicy for this JobQueue.
 	//
 	// Instructs the Scheduler how to schedule different jobs.
+	// Default: - no scheduling policy.
+	//
 	// Experimental.
 	SchedulingPolicy ISchedulingPolicy `field:"optional" json:"schedulingPolicy" yaml:"schedulingPolicy"`
 }

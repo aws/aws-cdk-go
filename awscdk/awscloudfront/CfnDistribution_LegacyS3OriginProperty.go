@@ -21,6 +21,8 @@ type CfnDistribution_LegacyS3OriginProperty struct {
 	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-originaccessidentity
 	//
+	// Default: - "".
+	//
 	OriginAccessIdentity *string `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 

@@ -20,9 +20,13 @@ package awscdkroute53resolveralpha
 // Experimental.
 type FirewallRuleGroupProps struct {
 	// The name of the rule group.
+	// Default: - a CloudFormation generated name.
+	//
 	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of rules for this group.
+	// Default: - no rules.
+	//
 	// Experimental.
 	Rules *[]*FirewallRule `field:"optional" json:"rules" yaml:"rules"`
 }

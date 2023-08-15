@@ -37,20 +37,36 @@ type AmazonLinuxImageProps struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
+	// Default: false.
+	//
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// CPU Type.
+	// Default: X86_64.
+	//
 	CpuType AmazonLinuxCpuType `field:"optional" json:"cpuType" yaml:"cpuType"`
 	// What edition of Amazon Linux to use.
+	// Default: Standard.
+	//
 	Edition AmazonLinuxEdition `field:"optional" json:"edition" yaml:"edition"`
 	// What generation of Amazon Linux to use.
+	// Default: AmazonLinux.
+	//
 	Generation AmazonLinuxGeneration `field:"optional" json:"generation" yaml:"generation"`
 	// What kernel version of Amazon Linux to use.
+	// Default: -.
+	//
 	Kernel AmazonLinuxKernel `field:"optional" json:"kernel" yaml:"kernel"`
 	// What storage backed image to use.
+	// Default: GeneralPurpose.
+	//
 	Storage AmazonLinuxStorage `field:"optional" json:"storage" yaml:"storage"`
 	// Initial user data.
+	// Default: - Empty UserData for Linux machines.
+	//
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// Virtualization type.
+	// Default: HVM.
+	//
 	Virtualization AmazonLinuxVirt `field:"optional" json:"virtualization" yaml:"virtualization"`
 }
 

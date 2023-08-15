@@ -50,12 +50,20 @@ type CustomActionRegistrationProps struct {
 	// For example, `'MyCustomActionProvider'`.
 	Provider *string `field:"required" json:"provider" yaml:"provider"`
 	// The properties used for customizing the instance of your Action.
+	// Default: [].
+	//
 	ActionProperties *[]*CustomActionProperty `field:"optional" json:"actionProperties" yaml:"actionProperties"`
 	// The URL shown for the entire Action in the Pipeline UI.
+	// Default: none.
+	//
 	EntityUrl *string `field:"optional" json:"entityUrl" yaml:"entityUrl"`
 	// The URL shown for a particular execution of an Action in the Pipeline UI.
+	// Default: none.
+	//
 	ExecutionUrl *string `field:"optional" json:"executionUrl" yaml:"executionUrl"`
 	// The version of your Action.
+	// Default: '1'.
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

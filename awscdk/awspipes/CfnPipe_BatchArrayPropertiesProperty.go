@@ -20,6 +20,8 @@ type CfnPipe_BatchArrayPropertiesProperty struct {
 	// The size of the array, if this is an array batch job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batcharrayproperties.html#cfn-pipes-pipe-batcharrayproperties-size
 	//
+	// Default: - 0.
+	//
 	Size *float64 `field:"optional" json:"size" yaml:"size"`
 }
 

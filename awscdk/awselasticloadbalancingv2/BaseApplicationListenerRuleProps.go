@@ -35,9 +35,13 @@ type BaseApplicationListenerRuleProps struct {
 	// Action to perform when requests are received.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
+	// Default: - No action.
+	//
 	Action ListenerAction `field:"optional" json:"action" yaml:"action"`
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
+	//
+	// Default: - No conditions.
 	//
 	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Target groups to forward requests to.
@@ -45,6 +49,8 @@ type BaseApplicationListenerRuleProps struct {
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	//
 	// Implies a `forward` action.
+	// Default: - No target groups.
+	//
 	TargetGroups *[]IApplicationTargetGroup `field:"optional" json:"targetGroups" yaml:"targetGroups"`
 }
 

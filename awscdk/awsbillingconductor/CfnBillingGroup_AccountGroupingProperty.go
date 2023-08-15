@@ -3,7 +3,7 @@ package awsbillingconductor
 
 // The set of accounts that will be under the billing group.
 //
-// The set of accounts resemble the linked accounts in a consolidated family.
+// The set of accounts resemble the linked accounts in a consolidated billing family.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,6 +28,7 @@ type CfnBillingGroup_AccountGroupingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-linkedaccountids
 	//
 	LinkedAccountIds *[]*string `field:"required" json:"linkedAccountIds" yaml:"linkedAccountIds"`
+	// Specifies if this billing group will automatically associate newly added AWS accounts that join your consolidated billing family.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-autoassociate
 	//
 	AutoAssociate interface{} `field:"optional" json:"autoAssociate" yaml:"autoAssociate"`

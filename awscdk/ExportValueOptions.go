@@ -14,6 +14,8 @@ package awscdk
 //
 type ExportValueOptions struct {
 	// The name of the export to create.
+	// Default: - A name is automatically chosen.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

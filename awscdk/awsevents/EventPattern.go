@@ -62,19 +62,29 @@ package awsevents
 //
 type EventPattern struct {
 	// The 12-digit number identifying an AWS account.
+	// Default: - No filtering on account.
+	//
 	Account *[]*string `field:"optional" json:"account" yaml:"account"`
 	// A JSON object, whose content is at the discretion of the service originating the event.
+	// Default: - No filtering on detail.
+	//
 	Detail *map[string]interface{} `field:"optional" json:"detail" yaml:"detail"`
 	// Identifies, in combination with the source field, the fields and values that appear in the detail field.
 	//
 	// Represents the "detail-type" event field.
+	// Default: - No filtering on detail type.
+	//
 	DetailType *[]*string `field:"optional" json:"detailType" yaml:"detailType"`
 	// A unique value is generated for every event.
 	//
 	// This can be helpful in
 	// tracing events as they move through rules to targets, and are processed.
+	// Default: - No filtering on id.
+	//
 	Id *[]*string `field:"optional" json:"id" yaml:"id"`
 	// Identifies the AWS region where the event originated.
+	// Default: - No filtering on region.
+	//
 	Region *[]*string `field:"optional" json:"region" yaml:"region"`
 	// This JSON array contains ARNs that identify resources that are involved in the event.
 	//
@@ -85,6 +95,8 @@ type EventPattern struct {
 	// instance ARNs, Auto Scaling events include ARNs for both instances and
 	// Auto Scaling groups, but API calls with AWS CloudTrail do not include
 	// resource ARNs.
+	// Default: - No filtering on resource.
+	//
 	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// Identifies the service that sourced the event.
 	//
@@ -98,14 +110,20 @@ type EventPattern struct {
 	// CloudFront is aws.cloudfront.
 	// See: http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces
 	//
+	// Default: - No filtering on source.
+	//
 	Source *[]*string `field:"optional" json:"source" yaml:"source"`
 	// The event timestamp, which can be specified by the service originating the event.
 	//
 	// If the event spans a time interval, the service might choose
 	// to report the start time, so this value can be noticeably before the time
 	// the event is actually received.
+	// Default: - No filtering on time.
+	//
 	Time *[]*string `field:"optional" json:"time" yaml:"time"`
 	// By default, this is set to 0 (zero) in all events.
+	// Default: - No filtering on version.
+	//
 	Version *[]*string `field:"optional" json:"version" yaml:"version"`
 }
 

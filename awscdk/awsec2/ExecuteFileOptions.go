@@ -28,6 +28,8 @@ type ExecuteFileOptions struct {
 	// The path to the file.
 	FilePath *string `field:"required" json:"filePath" yaml:"filePath"`
 	// The arguments to be passed to the file.
+	// Default: No arguments are passed to the file.
+	//
 	Arguments *string `field:"optional" json:"arguments" yaml:"arguments"`
 }
 

@@ -33,6 +33,8 @@ type TransformS3DataSource struct {
 	// Identifies either a key name prefix or a manifest.
 	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// S3 Data Type.
+	// Default: 'S3Prefix'.
+	//
 	S3DataType S3DataType `field:"optional" json:"s3DataType" yaml:"s3DataType"`
 }
 

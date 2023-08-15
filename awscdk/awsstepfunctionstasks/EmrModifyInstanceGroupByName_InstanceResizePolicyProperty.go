@@ -26,10 +26,16 @@ import (
 //
 type EmrModifyInstanceGroupByName_InstanceResizePolicyProperty struct {
 	// Specific list of instances to be protected when shrinking an instance group.
+	// Default: - No instances will be protected when shrinking an instance group.
+	//
 	InstancesToProtect *[]*string `field:"optional" json:"instancesToProtect" yaml:"instancesToProtect"`
 	// Specific list of instances to be terminated when shrinking an instance group.
+	// Default: - No instances will be terminated when shrinking an instance group.
+	//
 	InstancesToTerminate *[]*string `field:"optional" json:"instancesToTerminate" yaml:"instancesToTerminate"`
 	// Decommissioning timeout override for the specific list of instances to be terminated.
+	// Default: cdk.Duration.seconds
+	//
 	InstanceTerminationTimeout awscdk.Duration `field:"optional" json:"instanceTerminationTimeout" yaml:"instanceTerminationTimeout"`
 }
 

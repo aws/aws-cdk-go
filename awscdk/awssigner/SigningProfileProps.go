@@ -33,8 +33,12 @@ type SigningProfileProps struct {
 	//
 	Platform Platform `field:"required" json:"platform" yaml:"platform"`
 	// The validity period for signatures generated using this signing profile.
+	// Default: - 135 months.
+	//
 	SignatureValidity awscdk.Duration `field:"optional" json:"signatureValidity" yaml:"signatureValidity"`
 	// Physical name of this Signing Profile.
+	// Default: - Assigned by CloudFormation (recommended).
+	//
 	SigningProfileName *string `field:"optional" json:"signingProfileName" yaml:"signingProfileName"`
 }
 

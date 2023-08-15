@@ -25,15 +25,21 @@ type MatchmakingConfigurationAttributes struct {
 	// The ARN of the Matchmaking configuration.
 	//
 	// At least one of `matchmakingConfigurationArn` and `matchmakingConfigurationName` must be provided.
+	// Default: derived from `matchmakingConfigurationName`.
+	//
 	// Experimental.
 	MatchmakingConfigurationArn *string `field:"optional" json:"matchmakingConfigurationArn" yaml:"matchmakingConfigurationArn"`
 	// The identifier of the Matchmaking configuration.
 	//
 	// At least one of `matchmakingConfigurationName` and `matchmakingConfigurationArn`  must be provided.
+	// Default: derived from `matchmakingConfigurationArn`.
+	//
 	// Experimental.
 	MatchmakingConfigurationName *string `field:"optional" json:"matchmakingConfigurationName" yaml:"matchmakingConfigurationName"`
 	// An SNS topic ARN that is set up to receive matchmaking notifications.
 	// See: https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html
+	//
+	// Default: no notification target binded to imported ressource.
 	//
 	// Experimental.
 	NotificationTarget awssns.ITopic `field:"optional" json:"notificationTarget" yaml:"notificationTarget"`

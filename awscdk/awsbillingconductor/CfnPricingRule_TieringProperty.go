@@ -17,7 +17,7 @@ package awsbillingconductor
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-tiering.html
 //
 type CfnPricingRule_TieringProperty struct {
-	// The possible customizable free tier configurations.
+	// The possible AWS Free Tier configurations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-tiering.html#cfn-billingconductor-pricingrule-tiering-freetier
 	//
 	FreeTier interface{} `field:"optional" json:"freeTier" yaml:"freeTier"`

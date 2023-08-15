@@ -25,6 +25,8 @@ type WebSocketRouteAuthorizerConfig struct {
 	// Experimental.
 	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// The authorizer id.
+	// Default: - No authorizer id (useful for AWS_IAM route authorizer).
+	//
 	// Experimental.
 	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 }

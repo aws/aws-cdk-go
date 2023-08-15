@@ -15,6 +15,8 @@ type ApplicationProps struct {
 	// Experimental.
 	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// Description for application.
+	// Default: - No description provided.
+	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }

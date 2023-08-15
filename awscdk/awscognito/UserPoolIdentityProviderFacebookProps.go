@@ -49,6 +49,8 @@ type UserPoolIdentityProviderFacebookProps struct {
 	// The user pool to which this construct provides identities.
 	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
+	// Default: - no attribute mapping.
+	//
 	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Facebook APIs.
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
@@ -57,9 +59,13 @@ type UserPoolIdentityProviderFacebookProps struct {
 	//
 	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The Facebook API version to use.
+	// Default: - to the oldest version supported by Facebook.
+	//
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The list of facebook permissions to obtain for getting access to the Facebook profile.
 	// See: https://developers.facebook.com/docs/facebook-login/permissions
+	//
+	// Default: [ public_profile ].
 	//
 	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 }

@@ -23,6 +23,8 @@ type CfnHookProps struct {
 	// The type of the hook (for example, "AWS::CodeDeploy::BlueGreen").
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The properties of the hook.
+	// Default: - no properties.
+	//
 	Properties *map[string]interface{} `field:"optional" json:"properties" yaml:"properties"`
 }
 

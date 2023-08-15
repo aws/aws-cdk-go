@@ -38,18 +38,26 @@ type HealthCheck struct {
 	// The time period in seconds between each health check execution.
 	//
 	// You may specify between 5 and 300 seconds.
+	// Default: Duration.seconds(30)
+	//
 	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// The number of times to retry a failed health check before the container is considered unhealthy.
 	//
 	// You may specify between 1 and 10 retries.
+	// Default: 3.
+	//
 	Retries *float64 `field:"optional" json:"retries" yaml:"retries"`
 	// The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries.
 	//
 	// You may specify between 0 and 300 seconds.
+	// Default: No start period.
+	//
 	StartPeriod awscdk.Duration `field:"optional" json:"startPeriod" yaml:"startPeriod"`
 	// The time period in seconds to wait for a health check to succeed before it is considered a failure.
 	//
 	// You may specify between 2 and 60 seconds.
+	// Default: Duration.seconds(5)
+	//
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

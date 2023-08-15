@@ -23,8 +23,12 @@ import (
 //
 type EcrDockerCredentialOptions struct {
 	// An IAM role to assume prior to accessing the secret.
+	// Default: - none. The current execution role will be used.
+	//
 	AssumeRole awsiam.IRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
 	// Defines which stages of the pipeline should be granted access to these credentials.
+	// Default: - all relevant stages (synth, self-update, asset publishing) are granted access.
+	//
 	Usages *[]DockerCredentialUsage `field:"optional" json:"usages" yaml:"usages"`
 }
 

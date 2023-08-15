@@ -88,7 +88,7 @@ type CfnConnector interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Configuration for an SFTP connector.
+	// A structure that contains the parameters for an SFTP connector object.
 	SftpConfig() interface{}
 	SetSftpConfig(val interface{})
 	// The stack in which this element is defined.

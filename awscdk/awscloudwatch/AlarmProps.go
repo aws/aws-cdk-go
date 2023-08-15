@@ -37,12 +37,20 @@ type AlarmProps struct {
 	// The value against which the specified statistic is compared.
 	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`
 	// Whether the actions for this alarm are enabled.
+	// Default: true.
+	//
 	ActionsEnabled *bool `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
 	// Description for the alarm.
+	// Default: No description.
+	//
 	AlarmDescription *string `field:"optional" json:"alarmDescription" yaml:"alarmDescription"`
 	// Name of the alarm.
+	// Default: Automatically generated name.
+	//
 	AlarmName *string `field:"optional" json:"alarmName" yaml:"alarmName"`
 	// Comparison to use to check if metric is breaching.
+	// Default: GreaterThanOrEqualToThreshold.
+	//
 	ComparisonOperator ComparisonOperator `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	//
@@ -51,12 +59,18 @@ type AlarmProps struct {
 	// CloudWatch User Guide.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation
 	//
+	// Default: ``evaluationPeriods``.
+	//
 	DatapointsToAlarm *float64 `field:"optional" json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
 	// Specifies whether to evaluate the data and potentially change the alarm state if there are too few data points to be statistically significant.
 	//
 	// Used only for alarms that are based on percentiles.
+	// Default: - Not configured.
+	//
 	EvaluateLowSampleCountPercentile *string `field:"optional" json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
 	// Sets how this alarm is to handle missing data points.
+	// Default: TreatMissingData.Missing
+	//
 	TreatMissingData TreatMissingData `field:"optional" json:"treatMissingData" yaml:"treatMissingData"`
 	// The metric to add the alarm on.
 	//

@@ -66,14 +66,20 @@ type GameServerGroupProps struct {
 	// The scaling policy uses the metric `PercentUtilizedGameServers` to maintain a buffer of idle game servers that can immediately accommodate new games and players.
 	//
 	// After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+	// Default: no autoscaling policy settled.
+	//
 	// Experimental.
 	AutoScalingPolicy *AutoScalingPolicy `field:"optional" json:"autoScalingPolicy" yaml:"autoScalingPolicy"`
 	// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the game server group.
+	// Default: SPOT_PREFERRED.
+	//
 	// Experimental.
 	BalancingStrategy BalancingStrategy `field:"optional" json:"balancingStrategy" yaml:"balancingStrategy"`
 	// The type of delete to perform.
 	//
 	// To delete a game server group, specify the DeleteOption.
+	// Default: SAFE_DELETE.
+	//
 	// Experimental.
 	DeleteOption DeleteOption `field:"optional" json:"deleteOption" yaml:"deleteOption"`
 	// The maximum number of instances allowed in the Amazon EC2 Auto Scaling group.
@@ -81,6 +87,8 @@ type GameServerGroupProps struct {
 	// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
 	//
 	// After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+	// Default: the default is 1.
+	//
 	// Experimental.
 	MaxSize *float64 `field:"optional" json:"maxSize" yaml:"maxSize"`
 	// The minimum number of instances allowed in the Amazon EC2 Auto Scaling group.
@@ -90,6 +98,8 @@ type GameServerGroupProps struct {
 	// In production, this value should be set to at least 1.
 	//
 	// After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+	// Default: the default is 0.
+	//
 	// Experimental.
 	MinSize *float64 `field:"optional" json:"minSize" yaml:"minSize"`
 	// A flag that indicates whether instances in the game server group are protected from early termination.
@@ -98,14 +108,20 @@ type GameServerGroupProps struct {
 	// Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion.
 	//
 	// An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status.
+	// Default: game servers running might be terminated during a scale-down event.
+	//
 	// Experimental.
 	ProtectGameServer *bool `field:"optional" json:"protectGameServer" yaml:"protectGameServer"`
 	// The IAM role that allows Amazon GameLift to access your Amazon EC2 Auto Scaling groups.
 	// See: https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html
 	//
+	// Default: - a role will be created with default trust to Gamelift and Autoscaling service principal with a default policy `GameLiftGameServerGroupPolicy` attached.
+	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Game server group subnet selection.
+	// Default: all GameLift FleetIQ-supported Availability Zones are used.
+	//
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }

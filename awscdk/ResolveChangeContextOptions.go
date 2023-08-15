@@ -15,8 +15,12 @@ package awscdk
 //
 type ResolveChangeContextOptions struct {
 	// Change the 'allowIntrinsicKeys' option.
+	// Default: - Unchanged.
+	//
 	AllowIntrinsicKeys *bool `field:"optional" json:"allowIntrinsicKeys" yaml:"allowIntrinsicKeys"`
 	// Whether to remove undefined elements from arrays and objects when resolving.
+	// Default: - Unchanged.
+	//
 	RemoveEmpty *bool `field:"optional" json:"removeEmpty" yaml:"removeEmpty"`
 }
 

@@ -19,6 +19,8 @@ type LambdaDeploymentGroupAttributes struct {
 	// The physical, human-readable name of the CodeDeploy Lambda Deployment Group that we are referencing.
 	DeploymentGroupName *string `field:"required" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
+	// Default: LambdaDeploymentConfig.CANARY_10PERCENT_5MINUTES
+	//
 	DeploymentConfig ILambdaDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 

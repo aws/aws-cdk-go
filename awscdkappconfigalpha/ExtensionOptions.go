@@ -20,6 +20,8 @@ package awscdkappconfigalpha
 // Experimental.
 type ExtensionOptions struct {
 	// A description of the extension.
+	// Default: - No description.
+	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The latest version number of the extension.
@@ -27,12 +29,18 @@ type ExtensionOptions struct {
 	// When you create a new version,
 	// specify the most recent current version number. For example, you create version 3,
 	// enter 2 for this field.
+	// Default: - None.
+	//
 	// Experimental.
 	LatestVersionNumber *float64 `field:"optional" json:"latestVersionNumber" yaml:"latestVersionNumber"`
 	// The name of the extension.
+	// Default: - A name is generated.
+	//
 	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The parameters accepted for the extension.
+	// Default: - None.
+	//
 	// Experimental.
 	Parameters *[]Parameter `field:"optional" json:"parameters" yaml:"parameters"`
 }

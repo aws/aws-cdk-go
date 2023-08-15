@@ -34,8 +34,12 @@ type AmazonLinuxImageSsmParameterBaseProps struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
+	// Default: false.
+	//
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// Initial user data.
+	// Default: - Empty UserData for Linux machines.
+	//
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// The name of the SSM parameter that contains the AMI value.
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`

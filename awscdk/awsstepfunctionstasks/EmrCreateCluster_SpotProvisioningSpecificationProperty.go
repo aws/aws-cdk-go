@@ -25,8 +25,12 @@ type EmrCreateCluster_SpotProvisioningSpecificationProperty struct {
 	// The spot provisioning timeout period in minutes.
 	TimeoutDurationMinutes *float64 `field:"required" json:"timeoutDurationMinutes" yaml:"timeoutDurationMinutes"`
 	// Specifies the strategy to use in launching Spot Instance fleets.
+	// Default: - No allocation strategy, i.e. spot instance type will be chosen based on current price only
+	//
 	AllocationStrategy EmrCreateCluster_SpotAllocationStrategy `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The defined duration for Spot instances (also known as Spot blocks) in minutes.
+	// Default: - No blockDurationMinutes.
+	//
 	BlockDurationMinutes *float64 `field:"optional" json:"blockDurationMinutes" yaml:"blockDurationMinutes"`
 }
 

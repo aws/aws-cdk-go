@@ -17,6 +17,8 @@ package awscdkapigatewayv2alpha
 // Experimental.
 type GrantInvokeOptions struct {
 	// The HTTP methods to allow.
+	// Default: - the HttpMethod of the route.
+	//
 	// Experimental.
 	HttpMethods *[]HttpMethod `field:"optional" json:"httpMethods" yaml:"httpMethods"`
 }

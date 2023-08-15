@@ -32,8 +32,12 @@ type GrpcTimeout struct {
 	// Represents an idle timeout.
 	//
 	// The amount of time that a connection may be idle.
+	// Default: - none.
+	//
 	Idle awscdk.Duration `field:"optional" json:"idle" yaml:"idle"`
 	// Represents per request timeout.
+	// Default: - 15 s.
+	//
 	PerRequest awscdk.Duration `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 

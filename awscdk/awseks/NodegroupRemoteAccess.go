@@ -33,6 +33,8 @@ type NodegroupRemoteAccess struct {
 	// If you specify an Amazon EC2 SSH
 	// key but do not specify a source security group when you create a managed node group, then port 22 on the worker
 	// nodes is opened to the internet (0.0.0.0/0).
+	// Default: - port 22 on the worker nodes is opened to the internet (0.0.0.0/0)
+	//
 	SourceSecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"sourceSecurityGroups" yaml:"sourceSecurityGroups"`
 }
 

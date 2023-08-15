@@ -61,11 +61,15 @@ type RepositoryProps struct {
 	// This property is required for all CodeCommit repositories.
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 	// The contents with which to initialize the repository after it has been created.
+	// Default: - No initialization (create empty repo).
+	//
 	Code Code `field:"optional" json:"code" yaml:"code"`
 	// A description of the repository.
 	//
 	// Use the description to identify the
 	// purpose of the repository.
+	// Default: - No description.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

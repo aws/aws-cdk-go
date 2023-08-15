@@ -14,6 +14,8 @@ package awscognito
 //
 type BaseUrlOptions struct {
 	// Whether to return the FIPS-compliant endpoint.
+	// Default: return the standard URL.
+	//
 	Fips *bool `field:"optional" json:"fips" yaml:"fips"`
 }
 

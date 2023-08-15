@@ -34,14 +34,24 @@ type ServerlessClusterAttributes struct {
 	// Identifier for the cluster.
 	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Cluster endpoint address.
+	// Default: - no endpoint address.
+	//
 	ClusterEndpointAddress *string `field:"optional" json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// The database port.
+	// Default: - none.
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Reader endpoint address.
+	// Default: - no reader address.
+	//
 	ReaderEndpointAddress *string `field:"optional" json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The secret attached to the database cluster.
+	// Default: - no secret.
+	//
 	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 	// The security groups of the database cluster.
+	// Default: - no security groups.
+	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 

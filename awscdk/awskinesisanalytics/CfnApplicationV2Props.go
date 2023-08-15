@@ -211,6 +211,8 @@ type CfnApplicationV2Props struct {
 	// The description of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationdescription
 	//
+	// Default: - "".
+	//
 	ApplicationDescription *string `field:"optional" json:"applicationDescription" yaml:"applicationDescription"`
 	// Describes the maintenance configuration for the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmaintenanceconfiguration

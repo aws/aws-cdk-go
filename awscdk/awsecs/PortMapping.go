@@ -49,6 +49,8 @@ type PortMapping struct {
 	// Service Connect services using this port mapping.
 	//
 	// This field may only be set when the task definition uses Bridge or Awsvpc network modes.
+	// Default: - no app protocol.
+	//
 	AppProtocol AppProtocol `field:"optional" json:"appProtocol" yaml:"appProtocol"`
 	// The port number on the container instance to reserve for your container.
 	//
@@ -65,10 +67,14 @@ type PortMapping struct {
 	//
 	// Name is required in order to use the port mapping with ECS Service Connect.
 	// This field may only be set when the task definition uses Bridge or Awsvpc network modes.
+	// Default: - no port mapping name.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The protocol used for the port mapping.
 	//
 	// Valid values are Protocol.TCP and Protocol.UDP.
+	// Default: TCP.
+	//
 	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

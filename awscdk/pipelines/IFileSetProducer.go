@@ -9,6 +9,8 @@ import (
 // Steps implicitly produce a primary FileSet as an output.
 type IFileSetProducer interface {
 	// The `FileSet` produced by this file set producer.
+	// Default: - This producer doesn't produce any file set.
+	//
 	PrimaryOutput() FileSet
 }
 

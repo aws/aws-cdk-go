@@ -35,10 +35,16 @@ type EmrCreateCluster_ApplicationConfigProperty struct {
 	//
 	// This is meta information about third-party applications that third-party vendors use
 	// for testing purposes.
+	// Default: No additionalInfo.
+	//
 	AdditionalInfo *map[string]*string `field:"optional" json:"additionalInfo" yaml:"additionalInfo"`
 	// Arguments for Amazon EMR to pass to the application.
+	// Default: No args.
+	//
 	Args *[]*string `field:"optional" json:"args" yaml:"args"`
 	// The version of the application.
+	// Default: No version.
+	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

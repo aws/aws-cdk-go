@@ -137,18 +137,26 @@ type ProduceActionOptions struct {
 	// If it is, the action should take care to reflect some part of
 	// its own definition in the pipeline action definition, to
 	// trigger a restart after self-mutation (if necessary).
+	// Default: false.
+	//
 	BeforeSelfMutation *bool `field:"optional" json:"beforeSelfMutation" yaml:"beforeSelfMutation"`
 	// If this action factory creates a CodeBuild step, default options to inherit.
+	// Default: - No CodeBuild project defaults.
+	//
 	CodeBuildDefaults *CodeBuildOptions `field:"optional" json:"codeBuildDefaults" yaml:"codeBuildDefaults"`
 	// An input artifact that CodeBuild projects that don't actually need an input artifact can use.
 	//
 	// CodeBuild Projects MUST have an input artifact in order to be added to the Pipeline. If
 	// the Project doesn't actually care about its input (it can be anything), it can use the
 	// Artifact passed here.
+	// Default: - A fallback artifact does not exist.
+	//
 	FallbackArtifact awscodepipeline.Artifact `field:"optional" json:"fallbackArtifact" yaml:"fallbackArtifact"`
 	// If this step is producing outputs, the variables namespace assigned to it.
 	//
 	// Pass this on to the Action you are creating.
+	// Default: - Step doesn't produce any outputs.
+	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 }
 

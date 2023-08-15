@@ -34,11 +34,15 @@ type ViewerCertificateOptions struct {
 	//
 	// CloudFront serves your objects only to browsers or devices that support at
 	// least the SSL version that you specify.
+	// Default: - SSLv3 if sslMethod VIP, TLSv1 if sslMethod SNI.
+	//
 	SecurityPolicy SecurityPolicyProtocol `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 	// How CloudFront should serve HTTPS requests.
 	//
 	// See the notes on SSLMethod if you wish to use other SSL termination types.
 	// See: https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html
+	//
+	// Default: SSLMethod.SNI
 	//
 	SslMethod SSLMethod `field:"optional" json:"sslMethod" yaml:"sslMethod"`
 }

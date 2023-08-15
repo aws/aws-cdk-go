@@ -26,8 +26,14 @@ type CommonActionProps struct {
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Default: 1.
+	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Default: - a name will be generated, based on the stage and action names,
+	// if any of the action's variables were referenced - otherwise,
+	// no namespace will be set.
+	//
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 }
 

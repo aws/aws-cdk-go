@@ -33,12 +33,20 @@ type CorsRule struct {
 	// One or more origins you want customers to be able to access the bucket from.
 	AllowedOrigins *[]*string `field:"required" json:"allowedOrigins" yaml:"allowedOrigins"`
 	// Headers that are specified in the Access-Control-Request-Headers header.
+	// Default: - No headers allowed.
+	//
 	AllowedHeaders *[]*string `field:"optional" json:"allowedHeaders" yaml:"allowedHeaders"`
 	// One or more headers in the response that you want customers to be able to access from their applications.
+	// Default: - No headers exposed.
+	//
 	ExposedHeaders *[]*string `field:"optional" json:"exposedHeaders" yaml:"exposedHeaders"`
 	// A unique identifier for this rule.
+	// Default: - No id specified.
+	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The time in seconds that your browser is to cache the preflight response for the specified resource.
+	// Default: - No caching.
+	//
 	MaxAge *float64 `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 

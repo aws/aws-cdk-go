@@ -17,6 +17,8 @@ type TemplateParsingOptions struct {
 	//
 	// Should be set to false other than for
 	// templates that are valid despite containing cycles, such as unprocessed transform stacks.
+	// Default: false.
+	//
 	SkipCyclicalDependenciesCheck *bool `field:"optional" json:"skipCyclicalDependenciesCheck" yaml:"skipCyclicalDependenciesCheck"`
 }
 

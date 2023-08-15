@@ -23,19 +23,31 @@ type ContainerDefinitionOptions struct {
 	//
 	// When a ContainerDefinition is part of an inference pipeline,
 	// the value of the parameter uniquely identifies the container for the purposes of logging and metrics.
+	// Default: - None.
+	//
 	ContainerHostName *string `field:"optional" json:"containerHostName" yaml:"containerHostName"`
 	// The environment variables to set in the Docker container.
+	// Default: - No variables.
+	//
 	EnvironmentVariables awsstepfunctions.TaskInput `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+	// Default: - None.
+	//
 	Image DockerImage `field:"optional" json:"image" yaml:"image"`
 	// Defines how many models the container hosts.
+	// Default: - Mode.SINGLE_MODEL
+	//
 	Mode Mode `field:"optional" json:"mode" yaml:"mode"`
 	// The name or Amazon Resource Name (ARN) of the model package to use to create the model.
+	// Default: - None.
+	//
 	ModelPackageName *string `field:"optional" json:"modelPackageName" yaml:"modelPackageName"`
 	// The S3 path where the model artifacts, which result from model training, are stored.
 	//
 	// This path must point to a single gzip compressed tar archive (.tar.gz suffix).
 	// The S3 path is required for Amazon SageMaker built-in algorithms, but not if you use your own algorithms.
+	// Default: - None.
+	//
 	ModelS3Location S3Location `field:"optional" json:"modelS3Location" yaml:"modelS3Location"`
 }
 

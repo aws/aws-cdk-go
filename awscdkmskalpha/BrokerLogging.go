@@ -24,12 +24,18 @@ import (
 // Experimental.
 type BrokerLogging struct {
 	// The CloudWatch Logs group that is the destination for broker logs.
+	// Default: - disabled.
+	//
 	// Experimental.
 	CloudwatchLogGroup awslogs.ILogGroup `field:"optional" json:"cloudwatchLogGroup" yaml:"cloudwatchLogGroup"`
 	// The Kinesis Data Firehose delivery stream that is the destination for broker logs.
+	// Default: - disabled.
+	//
 	// Experimental.
 	FirehoseDeliveryStreamName *string `field:"optional" json:"firehoseDeliveryStreamName" yaml:"firehoseDeliveryStreamName"`
 	// Details of the Amazon S3 destination for broker logs.
+	// Default: - disabled.
+	//
 	// Experimental.
 	S3 *S3LoggingConfiguration `field:"optional" json:"s3" yaml:"s3"`
 }

@@ -40,6 +40,8 @@ type HttpNamespaceProps struct {
 	// A name for the Namespace.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the Namespace.
+	// Default: none.
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

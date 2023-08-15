@@ -13,8 +13,12 @@ package awscodedeploy
 //
 type EcsDeploymentConfigProps struct {
 	// The physical, human-readable name of the Deployment Configuration.
+	// Default: - automatically generated name.
+	//
 	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 	// The configuration that specifies how traffic is shifted from the 'blue' target group to the 'green' target group during a deployment.
+	// Default: AllAtOnce.
+	//
 	TrafficRouting TrafficRouting `field:"optional" json:"trafficRouting" yaml:"trafficRouting"`
 }
 

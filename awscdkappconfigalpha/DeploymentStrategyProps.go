@@ -20,9 +20,13 @@ type DeploymentStrategyProps struct {
 	// Experimental.
 	RolloutStrategy RolloutStrategy `field:"required" json:"rolloutStrategy" yaml:"rolloutStrategy"`
 	// A description of the deployment strategy.
+	// Default: - No description.
+	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A name for the deployment strategy.
+	// Default: - A name is generated.
+	//
 	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }

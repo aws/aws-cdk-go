@@ -40,6 +40,8 @@ type CodeCommitSourceProps struct {
 	// Example:
 	//   "mybranch"
 	//
+	// Default: the default branch's HEAD commit ID is used.
+	//
 	BranchOrRef *string `field:"optional" json:"branchOrRef" yaml:"branchOrRef"`
 	// The depth of history to download.
 	//
@@ -48,6 +50,8 @@ type CodeCommitSourceProps struct {
 	// then the full history is downloaded with each build of the project.
 	CloneDepth *float64 `field:"optional" json:"cloneDepth" yaml:"cloneDepth"`
 	// Whether to fetch submodules while cloning git repo.
+	// Default: false.
+	//
 	FetchSubmodules *bool `field:"optional" json:"fetchSubmodules" yaml:"fetchSubmodules"`
 }
 

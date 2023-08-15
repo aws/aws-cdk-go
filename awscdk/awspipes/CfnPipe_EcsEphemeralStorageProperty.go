@@ -24,6 +24,8 @@ type CfnPipe_EcsEphemeralStorageProperty struct {
 	// The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsephemeralstorage.html#cfn-pipes-pipe-ecsephemeralstorage-sizeingib
 	//
+	// Default: - 0.
+	//
 	SizeInGiB *float64 `field:"required" json:"sizeInGiB" yaml:"sizeInGiB"`
 }
 

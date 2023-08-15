@@ -49,9 +49,13 @@ type ClusterSubnetGroupProps struct {
 	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
+	// Default: RemovalPolicy.RETAIN
+	//
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Which subnets within the VPC to associate with this group.
+	// Default: - private subnets.
+	//
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }

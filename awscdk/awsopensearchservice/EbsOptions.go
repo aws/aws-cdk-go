@@ -31,11 +31,15 @@ import (
 //
 type EbsOptions struct {
 	// Specifies whether Amazon EBS volumes are attached to data nodes in the Amazon OpenSearch Service domain.
+	// Default: - true.
+	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// This property applies only to the Provisioned IOPS (SSD) EBS
 	// volume type.
+	// Default: - iops are not set.
+	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
@@ -45,8 +49,12 @@ type EbsOptions struct {
 	// [EBS volume size limits]
 	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource)
 	// in the Amazon OpenSearch Service Developer Guide.
+	// Default: 10.
+	//
 	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The EBS volume type to use with the Amazon OpenSearch Service domain, such as standard, gp2, io1.
+	// Default: gp2.
+	//
 	VolumeType awsec2.EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 

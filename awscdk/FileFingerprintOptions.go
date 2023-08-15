@@ -22,12 +22,20 @@ type FileFingerprintOptions struct {
 	//
 	// See `ignoreMode` to set the matching behavior.
 	// Has no effect on Assets bundled using the `bundling` property.
+	// Default: - nothing is excluded.
+	//
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
+	// Default: SymlinkFollowMode.NEVER
+	//
 	FollowSymlinks SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for `exclude` patterns.
+	// Default: IgnoreMode.GLOB
+	//
 	IgnoreMode IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
+	// Default: - hash is only based on source content.
+	//
 	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
 }
 
