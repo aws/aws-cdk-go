@@ -13,19 +13,14 @@ import (
 //
 // Example:
 //   domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
-//   	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
+//   	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	Ebs: &EbsOptions{
-//   		VolumeSize: jsii.Number(10),
-//   		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD_GP3,
+//   		VolumeSize: jsii.Number(100),
+//   		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD,
 //   	},
-//   	ZoneAwareness: &ZoneAwarenessConfig{
+//   	NodeToNodeEncryption: jsii.Boolean(true),
+//   	EncryptionAtRest: &EncryptionAtRestOptions{
 //   		Enabled: jsii.Boolean(true),
-//   		AvailabilityZoneCount: jsii.Number(3),
-//   	},
-//   	Capacity: &CapacityConfig{
-//   		MultiAzWithStandbyEnabled: jsii.Boolean(true),
-//   		MasterNodes: jsii.Number(3),
-//   		DataNodes: jsii.Number(3),
 //   	},
 //   })
 //
@@ -36,11 +31,17 @@ type EbsOptions struct {
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
-	// This property applies only to the Provisioned IOPS (SSD) EBS
+	// This property applies only to the gp3 and Provisioned IOPS (SSD) EBS
 	// volume type.
 	// Default: - iops are not set.
 	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
+	// The throughput (in MiB/s) of the EBS volumes attached to data nodes.
+	//
+	// This property applies only to the gp3 volume type.
+	// Default: - throughput is not set.
+	//
+	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
 	// The minimum and

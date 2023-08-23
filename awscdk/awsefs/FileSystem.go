@@ -18,14 +18,18 @@ import (
 // EFS file system on an Amazon Elastic Compute Cloud (Amazon EC2) instance or another resource.
 //
 // Example:
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   role := iam.NewRole(this, jsii.String("ClientRole"), &RoleProps{
+//   	AssumedBy: iam.NewAnyPrincipal(),
+//   })
 //   fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
 //   	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
-//   	LifecyclePolicy: efs.LifecyclePolicy_AFTER_14_DAYS,
-//   	 // files are not transitioned to infrequent access (IA) storage by default
-//   	PerformanceMode: efs.PerformanceMode_GENERAL_PURPOSE,
-//   	 // default
-//   	OutOfInfrequentAccessPolicy: efs.OutOfInfrequentAccessPolicy_AFTER_1_ACCESS,
+//   	AllowAnonymousAccess: jsii.Boolean(true),
 //   })
+//
+//   fileSystem.grantRead(role)
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 //
@@ -95,6 +99,12 @@ type FileSystem interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the actions defined in actions to the given grantee on this File System resource.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Grant read permissions for this file system to an IAM principal.
+	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant read and write permissions for this file system to an IAM principal.
+	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
+	// As root user, grant read and write permissions for this file system to an IAM principal.
+	GrantRootAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -421,6 +431,54 @@ func (f *jsiiProxy_FileSystem) Grant(grantee awsiam.IGrantable, actions ...*stri
 		f,
 		"grant",
 		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FileSystem) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		f,
+		"grantRead",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FileSystem) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantReadWriteParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		f,
+		"grantReadWrite",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FileSystem) GrantRootAccess(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantRootAccessParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		f,
+		"grantRootAccess",
+		[]interface{}{grantee},
 		&returns,
 	)
 

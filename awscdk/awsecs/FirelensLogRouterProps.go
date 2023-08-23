@@ -92,6 +92,7 @@ import (
 //
 //   			// the properties below are optional
 //   			AppProtocol: appProtocol,
+//   			ContainerPortRange: jsii.String("containerPortRange"),
 //   			HostPort: jsii.Number(123),
 //   			Name: jsii.String("name"),
 //   			Protocol: awscdk.*Aws_ecs.Protocol_TCP,

@@ -8,6 +8,18 @@ func (i *jsiiProxy_IFileSystem) validateGrantParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
+func (i *jsiiProxy_IFileSystem) validateGrantReadParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (i *jsiiProxy_IFileSystem) validateGrantReadWriteParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (i *jsiiProxy_IFileSystem) validateGrantRootAccessParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (i *jsiiProxy_IFileSystem) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
 	return nil
 }

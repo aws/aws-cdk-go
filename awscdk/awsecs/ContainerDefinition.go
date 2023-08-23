@@ -389,6 +389,17 @@ func ContainerDefinition_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func ContainerDefinition_CONTAINER_PORT_USE_RANGE() *float64 {
+	_init_.Initialize()
+	var returns *float64
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.ContainerDefinition",
+		"CONTAINER_PORT_USE_RANGE",
+		&returns,
+	)
+	return returns
+}
+
 func (c *jsiiProxy_ContainerDefinition) AddContainerDependencies(containerDependencies ...*ContainerDependency) {
 	if err := c.validateAddContainerDependenciesParameters(&containerDependencies); err != nil {
 		panic(err)

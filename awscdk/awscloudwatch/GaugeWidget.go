@@ -29,6 +29,8 @@ type GaugeWidget interface {
 	Height() *float64
 	// Any warnings that are produced as a result of putting together this widget.
 	Warnings() *[]*string
+	// Any warnings that are produced as a result of putting together this widget.
+	WarningsV2() *map[string]*string
 	// The amount of horizontal grid units the widget will take up.
 	Width() *float64
 	X() *float64
@@ -65,6 +67,16 @@ func (j *jsiiProxy_GaugeWidget) Warnings() *[]*string {
 	_jsii_.Get(
 		j,
 		"warnings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GaugeWidget) WarningsV2() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"warningsV2",
 		&returns,
 	)
 	return returns

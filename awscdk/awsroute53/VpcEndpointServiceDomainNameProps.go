@@ -8,7 +8,7 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   var zone hostedZone
+//   var zone publicHostedZone
 //   var vpces vpcEndpointService
 //
 //

@@ -146,17 +146,6 @@ func FactName_CDK_METADATA_RESOURCE_AVAILABLE() *string {
 	return returns
 }
 
-func FactName_DEFAULT_CR_NODE_VERSION() *string {
-	_init_.Initialize()
-	var returns *string
-	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
-		"DEFAULT_CR_NODE_VERSION",
-		&returns,
-	)
-	return returns
-}
-
 func FactName_DLC_REPOSITORY_ACCOUNT() *string {
 	_init_.Initialize()
 	var returns *string

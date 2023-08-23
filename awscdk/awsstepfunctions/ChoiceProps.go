@@ -21,14 +21,14 @@ type ChoiceProps struct {
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
-	// May also be the special value DISCARD, which will cause the effective
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Default: $.
 	//
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
-	// May also be the special value DISCARD, which will cause the effective
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Default: $.
 	//

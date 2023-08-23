@@ -13,7 +13,7 @@ import (
 //   metric := cloudwatch.NewMetric(&MetricProps{
 //   	Namespace: jsii.String("MyNamespace"),
 //   	MetricName: jsii.String("MyMetric"),
-//   	Dimensions: map[string]interface{}{
+//   	DimensionsMap: map[string]*string{
 //   		"MyDimension": jsii.String("MyDimensionValue"),
 //   	},
 //   })

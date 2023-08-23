@@ -231,6 +231,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_SqlConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kendra.CfnDataSource.TemplateConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_TemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kendra.CfnDataSource.WebCrawlerAuthenticationConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_WebCrawlerAuthenticationConfigurationProperty)(nil)).Elem(),
 	)

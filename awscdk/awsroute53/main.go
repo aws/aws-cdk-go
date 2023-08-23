@@ -738,6 +738,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grantDelegation", GoMethod: "GrantDelegation"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},

@@ -494,6 +494,9 @@ import (
 //   				},
 //   			},
 //   		},
+//   		TemplateConfiguration: &TemplateConfigurationProperty{
+//   			Template: jsii.String("template"),
+//   		},
 //   		WebCrawlerConfiguration: &WebCrawlerConfigurationProperty{
 //   			Urls: &WebCrawlerUrlsProperty{
 //   				SeedUrlConfiguration: &WebCrawlerSeedUrlConfigurationProperty{

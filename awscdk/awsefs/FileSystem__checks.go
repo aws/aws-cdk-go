@@ -71,6 +71,30 @@ func (f *jsiiProxy_FileSystem) validateGrantParameters(grantee awsiam.IGrantable
 	return nil
 }
 
+func (f *jsiiProxy_FileSystem) validateGrantReadParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (f *jsiiProxy_FileSystem) validateGrantReadWriteParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (f *jsiiProxy_FileSystem) validateGrantRootAccessParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateFileSystem_FromFileSystemAttributesParameters(scope constructs.Construct, id *string, attrs *FileSystemAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

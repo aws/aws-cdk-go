@@ -305,6 +305,20 @@ zoneFromAttributes := route53.PublicHostedZone_FromPublicHostedZoneAttributes(th
 zoneFromId := route53.PublicHostedZone_FromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
 ```
 
+You can use `CrossAccountZoneDelegationRecord` on imported Public Hosted Zones with the `grantDelegation` method:
+
+```go
+crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProps{
+	// The role name must be predictable
+	RoleName: jsii.String("MyDelegationRole"),
+	// The other account
+	AssumedBy: iam.NewAccountPrincipal(jsii.String("12345678901")),
+})
+
+zoneFromId := route53.PublicHostedZone_FromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
+zoneFromId.GrantDelegation(crossAccountRole)
+```
+
 ## VPC Endpoint Service Private DNS
 
 When you create a VPC endpoint service, AWS generates endpoint-specific DNS hostnames that consumers use to communicate with the service.

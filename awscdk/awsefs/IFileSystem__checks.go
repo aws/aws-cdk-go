@@ -17,6 +17,30 @@ func (i *jsiiProxy_IFileSystem) validateGrantParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
+func (i *jsiiProxy_IFileSystem) validateGrantReadParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IFileSystem) validateGrantReadWriteParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IFileSystem) validateGrantRootAccessParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IFileSystem) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
 	if statement == nil {
 		return fmt.Errorf("parameter statement is required, but nil was provided")

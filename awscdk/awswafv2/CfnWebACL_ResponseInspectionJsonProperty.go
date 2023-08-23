@@ -3,7 +3,7 @@ package awswafv2
 
 // Configures inspection of the response JSON.
 //
-// AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` .
+// AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
 //
 // > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 //
@@ -25,7 +25,7 @@ package awswafv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionjson.html
 //
 type CfnWebACL_ResponseInspectionJsonProperty struct {
-	// Values for the specified identifier in the response JSON that indicate a failed login attempt.
+	// Values for the specified identifier in the response JSON that indicate a failed login or account creation attempt.
 	//
 	// To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 	//
@@ -37,11 +37,11 @@ type CfnWebACL_ResponseInspectionJsonProperty struct {
 	//
 	// The identifier must be an exact match, including case.
 	//
-	// JSON example: `"Identifier": [ "/login/success" ]`.
+	// JSON examples: `"Identifier": [ "/login/success" ]` and `"Identifier": [ "/sign-up/success" ]`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionjson.html#cfn-wafv2-webacl-responseinspectionjson-identifier
 	//
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
-	// Values for the specified identifier in the response JSON that indicate a successful login attempt.
+	// Values for the specified identifier in the response JSON that indicate a successful login or account creation attempt.
 	//
 	// To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 	//

@@ -12,24 +12,25 @@ import (
 // Note that at least onCreate, onUpdate or onDelete must be specified.
 //
 // Example:
-//   getParameter := cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &AwsCustomResourceProps{
-//   	OnUpdate: &AwsSdkCall{
-//   		 // will also be called for a CREATE event
-//   		Service: jsii.String("SSM"),
-//   		Action: jsii.String("getParameter"),
+//   getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHostedZone"), &AwsCustomResourceProps{
+//   	OnCreate: &AwsSdkCall{
+//   		AssumedRoleArn: jsii.String("arn:aws:iam::OTHERACCOUNT:role/CrossAccount/ManageHostedZoneConnections"),
+//   		Service: jsii.String("Route53"),
+//   		Action: jsii.String("associateVPCWithHostedZone"),
 //   		Parameters: map[string]interface{}{
-//   			"Name": jsii.String("my-parameter"),
-//   			"WithDecryption": jsii.Boolean(true),
+//   			"HostedZoneId": jsii.String("hz-123"),
+//   			"VPC": map[string]*string{
+//   				"VPCId": jsii.String("vpc-123"),
+//   				"VPCRegion": jsii.String("region-for-vpc"),
+//   			},
 //   		},
-//   		PhysicalResourceId: cr.PhysicalResourceId_Of(date.now().toString()),
+//   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("${vpcStack.SharedVpc.VpcId}-${vpcStack.Region}-${PrivateHostedZone.HostedZoneId}")),
 //   	},
+//   	//Will ignore any resource and use the assumedRoleArn as resource and 'sts:AssumeRole' for service:action
 //   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
 //   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 //   	}),
 //   })
-//
-//   // Use the value in another construct with
-//   getParameter.GetResponseField(jsii.String("Parameter.Value"))
 //
 type AwsCustomResourceProps struct {
 	// A name for the singleton Lambda function implementing this custom resource.

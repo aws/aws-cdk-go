@@ -79,11 +79,11 @@ type Alarm interface {
 	AddAlarmAction(actions ...IAlarmAction)
 	// Trigger this action if there is insufficient data to evaluate the alarm.
 	//
-	// Typically SnsAcion or AutoScalingAction.
+	// Typically SnsAction or AutoScalingAction.
 	AddInsufficientDataAction(actions ...IAlarmAction)
 	// Trigger this action if the alarm returns from breaching state into ok state.
 	//
-	// Typically SnsAcion or AutoScalingAction.
+	// Typically SnsAction or AutoScalingAction.
 	AddOkAction(actions ...IAlarmAction)
 	// Apply the given removal policy to this resource.
 	//

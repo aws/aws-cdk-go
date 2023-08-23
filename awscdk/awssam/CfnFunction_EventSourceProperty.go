@@ -8,9 +8,7 @@ package awssam
 //
 //   eventSourceProperty := &EventSourceProperty{
 //   	Properties: &AlexaSkillEventProperty{
-//   		Variables: map[string]*string{
-//   			"variablesKey": jsii.String("variables"),
-//   		},
+//   		SkillId: jsii.String("skillId"),
 //   	},
 //   	Type: jsii.String("type"),
 //   }

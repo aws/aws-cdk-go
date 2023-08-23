@@ -1256,6 +1256,20 @@ api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 > (the default behavior if `@aws-cdk/aws-apigateway:disableCloudWatchRole` is enabled)
 > and only create a single CloudWatch role and account per environment.
 
+You can specify the CloudWatch Role and Account sub-resources removal policy with the
+`cloudWatchRoleRemovalPolicy` property, which defaults to `RemovalPolicy.RETAIN`.
+This option requires `cloudWatchRole` to be enabled.
+
+```go
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+	CloudWatchRole: jsii.Boolean(true),
+	CloudWatchRoleRemovalPolicy: cdk.RemovalPolicy_DESTROY,
+})
+```
+
 ### Deep dive: Invalidation of deployments
 
 API Gateway deployments are an immutable snapshot of the API. This means that we

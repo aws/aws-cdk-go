@@ -8,6 +8,7 @@ package awslambda
 //
 //   lambdaRuntimeProps := &LambdaRuntimeProps{
 //   	BundlingDockerImage: jsii.String("bundlingDockerImage"),
+//   	IsVariable: jsii.Boolean(false),
 //   	SupportsCodeGuruProfiling: jsii.Boolean(false),
 //   	SupportsInlineCode: jsii.Boolean(false),
 //   }
@@ -17,6 +18,10 @@ type LambdaRuntimeProps struct {
 	// Default: - the latest docker image "amazon/public.ecr.aws/sam/build-<runtime>" from https://gallery.ecr.aws
 	//
 	BundlingDockerImage *string `field:"optional" json:"bundlingDockerImage" yaml:"bundlingDockerImage"`
+	// Whether the runtime enum is meant to change over time, IE NODEJS_LATEST.
+	// Default: false.
+	//
+	IsVariable *bool `field:"optional" json:"isVariable" yaml:"isVariable"`
 	// Whether this runtime is integrated with and supported for profiling using Amazon CodeGuru Profiler.
 	// Default: false.
 	//

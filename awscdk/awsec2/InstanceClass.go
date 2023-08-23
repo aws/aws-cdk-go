@@ -157,6 +157,14 @@ const (
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
 	InstanceClass_R7G InstanceClass = "R7G"
+	// Memory optimized instances, 7th generation with Graviton3 processors and local NVME drive.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
+	InstanceClass_MEMORY7_GRAVITON3_NVME_DRIVE InstanceClass = "MEMORY7_GRAVITON3_NVME_DRIVE"
+	// Memory optimized instances, 7th generation with Graviton3 processors and local NVME drive.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
+	InstanceClass_R7GD InstanceClass = "R7GD"
 	// Compute optimized instances, 3rd generation.
 	InstanceClass_COMPUTE3 InstanceClass = "COMPUTE3"
 	// Compute optimized instances, 3rd generation.
@@ -213,6 +221,14 @@ const (
 	InstanceClass_COMPUTE6_GRAVITON2_NVME_DRIVE InstanceClass = "COMPUTE6_GRAVITON2_NVME_DRIVE"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and local NVME drive.
 	InstanceClass_C6GD InstanceClass = "C6GD"
+	// Compute optimized instances for high performance computing, 7th generation with Graviton3 processors and local NVME drive.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
+	InstanceClass_COMPUTE7_GRAVITON3_NVME_DRIVE InstanceClass = "COMPUTE7_GRAVITON3_NVME_DRIVE"
+	// Compute optimized instances for high performance computing, 7th generation with Graviton3 processors and local NVME drive.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
+	InstanceClass_C7GD InstanceClass = "C7GD"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and high network bandwidth capabilities.
 	InstanceClass_COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWIDTH InstanceClass = "COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWIDTH"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and high network bandwidth capabilities.
@@ -385,6 +401,14 @@ const (
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
 	InstanceClass_M7G InstanceClass = "M7G"
+	// Standard instances, 7th generation with Graviton3 processors and local NVME drive.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
+	InstanceClass_STANDARD7_GRAVITON3_NVME_DRIVE InstanceClass = "STANDARD7_GRAVITON3_NVME_DRIVE"
+	// Standard instances, 7th generation with Graviton3 processors and local NVME drive.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
+	InstanceClass_M7GD InstanceClass = "M7GD"
 	// High memory and compute capacity instances, 1st generation.
 	InstanceClass_HIGH_COMPUTE_MEMORY1 InstanceClass = "HIGH_COMPUTE_MEMORY1"
 	// High memory and compute capacity instances, 1st generation.

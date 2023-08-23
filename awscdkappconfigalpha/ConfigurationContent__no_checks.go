@@ -12,3 +12,11 @@ func validateConfigurationContent_FromInlineParameters(content *string) error {
 	return nil
 }
 
+func validateConfigurationContent_FromInlineJsonParameters(content *string) error {
+	return nil
+}
+
+func validateConfigurationContent_FromInlineTextParameters(content *string) error {
+	return nil
+}
+

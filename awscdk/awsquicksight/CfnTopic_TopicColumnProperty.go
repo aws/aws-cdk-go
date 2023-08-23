@@ -88,8 +88,6 @@ type CfnTopic_TopicColumnProperty struct {
 	//
 	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// The type of aggregation that is performed on the column data when it's queried.
-	//
-	// Valid values for this structure are `SUM` , `MAX` , `MIN` , `COUNT` , `DISTINCT_COUNT` , and `AVERAGE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html#cfn-quicksight-topic-topiccolumn-aggregation
 	//
 	Aggregation *string `field:"optional" json:"aggregation" yaml:"aggregation"`

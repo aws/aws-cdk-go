@@ -34,7 +34,7 @@ type CfnPhoneNumberProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-countrycode
 	//
 	CountryCode *string `field:"required" json:"countryCode" yaml:"countryCode"`
-	// The Amazon Resource Name (ARN) of Amazon Connect instances or traffic distribution group that phone numbers are claimed to.
+	// The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution group that phone numbers are claimed to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-targetarn
 	//
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`

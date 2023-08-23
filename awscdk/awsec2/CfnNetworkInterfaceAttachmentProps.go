@@ -39,6 +39,8 @@ type CfnNetworkInterfaceAttachmentProps struct {
 	// By default, this value is set to `true` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-deleteontermination
 	//
+	// Default: - true.
+	//
 	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 }
 

@@ -52,8 +52,6 @@ type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
 	// The type of provisioning artifact.
 	//
 	// - `CLOUD_FORMATION_TEMPLATE` - AWS CloudFormation template
-	// - `MARKETPLACE_AMI` - AWS Marketplace AMI
-	// - `MARKETPLACE_CAR` - AWS Marketplace Clusters and AWS Resources
 	// - `TERRAFORM_OPEN_SOURCE` - Terraform open source configuration file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-type
 	//

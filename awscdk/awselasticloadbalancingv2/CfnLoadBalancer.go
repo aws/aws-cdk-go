@@ -114,7 +114,7 @@ type CfnLoadBalancer interface {
 	// The nodes of an Internet-facing load balancer have public IP addresses.
 	Scheme() *string
 	SetScheme(val *string)
-	// [Application Load Balancers] The IDs of the security groups for the load balancer.
+	// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
 	// The stack in which this element is defined.

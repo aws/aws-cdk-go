@@ -46,6 +46,16 @@ import (
 //   }
 //
 type Annotations interface {
+	// Acknowledge a warning. When a warning is acknowledged for a scope all warnings that match the id will be ignored.
+	//
+	// The acknowledgement will apply to all child scopes.
+	//
+	// Example:
+	//   var myConstruct construct
+	//
+	//   awscdk.Annotations_Of(myConstruct).AcknowledgeWarning(jsii.String("SomeWarningId"), jsii.String("This warning can be ignored because..."))
+	//
+	AcknowledgeWarning(id *string, message *string)
 	// Adds a deprecation warning for a specific API.
 	//
 	// Deprecations will be added only once per construct as a warning and will be
@@ -66,7 +76,22 @@ type Annotations interface {
 	//
 	// The CLI will display the warning when an app is synthesized, or fail if run
 	// in --strict mode.
+	// Deprecated: - use addWarningV2 instead.
 	AddWarning(message *string)
+	// Adds an acknowledgeable warning metadata entry to this construct.
+	//
+	// The CLI will display the warning when an app is synthesized, or fail if run
+	// in `--strict` mode.
+	//
+	// If the warning is acknowledged using `acknowledgeWarning()`, it will not be shown by
+	// the CLI, and will not cause `--strict` mode to fail synthesis.
+	//
+	// Example:
+	//   var myConstruct construct
+	//
+	//   awscdk.Annotations_Of(myConstruct).AddWarningV2(jsii.String("my-library:Construct.someWarning"), jsii.String("Some message explaining the warning"))
+	//
+	AddWarningV2(id *string, message *string)
 }
 
 // The jsii proxy struct for Annotations
@@ -91,6 +116,17 @@ func Annotations_Of(scope constructs.IConstruct) Annotations {
 	)
 
 	return returns
+}
+
+func (a *jsiiProxy_Annotations) AcknowledgeWarning(id *string, message *string) {
+	if err := a.validateAcknowledgeWarningParameters(id); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"acknowledgeWarning",
+		[]interface{}{id, message},
+	)
 }
 
 func (a *jsiiProxy_Annotations) AddDeprecation(api *string, message *string) {
@@ -134,6 +170,17 @@ func (a *jsiiProxy_Annotations) AddWarning(message *string) {
 		a,
 		"addWarning",
 		[]interface{}{message},
+	)
+}
+
+func (a *jsiiProxy_Annotations) AddWarningV2(id *string, message *string) {
+	if err := a.validateAddWarningV2Parameters(id, message); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"addWarningV2",
+		[]interface{}{id, message},
 	)
 }
 

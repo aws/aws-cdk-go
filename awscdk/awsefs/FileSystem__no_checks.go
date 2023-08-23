@@ -28,6 +28,18 @@ func (f *jsiiProxy_FileSystem) validateGrantParameters(grantee awsiam.IGrantable
 	return nil
 }
 
+func (f *jsiiProxy_FileSystem) validateGrantReadParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (f *jsiiProxy_FileSystem) validateGrantReadWriteParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (f *jsiiProxy_FileSystem) validateGrantRootAccessParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func validateFileSystem_FromFileSystemAttributesParameters(scope constructs.Construct, id *string, attrs *FileSystemAttributes) error {
 	return nil
 }

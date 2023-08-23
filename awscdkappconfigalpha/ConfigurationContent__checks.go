@@ -22,3 +22,19 @@ func validateConfigurationContent_FromInlineParameters(content *string) error {
 	return nil
 }
 
+func validateConfigurationContent_FromInlineJsonParameters(content *string) error {
+	if content == nil {
+		return fmt.Errorf("parameter content is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateConfigurationContent_FromInlineTextParameters(content *string) error {
+	if content == nil {
+		return fmt.Errorf("parameter content is required, but nil was provided")
+	}
+
+	return nil
+}
+

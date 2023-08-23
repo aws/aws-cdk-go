@@ -146,8 +146,17 @@ type ProjectProps struct {
 	SsmSessionPermissions *bool `field:"optional" json:"ssmSessionPermissions" yaml:"ssmSessionPermissions"`
 	// Where to place the network interfaces within the VPC.
 	//
-	// Only used if 'vpc' is supplied.
-	// Default: - All private subnets.
+	// To access AWS services, your CodeBuild project needs to be in one of the following types of subnets:
+	//
+	// 1. Subnets with access to the internet (of type PRIVATE_WITH_EGRESS).
+	// 2. Private subnets unconnected to the internet, but with [VPC endpoints](https://docs.aws.amazon.com/codebuild/latest/userguide/use-vpc-endpoints-with-codebuild.html) for the necessary services.
+	//
+	// If you don't specify a subnet selection, the default behavior is to use PRIVATE_WITH_EGRESS subnets first if they exist,
+	// then PRIVATE_WITHOUT_EGRESS, and finally PUBLIC subnets. If your VPC doesn't have PRIVATE_WITH_EGRESS subnets but you need
+	// AWS service access, add VPC Endpoints to your private subnets.
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html for more details.
+	//
+	// Default: - private subnets if available else public subnets.
 	//
 	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.

@@ -28,6 +28,12 @@ import (
 //   	// the properties below are optional
 //   	Name: jsii.String("name"),
 //   	RecordingReconnectWindowSeconds: jsii.Number(123),
+//   	RenditionConfiguration: &RenditionConfigurationProperty{
+//   		Renditions: []*string{
+//   			jsii.String("renditions"),
+//   		},
+//   		RenditionSelection: jsii.String("renditionSelection"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -36,8 +42,10 @@ import (
 //   	},
 //   	ThumbnailConfiguration: &ThumbnailConfigurationProperty{
 //   		RecordingMode: jsii.String("recordingMode"),
-//
-//   		// the properties below are optional
+//   		Resolution: jsii.String("resolution"),
+//   		Storage: []*string{
+//   			jsii.String("storage"),
+//   		},
 //   		TargetIntervalSeconds: jsii.Number(123),
 //   	},
 //   })
@@ -91,6 +99,9 @@ type CfnRecordingConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// A rendition configuration describes which renditions should be recorded for a stream.
+	RenditionConfiguration() interface{}
+	SetRenditionConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -370,6 +381,16 @@ func (j *jsiiProxy_CfnRecordingConfiguration) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRecordingConfiguration) RenditionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"renditionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRecordingConfiguration) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -481,6 +502,17 @@ func (j *jsiiProxy_CfnRecordingConfiguration)SetRecordingReconnectWindowSeconds(
 	_jsii_.Set(
 		j,
 		"recordingReconnectWindowSeconds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration)SetRenditionConfiguration(val interface{}) {
+	if err := j.validateSetRenditionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"renditionConfiguration",
 		val,
 	)
 }

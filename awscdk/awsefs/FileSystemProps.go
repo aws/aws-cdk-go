@@ -13,36 +13,24 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   myFileSystemPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
-//   	Statements: []policyStatement{
-//   		iam.NewPolicyStatement(&PolicyStatementProps{
-//   			Actions: []*string{
-//   				jsii.String("elasticfilesystem:ClientWrite"),
-//   				jsii.String("elasticfilesystem:ClientMount"),
-//   			},
-//   			Principals: []iPrincipal{
-//   				iam.NewAccountRootPrincipal(),
-//   			},
-//   			Resources: []*string{
-//   				jsii.String("*"),
-//   			},
-//   			Conditions: map[string]interface{}{
-//   				"Bool": map[string]*string{
-//   					"elasticfilesystem:AccessedViaMountTarget": jsii.String("true"),
-//   				},
-//   			},
-//   		}),
-//   	},
+//   role := iam.NewRole(this, jsii.String("ClientRole"), &RoleProps{
+//   	AssumedBy: iam.NewAnyPrincipal(),
 //   })
-//
 //   fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
 //   	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
-//   	FileSystemPolicy: myFileSystemPolicy,
+//   	AllowAnonymousAccess: jsii.Boolean(true),
 //   })
+//
+//   fileSystem.grantRead(role)
 //
 type FileSystemProps struct {
 	// VPC to launch the file system in.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// Allow access from anonymous client that doesn't use IAM authentication.
+	// Default: false when using `grantRead`, `grantWrite`, `grantRootAccess`
+	// or set `@aws-cdk/aws-efs:denyAnonymousAccess` feature flag, otherwise true.
+	//
+	AllowAnonymousAccess *bool `field:"optional" json:"allowAnonymousAccess" yaml:"allowAnonymousAccess"`
 	// Whether to enable automatic backups for the file system.
 	// Default: false.
 	//

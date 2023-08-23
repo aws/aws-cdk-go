@@ -78,7 +78,7 @@ var application application
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
 	Application: Application,
-	Content: appconfig.ConfigurationContent_FromInline(jsii.String("This is my configuration content.")),
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
 })
 ```
 
@@ -95,7 +95,7 @@ var application application
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
 	Application: Application,
-	Content: appconfig.ConfigurationContent_FromInline(jsii.String("This is my configuration content.")),
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
 	Type: appconfig.ConfigurationType_FEATURE_FLAGS,
 })
 ```
@@ -112,7 +112,7 @@ var fn function
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
 	Application: Application,
-	Content: appconfig.ConfigurationContent_FromInline(jsii.String("This is my configuration content.")),
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
 	Validators: []iValidator{
 		appconfig.JsonSchemaValidator_FromFile(jsii.String("schema.json")),
 		appconfig.LambdaValidator_FromFunction(fn),
@@ -130,7 +130,7 @@ var application application
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
 	Application: Application,
-	Content: appconfig.ConfigurationContent_FromInline(jsii.String("This is my configuration content.")),
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
 	DeploymentStrategy: appconfig.NewDeploymentStrategy(this, jsii.String("MyDeploymentStrategy"), &DeploymentStrategyProps{
 		RolloutStrategy: appconfig.RolloutStrategy_Linear(&RolloutStrategyProps{
 			GrowthFactor: jsii.Number(15),
@@ -141,7 +141,7 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 })
 ```
 
-The `deployTo` parameter is used to specify which environments to deploy the configuration to. If this parameter is not specified, there will only be a deployment if there is one environment associated to the AWS AppConfig application.
+The `deployTo` parameter is used to specify which environments to deploy the configuration to. If this parameter is not specified, there will not be a deployment.
 
 A hosted configuration with `deployTo`:
 
@@ -152,7 +152,7 @@ var env environment
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
 	Application: Application,
-	Content: appconfig.ConfigurationContent_FromInline(jsii.String("This is my configuration content.")),
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
 	DeployTo: []iEnvironment{
 		env,
 	},
@@ -315,7 +315,7 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 })
 ```
 
-The `deployTo` parameter is used to specify which environments to deploy the configuration to. If this parameter is not specified, there will only be a deployment if there is one environment associated to the AWS AppConfig application.
+The `deployTo` parameter is used to specify which environments to deploy the configuration to. If this parameter is not specified, there will not be a deployment.
 
 A sourced configuration with `deployTo`:
 

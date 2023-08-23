@@ -37,6 +37,7 @@ import (
 //   			ValidationDomain: jsii.String("validationDomain"),
 //   		},
 //   	},
+//   	KeyAlgorithm: jsii.String("keyAlgorithm"),
 //   	SubjectAlternativeNames: []*string{
 //   		jsii.String("subjectAlternativeNames"),
 //   	},
@@ -79,6 +80,8 @@ type CfnCertificate interface {
 	// Domain information that domain name registrars use to verify your identity.
 	DomainValidationOptions() interface{}
 	SetDomainValidationOptions(val interface{})
+	KeyAlgorithm() *string
+	SetKeyAlgorithm(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -348,6 +351,16 @@ func (j *jsiiProxy_CfnCertificate) DomainValidationOptions() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCertificate) KeyAlgorithm() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"keyAlgorithm",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCertificate) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -510,6 +523,14 @@ func (j *jsiiProxy_CfnCertificate)SetDomainValidationOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"domainValidationOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCertificate)SetKeyAlgorithm(val *string) {
+	_jsii_.Set(
+		j,
+		"keyAlgorithm",
 		val,
 	)
 }

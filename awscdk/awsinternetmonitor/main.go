@@ -75,6 +75,10 @@ func init() {
 		reflect.TypeOf((*CfnMonitor_InternetMeasurementsLogDeliveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_internetmonitor.CfnMonitor.LocalHealthEventsConfigProperty",
+		reflect.TypeOf((*CfnMonitor_LocalHealthEventsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_internetmonitor.CfnMonitor.S3ConfigProperty",
 		reflect.TypeOf((*CfnMonitor_S3ConfigProperty)(nil)).Elem(),
 	)

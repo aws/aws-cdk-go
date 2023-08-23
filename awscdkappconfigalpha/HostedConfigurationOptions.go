@@ -20,7 +20,6 @@ import (
 //   	Content: configurationContent,
 //
 //   	// the properties below are optional
-//   	ContentType: jsii.String("contentType"),
 //   	DeploymentKey: key,
 //   	DeploymentStrategy: deploymentStrategy,
 //   	DeployTo: []iEnvironment{
@@ -51,9 +50,8 @@ type HostedConfigurationOptions struct {
 	DeploymentStrategy IDeploymentStrategy `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
 	// The list of environments to deploy the configuration to.
 	//
-	// If this parameter is not specified and there is only one environment
-	// associated to the application, then we will deploy to that one. Otherwise,
-	// there will be no deployment.
+	// If this parameter is not specified, then there will be no
+	// deployment.
 	// Default: - None.
 	//
 	// Experimental.
@@ -81,9 +79,6 @@ type HostedConfigurationOptions struct {
 	// The content of the hosted configuration.
 	// Experimental.
 	Content ConfigurationContent `field:"required" json:"content" yaml:"content"`
-	// The content type of the hosted configuration.
-	// Experimental.
-	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The latest version number of the hosted configuration.
 	// Experimental.
 	LatestVersionNumber *float64 `field:"optional" json:"latestVersionNumber" yaml:"latestVersionNumber"`

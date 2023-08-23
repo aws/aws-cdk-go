@@ -64,7 +64,7 @@ type CodePipelineProps struct {
 	//
 	CliVersion *string `field:"optional" json:"cliVersion" yaml:"cliVersion"`
 	// Customize the CodeBuild projects created for this pipeline.
-	// Default: - All projects run non-privileged build, SMALL instance, LinuxBuildImage.STANDARD_6_0
+	// Default: - All projects run non-privileged build, SMALL instance, LinuxBuildImage.STANDARD_7_0
 	//
 	CodeBuildDefaults *CodeBuildOptions `field:"optional" json:"codeBuildDefaults" yaml:"codeBuildDefaults"`
 	// An existing Pipeline to be reused and built upon.

@@ -180,15 +180,15 @@ func validateCfnStack_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnStack) validateSetParametersParameters(val interface{}) error {
 	switch val.(type) {
+	case IResolvable:
+		// ok
 	case *map[string]*string:
 		// ok
 	case map[string]*string:
 		// ok
-	case IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *map[string]*string, IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: IResolvable, *map[string]*string; received %#v (a %T)", val, val)
 		}
 	}
 

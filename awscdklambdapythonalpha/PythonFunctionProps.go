@@ -311,8 +311,6 @@ type PythonFunctionProps struct {
 	//
 	// Only runtimes of the Python family are
 	// supported.
-	// Default: Runtime.PYTHON_3_7
-	//
 	// Experimental.
 	Runtime awslambda.Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// Bundling options to use for this function.

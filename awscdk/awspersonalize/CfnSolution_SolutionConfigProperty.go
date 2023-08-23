@@ -26,7 +26,7 @@ package awspersonalize
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-solutionconfig.html
 //
 type CfnSolution_SolutionConfigProperty struct {
-	// Lists the hyperparameter names and ranges.
+	// Lists the algorithm hyperparameters and their values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-solutionconfig.html#cfn-personalize-solution-solutionconfig-algorithmhyperparameters
 	//
 	AlgorithmHyperParameters interface{} `field:"optional" json:"algorithmHyperParameters" yaml:"algorithmHyperParameters"`

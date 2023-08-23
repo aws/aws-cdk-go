@@ -27,7 +27,17 @@ import (
 //
 //   	// the properties below are optional
 //   	HealthEventsConfig: &HealthEventsConfigProperty{
+//   		AvailabilityLocalHealthEventsConfig: &LocalHealthEventsConfigProperty{
+//   			HealthScoreThreshold: jsii.Number(123),
+//   			MinTrafficImpact: jsii.Number(123),
+//   			Status: jsii.String("status"),
+//   		},
 //   		AvailabilityScoreThreshold: jsii.Number(123),
+//   		PerformanceLocalHealthEventsConfig: &LocalHealthEventsConfigProperty{
+//   			HealthScoreThreshold: jsii.Number(123),
+//   			MinTrafficImpact: jsii.Number(123),
+//   			Status: jsii.String("status"),
+//   		},
 //   		PerformanceScoreThreshold: jsii.Number(123),
 //   	},
 //   	InternetMeasurementsLogDelivery: &InternetMeasurementsLogDeliveryProperty{
@@ -115,7 +125,7 @@ type CfnMonitor interface {
 	// The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs).
 	Resources() *[]*string
 	SetResources(val *[]*string)
-	// The resources to add to a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	ResourcesToAdd() *[]*string
 	SetResourcesToAdd(val *[]*string)
 	// The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs).

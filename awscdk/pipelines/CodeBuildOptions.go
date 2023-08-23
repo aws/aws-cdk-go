@@ -48,7 +48,7 @@ import (
 //
 type CodeBuildOptions struct {
 	// Partial build environment, will be combined with other build environments that apply.
-	// Default: - Non-privileged build, SMALL instance, LinuxBuildImage.STANDARD_6_0
+	// Default: - Non-privileged build, SMALL instance, LinuxBuildImage.STANDARD_7_0
 	//
 	BuildEnvironment *awscodebuild.BuildEnvironment `field:"optional" json:"buildEnvironment" yaml:"buildEnvironment"`
 	// Caching strategy to use.

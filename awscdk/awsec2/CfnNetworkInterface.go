@@ -21,15 +21,26 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	EnablePrimaryIpv6: jsii.Boolean(false),
 //   	GroupSet: []*string{
 //   		jsii.String("groupSet"),
 //   	},
 //   	InterfaceType: jsii.String("interfaceType"),
+//   	Ipv4PrefixCount: jsii.Number(123),
+//   	Ipv4Prefixes: []interface{}{
+//   		&Ipv4PrefixSpecificationProperty{
+//   			Ipv4Prefix: jsii.String("ipv4Prefix"),
+//   		},
+//   	},
 //   	Ipv6AddressCount: jsii.Number(123),
 //   	Ipv6Addresses: []interface{}{
 //   		&InstanceIpv6AddressProperty{
 //   			Ipv6Address: jsii.String("ipv6Address"),
+//   		},
+//   	},
+//   	Ipv6PrefixCount: jsii.Number(123),
+//   	Ipv6Prefixes: []interface{}{
+//   		&Ipv6PrefixSpecificationProperty{
+//   			Ipv6Prefix: jsii.String("ipv6Prefix"),
 //   		},
 //   	},
 //   	PrivateIpAddress: jsii.String("privateIpAddress"),
@@ -77,21 +88,30 @@ type CfnNetworkInterface interface {
 	// A description for the network interface.
 	Description() *string
 	SetDescription(val *string)
-	// If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address.
-	EnablePrimaryIpv6() interface{}
-	SetEnablePrimaryIpv6(val interface{})
 	// The security group IDs associated with this network interface.
 	GroupSet() *[]*string
 	SetGroupSet(val *[]*string)
 	// The type of network interface.
 	InterfaceType() *string
 	SetInterfaceType(val *string)
+	// The number of IPv4 prefixes to be automatically assigned to the network interface.
+	Ipv4PrefixCount() *float64
+	SetIpv4PrefixCount(val *float64)
+	// The IPv4 delegated prefixes that are assigned to the network interface.
+	Ipv4Prefixes() interface{}
+	SetIpv4Prefixes(val interface{})
 	// The number of IPv6 addresses to assign to a network interface.
 	Ipv6AddressCount() *float64
 	SetIpv6AddressCount(val *float64)
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface.
 	Ipv6Addresses() interface{}
 	SetIpv6Addresses(val interface{})
+	// The number of IPv6 prefixes to be automatically assigned to the network interface.
+	Ipv6PrefixCount() *float64
+	SetIpv6PrefixCount(val *float64)
+	// The IPv6 delegated prefixes that are assigned to the network interface.
+	Ipv6Prefixes() interface{}
+	SetIpv6Prefixes(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -360,16 +380,6 @@ func (j *jsiiProxy_CfnNetworkInterface) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInterface) EnablePrimaryIpv6() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"enablePrimaryIpv6",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnNetworkInterface) GroupSet() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -390,6 +400,26 @@ func (j *jsiiProxy_CfnNetworkInterface) InterfaceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInterface) Ipv4PrefixCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv4PrefixCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) Ipv4Prefixes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ipv4Prefixes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInterface) Ipv6AddressCount() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -405,6 +435,26 @@ func (j *jsiiProxy_CfnNetworkInterface) Ipv6Addresses() interface{} {
 	_jsii_.Get(
 		j,
 		"ipv6Addresses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) Ipv6PrefixCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv6PrefixCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) Ipv6Prefixes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ipv6Prefixes",
 		&returns,
 	)
 	return returns
@@ -576,17 +626,6 @@ func (j *jsiiProxy_CfnNetworkInterface)SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkInterface)SetEnablePrimaryIpv6(val interface{}) {
-	if err := j.validateSetEnablePrimaryIpv6Parameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"enablePrimaryIpv6",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnNetworkInterface)SetGroupSet(val *[]*string) {
 	_jsii_.Set(
 		j,
@@ -599,6 +638,25 @@ func (j *jsiiProxy_CfnNetworkInterface)SetInterfaceType(val *string) {
 	_jsii_.Set(
 		j,
 		"interfaceType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterface)SetIpv4PrefixCount(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv4PrefixCount",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterface)SetIpv4Prefixes(val interface{}) {
+	if err := j.validateSetIpv4PrefixesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ipv4Prefixes",
 		val,
 	)
 }
@@ -618,6 +676,25 @@ func (j *jsiiProxy_CfnNetworkInterface)SetIpv6Addresses(val interface{}) {
 	_jsii_.Set(
 		j,
 		"ipv6Addresses",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterface)SetIpv6PrefixCount(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv6PrefixCount",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterface)SetIpv6Prefixes(val interface{}) {
+	if err := j.validateSetIpv6PrefixesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ipv6Prefixes",
 		val,
 	)
 }

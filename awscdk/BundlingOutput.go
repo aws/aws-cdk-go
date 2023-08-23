@@ -29,5 +29,12 @@ const (
 	//
 	// Otherwise, all the files in the bundling output directory will be zipped.
 	BundlingOutput_AUTO_DISCOVER BundlingOutput = "AUTO_DISCOVER"
+	// The bundling output directory includes a single file which will be used as the final bundle.
+	//
+	// If the output directory does not
+	// include exactly a single file, bundling will fail.
+	//
+	// Similar to ARCHIVED but for non-archive files.
+	BundlingOutput_SINGLE_FILE BundlingOutput = "SINGLE_FILE"
 )
 

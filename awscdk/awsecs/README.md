@@ -388,6 +388,24 @@ container.AddPortMappings(&PortMapping{
 })
 ```
 
+Sometimes it is useful to be able to configure port ranges for a container, e.g. to run applications such as game servers
+and real-time streaming which typically require multiple ports to be opened simultaneously. This feature is supported on
+both Linux and Windows operating systems for both the EC2 and AWS Fargate launch types. There is a maximum limit of 100
+port ranges per container, and you cannot specify overlapping port ranges.
+
+Docker recommends that you turn off the `docker-proxy` in the Docker daemon config file when you have a large number of ports.
+For more information, see [Issue #11185](https://github.com/moby/moby/issues/11185) on the GitHub website.
+
+```go
+var container containerDefinition
+
+
+container.AddPortMappings(&PortMapping{
+	ContainerPort: ecs.*containerDefinition_CONTAINER_PORT_USE_RANGE(),
+	ContainerPortRange: jsii.String("8080-8081"),
+})
+```
+
 To add data volumes to a task definition, call `addVolume()`:
 
 ```go

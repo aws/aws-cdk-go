@@ -1,7 +1,9 @@
 package awswafv2
 
 
-// Not currently supported by AWS CloudFormation .
+// Details for your use of the account creation fraud prevention managed rule group, `AWSManagedRulesACFPRuleSet` .
+//
+// This configuration is used in `ManagedRuleGroupConfig` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -79,23 +81,37 @@ package awswafv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html
 //
 type CfnWebACL_AWSManagedRulesACFPRuleSetProperty struct {
-	// Not currently supported by AWS CloudFormation .
+	// The path of the account creation endpoint for your application.
+	//
+	// This is the page on your website that accepts the completed registration form for a new user. This page must accept `POST` requests.
+	//
+	// For example, for the URL `https://example.com/web/signup` , you would provide the path `/web/signup` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-creationpath
 	//
 	CreationPath *string `field:"required" json:"creationPath" yaml:"creationPath"`
-	// Not currently supported by AWS CloudFormation .
+	// The path of the account registration endpoint for your application.
+	//
+	// This is the page on your website that presents the registration form to new users.
+	//
+	// > This page must accept `GET` text/html requests.
+	//
+	// For example, for the URL `https://example.com/web/register` , you would provide the path `/web/register` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-registrationpagepath
 	//
 	RegistrationPagePath *string `field:"required" json:"registrationPagePath" yaml:"registrationPagePath"`
-	// Not currently supported by AWS CloudFormation .
+	// The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-requestinspection
 	//
 	RequestInspection interface{} `field:"required" json:"requestInspection" yaml:"requestInspection"`
-	// Not currently supported by AWS CloudFormation .
+	// Allow the use of regular expressions in the registration page path and the account creation path.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-enableregexinpath
 	//
 	EnableRegexInPath interface{} `field:"optional" json:"enableRegexInPath" yaml:"enableRegexInPath"`
-	// Not currently supported by AWS CloudFormation .
+	// The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
+	//
+	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	//
+	// The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-responseinspection
 	//
 	ResponseInspection interface{} `field:"optional" json:"responseInspection" yaml:"responseInspection"`

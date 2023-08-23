@@ -55,7 +55,10 @@ type Metric interface {
 	// Unit of the metric.
 	Unit() Unit
 	// Warnings attached to this metric.
+	// Deprecated: - use warningsV2.
 	Warnings() *[]*string
+	// Warnings attached to this metric.
+	WarningsV2() *map[string]*string
 	// Attach the metric object to the given construct scope.
 	//
 	// Returns a Metric object that uses the account and region from the Stack
@@ -192,6 +195,16 @@ func (j *jsiiProxy_Metric) Warnings() *[]*string {
 	_jsii_.Get(
 		j,
 		"warnings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Metric) WarningsV2() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"warningsV2",
 		&returns,
 	)
 	return returns

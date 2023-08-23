@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::DataSync::LocationNFS` resource specifies a file system on a Network File System (NFS) server that can be read from or written to.
+// The `AWS::DataSync::LocationNFS` resource specifies a Network File System (NFS) file server that AWS DataSync can use as a transfer source or destination.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,9 +43,9 @@ type CfnLocationNFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name (ARN) of the specified source NFS file system location.
+	// The Amazon Resource Name (ARN) of the NFS location that you created.
 	AttrLocationArn() *string
-	// The URI of the specified source NFS location.
+	// The URI of the NFS location that you created.
 	AttrLocationUri() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

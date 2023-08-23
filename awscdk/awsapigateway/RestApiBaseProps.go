@@ -1,6 +1,7 @@
 package awsapigateway
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
@@ -23,6 +24,7 @@ import (
 //
 //   restApiBaseProps := &RestApiBaseProps{
 //   	CloudWatchRole: jsii.Boolean(false),
+//   	CloudWatchRoleRemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	Deploy: jsii.Boolean(false),
 //   	DeployOptions: &StageOptions{
 //   		AccessLogDestination: accessLogDestination,
@@ -94,6 +96,12 @@ type RestApiBaseProps struct {
 	// Default: - false if `@aws-cdk/aws-apigateway:disableCloudWatchRole` is enabled, true otherwise.
 	//
 	CloudWatchRole *bool `field:"optional" json:"cloudWatchRole" yaml:"cloudWatchRole"`
+	// The removal policy applied to the AWS CloudWatch role when this resource is removed from the application.
+	//
+	// Requires `cloudWatchRole` to be enabled.
+	// Default: - RemovalPolicy.RETAIN
+	//
+	CloudWatchRoleRemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"cloudWatchRoleRemovalPolicy" yaml:"cloudWatchRoleRemovalPolicy"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
 	// Since API Gateway deployments are immutable, When this option is enabled

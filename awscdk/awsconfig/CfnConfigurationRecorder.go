@@ -9,11 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::Config::ConfigurationRecorder resource describes the AWS resource types for which AWS Config records configuration changes.
+// The `AWS::Config::ConfigurationRecorder` resource type describes the AWS resource types that AWS Config records for configuration changes.
 //
-// The configuration recorder stores the configurations of the supported resources in your account as configuration items.
+// The configuration recorder stores the configuration changes of the specified resources in your account as configuration items.
 //
-// > To enable AWS Config , you must create a configuration recorder and a delivery channel. AWS Config uses the delivery channel to deliver the configuration changes to your Amazon S3 bucket or Amazon SNS topic. For more information, see [AWS::Config::DeliveryChannel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html) .
+// > To enable AWS Config , you must create a configuration recorder and a delivery channel.
+// >
+// > AWS Config uses the delivery channel to deliver the configuration changes to your Amazon S3 bucket or Amazon SNS topic. For more information, see [AWS::Config::DeliveryChannel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html) .
 //
 // AWS CloudFormation starts the recorder as soon as the delivery channel is available.
 //
@@ -33,7 +35,15 @@ import (
 //   	Name: jsii.String("name"),
 //   	RecordingGroup: &RecordingGroupProperty{
 //   		AllSupported: jsii.Boolean(false),
+//   		ExclusionByResourceTypes: &ExclusionByResourceTypesProperty{
+//   			ResourceTypes: []*string{
+//   				jsii.String("resourceTypes"),
+//   			},
+//   		},
 //   		IncludeGlobalResourceTypes: jsii.Boolean(false),
+//   		RecordingStrategy: &RecordingStrategyProperty{
+//   			UseOnly: jsii.String("useOnly"),
+//   		},
 //   		ResourceTypes: []*string{
 //   			jsii.String("resourceTypes"),
 //   		},
@@ -65,12 +75,14 @@ type CfnConfigurationRecorder interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A name for the configuration recorder.
+	// The name of the configuration recorder.
+	//
+	// AWS Config automatically assigns the name of "default" when creating the configuration recorder.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Indicates whether to record configurations for all supported resources or for a list of resource types.
+	// Specifies which resource types AWS Config records for configuration changes.
 	RecordingGroup() interface{}
 	SetRecordingGroup(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -78,7 +90,7 @@ type CfnConfigurationRecorder interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon Resource Name (ARN) of the IAM (IAM) role that is used to make read or write requests to the delivery channel that you specify and to get configuration details for supported AWS resources.
+	// Amazon Resource Name (ARN) of the IAM role assumed by AWS Config and used by the configuration recorder.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.

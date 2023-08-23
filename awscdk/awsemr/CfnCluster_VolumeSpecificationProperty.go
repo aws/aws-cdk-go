@@ -16,6 +16,7 @@ package awsemr
 //
 //   	// the properties below are optional
 //   	Iops: jsii.Number(123),
+//   	Throughput: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-volumespecification.html
@@ -37,5 +38,8 @@ type CfnCluster_VolumeSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-volumespecification.html#cfn-emr-cluster-volumespecification-iops
 	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-volumespecification.html#cfn-emr-cluster-volumespecification-throughput
+	//
+	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 }
 

@@ -55,6 +55,10 @@ type CfnFeatureGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// A timestamp of FeatureGroup creation time.
+	AttrCreationTime() *string
+	// The status of the feature group.
+	AttrFeatureGroupStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -261,6 +265,26 @@ type jsiiProxy_CfnFeatureGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnFeatureGroup) AttrCreationTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFeatureGroup) AttrFeatureGroupStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFeatureGroupStatus",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnFeatureGroup) CfnOptions() awscdk.ICfnResourceOptions {

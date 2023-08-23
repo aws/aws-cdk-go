@@ -62,9 +62,7 @@ package awssam
 //   	Events: map[string]interface{}{
 //   		"eventsKey": &EventSourceProperty{
 //   			"properties": &AlexaSkillEventProperty{
-//   				"variables": map[string]*string{
-//   					"variablesKey": jsii.String("variables"),
-//   				},
+//   				"skillId": jsii.String("skillId"),
 //   			},
 //   			"type": jsii.String("type"),
 //   		},

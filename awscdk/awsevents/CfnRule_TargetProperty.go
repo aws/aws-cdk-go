@@ -111,11 +111,11 @@ package awsevents
 //   	},
 //   	RedshiftDataParameters: &RedshiftDataParametersProperty{
 //   		Database: jsii.String("database"),
-//   		Sql: jsii.String("sql"),
 //
 //   		// the properties below are optional
 //   		DbUser: jsii.String("dbUser"),
 //   		SecretManagerArn: jsii.String("secretManagerArn"),
+//   		Sql: jsii.String("sql"),
 //   		StatementName: jsii.String("statementName"),
 //   		WithEvent: jsii.Boolean(false),
 //   	},

@@ -16,6 +16,12 @@ type IFileSystem interface {
 	awsiam.IResourceWithPolicy
 	// Grant the actions defined in actions to the given grantee on this File System resource.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Grant read permissions for this file system to an IAM principal.
+	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant read and write permissions for this file system to an IAM principal.
+	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
+	// As root user, grant read and write permissions for this file system to an IAM principal.
+	GrantRootAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the file system.
 	FileSystemArn() *string
 	// The ID of the file system, assigned by Amazon EFS.
@@ -45,6 +51,54 @@ func (i *jsiiProxy_IFileSystem) Grant(grantee awsiam.IGrantable, actions ...*str
 		i,
 		"grant",
 		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IFileSystem) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantRead",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IFileSystem) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadWriteParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantReadWrite",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IFileSystem) GrantRootAccess(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantRootAccessParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantRootAccess",
+		[]interface{}{grantee},
 		&returns,
 	)
 

@@ -13,7 +13,7 @@ import (
 //
 //   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
 //   	Application: Application,
-//   	Content: appconfig.ConfigurationContent_FromInline(jsii.String("This is my configuration content.")),
+//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
 //   	Type: appconfig.ConfigurationType_FEATURE_FLAGS,
 //   })
 //
@@ -22,6 +22,9 @@ type ConfigurationContent interface {
 	// The configuration content.
 	// Experimental.
 	Content() *string
+	// The configuration content type.
+	// Experimental.
+	ContentType() *string
 }
 
 // The jsii proxy struct for ConfigurationContent
@@ -34,6 +37,16 @@ func (j *jsiiProxy_ConfigurationContent) Content() *string {
 	_jsii_.Get(
 		j,
 		"content",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConfigurationContent) ContentType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"contentType",
 		&returns,
 	)
 	return returns
@@ -53,7 +66,7 @@ func NewConfigurationContent_Override(c ConfigurationContent) {
 
 // Defines the hosted configuration content from a file.
 // Experimental.
-func ConfigurationContent_FromFile(path *string) ConfigurationContent {
+func ConfigurationContent_FromFile(path *string, contentType *string) ConfigurationContent {
 	_init_.Initialize()
 
 	if err := validateConfigurationContent_FromFileParameters(path); err != nil {
@@ -64,7 +77,7 @@ func ConfigurationContent_FromFile(path *string) ConfigurationContent {
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-appconfig-alpha.ConfigurationContent",
 		"fromFile",
-		[]interface{}{path},
+		[]interface{}{path, contentType},
 		&returns,
 	)
 
@@ -73,7 +86,7 @@ func ConfigurationContent_FromFile(path *string) ConfigurationContent {
 
 // Defines the hosted configuration content from inline code.
 // Experimental.
-func ConfigurationContent_FromInline(content *string) ConfigurationContent {
+func ConfigurationContent_FromInline(content *string, contentType *string) ConfigurationContent {
 	_init_.Initialize()
 
 	if err := validateConfigurationContent_FromInlineParameters(content); err != nil {
@@ -84,6 +97,46 @@ func ConfigurationContent_FromInline(content *string) ConfigurationContent {
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-appconfig-alpha.ConfigurationContent",
 		"fromInline",
+		[]interface{}{content, contentType},
+		&returns,
+	)
+
+	return returns
+}
+
+// Defines the hosted configuration content as JSON from inline code.
+// Experimental.
+func ConfigurationContent_FromInlineJson(content *string, contentType *string) ConfigurationContent {
+	_init_.Initialize()
+
+	if err := validateConfigurationContent_FromInlineJsonParameters(content); err != nil {
+		panic(err)
+	}
+	var returns ConfigurationContent
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-appconfig-alpha.ConfigurationContent",
+		"fromInlineJson",
+		[]interface{}{content, contentType},
+		&returns,
+	)
+
+	return returns
+}
+
+// Defines the hosted configuration content as text from inline code.
+// Experimental.
+func ConfigurationContent_FromInlineText(content *string) ConfigurationContent {
+	_init_.Initialize()
+
+	if err := validateConfigurationContent_FromInlineTextParameters(content); err != nil {
+		panic(err)
+	}
+	var returns ConfigurationContent
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-appconfig-alpha.ConfigurationContent",
+		"fromInlineText",
 		[]interface{}{content},
 		&returns,
 	)

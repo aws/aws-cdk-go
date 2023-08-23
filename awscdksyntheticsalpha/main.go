@@ -58,6 +58,14 @@ func init() {
 		"@aws-cdk/aws-synthetics-alpha.CanaryProps",
 		reflect.TypeOf((*CanaryProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-synthetics-alpha.Cleanup",
+		reflect.TypeOf((*Cleanup)(nil)).Elem(),
+		map[string]interface{}{
+			"NOTHING": Cleanup_NOTHING,
+			"LAMBDA": Cleanup_LAMBDA,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-synthetics-alpha.Code",
 		reflect.TypeOf((*Code)(nil)).Elem(),

@@ -25,12 +25,14 @@ type CfnFleet_ServerProcessProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
 	//
 	ConcurrentExecutions *float64 `field:"required" json:"concurrentExecutions" yaml:"concurrentExecutions"`
-	// The location of a game build executable or the Realtime script file that contains the `Init()` function.
+	// The location of a game build executable or Realtime script.
 	//
 	// Game builds and Realtime scripts are installed on instances at the root:
 	//
 	// - Windows (custom game builds only): `C:\game` . Example: " `C:\game\MyGame\server.exe` "
 	// - Linux: `/local/game` . Examples: " `/local/game/MyGame/server.exe` " or " `/local/game/MyRealtimeScript.js` "
+	//
+	// > Amazon GameLift doesn't support the use of setup scripts that launch the game executable. For custom game builds, this parameter must indicate the executable that calls the server SDK operations `initSDK()` and `ProcessReady()` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
 	//
 	LaunchPath *string `field:"required" json:"launchPath" yaml:"launchPath"`

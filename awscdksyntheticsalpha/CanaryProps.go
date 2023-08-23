@@ -62,12 +62,19 @@ type CanaryProps struct {
 	//
 	// Experimental.
 	CanaryName *string `field:"optional" json:"canaryName" yaml:"canaryName"`
+	// Specify the underlying resources to be cleaned up when the canary is deleted.
+	//
+	// Using `Cleanup.LAMBDA` will create a Custom Resource to achieve this.
+	// Default: Cleanup.NOTHING
+	//
+	// Experimental.
+	Cleanup Cleanup `field:"optional" json:"cleanup" yaml:"cleanup"`
 	// Whether or not to delete the lambda resources when the canary is deleted.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-deletelambdaresourcesoncanarydeletion
 	//
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated: this feature has been deprecated by the service team, use `cleanup: Cleanup.LAMBDA` instead which will use a Custom Resource to achieve the same effect.
 	EnableAutoDeleteLambdas *bool `field:"optional" json:"enableAutoDeleteLambdas" yaml:"enableAutoDeleteLambdas"`
 	// Key-value pairs that the Synthetics caches and makes available for your canary scripts.
 	//

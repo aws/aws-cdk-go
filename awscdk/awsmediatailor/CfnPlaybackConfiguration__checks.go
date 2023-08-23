@@ -261,15 +261,15 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetCdnConfigurationParamete
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetConfigurationAliasesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *map[string]interface{}:
 		// ok
 	case map[string]interface{}:
 		// ok
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *map[string]interface{}, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]interface{}; received %#v (a %T)", val, val)
 		}
 	}
 

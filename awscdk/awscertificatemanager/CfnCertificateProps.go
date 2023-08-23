@@ -26,6 +26,7 @@ import (
 //   			ValidationDomain: jsii.String("validationDomain"),
 //   		},
 //   	},
+//   	KeyAlgorithm: jsii.String("keyAlgorithm"),
 //   	SubjectAlternativeNames: []*string{
 //   		jsii.String("subjectAlternativeNames"),
 //   	},
@@ -67,6 +68,9 @@ type CfnCertificateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainvalidationoptions
 	//
 	DomainValidationOptions interface{} `field:"optional" json:"domainValidationOptions" yaml:"domainValidationOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-keyalgorithm
+	//
+	KeyAlgorithm *string `field:"optional" json:"keyAlgorithm" yaml:"keyAlgorithm"`
 	// Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
 	//
 	// For example, you can add www.example.net to a certificate for which the `DomainName` field is www.example.com if users can reach your site by using either name.

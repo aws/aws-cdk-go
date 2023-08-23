@@ -97,6 +97,8 @@ type CfnAlarmProps struct {
 	// The default is TRUE.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-actionsenabled
 	//
+	// Default: - true.
+	//
 	ActionsEnabled interface{} `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state.
 	//

@@ -308,7 +308,7 @@ import (
 type CfnAutomationRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 	Actions() interface{}
 	SetActions(val interface{})
 	// A timestamp that indicates when the rule was created.
@@ -336,7 +336,7 @@ type CfnAutomationRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A set of [AWS Security Finding Format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that Security Hub uses to filter findings. If a rule is enabled and a finding matches the conditions specified in this parameter, Security Hub applies the rule action to the finding.
+	// A set of [AWS Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that Security Hub uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, Security Hub applies the rule action to the finding.
 	Criteria() interface{}
 	SetCriteria(val interface{})
 	// A description of the rule.

@@ -32,7 +32,8 @@ import (
 type CfnNetworkInterfaceAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
+	// The ID of the network interface attachment.
+	AttrAttachmentId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -221,11 +222,11 @@ type jsiiProxy_CfnNetworkInterfaceAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnNetworkInterfaceAttachment) AttrId() *string {
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment) AttrAttachmentId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrAttachmentId",
 		&returns,
 	)
 	return returns

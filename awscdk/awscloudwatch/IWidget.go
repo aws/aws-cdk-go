@@ -13,7 +13,10 @@ type IWidget interface {
 	// The amount of vertical grid units the widget will take up.
 	Height() *float64
 	// Any warnings that are produced as a result of putting together this widget.
+	// Deprecated: - use warningsV2.
 	Warnings() *[]*string
+	// Any warnings that are produced as a result of putting together this widget.
+	WarningsV2() *map[string]*string
 	// The amount of horizontal grid units the widget will take up.
 	Width() *float64
 }
@@ -62,6 +65,16 @@ func (j *jsiiProxy_IWidget) Warnings() *[]*string {
 	_jsii_.Get(
 		j,
 		"warnings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWidget) WarningsV2() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"warningsV2",
 		&returns,
 	)
 	return returns

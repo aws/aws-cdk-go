@@ -73,7 +73,7 @@ type CfnWebACL_AWSManagedRulesATPRuleSetProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-loginpath
 	//
 	LoginPath *string `field:"required" json:"loginPath" yaml:"loginPath"`
-	// Not currently supported by AWS CloudFormation .
+	// Allow the use of regular expressions in the login page path.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-enableregexinpath
 	//
 	EnableRegexInPath interface{} `field:"optional" json:"enableRegexInPath" yaml:"enableRegexInPath"`

@@ -12,10 +12,12 @@ func init() {
 		"aws-cdk-lib.Annotations",
 		reflect.TypeOf((*Annotations)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "acknowledgeWarning", GoMethod: "AcknowledgeWarning"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeprecation", GoMethod: "AddDeprecation"},
 			_jsii_.MemberMethod{JsiiMethod: "addError", GoMethod: "AddError"},
 			_jsii_.MemberMethod{JsiiMethod: "addInfo", GoMethod: "AddInfo"},
 			_jsii_.MemberMethod{JsiiMethod: "addWarning", GoMethod: "AddWarning"},
+			_jsii_.MemberMethod{JsiiMethod: "addWarningV2", GoMethod: "AddWarningV2"},
 		},
 		func() interface{} {
 			return &jsiiProxy_Annotations{}
@@ -199,6 +201,7 @@ func init() {
 			"ARCHIVED": BundlingOutput_ARCHIVED,
 			"NOT_ARCHIVED": BundlingOutput_NOT_ARCHIVED,
 			"AUTO_DISCOVER": BundlingOutput_AUTO_DISCOVER,
+			"SINGLE_FILE": BundlingOutput_SINGLE_FILE,
 		},
 	)
 	_jsii_.RegisterStruct(

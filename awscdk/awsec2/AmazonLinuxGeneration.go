@@ -7,16 +7,17 @@ package awsec2
 //   var vpc vpc
 //
 //
-//   mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
-//   	Vpc: Vpc,
-//   })
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 //   	Vpc: Vpc,
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T3, ec2.InstanceSize_MICRO),
+//
+//   	// Amazon Linux 2 comes with SSM Agent by default
 //   	MachineImage: ec2.MachineImage_LatestAmazonLinux(&AmazonLinuxImageProps{
 //   		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
 //   	}),
-//   	SecurityGroup: mySecurityGroup,
+//
+//   	// Turn on SSM
+//   	SsmSessionPermissions: jsii.Boolean(true),
 //   })
 //
 type AmazonLinuxGeneration string

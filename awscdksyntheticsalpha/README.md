@@ -101,27 +101,35 @@ schedule := synthetics.Schedule_Cron(&CronOptions{
 
 If you want the canary to run just once upon deployment, you can use `Schedule.once()`.
 
-### Canary DeleteLambdaResourcesOnCanaryDeletion
+### Deleting underlying resources on canary deletion
 
-You can specify whether the AWS CloudFormation is to also delete the Lambda functions and layers used by this canary, when the canary is deleted.
+When you delete a lambda, the following underlying resources are isolated in your AWS account:
 
-This can be provisioned by setting the `enableAutoDeleteLambdas` property to `true` when we define the canary.
+* Lambda Function that runs your canary script
+* S3 Bucket for artifact storage
+* IAM roles and policies
+* Log Groups in CloudWatch Logs.
+
+To learn more about these underlying resources, see
+[Synthetics Canaries Deletion](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/synthetics_canaries_deletion.html).
+
+In the CDK, you can configure your canary to delete the underlying lambda function when the canary is deleted.
+This can be provisioned by setting `cleanup: Cleanup.LAMBDA`. Note that this
+will create a custom resource under the hood that takes care of the lambda deletion for you.
 
 ```go
-stack := awscdk.Newstack()
-
-canary := synthetics.NewCanary(stack, jsii.String("Canary"), &CanaryProps{
+canary := synthetics.NewCanary(this, jsii.String("Canary"), &CanaryProps{
 	Test: synthetics.Test_Custom(&CustomTestOptions{
 		Handler: jsii.String("index.handler"),
 		Code: synthetics.Code_FromInline(jsii.String("/* Synthetics handler code")),
 	}),
-	EnableAutoDeleteLambdas: jsii.Boolean(true),
+	Cleanup: synthetics.Cleanup_LAMBDA,
 	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
 })
 ```
 
-Synthetic Canaries create additional resources under the hood beyond Lambda functions. Setting `enableAutoDeleteLambdas: true` will take care of
-cleaning up Lambda functions on deletion, but you still have to manually delete other resources like S3 buckets and CloudWatch logs.
+> Note: To properly clean up your canary on deletion, you still have to manually delete other resources
+> like S3 buckets and CloudWatch logs.
 
 ### Configuring the Canary Script
 

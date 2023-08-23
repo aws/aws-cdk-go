@@ -14,6 +14,7 @@ import (
 //   var repositoryPolicyText interface{}
 //
 //   cfnRepositoryProps := &CfnRepositoryProps{
+//   	EmptyOnDelete: jsii.Boolean(false),
 //   	EncryptionConfiguration: &EncryptionConfigurationProperty{
 //   		EncryptionType: jsii.String("encryptionType"),
 //
@@ -41,6 +42,12 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
 //
 type CfnRepositoryProps struct {
+	// If true, deleting the repository force deletes the contents of the repository.
+	//
+	// Without a force delete, you can only delete empty repositories.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-emptyondelete
+	//
+	EmptyOnDelete interface{} `field:"optional" json:"emptyOnDelete" yaml:"emptyOnDelete"`
 	// The encryption configuration for the repository.
 	//
 	// This determines how the contents of your repository are encrypted at rest.

@@ -282,8 +282,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_config.CfnConfigurationRecorder.ExclusionByResourceTypesProperty",
+		reflect.TypeOf((*CfnConfigurationRecorder_ExclusionByResourceTypesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConfigurationRecorder.RecordingGroupProperty",
 		reflect.TypeOf((*CfnConfigurationRecorder_RecordingGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_config.CfnConfigurationRecorder.RecordingStrategyProperty",
+		reflect.TypeOf((*CfnConfigurationRecorder_RecordingStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConfigurationRecorderProps",

@@ -79,7 +79,7 @@ type CfnLoadBalancerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme
 	//
 	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
-	// [Application Load Balancers] The IDs of the security groups for the load balancer.
+	// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
 	//
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`

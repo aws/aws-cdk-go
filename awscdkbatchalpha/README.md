@@ -487,10 +487,13 @@ This example creates a `JobDefinition` that runs a single container with ECS:
 
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
+import iam "github.com/aws/aws-cdk-go/awscdk"
 import efs "github.com/aws/aws-cdk-go/awscdk"
 
 var myFileSystem iFileSystem
+var myJobRole role
 
+myFileSystem.GrantRead(myJobRole)
 
 jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
 	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
@@ -502,8 +505,10 @@ jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefini
 				Name: jsii.String("myVolume"),
 				FileSystem: myFileSystem,
 				ContainerPath: jsii.String("/Volumes/myVolume"),
+				UseJobRole: jsii.Boolean(true),
 			}),
 		},
+		JobRole: myJobRole,
 	}),
 })
 ```

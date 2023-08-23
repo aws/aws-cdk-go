@@ -21,6 +21,20 @@ devDomain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 })
 ```
 
+Create a cluster with GP3 volumes:
+
+```go
+gp3Domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_2_5(),
+	Ebs: &EbsOptions{
+		VolumeSize: jsii.Number(30),
+		VolumeType: ec2.EbsDeviceVolumeType_GP3,
+		Throughput: jsii.Number(125),
+		Iops: jsii.Number(3000),
+	},
+})
+```
+
 Create a production grade cluster by also specifying things like capacity and az distribution
 
 ```go

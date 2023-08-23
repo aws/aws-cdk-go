@@ -13,7 +13,14 @@ type IMetric interface {
 	// Should be attached to the consuming construct.
 	// Default: - None.
 	//
+	// Deprecated: - use warningsV2.
 	Warnings() *[]*string
+	// Any warnings related to this metric.
+	//
+	// Should be attached to the consuming construct.
+	// Default: - None.
+	//
+	WarningsV2() *map[string]*string
 }
 
 // The jsii proxy for IMetric
@@ -39,6 +46,16 @@ func (j *jsiiProxy_IMetric) Warnings() *[]*string {
 	_jsii_.Get(
 		j,
 		"warnings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMetric) WarningsV2() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"warningsV2",
 		&returns,
 	)
 	return returns

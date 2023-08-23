@@ -38,6 +38,8 @@ type Runtime interface {
 	BundlingImage() awscdk.DockerImage
 	// The runtime family.
 	Family() RuntimeFamily
+	// Enabled for runtime enums that always target the latest available.
+	IsVariable() *bool
 	// The name of this runtime, as expected by the Lambda resource.
 	Name() *string
 	// Whether this runtime is integrated with and supported for profiling using Amazon CodeGuru Profiler.
@@ -68,6 +70,16 @@ func (j *jsiiProxy_Runtime) Family() RuntimeFamily {
 	_jsii_.Get(
 		j,
 		"family",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Runtime) IsVariable() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isVariable",
 		&returns,
 	)
 	return returns
@@ -357,6 +369,17 @@ func Runtime_NODEJS_8_10() Runtime {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_8_10",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_NODEJS_LATEST() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"NODEJS_LATEST",
 		&returns,
 	)
 	return returns

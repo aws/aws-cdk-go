@@ -21,6 +21,7 @@ import (
 //   var repositoryPolicyText interface{}
 //
 //   cfnRepository := awscdk.Aws_ecr.NewCfnRepository(this, jsii.String("MyCfnRepository"), &CfnRepositoryProps{
+//   	EmptyOnDelete: jsii.Boolean(false),
 //   	EncryptionConfiguration: &EncryptionConfigurationProperty{
 //   		EncryptionType: jsii.String("encryptionType"),
 //
@@ -68,6 +69,9 @@ type CfnRepository interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// If true, deleting the repository force deletes the contents of the repository.
+	EmptyOnDelete() interface{}
+	SetEmptyOnDelete(val interface{})
 	// The encryption configuration for the repository.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
@@ -319,6 +323,16 @@ func (j *jsiiProxy_CfnRepository) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRepository) EmptyOnDelete() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"emptyOnDelete",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRepository) EncryptionConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -484,6 +498,17 @@ func NewCfnRepository_Override(c CfnRepository, scope constructs.Construct, id *
 		"aws-cdk-lib.aws_ecr.CfnRepository",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnRepository)SetEmptyOnDelete(val interface{}) {
+	if err := j.validateSetEmptyOnDeleteParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"emptyOnDelete",
+		val,
 	)
 }
 

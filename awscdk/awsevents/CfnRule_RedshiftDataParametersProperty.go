@@ -10,11 +10,11 @@ package awsevents
 //
 //   redshiftDataParametersProperty := &RedshiftDataParametersProperty{
 //   	Database: jsii.String("database"),
-//   	Sql: jsii.String("sql"),
 //
 //   	// the properties below are optional
 //   	DbUser: jsii.String("dbUser"),
 //   	SecretManagerArn: jsii.String("secretManagerArn"),
+//   	Sql: jsii.String("sql"),
 //   	StatementName: jsii.String("statementName"),
 //   	WithEvent: jsii.Boolean(false),
 //   }
@@ -28,10 +28,6 @@ type CfnRule_RedshiftDataParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-database
 	//
 	Database *string `field:"required" json:"database" yaml:"database"`
-	// The SQL statement text to run.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
-	//
-	Sql *string `field:"required" json:"sql" yaml:"sql"`
 	// The database user name.
 	//
 	// Required when authenticating using temporary credentials.
@@ -44,6 +40,10 @@ type CfnRule_RedshiftDataParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-secretmanagerarn
 	//
 	SecretManagerArn *string `field:"optional" json:"secretManagerArn" yaml:"secretManagerArn"`
+	// The SQL statement text to run.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
+	//
+	Sql *string `field:"optional" json:"sql" yaml:"sql"`
 	// The name of the SQL statement.
 	//
 	// You can name the SQL statement when you create it to identify the query.

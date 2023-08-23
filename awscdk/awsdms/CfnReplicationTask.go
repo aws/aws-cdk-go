@@ -114,6 +114,7 @@ type CfnReplicationTask interface {
 	// An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.
 	TargetEndpointArn() *string
 	SetTargetEndpointArn(val *string)
+	// Supplemental information that the task requires to migrate the data for certain source and target endpoints.
 	TaskData() *string
 	SetTaskData(val *string)
 	// Deprecated.

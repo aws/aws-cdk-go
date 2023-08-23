@@ -89,10 +89,6 @@ type CfnDBCluster interface {
 	// For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 	AttrEndpoint() *string
 	// The port number on which the DB instances in the DB cluster accept connections.
-	//
-	// If not specified, the default port used is `8182` .
-	//
-	// > This property will soon be deprecated. Please update existing templates to use the new `DBPort` property that has the same functionality.
 	AttrPort() *string
 	// The reader endpoint for the DB cluster.
 	//

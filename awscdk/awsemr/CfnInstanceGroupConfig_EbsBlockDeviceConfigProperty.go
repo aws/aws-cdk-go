@@ -15,6 +15,7 @@ package awsemr
 //
 //   		// the properties below are optional
 //   		Iops: jsii.Number(123),
+//   		Throughput: jsii.Number(123),
 //   	},
 //
 //   	// the properties below are optional

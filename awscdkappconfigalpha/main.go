@@ -90,6 +90,7 @@ func init() {
 		reflect.TypeOf((*ConfigurationContent)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "content", GoGetter: "Content"},
+			_jsii_.MemberProperty{JsiiProperty: "contentType", GoGetter: "ContentType"},
 		},
 		func() interface{} {
 			return &jsiiProxy_ConfigurationContent{}

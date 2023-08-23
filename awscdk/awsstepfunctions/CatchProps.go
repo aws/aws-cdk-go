@@ -25,7 +25,7 @@ type CatchProps struct {
 	Errors *[]*string `field:"optional" json:"errors" yaml:"errors"`
 	// JSONPath expression to indicate where to inject the error data.
 	//
-	// May also be the special value DISCARD, which will cause the error
+	// May also be the special value JsonPath.DISCARD, which will cause the error
 	// data to be discarded.
 	// Default: $.
 	//

@@ -25,7 +25,7 @@ package awsgamelift
 type CfnFleet_LocationCapacityProperty struct {
 	// The number of Amazon EC2 instances you want to maintain in the specified fleet location.
 	//
-	// This value must fall between the minimum and maximum size limits.
+	// This value must fall between the minimum and maximum size limits. Changes in desired instance value can take up to 1 minute to be reflected when viewing the fleet's capacity settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
 	//
 	DesiredEc2Instances *float64 `field:"required" json:"desiredEc2Instances" yaml:"desiredEc2Instances"`

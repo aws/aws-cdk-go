@@ -96,6 +96,7 @@ import (
 //
 //   			// the properties below are optional
 //   			AppProtocol: appProtocol,
+//   			ContainerPortRange: jsii.String("containerPortRange"),
 //   			HostPort: jsii.Number(123),
 //   			Name: jsii.String("name"),
 //   			Protocol: awscdk.*Aws_ecs.Protocol_TCP,
@@ -484,6 +485,17 @@ func FirelensLogRouter_IsConstruct(x interface{}) *bool {
 		&returns,
 	)
 
+	return returns
+}
+
+func FirelensLogRouter_CONTAINER_PORT_USE_RANGE() *float64 {
+	_init_.Initialize()
+	var returns *float64
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.FirelensLogRouter",
+		"CONTAINER_PORT_USE_RANGE",
+		&returns,
+	)
 	return returns
 }
 

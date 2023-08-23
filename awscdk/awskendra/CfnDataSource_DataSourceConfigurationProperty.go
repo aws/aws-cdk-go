@@ -402,6 +402,9 @@ package awskendra
 //   			},
 //   		},
 //   	},
+//   	TemplateConfiguration: &TemplateConfigurationProperty{
+//   		Template: jsii.String("template"),
+//   	},
 //   	WebCrawlerConfiguration: &WebCrawlerConfigurationProperty{
 //   		Urls: &WebCrawlerUrlsProperty{
 //   			SeedUrlConfiguration: &WebCrawlerSeedUrlConfigurationProperty{
@@ -506,6 +509,9 @@ type CfnDataSource_DataSourceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration
 	//
 	SharePointConfiguration interface{} `field:"optional" json:"sharePointConfiguration" yaml:"sharePointConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-templateconfiguration
+	//
+	TemplateConfiguration interface{} `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 	// Provides the configuration information required for Amazon Kendra Web Crawler.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-webcrawlerconfiguration
 	//

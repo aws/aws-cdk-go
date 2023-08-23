@@ -107,14 +107,42 @@ fileSystem.addToResourcePolicy(statement)
 ### Permissions
 
 If you need to grant file system permissions to another resource, you can use the `.grant()` API.
-As an example, the following code gives `elasticfilesystem:ClientWrite` permissions to an IAM role.
+As an example, the following code gives `elasticfilesystem:Backup` permissions to an IAM role.
 
 ```go
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewAnyPrincipal(),
 })
 
-fileSystem.grant(role, jsii.String("elasticfilesystem:ClientWrite"))
+fileSystem.grant(role, jsii.String("elasticfilesystem:Backup"))
+```
+
+APIs for clients also include `.grantRead()`, `.grantReadWrite()`, and `.grantRootAccess()`. Using these APIs grants access to clients.
+Also, by default, the file system policy is updated to only allow access to clients using IAM authentication and deny access to anonymous clients.
+
+```go
+role := iam.NewRole(this, jsii.String("ClientRole"), &RoleProps{
+	AssumedBy: iam.NewAnyPrincipal(),
+})
+
+fileSystem.grantRead(role)
+```
+
+You can control this behavior with `allowAnonymousAccess`. The following example continues to allow anonymous client access.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+role := iam.NewRole(this, jsii.String("ClientRole"), &RoleProps{
+	AssumedBy: iam.NewAnyPrincipal(),
+})
+fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
+	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
+	AllowAnonymousAccess: jsii.Boolean(true),
+})
+
+fileSystem.grantRead(role)
 ```
 
 ### Access Point

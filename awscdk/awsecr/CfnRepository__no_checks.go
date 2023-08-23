@@ -80,6 +80,10 @@ func validateCfnRepository_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnRepository) validateSetEmptyOnDeleteParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRepository) validateSetEncryptionConfigurationParameters(val interface{}) error {
 	return nil
 }
