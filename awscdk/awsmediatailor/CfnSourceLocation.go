@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::MediaTailor::SourceLocation Resource Type.
+// A source location is a container for sources.
+//
+// For more information about source locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html) in the *MediaTailor User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -53,7 +55,7 @@ import (
 type CfnSourceLocation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// <p>Access configuration parameters.</p>.
+	// The access configuration for the source location.
 	AccessConfiguration() interface{}
 	SetAccessConfiguration(val interface{})
 	// <p>The ARN of the source location.</p>.
@@ -67,10 +69,10 @@ type CfnSourceLocation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// <p>The optional configuration for a server that serves segments.
+	// The default segment delivery configuration.
 	DefaultSegmentDeliveryConfiguration() interface{}
 	SetDefaultSegmentDeliveryConfiguration(val interface{})
-	// <p>The HTTP configuration for the source location.</p>.
+	// The HTTP configuration for the source location.
 	HttpConfiguration() interface{}
 	SetHttpConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -90,16 +92,17 @@ type CfnSourceLocation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// <p>A list of the segment delivery configurations associated with this resource.</p>.
+	// The segment delivery configurations for the source location.
 	SegmentDeliveryConfigurations() interface{}
 	SetSegmentDeliveryConfigurations(val interface{})
+	// The name of the source location.
 	SourceLocationName() *string
 	SetSourceLocationName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to assign to the source location.
+	// The tags assigned to the source location.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

@@ -51,6 +51,7 @@ import (
 //   var runtimeManagementMode runtimeManagementMode
 //   var securityGroup securityGroup
 //   var size size
+//   var snapStartConf snapStartConf
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var topic topic
@@ -123,6 +124,7 @@ import (
 //   	SecurityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},
+//   	SnapStart: snapStartConf,
 //   	Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	Tracing: awscdk.*Aws_lambda.Tracing_ACTIVE,
 //   	Vpc: vpc,

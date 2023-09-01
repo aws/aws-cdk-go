@@ -82,6 +82,13 @@ import (
 //   		},
 //   	},
 //   	FunctionName: jsii.String("functionName"),
+//   	FunctionUrlConfig: &FunctionUrlConfigProperty{
+//   		AuthType: jsii.String("authType"),
+//
+//   		// the properties below are optional
+//   		Cors: jsii.String("cors"),
+//   		InvokeMode: jsii.String("invokeMode"),
+//   	},
 //   	Handler: jsii.String("handler"),
 //   	ImageConfig: &ImageConfigProperty{
 //   		Command: []*string{
@@ -167,6 +174,8 @@ type CfnFunction interface {
 	SetFileSystemConfigs(val interface{})
 	FunctionName() *string
 	SetFunctionName(val *string)
+	FunctionUrlConfig() interface{}
+	SetFunctionUrlConfig(val interface{})
 	Handler() *string
 	SetHandler(val *string)
 	ImageConfig() interface{}
@@ -550,6 +559,16 @@ func (j *jsiiProxy_CfnFunction) FunctionName() *string {
 	_jsii_.Get(
 		j,
 		"functionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) FunctionUrlConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"functionUrlConfig",
 		&returns,
 	)
 	return returns
@@ -972,6 +991,17 @@ func (j *jsiiProxy_CfnFunction)SetFunctionName(val *string) {
 	_jsii_.Set(
 		j,
 		"functionName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetFunctionUrlConfig(val interface{}) {
+	if err := j.validateSetFunctionUrlConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"functionUrlConfig",
 		val,
 	)
 }

@@ -1772,6 +1772,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "runtimeEquals", GoMethod: "RuntimeEquals"},
 			_jsii_.MemberProperty{JsiiProperty: "supportsCodeGuruProfiling", GoGetter: "SupportsCodeGuruProfiling"},
 			_jsii_.MemberProperty{JsiiProperty: "supportsInlineCode", GoGetter: "SupportsInlineCode"},
+			_jsii_.MemberProperty{JsiiProperty: "supportsSnapStart", GoGetter: "SupportsSnapStart"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
@@ -1873,6 +1874,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.SingletonFunctionProps",
 		reflect.TypeOf((*SingletonFunctionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.SnapStartConf",
+		reflect.TypeOf((*SnapStartConf)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_SnapStartConf{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.SourceAccessConfiguration",

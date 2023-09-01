@@ -72,11 +72,14 @@ type Annotations interface {
 	//
 	// The CLI will display the info message when apps are synthesized.
 	AddInfo(message *string)
-	// Adds a warning metadata entry to this construct.
+	// Adds a warning metadata entry to this construct. Prefer using `addWarningV2`.
 	//
 	// The CLI will display the warning when an app is synthesized, or fail if run
-	// in --strict mode.
-	// Deprecated: - use addWarningV2 instead.
+	// in `--strict` mode.
+	//
+	// Warnings added by this call cannot be acknowledged. This will block users from
+	// running in `--strict` mode until the deal with the warning, which makes it
+	// effectively not very different from `addError`. Prefer using `addWarningV2` instead.
 	AddWarning(message *string)
 	// Adds an acknowledgeable warning metadata entry to this construct.
 	//

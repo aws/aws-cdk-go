@@ -22,7 +22,7 @@ import (
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
 //   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Code: lambda.Code_FromInline(jsii.String("exports.handler = e => {}")),
 //   })
 //

@@ -713,7 +713,9 @@ type CfnDBClusterProps struct {
 	// Default:
 	//
 	// - Aurora DB clusters - `aurora`
-	// - Multi-AZ DB clusters - `io1`.
+	// - Multi-AZ DB clusters - `io1`
+	//
+	// > When you create an Aurora DB cluster with the storage type set to `aurora-iopt1` , the storage type is returned in the response. The storage type isn't returned when you set it to `aurora` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`

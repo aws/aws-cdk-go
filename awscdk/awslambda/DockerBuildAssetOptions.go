@@ -1,5 +1,8 @@
 package awslambda
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Options when creating an asset from a Docker build.
 //
@@ -11,6 +14,24 @@ package awslambda
 //   dockerBuildAssetOptions := &DockerBuildAssetOptions{
 //   	BuildArgs: map[string]*string{
 //   		"buildArgsKey": jsii.String("buildArgs"),
+//   	},
+//   	CacheFrom: []dockerCacheOption{
+//   		&dockerCacheOption{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			Params: map[string]*string{
+//   				"paramsKey": jsii.String("params"),
+//   			},
+//   		},
+//   	},
+//   	CacheTo: &dockerCacheOption{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		Params: map[string]*string{
+//   			"paramsKey": jsii.String("params"),
+//   		},
 //   	},
 //   	File: jsii.String("file"),
 //   	ImagePath: jsii.String("imagePath"),
@@ -24,6 +45,14 @@ type DockerBuildAssetOptions struct {
 	// Default: - no build args.
 	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Cache from options to pass to the `docker build` command.
+	// Default: - no cache from args are passed.
+	//
+	CacheFrom *[]*awscdk.DockerCacheOption `field:"optional" json:"cacheFrom" yaml:"cacheFrom"`
+	// Cache to options to pass to the `docker build` command.
+	// Default: - no cache to args are passed.
+	//
+	CacheTo *awscdk.DockerCacheOption `field:"optional" json:"cacheTo" yaml:"cacheTo"`
 	// Name of the Dockerfile, must relative to the docker build path.
 	// Default: `Dockerfile`.
 	//

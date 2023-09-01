@@ -1,14 +1,17 @@
 package awss3deployment
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
 // Example:
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myLambdaFunction function
 //   var destinationBucket bucket
+//   var role role
 //
 //
 //   s3deploy.NewDeployTimeSubstitutedFile(this, jsii.String("MyFile"), &DeployTimeSubstitutedFileProps{
@@ -17,6 +20,7 @@ import (
 //   	Substitutions: map[string]*string{
 //   		"variableName": myLambdaFunction.functionName,
 //   	},
+//   	Role: role,
 //   })
 //
 type DeployTimeSubstitutedFileProps struct {
@@ -31,5 +35,9 @@ type DeployTimeSubstitutedFileProps struct {
 	// it must be written as: {{ xxxx }} to be recognized by the construct as a
 	// substitution.
 	Substitutions *map[string]*string `field:"required" json:"substitutions" yaml:"substitutions"`
+	// Execution role associated with this function.
+	// Default: - A role is automatically created.
+	//
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

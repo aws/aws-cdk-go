@@ -204,7 +204,7 @@ iam.Role_CustomizeRoles(stack)
 fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 	Code: lambda.NewInlineCode(jsii.String("foo")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 })
 
 bucket := s3.NewBucket(this, jsii.String("Bucket"))

@@ -121,7 +121,7 @@ type CfnResolverProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-responsemappingtemplates3location
 	//
 	ResponseMappingTemplateS3Location *string `field:"optional" json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function.
+	// Describes a runtime used by an AWS AppSync resolver or AWS AppSync function.
 	//
 	// Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-runtime

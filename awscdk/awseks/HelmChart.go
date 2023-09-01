@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +28,12 @@ import (
 //
 type HelmChart interface {
 	constructs.Construct
+	Chart() *string
+	ChartAsset() awss3assets.Asset
 	// The tree node.
 	Node() constructs.Node
+	Repository() *string
+	Version() *string
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -38,11 +43,51 @@ type jsiiProxy_HelmChart struct {
 	internal.Type__constructsConstruct
 }
 
+func (j *jsiiProxy_HelmChart) Chart() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"chart",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HelmChart) ChartAsset() awss3assets.Asset {
+	var returns awss3assets.Asset
+	_jsii_.Get(
+		j,
+		"chartAsset",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_HelmChart) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HelmChart) Repository() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"repository",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HelmChart) Version() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"version",
 		&returns,
 	)
 	return returns

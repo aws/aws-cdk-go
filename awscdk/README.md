@@ -555,12 +555,12 @@ Custom resources are backed by a **custom resource provider** which can be
 implemented in one of the following ways. The following table compares the
 various provider types (ordered from low-level to high-level):
 
-| Provider                                                             | Compute Type | Error Handling | Submit to CloudFormation | Max Timeout     | Language | Footprint |
-|----------------------------------------------------------------------|:------------:|:--------------:|:------------------------:|:---------------:|:--------:|:---------:|
-| [sns.Topic](#amazon-sns-topic)                                       | Self-managed | Manual         | Manual                   | Unlimited       | Any      | Depends   |
-| [lambda.Function](#aws-lambda-function)                              | AWS Lambda   | Manual         | Manual                   | 15min           | Any      | Small     |
-| [core.CustomResourceProvider](#the-corecustomresourceprovider-class) | AWS Lambda   | Auto           | Auto                     | 15min           | Node.js  | Small     |
-| [custom-resources.Provider](#the-custom-resource-provider-framework) | AWS Lambda   | Auto           | Auto                     | Unlimited Async | Any      | Large     |
+| Provider                                                             | Compute Type | Error Handling | Submit to CloudFormation |   Max Timeout   | Language | Footprint |
+| -------------------------------------------------------------------- | :----------: | :------------: | :----------------------: | :-------------: | :------: | :-------: |
+| [sns.Topic](#amazon-sns-topic)                                       | Self-managed |     Manual     |          Manual          |    Unlimited    |   Any    |  Depends  |
+| [lambda.Function](#aws-lambda-function)                              |  AWS Lambda  |     Manual     |          Manual          |      15min      |   Any    |   Small   |
+| [core.CustomResourceProvider](#the-corecustomresourceprovider-class) |  AWS Lambda  |      Auto      |           Auto           |      15min      | Node.js  |   Small   |
+| [custom-resources.Provider](#the-custom-resource-provider-framework) |  AWS Lambda  |      Auto      |           Auto           | Unlimited Async |   Any    |   Large   |
 
 Legend:
 
@@ -659,7 +659,7 @@ stack-unique identifier and returns the service token:
 ```go
 serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
 	Description: jsii.String("Lambda function created by the custom resource provider"),
 })
 
@@ -752,7 +752,7 @@ func NewSum(scope construct, id *string, props sumProps) *Sum {
 	resourceType := "Custom::Sum"
 	serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, resourceType, &CustomResourceProviderProps{
 		CodeDirectory: fmt.Sprintf("%v/sum-handler", __dirname),
-		Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+		Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
 	})
 
 	resource := awscdk.NewCustomResource(this, jsii.String("Resource"), &CustomResourceProps{
@@ -787,7 +787,7 @@ built-in singleton method:
 ```go
 provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
 })
 
 roleArn := provider.RoleArn
@@ -800,7 +800,7 @@ To add IAM policy statements to this role, use `addToRolePolicy()`:
 ```go
 provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
 })
 provider.AddToRolePolicy(map[string]*string{
 	"Effect": jsii.String("Allow"),

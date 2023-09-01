@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::MediaTailor::Channel Resource Type.
+// The configuration parameters for a channel.
+//
+// For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html) in the *MediaTailor User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -68,16 +70,17 @@ type CfnChannel interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The name of the channel.
 	ChannelName() *string
 	SetChannelName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// <p>Slate VOD source configuration.</p>.
+	// The slate used to fill gaps between programs in the schedule.
 	FillerSlate() interface{}
 	SetFillerSlate(val interface{})
-	// <p>The log configuration for the channel.</p>.
+	// The log configuration.
 	LogConfiguration() interface{}
 	SetLogConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -92,9 +95,10 @@ type CfnChannel interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// <p>The channel's output properties.</p>.
+	// The channel's output properties.
 	Outputs() interface{}
 	SetOutputs(val interface{})
+	// The type of playback mode for this channel.
 	PlaybackMode() *string
 	SetPlaybackMode(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -109,6 +113,7 @@ type CfnChannel interface {
 	// The tags to assign to the channel.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The tier for this channel.
 	Tier() *string
 	SetTier(val *string)
 	// Deprecated.

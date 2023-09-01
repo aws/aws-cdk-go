@@ -6,7 +6,7 @@ package awsappsync
 // Example:
 //   api := appsync.NewGraphqlApi(this, jsii.String("Api"), &GraphqlApiProps{
 //   	Name: jsii.String("demo"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("schema.graphql"))),
 //   	AuthorizationConfig: &AuthorizationConfig{
 //   		DefaultAuthorization: &AuthorizationMode{
 //   			AuthorizationType: appsync.AuthorizationType_IAM,

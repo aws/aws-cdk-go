@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::MediaTailor::LiveSource Resource Type.
+// Live source configuration parameters.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,9 +52,10 @@ type CfnLiveSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// <p>A list of HTTP package configuration parameters for this live source.</p>.
+	// The HTTP package configurations for the live source.
 	HttpPackageConfigurations() interface{}
 	SetHttpPackageConfigurations(val interface{})
+	// The name that's used to refer to a live source.
 	LiveSourceName() *string
 	SetLiveSourceName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -74,13 +75,14 @@ type CfnLiveSource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The name of the source location.
 	SourceLocationName() *string
 	SetSourceLocationName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to assign to the live source.
+	// The tags assigned to the live source.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

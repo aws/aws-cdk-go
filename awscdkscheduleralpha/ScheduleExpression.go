@@ -15,14 +15,20 @@ import (
 // Both rate-based and cron-based schedules are recurring schedules.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import scheduler_alpha "github.com/aws/aws-cdk-go/awscdkscheduleralpha"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   var fn function
 //
-//   var timeZone timeZone
 //
-//   scheduleExpression := scheduler_alpha.ScheduleExpression_At(NewDate(), timeZone)
+//   target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
+//   	Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
+//   		"payload": jsii.String("useful"),
+//   	}),
+//   })
+//
+//   schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
+//   	Target: Target,
+//   	Description: jsii.String("This is a test schedule that invokes lambda function every 10 minutes."),
+//   })
 //
 // See: https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html
 //

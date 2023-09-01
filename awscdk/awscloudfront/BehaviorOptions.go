@@ -63,6 +63,10 @@ type BehaviorOptions struct {
 	// Default: - none.
 	//
 	OriginRequestPolicy IOriginRequestPolicy `field:"optional" json:"originRequestPolicy" yaml:"originRequestPolicy"`
+	// The real-time log configuration to be attached to this cache behavior.
+	// Default: - none.
+	//
+	RealtimeLogConfig IRealtimeLogConfig `field:"optional" json:"realtimeLogConfig" yaml:"realtimeLogConfig"`
 	// The response headers policy for this behavior.
 	//
 	// The response headers policy determines which headers are included in responses.

@@ -19,7 +19,7 @@ import (
 //   	AuthorizationConfig: &AuthorizationConfig{
 //   	},
 //   	Name: jsii.String("myApi"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("myApi.graphql"))),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("myApi.graphql"))),
 //   	LogConfig: LogConfig,
 //   })
 //

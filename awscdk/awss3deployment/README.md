@@ -424,10 +424,12 @@ The syntax for template variables is `{{ variableName }}` in your local file. Th
 specify the substitutions in CDK like this:
 
 ```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
 var myLambdaFunction function
 var destinationBucket bucket
+var role role
 
 
 s3deploy.NewDeployTimeSubstitutedFile(this, jsii.String("MyFile"), &DeployTimeSubstitutedFileProps{
@@ -436,6 +438,7 @@ s3deploy.NewDeployTimeSubstitutedFile(this, jsii.String("MyFile"), &DeployTimeSu
 	Substitutions: map[string]*string{
 		"variableName": myLambdaFunction.functionName,
 	},
+	Role: role,
 })
 ```
 

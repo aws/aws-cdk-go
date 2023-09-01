@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnApi) validateSetAccessLogSettingParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnApi) validateSetAlwaysDeployParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApi) validateSetAuthParameters(val interface{}) error {
 	return nil
 }

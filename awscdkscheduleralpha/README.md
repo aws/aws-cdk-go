@@ -36,14 +36,22 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
 
 ## Defining a schedule
 
-TODO: Schedule is not yet fully implemented. See section in [L2 Event Bridge Scheduler RFC](https://github.com/aws/aws-cdk-rfcs/blob/master/text/0474-event-bridge-scheduler-l2.md)
+```go
+var fn function
 
-Only an L2 class is created that wraps the L1 class and handles the following properties:
 
-* schedule
-* schedule group
-* target (only LambdaInvoke is supported for now)
-* flexibleTimeWindow will be set to `{ mode: 'OFF' }`
+target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
+	Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
+		"payload": jsii.String("useful"),
+	}),
+})
+
+schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
+	Target: Target,
+	Description: jsii.String("This is a test schedule that invokes lambda function every 10 minutes."),
+})
+```
 
 ### Schedule Expressions
 
@@ -54,73 +62,75 @@ cron-based schedule you can specify a time zone in which EventBridge Scheduler e
 
 > ScheduleExpression should be used together with class Schedule, which is not yet implemented.
 
-```text
-const rateBasedSchedule = new Schedule(this, 'Schedule', {
-    scheduleExpression: ScheduleExpression.rate(Duration.minutes(10)),
-    target,
-    description: 'This is a test rate-based schedule',
-});
+```go
+var target lambdaInvoke
 
-const cronBasedSchedule = new Schedule(this, 'Schedule', {
-    scheduleExpression: ScheduleExpression.cron({
-        minute: '0',
-        hour: '23',
-        day: '20',
-        month: '11',
-        timeZone: TimeZone.AMERICA_NEW_YORK,
-    }),
-    target,
-    description: 'This is a test cron-based schedule that will run at 11:00 PM, on day 20 of the month, only in November in New York timezone',
-});
+
+rateBasedSchedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
+	Target: Target,
+	Description: jsii.String("This is a test rate-based schedule"),
+})
+
+cronBasedSchedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Cron(&CronOptionsWithTimezone{
+		Minute: jsii.String("0"),
+		Hour: jsii.String("23"),
+		Day: jsii.String("20"),
+		Month: jsii.String("11"),
+		TimeZone: awscdk.TimeZone_AMERICA_NEW_YORK(),
+	}),
+	Target: Target,
+	Description: jsii.String("This is a test cron-based schedule that will run at 11:00 PM, on day 20 of the month, only in November in New York timezone"),
+})
 ```
 
 A one-time schedule is a schedule that invokes a target only once. You configure a one-time schedule when by specifying the time of the day, date,
 and time zone in which EventBridge Scheduler evaluates the schedule.
 
-```text
-const oneTimeSchedule = new Schedule(this, 'Schedule', {
-    scheduleExpression: ScheduleExpression.at(
-        new Date(2022, 10, 20, 19, 20, 23),
-        TimeZone.AMERICA_NEW_YORK,
-    ),
-    target,
-    description: 'This is a one-time schedule in New York timezone',
-});
+```go
+var target lambdaInvoke
+
+
+oneTimeSchedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_At(
+	NewDate(jsii.Number(2022), jsii.Number(10), jsii.Number(20), jsii.Number(19), jsii.Number(20), jsii.Number(23)), awscdk.TimeZone_AMERICA_NEW_YORK()),
+	Target: Target,
+	Description: jsii.String("This is a one-time schedule in New York timezone"),
+})
 ```
 
 ### Grouping Schedules
 
 Your AWS account comes with a default scheduler group. You can access default group in CDK with:
 
-```text
-const defaultGroup = Group.fromDefaultGroup(this, "DefaultGroup");
+```go
+defaultGroup := awscdkscheduleralpha.Group_FromDefaultGroup(this, jsii.String("DefaultGroup"))
 ```
 
 If not specified a schedule is added to the default group. However, you can also add the schedule to a custom scheduling group managed by you:
 
-```text
-const group = new Group(this, "Group", {
-    groupName: "MyGroup",
-});
+```go
+var target lambdaInvoke
 
-const target = new targets.LambdaInvoke(props.func, {
-    input: ScheduleTargetInput.fromObject({
-        "payload": "useful",
-    }),
-});
 
-new Schedule(this, 'Schedule', {
-    scheduleExpression: ScheduleExpression.rate(Duration.minutes(10)),
-    target,
-    group,
-});
+group := awscdkscheduleralpha.NewGroup(this, jsii.String("Group"), &GroupProps{
+	GroupName: jsii.String("MyGroup"),
+})
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
+	Target: Target,
+	Group: Group,
+})
 ```
 
 ## Scheduler Targets
 
-TODO: Scheduler Targets Module is not yet implemented. See section in [L2 Event Bridge Scheduler RFC](https://github.com/aws/aws-cdk-rfcs/blob/master/text/0474-event-bridge-scheduler-l2.md)
-
-Only LambdaInvoke target is added for now.
+The `@aws-cdk/aws-schedule-targets-alpha` module includes classes that implement the `IScheduleTarget` interface for
+various AWS services. EventBridge Scheduler supports two types of targets: templated targets invoke common API
+operations across a core groups of services, and customizeable universal targets that you can use to call more
+than 6,000 operations across over 270 services. A list of supported targets can be found at `@aws-cdk/aws-schedule-targets-alpha`.
 
 ### Input
 
@@ -148,7 +158,28 @@ input := awscdkscheduleralpha.ScheduleTargetInput_FromText(text)
 
 ### Specifying Execution Role
 
-TODO: Not yet implemented. See section in [L2 Event Bridge Scheduler RFC](https://github.com/aws/aws-cdk-rfcs/blob/master/text/0474-event-bridge-scheduler-l2.md)
+An execution role is an IAM role that EventBridge Scheduler assumes in order to interact with other AWS services on your behalf.
+
+The classes for templated schedule targets automatically create an IAM role with all the minimum necessary
+permissions to interact with the templated target. If you wish you may specify your own IAM role, then the templated targets
+will grant minimal required permissions. For example: for invoking Lambda function target `LambdaInvoke` will grant
+execution IAM role permission to `lambda:InvokeFunction`.
+
+```go
+var fn function
+
+
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("scheduler.amazonaws.com")),
+})
+
+target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
+	Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
+		"payload": jsii.String("useful"),
+	}),
+	Role: Role,
+})
+```
 
 ### Cross-account and cross-region targets
 
@@ -160,7 +191,31 @@ TODO: Not yet implemented. See section in [L2 Event Bridge Scheduler RFC](https:
 
 ## Error-handling
 
-TODO: Not yet implemented. See section in [L2 Event Bridge Scheduler RFC](https://github.com/aws/aws-cdk-rfcs/blob/master/text/0474-event-bridge-scheduler-l2.md)
+You can configure how your schedule handles failures, when EventBridge Scheduler is unable to deliver an event
+successfully to a target, by using two primary mechanisms: a retry policy, and a dead-letter queue (DLQ).
+
+A retry policy determines the number of times EventBridge Scheduler must retry a failed event, and how long
+to keep an unprocessed event.
+
+A DLQ is a standard Amazon SQS queue EventBridge Scheduler uses to deliver failed events to, after the retry
+policy has been exhausted. You can use a DLQ to troubleshoot issues with your schedule or its downstream target.
+If you've configured a retry policy for your schedule, EventBridge Scheduler delivers the dead-letter event after
+exhausting the maximum number of retries you set in the retry policy.
+
+```go
+var fn function
+
+
+dlq := sqs.NewQueue(this, jsii.String("DLQ"), &QueueProps{
+	QueueName: jsii.String("MyDLQ"),
+})
+
+target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
+	DeadLetterQueue: dlq,
+	MaxEventAge: awscdk.Duration_Minutes(jsii.Number(1)),
+	RetryAttempts: jsii.Number(3),
+})
+```
 
 ## Overriding Target Properties
 

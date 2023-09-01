@@ -119,7 +119,7 @@ used by your function. Otherwise bundling will fail.
 ## Local bundling
 
 If `esbuild` is available it will be used to bundle your code in your environment. Otherwise,
-bundling will happen in a [Lambda compatible Docker container](https://gallery.ecr.aws/sam/build-nodejs12.x)
+bundling will happen in a [Lambda compatible Docker container](https://gallery.ecr.aws/sam/build-nodejs18.x)
 with the Docker platform based on the target architecture of the Lambda function.
 
 For macOS the recommended approach is to install `esbuild` as Docker volume performance is really poor.
@@ -240,7 +240,7 @@ nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
 		Charset: nodejs.Charset_UTF8,
 		 // do not escape non-ASCII characters, defaults to Charset.ASCII
 		Format: nodejs.OutputFormat_ESM,
-		 // ECMAScript module output format, defaults to OutputFormat.CJS (OutputFormat.ESM requires Node.js 14.x)
+		 // ECMAScript module output format, defaults to OutputFormat.CJS (OutputFormat.ESM requires Node.js >= 14)
 		MainFields: []*string{
 			jsii.String("module"),
 			jsii.String("main"),

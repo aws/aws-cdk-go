@@ -2309,6 +2309,22 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_apigateway.SagemakerIntegration",
+		reflect.TypeOf((*SagemakerIntegration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SagemakerIntegration{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AwsIntegration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_apigateway.SagemakerIntegrationOptions",
+		reflect.TypeOf((*SagemakerIntegrationOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_apigateway.SecurityPolicy",
 		reflect.TypeOf((*SecurityPolicy)(nil)).Elem(),

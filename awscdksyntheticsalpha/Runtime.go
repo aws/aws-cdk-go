@@ -250,6 +250,28 @@ func Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0() Runtime {
 	return returns
 }
 
+func Runtime_SYNTHETICS_NODEJS_PUPPETEER_5_0() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-synthetics-alpha.Runtime",
+		"SYNTHETICS_NODEJS_PUPPETEER_5_0",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_SYNTHETICS_NODEJS_PUPPETEER_5_1() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-synthetics-alpha.Runtime",
+		"SYNTHETICS_NODEJS_PUPPETEER_5_1",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_SYNTHETICS_PYTHON_SELENIUM_1_0() Runtime {
 	_init_.Initialize()
 	var returns Runtime

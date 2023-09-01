@@ -1,7 +1,7 @@
 package awsmediatailor
 
 
-// <p>The HTTP configuration for the source location.</p>.
+// The HTTP configuration for the source location.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +15,9 @@ package awsmediatailor
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-httpconfiguration.html
 //
 type CfnSourceLocation_HttpConfigurationProperty struct {
-	// <p>The base URL for the source location host server.
+	// The base URL for the source location host server.
 	//
-	// This string must include the protocol, such as <b>https://</b>.</p>
+	// This string must include the protocol, such as *https://* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-httpconfiguration.html#cfn-mediatailor-sourcelocation-httpconfiguration-baseurl
 	//
 	BaseUrl *string `field:"required" json:"baseUrl" yaml:"baseUrl"`

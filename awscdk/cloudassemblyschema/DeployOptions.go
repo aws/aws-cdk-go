@@ -146,6 +146,10 @@ type DeployOptions struct {
 	// Default: false.
 	//
 	Ci *bool `field:"optional" json:"ci" yaml:"ci"`
+	// Deploy multiple stacks in parallel.
+	// Default: 1.
+	//
+	Concurrency *float64 `field:"optional" json:"concurrency" yaml:"concurrency"`
 	// Only perform action on the given stack.
 	// Default: false.
 	//

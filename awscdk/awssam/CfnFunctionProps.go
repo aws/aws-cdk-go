@@ -74,6 +74,13 @@ package awssam
 //   		},
 //   	},
 //   	FunctionName: jsii.String("functionName"),
+//   	FunctionUrlConfig: &FunctionUrlConfigProperty{
+//   		AuthType: jsii.String("authType"),
+//
+//   		// the properties below are optional
+//   		Cors: jsii.String("cors"),
+//   		InvokeMode: jsii.String("invokeMode"),
+//   	},
 //   	Handler: jsii.String("handler"),
 //   	ImageConfig: &ImageConfigProperty{
 //   		Command: []*string{
@@ -161,6 +168,9 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-functionname
 	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-functionurlconfig
+	//
+	FunctionUrlConfig interface{} `field:"optional" json:"functionUrlConfig" yaml:"functionUrlConfig"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-handler
 	//
 	Handler *string `field:"optional" json:"handler" yaml:"handler"`

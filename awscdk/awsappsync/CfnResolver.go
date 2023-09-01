@@ -142,7 +142,7 @@ type CfnResolver interface {
 	// The location of a response mapping template in an Amazon S3 bucket.
 	ResponseMappingTemplateS3Location() *string
 	SetResponseMappingTemplateS3Location(val *string)
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function.
+	// Describes a runtime used by an AWS AppSync resolver or AWS AppSync function.
 	Runtime() interface{}
 	SetRuntime(val interface{})
 	// The stack in which this element is defined.

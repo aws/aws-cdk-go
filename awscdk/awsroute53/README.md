@@ -305,7 +305,7 @@ zoneFromAttributes := route53.PublicHostedZone_FromPublicHostedZoneAttributes(th
 zoneFromId := route53.PublicHostedZone_FromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
 ```
 
-You can use `CrossAccountZoneDelegationRecord` on imported Public Hosted Zones with the `grantDelegation` method:
+You can use `CrossAccountZoneDelegationRecord` on imported Hosted Zones with the `grantDelegation` method:
 
 ```go
 crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProps{
@@ -315,8 +315,14 @@ crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProp
 	AssumedBy: iam.NewAccountPrincipal(jsii.String("12345678901")),
 })
 
-zoneFromId := route53.PublicHostedZone_FromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
+zoneFromId := route53.HostedZone_FromHostedZoneId(this, jsii.String("MyZone"), jsii.String("zone-id"))
 zoneFromId.GrantDelegation(crossAccountRole)
+
+publicZoneFromId := route53.PublicHostedZone_FromPublicHostedZoneId(this, jsii.String("MyPublicZone"), jsii.String("public-zone-id"))
+publicZoneFromId.GrantDelegation(crossAccountRole)
+
+privateZoneFromId := route53.PrivateHostedZone_FromPrivateHostedZoneId(this, jsii.String("MyPrivateZone"), jsii.String("private-zone-id"))
+privateZoneFromId.GrantDelegation(crossAccountRole)
 ```
 
 ## VPC Endpoint Service Private DNS

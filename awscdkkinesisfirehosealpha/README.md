@@ -438,7 +438,7 @@ var bucket bucket
 // Provide a Lambda function that will transform records before delivery, with custom
 // buffering and retry configuration
 lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("process-records"))),
 })
@@ -619,7 +619,7 @@ permissions. In this case, use the delivery stream as an `IGrantable`, as follow
 var deliveryStream deliveryStream
 fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => {}")),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 })
 fn.GrantInvoke(deliveryStream)

@@ -9,7 +9,7 @@ package awss3
 //   lambda.NewFunction(lambdaStack, jsii.String("Lambda"), &FunctionProps{
 //   	Code: lambdaCode,
 //   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_16_X(),
 //   })
 //   // other resources that your Lambda needs, added to the lambdaStack...
 //
@@ -47,7 +47,7 @@ package awss3
 //   // adjust the build environment and/or commands accordingly
 //   cdkBuildProject := codebuild.NewProject(pipelineStack, jsii.String("CdkBuildProject"), &ProjectProps{
 //   	Environment: &BuildEnvironment{
-//   		BuildImage: codebuild.LinuxBuildImage_UBUNTU_14_04_NODEJS_10_1_0(),
+//   		BuildImage: codebuild.LinuxBuildImage_STANDARD_7_0(),
 //   	},
 //   	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 //   		"version": jsii.String("0.2"),
@@ -82,7 +82,7 @@ package awss3
 //   // make sure to adjust the build environment and/or commands if they don't match your specific situation
 //   lambdaBuildProject := codebuild.NewProject(pipelineStack, jsii.String("LambdaBuildProject"), &ProjectProps{
 //   	Environment: &BuildEnvironment{
-//   		BuildImage: codebuild.LinuxBuildImage_UBUNTU_14_04_NODEJS_10_1_0(),
+//   		BuildImage: codebuild.LinuxBuildImage_STANDARD_7_0(),
 //   	},
 //   	BuildSpec: codebuild.BuildSpec_*FromObject(map[string]interface{}{
 //   		"version": jsii.String("0.2"),

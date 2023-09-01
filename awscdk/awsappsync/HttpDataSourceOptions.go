@@ -6,7 +6,7 @@ package awsappsync
 // Example:
 //   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 //   	Name: jsii.String("api"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("schema.graphql"))),
 //   })
 //
 //   httpDs := api.AddHttpDataSource(jsii.String("ds"), jsii.String("https://states.amazonaws.com"), &HttpDataSourceOptions{

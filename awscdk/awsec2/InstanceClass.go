@@ -233,6 +233,10 @@ const (
 	InstanceClass_COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWIDTH InstanceClass = "COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWIDTH"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and high network bandwidth capabilities.
 	InstanceClass_C6GN InstanceClass = "C6GN"
+	// Compute optimized instances for high performance computing, 7th generation with Graviton3 processors and high network bandwidth capabilities.
+	InstanceClass_COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH InstanceClass = "COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH"
+	// Compute optimized instances for high performance computing, 7th generation with Graviton3 processors and high network bandwidth capabilities.
+	InstanceClass_C7GN InstanceClass = "C7GN"
 	// Storage-optimized instances, 2nd generation.
 	InstanceClass_STORAGE2 InstanceClass = "STORAGE2"
 	// Storage-optimized instances, 2nd generation.

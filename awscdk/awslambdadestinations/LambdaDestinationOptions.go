@@ -9,7 +9,7 @@ package awslambdadestinations
 //
 //
 //   sourceFn := lambda.NewFunction(this, jsii.String("Source"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	// auto-extract on success

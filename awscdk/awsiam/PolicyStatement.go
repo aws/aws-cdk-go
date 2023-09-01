@@ -8,26 +8,28 @@ import (
 // Represents a statement in an IAM policy document.
 //
 // Example:
-//   // Option 3: Create a new role that allows the account root principal to assume. Add this role in the `system:masters` and witch to this role from the AWS console.
-//   var cluster cluster
+//   crossAccountRoleArn := "arn:aws:iam::OTHERACCOUNT:role/CrossAccountRoleName" // arn of role deployed in separate account
 //
+//   callRegion := "us-west-1" // sdk call to be made in specified region (optional)
 //
-//   consoleReadOnlyRole := iam.NewRole(this, jsii.String("ConsoleReadOnlyRole"), &RoleProps{
-//   	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
+//    // sdk call to be made in specified region (optional)
+//   cr.NewAwsCustomResource(this, jsii.String("CrossAccount"), &AwsCustomResourceProps{
+//   	OnCreate: &AwsSdkCall{
+//   		AssumedRoleArn: crossAccountRoleArn,
+//   		Region: callRegion,
+//   		 // optional
+//   		Service: jsii.String("@aws-sdk/client-sts"),
+//   		Action: jsii.String("GetCallerIdentityCommand"),
+//   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
+//   	},
+//   	Policy: cr.AwsCustomResourcePolicy_FromStatements([]policyStatement{
+//   		iam.*policyStatement_FromJson(map[string]*string{
+//   			"Effect": jsii.String("Allow"),
+//   			"Action": jsii.String("sts:AssumeRole"),
+//   			"Resource": crossAccountRoleArn,
+//   		}),
+//   	}),
 //   })
-//   consoleReadOnlyRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-//   	Actions: []*string{
-//   		jsii.String("eks:AccessKubernetesApi"),
-//   		jsii.String("eks:Describe*"),
-//   		jsii.String("eks:List*"),
-//   	},
-//   	Resources: []*string{
-//   		cluster.ClusterArn,
-//   	},
-//   }))
-//
-//   // Add this role to system:masters RBAC group
-//   cluster.awsAuth.AddMastersRole(consoleReadOnlyRole)
 //
 type PolicyStatement interface {
 	// The Actions added to this statement.

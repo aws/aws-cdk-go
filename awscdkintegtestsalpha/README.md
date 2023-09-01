@@ -31,7 +31,7 @@ we would need to create a file to contain our integration test application.
 app := awscdk.NewApp()
 stack := awscdk.NewStack()
 lambda.NewFunction(stack, jsii.String("MyFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
@@ -83,7 +83,7 @@ func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *
 	newStack_Override(this, scope, id, props)
 
 	lambda.NewFunction(this, jsii.String("Handler"), &FunctionProps{
-		Runtime: lambda.Runtime_NODEJS_14_X(),
+		Runtime: lambda.Runtime_NODEJS_LATEST(),
 		Handler: jsii.String("index.handler"),
 		Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 		Architecture: props.architecture,
@@ -112,7 +112,7 @@ func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *
 	newStack_Override(this, scope, id, props)
 
 	lambda.NewFunction(this, jsii.String("Handler"), &FunctionProps{
-		Runtime: lambda.Runtime_NODEJS_14_X(),
+		Runtime: lambda.Runtime_NODEJS_LATEST(),
 		Handler: jsii.String("index.handler"),
 		Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 		Architecture: props.architecture,

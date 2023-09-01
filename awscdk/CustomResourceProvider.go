@@ -33,7 +33,7 @@ import (
 // Example:
 //   provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 //   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
 //   })
 //   provider.AddToRolePolicy(map[string]*string{
 //   	"Effect": jsii.String("Allow"),

@@ -265,6 +265,13 @@ type GoFunctionProps struct {
 	//
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// Enable SnapStart for Lambda Function.
+	//
+	// SnapStart is currently supported only for Java 11, 17 runtime.
+	// Default: - No snapstart.
+	//
+	// Experimental.
+	SnapStart awslambda.SnapStartConf `field:"optional" json:"snapStart" yaml:"snapStart"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value

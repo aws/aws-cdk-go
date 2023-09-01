@@ -41,7 +41,7 @@ package awslambdanodejs
 //   		Charset: nodejs.Charset_UTF8,
 //   		 // do not escape non-ASCII characters, defaults to Charset.ASCII
 //   		Format: nodejs.OutputFormat_ESM,
-//   		 // ECMAScript module output format, defaults to OutputFormat.CJS (OutputFormat.ESM requires Node.js 14.x)
+//   		 // ECMAScript module output format, defaults to OutputFormat.CJS (OutputFormat.ESM requires Node.js >= 14)
 //   		MainFields: []*string{
 //   			jsii.String("module"),
 //   			jsii.String("main"),

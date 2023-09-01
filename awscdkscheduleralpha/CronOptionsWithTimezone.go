@@ -10,22 +10,26 @@ import (
 // a field implies '*' or '?', whichever one is appropriate.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import scheduler_alpha "github.com/aws/aws-cdk-go/awscdkscheduleralpha"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   var target lambdaInvoke
 //
-//   var timeZone timeZone
 //
-//   cronOptionsWithTimezone := &CronOptionsWithTimezone{
-//   	Day: jsii.String("day"),
-//   	Hour: jsii.String("hour"),
-//   	Minute: jsii.String("minute"),
-//   	Month: jsii.String("month"),
-//   	TimeZone: timeZone,
-//   	WeekDay: jsii.String("weekDay"),
-//   	Year: jsii.String("year"),
-//   }
+//   rateBasedSchedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
+//   	Target: Target,
+//   	Description: jsii.String("This is a test rate-based schedule"),
+//   })
+//
+//   cronBasedSchedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Cron(&CronOptionsWithTimezone{
+//   		Minute: jsii.String("0"),
+//   		Hour: jsii.String("23"),
+//   		Day: jsii.String("20"),
+//   		Month: jsii.String("11"),
+//   		TimeZone: awscdk.TimeZone_AMERICA_NEW_YORK(),
+//   	}),
+//   	Target: Target,
+//   	Description: jsii.String("This is a test cron-based schedule that will run at 11:00 PM, on day 20 of the month, only in November in New York timezone"),
+//   })
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html#cron-expressions
 //

@@ -25,7 +25,7 @@ import (
 //
 //   api := appsync.NewGraphqlApi(this, jsii.String("EventBridgeApi"), &GraphqlApiProps{
 //   	Name: jsii.String("EventBridgeApi"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
 //   })
 //
 //   bus := events.NewEventBus(this, jsii.String("DestinationEventBus"), &EventBusProps{
@@ -79,7 +79,7 @@ type GraphqlApi interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
-	// the schema attached to this api.
+	// the schema attached to this api (only available for GraphQL APIs, not available for merged APIs).
 	Schema() ISchema
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

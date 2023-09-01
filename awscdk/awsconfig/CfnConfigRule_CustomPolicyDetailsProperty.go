@@ -1,9 +1,7 @@
 package awsconfig
 
 
-// Provides the runtime system, policy definition, and whether debug logging enabled.
-//
-// You can specify the following CustomPolicyDetails parameter values only for AWS Config Custom Policy rules.
+// Custom policy details when rule is custom owned.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

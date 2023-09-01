@@ -18,13 +18,13 @@ package awsmediatailor
 type CfnPlaybackConfiguration_CdnConfigurationProperty struct {
 	// A non-default content delivery network (CDN) to serve ad segments.
 	//
-	// By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
+	// By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor. *<region>* .amazonaws.com. Then specify the rule's name in this `AdSegmentUrlPrefix` . When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-cdnconfiguration.html#cfn-mediatailor-playbackconfiguration-cdnconfiguration-adsegmenturlprefix
 	//
 	AdSegmentUrlPrefix *string `field:"optional" json:"adSegmentUrlPrefix" yaml:"adSegmentUrlPrefix"`
-	// A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server.
+	// A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server.
 	//
-	// First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
+	// First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this `ContentSegmentUrlPrefix` . When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-cdnconfiguration.html#cfn-mediatailor-playbackconfiguration-cdnconfiguration-contentsegmenturlprefix
 	//
 	ContentSegmentUrlPrefix *string `field:"optional" json:"contentSegmentUrlPrefix" yaml:"contentSegmentUrlPrefix"`

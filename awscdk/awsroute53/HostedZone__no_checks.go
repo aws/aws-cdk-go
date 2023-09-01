@@ -20,6 +20,10 @@ func (h *jsiiProxy_HostedZone) validateGetResourceNameAttributeParameters(nameAt
 	return nil
 }
 
+func (h *jsiiProxy_HostedZone) validateGrantDelegationParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func validateHostedZone_FromHostedZoneAttributesParameters(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) error {
 	return nil
 }

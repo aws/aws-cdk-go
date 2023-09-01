@@ -155,7 +155,7 @@ type CfnAssociation interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution.
+	// *(No longer supported)* This property is no longer supported for the `AWS::SSM::Association` resource.
 	WaitForSuccessTimeoutSeconds() *float64
 	SetWaitForSuccessTimeoutSeconds(val *float64)
 	// Syntactic sugar for `addOverride(path, undefined)`.

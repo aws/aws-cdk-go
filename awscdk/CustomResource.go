@@ -30,7 +30,7 @@ import (
 // Example:
 //   serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 //   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
 //   	Description: jsii.String("Lambda function created by the custom resource provider"),
 //   })
 //

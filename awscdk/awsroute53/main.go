@@ -655,6 +655,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantDelegation", GoMethod: "GrantDelegation"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},
@@ -700,6 +701,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grantDelegation", GoMethod: "GrantDelegation"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},
@@ -719,6 +721,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grantDelegation", GoMethod: "GrantDelegation"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},
@@ -832,6 +835,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantDelegation", GoMethod: "GrantDelegation"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},

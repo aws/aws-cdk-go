@@ -1,7 +1,7 @@
 package awsmediatailor
 
 
-// <p>The log configuration for the channel.</p>.
+// The log configuration for the channel.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,7 @@ package awsmediatailor
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-logconfigurationforchannel.html
 //
 type CfnChannel_LogConfigurationForChannelProperty struct {
-	// <p>The log types.</p>.
+	// The log types.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-logconfigurationforchannel.html#cfn-mediatailor-channel-logconfigurationforchannel-logtypes
 	//
 	LogTypes *[]*string `field:"optional" json:"logTypes" yaml:"logTypes"`

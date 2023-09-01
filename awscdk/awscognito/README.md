@@ -14,26 +14,31 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
 
 ## Table of Contents
 
-* [User Pools](#user-pools)
+* [Amazon Cognito Construct Library](#amazon-cognito-construct-library)
 
-  * [Sign Up](#sign-up)
-  * [Sign In](#sign-in)
-  * [Attributes](#attributes)
-  * [Security](#security)
+  * [Table of Contents](#table-of-contents)
+  * [User Pools](#user-pools)
 
-    * [Multi-factor Authentication](#multi-factor-authentication-mfa)
-    * [Account Recovery Settings](#account-recovery-settings)
-  * [Emails](#emails)
-  * [Device Tracking](#device-tracking)
-  * [Lambda Triggers](#lambda-triggers)
+    * [Sign Up](#sign-up)
+    * [Sign In](#sign-in)
+    * [Attributes](#attributes)
+    * [Attribute verification](#attribute-verification)
+    * [Security](#security)
 
-    * [Trigger Permissions](#trigger-permissions)
-  * [Import](#importing-user-pools)
-  * [Identity Providers](#identity-providers)
-  * [App Clients](#app-clients)
-  * [Resource Servers](#resource-servers)
-  * [Domains](#domains)
-  * [Deletion protection](#deletion-protection)
+      * [Multi-factor Authentication (MFA)](#multi-factor-authentication-mfa)
+      * [Account Recovery Settings](#account-recovery-settings)
+      * [Advanced Security Mode](#advanced-security-mode)
+    * [Emails](#emails)
+    * [Device Tracking](#device-tracking)
+    * [Lambda Triggers](#lambda-triggers)
+
+      * [Trigger Permissions](#trigger-permissions)
+    * [Importing User Pools](#importing-user-pools)
+    * [Identity Providers](#identity-providers)
+    * [App Clients](#app-clients)
+    * [Resource Servers](#resource-servers)
+    * [Domains](#domains)
+    * [Deletion protection](#deletion-protection)
 
 ## User Pools
 
@@ -468,7 +473,7 @@ on the construct, as so -
 
 ```go
 authChallengeFn := lambda.NewFunction(this, jsii.String("authChallengeFn"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
 })
@@ -481,7 +486,7 @@ userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 })
 
 userpool.AddTrigger(cognito.UserPoolOperation_USER_MIGRATION(), lambda.NewFunction(this, jsii.String("userMigrationFn"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_*FromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
 }))

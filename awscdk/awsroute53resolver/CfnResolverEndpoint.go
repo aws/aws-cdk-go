@@ -104,8 +104,10 @@ type CfnResolverEndpoint interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The ARN (Amazon Resource Name) for the Outpost.
 	OutpostArn() *string
 	SetOutpostArn(val *string)
+	// The Amazon EC2 instance type.
 	PreferredInstanceType() *string
 	SetPreferredInstanceType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

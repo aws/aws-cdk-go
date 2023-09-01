@@ -32,9 +32,9 @@ type DashboardProps struct {
 	// Default: - automatically generated name.
 	//
 	DashboardName *string `field:"optional" json:"dashboardName" yaml:"dashboardName"`
-	// Interval duration for metrics.
+	// Interval duration for metrics. You can specify defaultInterval with the relative time(eg. cdk.Duration.days(7)).
 	//
-	// You can specify defaultInterval with the relative time(eg. cdk.Duration.days(7)).
+	// Both properties `defaultInterval` and `start` cannot be set at once.
 	// Default: When the dashboard loads, the defaultInterval time will be the default time range.
 	//
 	DefaultInterval awscdk.Duration `field:"optional" json:"defaultInterval" yaml:"defaultInterval"`
@@ -59,6 +59,8 @@ type DashboardProps struct {
 	// minutes, hours, days, weeks and months. For example, -PT8H shows the last 8 hours and -P3M shows the last three months.
 	// You can also use start along with an end field, to specify an absolute time range.
 	// When specifying an absolute time range, use the ISO 8601 format. For example, 2018-12-17T06:00:00.000Z.
+	//
+	// Both properties `defaultInterval` and `start` cannot be set at once.
 	// Default: When the dashboard loads, the start time will be the default time range.
 	//
 	Start *string `field:"optional" json:"start" yaml:"start"`

@@ -52,7 +52,8 @@ type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
 	// The type of provisioning artifact.
 	//
 	// - `CLOUD_FORMATION_TEMPLATE` - AWS CloudFormation template
-	// - `TERRAFORM_OPEN_SOURCE` - Terraform open source configuration file.
+	// - `TERRAFORM_OPEN_SOURCE` - Terraform Open Source configuration file
+	// - `TERRAFORM_CLOUD` - Terraform Cloud configuration file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

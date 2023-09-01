@@ -11,27 +11,26 @@ import (
 // zero ends, calling next() on the Chain will fail.
 //
 // Example:
-//   // Define a state machine with one Pass state
-//   child := sfn.NewStateMachine(this, jsii.String("ChildStateMachine"), &StateMachineProps{
-//   	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("PassState"))),
+//   map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
+//   	MaxConcurrency: jsii.Number(1),
+//   	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
+//   	Parameters: map[string]interface{}{
+//   		"item": sfn.JsonPath_*StringAt(jsii.String("$.Map.Item.Value")),
+//   	},
+//   	ResultPath: jsii.String("$.mapOutput"),
 //   })
 //
-//   // Include the state machine in a Task state with callback pattern
-//   task := tasks.NewStepFunctionsStartExecution(this, jsii.String("ChildTask"), &StepFunctionsStartExecutionProps{
-//   	StateMachine: child,
-//   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-//   	Input: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"token": sfn.JsonPath_taskToken(),
-//   		"foo": jsii.String("bar"),
-//   	}),
-//   	Name: jsii.String("MyExecutionName"),
-//   })
+//   // The Map iterator can contain a IChainable, which can be an individual or multiple steps chained together.
+//   // Below example is with a Choice and Pass step
+//   choice := sfn.NewChoice(this, jsii.String("Choice"))
+//   condition1 := sfn.Condition_StringEquals(jsii.String("$.item.status"), jsii.String("SUCCESS"))
+//   step1 := sfn.NewPass(this, jsii.String("Step1"))
+//   step2 := sfn.NewPass(this, jsii.String("Step2"))
+//   finish := sfn.NewPass(this, jsii.String("Finish"))
 //
-//   // Define a second state machine with the Task state above
-//   // Define a second state machine with the Task state above
-//   sfn.NewStateMachine(this, jsii.String("ParentStateMachine"), &StateMachineProps{
-//   	Definition: task,
-//   })
+//   definition := choice.When(condition1, step1).Otherwise(step2).Afterwards().Next(finish)
+//
+//   map.Iterator(definition)
 //
 type Chain interface {
 	IChainable

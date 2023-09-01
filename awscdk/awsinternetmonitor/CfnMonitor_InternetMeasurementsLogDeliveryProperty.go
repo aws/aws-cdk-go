@@ -19,7 +19,7 @@ package awsinternetmonitor
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-internetmeasurementslogdelivery.html
 //
 type CfnMonitor_InternetMeasurementsLogDeliveryProperty struct {
-	// The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3.
+	// The Amazon S3 bucket where you publish internet measurements in addition to CloudWatch Logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-internetmeasurementslogdelivery.html#cfn-internetmonitor-monitor-internetmeasurementslogdelivery-s3config
 	//
 	S3Config interface{} `field:"optional" json:"s3Config" yaml:"s3Config"`

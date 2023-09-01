@@ -19,6 +19,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberProperty{JsiiProperty: "alwaysDeploy", GoGetter: "AlwaysDeploy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "auth", GoGetter: "Auth"},
 			_jsii_.MemberProperty{JsiiProperty: "binaryMediaTypes", GoGetter: "BinaryMediaTypes"},
@@ -201,6 +202,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "events", GoGetter: "Events"},
 			_jsii_.MemberProperty{JsiiProperty: "fileSystemConfigs", GoGetter: "FileSystemConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "functionUrlConfig", GoGetter: "FunctionUrlConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "handler", GoGetter: "Handler"},
@@ -285,6 +287,10 @@ func init() {
 		reflect.TypeOf((*CfnFunction_CollectionSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sam.CfnFunction.CorsConfigurationProperty",
+		reflect.TypeOf((*CfnFunction_CorsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sam.CfnFunction.DeadLetterQueueProperty",
 		reflect.TypeOf((*CfnFunction_DeadLetterQueueProperty)(nil)).Elem(),
 	)
@@ -339,6 +345,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sam.CfnFunction.FunctionSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_FunctionSAMPTProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sam.CfnFunction.FunctionUrlConfigProperty",
+		reflect.TypeOf((*CfnFunction_FunctionUrlConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sam.CfnFunction.HooksProperty",

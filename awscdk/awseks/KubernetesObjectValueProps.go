@@ -21,7 +21,7 @@ import (
 //   proxyFunction := lambda.NewFunction(this, jsii.String("ProxyFunction"), &FunctionProps{
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromInline(jsii.String("my-code")),
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Environment: map[string]*string{
 //   		"myServiceAddress": myServiceAddress.value,
 //   	},

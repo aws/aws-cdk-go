@@ -69,7 +69,7 @@ type CfnPublicRepository interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The CatalogData property type specifies Catalog data for ECR Public Repository.
+	// The details about the repository that are publicly visible in the Amazon ECR Public Gallery.
 	RepositoryCatalogData() interface{}
 	SetRepositoryCatalogData(val interface{})
 	// The name to use for the public repository.

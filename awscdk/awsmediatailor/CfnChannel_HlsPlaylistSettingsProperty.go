@@ -1,7 +1,7 @@
 package awsmediatailor
 
 
-// <p>HLS playlist configuration parameters.</p>.
+// HLS playlist configuration parameters.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +15,9 @@ package awsmediatailor
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-hlsplaylistsettings.html
 //
 type CfnChannel_HlsPlaylistSettingsProperty struct {
-	// <p>The total duration (in seconds) of each manifest.
+	// The total duration (in seconds) of each manifest.
 	//
-	// Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+	// Minimum value: `30` seconds. Maximum value: `3600` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-hlsplaylistsettings.html#cfn-mediatailor-channel-hlsplaylistsettings-manifestwindowseconds
 	//
 	// Default: - 0.

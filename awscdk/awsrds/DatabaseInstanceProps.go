@@ -60,6 +60,16 @@ type DatabaseInstanceProps struct {
 	// Default: - Duration.days(1) for source instances, disabled for read replicas
 	//
 	BackupRetention awscdk.Duration `field:"optional" json:"backupRetention" yaml:"backupRetention"`
+	// The identifier of the CA certificate for this DB instance.
+	//
+	// Specifying or updating this property triggers a reboot.
+	//
+	// For RDS DB engines:.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html
+	//
+	// Default: - RDS will choose a certificate authority.
+	//
+	CaCertificate CaCertificate `field:"optional" json:"caCertificate" yaml:"caCertificate"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	// Default: - no log exports.
 	//

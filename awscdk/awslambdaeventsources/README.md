@@ -49,9 +49,6 @@ queue parameters. The following parameters will impact Amazon SQS's polling
 behavior:
 
 * **visibilityTimeout**: May impact the period between retries.
-* **receiveMessageWaitTime**: Will determine [long
-  poll](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html)
-  duration. The default value is 20 seconds.
 * **batchSize**: Determines how many records are buffered before invoking your lambda function.
 * **maxBatchingWindow**: The maximum amount of time to gather records before invoking the lambda. This increases the likelihood of a full batch at the cost of delayed processing.
 * **maxConcurrency**: The maximum concurrency setting limits the number of concurrent instances of the function that an Amazon SQS event source can invoke.
@@ -64,8 +61,6 @@ var fn function
 
 queue := sqs.NewQueue(this, jsii.String("MyQueue"), &QueueProps{
 	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(30)),
-	 // default,
-	ReceiveMessageWaitTime: awscdk.Duration_*Seconds(jsii.Number(20)),
 })
 
 fn.AddEventSource(awscdk.NewSqsEventSource(queue, &SqsEventSourceProps{

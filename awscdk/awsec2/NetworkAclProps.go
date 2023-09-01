@@ -38,9 +38,8 @@ type NetworkAclProps struct {
 	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The name of the NetworkAcl.
 	//
-	// It is not recommended to use an explicit name.
-	// Default: If you don't specify a networkAclName, AWS CloudFormation generates a
-	// unique physical ID and uses that ID for the group name.
+	// Since the NetworkAcl resource doesn't support providing a physical name, the value provided here will be recorded in the `Name` tag.
+	// Default: CDK generated name.
 	//
 	NetworkAclName *string `field:"optional" json:"networkAclName" yaml:"networkAclName"`
 	// Subnets in the given VPC to associate the ACL with.

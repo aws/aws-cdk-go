@@ -17,7 +17,7 @@ import (
 //   lambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
 //   	ActionName: jsii.String("Lambda"),
 //   	Lambda: lambda.NewFunction(this, jsii.String("Func"), &FunctionProps{
-//   		Runtime: lambda.Runtime_NODEJS_14_X(),
+//   		Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   		Handler: jsii.String("index.handler"),
 //   		Code: lambda.Code_FromInline(jsii.String(`
 //   		        const AWS = require('aws-sdk');

@@ -11,7 +11,7 @@ import (
 //
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
 //   })

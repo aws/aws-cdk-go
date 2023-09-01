@@ -6,8 +6,6 @@ import (
 
 // A rule.
 //
-// Rule is a condition that tells Amazon Fraud Detector how to interpret variables values during a fraud prediction.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -73,6 +71,8 @@ type CfnDetector_RuleProperty struct {
 	//
 	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// The rule language.
+	//
+	// Valid Value: DETECTORPL.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-language
 	//
 	Language *string `field:"optional" json:"language" yaml:"language"`

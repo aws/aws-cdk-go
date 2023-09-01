@@ -8,8 +8,19 @@ import (
 // The text, or well-formed JSON, passed to the target of the schedule.
 //
 // Example:
-//   input := awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
-//   	"QueueName": jsii.String("MyQueue"),
+//   var fn function
+//
+//
+//   target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
+//   	Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
+//   		"payload": jsii.String("useful"),
+//   	}),
+//   })
+//
+//   schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
+//   	Target: Target,
+//   	Description: jsii.String("This is a test schedule that invokes lambda function every 10 minutes."),
 //   })
 //
 // Experimental.

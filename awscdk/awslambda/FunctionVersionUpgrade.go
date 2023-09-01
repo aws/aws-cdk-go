@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Aspect for upgrading function versions when the feature flag provided feature flag present.
+// Aspect for upgrading function versions when the provided feature flag is enabled.
 //
 // This can be necessary when the feature flag
 // changes the function hash, as such changes must be associated with a new

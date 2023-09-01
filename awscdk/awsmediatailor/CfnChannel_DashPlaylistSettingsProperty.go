@@ -1,7 +1,7 @@
 package awsmediatailor
 
 
-// <p>Dash manifest configuration parameters.</p>.
+// Dash manifest configuration parameters.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,33 +18,33 @@ package awsmediatailor
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html
 //
 type CfnChannel_DashPlaylistSettingsProperty struct {
-	// <p>The total duration (in seconds) of each manifest.
+	// The total duration (in seconds) of each manifest.
 	//
-	// Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+	// Minimum value: `30` seconds. Maximum value: `3600` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html#cfn-mediatailor-channel-dashplaylistsettings-manifestwindowseconds
 	//
 	// Default: - 0.
 	//
 	ManifestWindowSeconds *float64 `field:"optional" json:"manifestWindowSeconds" yaml:"manifestWindowSeconds"`
-	// <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer.
+	// Minimum amount of content (measured in seconds) that a player must keep available in the buffer.
 	//
-	// Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+	// Minimum value: `2` seconds. Maximum value: `60` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html#cfn-mediatailor-channel-dashplaylistsettings-minbuffertimeseconds
 	//
 	// Default: - 0.
 	//
 	MinBufferTimeSeconds *float64 `field:"optional" json:"minBufferTimeSeconds" yaml:"minBufferTimeSeconds"`
-	// <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.
+	// Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.
 	//
-	// Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+	// Minimum value: `2` seconds. Maximum value: `60` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html#cfn-mediatailor-channel-dashplaylistsettings-minupdateperiodseconds
 	//
 	// Default: - 0.
 	//
 	MinUpdatePeriodSeconds *float64 `field:"optional" json:"minUpdatePeriodSeconds" yaml:"minUpdatePeriodSeconds"`
-	// <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest.
+	// Amount of time (in seconds) that the player should be from the live point at the end of the manifest.
 	//
-	// Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+	// Minimum value: `2` seconds. Maximum value: `60` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html#cfn-mediatailor-channel-dashplaylistsettings-suggestedpresentationdelayseconds
 	//
 	// Default: - 0.

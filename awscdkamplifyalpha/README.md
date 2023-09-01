@@ -240,6 +240,16 @@ amplifyApp := amplify.NewApp(this, jsii.String("App"), &AppProps{
 })
 ```
 
+## Configure server side rendering when hosting app
+
+Setting the `platform` field on the Amplify `App` construct can be used to control whether the app will host only static assets or server side rendered assets in addition to static. By default, the value is set to `WEB` (static only), however, server side rendering can be turned on by setting to `WEB_COMPUTE` as follows:
+
+```go
+amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
+	Platform: amplify.Platform_WEB_COMPUTE,
+})
+```
+
 ## Deploying Assets
 
 `sourceCodeProvider` is optional; when this is not specified the Amplify app can be deployed to using `.zip` packages. The `asset` property can be used to deploy S3 assets to Amplify as part of the CDK:

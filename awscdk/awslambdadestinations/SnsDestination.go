@@ -20,7 +20,7 @@ import (
 //   myTopic := sns.NewTopic(this, jsii.String("Topic"))
 //
 //   myFn := lambda.NewFunction(this, jsii.String("Fn"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	// sns topic for successful invocations

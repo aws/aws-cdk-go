@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -85,6 +86,8 @@ type HostedZone interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Grant permissions to add delegation records to this zone.
+	GrantDelegation(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -415,6 +418,22 @@ func (h *jsiiProxy_HostedZone) GetResourceNameAttribute(nameAttr *string) *strin
 		h,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (h *jsiiProxy_HostedZone) GrantDelegation(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := h.validateGrantDelegationParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		h,
+		"grantDelegation",
+		[]interface{}{grantee},
 		&returns,
 	)
 

@@ -37,7 +37,7 @@ CDK stack file `app-stack.ts`:
 ```go
 api := appsync.NewGraphqlApi(this, jsii.String("Api"), &GraphqlApiProps{
 	Name: jsii.String("demo"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("schema.graphql"))),
 	AuthorizationConfig: &AuthorizationConfig{
 		DefaultAuthorization: &AuthorizationMode{
 			AuthorizationType: appsync.AuthorizationType_IAM,
@@ -203,7 +203,7 @@ CDK stack file `app-stack.ts`:
 ```go
 api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Name: jsii.String("api"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("schema.graphql"))),
 })
 
 httpDs := api.AddHttpDataSource(jsii.String("ds"), jsii.String("https://states.amazonaws.com"), &HttpDataSourceOptions{
@@ -225,9 +225,9 @@ httpDs.CreateResolver(jsii.String("MutationCallStepFunctionResolver"), &BaseReso
 
 ### EventBridge
 
-Integrating AppSync with EventBridge enables developers to use EventBridge rules to route commands for GraphQl mutations
+Integrating AppSync with EventBridge enables developers to use EventBridge rules to route commands for GraphQL mutations
 that need to perform any one of a variety of asynchronous tasks. More broadly, it enables teams to expose an event bus
-as a part of a GraphQl schema.
+as a part of a GraphQL schema.
 
 GraphQL schema file `schema.graphql`:
 
@@ -299,7 +299,7 @@ import events "github.com/aws/aws-cdk-go/awscdk"
 
 api := appsync.NewGraphqlApi(this, jsii.String("EventBridgeApi"), &GraphqlApiProps{
 	Name: jsii.String("EventBridgeApi"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
 })
 
 bus := events.NewEventBus(this, jsii.String("DestinationEventBus"), &EventBusProps{
@@ -370,6 +370,61 @@ ds.CreateResolver(jsii.String("QueryGetTestsResolver"), &BaseResolverProps{
 })
 ```
 
+## Merged APIs
+
+AppSync supports [Merged APIs](https://docs.aws.amazon.com/appsync/latest/devguide/merged-api.html) which can be used to merge multiple source APIs into a single API.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+// first source API
+firstApi := appsync.NewGraphqlApi(this, jsii.String("FirstSourceAPI"), &GraphqlApiProps{
+	Name: jsii.String("FirstSourceAPI"),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.merged-api-1.graphql"))),
+})
+firstApi.AddNoneDataSource(jsii.String("FirstSourceDS"), &DataSourceOptions{
+	Name: cdk.Lazy_String(map[string]interface{}{
+		(MethodDeclaration produce(): string { return 'FirstSourceDS'; }
+				produce
+				string
+				{return jsii.String("FirstSourceDS")}),
+	}),
+})
+
+// second source API
+secondApi := appsync.NewGraphqlApi(this, jsii.String("SecondSourceAPI"), &GraphqlApiProps{
+	Name: jsii.String("SecondSourceAPI"),
+	Definition: appsync.Definition_*FromFile(path.join(__dirname, jsii.String("appsync.merged-api-2.graphql"))),
+})
+secondApi.AddNoneDataSource(jsii.String("SecondSourceDS"), &DataSourceOptions{
+	Name: cdk.Lazy_*String(map[string]interface{}{
+		(MethodDeclaration produce(): string { return 'SecondSourceDS'; }
+				produce
+				string
+				{return jsii.String("SecondSourceDS")}),
+	}),
+})
+
+// Merged API
+// Merged API
+appsync.NewGraphqlApi(this, jsii.String("MergedAPI"), &GraphqlApiProps{
+	Name: jsii.String("MergedAPI"),
+	Definition: appsync.Definition_FromSourceApis(&SourceApiOptions{
+		SourceApis: []sourceApi{
+			&sourceApi{
+				SourceApi: firstApi,
+				MergeType: appsync.MergeType_MANUAL_MERGE,
+			},
+			&sourceApi{
+				SourceApi: secondApi,
+				MergeType: appsync.MergeType_AUTO_MERGE,
+			},
+		},
+	}),
+})
+```
+
 ## Custom Domain Names
 
 For many use cases you may want to associate a custom domain name with your
@@ -393,7 +448,7 @@ schema := appsync.NewSchemaFile(&SchemaProps{
 })
 api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Name: jsii.String("myApi"),
-	Schema: Schema,
+	Definition: appsync.Definition_FromSchema(schema),
 	DomainName: &DomainOptions{
 		Certificate: *Certificate,
 		DomainName: myDomainName,
@@ -435,19 +490,19 @@ appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	AuthorizationConfig: &AuthorizationConfig{
 	},
 	Name: jsii.String("myApi"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("myApi.graphql"))),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("myApi.graphql"))),
 	LogConfig: LogConfig,
 })
 ```
 
 ## Schema
 
-You can define a schema using from a local file using `SchemaFile.fromAsset`
+You can define a schema using from a local file using `Definition.fromFile`
 
 ```go
 api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Name: jsii.String("myApi"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphl"))),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("schema.graphl"))),
 })
 ```
 
@@ -490,7 +545,7 @@ CDK stack file `app-stack.ts`:
 ```go
 api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Name: jsii.String("MyPrivateAPI"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.schema.graphql"))),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.schema.graphql"))),
 	Visibility: appsync.Visibility_PRIVATE,
 })
 ```
@@ -521,7 +576,7 @@ var authFunction function
 
 appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Name: jsii.String("api"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.test.graphql"))),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.test.graphql"))),
 	AuthorizationConfig: &AuthorizationConfig{
 		DefaultAuthorization: &AuthorizationMode{
 			AuthorizationType: appsync.AuthorizationType_LAMBDA,

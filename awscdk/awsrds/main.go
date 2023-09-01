@@ -78,6 +78,16 @@ func init() {
 		reflect.TypeOf((*BackupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_rds.CaCertificate",
+		reflect.TypeOf((*CaCertificate)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CaCertificate{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_rds.CfnCustomDBEngineVersion",
 		reflect.TypeOf((*CfnCustomDBEngineVersion)(nil)).Elem(),
 		[]_jsii_.Member{

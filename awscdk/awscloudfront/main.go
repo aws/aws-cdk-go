@@ -1124,6 +1124,14 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.EdgeLambda",
 		reflect.TypeOf((*EdgeLambda)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.Endpoint",
+		reflect.TypeOf((*Endpoint)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Endpoint{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.ErrorResponse",
 		reflect.TypeOf((*ErrorResponse)(nil)).Elem(),
@@ -1359,6 +1367,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_cloudfront.IRealtimeLogConfig",
+		reflect.TypeOf((*IRealtimeLogConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "realtimeLogConfigArn", GoGetter: "RealtimeLogConfigArn"},
+			_jsii_.MemberProperty{JsiiProperty: "realtimeLogConfigName", GoGetter: "RealtimeLogConfigName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRealtimeLogConfig{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_cloudfront.IResponseHeadersPolicy",
 		reflect.TypeOf((*IResponseHeadersPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1588,6 +1613,33 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.PublicKeyProps",
 		reflect.TypeOf((*PublicKeyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.RealtimeLogConfig",
+		reflect.TypeOf((*RealtimeLogConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "realtimeLogConfigArn", GoGetter: "RealtimeLogConfigArn"},
+			_jsii_.MemberProperty{JsiiProperty: "realtimeLogConfigName", GoGetter: "RealtimeLogConfigName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_RealtimeLogConfig{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRealtimeLogConfig)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.RealtimeLogConfigProps",
+		reflect.TypeOf((*RealtimeLogConfigProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.ResponseCustomHeader",

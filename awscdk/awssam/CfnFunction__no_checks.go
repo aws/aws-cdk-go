@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnFunction) validateSetFileSystemConfigsParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetFunctionUrlConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetImageConfigParameters(val interface{}) error {
 	return nil
 }

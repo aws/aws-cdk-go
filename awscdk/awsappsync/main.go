@@ -871,6 +871,17 @@ func init() {
 		"aws-cdk-lib.aws_appsync.DataSourceOptions",
 		reflect.TypeOf((*DataSourceOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.Definition",
+		reflect.TypeOf((*Definition)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "schema", GoGetter: "Schema"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceApiOptions", GoGetter: "SourceApiOptions"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Definition{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.DomainOptions",
 		reflect.TypeOf((*DomainOptions)(nil)).Elem(),
@@ -1235,6 +1246,14 @@ func init() {
 			return &jsiiProxy_MappingTemplate{}
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.MergeType",
+		reflect.TypeOf((*MergeType)(nil)).Elem(),
+		map[string]interface{}{
+			"MANUAL_MERGE": MergeType_MANUAL_MERGE,
+			"AUTO_MERGE": MergeType_AUTO_MERGE,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.NoneDataSource",
 		reflect.TypeOf((*NoneDataSource)(nil)).Elem(),
@@ -1399,6 +1418,14 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_SortKeyStep{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.SourceApi",
+		reflect.TypeOf((*SourceApi)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.SourceApiOptions",
+		reflect.TypeOf((*SourceApiOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.UserPoolConfig",

@@ -20,6 +20,7 @@ import (
 //   	AllowedPrincipals: []arnPrincipal{
 //   		iam.NewArnPrincipal(jsii.String("arn:aws:iam::123456789012:root")),
 //   	},
+//   	ContributorInsights: jsii.Boolean(true),
 //   })
 //
 type VpcEndpointServiceProps struct {
@@ -36,5 +37,9 @@ type VpcEndpointServiceProps struct {
 	// Default: - no principals.
 	//
 	AllowedPrincipals *[]awsiam.ArnPrincipal `field:"optional" json:"allowedPrincipals" yaml:"allowedPrincipals"`
+	// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink.
+	// Default: false.
+	//
+	ContributorInsights *bool `field:"optional" json:"contributorInsights" yaml:"contributorInsights"`
 }
 

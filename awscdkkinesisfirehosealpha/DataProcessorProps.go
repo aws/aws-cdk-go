@@ -11,7 +11,7 @@ import (
 //   // Provide a Lambda function that will transform records before delivery, with custom
 //   // buffering and retry configuration
 //   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("process-records"))),
 //   })

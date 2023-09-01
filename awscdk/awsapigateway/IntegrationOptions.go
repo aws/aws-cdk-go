@@ -20,7 +20,7 @@ import (
 //   stack := awscdk.NewStack(app, jsii.String("RequestAuthorizerInteg"))
 //
 //   authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_16_X(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 //   })

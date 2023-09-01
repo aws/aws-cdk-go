@@ -9,7 +9,7 @@ package awsappsync
 //
 //   api := appsync.NewGraphqlApi(this, jsii.String("EventBridgeApi"), &GraphqlApiProps{
 //   	Name: jsii.String("EventBridgeApi"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
 //   })
 //
 //   bus := events.NewEventBus(this, jsii.String("DestinationEventBus"), &EventBusProps{
@@ -27,16 +27,12 @@ package awsappsync
 type GraphqlApiProps struct {
 	// the name of the GraphQL API.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// GraphQL schema definition. Specify how you want to define your schema.
-	//
-	// SchemaFile.fromAsset(filePath: string) allows schema definition through schema.graphql file
-	// Default: - schema will be generated code-first (i.e. addType, addObjectType, etc.)
-	//
-	Schema ISchema `field:"required" json:"schema" yaml:"schema"`
 	// Optional authorization configuration.
 	// Default: - API Key authorization.
 	//
 	AuthorizationConfig *AuthorizationConfig `field:"optional" json:"authorizationConfig" yaml:"authorizationConfig"`
+	// Definition (schema file or source APIs) for this GraphQL Api.
+	Definition Definition `field:"optional" json:"definition" yaml:"definition"`
 	// The domain name configuration for the GraphQL API.
 	//
 	// The Route 53 hosted zone and CName DNS record must be configured in addition to this setting to
@@ -48,6 +44,13 @@ type GraphqlApiProps struct {
 	// Default: - None.
 	//
 	LogConfig *LogConfig `field:"optional" json:"logConfig" yaml:"logConfig"`
+	// GraphQL schema definition. Specify how you want to define your schema.
+	//
+	// SchemaFile.fromAsset(filePath: string) allows schema definition through schema.graphql file
+	// Default: - schema will be generated code-first (i.e. addType, addObjectType, etc.)
+	//
+	// Deprecated: use apiSoure.schema instead
+	Schema ISchema `field:"optional" json:"schema" yaml:"schema"`
 	// A value indicating whether the API is accessible from anywhere (GLOBAL) or can only be access from a VPC (PRIVATE).
 	// Default: - GLOBAL.
 	//

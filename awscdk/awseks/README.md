@@ -5,32 +5,64 @@ In addition, the library also supports defining Kubernetes resource manifests wi
 
 ## Table Of Contents
 
-* [Quick Start](#quick-start)
-* [API Reference](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-eks-readme.html)
-* [Architectural Overview](#architectural-overview)
-* [Provisioning clusters](#provisioning-clusters)
+* [Amazon EKS Construct Library](#amazon-eks-construct-library)
 
-  * [Managed node groups](#managed-node-groups)
-  * [Fargate Profiles](#fargate-profiles)
-  * [Self-managed nodes](#self-managed-nodes)
-  * [Endpoint Access](#endpoint-access)
-  * [ALB Controller](#alb-controller)
-  * [VPC Support](#vpc-support)
-  * [IPv6 Support](#ipv6-support)
-  * [Kubectl Support](#kubectl-support)
-  * [ARM64 Support](#arm64-support)
-  * [Masters Role](#masters-role)
-  * [Encryption](#encryption)
-* [Permissions and Security](#permissions-and-security)
-* [Applying Kubernetes Resources](#applying-kubernetes-resources)
+  * [Table Of Contents](#table-of-contents)
+  * [Quick Start](#quick-start)
+  * [Architectural Overview](#architectural-overview)
+  * [Provisioning clusters](#provisioning-clusters)
 
-  * [Kubernetes Manifests](#kubernetes-manifests)
-  * [Helm Charts](#helm-charts)
-  * [CDK8s Charts](#cdk8s-charts)
-* [Patching Kubernetes Resources](#patching-kubernetes-resources)
-* [Querying Kubernetes Resources](#querying-kubernetes-resources)
-* [Using existing clusters](#using-existing-clusters)
-* [Known Issues and Limitations](#known-issues-and-limitations)
+    * [Managed node groups](#managed-node-groups)
+
+      * [Node Groups with IPv6 Support](#node-groups-with-ipv6-support)
+      * [Spot Instances Support](#spot-instances-support)
+      * [Launch Template Support](#launch-template-support)
+    * [Fargate profiles](#fargate-profiles)
+    * [Self-managed nodes](#self-managed-nodes)
+
+      * [Spot Instances](#spot-instances)
+      * [Bottlerocket](#bottlerocket)
+    * [Endpoint Access](#endpoint-access)
+    * [Alb Controller](#alb-controller)
+    * [VPC Support](#vpc-support)
+
+      * [Kubectl Handler](#kubectl-handler)
+      * [Cluster Handler](#cluster-handler)
+    * [IPv6 Support](#ipv6-support)
+    * [Kubectl Support](#kubectl-support)
+
+      * [Environment](#environment)
+      * [Runtime](#runtime)
+      * [Memory](#memory)
+    * [ARM64 Support](#arm64-support)
+    * [Masters Role](#masters-role)
+    * [Encryption](#encryption)
+  * [Permissions and Security](#permissions-and-security)
+
+    * [AWS IAM Mapping](#aws-iam-mapping)
+    * [Cluster Security Group](#cluster-security-group)
+    * [Node SSH Access](#node-ssh-access)
+    * [Service Accounts](#service-accounts)
+  * [Applying Kubernetes Resources](#applying-kubernetes-resources)
+
+    * [Kubernetes Manifests](#kubernetes-manifests)
+
+      * [ALB Controller Integration](#alb-controller-integration)
+      * [Adding resources from a URL](#adding-resources-from-a-url)
+      * [Dependencies](#dependencies)
+      * [Resource Pruning](#resource-pruning)
+      * [Manifests Validation](#manifests-validation)
+    * [Helm Charts](#helm-charts)
+    * [OCI Charts](#oci-charts)
+    * [CDK8s Charts](#cdk8s-charts)
+
+      * [Custom CDK8s Constructs](#custom-cdk8s-constructs)
+      * [Manually importing k8s specs and CRD's](#manually-importing-k8s-specs-and-crds)
+  * [Patching Kubernetes Resources](#patching-kubernetes-resources)
+  * [Querying Kubernetes Resources](#querying-kubernetes-resources)
+  * [Using existing clusters](#using-existing-clusters)
+  * [Logging](#logging)
+  * [Known Issues and Limitations](#known-issues-and-limitations)
 
 ## Quick Start
 
@@ -78,8 +110,8 @@ The following is a qualitative diagram of the various possible components involv
 
 ```text
  +-----------------------------------------------+               +-----------------+
- |                 EKS Cluster                   |    kubectl    |                 |
- |-----------------------------------------------|<-------------+| Kubectl Handler |
+ | EKS Cluster | kubectl |  |
+ | ----------- |<-------------+| Kubectl Handler |
  |                                               |               |                 |
  |                                               |               +-----------------+
  | +--------------------+    +-----------------+ |
@@ -1704,7 +1736,7 @@ myServiceAddress := eks.NewKubernetesObjectValue(this, jsii.String("LoadBalancer
 proxyFunction := lambda.NewFunction(this, jsii.String("ProxyFunction"), &FunctionProps{
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromInline(jsii.String("my-code")),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Environment: map[string]*string{
 		"myServiceAddress": myServiceAddress.value,
 	},

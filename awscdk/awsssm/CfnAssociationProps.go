@@ -155,9 +155,9 @@ type CfnAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
 	//
 	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
-	// The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution.
+	// *(No longer supported)* This property is no longer supported for the `AWS::SSM::Association` resource.
 	//
-	// If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
+	// You should not include it when defining this resource in your AWS CloudFormation template. Doing so can result in inaccuracies in AWS CloudFormation resource drift detection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
 	//
 	WaitForSuccessTimeoutSeconds *float64 `field:"optional" json:"waitForSuccessTimeoutSeconds" yaml:"waitForSuccessTimeoutSeconds"`

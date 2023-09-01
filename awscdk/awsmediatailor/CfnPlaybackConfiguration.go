@@ -148,7 +148,7 @@ type CfnPlaybackConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads.
+	// The URL for a video asset to transcode and use to fill in time that's not used by ads.
 	SlateAdUrl() *string
 	SetSlateAdUrl(val *string)
 	// The stack in which this element is defined.

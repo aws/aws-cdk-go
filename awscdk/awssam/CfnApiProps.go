@@ -22,6 +22,7 @@ package awssam
 //   		DestinationArn: jsii.String("destinationArn"),
 //   		Format: jsii.String("format"),
 //   	},
+//   	AlwaysDeploy: jsii.Boolean(false),
 //   	Auth: &AuthProperty{
 //   		AddDefaultAuthorizerToCorsPreflight: jsii.Boolean(false),
 //   		Authorizers: authorizers,
@@ -95,6 +96,9 @@ type CfnApiProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-accesslogsetting
 	//
 	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-alwaysdeploy
+	//
+	AlwaysDeploy interface{} `field:"optional" json:"alwaysDeploy" yaml:"alwaysDeploy"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-api.html#cfn-serverless-api-auth
 	//
 	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`

@@ -26,6 +26,7 @@ import (
 //   	AllowedPrincipals: []arnPrincipal{
 //   		iam.NewArnPrincipal(jsii.String("arn:aws:iam::123456789012:root")),
 //   	},
+//   	ContributorInsights: jsii.Boolean(true),
 //   })
 //
 type VpcEndpointService interface {
@@ -35,6 +36,8 @@ type VpcEndpointService interface {
 	AcceptanceRequired() *bool
 	// One or more Principal ARNs to allow inbound connections to.
 	AllowedPrincipals() *[]awsiam.ArnPrincipal
+	// Whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink.
+	ContributorInsightsEnabled() *bool
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -111,6 +114,16 @@ func (j *jsiiProxy_VpcEndpointService) AllowedPrincipals() *[]awsiam.ArnPrincipa
 	_jsii_.Get(
 		j,
 		"allowedPrincipals",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcEndpointService) ContributorInsightsEnabled() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"contributorInsightsEnabled",
 		&returns,
 	)
 	return returns

@@ -31,6 +31,7 @@ package cloudassemblyschema
 //   						"changeSetName": jsii.String("changeSetName"),
 //   						"ci": jsii.Boolean(false),
 //   						"color": jsii.Boolean(false),
+//   						"concurrency": jsii.Number(123),
 //   						"context": map[string]*string{
 //   							"contextKey": jsii.String("context"),
 //   						},

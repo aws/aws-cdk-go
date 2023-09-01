@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   authChallengeFn := lambda.NewFunction(this, jsii.String("authChallengeFn"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
 //   })
@@ -22,7 +22,7 @@ import (
 //   })
 //
 //   userpool.AddTrigger(cognito.UserPoolOperation_USER_MIGRATION(), lambda.NewFunction(this, jsii.String("userMigrationFn"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_*FromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
 //   }))

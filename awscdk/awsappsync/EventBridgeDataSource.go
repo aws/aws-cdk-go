@@ -16,7 +16,7 @@ import (
 //
 //   api := appsync.NewGraphqlApi(this, jsii.String("EventBridgeApi"), &GraphqlApiProps{
 //   	Name: jsii.String("EventBridgeApi"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
 //   })
 //
 //   bus := events.NewEventBus(this, jsii.String("DestinationEventBus"), &EventBusProps{

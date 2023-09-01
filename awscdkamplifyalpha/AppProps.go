@@ -87,6 +87,15 @@ type AppProps struct {
 	//
 	// Experimental.
 	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
+	// Indicates the hosting platform to use.
+	//
+	// Set to WEB for static site
+	// generated (SSG) apps (i.e. a Create React App or Gatsby) and WEB_COMPUTE
+	// for server side rendered (SSR) apps (i.e. NextJS).
+	// Default: - WEB.
+	//
+	// Experimental.
+	Platform Platform `field:"optional" json:"platform" yaml:"platform"`
 	// The IAM service role to associate with the application.
 	//
 	// The App

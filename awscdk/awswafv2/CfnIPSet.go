@@ -46,7 +46,7 @@ type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses.
+	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses that you want AWS WAF to inspect for in incoming requests.
 	Addresses() *[]*string
 	SetAddresses(val *[]*string)
 	// The Amazon Resource Name (ARN) of the IP set.

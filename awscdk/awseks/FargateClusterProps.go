@@ -150,7 +150,7 @@ type FargateClusterProps struct {
 	// ```ts
 	// const layer = new lambda.LayerVersion(this, 'proxy-agent-layer', {
 	//   code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
-	//   compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
+	//   compatibleRuntimes: [lambda.Runtime.NODEJS_LATEST],
 	// });
 	// ```.
 	// Default: - a layer bundled with this module.

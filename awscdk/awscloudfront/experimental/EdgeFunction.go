@@ -26,7 +26,7 @@ import (
 //   // A Lambda@Edge function added to default behavior of a Distribution
 //   // and triggered on every request
 //   myFunc := experimental.NewEdgeFunction(this, jsii.String("MyFunction"), &EdgeFunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })

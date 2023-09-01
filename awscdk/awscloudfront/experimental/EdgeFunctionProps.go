@@ -19,7 +19,7 @@ import (
 //   // A Lambda@Edge function added to default behavior of a Distribution
 //   // and triggered on every request
 //   myFunc := experimental.NewEdgeFunction(this, jsii.String("MyFunction"), &EdgeFunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -243,6 +243,12 @@ type EdgeFunctionProps struct {
 	// group will be created for this function.
 	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// Enable SnapStart for Lambda Function.
+	//
+	// SnapStart is currently supported only for Java 11, 17 runtime.
+	// Default: - No snapstart.
+	//
+	SnapStart awslambda.SnapStartConf `field:"optional" json:"snapStart" yaml:"snapStart"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value

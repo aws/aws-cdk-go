@@ -30,6 +30,7 @@ import (
 //   		DestinationArn: jsii.String("destinationArn"),
 //   		Format: jsii.String("format"),
 //   	},
+//   	AlwaysDeploy: jsii.Boolean(false),
 //   	Auth: &AuthProperty{
 //   		AddDefaultAuthorizerToCorsPreflight: jsii.Boolean(false),
 //   		Authorizers: authorizers,
@@ -102,6 +103,8 @@ type CfnApi interface {
 	awscdk.ITaggable
 	AccessLogSetting() interface{}
 	SetAccessLogSetting(val interface{})
+	AlwaysDeploy() interface{}
+	SetAlwaysDeploy(val interface{})
 	Auth() interface{}
 	SetAuth(val interface{})
 	BinaryMediaTypes() *[]*string
@@ -330,6 +333,16 @@ func (j *jsiiProxy_CfnApi) AccessLogSetting() interface{} {
 	_jsii_.Get(
 		j,
 		"accessLogSetting",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApi) AlwaysDeploy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"alwaysDeploy",
 		&returns,
 	)
 	return returns
@@ -700,6 +713,17 @@ func (j *jsiiProxy_CfnApi)SetAccessLogSetting(val interface{}) {
 	_jsii_.Set(
 		j,
 		"accessLogSetting",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApi)SetAlwaysDeploy(val interface{}) {
+	if err := j.validateSetAlwaysDeployParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"alwaysDeploy",
 		val,
 	)
 }

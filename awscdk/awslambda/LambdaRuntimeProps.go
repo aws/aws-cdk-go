@@ -11,6 +11,7 @@ package awslambda
 //   	IsVariable: jsii.Boolean(false),
 //   	SupportsCodeGuruProfiling: jsii.Boolean(false),
 //   	SupportsInlineCode: jsii.Boolean(false),
+//   	SupportsSnapStart: jsii.Boolean(false),
 //   }
 //
 type LambdaRuntimeProps struct {
@@ -30,5 +31,9 @@ type LambdaRuntimeProps struct {
 	// Default: false.
 	//
 	SupportsInlineCode *bool `field:"optional" json:"supportsInlineCode" yaml:"supportsInlineCode"`
+	// Whether this runtime supports SnapStart.
+	// Default: false.
+	//
+	SupportsSnapStart *bool `field:"optional" json:"supportsSnapStart" yaml:"supportsSnapStart"`
 }
 

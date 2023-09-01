@@ -11,7 +11,7 @@ import (
 //   func := lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
 //   	Code: lambdaCode,
 //   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   })
 //   // used to make sure each CDK synthesis produces a different Version
 //   version := func.currentVersion

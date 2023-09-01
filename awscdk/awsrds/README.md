@@ -575,7 +575,7 @@ cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &AlarmProps{
 fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_16_X(),
 })
 
 availabilityRule := instance.OnEvent(jsii.String("Availability"), &OnEventOptions{
@@ -670,7 +670,7 @@ cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &AlarmProps{
 fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_16_X(),
 })
 
 availabilityRule := instance.OnEvent(jsii.String("Availability"), &OnEventOptions{
@@ -709,6 +709,37 @@ gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &Databa
 	AllocatedStorage: jsii.Number(500),
 	StorageType: rds.StorageType_GP3,
 	StorageThroughput: jsii.Number(500),
+})
+```
+
+Use the `caCertificate` property to specify the [CA certificates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html)
+to use for the instance:
+
+```go
+var vpc vpc
+
+
+rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+	}),
+	Vpc: Vpc,
+	CaCertificate: rds.CaCertificate_RDS_CA_RDS2048_G1(),
+})
+```
+
+You can specify a custom CA certificate with:
+
+```go
+var vpc vpc
+
+
+rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+	}),
+	Vpc: Vpc,
+	CaCertificate: rds.CaCertificate_Of(jsii.String("future-rds-ca")),
 })
 ```
 
@@ -1386,7 +1417,7 @@ cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &Server
 	EnableDataApi: jsii.Boolean(true),
 })
 fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: Code,
 	Environment: map[string]*string{

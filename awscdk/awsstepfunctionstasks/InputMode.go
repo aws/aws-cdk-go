@@ -42,5 +42,7 @@ const (
 	InputMode_PIPE InputMode = "PIPE"
 	// File mode.
 	InputMode_FILE InputMode = "FILE"
+	// FastFile mode.
+	InputMode_FAST_FILE InputMode = "FAST_FILE"
 )
 

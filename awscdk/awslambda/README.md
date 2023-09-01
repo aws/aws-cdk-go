@@ -521,7 +521,7 @@ granting permissions to other AWS accounts or organizations.
 layer := lambda.NewLayerVersion(stack, jsii.String("MyLayer"), &LayerVersionProps{
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("layer-code"))),
 	CompatibleRuntimes: []runtime{
-		lambda.*runtime_NODEJS_14_X(),
+		lambda.*runtime_NODEJS_16_X(),
 	},
 	License: jsii.String("Apache-2.0"),
 	Description: jsii.String("A layer to test the L2 construct"),
@@ -540,7 +540,7 @@ layer.addPermission(jsii.String("remote-account-grant"), &LayerVersionPermission
 lambda.NewFunction(stack, jsii.String("MyLayeredLambda"), &FunctionProps{
 	Code: lambda.NewInlineCode(jsii.String("foo")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.*runtime_NODEJS_14_X(),
+	Runtime: lambda.*runtime_NODEJS_16_X(),
 	Layers: []iLayerVersion{
 		layer,
 	},
@@ -963,6 +963,23 @@ fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
 See [the AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 managing concurrency.
 
+## Lambda with SnapStart
+
+SnapStart is currently supported only on Java 11/Java 17 runtime. SnapStart does not support provisioned concurrency, the arm64 architecture, Amazon Elastic File System (Amazon EFS), or ephemeral storage greater than 512 MB. After you enable Lambda SnapStart for a particular Lambda function, publishing a new version of the function will trigger an optimization process.
+
+See [the AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) to learn more about AWS Lambda SnapStart
+
+```go
+fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("handler.zip"))),
+	Runtime: lambda.Runtime_JAVA_11(),
+	Handler: jsii.String("example.Handler::handleRequest"),
+	SnapStart: lambda.SnapStartConf_ON_PUBLISHED_VERSIONS(),
+})
+
+version := fn.currentVersion
+```
+
 ## AutoScaling
 
 You can use Application AutoScaling to automatically configure the provisioned concurrency for your functions. AutoScaling can be set to track utilization or be based on a schedule. To configure AutoScaling on a function alias:
@@ -1016,7 +1033,7 @@ func newTestStack(scope app, id *string) *testStack {
 	fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 		Code: lambda.NewInlineCode(jsii.String("exports.handler = async () => { console.log('hello world'); };")),
 		Handler: jsii.String("index.handler"),
-		Runtime: lambda.Runtime_NODEJS_14_X(),
+		Runtime: lambda.Runtime_NODEJS_16_X(),
 	})
 
 	version := fn.currentVersion

@@ -35,7 +35,11 @@ type AwsSdkCall struct {
 	// Default: - use latest available API version.
 	//
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
-	// Used for running the SDK calls in underlying lambda with a different role Can be used primarily for cross-account requests to for example connect hostedzone with a shared vpc.
+	// Used for running the SDK calls in underlying lambda with a different role.
+	//
+	// Can be used primarily for cross-account requests to for example connect
+	// hostedzone with a shared vpc.
+	// Region controls where assumeRole call is made.
 	//
 	// Example for Route53 / associateVPCWithHostedZone.
 	// Default: - run without assuming role.

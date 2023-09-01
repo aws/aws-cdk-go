@@ -6,7 +6,7 @@ package awsappsync
 // Example:
 //   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 //   	Name: jsii.String("MyPrivateAPI"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.schema.graphql"))),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.schema.graphql"))),
 //   	Visibility: appsync.Visibility_PRIVATE,
 //   })
 //

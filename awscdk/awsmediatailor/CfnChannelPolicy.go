@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::MediaTailor::ChannelPolicy Resource Type.
+// Specifies an IAM policy for the channel.
+//
+// IAM policies are used to control access to your channel.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,6 +35,7 @@ type CfnChannelPolicy interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The name of the channel associated with this Channel Policy.
 	ChannelName() *string
 	SetChannelName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -51,6 +54,7 @@ type CfnChannelPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The IAM policy for the channel.
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

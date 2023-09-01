@@ -2359,6 +2359,7 @@ func init() {
 		map[string]interface{}{
 			"PIPE": InputMode_PIPE,
 			"FILE": InputMode_FILE,
+			"FAST_FILE": InputMode_FAST_FILE,
 		},
 	)
 	_jsii_.RegisterStruct(

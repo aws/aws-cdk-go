@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::MediaTailor::VodSource Resource Type.
+// The VOD source configuration parameters.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,7 +52,7 @@ type CfnVodSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// <p>A list of HTTP package configuration parameters for this VOD source.</p>.
+	// The HTTP package configurations for the VOD source.
 	HttpPackageConfigurations() interface{}
 	SetHttpPackageConfigurations(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -72,13 +72,14 @@ type CfnVodSource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The name of the source location that the VOD source is associated with.
 	SourceLocationName() *string
 	SetSourceLocationName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to assign to the VOD source.
+	// The tags assigned to the VOD source.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -94,6 +95,7 @@ type CfnVodSource interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The name of the VOD source.
 	VodSourceName() *string
 	SetVodSourceName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

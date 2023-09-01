@@ -46,6 +46,8 @@ type Runtime interface {
 	SupportsCodeGuruProfiling() *bool
 	// Whether the ``ZipFile`` (aka inline code) property can be used with this runtime.
 	SupportsInlineCode() *bool
+	// Whether this runtime supports snapstart.
+	SupportsSnapStart() *bool
 	RuntimeEquals(other Runtime) *bool
 	ToString() *string
 }
@@ -110,6 +112,16 @@ func (j *jsiiProxy_Runtime) SupportsInlineCode() *bool {
 	_jsii_.Get(
 		j,
 		"supportsInlineCode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Runtime) SupportsSnapStart() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"supportsSnapStart",
 		&returns,
 	)
 	return returns

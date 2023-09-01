@@ -19,8 +19,23 @@ import (
 //   map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
 //   	MaxConcurrency: jsii.Number(1),
 //   	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
+//   	Parameters: map[string]interface{}{
+//   		"item": sfn.JsonPath_*StringAt(jsii.String("$.Map.Item.Value")),
+//   	},
+//   	ResultPath: jsii.String("$.mapOutput"),
 //   })
-//   map.Iterator(sfn.NewPass(this, jsii.String("Pass State")))
+//
+//   // The Map iterator can contain a IChainable, which can be an individual or multiple steps chained together.
+//   // Below example is with a Choice and Pass step
+//   choice := sfn.NewChoice(this, jsii.String("Choice"))
+//   condition1 := sfn.Condition_StringEquals(jsii.String("$.item.status"), jsii.String("SUCCESS"))
+//   step1 := sfn.NewPass(this, jsii.String("Step1"))
+//   step2 := sfn.NewPass(this, jsii.String("Step2"))
+//   finish := sfn.NewPass(this, jsii.String("Finish"))
+//
+//   definition := choice.When(condition1, step1).Otherwise(step2).Afterwards().Next(finish)
+//
+//   map.Iterator(definition)
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html
 //

@@ -11,10 +11,12 @@ import (
 // `DeployTimeSubstitutedFile` is an extension of `BucketDeployment` that allows users to upload individual files and specify to make substitutions in the file.
 //
 // Example:
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myLambdaFunction function
 //   var destinationBucket bucket
+//   var role role
 //
 //
 //   s3deploy.NewDeployTimeSubstitutedFile(this, jsii.String("MyFile"), &DeployTimeSubstitutedFileProps{
@@ -23,6 +25,7 @@ import (
 //   	Substitutions: map[string]*string{
 //   		"variableName": myLambdaFunction.functionName,
 //   	},
+//   	Role: role,
 //   })
 //
 type DeployTimeSubstitutedFile interface {

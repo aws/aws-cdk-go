@@ -28,7 +28,7 @@ import (
 //   })
 //   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 //   	Name: jsii.String("myApi"),
-//   	Schema: Schema,
+//   	Definition: appsync.Definition_FromSchema(schema),
 //   	DomainName: &DomainOptions{
 //   		Certificate: *Certificate,
 //   		DomainName: myDomainName,

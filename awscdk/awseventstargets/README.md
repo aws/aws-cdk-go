@@ -6,21 +6,23 @@ to the `rule.addTarget()` method.
 
 Currently supported are:
 
-* [Start a CodeBuild build](#start-a-codebuild-build)
-* [Start a CodePipeline pipeline](#start-a-codepipeline-pipeline)
-* [Run an ECS task](#run-an-ecs-task)
-* [Invoke a Lambda function](#invoke-a-lambda-function)
-* [Invoke a API Gateway REST API](#invoke-an-api-gateway-rest-api)
-* Publish a message to an SNS topic
-* Send a message to an SQS queue
-* [Start a StepFunctions state machine](#start-a-stepfunctions-state-machine)
-* [Queue a Batch job](#queue-a-batch-job)
-* Make an AWS API call
-* Put a record to a Kinesis stream
-* [Log an event into a LogGroup](#log-an-event-into-a-loggroup)
-* Put a record to a Kinesis Data Firehose stream
-* [Put an event on an EventBridge bus](#put-an-event-on-an-eventbridge-bus)
-* [Send an event to EventBridge API Destination](#invoke-an-api-destination)
+* [Event Targets for Amazon EventBridge](#event-targets-for-amazon-eventbridge)
+
+  * [Event retry policy and using dead-letter queues](#event-retry-policy-and-using-dead-letter-queues)
+  * [Invoke a Lambda function](#invoke-a-lambda-function)
+  * [Log an event into a LogGroup](#log-an-event-into-a-loggroup)
+  * [Start a CodeBuild build](#start-a-codebuild-build)
+  * [Start a CodePipeline pipeline](#start-a-codepipeline-pipeline)
+  * [Start a StepFunctions state machine](#start-a-stepfunctions-state-machine)
+  * [Queue a Batch job](#queue-a-batch-job)
+  * [Invoke an API Gateway REST API](#invoke-an-api-gateway-rest-api)
+  * [Invoke an API Destination](#invoke-an-api-destination)
+  * [Put an event on an EventBridge bus](#put-an-event-on-an-eventbridge-bus)
+  * [Run an ECS Task](#run-an-ecs-task)
+
+    * [Tagging Tasks](#tagging-tasks)
+    * [Assign public IP addresses to tasks](#assign-public-ip-addresses-to-tasks)
+    * [Enable Amazon ECS Exec for ECS Task](#enable-amazon-ecs-exec-for-ecs-task)
 
 See the README of the `aws-cdk-lib/aws-events` library for more information on
 EventBridge.
@@ -43,7 +45,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 
 fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
 })
@@ -296,7 +298,7 @@ rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
 
 fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = e => {}")),
 })
 

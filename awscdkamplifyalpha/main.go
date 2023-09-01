@@ -248,6 +248,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-amplify-alpha.Platform",
+		reflect.TypeOf((*Platform)(nil)).Elem(),
+		map[string]interface{}{
+			"WEB": Platform_WEB,
+			"WEB_COMPUTE": Platform_WEB_COMPUTE,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-amplify-alpha.RedirectStatus",
 		reflect.TypeOf((*RedirectStatus)(nil)).Elem(),
 		map[string]interface{}{

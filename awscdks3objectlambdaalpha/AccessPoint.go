@@ -21,7 +21,7 @@ import (
 //   stack := cdk.NewStack()
 //   bucket := s3.NewBucket(stack, jsii.String("MyBucket"))
 //   handler := lambda.NewFunction(stack, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(jsii.String("lambda.zip")),
 //   })

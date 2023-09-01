@@ -465,7 +465,7 @@ var myBucket bucket
 // A Lambda@Edge function added to default behavior of a Distribution
 // and triggered on every request
 myFunc := experimental.NewEdgeFunction(this, jsii.String("MyFunction"), &EdgeFunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
@@ -494,7 +494,7 @@ If the stack is in `us-east-1`, a "normal" `lambda.Function` can be used instead
 ```go
 // Using a lambda Function instead of an EdgeFunction for stacks in `us-east-`.
 myFunc := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
@@ -507,14 +507,14 @@ you can also set a specific stack ID for each Lambda@Edge.
 // Setting stackIds for EdgeFunctions that can be referenced from different applications
 // on the same account.
 myFunc1 := experimental.NewEdgeFunction(this, jsii.String("MyFunction1"), &EdgeFunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler1"))),
 	StackId: jsii.String("edge-lambda-stack-id-1"),
 })
 
 myFunc2 := experimental.NewEdgeFunction(this, jsii.String("MyFunction2"), &EdgeFunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_*FromAsset(path.join(__dirname, jsii.String("lambda-handler2"))),
 	StackId: jsii.String("edge-lambda-stack-id-2"),
@@ -687,6 +687,43 @@ distribution.Grant(lambdaFn, jsii.String("cloudfront:ListInvalidations"), jsii.S
 distribution.GrantCreateInvalidation(lambdaFn)
 ```
 
+### Realtime Log Config
+
+CloudFront supports realtime log delivery from your distribution to a Kinesis stream.
+
+See [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the CloudFront User Guide.
+
+Example:
+
+```go
+// Adding realtime logs config to a Cloudfront Distribution on default behavior.
+import kinesis "github.com/aws/aws-cdk-go/awscdk"
+
+var stream stream
+
+
+realTimeConfig := cloudfront.NewRealtimeLogConfig(this, jsii.String("realtimeLog"), &RealtimeLogConfigProps{
+	EndPoints: []endpoint{
+		cloudfront.*endpoint_FromKinesisStream(stream),
+	},
+	Fields: []*string{
+		jsii.String("timestamp"),
+		jsii.String("c-ip"),
+		jsii.String("time-to-first-byte"),
+		jsii.String("sc-status"),
+	},
+	RealtimeLogConfigName: jsii.String("my-delivery-stream"),
+	SamplingRate: jsii.Number(100),
+})
+
+cloudfront.NewDistribution(this, jsii.String("myCdn"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+		RealtimeLogConfig: realTimeConfig,
+	},
+})
+```
+
 ## Migrating from the original CloudFrontWebDistribution to the newer Distribution construct
 
 It's possible to migrate a distribution from the original to the modern API.
@@ -697,13 +734,13 @@ The changes necessary are the following:
 Replace `new CloudFrontWebDistribution` with `new Distribution`. Some
 configuration properties have been changed:
 
-| Old API                        | New API                                                                                        |
-|--------------------------------|------------------------------------------------------------------------------------------------|
-| `originConfigs`                | `defaultBehavior`; use `additionalBehaviors` if necessary                                      |
-| `viewerCertificate`            | `certificate`; use `domainNames` for aliases                                                   |
-| `errorConfigurations`          | `errorResponses`                                                                               |
-| `loggingConfig`                | `enableLogging`; configure with `logBucket` `logFilePrefix` and `logIncludesCookies`           |
-| `viewerProtocolPolicy`         | removed; set on each behavior instead. default changed from `REDIRECT_TO_HTTPS` to `ALLOW_ALL` |
+| Old API                | New API                                                                                        |
+| ---------------------- | ---------------------------------------------------------------------------------------------- |
+| `originConfigs`        | `defaultBehavior`; use `additionalBehaviors` if necessary                                      |
+| `viewerCertificate`    | `certificate`; use `domainNames` for aliases                                                   |
+| `errorConfigurations`  | `errorResponses`                                                                               |
+| `loggingConfig`        | `enableLogging`; configure with `logBucket` `logFilePrefix` and `logIncludesCookies`           |
+| `viewerProtocolPolicy` | removed; set on each behavior instead. default changed from `REDIRECT_TO_HTTPS` to `ALLOW_ALL` |
 
 After switching constructs, you need to maintain the same logical ID for the underlying [CfnDistribution](https://docs.aws.amazon.com/cdk/api/v1/docs/@aws-cdk_aws-cloudfront.CfnDistribution.html) if you wish to avoid the deletion and recreation of your distribution.
 To do this, use [escape hatches](https://docs.aws.amazon.com/cdk/v2/guide/cfn_layer.html) to override the logical ID created by the new Distribution construct with the logical ID created by the old construct.

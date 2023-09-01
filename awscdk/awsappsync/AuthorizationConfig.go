@@ -10,7 +10,7 @@ package awsappsync
 //
 //   appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 //   	Name: jsii.String("api"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.test.graphql"))),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.test.graphql"))),
 //   	AuthorizationConfig: &AuthorizationConfig{
 //   		DefaultAuthorization: &AuthorizationMode{
 //   			AuthorizationType: appsync.AuthorizationType_LAMBDA,

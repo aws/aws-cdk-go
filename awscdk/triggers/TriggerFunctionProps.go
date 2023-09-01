@@ -20,7 +20,7 @@ import (
 //
 //
 //   triggers.NewTriggerFunction(this, jsii.String("MyTrigger"), &TriggerFunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_18_X(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(jsii.String(__dirname + "/my-trigger")),
 //   })
@@ -233,6 +233,12 @@ type TriggerFunctionProps struct {
 	// group will be created for this function.
 	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// Enable SnapStart for Lambda Function.
+	//
+	// SnapStart is currently supported only for Java 11, 17 runtime.
+	// Default: - No snapstart.
+	//
+	SnapStart awslambda.SnapStartConf `field:"optional" json:"snapStart" yaml:"snapStart"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value

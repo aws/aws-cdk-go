@@ -28,6 +28,14 @@ type DockerBuildOptions struct {
 	// Default: - no build args.
 	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Cache from options to pass to the `docker build` command.
+	// Default: - no cache from args are passed.
+	//
+	CacheFrom *[]*DockerCacheOption `field:"optional" json:"cacheFrom" yaml:"cacheFrom"`
+	// Cache to options to pass to the `docker build` command.
+	// Default: - no cache to args are passed.
+	//
+	CacheTo *DockerCacheOption `field:"optional" json:"cacheTo" yaml:"cacheTo"`
 	// Name of the Dockerfile, must relative to the docker build path.
 	// Default: `Dockerfile`.
 	//

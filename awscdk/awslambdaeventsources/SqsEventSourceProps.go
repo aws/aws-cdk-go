@@ -11,8 +11,6 @@ import (
 //
 //   queue := sqs.NewQueue(this, jsii.String("MyQueue"), &QueueProps{
 //   	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(30)),
-//   	 // default,
-//   	ReceiveMessageWaitTime: awscdk.Duration_*Seconds(jsii.Number(20)),
 //   })
 //
 //   fn.AddEventSource(awscdk.NewSqsEventSource(queue, &SqsEventSourceProps{

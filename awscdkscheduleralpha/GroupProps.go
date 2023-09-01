@@ -5,22 +5,17 @@ import (
 )
 
 // Example:
+//   var target lambdaInvoke
+//
+//
 //   group := awscdkscheduleralpha.NewGroup(this, jsii.String("Group"), &GroupProps{
 //   	GroupName: jsii.String("MyGroup"),
 //   })
 //
-//   cloudwatch.NewAlarm(this, jsii.String("MyGroupErrorAlarm"), &AlarmProps{
-//   	Metric: group.metricTargetErrors(),
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(0),
-//   })
-//
-//   // Or use default group
-//   defaultGroup := awscdkscheduleralpha.Group_FromDefaultGroup(this, jsii.String("DefaultGroup"))
-//   cloudwatch.NewAlarm(this, jsii.String("DefaultGroupErrorAlarm"), &AlarmProps{
-//   	Metric: defaultGroup.MetricTargetErrors(),
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(0),
+//   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
+//   	Target: Target,
+//   	Group: Group,
 //   })
 //
 // Experimental.

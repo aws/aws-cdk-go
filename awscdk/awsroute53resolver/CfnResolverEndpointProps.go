@@ -67,9 +67,11 @@ type CfnResolverEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The ARN (Amazon Resource Name) for the Outpost.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-outpostarn
 	//
 	OutpostArn *string `field:"optional" json:"outpostArn" yaml:"outpostArn"`
+	// The Amazon EC2 instance type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-preferredinstancetype
 	//
 	PreferredInstanceType *string `field:"optional" json:"preferredInstanceType" yaml:"preferredInstanceType"`

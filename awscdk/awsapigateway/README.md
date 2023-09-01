@@ -8,37 +8,46 @@ running on AWS Lambda, or any web application.
 
 ## Table of Contents
 
-* [Defining APIs](#defining-apis)
+* [Amazon API Gateway Construct Library](#amazon-api-gateway-construct-library)
 
-  * [Breaking up Methods and Resources across Stacks](#breaking-up-methods-and-resources-across-stacks)
-* [AWS Lambda-backed APIs](#aws-lambda-backed-apis)
-* [AWS StepFunctions backed APIs](#aws-stepfunctions-backed-APIs)
-* [Integration Targets](#integration-targets)
-* [Usage Plan & API Keys](#usage-plan--api-keys)
-* [Working with models](#working-with-models)
-* [Default Integration and Method Options](#default-integration-and-method-options)
-* [Proxy Routes](#proxy-routes)
-* [Authorizers](#authorizers)
+  * [Table of Contents](#table-of-contents)
+  * [Defining APIs](#defining-apis)
+  * [AWS Lambda-backed APIs](#aws-lambda-backed-apis)
+  * [AWS StepFunctions backed APIs](#aws-stepfunctions-backed-apis)
 
-  * [IAM-based authorizer](#iam-based-authorizer)
-  * [Lambda-based token authorizer](#lambda-based-token-authorizer)
-  * [Lambda-based request authorizer](#lambda-based-request-authorizer)
-  * [Cognito User Pools authorizer](#cognito-user-pools-authorizer)
-* [Mutual TLS](#mutal-tls-mtls)
-* [Deployments](#deployments)
+    * [Breaking up Methods and Resources across Stacks](#breaking-up-methods-and-resources-across-stacks)
+  * [Integration Targets](#integration-targets)
+  * [Usage Plan & API Keys](#usage-plan--api-keys)
 
-  * [Deep dive: Invalidation of deployments](#deep-dive-invalidation-of-deployments)
-* [Custom Domains](#custom-domains)
-* [Access Logging](#access-logging)
-* [Cross Origin Resource Sharing (CORS)](#cross-origin-resource-sharing-cors)
-* [Endpoint Configuration](#endpoint-configuration)
-* [Private Integrations](#private-integrations)
-* [Gateway Response](#gateway-response)
-* [OpenAPI Definition](#openapi-definition)
+    * [Adding an API Key to an imported RestApi](#adding-an-api-key-to-an-imported-restapi)
+    * [⚠️ Multiple API Keys](#%EF%B8%8F-multiple-api-keys)
+    * [Rate Limited API Key](#rate-limited-api-key)
+  * [Working with models](#working-with-models)
+  * [Default Integration and Method Options](#default-integration-and-method-options)
+  * [Proxy Routes](#proxy-routes)
+  * [Authorizers](#authorizers)
 
-  * [Endpoint configuration](#endpoint-configuration)
-* [Metrics](#metrics)
-* [APIGateway v2](#apigateway-v2)
+    * [IAM-based authorizer](#iam-based-authorizer)
+    * [Lambda-based token authorizer](#lambda-based-token-authorizer)
+    * [Lambda-based request authorizer](#lambda-based-request-authorizer)
+    * [Cognito User Pools authorizer](#cognito-user-pools-authorizer)
+  * [Mutual TLS (mTLS)](#mutual-tls-mtls)
+  * [Deployments](#deployments)
+
+    * [Deep dive: Invalidation of deployments](#deep-dive-invalidation-of-deployments)
+  * [Custom Domains](#custom-domains)
+
+    * [Custom Domains with multi-level api mapping](#custom-domains-with-multi-level-api-mapping)
+  * [Access Logging](#access-logging)
+  * [Cross Origin Resource Sharing (CORS)](#cross-origin-resource-sharing-cors)
+  * [Endpoint Configuration](#endpoint-configuration)
+  * [Private Integrations](#private-integrations)
+  * [Gateway response](#gateway-response)
+  * [OpenAPI Definition](#openapi-definition)
+
+    * [Endpoint configuration](#endpoint-configuration-1)
+  * [Metrics](#metrics)
+  * [APIGateway v2](#apigateway-v2)
 
 ## Defining APIs
 
@@ -423,9 +432,10 @@ method is called. API Gateway supports the following integrations:
 
 * `MockIntegration` - can be used to test APIs. This is the default
   integration if one is not specified.
-* `LambdaIntegration` - can be used to invoke an AWS Lambda function.
 * `AwsIntegration` - can be used to invoke arbitrary AWS service APIs.
 * `HttpIntegration` - can be used to invoke HTTP endpoints.
+* `LambdaIntegration` - can be used to invoke an AWS Lambda function.
+* `SagemakerIntegration` - can be used to invoke Sagemaker Endpoints.
 
 The following example shows how to integrate the `GET /book/{book_id}` method to
 an AWS Lambda function:
@@ -635,7 +645,7 @@ have to define your models and mappings for the request, response, and integrati
 
 ```go
 hello := lambda.NewFunction(this, jsii.String("hello"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("hello.handler"),
 	Code: lambda.Code_FromAsset(jsii.String("lambda")),
 })
@@ -995,7 +1005,7 @@ func newMyStack(scope construct, id *string) *myStack {
 	newStack_Override(this, scope, id)
 
 	authorizerFn := lambda.NewFunction(this, jsii.String("MyAuthorizerFunction"), &FunctionProps{
-		Runtime: lambda.Runtime_NODEJS_14_X(),
+		Runtime: lambda.Runtime_NODEJS_LATEST(),
 		Handler: jsii.String("index.handler"),
 		Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
 	})
@@ -1092,7 +1102,7 @@ app := awscdk.NewApp()
 stack := awscdk.NewStack(app, jsii.String("RequestAuthorizerInteg"))
 
 authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_16_X(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 })

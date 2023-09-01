@@ -7,7 +7,7 @@ package awslambda
 //   layer := lambda.NewLayerVersion(stack, jsii.String("MyLayer"), &LayerVersionProps{
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("layer-code"))),
 //   	CompatibleRuntimes: []runtime{
-//   		lambda.*runtime_NODEJS_14_X(),
+//   		lambda.*runtime_NODEJS_16_X(),
 //   	},
 //   	License: jsii.String("Apache-2.0"),
 //   	Description: jsii.String("A layer to test the L2 construct"),
@@ -26,7 +26,7 @@ package awslambda
 //   lambda.NewFunction(stack, jsii.String("MyLayeredLambda"), &FunctionProps{
 //   	Code: lambda.NewInlineCode(jsii.String("foo")),
 //   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.*runtime_NODEJS_14_X(),
+//   	Runtime: lambda.*runtime_NODEJS_16_X(),
 //   	Layers: []iLayerVersion{
 //   		layer,
 //   	},

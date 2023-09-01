@@ -12,27 +12,30 @@ import (
 // An Origin for an HTTP server or S3 bucket configured for website hosting.
 //
 // Example:
-//   // Validating signed URLs or signed cookies with Trusted Key Groups
+//   // Adding realtime logs config to a Cloudfront Distribution on default behavior.
+//   import kinesis "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // public key in PEM format
-//   var publicKey string
+//   var stream stream
 //
-//   pubKey := cloudfront.NewPublicKey(this, jsii.String("MyPubKey"), &PublicKeyProps{
-//   	EncodedKey: publicKey,
-//   })
 //
-//   keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
-//   	Items: []iPublicKey{
-//   		pubKey,
+//   realTimeConfig := cloudfront.NewRealtimeLogConfig(this, jsii.String("realtimeLog"), &RealtimeLogConfigProps{
+//   	EndPoints: []endpoint{
+//   		cloudfront.*endpoint_FromKinesisStream(stream),
 //   	},
+//   	Fields: []*string{
+//   		jsii.String("timestamp"),
+//   		jsii.String("c-ip"),
+//   		jsii.String("time-to-first-byte"),
+//   		jsii.String("sc-status"),
+//   	},
+//   	RealtimeLogConfigName: jsii.String("my-delivery-stream"),
+//   	SamplingRate: jsii.Number(100),
 //   })
 //
-//   cloudfront.NewDistribution(this, jsii.String("Dist"), &DistributionProps{
+//   cloudfront.NewDistribution(this, jsii.String("myCdn"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
 //   		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
-//   		TrustedKeyGroups: []iKeyGroup{
-//   			keyGroup,
-//   		},
+//   		RealtimeLogConfig: realTimeConfig,
 //   	},
 //   })
 //

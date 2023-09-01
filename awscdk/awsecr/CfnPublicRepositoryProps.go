@@ -29,9 +29,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html
 //
 type CfnPublicRepositoryProps struct {
-	// The CatalogData property type specifies Catalog data for ECR Public Repository.
+	// The details about the repository that are publicly visible in the Amazon ECR Public Gallery.
 	//
-	// For information about Catalog Data, see <link>.
+	// For more information, see [Amazon ECR Public repository catalog data](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-catalog-data.html) in the *Amazon ECR Public User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositorycatalogdata
 	//
 	RepositoryCatalogData interface{} `field:"optional" json:"repositoryCatalogData" yaml:"repositoryCatalogData"`
