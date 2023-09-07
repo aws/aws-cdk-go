@@ -47,7 +47,7 @@ package awsstepfunctions
 //   })
 //
 //   // don't forget permissions. You need to assign them
-//   table.grantWriteData(sm)
+//   table.GrantWriteData(sm)
 //
 type CustomStateProps struct {
 	// Amazon States Language (JSON-based) definition of the state.

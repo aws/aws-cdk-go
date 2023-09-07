@@ -12,26 +12,37 @@ import (
 // A root construct which represents a single CloudFormation stack.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   app := core.NewApp()
-//   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
 //
-//   flinkApp := flink.NewApplication(stack, jsii.String("App"), &ApplicationProps{
-//   	Code: flink.ApplicationCode_FromAsset(path.join(__dirname, jsii.String("code-asset"))),
-//   	Runtime: flink.Runtime_FLINK_1_11(),
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+//   	Env: &Environment{
+//   		Region: jsii.String("us-west-2"),
+//   	},
 //   })
 //
-//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: flinkApp.metricFullRestarts(),
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(3),
-//   })
+//   stream1 := kinesis.NewStream(stack, jsii.String("Stream1"))
+//   stream2 := kinesis.Stream_FromStreamArn(stack, jsii.String("Stream2"), jsii.String("arn:aws:kinesis:us-east-2:123456789012:stream/my-stream"))
 //
-//   app.Synth()
+//   globalTable := dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TablePropsV2{
+//   	PartitionKey: &Attribute{
+//   		Name: jsii.String("id"),
+//   		Type: dynamodb.AttributeType_STRING,
+//   	},
+//   	KinesisStream: stream1,
+//   	 // for table in us-west-2
+//   	Replicas: []replicaTableProps{
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-1"),
+//   		},
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-2"),
+//   			KinesisStream: stream2,
+//   		},
+//   	},
+//   })
 //
 type Stack interface {
 	constructs.Construct

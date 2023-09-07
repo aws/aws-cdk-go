@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnFunction) validateSetEnvironmentParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetEphemeralStorageParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetEventInvokeConfigParameters(val interface{}) error {
 	return nil
 }

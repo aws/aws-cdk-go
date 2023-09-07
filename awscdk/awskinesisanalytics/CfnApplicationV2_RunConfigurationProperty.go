@@ -1,7 +1,7 @@
 package awskinesisanalytics
 
 
-// Describes the starting parameters for an Kinesis Data Analytics application.
+// Describes the starting parameters for an Managed Service for Apache Flink application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,7 +27,7 @@ type CfnApplicationV2_RunConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html#cfn-kinesisanalyticsv2-application-runconfiguration-applicationrestoreconfiguration
 	//
 	ApplicationRestoreConfiguration interface{} `field:"optional" json:"applicationRestoreConfiguration" yaml:"applicationRestoreConfiguration"`
-	// Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+	// Describes the starting parameters for a Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html#cfn-kinesisanalyticsv2-application-runconfiguration-flinkrunconfiguration
 	//
 	FlinkRunConfiguration interface{} `field:"optional" json:"flinkRunConfiguration" yaml:"flinkRunConfiguration"`

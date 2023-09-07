@@ -24,8 +24,6 @@ type StringParameter interface {
 	IParameter
 	IStringParameter
 	// The encryption key that is used to encrypt this parameter.
-	//
-	// *.
 	// Default: - default master key.
 	//
 	EncryptionKey() awskms.IKey

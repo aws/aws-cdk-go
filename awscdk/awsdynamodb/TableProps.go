@@ -9,28 +9,50 @@ import (
 // Properties for a DynamoDB Table.
 //
 // Example:
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+//   // create a table
+//   table := dynamodb.NewTable(this, jsii.String("montable"), &TableProps{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("id"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
 //   })
 //
-//   metric := table.metricThrottledRequestsForOperations(&OperationsMetricOptions{
-//   	Operations: []operation{
-//   		dynamodb.*operation_PUT_ITEM,
+//   finalStatus := sfn.NewPass(this, jsii.String("final step"))
+//
+//   // States language JSON to put an item into DynamoDB
+//   // snippet generated from https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-code-snippet.html#tutorial-code-snippet-1
+//   stateJson := map[string]interface{}{
+//   	"Type": jsii.String("Task"),
+//   	"Resource": jsii.String("arn:aws:states:::dynamodb:putItem"),
+//   	"Parameters": map[string]interface{}{
+//   		"TableName": table.tableName,
+//   		"Item": map[string]map[string]*string{
+//   			"id": map[string]*string{
+//   				"S": jsii.String("MyEntry"),
+//   			},
+//   		},
 //   	},
-//   	Period: awscdk.Duration_Minutes(jsii.Number(1)),
+//   	"ResultPath": nil,
+//   }
+//
+//   // custom state which represents a task to insert data into DynamoDB
+//   custom := sfn.NewCustomState(this, jsii.String("my custom task"), &CustomStateProps{
+//   	StateJson: StateJson,
 //   })
 //
-//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: metric,
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(1),
+//   chain := sfn.Chain_Start(custom).Next(finalStatus)
+//
+//   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+//   	Definition: chain,
+//   	Timeout: awscdk.Duration_Seconds(jsii.Number(30)),
+//   	Comment: jsii.String("a super cool state machine"),
 //   })
+//
+//   // don't forget permissions. You need to assign them
+//   table.GrantWriteData(sm)
 //
 type TableProps struct {
 	// Partition key attribute definition.

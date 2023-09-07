@@ -23,6 +23,7 @@ package awsmedialive
 //   		VbrQuality: jsii.String("vbrQuality"),
 //   	},
 //   	Ac3Settings: &Ac3SettingsProperty{
+//   		AttenuationControl: jsii.String("attenuationControl"),
 //   		Bitrate: jsii.Number(123),
 //   		BitstreamMode: jsii.String("bitstreamMode"),
 //   		CodingMode: jsii.String("codingMode"),

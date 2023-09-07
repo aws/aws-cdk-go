@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnFindingsFilter) validateSetNameParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnFindingsFilter) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFindingsFilterParameters(scope constructs.Construct, id *string, props *CfnFindingsFilterProps) error {
 	return nil
 }

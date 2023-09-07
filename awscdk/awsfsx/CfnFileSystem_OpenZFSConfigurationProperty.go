@@ -20,9 +20,11 @@ package awsfsx
 //   		Iops: jsii.Number(123),
 //   		Mode: jsii.String("mode"),
 //   	},
+//   	EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
 //   	Options: []*string{
 //   		jsii.String("options"),
 //   	},
+//   	PreferredSubnetId: jsii.String("preferredSubnetId"),
 //   	RootVolumeConfiguration: &RootVolumeConfigurationProperty{
 //   		CopyTagsToSnapshots: jsii.Boolean(false),
 //   		DataCompressionType: jsii.String("dataCompressionType"),
@@ -47,6 +49,9 @@ package awsfsx
 //   				Type: jsii.String("type"),
 //   			},
 //   		},
+//   	},
+//   	RouteTableIds: []*string{
+//   		jsii.String("routeTableIds"),
 //   	},
 //   	ThroughputCapacity: jsii.Number(123),
 //   	WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
@@ -97,24 +102,42 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration
 	//
 	DiskIopsConfiguration interface{} `field:"optional" json:"diskIopsConfiguration" yaml:"diskIopsConfiguration"`
+	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+	//
+	// By default in the Amazon FSx API and Amazon FSx console, Amazon FSx selects an available /28 IP address range for you from one of the VPC's CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed in the same VPC/route tables.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-endpointipaddressrange
+	//
+	EndpointIpAddressRange *string `field:"optional" json:"endpointIpAddressRange" yaml:"endpointIpAddressRange"`
 	// To delete a file system if there are child volumes present below the root volume, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` .
 	//
 	// If your file system has child volumes and you don't use this option, the delete request will fail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-options
 	//
 	Options *[]*string `field:"optional" json:"options" yaml:"options"`
+	// Required when `DeploymentType` is set to `MULTI_AZ_1` .
+	//
+	// This specifies the subnet in which you want the preferred file server to be located.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-preferredsubnetid
+	//
+	PreferredSubnetId *string `field:"optional" json:"preferredSubnetId" yaml:"preferredSubnetId"`
 	// The configuration Amazon FSx uses when creating the root value of the Amazon FSx for OpenZFS file system.
 	//
 	// All volumes are children of the root volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration
 	//
 	RootVolumeConfiguration interface{} `field:"optional" json:"rootVolumeConfiguration" yaml:"rootVolumeConfiguration"`
+	// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server.
+	//
+	// You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-routetableids
+	//
+	RouteTableIds *[]*string `field:"optional" json:"routeTableIds" yaml:"routeTableIds"`
 	// Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MBps).
 	//
 	// Valid values depend on the DeploymentType you choose, as follows:
 	//
+	// - For `MULTI_AZ_1` and `SINGLE_AZ_2` , valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.
 	// - For `SINGLE_AZ_1` , valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps.
-	// - For `SINGLE_AZ_2` , valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.
 	//
 	// You pay for additional throughput capacity that you provision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-throughputcapacity

@@ -27,7 +27,7 @@ type CfnContainerRecipe_ComponentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
 	//
 	ComponentArn *string `field:"optional" json:"componentArn" yaml:"componentArn"`
-	// A group of parameter settings that are used to configure the component for a specific recipe.
+	// A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

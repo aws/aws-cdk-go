@@ -20,6 +20,10 @@ package awsquicksight
 //
 //   	// the properties below are optional
 //   	DisplayOptions: &SliderControlDisplayOptionsProperty{
+//   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   			InfoIconText: jsii.String("infoIconText"),
+//   			Visibility: jsii.String("visibility"),
+//   		},
 //   		TitleOptions: &LabelOptionsProperty{
 //   			CustomLabel: jsii.String("customLabel"),
 //   			FontConfiguration: &FontConfigurationProperty{

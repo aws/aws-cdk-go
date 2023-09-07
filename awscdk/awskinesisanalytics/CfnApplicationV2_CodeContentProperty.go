@@ -1,7 +1,7 @@
 package awskinesisanalytics
 
 
-// Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
+// Specifies either the application code, or the location of the application code, for a Managed Service for Apache Flink application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,11 +27,11 @@ type CfnApplicationV2_CodeContentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-s3contentlocation
 	//
 	S3ContentLocation interface{} `field:"optional" json:"s3ContentLocation" yaml:"s3ContentLocation"`
-	// The text-format code for a Flink-based Kinesis Data Analytics application.
+	// The text-format code for a Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-textcontent
 	//
 	TextContent *string `field:"optional" json:"textContent" yaml:"textContent"`
-	// The zip-format code for a Flink-based Kinesis Data Analytics application.
+	// The zip-format code for a Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-zipfilecontent
 	//
 	ZipFileContent *string `field:"optional" json:"zipFileContent" yaml:"zipFileContent"`

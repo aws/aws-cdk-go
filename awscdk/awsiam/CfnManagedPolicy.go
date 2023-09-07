@@ -47,7 +47,15 @@ import (
 type CfnManagedPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrAttachmentCount() *float64
+	AttrCreateDate() *string
+	AttrDefaultVersionId() *string
 	AttrId() *string
+	AttrIsAttachable() awscdk.IResolvable
+	AttrPermissionsBoundaryUsageCount() *float64
+	AttrPolicyArn() *string
+	AttrPolicyId() *string
+	AttrUpdateDate() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -245,11 +253,91 @@ type jsiiProxy_CfnManagedPolicy struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnManagedPolicy) AttrAttachmentCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrAttachmentCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnManagedPolicy) AttrCreateDate() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreateDate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnManagedPolicy) AttrDefaultVersionId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDefaultVersionId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnManagedPolicy) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnManagedPolicy) AttrIsAttachable() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrIsAttachable",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnManagedPolicy) AttrPermissionsBoundaryUsageCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrPermissionsBoundaryUsageCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnManagedPolicy) AttrPolicyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPolicyArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnManagedPolicy) AttrPolicyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPolicyId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnManagedPolicy) AttrUpdateDate() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUpdateDate",
 		&returns,
 	)
 	return returns

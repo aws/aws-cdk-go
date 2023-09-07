@@ -10,13 +10,18 @@ import (
 // Extract a field from the State Machine data or context that gets passed around between states.
 //
 // Example:
-//   tasks.NewSageMakerCreateModel(this, jsii.String("Sagemaker"), &SageMakerCreateModelProps{
-//   	ModelName: jsii.String("MyModel"),
-//   	PrimaryContainer: tasks.NewContainerDefinition(&ContainerDefinitionOptions{
-//   		Image: tasks.DockerImage_FromJsonExpression(sfn.JsonPath_StringAt(jsii.String("$.Model.imageName"))),
-//   		Mode: tasks.Mode_SINGLE_MODEL,
-//   		ModelS3Location: tasks.S3Location_FromJsonExpression(jsii.String("$.TrainingJob.ModelArtifacts.S3ModelArtifacts")),
-//   	}),
+//   submitJobActivity := sfn.NewActivity(this, jsii.String("SubmitJob"))
+//
+//   tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &StepFunctionsInvokeActivityProps{
+//   	Activity: submitJobActivity,
+//   	Parameters: map[string]interface{}{
+//   		"comment": jsii.String("Selecting what I care about."),
+//   		"MyDetails": map[string]interface{}{
+//   			"size": sfn.JsonPath_stringAt(jsii.String("$.product.details.size")),
+//   			"exists": sfn.JsonPath_stringAt(jsii.String("$.product.availability")),
+//   			"StaticValue": jsii.String("foo"),
+//   		},
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-paths.html

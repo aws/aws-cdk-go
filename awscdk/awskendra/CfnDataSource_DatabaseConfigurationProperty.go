@@ -1,7 +1,7 @@
 package awskendra
 
 
-// Provides the configuration information to connect to a index.
+// Provides the configuration information to an [Amazon Kendra supported database](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

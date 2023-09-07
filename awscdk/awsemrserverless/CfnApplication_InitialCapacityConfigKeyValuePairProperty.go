@@ -1,8 +1,6 @@
 package awsemrserverless
 
 
-// The initial capacity configuration per worker.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,19 +23,10 @@ package awsemrserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html
 //
 type CfnApplication_InitialCapacityConfigKeyValuePairProperty struct {
-	// The worker type for an analytics framework.
-	//
-	// For Spark applications, the key can either be set to `Driver` or `Executor` . For Hive applications, it can be set to `HiveDriver` or `TezTask` .
-	//
-	// *Minimum* : 1
-	//
-	// *Maximum* : 50
-	//
-	// *Pattern* : `^[a-zA-Z]+[-_]*[a-zA-Z]+$`.
+	// Worker type for an analytics framework.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html#cfn-emrserverless-application-initialcapacityconfigkeyvaluepair-key
 	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// The value for the initial capacity configuration per worker.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html#cfn-emrserverless-application-initialcapacityconfigkeyvaluepair-value
 	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`

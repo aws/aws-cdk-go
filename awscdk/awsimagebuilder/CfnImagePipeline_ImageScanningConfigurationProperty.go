@@ -1,9 +1,7 @@
 package awsimagebuilder
 
 
-// Determines if tests should run after building the image.
-//
-// Image Builder defaults to enable tests to run following the image build, before image distribution.
+// Contains settings for Image Builder image resource and container image scans.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,11 +21,11 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagescanningconfiguration.html
 //
 type CfnImagePipeline_ImageScanningConfigurationProperty struct {
-	// Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+	// Contains Amazon ECR settings for vulnerability scans.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagescanningconfiguration.html#cfn-imagebuilder-imagepipeline-imagescanningconfiguration-ecrconfiguration
 	//
 	EcrConfiguration interface{} `field:"optional" json:"ecrConfiguration" yaml:"ecrConfiguration"`
-	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	// A setting that indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagescanningconfiguration.html#cfn-imagebuilder-imagepipeline-imagescanningconfiguration-imagescanningenabled
 	//
 	ImageScanningEnabled interface{} `field:"optional" json:"imageScanningEnabled" yaml:"imageScanningEnabled"`

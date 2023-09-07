@@ -91,6 +91,8 @@ type CfnFleet interface {
 	// The maximum number of concurrent sessions that can be run on an Elastic fleet.
 	MaxConcurrentSessions() *float64
 	SetMaxConcurrentSessions(val *float64)
+	MaxSessionsPerInstance() *float64
+	SetMaxSessionsPerInstance(val *float64)
 	// The maximum amount of time that a streaming session can remain active, in seconds.
 	MaxUserDurationInSeconds() *float64
 	SetMaxUserDurationInSeconds(val *float64)
@@ -465,6 +467,16 @@ func (j *jsiiProxy_CfnFleet) MaxConcurrentSessions() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) MaxSessionsPerInstance() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maxSessionsPerInstance",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) MaxUserDurationInSeconds() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -745,6 +757,14 @@ func (j *jsiiProxy_CfnFleet)SetMaxConcurrentSessions(val *float64) {
 	_jsii_.Set(
 		j,
 		"maxConcurrentSessions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetMaxSessionsPerInstance(val *float64) {
+	_jsii_.Set(
+		j,
+		"maxSessionsPerInstance",
 		val,
 	)
 }

@@ -15,6 +15,17 @@ package awsquicksight
 //   	},
 //
 //   	// the properties below are optional
+//   	ColorsConfiguration: &ColorsConfigurationProperty{
+//   		CustomColors: []interface{}{
+//   			&CustomColorProperty{
+//   				Color: jsii.String("color"),
+//
+//   				// the properties below are optional
+//   				FieldValue: jsii.String("fieldValue"),
+//   				SpecialValue: jsii.String("specialValue"),
+//   			},
+//   		},
+//   	},
 //   	FormatConfiguration: &FormatConfigurationProperty{
 //   		DateTimeFormatConfiguration: &DateTimeFormatConfigurationProperty{
 //   			DateTimeFormat: jsii.String("dateTimeFormat"),
@@ -235,6 +246,10 @@ type CfnDashboard_ColumnConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columnconfiguration.html#cfn-quicksight-dashboard-columnconfiguration-column
 	//
 	Column interface{} `field:"required" json:"column" yaml:"column"`
+	// The color configurations of the column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columnconfiguration.html#cfn-quicksight-dashboard-columnconfiguration-colorsconfiguration
+	//
+	ColorsConfiguration interface{} `field:"optional" json:"colorsConfiguration" yaml:"colorsConfiguration"`
 	// The format configuration of a column.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columnconfiguration.html#cfn-quicksight-dashboard-columnconfiguration-formatconfiguration
 	//

@@ -15,6 +15,10 @@ package awsquicksight
 //
 //   	// the properties below are optional
 //   	DisplayOptions: &TextFieldControlDisplayOptionsProperty{
+//   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   			InfoIconText: jsii.String("infoIconText"),
+//   			Visibility: jsii.String("visibility"),
+//   		},
 //   		PlaceholderOptions: &TextControlPlaceholderOptionsProperty{
 //   			Visibility: jsii.String("visibility"),
 //   		},

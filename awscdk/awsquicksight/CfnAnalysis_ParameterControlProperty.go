@@ -19,6 +19,10 @@ package awsquicksight
 //   		// the properties below are optional
 //   		DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
 //   			DateTimeFormat: jsii.String("dateTimeFormat"),
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
 //   			TitleOptions: &LabelOptionsProperty{
 //   				CustomLabel: jsii.String("customLabel"),
 //   				FontConfiguration: &FontConfigurationProperty{
@@ -54,6 +58,10 @@ package awsquicksight
 //   			},
 //   		},
 //   		DisplayOptions: &DropDownControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
 //   			SelectAllOptions: &ListControlSelectAllOptionsProperty{
 //   				Visibility: jsii.String("visibility"),
 //   			},
@@ -102,6 +110,10 @@ package awsquicksight
 //   			},
 //   		},
 //   		DisplayOptions: &ListControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
 //   			SearchOptions: &ListControlSearchOptionsProperty{
 //   				Visibility: jsii.String("visibility"),
 //   			},
@@ -145,6 +157,10 @@ package awsquicksight
 //
 //   		// the properties below are optional
 //   		DisplayOptions: &SliderControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
 //   			TitleOptions: &LabelOptionsProperty{
 //   				CustomLabel: jsii.String("customLabel"),
 //   				FontConfiguration: &FontConfigurationProperty{
@@ -170,6 +186,10 @@ package awsquicksight
 //   		// the properties below are optional
 //   		Delimiter: jsii.String("delimiter"),
 //   		DisplayOptions: &TextAreaControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
 //   			PlaceholderOptions: &TextControlPlaceholderOptionsProperty{
 //   				Visibility: jsii.String("visibility"),
 //   			},
@@ -197,6 +217,10 @@ package awsquicksight
 //
 //   		// the properties below are optional
 //   		DisplayOptions: &TextFieldControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
 //   			PlaceholderOptions: &TextControlPlaceholderOptionsProperty{
 //   				Visibility: jsii.String("visibility"),
 //   			},

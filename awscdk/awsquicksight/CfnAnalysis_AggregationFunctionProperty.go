@@ -11,6 +11,10 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   aggregationFunctionProperty := &AggregationFunctionProperty{
+//   	AttributeAggregationFunction: &AttributeAggregationFunctionProperty{
+//   		SimpleAttributeAggregation: jsii.String("simpleAttributeAggregation"),
+//   		ValueForMultipleValues: jsii.String("valueForMultipleValues"),
+//   	},
 //   	CategoricalAggregationFunction: jsii.String("categoricalAggregationFunction"),
 //   	DateAggregationFunction: jsii.String("dateAggregationFunction"),
 //   	NumericalAggregationFunction: &NumericalAggregationFunctionProperty{
@@ -24,6 +28,10 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-aggregationfunction.html
 //
 type CfnAnalysis_AggregationFunctionProperty struct {
+	// Aggregation for attributes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-aggregationfunction.html#cfn-quicksight-analysis-aggregationfunction-attributeaggregationfunction
+	//
+	AttributeAggregationFunction interface{} `field:"optional" json:"attributeAggregationFunction" yaml:"attributeAggregationFunction"`
 	// Aggregation for categorical values.
 	//
 	// - `COUNT` : Aggregate by the total number of values, including duplicates.

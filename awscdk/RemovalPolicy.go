@@ -30,48 +30,32 @@ package awscdk
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api graphqlApi
 //
-//
-//   user := iam.NewUser(this, jsii.String("User"))
-//   domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-//   	Version: opensearch.EngineVersion_OPENSEARCH_2_3(),
-//   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
-//   	FineGrainedAccessControl: &AdvancedSecurityOptions{
-//   		MasterUserArn: user.UserArn,
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+//   	Env: &Environment{
+//   		Region: jsii.String("us-west-2"),
 //   	},
-//   	EncryptionAtRest: &EncryptionAtRestOptions{
-//   		Enabled: jsii.Boolean(true),
-//   	},
-//   	NodeToNodeEncryption: jsii.Boolean(true),
-//   	EnforceHttps: jsii.Boolean(true),
 //   })
-//   ds := api.AddOpenSearchDataSource(jsii.String("ds"), domain)
 //
-//   ds.CreateResolver(jsii.String("QueryGetTestsResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Query"),
-//   	FieldName: jsii.String("getTests"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_FromString(jSON.stringify(map[string]interface{}{
-//   		"version": jsii.String("2017-02-28"),
-//   		"operation": jsii.String("GET"),
-//   		"path": jsii.String("/id/post/_search"),
-//   		"params": map[string]map[string]interface{}{
-//   			"headers": map[string]interface{}{
-//   			},
-//   			"queryString": map[string]interface{}{
-//   			},
-//   			"body": map[string]*f64{
-//   				"from": jsii.Number(0),
-//   				"size": jsii.Number(50),
-//   			},
+//   globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+//   	PartitionKey: &Attribute{
+//   		Name: jsii.String("pk"),
+//   		Type: dynamodb.AttributeType_STRING,
+//   	},
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+//   	DeletionProtection: jsii.Boolean(true),
+//   	// only the replica in us-east-1 will be deleted during stack deletion
+//   	Replicas: []replicaTableProps{
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-1"),
+//   			DeletionProtection: jsii.Boolean(false),
 //   		},
-//   	})),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`[
-//   	    #foreach($entry in $context.result.hits.hits)
-//   	    #if( $velocityCount > 1 ) , #end
-//   	    $utils.toJson($entry.get("_source"))
-//   	    #end
-//   	  ]`)),
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-2"),
+//   			DeletionProtection: jsii.Boolean(true),
+//   		},
+//   	},
 //   })
 //
 type RemovalPolicy string

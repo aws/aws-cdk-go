@@ -11,7 +11,7 @@ import (
 
 // An image pipeline is the automation configuration for building secure OS images on AWS .
 //
-// The Image Builder image pipeline is associated with an image recipe that defines the build, validation, and test phases for an image build lifecycle. An image pipeline can be associated with an infrastructure configuration that defines where your image is built. You can define attributes, such as instance type, subnets, security groups, logging, and other infrastructure-related configurations. You can also associate your image pipeline with a distribution configuration to define how you would like to deploy your image.
+// The Image Builder image pipeline is associated with an image recipe that defines the build, validation, and test phases for an image build lifecycle. An image pipeline can be associated with an infrastructure configuration that defines where your image is built. You can define attributes, such as instance types, a subnet for your VPC, security groups, logging, and other infrastructure-related configurations. You can also associate your image pipeline with a distribution configuration to define how you would like to deploy your image.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -87,7 +87,7 @@ type CfnImagePipeline interface {
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
-	// Determines if tests should run after building the image.
+	// Contains settings for vulnerability scans.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
 	// The configuration of the image tests that run after image creation to ensure the quality of the image that was created.

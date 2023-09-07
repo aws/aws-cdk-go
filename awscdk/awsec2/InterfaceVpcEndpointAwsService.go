@@ -2365,6 +2365,17 @@ func InterfaceVpcEndpointAwsService_TRANSLATE() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_VERIFIED_PERMISSIONS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"VERIFIED_PERMISSIONS",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_WORKSPACES() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

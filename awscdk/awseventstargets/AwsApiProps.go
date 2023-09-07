@@ -36,10 +36,7 @@ type AwsApiProps struct {
 	//
 	Service *string `field:"required" json:"service" yaml:"service"`
 	// API version to use for the service.
-	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
-	//
-	// Default: - use latest available API version.
-	//
+	// Deprecated: the handler code was migrated to AWS SDK for JavaScript v3, which does not support this feature anymore.
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The regex pattern to use to catch API errors.
 	//

@@ -4,23 +4,33 @@ package awsdynamodb
 // Properties for a local secondary index.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   localSecondaryIndexProps := &LocalSecondaryIndexProps{
-//   	IndexName: jsii.String("indexName"),
+//   table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+//   	PartitionKey: &Attribute{
+//   		Name: jsii.String("pk"),
+//   		Type: dynamodb.AttributeType_STRING,
+//   	},
 //   	SortKey: &Attribute{
-//   		Name: jsii.String("name"),
-//   		Type: awscdk.Aws_dynamodb.AttributeType_BINARY,
+//   		Name: jsii.String("sk"),
+//   		Type: dynamodb.AttributeType_NUMBER,
 //   	},
+//   	LocalSecondaryIndexes: []localSecondaryIndexProps{
+//   		&localSecondaryIndexProps{
+//   			IndexName: jsii.String("lsi1"),
+//   			SortKey: &Attribute{
+//   				Name: jsii.String("sk"),
+//   				Type: dynamodb.AttributeType_NUMBER,
+//   			},
+//   		},
+//   	},
+//   })
 //
-//   	// the properties below are optional
-//   	NonKeyAttributes: []*string{
-//   		jsii.String("nonKeyAttributes"),
+//   table.AddLocalSecondaryIndex(&localSecondaryIndexProps{
+//   	IndexName: jsii.String("lsi2"),
+//   	SortKey: &Attribute{
+//   		Name: jsii.String("sk"),
+//   		Type: dynamodb.AttributeType_NUMBER,
 //   	},
-//   	ProjectionType: awscdk.*Aws_dynamodb.ProjectionType_KEYS_ONLY,
-//   }
+//   })
 //
 type LocalSecondaryIndexProps struct {
 	// The name of the secondary index.

@@ -452,6 +452,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "instanceType", GoGetter: "InstanceType"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maxConcurrentSessions", GoGetter: "MaxConcurrentSessions"},
+			_jsii_.MemberProperty{JsiiProperty: "maxSessionsPerInstance", GoGetter: "MaxSessionsPerInstance"},
 			_jsii_.MemberProperty{JsiiProperty: "maxUserDurationInSeconds", GoGetter: "MaxUserDurationInSeconds"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},

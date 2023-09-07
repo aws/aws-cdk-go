@@ -1,7 +1,7 @@
 package awskinesisanalytics
 
 
-// Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
+// Describes configuration parameters for a Managed Service for Apache Flink application or a Studio notebook.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

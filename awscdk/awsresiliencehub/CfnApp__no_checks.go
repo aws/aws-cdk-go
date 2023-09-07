@@ -84,7 +84,15 @@ func (j *jsiiProxy_CfnApp) validateSetAppTemplateBodyParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnApp) validateSetEventSubscriptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApp) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApp) validateSetPermissionModelParameters(val interface{}) error {
 	return nil
 }
 

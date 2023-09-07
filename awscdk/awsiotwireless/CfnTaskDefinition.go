@@ -92,6 +92,7 @@ type CfnTaskDefinition interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// LoRaWANUpdateGatewayTaskEntry object.
 	LoRaWanUpdateGatewayTaskEntry() interface{}
 	SetLoRaWanUpdateGatewayTaskEntry(val interface{})
 	// The name of the new resource.

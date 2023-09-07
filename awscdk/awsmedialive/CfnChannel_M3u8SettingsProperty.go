@@ -14,6 +14,8 @@ package awsmedialive
 //   	AudioFramesPerPes: jsii.Number(123),
 //   	AudioPids: jsii.String("audioPids"),
 //   	EcmPid: jsii.String("ecmPid"),
+//   	KlvBehavior: jsii.String("klvBehavior"),
+//   	KlvDataPids: jsii.String("klvDataPids"),
 //   	NielsenId3Behavior: jsii.String("nielsenId3Behavior"),
 //   	PatInterval: jsii.Number(123),
 //   	PcrControl: jsii.String("pcrControl"),
@@ -47,6 +49,12 @@ type CfnChannel_M3u8SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m3u8settings.html#cfn-medialive-channel-m3u8settings-ecmpid
 	//
 	EcmPid *string `field:"optional" json:"ecmPid" yaml:"ecmPid"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m3u8settings.html#cfn-medialive-channel-m3u8settings-klvbehavior
+	//
+	KlvBehavior *string `field:"optional" json:"klvBehavior" yaml:"klvBehavior"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m3u8settings.html#cfn-medialive-channel-m3u8settings-klvdatapids
+	//
+	KlvDataPids *string `field:"optional" json:"klvDataPids" yaml:"klvDataPids"`
 	// If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m3u8settings.html#cfn-medialive-channel-m3u8settings-nielsenid3behavior
 	//

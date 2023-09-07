@@ -34,6 +34,7 @@ package awsbackup
 //   		"recoveryPointTagsKey": jsii.String("recoveryPointTags"),
 //   	},
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
+//   	ScheduleExpressionTimezone: jsii.String("scheduleExpressionTimezone"),
 //   	StartWindowMinutes: jsii.Number(123),
 //   }
 //
@@ -78,6 +79,9 @@ type CfnBackupPlan_BackupRuleResourceTypeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
 	//
 	ScheduleExpression *string `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpressiontimezone
+	//
+	ScheduleExpressionTimezone *string `field:"optional" json:"scheduleExpressionTimezone" yaml:"scheduleExpressionTimezone"`
 	// An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully.
 	//
 	// If this value is included, it must be at least 60 minutes to avoid errors.

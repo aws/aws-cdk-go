@@ -1,7 +1,7 @@
 package awskinesisanalytics
 
 
-// Specifies the creation parameters for a Kinesis Data Analytics application.
+// Specifies the creation parameters for a Managed Service for Apache Flink application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -164,23 +164,23 @@ package awskinesisanalytics
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html
 //
 type CfnApplicationV2_ApplicationConfigurationProperty struct {
-	// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
+	// The code location and type parameters for a Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationcodeconfiguration
 	//
 	ApplicationCodeConfiguration interface{} `field:"optional" json:"applicationCodeConfiguration" yaml:"applicationCodeConfiguration"`
-	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+	// Describes whether snapshots are enabled for a Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsnapshotconfiguration
 	//
 	ApplicationSnapshotConfiguration interface{} `field:"optional" json:"applicationSnapshotConfiguration" yaml:"applicationSnapshotConfiguration"`
-	// Describes execution properties for a Flink-based Kinesis Data Analytics application.
+	// Describes execution properties for a Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-environmentproperties
 	//
 	EnvironmentProperties interface{} `field:"optional" json:"environmentProperties" yaml:"environmentProperties"`
-	// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
+	// The creation and update parameters for a Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-flinkapplicationconfiguration
 	//
 	FlinkApplicationConfiguration interface{} `field:"optional" json:"flinkApplicationConfiguration" yaml:"flinkApplicationConfiguration"`
-	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
+	// The creation and update parameters for a SQL-based Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-sqlapplicationconfiguration
 	//
 	SqlApplicationConfiguration interface{} `field:"optional" json:"sqlApplicationConfiguration" yaml:"sqlApplicationConfiguration"`

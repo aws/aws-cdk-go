@@ -66,9 +66,11 @@ import (
 //   			Iops: jsii.Number(123),
 //   			Mode: jsii.String("mode"),
 //   		},
+//   		EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
 //   		Options: []*string{
 //   			jsii.String("options"),
 //   		},
+//   		PreferredSubnetId: jsii.String("preferredSubnetId"),
 //   		RootVolumeConfiguration: &RootVolumeConfigurationProperty{
 //   			CopyTagsToSnapshots: jsii.Boolean(false),
 //   			DataCompressionType: jsii.String("dataCompressionType"),
@@ -93,6 +95,9 @@ import (
 //   					Type: jsii.String("type"),
 //   				},
 //   			},
+//   		},
+//   		RouteTableIds: []*string{
+//   			jsii.String("routeTableIds"),
 //   		},
 //   		ThroughputCapacity: jsii.Number(123),
 //   		WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
@@ -127,6 +132,10 @@ import (
 //   		CopyTagsToBackups: jsii.Boolean(false),
 //   		DailyAutomaticBackupStartTime: jsii.String("dailyAutomaticBackupStartTime"),
 //   		DeploymentType: jsii.String("deploymentType"),
+//   		DiskIopsConfiguration: &DiskIopsConfigurationProperty{
+//   			Iops: jsii.Number(123),
+//   			Mode: jsii.String("mode"),
+//   		},
 //   		PreferredSubnetId: jsii.String("preferredSubnetId"),
 //   		SelfManagedActiveDirectoryConfiguration: &SelfManagedActiveDirectoryConfigurationProperty{
 //   			DnsIps: []*string{
@@ -165,10 +174,10 @@ type CfnFileSystemProps struct {
 	BackupId *string `field:"optional" json:"backupId" yaml:"backupId"`
 	// (Optional) For FSx for Lustre file systems, sets the Lustre version for the file system that you're creating.
 	//
-	// Valid values are `2.10` and `2.12` :
+	// Valid values are `2.10` , `2.12` , and `2.15` :
 	//
 	// - 2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.
-	// - 2.12 is supported by all Lustre deployment types. `2.12` is required when setting FSx for Lustre `DeploymentType` to `PERSISTENT_2` .
+	// - 2.12 and 2.15 are supported by all Lustre deployment types. `2.12` or `2.15` is required when setting FSx for Lustre `DeploymentType` to `PERSISTENT_2` .
 	//
 	// Default value = `2.10` , except when `DeploymentType` is set to `PERSISTENT_2` , then the default is `2.12` .
 	//

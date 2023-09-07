@@ -4,27 +4,34 @@ package awsdynamodb
 // Represents an attribute for describing the key schema for the table and indexes.
 //
 // Example:
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+//   	Env: &Environment{
+//   		Region: jsii.String("us-west-2"),
+//   	},
+//   })
+//
+//   globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
 //   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
+//   		Name: jsii.String("pk"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   })
-//
-//   metric := table.metricThrottledRequestsForOperations(&OperationsMetricOptions{
-//   	Operations: []operation{
-//   		dynamodb.*operation_PUT_ITEM,
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+//   	DeletionProtection: jsii.Boolean(true),
+//   	// only the replica in us-east-1 will be deleted during stack deletion
+//   	Replicas: []replicaTableProps{
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-1"),
+//   			DeletionProtection: jsii.Boolean(false),
+//   		},
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-2"),
+//   			DeletionProtection: jsii.Boolean(true),
+//   		},
 //   	},
-//   	Period: awscdk.Duration_Minutes(jsii.Number(1)),
-//   })
-//
-//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: metric,
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(1),
 //   })
 //
 type Attribute struct {

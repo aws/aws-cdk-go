@@ -4,26 +4,33 @@ package awsdynamodb
 // When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
 //
 // Example:
-//   import eventsources "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import kinesis "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fn function
 //
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+//   	Env: &Environment{
+//   		Region: jsii.String("us-west-2"),
+//   	},
+//   })
+//
+//   globalTable := dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TablePropsV2{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("id"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	Stream: dynamodb.StreamViewType_NEW_IMAGE,
-//   })
-//   fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
-//   	StartingPosition: lambda.StartingPosition_LATEST,
-//   	Filters: []map[string]interface{}{
-//   		lambda.FilterCriteria_Filter(map[string]interface{}{
-//   			"eventName": lambda.FilterRule_isEqual(jsii.String("INSERT")),
-//   		}),
+//   	DynamoStream: dynamodb.StreamViewType_OLD_IMAGE,
+//   	// tables in us-west-2, us-east-1, and us-east-2 all have dynamo stream type of OLD_IMAGES
+//   	Replicas: []replicaTableProps{
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-1"),
+//   		},
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-2"),
+//   		},
 //   	},
-//   }))
+//   })
 //
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StreamSpecification.html
 //

@@ -62,6 +62,7 @@ import (
 //   				Accounts: []*string{
 //   					jsii.String("accounts"),
 //   				},
+//   				AccountsUrl: jsii.String("accountsUrl"),
 //   				OrganizationalUnitIds: []*string{
 //   					jsii.String("organizationalUnitIds"),
 //   				},

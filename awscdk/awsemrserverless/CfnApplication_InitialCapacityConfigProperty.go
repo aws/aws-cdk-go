@@ -27,10 +27,6 @@ type CfnApplication_InitialCapacityConfigProperty struct {
 	//
 	WorkerConfiguration interface{} `field:"required" json:"workerConfiguration" yaml:"workerConfiguration"`
 	// The number of workers in the initial capacity configuration.
-	//
-	// *Minimum* : 1
-	//
-	// *Maximum* : 1000000.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workercount
 	//
 	WorkerCount *float64 `field:"required" json:"workerCount" yaml:"workerCount"`

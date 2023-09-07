@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnTask) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnTask) validateSetTaskReportConfigParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnTaskParameters(scope constructs.Construct, id *string, props *CfnTaskProps) error {
 	return nil
 }

@@ -1,7 +1,7 @@
 package awskinesisanalytics
 
 
-// For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
+// For a SQL-based Managed Service for Apache Flink application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -85,7 +85,7 @@ type CfnImage interface {
 	// The Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
-	// Contains settings for Image Builder image resource and container image scans.
+	// Contains settings for vulnerability scans.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
 	// The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.

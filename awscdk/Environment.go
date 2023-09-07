@@ -4,26 +4,31 @@ package awscdk
 // The deployment environment for a stack.
 //
 // Example:
-//   // Passing a replication bucket created in a different stack.
-//   app := awscdk.NewApp()
-//   replicationStack := awscdk.Newstack(app, jsii.String("ReplicationStack"), &StackProps{
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
 //   	Env: &Environment{
-//   		Region: jsii.String("us-west-1"),
+//   		Region: jsii.String("us-west-2"),
 //   	},
-//   })
-//   key := kms.NewKey(replicationStack, jsii.String("ReplicationKey"))
-//   replicationBucket := s3.NewBucket(replicationStack, jsii.String("ReplicationBucket"), &BucketProps{
-//   	// like was said above - replication buckets need a set physical name
-//   	BucketName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
-//   	EncryptionKey: key,
 //   })
 //
-//   // later...
-//   // later...
-//   codepipeline.NewPipeline(replicationStack, jsii.String("Pipeline"), &PipelineProps{
-//   	CrossRegionReplicationBuckets: map[string]iBucket{
-//   		"us-west-1": replicationBucket,
+//   globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+//   	PartitionKey: &Attribute{
+//   		Name: jsii.String("pk"),
+//   		Type: dynamodb.AttributeType_STRING,
 //   	},
+//   	Replicas: []replicaTableProps{
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-1"),
+//   		},
+//   	},
+//   })
+//
+//   globalTable.AddReplica(&replicaTableProps{
+//   	Region: jsii.String("us-east-2"),
+//   	DeletionProtection: jsii.Boolean(true),
 //   })
 //
 type Environment struct {

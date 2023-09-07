@@ -604,6 +604,7 @@ type CfnCluster interface {
 	// An IAM role for automatic scaling policies.
 	AutoScalingRole() *string
 	SetAutoScalingRole(val *string)
+	// An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates.
 	AutoTerminationPolicy() interface{}
 	SetAutoTerminationPolicy(val interface{})
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
@@ -660,6 +661,7 @@ type CfnCluster interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The Amazon Linux release specified in a cluster launch RunJobFlow request.
 	OsReleaseLabel() *string
 	SetOsReleaseLabel(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

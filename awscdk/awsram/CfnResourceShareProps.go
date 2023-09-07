@@ -25,6 +25,9 @@ import (
 //   	ResourceArns: []*string{
 //   		jsii.String("resourceArns"),
 //   	},
+//   	Sources: []*string{
+//   		jsii.String("sources"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -66,6 +69,9 @@ type CfnResourceShareProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns
 	//
 	ResourceArns *[]*string `field:"optional" json:"resourceArns" yaml:"resourceArns"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-sources
+	//
+	Sources *[]*string `field:"optional" json:"sources" yaml:"sources"`
 	// Specifies one or more tags to attach to the resource share itself.
 	//
 	// It doesn't attach the tags to the resources associated with the resource share.

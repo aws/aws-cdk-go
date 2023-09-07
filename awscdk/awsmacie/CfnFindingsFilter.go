@@ -43,6 +43,12 @@ import (
 //   	Action: jsii.String("action"),
 //   	Description: jsii.String("description"),
 //   	Position: jsii.Number(123),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
@@ -106,6 +112,8 @@ type CfnFindingsFilter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -412,6 +420,16 @@ func (j *jsiiProxy_CfnFindingsFilter) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFindingsFilter) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFindingsFilter) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -502,6 +520,17 @@ func (j *jsiiProxy_CfnFindingsFilter)SetPosition(val *float64) {
 	_jsii_.Set(
 		j,
 		"position",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFindingsFilter)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

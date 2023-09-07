@@ -18,6 +18,7 @@ package awsmedialive
 //   	CacheFullBehavior: jsii.String("cacheFullBehavior"),
 //   	CacheLength: jsii.Number(123),
 //   	CaptionData: jsii.String("captionData"),
+//   	IncludeFillerNalUnits: jsii.String("includeFillerNalUnits"),
 //   	InputLossAction: jsii.String("inputLossAction"),
 //   	RestartDelay: jsii.Number(123),
 //   }
@@ -51,6 +52,9 @@ type CfnChannel_RtmpGroupSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpgroupsettings.html#cfn-medialive-channel-rtmpgroupsettings-captiondata
 	//
 	CaptionData *string `field:"optional" json:"captionData" yaml:"captionData"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpgroupsettings.html#cfn-medialive-channel-rtmpgroupsettings-includefillernalunits
+	//
+	IncludeFillerNalUnits *string `field:"optional" json:"includeFillerNalUnits" yaml:"includeFillerNalUnits"`
 	// Controls the behavior of this RTMP group if the input becomes unavailable.
 	//
 	// emitOutput: Emit a slate until the input returns. pauseOutput: Stop transmitting data until the input returns. This does not close the underlying RTMP connection.

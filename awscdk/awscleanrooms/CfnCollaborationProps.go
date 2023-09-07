@@ -52,6 +52,8 @@ type CfnCollaborationProps struct {
 	//
 	CreatorDisplayName *string `field:"required" json:"creatorDisplayName" yaml:"creatorDisplayName"`
 	// The abilities granted to the collaboration creator.
+	//
+	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatormemberabilities
 	//
 	CreatorMemberAbilities *[]*string `field:"required" json:"creatorMemberAbilities" yaml:"creatorMemberAbilities"`

@@ -74,6 +74,11 @@ package awsquicksight
 //   		VerticalTextAlignment: jsii.String("verticalTextAlignment"),
 //   		Visibility: jsii.String("visibility"),
 //   	},
+//   	StyleTargets: []interface{}{
+//   		&TableStyleTargetProperty{
+//   			CellType: jsii.String("cellType"),
+//   		},
+//   	},
 //   	TotalCellStyle: &TableCellStyleProperty{
 //   		BackgroundColor: jsii.String("backgroundColor"),
 //   		Border: &GlobalTableBorderOptionsProperty{
@@ -212,6 +217,9 @@ type CfnAnalysis_SubtotalOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-subtotaloptions.html#cfn-quicksight-analysis-subtotaloptions-metricheadercellstyle
 	//
 	MetricHeaderCellStyle interface{} `field:"optional" json:"metricHeaderCellStyle" yaml:"metricHeaderCellStyle"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-subtotaloptions.html#cfn-quicksight-analysis-subtotaloptions-styletargets
+	//
+	StyleTargets interface{} `field:"optional" json:"styleTargets" yaml:"styleTargets"`
 	// The cell styling options for the subtotal cells.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-subtotaloptions.html#cfn-quicksight-analysis-subtotaloptions-totalcellstyle
 	//

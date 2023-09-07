@@ -2,16 +2,6 @@ package awsdynamodb
 
 
 // DynamoDB's Read/Write capacity modes.
-//
-// Example:
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
-//   	},
-//   	BillingMode: dynamodb.BillingMode_PAY_PER_REQUEST,
-//   })
-//
 type BillingMode string
 
 const (

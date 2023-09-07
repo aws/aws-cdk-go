@@ -8,28 +8,27 @@ import (
 // Options for configuring metrics that considers multiple operations.
 //
 // Example:
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
+//   operationsMetricOptions := &OperationsMetricOptions{
+//   	Account: jsii.String("account"),
+//   	Color: jsii.String("color"),
+//   	DimensionsMap: map[string]*string{
+//   		"dimensionsMapKey": jsii.String("dimensionsMap"),
 //   	},
-//   })
-//
-//   metric := table.metricThrottledRequestsForOperations(&OperationsMetricOptions{
+//   	Label: jsii.String("label"),
 //   	Operations: []operation{
-//   		dynamodb.*operation_PUT_ITEM,
+//   		awscdk.Aws_dynamodb.*operation_GET_ITEM,
 //   	},
-//   	Period: awscdk.Duration_Minutes(jsii.Number(1)),
-//   })
-//
-//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: metric,
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(1),
-//   })
+//   	Period: cdk.Duration_Minutes(jsii.Number(30)),
+//   	Region: jsii.String("region"),
+//   	Statistic: jsii.String("statistic"),
+//   	Unit: awscdk.Aws_cloudwatch.Unit_SECONDS,
+//   }
 //
 type OperationsMetricOptions struct {
 	// Account which this metric comes from.

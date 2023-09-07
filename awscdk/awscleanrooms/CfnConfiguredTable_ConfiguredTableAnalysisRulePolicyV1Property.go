@@ -41,6 +41,16 @@ package awscleanrooms
 //   		},
 //   		JoinRequired: jsii.String("joinRequired"),
 //   	},
+//   	Custom: &AnalysisRuleCustomProperty{
+//   		AllowedAnalyses: []*string{
+//   			jsii.String("allowedAnalyses"),
+//   		},
+//
+//   		// the properties below are optional
+//   		AllowedAnalysisProviders: []*string{
+//   			jsii.String("allowedAnalysisProviders"),
+//   		},
+//   	},
 //   	List: &AnalysisRuleListProperty{
 //   		JoinColumns: []*string{
 //   			jsii.String("joinColumns"),
@@ -63,6 +73,10 @@ type CfnConfiguredTable_ConfiguredTableAnalysisRulePolicyV1Property struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-aggregation
 	//
 	Aggregation interface{} `field:"optional" json:"aggregation" yaml:"aggregation"`
+	// Analysis rule type that enables custom SQL queries on a configured table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-custom
+	//
+	Custom interface{} `field:"optional" json:"custom" yaml:"custom"`
 	// Analysis rule type that enables only list queries on a configured table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-list
 	//

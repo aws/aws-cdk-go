@@ -167,6 +167,7 @@ package awsmedialive
 //   		CacheFullBehavior: jsii.String("cacheFullBehavior"),
 //   		CacheLength: jsii.Number(123),
 //   		CaptionData: jsii.String("captionData"),
+//   		IncludeFillerNalUnits: jsii.String("includeFillerNalUnits"),
 //   		InputLossAction: jsii.String("inputLossAction"),
 //   		RestartDelay: jsii.Number(123),
 //   	},

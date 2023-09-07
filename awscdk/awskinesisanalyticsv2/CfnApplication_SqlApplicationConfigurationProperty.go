@@ -1,7 +1,7 @@
 package awskinesisanalyticsv2
 
 
-// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
+// Describes the inputs, outputs, and reference data sources for a SQL-based Managed Service for Apache Flink application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -1,7 +1,7 @@
 package awskinesisanalytics
 
 
-// When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
+// When you configure the application input for a SQL-based Managed Service for Apache Flink application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -67,7 +67,7 @@ type CfnApplicationV2_InputProperty struct {
 	InputSchema interface{} `field:"required" json:"inputSchema" yaml:"inputSchema"`
 	// The name prefix to use when creating an in-application stream.
 	//
-	// Suppose that you specify a prefix " `MyInApplicationStream` ." Kinesis Data Analytics then creates one or more (as per the `InputParallelism` count you specified) in-application streams with the names " `MyInApplicationStream_001` ," " `MyInApplicationStream_002` ," and so on.
+	// Suppose that you specify a prefix " `MyInApplicationStream` ." Managed Service for Apache Flink then creates one or more (as per the `InputParallelism` count you specified) in-application streams with the names " `MyInApplicationStream_001` ," " `MyInApplicationStream_002` ," and so on.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html#cfn-kinesisanalyticsv2-application-input-nameprefix
 	//
 	NamePrefix *string `field:"required" json:"namePrefix" yaml:"namePrefix"`

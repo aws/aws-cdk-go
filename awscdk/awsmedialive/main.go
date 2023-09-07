@@ -627,6 +627,10 @@ func init() {
 		reflect.TypeOf((*CfnChannel_TemporalFilterSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.ThumbnailConfigurationProperty",
+		reflect.TypeOf((*CfnChannel_ThumbnailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.TimecodeBurninSettingsProperty",
 		reflect.TypeOf((*CfnChannel_TimecodeBurninSettingsProperty)(nil)).Elem(),
 	)

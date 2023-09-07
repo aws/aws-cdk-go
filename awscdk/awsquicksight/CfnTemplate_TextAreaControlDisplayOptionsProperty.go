@@ -9,6 +9,10 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   textAreaControlDisplayOptionsProperty := &TextAreaControlDisplayOptionsProperty{
+//   	InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   		InfoIconText: jsii.String("infoIconText"),
+//   		Visibility: jsii.String("visibility"),
+//   	},
 //   	PlaceholderOptions: &TextControlPlaceholderOptionsProperty{
 //   		Visibility: jsii.String("visibility"),
 //   	},
@@ -32,6 +36,9 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textareacontroldisplayoptions.html
 //
 type CfnTemplate_TextAreaControlDisplayOptionsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textareacontroldisplayoptions.html#cfn-quicksight-template-textareacontroldisplayoptions-infoiconlabeloptions
+	//
+	InfoIconLabelOptions interface{} `field:"optional" json:"infoIconLabelOptions" yaml:"infoIconLabelOptions"`
 	// The configuration of the placeholder options in a text area control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textareacontroldisplayoptions.html#cfn-quicksight-template-textareacontroldisplayoptions-placeholderoptions
 	//

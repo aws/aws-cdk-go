@@ -18,6 +18,10 @@ package awsquicksight
 //
 //   		// the properties below are optional
 //   		AggregationFunction: &AggregationFunctionProperty{
+//   			AttributeAggregationFunction: &AttributeAggregationFunctionProperty{
+//   				SimpleAttributeAggregation: jsii.String("simpleAttributeAggregation"),
+//   				ValueForMultipleValues: jsii.String("valueForMultipleValues"),
+//   			},
 //   			CategoricalAggregationFunction: jsii.String("categoricalAggregationFunction"),
 //   			DateAggregationFunction: jsii.String("dateAggregationFunction"),
 //   			NumericalAggregationFunction: &NumericalAggregationFunctionProperty{

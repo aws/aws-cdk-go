@@ -78,9 +78,11 @@ import (
 //   			Iops: jsii.Number(123),
 //   			Mode: jsii.String("mode"),
 //   		},
+//   		EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
 //   		Options: []*string{
 //   			jsii.String("options"),
 //   		},
+//   		PreferredSubnetId: jsii.String("preferredSubnetId"),
 //   		RootVolumeConfiguration: &RootVolumeConfigurationProperty{
 //   			CopyTagsToSnapshots: jsii.Boolean(false),
 //   			DataCompressionType: jsii.String("dataCompressionType"),
@@ -105,6 +107,9 @@ import (
 //   					Type: jsii.String("type"),
 //   				},
 //   			},
+//   		},
+//   		RouteTableIds: []*string{
+//   			jsii.String("routeTableIds"),
 //   		},
 //   		ThroughputCapacity: jsii.Number(123),
 //   		WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
@@ -139,6 +144,10 @@ import (
 //   		CopyTagsToBackups: jsii.Boolean(false),
 //   		DailyAutomaticBackupStartTime: jsii.String("dailyAutomaticBackupStartTime"),
 //   		DeploymentType: jsii.String("deploymentType"),
+//   		DiskIopsConfiguration: &DiskIopsConfigurationProperty{
+//   			Iops: jsii.Number(123),
+//   			Mode: jsii.String("mode"),
+//   		},
 //   		PreferredSubnetId: jsii.String("preferredSubnetId"),
 //   		SelfManagedActiveDirectoryConfiguration: &SelfManagedActiveDirectoryConfigurationProperty{
 //   			DnsIps: []*string{

@@ -3,7 +3,7 @@ package awsbatch
 
 // Details for a Docker volume mount point that's used in a job's container properties.
 //
-// This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container) section of the *Docker Remote API* and the `--volume` option to docker run.
+// This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerCreate) section of the *Docker Remote API* and the `--volume` option to docker run.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

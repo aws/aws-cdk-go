@@ -11,7 +11,8 @@ const (
 	ProjectionType_KEYS_ONLY ProjectionType = "KEYS_ONLY"
 	// Only the specified table attributes are projected into the index.
 	//
-	// The list of projected attributes is in `nonKeyAttributes`.
+	// The list
+	// of projected attributes is in `nonKeyAttributes`.
 	ProjectionType_INCLUDE ProjectionType = "INCLUDE"
 	// All of the table attributes are projected into the index.
 	ProjectionType_ALL ProjectionType = "ALL"

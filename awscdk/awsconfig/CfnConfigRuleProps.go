@@ -62,7 +62,7 @@ type CfnConfigRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-source
 	//
 	Source interface{} `field:"required" json:"source" yaml:"source"`
-	// Compliance details of the Config rule.
+	// Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-compliance
 	//
 	Compliance interface{} `field:"optional" json:"compliance" yaml:"compliance"`
@@ -76,7 +76,9 @@ type CfnConfigRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// List of EvaluationModeConfiguration objects.
+	// The modes the AWS Config rule can be evaluated in.
+	//
+	// The valid values are distinct objects. By default, the value is Detective evaluation mode only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-evaluationmodes
 	//
 	EvaluationModes interface{} `field:"optional" json:"evaluationModes" yaml:"evaluationModes"`

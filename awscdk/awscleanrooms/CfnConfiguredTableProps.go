@@ -61,6 +61,16 @@ import (
 //   						},
 //   						JoinRequired: jsii.String("joinRequired"),
 //   					},
+//   					Custom: &AnalysisRuleCustomProperty{
+//   						AllowedAnalyses: []*string{
+//   							jsii.String("allowedAnalyses"),
+//   						},
+//
+//   						// the properties below are optional
+//   						AllowedAnalysisProviders: []*string{
+//   							jsii.String("allowedAnalysisProviders"),
+//   						},
+//   					},
 //   					List: &AnalysisRuleListProperty{
 //   						JoinColumns: []*string{
 //   							jsii.String("joinColumns"),

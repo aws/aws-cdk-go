@@ -7,24 +7,17 @@ import (
 // Properties for enabling DynamoDB utilization tracking.
 //
 // Example:
-//   globalTable := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
-//   	},
-//   	ReplicationRegions: []*string{
-//   		jsii.String("us-east-1"),
-//   		jsii.String("us-east-2"),
-//   		jsii.String("us-west-2"),
-//   	},
-//   	BillingMode: dynamodb.BillingMode_PROVISIONED,
-//   })
+//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //
-//   globalTable.AutoScaleWriteCapacity(&EnableScalingProps{
-//   	MinCapacity: jsii.Number(1),
-//   	MaxCapacity: jsii.Number(10),
-//   }).ScaleOnUtilization(&UtilizationScalingProps{
-//   	TargetUtilizationPercent: jsii.Number(75),
+//   var table table
+//
+//
+//   readCapacity := table.AutoScaleReadCapacity(&EnableScalingProps{
+//   	MinCapacity: jsii.Number(10),
+//   	MaxCapacity: jsii.Number(1000),
+//   })
+//   readCapacity.ScaleOnUtilization(&UtilizationScalingProps{
+//   	TargetUtilizationPercent: jsii.Number(60),
 //   })
 //
 type UtilizationScalingProps struct {

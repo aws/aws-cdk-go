@@ -373,6 +373,30 @@ func (j *jsiiProxy_CfnTask) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnTask) validateSetTaskReportConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTask_TaskReportConfigProperty:
+		val := val.(*CfnTask_TaskReportConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTask_TaskReportConfigProperty:
+		val_ := val.(CfnTask_TaskReportConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTask_TaskReportConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnTaskParameters(scope constructs.Construct, id *string, props *CfnTaskProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

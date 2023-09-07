@@ -17,6 +17,7 @@ package awslakeformation
 //   		},
 //   	},
 //   	AllowExternalDataFiltering: jsii.Boolean(false),
+//   	AllowFullTableExternalDataAccess: jsii.Boolean(false),
 //   	AuthorizedSessionTagValueList: []*string{
 //   		jsii.String("authorizedSessionTagValueList"),
 //   	},
@@ -45,6 +46,7 @@ package awslakeformation
 //   			DataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   		},
 //   	},
+//   	MutationType: jsii.String("mutationType"),
 //   	Parameters: parameters,
 //   	TrustedResourceOwners: []*string{
 //   		jsii.String("trustedResourceOwners"),
@@ -68,6 +70,9 @@ type CfnDataLakeSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-allowexternaldatafiltering
 	//
 	AllowExternalDataFiltering interface{} `field:"optional" json:"allowExternalDataFiltering" yaml:"allowExternalDataFiltering"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-allowfulltableexternaldataaccess
+	//
+	AllowFullTableExternalDataAccess interface{} `field:"optional" json:"allowFullTableExternalDataAccess" yaml:"allowFullTableExternalDataAccess"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
 	//
 	// Lake Formation will publish the acceptable key-value pair, for example key = "LakeFormationTrustedCaller" and value = "TRUE" and the third party integrator must properly tag the temporary security credentials that will be used to call Lake Formation 's administrative API operations.
@@ -98,6 +103,9 @@ type CfnDataLakeSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-externaldatafilteringallowlist
 	//
 	ExternalDataFilteringAllowList interface{} `field:"optional" json:"externalDataFilteringAllowList" yaml:"externalDataFilteringAllowList"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-mutationtype
+	//
+	MutationType *string `field:"optional" json:"mutationType" yaml:"mutationType"`
 	// A key-value map that provides an additional configuration on your data lake.
 	//
 	// `CrossAccountVersion` is the key you can configure in the `Parameters` field. Accepted values for the `CrossAccountVersion` key are 1, 2, and 3.

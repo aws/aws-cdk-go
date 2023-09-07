@@ -116,6 +116,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_ArcOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.AttributeAggregationFunctionProperty",
+		reflect.TypeOf((*CfnAnalysis_AttributeAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.AxisDataOptionsProperty",
 		reflect.TypeOf((*CfnAnalysis_AxisDataOptionsProperty)(nil)).Elem(),
 	)
@@ -272,6 +276,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_ColorScaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ColorsConfigurationProperty",
+		reflect.TypeOf((*CfnAnalysis_ColorsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ColumnConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_ColumnConfigurationProperty)(nil)).Elem(),
 	)
@@ -378,6 +386,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.CustomActionURLOperationProperty",
 		reflect.TypeOf((*CfnAnalysis_CustomActionURLOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.CustomColorProperty",
+		reflect.TypeOf((*CfnAnalysis_CustomColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.CustomContentConfigurationProperty",
@@ -1312,6 +1324,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_PivotTablePaginatedReportOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.PivotTableRowsLabelOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_PivotTableRowsLabelOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.PivotTableSortByProperty",
 		reflect.TypeOf((*CfnAnalysis_PivotTableSortByProperty)(nil)).Elem(),
 	)
@@ -1520,6 +1536,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_ShapeConditionalFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SheetControlInfoIconLabelOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_SheetControlInfoIconLabelOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SheetControlLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_SheetControlLayoutConfigurationProperty)(nil)).Elem(),
 	)
@@ -1562,6 +1582,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SliderControlDisplayOptionsProperty",
 		reflect.TypeOf((*CfnAnalysis_SliderControlDisplayOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SmallMultiplesAxisPropertiesProperty",
+		reflect.TypeOf((*CfnAnalysis_SmallMultiplesAxisPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SmallMultiplesOptionsProperty",
@@ -1686,6 +1710,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TableSortConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_TableSortConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TableStyleTargetProperty",
+		reflect.TypeOf((*CfnAnalysis_TableStyleTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TableUnaggregatedFieldWellsProperty",
@@ -1990,6 +2018,10 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_ArcOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.AttributeAggregationFunctionProperty",
+		reflect.TypeOf((*CfnDashboard_AttributeAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.AxisDataOptionsProperty",
 		reflect.TypeOf((*CfnDashboard_AxisDataOptionsProperty)(nil)).Elem(),
 	)
@@ -2146,6 +2178,10 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_ColorScaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.ColorsConfigurationProperty",
+		reflect.TypeOf((*CfnDashboard_ColorsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ColumnConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_ColumnConfigurationProperty)(nil)).Elem(),
 	)
@@ -2252,6 +2288,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.CustomActionURLOperationProperty",
 		reflect.TypeOf((*CfnDashboard_CustomActionURLOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.CustomColorProperty",
+		reflect.TypeOf((*CfnDashboard_CustomColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.CustomContentConfigurationProperty",
@@ -4407,6 +4447,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_ArcOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.AttributeAggregationFunctionProperty",
+		reflect.TypeOf((*CfnTemplate_AttributeAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.AxisDataOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_AxisDataOptionsProperty)(nil)).Elem(),
 	)
@@ -4563,6 +4607,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_ColorScaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.ColorsConfigurationProperty",
+		reflect.TypeOf((*CfnTemplate_ColorsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.ColumnConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_ColumnConfigurationProperty)(nil)).Elem(),
 	)
@@ -4681,6 +4729,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.CustomActionURLOperationProperty",
 		reflect.TypeOf((*CfnTemplate_CustomActionURLOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.CustomColorProperty",
+		reflect.TypeOf((*CfnTemplate_CustomColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.CustomContentConfigurationProperty",
@@ -5603,6 +5655,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_PivotTablePaginatedReportOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.PivotTableRowsLabelOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_PivotTableRowsLabelOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.PivotTableSortByProperty",
 		reflect.TypeOf((*CfnTemplate_PivotTableSortByProperty)(nil)).Elem(),
 	)
@@ -5811,6 +5867,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_ShapeConditionalFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.SheetControlInfoIconLabelOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_SheetControlInfoIconLabelOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.SheetControlLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_SheetControlLayoutConfigurationProperty)(nil)).Elem(),
 	)
@@ -5853,6 +5913,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.SliderControlDisplayOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_SliderControlDisplayOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.SmallMultiplesAxisPropertiesProperty",
+		reflect.TypeOf((*CfnTemplate_SmallMultiplesAxisPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.SmallMultiplesOptionsProperty",
@@ -5973,6 +6037,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.TableSortConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_TableSortConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.TableStyleTargetProperty",
+		reflect.TypeOf((*CfnTemplate_TableStyleTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.TableUnaggregatedFieldWellsProperty",

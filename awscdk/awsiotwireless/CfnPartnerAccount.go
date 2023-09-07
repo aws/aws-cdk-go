@@ -91,6 +91,7 @@ type CfnPartnerAccount interface {
 	SetSidewalk(val interface{})
 	SidewalkResponse() interface{}
 	SetSidewalkResponse(val interface{})
+	// Sidewalk update.
 	SidewalkUpdate() interface{}
 	SetSidewalkUpdate(val interface{})
 	// The stack in which this element is defined.

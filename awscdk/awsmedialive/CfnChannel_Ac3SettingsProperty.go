@@ -11,6 +11,7 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   ac3SettingsProperty := &Ac3SettingsProperty{
+//   	AttenuationControl: jsii.String("attenuationControl"),
 //   	Bitrate: jsii.Number(123),
 //   	BitstreamMode: jsii.String("bitstreamMode"),
 //   	CodingMode: jsii.String("codingMode"),
@@ -23,6 +24,9 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html
 //
 type CfnChannel_Ac3SettingsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-attenuationcontrol
+	//
+	AttenuationControl *string `field:"optional" json:"attenuationControl" yaml:"attenuationControl"`
 	// The average bitrate in bits/second.
 	//
 	// Valid bitrates depend on the coding mode.

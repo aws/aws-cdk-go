@@ -92,6 +92,10 @@ func (t *jsiiProxy_Table) validateMetricSuccessfulRequestLatencyParameters(props
 	return nil
 }
 
+func (t *jsiiProxy_Table) validateMetricSystemErrorsParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func (t *jsiiProxy_Table) validateMetricSystemErrorsForOperationsParameters(props *SystemErrorsForOperationsMetricOptions) error {
 	return nil
 }

@@ -34,6 +34,9 @@ import (
 //   	ResourceArns: []*string{
 //   		jsii.String("resourceArns"),
 //   	},
+//   	Sources: []*string{
+//   		jsii.String("sources"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -94,6 +97,8 @@ type CfnResourceShare interface {
 	// Specifies a list of one or more ARNs of the resources to associate with the resource share.
 	ResourceArns() *[]*string
 	SetResourceArns(val *[]*string)
+	Sources() *[]*string
+	SetSources(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -390,6 +395,16 @@ func (j *jsiiProxy_CfnResourceShare) ResourceArns() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceShare) Sources() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"sources",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceShare) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -510,6 +525,14 @@ func (j *jsiiProxy_CfnResourceShare)SetResourceArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"resourceArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceShare)SetSources(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"sources",
 		val,
 	)
 }

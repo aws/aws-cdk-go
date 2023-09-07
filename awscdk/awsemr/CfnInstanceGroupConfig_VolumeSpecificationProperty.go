@@ -38,6 +38,9 @@ type CfnInstanceGroupConfig_VolumeSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-volumespecification.html#cfn-emr-instancegroupconfig-volumespecification-iops
 	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
+	// The throughput, in mebibyte per second (MiB/s).
+	//
+	// This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-volumespecification.html#cfn-emr-instancegroupconfig-volumespecification-throughput
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`

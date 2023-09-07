@@ -88,7 +88,7 @@ type CfnConfigRule interface {
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
 	AttrArn() *string
-	// The compliance status of an AWS Config rule, such as `COMPLIANT` or `NON_COMPLIANT` .
+	// Compliance type determined by the Config rule.
 	AttrComplianceType() *string
 	// The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
 	AttrConfigRuleId() *string
@@ -97,7 +97,7 @@ type CfnConfigRule interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Compliance details of the Config rule.
+	// Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
 	Compliance() interface{}
 	SetCompliance(val interface{})
 	// A name for the AWS Config rule.
@@ -110,7 +110,7 @@ type CfnConfigRule interface {
 	// The description that you provide for the AWS Config rule.
 	Description() *string
 	SetDescription(val *string)
-	// List of EvaluationModeConfiguration objects.
+	// The modes the AWS Config rule can be evaluated in.
 	EvaluationModes() interface{}
 	SetEvaluationModes(val interface{})
 	// A string, in JSON format, that is passed to the AWS Config rule Lambda function.

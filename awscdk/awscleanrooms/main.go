@@ -135,6 +135,10 @@ func init() {
 		reflect.TypeOf((*CfnConfiguredTable_AnalysisRuleAggregationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.AnalysisRuleCustomProperty",
+		reflect.TypeOf((*CfnConfiguredTable_AnalysisRuleCustomProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.AnalysisRuleListProperty",
 		reflect.TypeOf((*CfnConfiguredTable_AnalysisRuleListProperty)(nil)).Elem(),
 	)

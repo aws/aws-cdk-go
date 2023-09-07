@@ -25,6 +25,7 @@ import (
 //   		},
 //   	},
 //   	AllowExternalDataFiltering: jsii.Boolean(false),
+//   	AllowFullTableExternalDataAccess: jsii.Boolean(false),
 //   	AuthorizedSessionTagValueList: []*string{
 //   		jsii.String("authorizedSessionTagValueList"),
 //   	},
@@ -53,6 +54,7 @@ import (
 //   			DataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   		},
 //   	},
+//   	MutationType: jsii.String("mutationType"),
 //   	Parameters: parameters,
 //   	TrustedResourceOwners: []*string{
 //   		jsii.String("trustedResourceOwners"),
@@ -70,6 +72,8 @@ type CfnDataLakeSettings interface {
 	// Whether to allow Amazon EMR clusters or other third-party query engines to access data managed by Lake Formation .
 	AllowExternalDataFiltering() interface{}
 	SetAllowExternalDataFiltering(val interface{})
+	AllowFullTableExternalDataAccess() interface{}
+	SetAllowFullTableExternalDataAccess(val interface{})
 	AttrId() *string
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
 	AuthorizedSessionTagValueList() *[]*string
@@ -102,6 +106,8 @@ type CfnDataLakeSettings interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	MutationType() *string
+	SetMutationType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// A key-value map that provides an additional configuration on your data lake.
@@ -285,6 +291,16 @@ func (j *jsiiProxy_CfnDataLakeSettings) AllowExternalDataFiltering() interface{}
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataLakeSettings) AllowFullTableExternalDataAccess() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"allowFullTableExternalDataAccess",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataLakeSettings) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -380,6 +396,16 @@ func (j *jsiiProxy_CfnDataLakeSettings) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataLakeSettings) MutationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"mutationType",
 		&returns,
 	)
 	return returns
@@ -505,6 +531,17 @@ func (j *jsiiProxy_CfnDataLakeSettings)SetAllowExternalDataFiltering(val interfa
 	)
 }
 
+func (j *jsiiProxy_CfnDataLakeSettings)SetAllowFullTableExternalDataAccess(val interface{}) {
+	if err := j.validateSetAllowFullTableExternalDataAccessParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"allowFullTableExternalDataAccess",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDataLakeSettings)SetAuthorizedSessionTagValueList(val *[]*string) {
 	_jsii_.Set(
 		j,
@@ -542,6 +579,14 @@ func (j *jsiiProxy_CfnDataLakeSettings)SetExternalDataFilteringAllowList(val int
 	_jsii_.Set(
 		j,
 		"externalDataFilteringAllowList",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataLakeSettings)SetMutationType(val *string) {
+	_jsii_.Set(
+		j,
+		"mutationType",
 		val,
 	)
 }

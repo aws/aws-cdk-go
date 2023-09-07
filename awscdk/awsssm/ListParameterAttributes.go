@@ -25,9 +25,9 @@ type ListParameterAttributes struct {
 	// This value can be a token or a concrete string. If it is a concrete string
 	// and includes "/" it must also be prefixed with a "/" (fully-qualified).
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
-	// Indicates of the parameter name is a simple name (i.e. does not include "/" separators).
+	// Indicates if the parameter name is a simple name (i.e. does not include "/" separators).
 	//
-	// This is only required only if `parameterName` is a token, which means we
+	// This is required only if `parameterName` is a token, which means we
 	// are unable to detect if the name is simple or "path-like" for the purpose
 	// of rendering SSM parameter ARNs.
 	//

@@ -34,6 +34,24 @@ package awsresiliencehub
 //   	// the properties below are optional
 //   	AppAssessmentSchedule: jsii.String("appAssessmentSchedule"),
 //   	Description: jsii.String("description"),
+//   	EventSubscriptions: []interface{}{
+//   		&EventSubscriptionProperty{
+//   			EventType: jsii.String("eventType"),
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			SnsTopicArn: jsii.String("snsTopicArn"),
+//   		},
+//   	},
+//   	PermissionModel: &PermissionModelProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		CrossAccountRoleArns: []*string{
+//   			jsii.String("crossAccountRoleArns"),
+//   		},
+//   		InvokerRoleName: jsii.String("invokerRoleName"),
+//   	},
 //   	ResiliencyPolicyArn: jsii.String("resiliencyPolicyArn"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -228,6 +246,12 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-eventsubscriptions
+	//
+	EventSubscriptions interface{} `field:"optional" json:"eventSubscriptions" yaml:"eventSubscriptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-permissionmodel
+	//
+	PermissionModel interface{} `field:"optional" json:"permissionModel" yaml:"permissionModel"`
 	// The Amazon Resource Name (ARN) of the resiliency policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resiliencypolicyarn
 	//

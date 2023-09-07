@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDataLakeSettings) validateSetAllowExternalDataFilteringPar
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataLakeSettings) validateSetAllowFullTableExternalDataAccessParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataLakeSettings) validateSetCreateDatabaseDefaultPermissionsParameters(val interface{}) error {
 	return nil
 }

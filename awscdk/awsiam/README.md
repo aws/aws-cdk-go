@@ -62,7 +62,7 @@ var fn function
 var table table
 
 
-table.grantWriteData(fn)
+table.GrantWriteData(fn)
 ```
 
 The more generic `grant` method allows you to give specific permissions to a resource:
@@ -72,7 +72,7 @@ var fn function
 var table table
 
 
-table.grant(fn, jsii.String("dynamodb:PutItem"))
+table.Grant(fn, jsii.String("dynamodb:PutItem"))
 ```
 
 The `grant*` methods accept an `IGrantable` object. This interface is implemented by IAM principal resources (groups, users and roles), policies, managed policies and resources that assume a role such as a Lambda function, EC2 instance or a Codebuild project.

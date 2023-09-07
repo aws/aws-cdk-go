@@ -198,6 +198,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deploymentPreference", GoGetter: "DeploymentPreference"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
+			_jsii_.MemberProperty{JsiiProperty: "ephemeralStorage", GoGetter: "EphemeralStorage"},
 			_jsii_.MemberProperty{JsiiProperty: "eventInvokeConfig", GoGetter: "EventInvokeConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "events", GoGetter: "Events"},
 			_jsii_.MemberProperty{JsiiProperty: "fileSystemConfigs", GoGetter: "FileSystemConfigs"},
@@ -317,6 +318,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sam.CfnFunction.EmptySAMPTProperty",
 		reflect.TypeOf((*CfnFunction_EmptySAMPTProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sam.CfnFunction.EphemeralStorageProperty",
+		reflect.TypeOf((*CfnFunction_EphemeralStorageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sam.CfnFunction.EventBridgeRuleEventProperty",

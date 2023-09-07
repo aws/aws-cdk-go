@@ -52,6 +52,7 @@ import (
 //   					"recoveryPointTagsKey": jsii.String("recoveryPointTags"),
 //   				},
 //   				ScheduleExpression: jsii.String("scheduleExpression"),
+//   				ScheduleExpressionTimezone: jsii.String("scheduleExpressionTimezone"),
 //   				StartWindowMinutes: jsii.Number(123),
 //   			},
 //   		},

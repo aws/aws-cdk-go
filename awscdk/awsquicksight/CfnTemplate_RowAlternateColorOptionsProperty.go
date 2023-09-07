@@ -13,6 +13,7 @@ package awsquicksight
 //   		jsii.String("rowAlternateColors"),
 //   	},
 //   	Status: jsii.String("status"),
+//   	UsePrimaryBackgroundColor: jsii.String("usePrimaryBackgroundColor"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rowalternatecoloroptions.html
@@ -26,5 +27,8 @@ type CfnTemplate_RowAlternateColorOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rowalternatecoloroptions.html#cfn-quicksight-template-rowalternatecoloroptions-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rowalternatecoloroptions.html#cfn-quicksight-template-rowalternatecoloroptions-useprimarybackgroundcolor
+	//
+	UsePrimaryBackgroundColor *string `field:"optional" json:"usePrimaryBackgroundColor" yaml:"usePrimaryBackgroundColor"`
 }
 

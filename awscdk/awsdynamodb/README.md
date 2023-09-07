@@ -1,72 +1,822 @@
 # Amazon DynamoDB Construct Library
 
-Here is a minimal deployable DynamoDB table definition:
+> The DynamoDB construct library has two table constructs - `Table` and `TableV2`. `TableV2` is the preferred construct for all use cases, including creating a single table or a table with multiple `replicas`.
+
+[`Table` API documentation](./TABLE_V1_API.md)
+
+Here is a minimal deployable DynamoDB table using `TableV2`:
 
 ```go
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
+		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
 })
 ```
 
-## Importing existing tables
-
-To import an existing table into your CDK application, use the `Table.fromTableName`, `Table.fromTableArn` or `Table.fromTableAttributes`
-factory method. This method accepts table name or table ARN which describes the properties of an already
-existing table:
+By default, `TableV2` will create a single table in the main deployment region referred to as the primary table. The properties of the primary table are configurable via `TableV2` properties. For example, consider the following DynamoDB table created using the `TableV2` construct defined in a `Stack` being deployed to `us-west-2`:
 
 ```go
-var user user
-
-table := dynamodb.Table_FromTableArn(this, jsii.String("ImportedTable"), jsii.String("arn:aws:dynamodb:us-east-1:111111111:table/my-table"))
-// now you can just call methods on the table
-table.GrantReadWriteData(user)
-```
-
-If you intend to use the `tableStreamArn` (including indirectly, for example by creating an
-`aws-cdk-lib/aws-lambda-event-sources.DynamoEventSource` on the imported table), you *must* use the
-`Table.fromTableAttributes` method and the `tableStreamArn` property *must* be populated.
-
-In order to grant permissions to indexes on imported tables you can either set `grantIndexPermissions` to `true`, or you can provide the indexes via the `globalIndexes` or `localIndexes` properties. This will enable `grant*` methods to also grant permissions to *all* table indexes.
-
-## Keys
-
-When a table is defined, you must define it's schema using the `partitionKey`
-(required) and `sortKey` (optional) properties.
-
-## Billing Mode
-
-DynamoDB supports two billing modes:
-
-* PROVISIONED - the default mode where the table and global secondary indexes have configured read and write capacity.
-* PAY_PER_REQUEST - on-demand pricing and scaling. You only pay for what you use and there is no read and write capacity for the table or its global secondary indexes.
-
-```go
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
+		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	BillingMode: dynamodb.BillingMode_PAY_PER_REQUEST,
+	ContributorInsights: jsii.Boolean(true),
+	TableClass: dynamodb.TableClass_STANDARD_INFREQUENT_ACCESS,
+	PointInTimeRecovery: jsii.Boolean(true),
+})
+```
+
+The above `TableV2` definition will result in the provisioning of a single table in `us-west-2` with properties that match the properties set on the `TableV2` instance.
+
+Further reading:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html
+
+## Replicas
+
+The `TableV2` construct can be configured with replica tables. This will enable you to work with your table as a global table. To do this, the `TableV2` construct must be defined in a `Stack` with a defined region. The main deployment region must not be given as a replica because this is created by default with the `TableV2` construct. The following is a minimal example of defining `TableV2` with `replicas`. This `TableV2` definition will provision three copies of the table - one in `us-west-2` (primary deployment region), one in `us-east-1`, and one in `us-east-2`.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+		},
+	},
+})
+```
+
+Alternatively, you can add new `replicas` to an instance of the `TableV2` construct using the `addReplica` method:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+	},
+})
+
+globalTable.AddReplica(&replicaTableProps{
+	Region: jsii.String("us-east-2"),
+	DeletionProtection: jsii.Boolean(true),
+})
+```
+
+The following properties are configurable on a per-replica basis, but will be inherited from the `TableV2` properties if not specified:
+
+* contributorInsights
+* deletionProtection
+* pointInTimeRecovery
+* tableClass
+* readCapacity (only configurable if the `TableV2` billing mode is `PROVISIONED`)
+* globalSecondaryIndexes (only `contributorInsights` and `readCapacity`)
+
+The following example shows how to define properties on a per-replica basis:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	ContributorInsights: jsii.Boolean(true),
+	PointInTimeRecovery: jsii.Boolean(true),
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+			TableClass: dynamodb.TableClass_STANDARD_INFREQUENT_ACCESS,
+			PointInTimeRecovery: jsii.Boolean(false),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+			ContributorInsights: jsii.Boolean(false),
+		},
+	},
+})
+```
+
+To obtain an `ITableV2` reference to a specific replica table, call the `replica` method on an instance of the `TableV2` construct and pass the replica region as an argument:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var user user
+
+
+type fooStack struct {
+	stack
+	globalTable tableV2
+}
+
+func newFooStack(scope construct, id *string, props stackProps) *fooStack {
+	this := &fooStack{}
+	cdk.NewStack_Override(this, scope, id, props)
+
+	this.globalTable = dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TablePropsV2{
+		PartitionKey: &Attribute{
+			Name: jsii.String("pk"),
+			Type: dynamodb.AttributeType_STRING,
+		},
+		Replicas: []replicaTableProps{
+			&replicaTableProps{
+				Region: jsii.String("us-east-1"),
+			},
+			&replicaTableProps{
+				Region: jsii.String("us-east-2"),
+			},
+		},
+	})
+	return this
+}
+
+type barStackProps struct {
+	stackProps
+	replicaTable iTableV2
+}
+
+type barStack struct {
+	stack
+}
+
+func newBarStack(scope construct, id *string, props barStackProps) *barStack {
+	this := &barStack{}
+	cdk.NewStack_Override(this, scope, id, props)
+
+	// user is given grantWriteData permissions to replica in us-east-1
+	*props.replicaTable.GrantWriteData(user)
+	return this
+}
+
+app := cdk.NewApp()
+
+fooStack := NewFooStack(app, jsii.String("FooStack"), &stackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+barStack := NewBarStack(app, jsii.String("BarStack"), &barStackProps{
+	replicaTable: fooStack.globalTable.Replica(jsii.String("us-east-1")),
+	env: &Environment{
+		Region: jsii.String("us-east-1"),
+	},
+})
+```
+
+Note: You can create an instance of the `TableV2` construct with as many `replicas` as needed as long as there is only one replica per region. After table creation you can add or remove `replicas`, but you can only add or remove a single replica in each update.
+
+## Billing
+
+The `TableV2` construct can be configured with on-demand or provisioned billing:
+
+* On-demand - The default option. This is a flexible billing option capable of serving requests without capacity planning. The billing mode will be `PAY_PER_REQUEST`.
+* Provisioned - Specify the `readCapacity` and `writeCapacity` that you need for your application. The billing mode will be `PROVISIONED`. Capacity can be configured using one of the following modes:
+
+  * Fixed - provisioned throughput capacity is configured with a fixed number of I/O operations per second.
+  * Autoscaled - provisioned throughput capacity is dynamically adjusted on your behalf in response to actual traffic patterns.
+
+Note: `writeCapacity` can only be configured using autoscaled capacity.
+
+The following example shows how to configure `TableV2` with on-demand billing:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Billing: dynamodb.Billing_OnDemand(),
+})
+```
+
+When using provisioned billing, you must also specify `readCapacity` and `writeCapacity`. You can choose to configure `readCapacity` with fixed capacity or autoscaled capacity, but `writeCapacity` can only be configured with autoscaled capacity. The following example shows how to configure `TableV2` with provisioned billing:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Billing: dynamodb.Billing_Provisioned(&ThroughputProps{
+		ReadCapacity: dynamodb.Capacity_Fixed(jsii.Number(10)),
+		WriteCapacity: dynamodb.Capacity_Autoscaled(&AutoscaledCapacityOptions{
+			MaxCapacity: jsii.Number(15),
+		}),
+	}),
+})
+```
+
+When using provisioned billing, you can configure the `readCapacity` on a per-replica basis:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Billing: dynamodb.Billing_Provisioned(&ThroughputProps{
+		ReadCapacity: dynamodb.Capacity_Fixed(jsii.Number(10)),
+		WriteCapacity: dynamodb.Capacity_Autoscaled(&AutoscaledCapacityOptions{
+			MaxCapacity: jsii.Number(15),
+		}),
+	}),
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+			ReadCapacity: dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
+				MaxCapacity: jsii.Number(20),
+				TargetUtilizationPercent: jsii.Number(50),
+			}),
+		},
+	},
 })
 ```
 
 Further reading:
-https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html
+
+## Encryption
+
+All user data stored in a DynamoDB table is fully encrypted at rest. When creating an instance of the `TableV2` construct, you can select the following table encryption options:
+
+* AWS owned keys - Default encryption type. The keys are owned by DynamoDB (no additional charge).
+* AWS managed keys - The keys are stored in your account and are managed by AWS KMS (AWS KMS charges apply).
+* Customer managed keys - The keys are stored in your account and are created, owned, and managed by you. You have full control over the KMS keys (AWS KMS charges apply).
+
+The following is an example of how to configure `TableV2` with encryption using an AWS owned key:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Encryption: dynamodb.TableEncryptionV2_DynamoOwnedKey(),
+})
+```
+
+The following is an example of how to configure `TableV2` with encryption using an AWS managed key:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Encryption: dynamodb.TableEncryptionV2_AwsManagedKey(),
+})
+```
+
+When configuring `TableV2` with encryption using customer managed keys, you must specify the KMS key for the primary table as the `tableKey`. A map of `replicaKeyArns` must be provided containing each replica region and the associated KMS key ARN:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+tableKey := kms.NewKey(stack, jsii.String("Key"))
+replicaKeyArns := map[string]*string{
+	"us-east-1": jsii.String("arn:aws:kms:us-east-1:123456789012:key/g24efbna-az9b-42ro-m3bp-cq249l94fca6"),
+	"us-east-2": jsii.String("arn:aws:kms:us-east-2:123456789012:key/h90bkasj-bs1j-92wp-s2ka-bh857d60bkj8"),
+}
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Encryption: dynamodb.TableEncryptionV2_CustomerManagedKey(tableKey, replicaKeyArns),
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+		},
+	},
+})
+```
+
+Note: When encryption is configured with customer managed keys, you must have a key already created in each replica region.
+
+Further reading:
+https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt
+
+## Secondary Indexes
+
+Secondary indexes allow efficient access to data with attributes other than the `primaryKey`. DynamoDB supports two types of secondary indexes:
+
+* Global secondary index - An index with a `partitionKey` and a `sortKey` that can be different from those on the base table. A `globalSecondaryIndex` is considered "global" because queries on the index can span all of the data in the base table, across all partitions. A `globalSecondaryIndex` is stored in its own partition space away from the base table and scales separately from the base table.
+* Local secondary index - An index that has the same `partitionKey` as the base table, but a different `sortKey`. A `localSecondaryIndex` is "local" in the sense that every partition of a `localSecondaryIndex` is scoped to a base table partition that has the same `partitionKey` value.
+
+Further reading:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SecondaryIndexes.html
+
+### Global Secondary Indexes
+
+`TableV2` can be configured with `globalSecondaryIndexes` by providing them as a `TableV2` property:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
+		&globalSecondaryIndexPropsV2{
+			IndexName: jsii.String("gsi"),
+			PartitionKey: &Attribute{
+				Name: jsii.String("pk"),
+				Type: dynamodb.AttributeType_STRING,
+			},
+		},
+	},
+})
+```
+
+Alternatively, you can add a `globalSecondaryIndex` using the `addGlobalSecondaryIndex` method:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
+		&globalSecondaryIndexPropsV2{
+			IndexName: jsii.String("gsi1"),
+			PartitionKey: &Attribute{
+				Name: jsii.String("pk"),
+				Type: dynamodb.AttributeType_STRING,
+			},
+		},
+	},
+})
+
+table.AddGlobalSecondaryIndex(&globalSecondaryIndexPropsV2{
+	IndexName: jsii.String("gsi2"),
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+})
+```
+
+You can configure `readCapacity` and `writeCapacity` on a `globalSecondaryIndex` when an `TableV2` is configured with provisioned `billing`. If `TableV2` is configured with provisioned `billing` but `readCapacity` or `writeCapacity` are not configured on a `globalSecondaryIndex`, then they will be inherited from the capacity settings specified with the `billing` configuration:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Billing: dynamodb.Billing_Provisioned(&ThroughputProps{
+		ReadCapacity: dynamodb.Capacity_Fixed(jsii.Number(10)),
+		WriteCapacity: dynamodb.Capacity_Autoscaled(&AutoscaledCapacityOptions{
+			MaxCapacity: jsii.Number(10),
+		}),
+	}),
+	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
+		&globalSecondaryIndexPropsV2{
+			IndexName: jsii.String("gsi1"),
+			PartitionKey: &Attribute{
+				Name: jsii.String("pk"),
+				Type: dynamodb.AttributeType_STRING,
+			},
+			ReadCapacity: dynamodb.Capacity_*Fixed(jsii.Number(15)),
+		},
+		&globalSecondaryIndexPropsV2{
+			IndexName: jsii.String("gsi2"),
+			PartitionKey: &Attribute{
+				Name: jsii.String("pk"),
+				Type: dynamodb.AttributeType_STRING,
+			},
+			WriteCapacity: dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
+				MinCapacity: jsii.Number(5),
+				MaxCapacity: jsii.Number(20),
+			}),
+		},
+	},
+})
+```
+
+All `globalSecondaryIndexes` for replica tables are inherited from the primary table. You can configure `contributorInsights` and `readCapacity` for each `globalSecondaryIndex` on a per-replica basis:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	ContributorInsights: jsii.Boolean(true),
+	Billing: dynamodb.Billing_Provisioned(&ThroughputProps{
+		ReadCapacity: dynamodb.Capacity_Fixed(jsii.Number(10)),
+		WriteCapacity: dynamodb.Capacity_Autoscaled(&AutoscaledCapacityOptions{
+			MaxCapacity: jsii.Number(10),
+		}),
+	}),
+	// each global secondary index will inherit contributor insights as true
+	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
+		&globalSecondaryIndexPropsV2{
+			IndexName: jsii.String("gsi1"),
+			PartitionKey: &Attribute{
+				Name: jsii.String("pk"),
+				Type: dynamodb.AttributeType_STRING,
+			},
+			ReadCapacity: dynamodb.Capacity_*Fixed(jsii.Number(15)),
+		},
+		&globalSecondaryIndexPropsV2{
+			IndexName: jsii.String("gsi2"),
+			PartitionKey: &Attribute{
+				Name: jsii.String("pk"),
+				Type: dynamodb.AttributeType_STRING,
+			},
+			WriteCapacity: dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
+				MinCapacity: jsii.Number(5),
+				MaxCapacity: jsii.Number(20),
+			}),
+		},
+	},
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+			GlobalSecondaryIndexOptions: map[string]replicaGlobalSecondaryIndexOptions{
+				"gsi1": &replicaGlobalSecondaryIndexOptions{
+					"readCapacity": dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
+						"minCapacity": jsii.Number(1),
+						"maxCapacity": jsii.Number(10),
+					}),
+				},
+			},
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+			GlobalSecondaryIndexOptions: map[string]*replicaGlobalSecondaryIndexOptions{
+				"gsi2": &replicaGlobalSecondaryIndexOptions{
+					"contributorInsights": jsii.Boolean(false),
+				},
+			},
+		},
+	},
+})
+```
+
+### Local Secondary Indexes
+
+`TableV2` can only be configured with `localSecondaryIndexes` when a `sortKey` is defined as a `TableV2` property.
+
+You can provide `localSecondaryIndexes` as a `TableV2` property:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	SortKey: &Attribute{
+		Name: jsii.String("sk"),
+		Type: dynamodb.AttributeType_NUMBER,
+	},
+	LocalSecondaryIndexes: []localSecondaryIndexProps{
+		&localSecondaryIndexProps{
+			IndexName: jsii.String("lsi"),
+			SortKey: &Attribute{
+				Name: jsii.String("sk"),
+				Type: dynamodb.AttributeType_NUMBER,
+			},
+		},
+	},
+})
+```
+
+Alternatively, you can add a `localSecondaryIndex` using the `addLocalSecondaryIndex` method:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	SortKey: &Attribute{
+		Name: jsii.String("sk"),
+		Type: dynamodb.AttributeType_NUMBER,
+	},
+	LocalSecondaryIndexes: []localSecondaryIndexProps{
+		&localSecondaryIndexProps{
+			IndexName: jsii.String("lsi1"),
+			SortKey: &Attribute{
+				Name: jsii.String("sk"),
+				Type: dynamodb.AttributeType_NUMBER,
+			},
+		},
+	},
+})
+
+table.AddLocalSecondaryIndex(&localSecondaryIndexProps{
+	IndexName: jsii.String("lsi2"),
+	SortKey: &Attribute{
+		Name: jsii.String("sk"),
+		Type: dynamodb.AttributeType_NUMBER,
+	},
+})
+```
+
+## Streams
+
+Each DynamoDB table produces an independent stream based on all its writes, regardless of the origination point for those writes. DynamoDB supports two stream types:
+
+* DynamoDB streams - Capture item-level changes in your table, and push the changes to a DynamoDB stream. You then can access the change information through the DynamoDB Streams API.
+* Kinesis streams - Amazon Kinesis Data Streams for DynamoDB captures item-level changes in your table, and replicates the changes to a Kinesis data stream. You then can consume and manage the change information from Kinesis.
+
+### DynamoDB Streams
+
+A `dynamoStream` can be configured as a `TableV2` property. If the `TableV2` instance has replica tables, then all replica tables will inherit the `dynamoStream` setting from the primary table.  If replicas are configured, but `dynamoStream` is not configured, then the primary table and all replicas will be automatically configured with the `NEW_AND_OLD_IMAGES` stream view type.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import kinesis "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+globalTable := dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	DynamoStream: dynamodb.StreamViewType_OLD_IMAGE,
+	// tables in us-west-2, us-east-1, and us-east-2 all have dynamo stream type of OLD_IMAGES
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+		},
+	},
+})
+```
+
+Further reading:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html
+
+### Kinesis Streams
+
+A `kinesisStream` can be configured as a `TableV2` property. Replica tables will not inherit the `kinesisStream` configured for the primary table and should added on a per-replica basis.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+stream1 := kinesis.NewStream(stack, jsii.String("Stream1"))
+stream2 := kinesis.Stream_FromStreamArn(stack, jsii.String("Stream2"), jsii.String("arn:aws:kinesis:us-east-2:123456789012:stream/my-stream"))
+
+globalTable := dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	KinesisStream: stream1,
+	 // for table in us-west-2
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+			KinesisStream: stream2,
+		},
+	},
+})
+```
+
+Further reading:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html
+
+## Keys
+
+When an instance of the `TableV2` construct is defined, you must define its schema using the `partitionKey` (required) and `sortKey` (optional) properties.
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	SortKey: &Attribute{
+		Name: jsii.String("sk"),
+		Type: dynamodb.AttributeType_NUMBER,
+	},
+})
+```
+
+## Contributor Insights
+
+Enabling `contributorInsights` for `TableV2` will provide information about the most accessed and throttled items in a table or `globalSecondaryIndex`. DynamoDB delivers this information to you via CloudWatch Contributor Insights rules, reports, and graphs of report data.
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	ContributorInsights: jsii.Boolean(true),
+})
+```
+
+Further reading:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html
+
+## Deletion Protection
+
+`deletionProtection` determines if your DynamoDB table is protected from deletion and is configurable as a `TableV2` property. When enabled, the table cannot be deleted by any user or process.
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	DeletionProtection: jsii.Boolean(true),
+})
+```
+
+You can also specify the `removalPolicy` as a property of the `TableV2` construct. This property allows you to control what happens to tables provisioned using `TableV2` during `stack` deletion. By default, the `removalPolicy` is `RETAIN` which will cause all tables provisioned using `TableV2` to be retained in the account, but orphaned from the `stack` they were created in. You can also set the `removalPolicy` to `DESTROY` which will delete all tables created using `TableV2` during `stack` deletion:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	// applys to all replicas, i.e., us-west-2, us-east-1, us-east-2
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+		},
+	},
+})
+```
+
+`deletionProtection` is configurable on a per-replica basis. If the `removalPolicy` is set to `DESTROY`, but some `replicas` have `deletionProtection` enabled, then only the `replicas` without `deletionProtection` will be deleted during `stack` deletion:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+	DeletionProtection: jsii.Boolean(true),
+	// only the replica in us-east-1 will be deleted during stack deletion
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+			DeletionProtection: jsii.Boolean(false),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+			DeletionProtection: jsii.Boolean(true),
+		},
+	},
+})
+```
+
+## Point-in-Time Recovery
+
+`pointInTimeRecovery` provides automatic backups of your DynamoDB table data which helps protect your tables from accidental write or delete operations.
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	PointInTimeRecovery: jsii.Boolean(true),
+})
+```
 
 ## Table Class
 
-DynamoDB supports two table classes:
+You can configure a `TableV2` instance with table classes:
 
 * STANDARD - the default mode, and is recommended for the vast majority of workloads.
 * STANDARD_INFREQUENT_ACCESS - optimized for tables where storage is the dominant cost.
 
 ```go
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
+		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
 	TableClass: dynamodb.TableClass_STANDARD_INFREQUENT_ACCESS,
@@ -76,222 +826,145 @@ table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
 Further reading:
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.TableClasses.html
 
-## Configure AutoScaling for your table
+## Referencing Existing Global Tables
 
-You can have DynamoDB automatically raise and lower the read and write capacities
-of your table by setting up autoscaling. You can use this to either keep your
-tables at a desired utilization level, or by scaling up and down at pre-configured
-times of the day:
-
-Auto-scaling is only relevant for tables with the billing mode, PROVISIONED.
+To reference an existing DynamoDB table in your CDK application, use the `TableV2.fromTableName`, `TableV2.fromTableArn`, or `TableV2.fromTableAttributes`
+factory methods:
 
 ```go
-readScaling := table.AutoScaleReadCapacity(&EnableScalingProps{
-	MinCapacity: jsii.Number(1),
-	MaxCapacity: jsii.Number(50),
-})
+var user user
 
-readScaling.ScaleOnUtilization(&UtilizationScalingProps{
-	TargetUtilizationPercent: jsii.Number(50),
-})
 
-readScaling.ScaleOnSchedule(jsii.String("ScaleUpInTheMorning"), &ScalingSchedule{
-	Schedule: appscaling.Schedule_Cron(&CronOptions{
-		Hour: jsii.String("8"),
-		Minute: jsii.String("0"),
-	}),
-	MinCapacity: jsii.Number(20),
-})
-
-readScaling.ScaleOnSchedule(jsii.String("ScaleDownAtNight"), &ScalingSchedule{
-	Schedule: appscaling.Schedule_*Cron(&CronOptions{
-		Hour: jsii.String("20"),
-		Minute: jsii.String("0"),
-	}),
-	MaxCapacity: jsii.Number(20),
-})
+table := dynamodb.TableV2_FromTableArn(this, jsii.String("ImportedTable"), jsii.String("arn:aws:dynamodb:us-east-1:123456789012:table/my-table"))
+// now you can call methods on the referenced table
+table.GrantReadWriteData(user)
 ```
 
-Further reading:
-https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html
-https://aws.amazon.com/blogs/database/how-to-use-aws-cloudformation-to-configure-auto-scaling-for-amazon-dynamodb-tables-and-indexes/
+If you intend to use the `tableStreamArn` (including indirectly, for example by creating an
+`aws-cdk-lib/aws-lambda-event-sources.DynamoEventSource` on the referenced table), you *must* use the
+`TableV2.fromTableAttributes` method and the `tableStreamArn` property *must* be populated.
 
-## Amazon DynamoDB Global Tables
+To grant permissions to indexes for a referenced table you can either set `grantIndexPermissions` to `true`, or you can provide the indexes via the `globalIndexes` or `localIndexes` properties. This will enable `grant*` methods to also grant permissions to *all* table indexes.
 
-You can create DynamoDB Global Tables by setting the `replicationRegions` property on a `Table`:
+## Grants
 
-```go
-globalTable := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
-	},
-	ReplicationRegions: []*string{
-		jsii.String("us-east-1"),
-		jsii.String("us-east-2"),
-		jsii.String("us-west-2"),
-	},
-})
-```
-
-When doing so, a CloudFormation Custom Resource will be added to the stack in order to create the replica tables in the
-selected regions.
-
-The default billing mode for Global Tables is `PAY_PER_REQUEST`.
-If you want to use `PROVISIONED`,
-you have to make sure write auto-scaling is enabled for that Table:
+Using any of the `grant*` methods on an instance of the `TableV2` construct will only apply to the primary table, its indexes, and any associated `encryptionKey`. As an example, `grantReadData` used below will only apply the table in `us-west-2`:
 
 ```go
-globalTable := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
-	},
-	ReplicationRegions: []*string{
-		jsii.String("us-east-1"),
-		jsii.String("us-east-2"),
-		jsii.String("us-west-2"),
-	},
-	BillingMode: dynamodb.BillingMode_PROVISIONED,
-})
-
-globalTable.AutoScaleWriteCapacity(&EnableScalingProps{
-	MinCapacity: jsii.Number(1),
-	MaxCapacity: jsii.Number(10),
-}).ScaleOnUtilization(&UtilizationScalingProps{
-	TargetUtilizationPercent: jsii.Number(75),
-})
-```
-
-When adding a replica region for a large table, you might want to increase the
-timeout for the replication operation:
-
-```go
-globalTable := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
-	},
-	ReplicationRegions: []*string{
-		jsii.String("us-east-1"),
-		jsii.String("us-east-2"),
-		jsii.String("us-west-2"),
-	},
-	ReplicationTimeout: awscdk.Duration_Hours(jsii.Number(2)),
-})
-```
-
-A maximum of 10 tables with replication can be added to a stack without a limit increase for
-[managed policies attached to an IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entities).
-This is because more than 10 managed policies will be attached to the DynamoDB service replication role - one policy per replication table.
-Consider splitting your tables across multiple stacks if your reach this limit.
-
-## Encryption
-
-All user data stored in Amazon DynamoDB is fully encrypted at rest. When creating a new table, you can choose to encrypt using the following customer master keys (CMK) to encrypt your table:
-
-* AWS owned CMK - By default, all tables are encrypted under an AWS owned customer master key (CMK) in the DynamoDB service account (no additional charges apply).
-* AWS managed CMK - AWS KMS keys (one per region) are created in your account, managed, and used on your behalf by AWS DynamoDB (AWS KMS charges apply).
-* Customer managed CMK - You have full control over the KMS key used to encrypt the DynamoDB Table (AWS KMS charges apply).
-
-Creating a Table encrypted with a customer managed CMK:
-
-```go
-table := dynamodb.NewTable(this, jsii.String("MyTable"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
-	},
-	Encryption: dynamodb.TableEncryption_CUSTOMER_MANAGED,
-})
-
-// You can access the CMK that was added to the stack on your behalf by the Table construct via:
-tableEncryptionKey := table.EncryptionKey
-```
-
-You can also supply your own key:
-
-```go
+import "github.com/aws/aws-cdk-go/awscdk"
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
+var user user
 
-encryptionKey := kms.NewKey(this, jsii.String("Key"), &KeyProps{
-	EnableKeyRotation: jsii.Boolean(true),
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
 })
-table := dynamodb.NewTable(this, jsii.String("MyTable"), &TableProps{
+
+tableKey := kms.NewKey(stack, jsii.String("Key"))
+replicaKeyArns := map[string]*string{
+	"us-east-1": jsii.String("arn:aws:kms:us-east-1:123456789012:key/g24efbna-az9b-42ro-m3bp-cq249l94fca6"),
+	"us-east-2": jsii.String("arn:aws:kms:us-east-2:123456789012:key/g24efbna-az9b-42ro-m3bp-cq249l94fca6"),
+}
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
 	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
+		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	Encryption: dynamodb.TableEncryption_CUSTOMER_MANAGED,
-	EncryptionKey: EncryptionKey,
+	Encryption: dynamodb.TableEncryptionV2_CustomerManagedKey(tableKey, replicaKeyArns),
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+		},
+	},
 })
+
+// grantReadData only applys to the table in us-west-2 and the tableKey
+globalTable.GrantReadData(user)
 ```
 
-In order to use the AWS managed CMK instead, change the code to:
+The `replica` method can be used to grant to a specific replica table:
 
 ```go
-table := dynamodb.NewTable(this, jsii.String("MyTable"), &TableProps{
+import "github.com/aws/aws-cdk-go/awscdk"
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+var user user
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+tableKey := kms.NewKey(stack, jsii.String("Key"))
+replicaKeyArns := map[string]*string{
+	"us-east-1": jsii.String("arn:aws:kms:us-east-1:123456789012:key/g24efbna-az9b-42ro-m3bp-cq249l94fca6"),
+	"us-east-2": jsii.String("arn:aws:kms:us-east-2:123456789012:key/g24efbna-az9b-42ro-m3bp-cq249l94fca6"),
+}
+
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
 	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
+		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	Encryption: dynamodb.TableEncryption_AWS_MANAGED,
-})
-```
-
-## Get schema of table or secondary indexes
-
-To get the partition key and sort key of the table or indexes you have configured:
-
-```go
-var table table
-
-schema := table.Schema()
-partitionKey := schema.PartitionKey
-sortKey := schema.SortKey
-```
-
-## Kinesis Stream
-
-A Kinesis Data Stream can be configured on the DynamoDB table to capture item-level changes.
-
-```go
-import kinesis "github.com/aws/aws-cdk-go/awscdk"
-
-
-stream := kinesis.NewStream(this, jsii.String("Stream"))
-
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+	Encryption: dynamodb.TableEncryptionV2_CustomerManagedKey(tableKey, replicaKeyArns),
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+		},
 	},
-	KinesisStream: stream,
 })
+
+// grantReadData applys to the table in us-east-2 and the key arn for the key in us-east-2
+globalTable.Replica(jsii.String("us-east-2")).GrantReadData(user)
 ```
 
-## Alarm metrics
+## Metrics
 
-Alarms can be configured on the DynamoDB table to captured metric data
+You can use `metric*` methods to generate metrics for a table that can be used when configuring an `Alarm` or `Graphs`. The `metric*` methods only apply to the primary table provisioned using the `TableV2` construct. As an example, `metricConsumedReadCapacityUnits` used below is only for the table in `us-west-2`:
 
 ```go
+import "github.com/aws/aws-cdk-go/awscdk"
 import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 
 
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
 	},
 })
 
-metric := table.metricThrottledRequestsForOperations(&OperationsMetricOptions{
-	Operations: []operation{
-		dynamodb.*operation_PUT_ITEM,
+globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
 	},
-	Period: awscdk.Duration_Minutes(jsii.Number(1)),
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+		},
+	},
 })
+
+// metric is only for the table in us-west-2
+metric := globalTable.MetricConsumedReadCapacityUnits()
 
 cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
 	Metric: metric,
@@ -300,17 +973,51 @@ cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
 })
 ```
 
-## Deletion Protection for Tables
-
-You can enable deletion protection for a table by setting the `deletionProtection` property to `true`.
-When deletion protection is enabled for a table, it cannot be deleted by anyone. By default, deletion protection is disabled.
+The `replica` method can be used to generate a metric for a specific replica table:
 
 ```go
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
-	},
-	DeletionProtection: jsii.Boolean(true),
-})
+import * as cdk form 'aws-cdk-lib';
+import * as cloudwatch from 'aws-cdk-lib/aws-cloudwatch';
+
+class FooStack extends cdk.Stack {
+  public readonly globalTable: dynamodb.TableV2;
+
+  public constructor(scope: Construct, id: string, props: cdk.StackProps) {
+    super(scope, id, props);
+
+    this.globalTable = new dynamodb.Tablev2(this, 'GlobalTable', {
+      partitionKey: { name: 'pk', type: dynamodb.AttributeType.STRING },
+      replicas: [
+        { region: 'us-east-1' },
+        { region: 'us-east-2' },
+      ],
+    });
+  }
+}
+
+interface BarStack extends cdk.StackProps {
+  readonly replicaTable: dynamodb.ITableV2;
+}
+
+class BarStack extends cdk.Stack {
+  public constructor(scope: Construct, id: string, props: BarStackProps) {
+    super(scope, id, props);
+
+    // metric is only for the table in us-east-1
+    const metric = props.replicaTable.metricConsumedReadCapacityUnits();
+
+    new cloudwatch.Alarm(this, 'Alarm', {
+      metric: metric,
+      evaluationPeriods: 1,
+      threshold: 1,
+    });
+  }
+}
+
+const app = new cdk.App();
+const fooStack = new FooStack(app, 'FooStack', { env: { region: 'us-west-2' } });
+const barStack = new BarStack(app, 'BarStack', {
+  replicaTable: fooStack.globalTable.replica('us-east-1'),
+  env: { region: 'us-east-1' },
+});
 ```

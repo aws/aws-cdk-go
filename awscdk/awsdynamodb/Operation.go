@@ -2,31 +2,6 @@ package awsdynamodb
 
 
 // Supported DynamoDB table operations.
-//
-// Example:
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
-//   	},
-//   })
-//
-//   metric := table.metricThrottledRequestsForOperations(&OperationsMetricOptions{
-//   	Operations: []operation{
-//   		dynamodb.*operation_PUT_ITEM,
-//   	},
-//   	Period: awscdk.Duration_Minutes(jsii.Number(1)),
-//   })
-//
-//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: metric,
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(1),
-//   })
-//
 type Operation string
 
 const (

@@ -20,12 +20,44 @@ func init() {
 			"STRING": AttributeType_STRING,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.AutoscaledCapacityOptions",
+		reflect.TypeOf((*AutoscaledCapacityOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.Billing",
+		reflect.TypeOf((*Billing)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "mode", GoGetter: "Mode"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Billing{}
+		},
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_dynamodb.BillingMode",
 		reflect.TypeOf((*BillingMode)(nil)).Elem(),
 		map[string]interface{}{
 			"PAY_PER_REQUEST": BillingMode_PAY_PER_REQUEST,
 			"PROVISIONED": BillingMode_PROVISIONED,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.Capacity",
+		reflect.TypeOf((*Capacity)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "mode", GoGetter: "Mode"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Capacity{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_dynamodb.CapacityMode",
+		reflect.TypeOf((*CapacityMode)(nil)).Elem(),
+		map[string]interface{}{
+			"FIXED": CapacityMode_FIXED,
+			"AUTOSCALED": CapacityMode_AUTOSCALED,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -299,6 +331,10 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.GlobalSecondaryIndexProps",
 		reflect.TypeOf((*GlobalSecondaryIndexProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.GlobalSecondaryIndexPropsV2",
+		reflect.TypeOf((*GlobalSecondaryIndexPropsV2)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_dynamodb.IScalableTableAttribute",
 		reflect.TypeOf((*IScalableTableAttribute)(nil)).Elem(),
@@ -346,6 +382,43 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_dynamodb.ITableV2",
+		reflect.TypeOf((*ITableV2)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
+			_jsii_.MemberMethod{JsiiMethod: "grantWriteData", GoMethod: "GrantWriteData"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConditionalCheckFailedRequests", GoMethod: "MetricConditionalCheckFailedRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedReadCapacityUnits", GoMethod: "MetricConsumedReadCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedWriteCapacityUnits", GoMethod: "MetricConsumedWriteCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccessfulRequestLatency", GoMethod: "MetricSuccessfulRequestLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperations", GoMethod: "MetricThrottledRequestsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "tableId", GoGetter: "TableId"},
+			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITableV2{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITable)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.LocalSecondaryIndexProps",
 		reflect.TypeOf((*LocalSecondaryIndexProps)(nil)).Elem(),
@@ -382,6 +455,14 @@ func init() {
 			"INCLUDE": ProjectionType_INCLUDE,
 			"ALL": ProjectionType_ALL,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.ReplicaGlobalSecondaryIndexOptions",
+		reflect.TypeOf((*ReplicaGlobalSecondaryIndexOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.ReplicaTableProps",
+		reflect.TypeOf((*ReplicaTableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.SchemaOptions",
@@ -435,6 +516,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricConsumedReadCapacityUnits", GoMethod: "MetricConsumedReadCapacityUnits"},
 			_jsii_.MemberMethod{JsiiMethod: "metricConsumedWriteCapacityUnits", GoMethod: "MetricConsumedWriteCapacityUnits"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccessfulRequestLatency", GoMethod: "MetricSuccessfulRequestLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrors", GoMethod: "MetricSystemErrors"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperation", GoMethod: "MetricThrottledRequestsForOperation"},
@@ -452,14 +534,110 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_Table{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_TableBase)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.TableAttributes",
 		reflect.TypeOf((*TableAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.TableAttributesV2",
+		reflect.TypeOf((*TableAttributesV2)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.TableBase",
+		reflect.TypeOf((*TableBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
+			_jsii_.MemberMethod{JsiiMethod: "grantWriteData", GoMethod: "GrantWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "hasIndex", GoGetter: "HasIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConditionalCheckFailedRequests", GoMethod: "MetricConditionalCheckFailedRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedReadCapacityUnits", GoMethod: "MetricConsumedReadCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedWriteCapacityUnits", GoMethod: "MetricConsumedWriteCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccessfulRequestLatency", GoMethod: "MetricSuccessfulRequestLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrors", GoMethod: "MetricSystemErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperation", GoMethod: "MetricThrottledRequestsForOperation"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperations", GoMethod: "MetricThrottledRequestsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "regionalArns", GoGetter: "RegionalArns"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_TableBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.TableBaseV2",
+		reflect.TypeOf((*TableBaseV2)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
+			_jsii_.MemberMethod{JsiiMethod: "grantWriteData", GoMethod: "GrantWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "hasIndex", GoGetter: "HasIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConditionalCheckFailedRequests", GoMethod: "MetricConditionalCheckFailedRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedReadCapacityUnits", GoMethod: "MetricConsumedReadCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedWriteCapacityUnits", GoMethod: "MetricConsumedWriteCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccessfulRequestLatency", GoMethod: "MetricSuccessfulRequestLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrors", GoMethod: "MetricSystemErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperation", GoMethod: "MetricThrottledRequestsForOperation"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperations", GoMethod: "MetricThrottledRequestsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "tableId", GoGetter: "TableId"},
+			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_TableBaseV2{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITableV2)
+			return &j
+		},
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_dynamodb.TableClass",
@@ -478,13 +656,87 @@ func init() {
 			"AWS_MANAGED": TableEncryption_AWS_MANAGED,
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.TableEncryptionV2",
+		reflect.TypeOf((*TableEncryptionV2)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "replicaKeyArns", GoGetter: "ReplicaKeyArns"},
+			_jsii_.MemberProperty{JsiiProperty: "tableKey", GoGetter: "TableKey"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TableEncryptionV2{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.TableOptions",
 		reflect.TypeOf((*TableOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.TableOptionsV2",
+		reflect.TypeOf((*TableOptionsV2)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.TableProps",
 		reflect.TypeOf((*TableProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.TablePropsV2",
+		reflect.TypeOf((*TablePropsV2)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.TableV2",
+		reflect.TypeOf((*TableV2)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addGlobalSecondaryIndex", GoMethod: "AddGlobalSecondaryIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "addLocalSecondaryIndex", GoMethod: "AddLocalSecondaryIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "addReplica", GoMethod: "AddReplica"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
+			_jsii_.MemberMethod{JsiiMethod: "grantWriteData", GoMethod: "GrantWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "hasIndex", GoGetter: "HasIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConditionalCheckFailedRequests", GoMethod: "MetricConditionalCheckFailedRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedReadCapacityUnits", GoMethod: "MetricConsumedReadCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedWriteCapacityUnits", GoMethod: "MetricConsumedWriteCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccessfulRequestLatency", GoMethod: "MetricSuccessfulRequestLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrors", GoMethod: "MetricSystemErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperation", GoMethod: "MetricThrottledRequestsForOperation"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperations", GoMethod: "MetricThrottledRequestsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
+			_jsii_.MemberMethod{JsiiMethod: "replica", GoMethod: "Replica"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "tableId", GoGetter: "TableId"},
+			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_TableV2{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_TableBaseV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.ThroughputProps",
+		reflect.TypeOf((*ThroughputProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.UtilizationScalingProps",

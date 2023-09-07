@@ -632,6 +632,14 @@ func init() {
 			"WAIT_FOR_TASK_TOKEN": IntegrationPattern_WAIT_FOR_TASK_TOKEN,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_stepfunctions.JitterType",
+		reflect.TypeOf((*JitterType)(nil)).Elem(),
+		map[string]interface{}{
+			"FULL": JitterType_FULL,
+			"NONE": JitterType_NONE,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.JsonPath",
 		reflect.TypeOf((*JsonPath)(nil)).Elem(),

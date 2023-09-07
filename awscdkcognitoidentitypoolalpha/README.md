@@ -85,9 +85,9 @@ var table table
 identityPool := awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myIdentityPool"))
 
 // Grant permissions to authenticated users
-table.grantReadWriteData(identityPool.AuthenticatedRole)
+table.GrantReadWriteData(identityPool.AuthenticatedRole)
 // Grant permissions to unauthenticated guest users
-table.grantReadData(identityPool.UnauthenticatedRole)
+table.GrantReadData(identityPool.UnauthenticatedRole)
 
 //Or add policy statements straight to the role
 identityPool.AuthenticatedRole.AddToPrincipalPolicy(iam.NewPolicyStatement(&PolicyStatementProps{

@@ -56,6 +56,34 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TaskReportConfig: &TaskReportConfigProperty{
+//   		Destination: &DestinationProperty{
+//   			S3: &S3Property{
+//   				BucketAccessRoleArn: jsii.String("bucketAccessRoleArn"),
+//   				S3BucketArn: jsii.String("s3BucketArn"),
+//   				Subdirectory: jsii.String("subdirectory"),
+//   			},
+//   		},
+//   		OutputType: jsii.String("outputType"),
+//
+//   		// the properties below are optional
+//   		ObjectVersionIds: jsii.String("objectVersionIds"),
+//   		Overrides: &OverridesProperty{
+//   			Deleted: &DeletedProperty{
+//   				ReportLevel: jsii.String("reportLevel"),
+//   			},
+//   			Skipped: &SkippedProperty{
+//   				ReportLevel: jsii.String("reportLevel"),
+//   			},
+//   			Transferred: &TransferredProperty{
+//   				ReportLevel: jsii.String("reportLevel"),
+//   			},
+//   			Verified: &VerifiedProperty{
+//   				ReportLevel: jsii.String("reportLevel"),
+//   			},
+//   		},
+//   		ReportLevel: jsii.String("reportLevel"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
@@ -113,5 +141,8 @@ type CfnTaskProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-taskreportconfig
+	//
+	TaskReportConfig interface{} `field:"optional" json:"taskReportConfig" yaml:"taskReportConfig"`
 }
 

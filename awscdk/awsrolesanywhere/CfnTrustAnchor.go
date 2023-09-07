@@ -32,6 +32,16 @@ import (
 //
 //   	// the properties below are optional
 //   	Enabled: jsii.Boolean(false),
+//   	NotificationSettings: []interface{}{
+//   		&NotificationSettingProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			Event: jsii.String("event"),
+//
+//   			// the properties below are optional
+//   			Channel: jsii.String("channel"),
+//   			Threshold: jsii.Number(123),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -77,6 +87,8 @@ type CfnTrustAnchor interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	NotificationSettings() interface{}
+	SetNotificationSettings(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -341,6 +353,16 @@ func (j *jsiiProxy_CfnTrustAnchor) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrustAnchor) NotificationSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"notificationSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrustAnchor) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -457,6 +479,17 @@ func (j *jsiiProxy_CfnTrustAnchor)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrustAnchor)SetNotificationSettings(val interface{}) {
+	if err := j.validateSetNotificationSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"notificationSettings",
 		val,
 	)
 }

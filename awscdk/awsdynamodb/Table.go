@@ -6,7 +6,6 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -15,32 +14,53 @@ import (
 // Provides a DynamoDB table.
 //
 // Example:
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+//   // create a table
+//   table := dynamodb.NewTable(this, jsii.String("montable"), &TableProps{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("id"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
 //   })
 //
-//   metric := table.metricThrottledRequestsForOperations(&OperationsMetricOptions{
-//   	Operations: []operation{
-//   		dynamodb.*operation_PUT_ITEM,
+//   finalStatus := sfn.NewPass(this, jsii.String("final step"))
+//
+//   // States language JSON to put an item into DynamoDB
+//   // snippet generated from https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-code-snippet.html#tutorial-code-snippet-1
+//   stateJson := map[string]interface{}{
+//   	"Type": jsii.String("Task"),
+//   	"Resource": jsii.String("arn:aws:states:::dynamodb:putItem"),
+//   	"Parameters": map[string]interface{}{
+//   		"TableName": table.tableName,
+//   		"Item": map[string]map[string]*string{
+//   			"id": map[string]*string{
+//   				"S": jsii.String("MyEntry"),
+//   			},
+//   		},
 //   	},
-//   	Period: awscdk.Duration_Minutes(jsii.Number(1)),
+//   	"ResultPath": nil,
+//   }
+//
+//   // custom state which represents a task to insert data into DynamoDB
+//   custom := sfn.NewCustomState(this, jsii.String("my custom task"), &CustomStateProps{
+//   	StateJson: StateJson,
 //   })
 //
-//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: metric,
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(1),
+//   chain := sfn.Chain_Start(custom).Next(finalStatus)
+//
+//   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+//   	Definition: chain,
+//   	Timeout: awscdk.Duration_Seconds(jsii.Number(30)),
+//   	Comment: jsii.String("a super cool state machine"),
 //   })
+//
+//   // don't forget permissions. You need to assign them
+//   table.GrantWriteData(sm)
 //
 type Table interface {
-	awscdk.Resource
-	ITable
+	TableBase
 	// KMS encryption key, if this table uses a customer-managed encryption key.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
@@ -183,6 +203,9 @@ type Table interface {
 	// You can customize this by using the `statistic` and `period` properties.
 	MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the system errors this table.
+	// Deprecated: use `metricSystemErrorsForOperations`.
+	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the system errors this table.
 	//
 	// This will sum errors across all possible operations.
 	// Note that by default, each individual metric will be calculated as a sum over a period of 5 minutes.
@@ -221,8 +244,7 @@ type Table interface {
 
 // The jsii proxy struct for Table
 type jsiiProxy_Table struct {
-	internal.Type__awscdkResource
-	jsiiProxy_ITable
+	jsiiProxy_TableBase
 }
 
 func (j *jsiiProxy_Table) EncryptionKey() awskms.IKey {
@@ -836,6 +858,22 @@ func (t *jsiiProxy_Table) MetricSuccessfulRequestLatency(props *awscloudwatch.Me
 	_jsii_.Invoke(
 		t,
 		"metricSuccessfulRequestLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_Table) MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricSystemErrorsParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricSystemErrors",
 		[]interface{}{props},
 		&returns,
 	)

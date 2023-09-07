@@ -53,7 +53,7 @@ import (
 //   })
 //
 //   // don't forget permissions. You need to assign them
-//   table.grantWriteData(sm)
+//   table.GrantWriteData(sm)
 //
 type CustomState interface {
 	State

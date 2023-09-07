@@ -10,6 +10,10 @@ package awsquicksight
 //
 //   dateTimePickerControlDisplayOptionsProperty := &DateTimePickerControlDisplayOptionsProperty{
 //   	DateTimeFormat: jsii.String("dateTimeFormat"),
+//   	InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   		InfoIconText: jsii.String("infoIconText"),
+//   		Visibility: jsii.String("visibility"),
+//   	},
 //   	TitleOptions: &LabelOptionsProperty{
 //   		CustomLabel: jsii.String("customLabel"),
 //   		FontConfiguration: &FontConfigurationProperty{
@@ -34,6 +38,9 @@ type CfnTemplate_DateTimePickerControlDisplayOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html#cfn-quicksight-template-datetimepickercontroldisplayoptions-datetimeformat
 	//
 	DateTimeFormat *string `field:"optional" json:"dateTimeFormat" yaml:"dateTimeFormat"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html#cfn-quicksight-template-datetimepickercontroldisplayoptions-infoiconlabeloptions
+	//
+	InfoIconLabelOptions interface{} `field:"optional" json:"infoIconLabelOptions" yaml:"infoIconLabelOptions"`
 	// The options to configure the title visibility, name, and font size.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html#cfn-quicksight-template-datetimepickercontroldisplayoptions-titleoptions
 	//

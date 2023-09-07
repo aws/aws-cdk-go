@@ -13,19 +13,29 @@ import (
 // Defines a KMS key.
 //
 // Example:
-//   import kms "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   encryptionKey := kms.NewKey(this, jsii.String("Key"), &KeyProps{
-//   	EnableKeyRotation: jsii.Boolean(true),
-//   })
-//   table := dynamodb.NewTable(this, jsii.String("MyTable"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
+//   myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
+//   // Creates a limited admin policy and assigns to the account root.
+//   myCustomPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+//   	Statements: []policyStatement{
+//   		iam.NewPolicyStatement(&PolicyStatementProps{
+//   			Actions: []*string{
+//   				jsii.String("kms:Create*"),
+//   				jsii.String("kms:Describe*"),
+//   				jsii.String("kms:Enable*"),
+//   				jsii.String("kms:List*"),
+//   				jsii.String("kms:Put*"),
+//   			},
+//   			Principals: []iPrincipal{
+//   				iam.NewAccountRootPrincipal(),
+//   			},
+//   			Resources: []*string{
+//   				jsii.String("*"),
+//   			},
+//   		}),
 //   	},
-//   	Encryption: dynamodb.TableEncryption_CUSTOMER_MANAGED,
-//   	EncryptionKey: EncryptionKey,
+//   })
+//   key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+//   	Policy: myCustomPolicy,
 //   })
 //
 type Key interface {

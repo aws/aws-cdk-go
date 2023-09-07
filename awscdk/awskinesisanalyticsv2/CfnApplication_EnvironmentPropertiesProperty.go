@@ -1,7 +1,7 @@
 package awskinesisanalyticsv2
 
 
-// Describes execution properties for a Flink-based Kinesis Data Analytics application.
+// Describes execution properties for a Managed Service for Apache Flink application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

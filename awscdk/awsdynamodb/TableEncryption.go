@@ -2,19 +2,6 @@ package awsdynamodb
 
 
 // What kind of server-side encryption to apply to this table.
-//
-// Example:
-//   table := dynamodb.NewTable(this, jsii.String("MyTable"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
-//   	},
-//   	Encryption: dynamodb.TableEncryption_CUSTOMER_MANAGED,
-//   })
-//
-//   // You can access the CMK that was added to the stack on your behalf by the Table construct via:
-//   tableEncryptionKey := table.EncryptionKey
-//
 type TableEncryption string
 
 const (

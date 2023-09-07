@@ -46,6 +46,24 @@ import (
 //   	// the properties below are optional
 //   	AppAssessmentSchedule: jsii.String("appAssessmentSchedule"),
 //   	Description: jsii.String("description"),
+//   	EventSubscriptions: []interface{}{
+//   		&EventSubscriptionProperty{
+//   			EventType: jsii.String("eventType"),
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			SnsTopicArn: jsii.String("snsTopicArn"),
+//   		},
+//   	},
+//   	PermissionModel: &PermissionModelProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		CrossAccountRoleArns: []*string{
+//   			jsii.String("crossAccountRoleArns"),
+//   		},
+//   		InvokerRoleName: jsii.String("invokerRoleName"),
+//   	},
 //   	ResiliencyPolicyArn: jsii.String("resiliencyPolicyArn"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -66,6 +84,7 @@ type CfnApp interface {
 	SetAppTemplateBody(val *string)
 	// The Amazon Resource Name (ARN) of the app.
 	AttrAppArn() *string
+	AttrDriftStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -78,6 +97,8 @@ type CfnApp interface {
 	// Optional description for an application.
 	Description() *string
 	SetDescription(val *string)
+	EventSubscriptions() interface{}
+	SetEventSubscriptions(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -93,6 +114,8 @@ type CfnApp interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	PermissionModel() interface{}
+	SetPermissionModel(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -290,6 +313,16 @@ func (j *jsiiProxy_CfnApp) AttrAppArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApp) AttrDriftStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDriftStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApp) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -340,6 +373,16 @@ func (j *jsiiProxy_CfnApp) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApp) EventSubscriptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"eventSubscriptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApp) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -365,6 +408,16 @@ func (j *jsiiProxy_CfnApp) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApp) PermissionModel() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"permissionModel",
 		&returns,
 	)
 	return returns
@@ -505,6 +558,17 @@ func (j *jsiiProxy_CfnApp)SetDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnApp)SetEventSubscriptions(val interface{}) {
+	if err := j.validateSetEventSubscriptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"eventSubscriptions",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnApp)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -512,6 +576,17 @@ func (j *jsiiProxy_CfnApp)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApp)SetPermissionModel(val interface{}) {
+	if err := j.validateSetPermissionModelParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"permissionModel",
 		val,
 	)
 }

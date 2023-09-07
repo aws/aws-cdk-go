@@ -41,6 +41,9 @@ package awssam
 //   			"variablesKey": jsii.String("variables"),
 //   		},
 //   	},
+//   	EphemeralStorage: &EphemeralStorageProperty{
+//   		Size: jsii.Number(123),
+//   	},
 //   	EventInvokeConfig: &EventInvokeConfigProperty{
 //   		DestinationConfig: &EventInvokeDestinationConfigProperty{
 //   			OnFailure: &DestinationProperty{
@@ -156,6 +159,9 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-environment
 	//
 	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-ephemeralstorage
+	//
+	EphemeralStorage interface{} `field:"optional" json:"ephemeralStorage" yaml:"ephemeralStorage"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-serverless-function.html#cfn-serverless-function-eventinvokeconfig
 	//
 	EventInvokeConfig interface{} `field:"optional" json:"eventInvokeConfig" yaml:"eventInvokeConfig"`

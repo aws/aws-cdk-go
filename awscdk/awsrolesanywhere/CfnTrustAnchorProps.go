@@ -23,6 +23,16 @@ import (
 //
 //   	// the properties below are optional
 //   	Enabled: jsii.Boolean(false),
+//   	NotificationSettings: []interface{}{
+//   		&NotificationSettingProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			Event: jsii.String("event"),
+//
+//   			// the properties below are optional
+//   			Channel: jsii.String("channel"),
+//   			Threshold: jsii.Number(123),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -46,6 +56,9 @@ type CfnTrustAnchorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-notificationsettings
+	//
+	NotificationSettings interface{} `field:"optional" json:"notificationSettings" yaml:"notificationSettings"`
 	// The tags to attach to the trust anchor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-tags
 	//

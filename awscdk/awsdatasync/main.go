@@ -863,6 +863,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
+			_jsii_.MemberProperty{JsiiProperty: "taskReportConfig", GoGetter: "TaskReportConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -877,6 +878,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.DeletedProperty",
+		reflect.TypeOf((*CfnTask_DeletedProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.DestinationProperty",
+		reflect.TypeOf((*CfnTask_DestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnTask.FilterRuleProperty",
 		reflect.TypeOf((*CfnTask_FilterRuleProperty)(nil)).Elem(),
 	)
@@ -885,8 +894,32 @@ func init() {
 		reflect.TypeOf((*CfnTask_OptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.OverridesProperty",
+		reflect.TypeOf((*CfnTask_OverridesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.S3Property",
+		reflect.TypeOf((*CfnTask_S3Property)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.SkippedProperty",
+		reflect.TypeOf((*CfnTask_SkippedProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.TaskReportConfigProperty",
+		reflect.TypeOf((*CfnTask_TaskReportConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnTask.TaskScheduleProperty",
 		reflect.TypeOf((*CfnTask_TaskScheduleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.TransferredProperty",
+		reflect.TypeOf((*CfnTask_TransferredProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.VerifiedProperty",
+		reflect.TypeOf((*CfnTask_VerifiedProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnTaskProps",

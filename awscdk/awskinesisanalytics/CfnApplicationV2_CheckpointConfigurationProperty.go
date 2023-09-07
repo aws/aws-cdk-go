@@ -22,7 +22,7 @@ package awskinesisanalytics
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html
 //
 type CfnApplicationV2_CheckpointConfigurationProperty struct {
-	// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior.
+	// Describes whether the application uses Managed Service for Apache Flink' default checkpointing behavior.
 	//
 	// You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled` , `CheckpointInterval` , or `MinPauseBetweenCheckpoints` parameters.
 	//
@@ -34,7 +34,7 @@ type CfnApplicationV2_CheckpointConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-configurationtype
 	//
 	ConfigurationType *string `field:"required" json:"configurationType" yaml:"configurationType"`
-	// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+	// Describes whether checkpointing is enabled for a Managed Service for Apache Flink application.
 	//
 	// > If `CheckpointConfiguration.ConfigurationType` is `DEFAULT` , the application will use a `CheckpointingEnabled` value of `true` , even if this value is set to another value using this API or in application code.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-checkpointingenabled

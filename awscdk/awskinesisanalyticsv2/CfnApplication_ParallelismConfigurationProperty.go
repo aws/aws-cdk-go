@@ -22,13 +22,13 @@ package awskinesisanalyticsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html
 //
 type CfnApplication_ParallelismConfigurationProperty struct {
-	// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service.
+	// Describes whether the application uses the default parallelism for the Managed Service for Apache Flink service.
 	//
 	// You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled` , `Parallelism` , or `ParallelismPerKPU` properties.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-configurationtype
 	//
 	ConfigurationType *string `field:"required" json:"configurationType" yaml:"configurationType"`
-	// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+	// Describes whether the Managed Service for Apache Flink service can increase the parallelism of the application in response to increased throughput.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-autoscalingenabled
 	//
 	AutoScalingEnabled interface{} `field:"optional" json:"autoScalingEnabled" yaml:"autoScalingEnabled"`

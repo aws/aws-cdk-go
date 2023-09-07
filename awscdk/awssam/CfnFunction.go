@@ -49,6 +49,9 @@ import (
 //   			"variablesKey": jsii.String("variables"),
 //   		},
 //   	},
+//   	EphemeralStorage: &EphemeralStorageProperty{
+//   		Size: jsii.Number(123),
+//   	},
 //   	EventInvokeConfig: &EventInvokeConfigProperty{
 //   		DestinationConfig: &EventInvokeDestinationConfigProperty{
 //   			OnFailure: &DestinationProperty{
@@ -166,6 +169,8 @@ type CfnFunction interface {
 	SetDescription(val *string)
 	Environment() interface{}
 	SetEnvironment(val interface{})
+	EphemeralStorage() interface{}
+	SetEphemeralStorage(val interface{})
 	EventInvokeConfig() interface{}
 	SetEventInvokeConfig(val interface{})
 	Events() interface{}
@@ -519,6 +524,16 @@ func (j *jsiiProxy_CfnFunction) Environment() interface{} {
 	_jsii_.Get(
 		j,
 		"environment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) EphemeralStorage() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ephemeralStorage",
 		&returns,
 	)
 	return returns
@@ -950,6 +965,17 @@ func (j *jsiiProxy_CfnFunction)SetEnvironment(val interface{}) {
 	_jsii_.Set(
 		j,
 		"environment",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetEphemeralStorage(val interface{}) {
+	if err := j.validateSetEphemeralStorageParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ephemeralStorage",
 		val,
 	)
 }

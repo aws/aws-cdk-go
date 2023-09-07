@@ -44,7 +44,7 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// For event data stores for AWS Config configuration items, Audit Manager evidence, or non- AWS events, the only supported field is `eventCategory` .
 	//
 	// - *`readOnly`* - Optional. Can be set to `Equals` a value of `true` or `false` . If you do not add this field, CloudTrail logs both `read` and `write` events. A value of `true` logs only `read` events. A value of `false` logs only `write` events.
-	// - *`eventSource`* - For filtering management events only. This can be set only to `NotEquals` `kms.amazonaws.com` .
+	// - *`eventSource`* - For filtering management events only. This can be set to `NotEquals` `kms.amazonaws.com` or `NotEquals` `rdsdata.amazonaws.com` .
 	// - *`eventName`* - Can use any operator. You can use it to ﬁlter in or ﬁlter out any data event logged to CloudTrail, such as `PutBucket` or `GetSnapshotBlock` . You can have multiple values for this ﬁeld, separated by commas.
 	// - *`eventCategory`* - This is required and must be set to `Equals` .
 	//
@@ -70,6 +70,7 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::ManagedBlockchain::Network`
 	// - `AWS::ManagedBlockchain::Node`
 	// - `AWS::MedicalImaging::Datastore`
+	// - `AWS::PCAConnectorAD::Connector`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
 	// - `AWS::S3::AccessPoint`
@@ -145,6 +146,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::MedicalImaging::Datastore` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:medical-imaging:<region>:<account_ID>:datastore/<data_store_ID>`
+	//
+	// When `resources.type` equals `AWS::PCAConnectorAD::Connector` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID>`
 	//
 	// When `resources.type` equals `AWS::SageMaker::ExperimentTrialComponent` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

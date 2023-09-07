@@ -226,6 +226,14 @@ func (t *jsiiProxy_Table) validateMetricSuccessfulRequestLatencyParameters(props
 	return nil
 }
 
+func (t *jsiiProxy_Table) validateMetricSystemErrorsParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_Table) validateMetricSystemErrorsForOperationsParameters(props *SystemErrorsForOperationsMetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err

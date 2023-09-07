@@ -131,6 +131,7 @@ package awsquicksight
 //   			jsii.String("rowAlternateColors"),
 //   		},
 //   		Status: jsii.String("status"),
+//   		UsePrimaryBackgroundColor: jsii.String("usePrimaryBackgroundColor"),
 //   	},
 //   }
 //

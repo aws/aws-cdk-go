@@ -9,6 +9,10 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   listControlDisplayOptionsProperty := &ListControlDisplayOptionsProperty{
+//   	InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   		InfoIconText: jsii.String("infoIconText"),
+//   		Visibility: jsii.String("visibility"),
+//   	},
 //   	SearchOptions: &ListControlSearchOptionsProperty{
 //   		Visibility: jsii.String("visibility"),
 //   	},
@@ -35,6 +39,9 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontroldisplayoptions.html
 //
 type CfnTemplate_ListControlDisplayOptionsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontroldisplayoptions.html#cfn-quicksight-template-listcontroldisplayoptions-infoiconlabeloptions
+	//
+	InfoIconLabelOptions interface{} `field:"optional" json:"infoIconLabelOptions" yaml:"infoIconLabelOptions"`
 	// The configuration of the search options in a list control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontroldisplayoptions.html#cfn-quicksight-template-listcontroldisplayoptions-searchoptions
 	//

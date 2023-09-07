@@ -279,6 +279,30 @@ func (j *jsiiProxy_CfnFunction) validateSetEnvironmentParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetEphemeralStorageParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFunction_EphemeralStorageProperty:
+		val := val.(*CfnFunction_EphemeralStorageProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFunction_EphemeralStorageProperty:
+		val_ := val.(CfnFunction_EphemeralStorageProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_EphemeralStorageProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetEventInvokeConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

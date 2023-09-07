@@ -127,12 +127,14 @@ package awsquicksight
 //   		Visibility: jsii.String("visibility"),
 //   	},
 //   	ColumnNamesVisibility: jsii.String("columnNamesVisibility"),
+//   	DefaultCellWidth: jsii.String("defaultCellWidth"),
 //   	MetricPlacement: jsii.String("metricPlacement"),
 //   	RowAlternateColorOptions: &RowAlternateColorOptionsProperty{
 //   		RowAlternateColors: []*string{
 //   			jsii.String("rowAlternateColors"),
 //   		},
 //   		Status: jsii.String("status"),
+//   		UsePrimaryBackgroundColor: jsii.String("usePrimaryBackgroundColor"),
 //   	},
 //   	RowFieldNamesStyle: &TableCellStyleProperty{
 //   		BackgroundColor: jsii.String("backgroundColor"),
@@ -250,6 +252,11 @@ package awsquicksight
 //   		VerticalTextAlignment: jsii.String("verticalTextAlignment"),
 //   		Visibility: jsii.String("visibility"),
 //   	},
+//   	RowsLabelOptions: &PivotTableRowsLabelOptionsProperty{
+//   		CustomLabel: jsii.String("customLabel"),
+//   		Visibility: jsii.String("visibility"),
+//   	},
+//   	RowsLayout: jsii.String("rowsLayout"),
 //   	SingleMetricVisibility: jsii.String("singleMetricVisibility"),
 //   	ToggleButtonsVisibility: jsii.String("toggleButtonsVisibility"),
 //   }
@@ -275,6 +282,9 @@ type CfnAnalysis_PivotTableOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableoptions.html#cfn-quicksight-analysis-pivottableoptions-columnnamesvisibility
 	//
 	ColumnNamesVisibility *string `field:"optional" json:"columnNamesVisibility" yaml:"columnNamesVisibility"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableoptions.html#cfn-quicksight-analysis-pivottableoptions-defaultcellwidth
+	//
+	DefaultCellWidth *string `field:"optional" json:"defaultCellWidth" yaml:"defaultCellWidth"`
 	// The metric placement (row, column) options.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableoptions.html#cfn-quicksight-analysis-pivottableoptions-metricplacement
 	//
@@ -291,6 +301,12 @@ type CfnAnalysis_PivotTableOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableoptions.html#cfn-quicksight-analysis-pivottableoptions-rowheaderstyle
 	//
 	RowHeaderStyle interface{} `field:"optional" json:"rowHeaderStyle" yaml:"rowHeaderStyle"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableoptions.html#cfn-quicksight-analysis-pivottableoptions-rowslabeloptions
+	//
+	RowsLabelOptions interface{} `field:"optional" json:"rowsLabelOptions" yaml:"rowsLabelOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableoptions.html#cfn-quicksight-analysis-pivottableoptions-rowslayout
+	//
+	RowsLayout *string `field:"optional" json:"rowsLayout" yaml:"rowsLayout"`
 	// The visibility of the single metric options.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableoptions.html#cfn-quicksight-analysis-pivottableoptions-singlemetricvisibility
 	//

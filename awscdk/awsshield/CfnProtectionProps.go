@@ -53,6 +53,10 @@ type CfnProtectionProps struct {
 	// The automatic application layer DDoS mitigation settings for the protection.
 	//
 	// This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+	//
+	// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
+	//
+	// hello!
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-protection.html#cfn-shield-protection-applicationlayerautomaticresponseconfiguration
 	//
 	ApplicationLayerAutomaticResponseConfiguration interface{} `field:"optional" json:"applicationLayerAutomaticResponseConfiguration" yaml:"applicationLayerAutomaticResponseConfiguration"`

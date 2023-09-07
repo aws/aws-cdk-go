@@ -1,7 +1,7 @@
 package awsimagebuilder
 
 
-// The Windows faster-launching configuration to use for AMI distribution.
+// Define and configure faster launching for output Windows AMIs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,7 +31,7 @@ type CfnDistributionConfiguration_FastLaunchConfigurationProperty struct {
 	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`
 	// A Boolean that represents the current state of faster launching for the Windows AMI.
 	//
-	// Set to true to start using Windows faster launching, or false to stop using it.
+	// Set to `true` to start using Windows faster launching, or `false` to stop using it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`

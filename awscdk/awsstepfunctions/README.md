@@ -119,6 +119,8 @@ These properties impact how each individual step interacts with the state machin
 * `resultSelector`: the part of the step result that should be added to the state machine data
 * `resultPath`: where in the state machine data the step result should be inserted
 * `outputPath`: what part of the state machine data should be retained
+* `errorPath`: the part of the data object that gets returned as the step error
+* `causePath`: the part of the data object that gets returned as the step cause
 
 Their values should be a string indicating a [JSON path](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-paths.html) into the State Machine Data object (like `"$.MyKey"`). If absent, the values are treated as if they were `"$"`, which means the entire object.
 
@@ -414,9 +416,11 @@ parallel.Branch(shipItem)
 parallel.Branch(sendInvoice)
 parallel.Branch(restock)
 
-// Retry the whole workflow if something goes wrong
+// Retry the whole workflow if something goes wrong with exponential backoff
 parallel.AddRetry(&RetryProps{
 	MaxAttempts: jsii.Number(1),
+	MaxDelay: awscdk.Duration_Seconds(jsii.Number(5)),
+	JitterStrategy: sfn.JitterType_FULL,
 })
 
 // How to recover from errors
@@ -444,9 +448,18 @@ failure status. The fail state should report the reason for the failure.
 Failures can be caught by encompassing `Parallel` states.
 
 ```go
-success := sfn.NewFail(this, jsii.String("Fail"), &FailProps{
+fail := sfn.NewFail(this, jsii.String("Fail"), &FailProps{
 	Error: jsii.String("WorkflowFailure"),
 	Cause: jsii.String("Something went wrong"),
+})
+```
+
+The `Fail` state also supports returning dynamic values as the error and cause that are selected from the input with a path.
+
+```go
+fail := sfn.NewFail(this, jsii.String("Fail"), &FailProps{
+	ErrorPath: sfn.JsonPath_StringAt(jsii.String("$.someError")),
+	CausePath: sfn.JsonPath_*StringAt(jsii.String("$.someCause")),
 })
 ```
 
@@ -547,7 +560,7 @@ sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 })
 
 // don't forget permissions. You need to assign them
-table.grantWriteData(sm)
+table.GrantWriteData(sm)
 ```
 
 ## Task Chaining

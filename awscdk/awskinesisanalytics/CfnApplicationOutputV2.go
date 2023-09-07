@@ -75,7 +75,7 @@ type CfnApplicationOutputV2 interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written.
+	// Describes a SQL-based Managed Service for Apache Flink application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written.
 	Output() interface{}
 	SetOutput(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

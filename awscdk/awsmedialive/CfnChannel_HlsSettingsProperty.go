@@ -34,6 +34,8 @@ package awsmedialive
 //   			AudioFramesPerPes: jsii.Number(123),
 //   			AudioPids: jsii.String("audioPids"),
 //   			EcmPid: jsii.String("ecmPid"),
+//   			KlvBehavior: jsii.String("klvBehavior"),
+//   			KlvDataPids: jsii.String("klvDataPids"),
 //   			NielsenId3Behavior: jsii.String("nielsenId3Behavior"),
 //   			PatInterval: jsii.Number(123),
 //   			PcrControl: jsii.String("pcrControl"),

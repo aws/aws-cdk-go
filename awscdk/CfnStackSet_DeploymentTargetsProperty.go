@@ -13,6 +13,7 @@ package awscdk
 //   	Accounts: []*string{
 //   		jsii.String("accounts"),
 //   	},
+//   	AccountsUrl: jsii.String("accountsUrl"),
 //   	OrganizationalUnitIds: []*string{
 //   		jsii.String("organizationalUnitIds"),
 //   	},
@@ -40,6 +41,9 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
 	//
 	Accounts *[]*string `field:"optional" json:"accounts" yaml:"accounts"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountsurl
+	//
+	AccountsUrl *string `field:"optional" json:"accountsUrl" yaml:"accountsUrl"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	//
 	// *Pattern* : `^(ou-[a-z0-9]{4,32}-[a-z0-9]{8,32}|r-[a-z0-9]{4,32})$`.

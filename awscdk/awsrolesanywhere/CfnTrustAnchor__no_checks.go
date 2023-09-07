@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnTrustAnchor) validateSetNameParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrustAnchor) validateSetNotificationSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrustAnchor) validateSetSourceParameters(val interface{}) error {
 	return nil
 }

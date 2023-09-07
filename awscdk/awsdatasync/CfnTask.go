@@ -63,6 +63,34 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TaskReportConfig: &TaskReportConfigProperty{
+//   		Destination: &DestinationProperty{
+//   			S3: &S3Property{
+//   				BucketAccessRoleArn: jsii.String("bucketAccessRoleArn"),
+//   				S3BucketArn: jsii.String("s3BucketArn"),
+//   				Subdirectory: jsii.String("subdirectory"),
+//   			},
+//   		},
+//   		OutputType: jsii.String("outputType"),
+//
+//   		// the properties below are optional
+//   		ObjectVersionIds: jsii.String("objectVersionIds"),
+//   		Overrides: &OverridesProperty{
+//   			Deleted: &DeletedProperty{
+//   				ReportLevel: jsii.String("reportLevel"),
+//   			},
+//   			Skipped: &SkippedProperty{
+//   				ReportLevel: jsii.String("reportLevel"),
+//   			},
+//   			Transferred: &TransferredProperty{
+//   				ReportLevel: jsii.String("reportLevel"),
+//   			},
+//   			Verified: &VerifiedProperty{
+//   				ReportLevel: jsii.String("reportLevel"),
+//   			},
+//   		},
+//   		ReportLevel: jsii.String("reportLevel"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
@@ -140,6 +168,8 @@ type CfnTask interface {
 	// Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing the task.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	TaskReportConfig() interface{}
+	SetTaskReportConfig(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -507,6 +537,16 @@ func (j *jsiiProxy_CfnTask) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTask) TaskReportConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"taskReportConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTask) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -644,6 +684,17 @@ func (j *jsiiProxy_CfnTask)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTask)SetTaskReportConfig(val interface{}) {
+	if err := j.validateSetTaskReportConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"taskReportConfig",
 		val,
 	)
 }

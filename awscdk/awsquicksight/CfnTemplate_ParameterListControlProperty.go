@@ -26,6 +26,10 @@ package awsquicksight
 //   		},
 //   	},
 //   	DisplayOptions: &ListControlDisplayOptionsProperty{
+//   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   			InfoIconText: jsii.String("infoIconText"),
+//   			Visibility: jsii.String("visibility"),
+//   		},
 //   		SearchOptions: &ListControlSearchOptionsProperty{
 //   			Visibility: jsii.String("visibility"),
 //   		},
