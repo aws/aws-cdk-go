@@ -77,9 +77,7 @@ type CfnServiceProfile interface {
 	AttrLoRaWanMinGwDiversity() *float64
 	// The NwkGeoLoc value.
 	AttrLoRaWanNwkGeoLoc() awscdk.IResolvable
-	// The PRAllowed value that describes whether passive roaming is allowed.
 	AttrLoRaWanPrAllowed() awscdk.IResolvable
-	// The RAAllowed value that describes whether roaming activation is allowed.
 	AttrLoRaWanRaAllowed() awscdk.IResolvable
 	// The ReportDevStatusBattery value.
 	AttrLoRaWanReportDevStatusBattery() awscdk.IResolvable

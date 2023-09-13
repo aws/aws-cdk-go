@@ -326,7 +326,7 @@ func TagParameterContainerImage_FromDockerImageAsset(asset awsecrassets.DockerIm
 }
 
 // Reference an image in an ECR repository.
-func TagParameterContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
+func TagParameterContainerImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) EcrImage {
 	_init_.Initialize()
 
 	if err := validateTagParameterContainerImage_FromEcrRepositoryParameters(repository); err != nil {
@@ -337,7 +337,7 @@ func TagParameterContainerImage_FromEcrRepository(repository awsecr.IRepository,
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
 		"fromEcrRepository",
-		[]interface{}{repository, tag},
+		[]interface{}{repository, tagOrDigest},
 		&returns,
 	)
 

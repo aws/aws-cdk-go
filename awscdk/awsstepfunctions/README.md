@@ -50,7 +50,7 @@ finalStatus := tasks.NewLambdaInvoke(this, jsii.String("Get Final Job Status"), 
 definition := submitJob.Next(waitX).Next(getStatus).Next(sfn.NewChoice(this, jsii.String("Job Complete?")).When(sfn.Condition_StringEquals(jsii.String("$.status"), jsii.String("FAILED")), jobFailed).When(sfn.Condition_StringEquals(jsii.String("$.status"), jsii.String("SUCCEEDED")), finalStatus).Otherwise(waitX))
 
 sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: Definition,
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
 	Comment: jsii.String("a super cool state machine"),
 })
@@ -69,7 +69,7 @@ all states reachable from the start state:
 startState := sfn.NewPass(this, jsii.String("StartState"))
 
 sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: startState,
+	DefinitionBody: sfn.DefinitionBody_FromChainable(startState),
 })
 ```
 
@@ -554,7 +554,7 @@ custom := sfn.NewCustomState(this, jsii.String("my custom task"), &CustomStatePr
 chain := sfn.Chain_Start(custom).Next(finalStatus)
 
 sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: chain,
+	DefinitionBody: sfn.DefinitionBody_FromChainable(chain),
 	Timeout: awscdk.Duration_Seconds(jsii.Number(30)),
 	Comment: jsii.String("a super cool state machine"),
 })
@@ -590,7 +590,7 @@ finish := sfn.NewPass(this, jsii.String("Finish"))
 definition := step1.Next(step2).Next(choice.When(condition1, step3.Next(step4).Next(step5)).Otherwise(step6).Afterwards()).Next(parallel.Branch(step7.Next(step8)).Branch(step9.Next(step10))).Next(finish)
 
 sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: Definition,
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 })
 ```
 
@@ -699,7 +699,7 @@ func newMyStack(scope construct, id *string) *myStack {
 	}).PrefixStates())
 
 	sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
-		Definition: parallel,
+		DefinitionBody: sfn.DefinitionBody_FromChainable(parallel),
 	})
 	return this
 }
@@ -813,8 +813,10 @@ import logs "github.com/aws/aws-cdk-go/awscdk"
 
 logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
 
+definition := sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass")))
+
 sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
-	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass"))),
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 	Logs: &LogOptions{
 		Destination: logGroup,
 		Level: sfn.LogLevel_ALL,
@@ -827,8 +829,10 @@ sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
 Enable X-Ray tracing for StateMachine:
 
 ```go
+definition := sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass")))
+
 sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
-	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass"))),
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 	TracingEnabled: jsii.Boolean(true),
 })
 ```
@@ -858,7 +862,7 @@ role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
 stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: Definition,
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 })
 
 // Give role permission to start execution of state machine
@@ -879,7 +883,7 @@ role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
 stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: Definition,
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 })
 
 // Give role read access to state machine
@@ -907,7 +911,7 @@ role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
 stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: Definition,
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 })
 
 // Give role task response permissions to the state machine
@@ -930,7 +934,7 @@ role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
 stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: Definition,
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 })
 
 // Give role permission to get execution history of ALL executions for the state machine
@@ -945,7 +949,7 @@ You can add any set of permissions to a state machine by calling the `grant()` A
 var definition iChainable
 user := iam.NewUser(this, jsii.String("MyUser"))
 stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: Definition,
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 })
 
 //give user permission to send task success to the state machine

@@ -25,7 +25,6 @@ type CfnEIPAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html#cfn-ec2-eipassociation-allocationid
 	//
 	AllocationId *string `field:"optional" json:"allocationId" yaml:"allocationId"`
-	// Deprecated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html#cfn-ec2-eipassociation-eip
 	//
 	Eip *string `field:"optional" json:"eip" yaml:"eip"`

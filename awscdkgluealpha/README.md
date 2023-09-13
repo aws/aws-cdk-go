@@ -222,7 +222,7 @@ A Glue table describes a table of data in S3: its structure (column names and ty
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Database: myDatabase,
 	Columns: []column{
 		&column{
@@ -245,7 +245,7 @@ By default, a S3 bucket will be created to store the table's data but you can ma
 var myBucket bucket
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Bucket: myBucket,
 	S3Prefix: jsii.String("my-table/"),
 	// ...
@@ -265,7 +265,7 @@ Glue tables can be configured to contain user-defined properties, to describe th
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	StorageParameters: []storageParameter{
 		glue.*storageParameter_SkipHeaderLineCount(jsii.Number(1)),
 		glue.*storageParameter_CompressionType(glue.CompressionType_GZIP),
@@ -290,7 +290,7 @@ To improve query performance, a table can specify `partitionKeys` on which data 
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Database: myDatabase,
 	Columns: []column{
 		&column{
@@ -327,7 +327,7 @@ property:
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Database: myDatabase,
 	Columns: []column{
 		&column{
@@ -379,7 +379,7 @@ If you have a table with a large number of partitions that grows over time, cons
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Database: myDatabase,
 	Columns: []column{
 		&column{
@@ -402,6 +402,32 @@ glue.NewTable(this, jsii.String("MyTable"), &TableProps{
 })
 ```
 
+### Glue Connections
+
+Glue connections allow external data connections to third party databases and data warehouses. However, these connections can also be assigned to Glue Tables, allowing you to query external data sources using the Glue Data Catalog.
+
+Whereas `S3Table` will point to (and if needed, create) a bucket to store the tables' data, `ExternalTable` will point to an existing table in a data source. For example, to create a table in Glue that points to a table in Redshift:
+
+```go
+var myConnection connection
+var myDatabase database
+
+glue.NewExternalTable(this, jsii.String("MyTable"), &ExternalTableProps{
+	Connection: myConnection,
+	ExternalDataLocation: jsii.String("default_db_public_example"),
+	 // A table in Redshift
+	// ...
+	Database: myDatabase,
+	Columns: []column{
+		&column{
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+})
+```
+
 ## [Encryption](https://docs.aws.amazon.com/athena/latest/ug/encryption.html)
 
 You can enable encryption on a Table's data:
@@ -411,7 +437,7 @@ You can enable encryption on a Table's data:
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_S3_MANAGED,
 	// ...
 	Database: myDatabase,
@@ -432,7 +458,7 @@ var myDatabase database
 
 // KMS key is created automatically
 // KMS key is created automatically
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_KMS,
 	// ...
 	Database: myDatabase,
@@ -447,7 +473,7 @@ glue.NewTable(this, jsii.String("MyTable"), &TableProps{
 
 // with an explicit KMS key
 // with an explicit KMS key
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_KMS,
 	EncryptionKey: kms.NewKey(this, jsii.String("MyKey")),
 	// ...
@@ -467,7 +493,7 @@ glue.NewTable(this, jsii.String("MyTable"), &TableProps{
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_KMS_MANAGED,
 	// ...
 	Database: myDatabase,
@@ -488,7 +514,7 @@ var myDatabase database
 
 // KMS key is created automatically
 // KMS key is created automatically
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_CLIENT_SIDE_KMS,
 	// ...
 	Database: myDatabase,
@@ -503,7 +529,7 @@ glue.NewTable(this, jsii.String("MyTable"), &TableProps{
 
 // with an explicit KMS key
 // with an explicit KMS key
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_CLIENT_SIDE_KMS,
 	EncryptionKey: kms.NewKey(this, jsii.String("MyKey")),
 	// ...
@@ -518,7 +544,7 @@ glue.NewTable(this, jsii.String("MyTable"), &TableProps{
 })
 ```
 
-*Note: you cannot provide a `Bucket` when creating the `Table` if you wish to use server-side encryption (`KMS`, `KMS_MANAGED` or `S3_MANAGED`)*.
+*Note: you cannot provide a `Bucket` when creating the `S3Table` if you wish to use server-side encryption (`KMS`, `KMS_MANAGED` or `S3_MANAGED`)*.
 
 ## Types
 
@@ -527,7 +553,7 @@ A table's schema is a collection of columns, each of which have a `name` and a `
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Columns: []column{
 		&column{
 			Name: jsii.String("primitive_column"),

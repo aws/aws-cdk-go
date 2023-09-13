@@ -767,7 +767,7 @@ lambdaCode := lambda.Code_FromCfnParameters()
 lambda.NewFunction(lambdaStack, jsii.String("Lambda"), &FunctionProps{
 	Code: lambdaCode,
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_16_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 })
 // other resources that your Lambda needs, added to the lambdaStack...
 
@@ -1598,7 +1598,7 @@ lambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeAc
 		Runtime: lambda.Runtime_NODEJS_LATEST(),
 		Handler: jsii.String("index.handler"),
 		Code: lambda.Code_FromInline(jsii.String(`
-		        const AWS = require('aws-sdk');
+		        const { CodePipeline } = require('@aws-sdk/client-codepipeline');
 
 		        exports.handler = async function(event, context) {
 		            const codepipeline = new AWS.CodePipeline();
@@ -1607,7 +1607,7 @@ lambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeAc
 		                outputVariables: {
 		                    MY_VAR: "some value",
 		                },
-		            }).promise();
+		            });
 		        }
 		    `)),
 	}),

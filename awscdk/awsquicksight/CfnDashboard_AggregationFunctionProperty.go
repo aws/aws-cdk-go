@@ -28,6 +28,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationfunction.html
 //
 type CfnDashboard_AggregationFunctionProperty struct {
+	// Aggregation for attributes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationfunction.html#cfn-quicksight-dashboard-aggregationfunction-attributeaggregationfunction
 	//
 	AttributeAggregationFunction interface{} `field:"optional" json:"attributeAggregationFunction" yaml:"attributeAggregationFunction"`

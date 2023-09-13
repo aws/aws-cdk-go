@@ -6,7 +6,7 @@ package awscdkgluealpha
 // Example:
 //   var myDatabase database
 //
-//   glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+//   glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 //   	Encryption: glue.TableEncryption_S3_MANAGED,
 //   	// ...
 //   	Database: myDatabase,

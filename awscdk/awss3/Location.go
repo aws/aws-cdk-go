@@ -9,7 +9,7 @@ package awss3
 //   lambda.NewFunction(lambdaStack, jsii.String("Lambda"), &FunctionProps{
 //   	Code: lambdaCode,
 //   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.Runtime_NODEJS_16_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   })
 //   // other resources that your Lambda needs, added to the lambdaStack...
 //

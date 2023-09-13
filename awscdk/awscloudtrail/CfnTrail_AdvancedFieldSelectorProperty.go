@@ -67,10 +67,12 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::Glue::Table`
 	// - `AWS::GuardDuty::Detector`
 	// - `AWS::KendraRanking::ExecutionPlan`
+	// - `AWS::KinesisVideo::Stream`
 	// - `AWS::ManagedBlockchain::Network`
 	// - `AWS::ManagedBlockchain::Node`
 	// - `AWS::MedicalImaging::Datastore`
 	// - `AWS::PCAConnectorAD::Connector`
+	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
 	// - `AWS::S3::AccessPoint`
@@ -135,6 +137,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:kendra-ranking:<region>:<account_ID>:rescore-execution-plan/<rescore_execution_plan_ID>`
 	//
+	// When `resources.type` equals `AWS::KinesisVideo::Stream` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name/<creation_time>`
+	//
 	// When `resources.type` equals `AWS::ManagedBlockchain::Network` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:managedblockchain:::networks/<network_name>`
@@ -150,6 +156,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::PCAConnectorAD::Connector` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID>`
+	//
+	// When `resources.type` equals `AWS::SageMaker::Endpoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:sagemaker:<region>:<account_ID>:endpoint/<endpoint_name>`
 	//
 	// When `resources.type` equals `AWS::SageMaker::ExperimentTrialComponent` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

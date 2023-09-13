@@ -14,7 +14,7 @@ import (
 // Task to submits an AWS Batch job from a job definition.
 //
 // Example:
-//   import batch "github.com/aws/aws-cdk-go/awscdkbatchalpha"
+//   import batch "github.com/aws/aws-cdk-go/awscdk"
 //   var batchJobDefinition ecsJobDefinition
 //   var batchQueue jobQueue
 //

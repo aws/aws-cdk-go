@@ -19,6 +19,8 @@ package awssecurityhub
 //
 type CfnAutomationRule_RelatedFindingProperty struct {
 	// The product-generated identifier for a related finding.
+	//
+	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-relatedfinding.html#cfn-securityhub-automationrule-relatedfinding-id
 	//
 	Id interface{} `field:"required" json:"id" yaml:"id"`

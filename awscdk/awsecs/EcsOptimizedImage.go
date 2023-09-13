@@ -89,6 +89,25 @@ func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType, options *EcsOp
 	return returns
 }
 
+// Construct an Amazon Linux 2023 image from the latest ECS Optimized AMI published in SSM.
+func EcsOptimizedImage_AmazonLinux2023(hardwareType AmiHardwareType, options *EcsOptimizedImageOptions) EcsOptimizedImage {
+	_init_.Initialize()
+
+	if err := validateEcsOptimizedImage_AmazonLinux2023Parameters(options); err != nil {
+		panic(err)
+	}
+	var returns EcsOptimizedImage
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.EcsOptimizedImage",
+		"amazonLinux2023",
+		[]interface{}{hardwareType, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Construct a Windows image from the latest ECS Optimized AMI published in SSM.
 func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion, options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()

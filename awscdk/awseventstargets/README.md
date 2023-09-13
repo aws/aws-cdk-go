@@ -237,7 +237,7 @@ to the target.
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import ecs "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdkbatchalpha"
+import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 var vpc vpc

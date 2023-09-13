@@ -60,7 +60,7 @@ func validateTable_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
-func validateNewTableParameters(scope constructs.Construct, id *string, props *TableProps) error {
+func validateNewTableParameters(scope constructs.Construct, id *string, props *S3TableProps) error {
 	return nil
 }
 

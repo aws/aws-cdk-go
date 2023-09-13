@@ -41,6 +41,7 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
 	//
 	Accounts *[]*string `field:"optional" json:"accounts" yaml:"accounts"`
+	// Returns the value of the `AccountsUrl` property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountsurl
 	//
 	AccountsUrl *string `field:"optional" json:"accountsUrl" yaml:"accountsUrl"`

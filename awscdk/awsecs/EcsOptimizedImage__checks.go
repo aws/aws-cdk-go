@@ -34,6 +34,14 @@ func validateEcsOptimizedImage_AmazonLinux2Parameters(options *EcsOptimizedImage
 	return nil
 }
 
+func validateEcsOptimizedImage_AmazonLinux2023Parameters(options *EcsOptimizedImageOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateEcsOptimizedImage_WindowsParameters(windowsVersion WindowsOptimizedVersion, options *EcsOptimizedImageOptions) error {
 	if windowsVersion == "" {
 		return fmt.Errorf("parameter windowsVersion is required, but nil was provided")

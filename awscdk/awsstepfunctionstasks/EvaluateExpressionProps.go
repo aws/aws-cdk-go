@@ -17,7 +17,7 @@ import (
 //   createMessage := tasks.NewEvaluateExpression(this, jsii.String("Create message"), &EvaluateExpressionProps{
 //   	// Note: this is a string inside a string.
 //   	Expression: jsii.String("`Now waiting ${$.waitSeconds} seconds...`"),
-//   	Runtime: lambda.Runtime_NODEJS_16_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	ResultPath: jsii.String("$.message"),
 //   })
 //
@@ -118,7 +118,7 @@ type EvaluateExpressionProps struct {
 	// Example value: `'$.a + $.b'`
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// The runtime language to use to evaluate the expression.
-	// Default: lambda.Runtime.NODEJS_16_X
+	// Default: lambda.Runtime.NODEJS_18_X
 	//
 	Runtime awslambda.Runtime `field:"optional" json:"runtime" yaml:"runtime"`
 }

@@ -84,7 +84,7 @@ func ContainerImage_FromDlc(repositoryName *string, tag *string, accountId *stri
 
 // Reference an image in an ECR repository.
 // Experimental.
-func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) ContainerImage {
+func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) ContainerImage {
 	_init_.Initialize()
 
 	if err := validateContainerImage_FromEcrRepositoryParameters(repository); err != nil {
@@ -95,7 +95,7 @@ func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-sagemaker-alpha.ContainerImage",
 		"fromEcrRepository",
-		[]interface{}{repository, tag},
+		[]interface{}{repository, tagOrDigest},
 		&returns,
 	)
 

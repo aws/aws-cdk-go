@@ -521,7 +521,7 @@ granting permissions to other AWS accounts or organizations.
 layer := lambda.NewLayerVersion(stack, jsii.String("MyLayer"), &LayerVersionProps{
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("layer-code"))),
 	CompatibleRuntimes: []runtime{
-		lambda.*runtime_NODEJS_16_X(),
+		lambda.*runtime_NODEJS_LATEST(),
 	},
 	License: jsii.String("Apache-2.0"),
 	Description: jsii.String("A layer to test the L2 construct"),
@@ -540,7 +540,7 @@ layer.addPermission(jsii.String("remote-account-grant"), &LayerVersionPermission
 lambda.NewFunction(stack, jsii.String("MyLayeredLambda"), &FunctionProps{
 	Code: lambda.NewInlineCode(jsii.String("foo")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.*runtime_NODEJS_16_X(),
+	Runtime: lambda.*runtime_NODEJS_LATEST(),
 	Layers: []iLayerVersion{
 		layer,
 	},
@@ -1033,7 +1033,7 @@ func newTestStack(scope app, id *string) *testStack {
 	fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 		Code: lambda.NewInlineCode(jsii.String("exports.handler = async () => { console.log('hello world'); };")),
 		Handler: jsii.String("index.handler"),
-		Runtime: lambda.Runtime_NODEJS_16_X(),
+		Runtime: lambda.Runtime_NODEJS_LATEST(),
 	})
 
 	version := fn.currentVersion

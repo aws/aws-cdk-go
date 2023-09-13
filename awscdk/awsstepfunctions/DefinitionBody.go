@@ -10,12 +10,17 @@ import (
 )
 
 // Example:
-//   sfn.NewStateMachine(this, jsii.String("StateMachineFromString"), &StateMachineProps{
-//   	DefinitionBody: sfn.DefinitionBody_FromString(jsii.String("{\"StartAt\":\"Pass\",\"States\":{\"Pass\":{\"Type\":\"Pass\",\"End\":true}}}")),
+//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("SM"), &StateMachineProps{
+//   	DefinitionBody: stepfunctions.DefinitionBody_FromChainable(stepfunctions.NewWait(this, jsii.String("Hello"), &WaitProps{
+//   		Time: stepfunctions.WaitTime_Duration(awscdk.Duration_Seconds(jsii.Number(10))),
+//   	})),
 //   })
 //
-//   sfn.NewStateMachine(this, jsii.String("StateMachineFromFile"), &StateMachineProps{
-//   	DefinitionBody: sfn.DefinitionBody_FromFile(jsii.String("./asl.json")),
+//   iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//   	Actions: []iAction{
+//   		actions.NewStepFunctionsStateMachineAction(stateMachine),
+//   	},
 //   })
 //
 type DefinitionBody interface {

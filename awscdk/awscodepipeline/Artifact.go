@@ -20,7 +20,7 @@ import (
 //   		Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   		Handler: jsii.String("index.handler"),
 //   		Code: lambda.Code_FromInline(jsii.String(`
-//   		        const AWS = require('aws-sdk');
+//   		        const { CodePipeline } = require('@aws-sdk/client-codepipeline');
 //
 //   		        exports.handler = async function(event, context) {
 //   		            const codepipeline = new AWS.CodePipeline();
@@ -29,7 +29,7 @@ import (
 //   		                outputVariables: {
 //   		                    MY_VAR: "some value",
 //   		                },
-//   		            }).promise();
+//   		            });
 //   		        }
 //   		    `)),
 //   	}),

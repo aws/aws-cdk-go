@@ -575,7 +575,7 @@ cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &AlarmProps{
 fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_16_X(),
+	Runtime: lambda.Runtime_NODEJS_18_X(),
 })
 
 availabilityRule := instance.OnEvent(jsii.String("Availability"), &OnEventOptions{
@@ -670,7 +670,7 @@ cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &AlarmProps{
 fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_16_X(),
+	Runtime: lambda.Runtime_NODEJS_18_X(),
 })
 
 availabilityRule := instance.OnEvent(jsii.String("Availability"), &OnEventOptions{

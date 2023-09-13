@@ -41,7 +41,7 @@ package awsstepfunctions
 //   chain := sfn.Chain_Start(custom).Next(finalStatus)
 //
 //   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-//   	Definition: chain,
+//   	DefinitionBody: sfn.DefinitionBody_FromChainable(chain),
 //   	Timeout: awscdk.Duration_Seconds(jsii.Number(30)),
 //   	Comment: jsii.String("a super cool state machine"),
 //   })

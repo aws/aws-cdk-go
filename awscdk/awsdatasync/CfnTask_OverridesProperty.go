@@ -1,6 +1,10 @@
 package awsdatasync
 
 
+// Customizes the reporting level for aspects of your task report.
+//
+// For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that DataSync attempted to delete in your destination location.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,15 +28,21 @@ package awsdatasync
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-overrides.html
 //
 type CfnTask_OverridesProperty struct {
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location.
+	//
+	// This only applies if you [configure your task](https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html) to delete data in the destination that isn't in the source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-overrides.html#cfn-datasync-task-overrides-deleted
 	//
 	Deleted interface{} `field:"optional" json:"deleted" yaml:"deleted"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-overrides.html#cfn-datasync-task-overrides-skipped
 	//
 	Skipped interface{} `field:"optional" json:"skipped" yaml:"skipped"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-overrides.html#cfn-datasync-task-overrides-transferred
 	//
 	Transferred interface{} `field:"optional" json:"transferred" yaml:"transferred"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify during your transfer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-overrides.html#cfn-datasync-task-overrides-verified
 	//
 	Verified interface{} `field:"optional" json:"verified" yaml:"verified"`

@@ -12,8 +12,10 @@ import (
 //
 //   logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
 //
+//   definition := sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass")))
+//
 //   sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
-//   	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass"))),
+//   	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 //   	Logs: &LogOptions{
 //   		Destination: logGroup,
 //   		Level: sfn.LogLevel_ALL,

@@ -15,7 +15,7 @@ package awsconfig
 // >
 // > *Globally recorded resources*
 // >
-// > Unless specifically listed as exclusions, globally recorded resource types ( IAM users, groups, roles, and customer managed policies) will be recorded automatically in all enabled AWS Config regions where AWS Config was available before February 2022. This list does not include the following Regions:
+// > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled. IAM users, groups, roles, and customer managed policies will be recorded automatically in all enabled AWS Config Regions where AWS Config was available before February 2022. This list does not include the following Regions:
 // >
 // > - Asia Pacific (Hyderabad)
 // > - Asia Pacific (Melbourne)

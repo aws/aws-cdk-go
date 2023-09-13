@@ -514,8 +514,7 @@ newContainer.AddSecret(jsii.String("API_KEY"), ecs.secret_FromSecretsManager(sec
 newContainer.AddSecret(jsii.String("DB_PASSWORD"), ecs.secret_FromSecretsManager(secret, jsii.String("password")))
 ```
 
-The task execution role is automatically granted read permissions on the secrets/parameters. Support for environment
-files is restricted to the EC2 launch type for files hosted on S3. Further details provided in the AWS documentation
+The task execution role is automatically granted read permissions on the secrets/parameters. Further details provided in the AWS documentation
 about [specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html).
 
 ### Linux parameters

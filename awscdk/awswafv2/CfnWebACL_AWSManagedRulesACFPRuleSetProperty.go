@@ -85,7 +85,7 @@ type CfnWebACL_AWSManagedRulesACFPRuleSetProperty struct {
 	//
 	// This is the page on your website that accepts the completed registration form for a new user. This page must accept `POST` requests.
 	//
-	// For example, for the URL `https://example.com/web/signup` , you would provide the path `/web/signup` .
+	// For example, for the URL `https://example.com/web/newaccount` , you would provide the path `/web/newaccount` . Account creation page paths that start with the path that you provide are considered a match. For example `/web/newaccount` matches the account creation paths `/web/newaccount` , `/web/newaccount/` , `/web/newaccountPage` , and `/web/newaccount/thisPage` , but doesn't match the path `/home/web/newaccount` or `/website/newaccount` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-creationpath
 	//
 	CreationPath *string `field:"required" json:"creationPath" yaml:"creationPath"`
@@ -95,7 +95,7 @@ type CfnWebACL_AWSManagedRulesACFPRuleSetProperty struct {
 	//
 	// > This page must accept `GET` text/html requests.
 	//
-	// For example, for the URL `https://example.com/web/register` , you would provide the path `/web/register` .
+	// For example, for the URL `https://example.com/web/registration` , you would provide the path `/web/registration` . Registration page paths that start with the path that you provide are considered a match. For example `/web/registration` matches the registration paths `/web/registration` , `/web/registration/` , `/web/registrationPage` , and `/web/registration/thisPage` , but doesn't match the path `/home/web/registration` or `/website/registration` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html#cfn-wafv2-webacl-awsmanagedrulesacfpruleset-registrationpagepath
 	//
 	RegistrationPagePath *string `field:"required" json:"registrationPagePath" yaml:"registrationPagePath"`

@@ -46,7 +46,6 @@ type CfnEIPAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Deprecated.
 	Eip() *string
 	SetEip(val *string)
 	// The ID of the instance.

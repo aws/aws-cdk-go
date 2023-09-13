@@ -39,7 +39,7 @@ type CfnConfigurationRecorder_RecordingStrategyProperty struct {
 	// >
 	// > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
 	// >
-	// > In addition, unless specifically listed as exclusions, globally recorded resource types ( IAM users, groups, roles, and customer managed policies) will be recorded automatically in all enabled AWS Config regions where AWS Config was available before February 2022. This list does not include the following Regions:
+	// > In addition, unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled. IAM users, groups, roles, and customer managed policies will be recorded automatically in all enabled AWS Config Regions where AWS Config was available before February 2022. This list does not include the following Regions:
 	// >
 	// > - Asia Pacific (Hyderabad)
 	// > - Asia Pacific (Melbourne)

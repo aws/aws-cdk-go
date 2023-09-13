@@ -59,7 +59,7 @@ import (
 //   	}).PrefixStates())
 //
 //   	sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
-//   		Definition: parallel,
+//   		DefinitionBody: sfn.DefinitionBody_FromChainable(parallel),
 //   	})
 //   	return this
 //   }

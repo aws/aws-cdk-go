@@ -8,7 +8,7 @@ import (
 // Properties for RunBatchJob.
 //
 // Example:
-//   import batch "github.com/aws/aws-cdk-go/awscdkbatchalpha"
+//   import batch "github.com/aws/aws-cdk-go/awscdk"
 //   var batchJobDefinition ecsJobDefinition
 //   var batchQueue jobQueue
 //

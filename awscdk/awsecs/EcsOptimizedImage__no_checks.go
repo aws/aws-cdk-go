@@ -16,6 +16,10 @@ func validateEcsOptimizedImage_AmazonLinux2Parameters(options *EcsOptimizedImage
 	return nil
 }
 
+func validateEcsOptimizedImage_AmazonLinux2023Parameters(options *EcsOptimizedImageOptions) error {
+	return nil
+}
+
 func validateEcsOptimizedImage_WindowsParameters(windowsVersion WindowsOptimizedVersion, options *EcsOptimizedImageOptions) error {
 	return nil
 }

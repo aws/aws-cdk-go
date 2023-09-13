@@ -6,28 +6,70 @@ import (
 )
 
 // Example:
-//   var myDatabase database
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   glue.NewTable(this, jsii.String("MyTable"), &TableProps{
-//   	Database: myDatabase,
+//   var bucket bucket
+//   var database database
+//   var dataFormat dataFormat
+//   var key key
+//   var storageParameter storageParameter
+//
+//   tableProps := &TableProps{
 //   	Columns: []column{
 //   		&column{
-//   			Name: jsii.String("col1"),
-//   			Type: glue.Schema_STRING(),
+//   			Name: jsii.String("name"),
+//   			Type: &Type{
+//   				InputString: jsii.String("inputString"),
+//   				IsPrimitive: jsii.Boolean(false),
+//   			},
+//
+//   			// the properties below are optional
+//   			Comment: jsii.String("comment"),
+//   		},
+//   	},
+//   	Database: database,
+//   	DataFormat: dataFormat,
+//
+//   	// the properties below are optional
+//   	Bucket: bucket,
+//   	Compressed: jsii.Boolean(false),
+//   	Description: jsii.String("description"),
+//   	EnablePartitionFiltering: jsii.Boolean(false),
+//   	Encryption: glue_alpha.TableEncryption_S3_MANAGED,
+//   	EncryptionKey: key,
+//   	PartitionIndexes: []partitionIndex{
+//   		&partitionIndex{
+//   			KeyNames: []*string{
+//   				jsii.String("keyNames"),
+//   			},
+//
+//   			// the properties below are optional
+//   			IndexName: jsii.String("indexName"),
 //   		},
 //   	},
 //   	PartitionKeys: []*column{
 //   		&column{
-//   			Name: jsii.String("year"),
-//   			Type: glue.Schema_SMALL_INT(),
-//   		},
-//   		&column{
-//   			Name: jsii.String("month"),
-//   			Type: glue.Schema_SMALL_INT(),
+//   			Name: jsii.String("name"),
+//   			Type: &Type{
+//   				InputString: jsii.String("inputString"),
+//   				IsPrimitive: jsii.Boolean(false),
+//   			},
+//
+//   			// the properties below are optional
+//   			Comment: jsii.String("comment"),
 //   		},
 //   	},
-//   	DataFormat: glue.DataFormat_JSON(),
-//   })
+//   	S3Prefix: jsii.String("s3Prefix"),
+//   	StorageParameters: []*storageParameter{
+//   		storageParameter,
+//   	},
+//   	StoredAsSubDirectories: jsii.Boolean(false),
+//   	TableName: jsii.String("tableName"),
+//   }
 //
 // Experimental.
 type TableProps struct {
@@ -40,11 +82,6 @@ type TableProps struct {
 	// Storage type of the table's data.
 	// Experimental.
 	DataFormat DataFormat `field:"required" json:"dataFormat" yaml:"dataFormat"`
-	// S3 bucket in which to store data.
-	// Default: one is created for you.
-	//
-	// Experimental.
-	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// Indicates whether the table's data is compressed or not.
 	// Default: false.
 	//
@@ -62,23 +99,6 @@ type TableProps struct {
 	//
 	// Experimental.
 	EnablePartitionFiltering *bool `field:"optional" json:"enablePartitionFiltering" yaml:"enablePartitionFiltering"`
-	// The kind of encryption to secure the data with.
-	//
-	// You can only provide this option if you are not explicitly passing in a bucket.
-	//
-	// If you choose `SSE-KMS`, you *can* provide an un-managed KMS key with `encryptionKey`.
-	// If you choose `CSE-KMS`, you *must* provide an un-managed KMS key with `encryptionKey`.
-	// Default: BucketEncryption.S3_MANAGED
-	//
-	// Experimental.
-	Encryption TableEncryption `field:"optional" json:"encryption" yaml:"encryption"`
-	// External KMS key to use for bucket encryption.
-	//
-	// The `encryption` property must be `SSE-KMS` or `CSE-KMS`.
-	// Default: key is managed by KMS.
-	//
-	// Experimental.
-	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Partition indexes on the table.
 	//
 	// A maximum of 3 indexes
@@ -93,11 +113,6 @@ type TableProps struct {
 	//
 	// Experimental.
 	PartitionKeys *[]*Column `field:"optional" json:"partitionKeys" yaml:"partitionKeys"`
-	// S3 prefix under which table objects are stored.
-	// Default: - No prefix. The data will be stored under the root of the bucket.
-	//
-	// Experimental.
-	S3Prefix *string `field:"optional" json:"s3Prefix" yaml:"s3Prefix"`
 	// The user-supplied properties for the description of the physical storage of this table.
 	//
 	// These properties help describe the format of the data that is stored within the crawled data sources.
@@ -107,26 +122,23 @@ type TableProps struct {
 	// Some keys will be auto-populated by glue crawlers, however, you can override them by specifying the key and value in this property.
 	//
 	// Example:
-	//   var glueDatabase iDatabase
-	//
-	//   table := glue.NewTable(this, jsii.String("Table"), &TableProps{
-	//   	StorageParameters: []storageParameter{
-	//   		glue.*storageParameter_SkipHeaderLineCount(jsii.Number(1)),
-	//   		glue.*storageParameter_CompressionType(glue.CompressionType_GZIP),
-	//   		glue.*storageParameter_Custom(jsii.String("foo"), jsii.String("bar")),
-	//   		glue.*storageParameter_*Custom(jsii.String("separatorChar"), jsii.String(",")),
-	//   		glue.*storageParameter_*Custom(glue.StorageParameters_WRITE_PARALLEL, jsii.String("off")),
-	//   	},
-	//   	// ...
-	//   	Database: glueDatabase,
-	//   	Columns: []column{
-	//   		&column{
-	//   			Name: jsii.String("col1"),
-	//   			Type: glue.Schema_STRING(),
-	//   		},
-	//   	},
-	//   	DataFormat: glue.DataFormat_CSV(),
-	//   })
+	//      declare const glueDatabase: glue.IDatabase;
+	//      const table = new glue.Table(this, 'Table', {
+	//        storageParameters: [
+	//            glue.StorageParameter.skipHeaderLineCount(1),
+	//            glue.StorageParameter.compressionType(glue.CompressionType.GZIP),
+	//            glue.StorageParameter.custom('foo', 'bar'), // Will have no effect
+	//            glue.StorageParameter.custom('separatorChar', ','), // Will describe the separator char used in the data
+	//            glue.StorageParameter.custom(glue.StorageParameters.WRITE_PARALLEL, 'off'),
+	//        ],
+	//        // ...
+	//        database: glueDatabase,
+	//        columns: [{
+	//            name: 'col1',
+	//            type: glue.Schema.STRING,
+	//        }],
+	//        dataFormat: glue.DataFormat.CSV,
+	//      });
 	//
 	// See: https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_EXTERNAL_TABLE.html#r_CREATE_EXTERNAL_TABLE-parameters - under _"TABLE PROPERTIES"_
 	//
@@ -144,5 +156,32 @@ type TableProps struct {
 	//
 	// Experimental.
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
+	// S3 bucket in which to store data.
+	// Default: one is created for you.
+	//
+	// Experimental.
+	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
+	// The kind of encryption to secure the data with.
+	//
+	// You can only provide this option if you are not explicitly passing in a bucket.
+	//
+	// If you choose `SSE-KMS`, you *can* provide an un-managed KMS key with `encryptionKey`.
+	// If you choose `CSE-KMS`, you *must* provide an un-managed KMS key with `encryptionKey`.
+	// Default: BucketEncryption.S3_MANAGED
+	//
+	// Experimental.
+	Encryption TableEncryption `field:"optional" json:"encryption" yaml:"encryption"`
+	// External KMS key to use for bucket encryption.
+	//
+	// The `encryption` property must be `SSE-KMS` or `CSE-KMS`.
+	// Default: key is managed by KMS.
+	//
+	// Experimental.
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// S3 prefix under which table objects are stored.
+	// Default: - No prefix. The data will be stored under the root of the bucket.
+	//
+	// Experimental.
+	S3Prefix *string `field:"optional" json:"s3Prefix" yaml:"s3Prefix"`
 }
 

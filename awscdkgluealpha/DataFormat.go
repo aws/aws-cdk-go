@@ -10,7 +10,7 @@ import (
 // Example:
 //   var myDatabase database
 //
-//   glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+//   glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 //   	Database: myDatabase,
 //   	Columns: []column{
 //   		&column{

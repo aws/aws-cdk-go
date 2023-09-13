@@ -6,7 +6,7 @@ package awscdkgluealpha
 // Example:
 //   var glueDatabase iDatabase
 //
-//   table := glue.NewTable(this, jsii.String("Table"), &TableProps{
+//   table := glue.NewTable(this, jsii.String("Table"), &S3TableProps{
 //   	StorageParameters: []storageParameter{
 //   		glue.*storageParameter_SkipHeaderLineCount(jsii.Number(1)),
 //   		glue.*storageParameter_CompressionType(glue.CompressionType_GZIP),

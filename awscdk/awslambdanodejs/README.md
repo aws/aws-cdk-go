@@ -163,7 +163,7 @@ This can be configured by specifying `bundling.externalModules`:
 nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
 	Bundling: &BundlingOptions{
 		ExternalModules: []*string{
-			jsii.String("aws-sdk"),
+			jsii.String("@aws-sdk/*"),
 			jsii.String("cool-module"),
 		},
 	},

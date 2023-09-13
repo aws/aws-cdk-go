@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The table style target.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablestyletarget.html
 //
 type CfnAnalysis_TableStyleTargetProperty struct {
+	// The cell type of the table style target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablestyletarget.html#cfn-quicksight-analysis-tablestyletarget-celltype
 	//
 	CellType *string `field:"required" json:"cellType" yaml:"cellType"`

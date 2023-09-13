@@ -18,12 +18,13 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
 * [Tasks for AWS Step Functions](#tasks-for-aws-step-functions)
 
   * [Table Of Contents](#table-of-contents)
+  * [Paths](#paths)
   * [Evaluate Expression](#evaluate-expression)
   * [API Gateway](#api-gateway)
 
     * [Call REST API Endpoint](#call-rest-api-endpoint)
     * [Call HTTP API Endpoint](#call-http-api-endpoint)
-  * [AWS SDK](#aws-sdk)
+    * [AWS SDK](#aws-sdk)
   * [Athena](#athena)
 
     * [StartQueryExecution](#startqueryexecution)
@@ -107,7 +108,7 @@ convertToSeconds := tasks.NewEvaluateExpression(this, jsii.String("Convert to se
 createMessage := tasks.NewEvaluateExpression(this, jsii.String("Create message"), &EvaluateExpressionProps{
 	// Note: this is a string inside a string.
 	Expression: jsii.String("`Now waiting ${$.waitSeconds} seconds...`"),
-	Runtime: lambda.Runtime_NODEJS_16_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	ResultPath: jsii.String("$.message"),
 })
 
@@ -322,7 +323,7 @@ Step Functions supports [Batch](https://docs.aws.amazon.com/step-functions/lates
 The [SubmitJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html) API submits an AWS Batch job from a job definition.
 
 ```go
-import batch "github.com/aws/aws-cdk-go/awscdkbatchalpha"
+import batch "github.com/aws/aws-cdk-go/awscdk"
 var batchJobDefinition ecsJobDefinition
 var batchQueue jobQueue
 

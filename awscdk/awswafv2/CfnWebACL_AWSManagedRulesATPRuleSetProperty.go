@@ -67,7 +67,7 @@ package awswafv2
 type CfnWebACL_AWSManagedRulesATPRuleSetProperty struct {
 	// The path of the login endpoint for your application.
 	//
-	// For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` .
+	// For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` . Login paths that start with the path that you provide are considered a match. For example `/web/login` matches the login paths `/web/login` , `/web/login/` , `/web/loginPage` , and `/web/login/thisPage` , but doesn't match the login path `/home/web/login` or `/website/login` .
 	//
 	// The rule group inspects only HTTP `POST` requests to your specified login endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-loginpath
