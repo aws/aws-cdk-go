@@ -124,7 +124,7 @@ func AssetImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) Contai
 }
 
 // Reference an image in an ECR repository.
-func AssetImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) EcrImage {
+func AssetImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
 	if err := validateAssetImage_FromEcrRepositoryParameters(repository); err != nil {
@@ -135,7 +135,7 @@ func AssetImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *st
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecs.AssetImage",
 		"fromEcrRepository",
-		[]interface{}{repository, tagOrDigest},
+		[]interface{}{repository, tag},
 		&returns,
 	)
 
