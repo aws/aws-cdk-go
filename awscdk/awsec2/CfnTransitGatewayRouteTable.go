@@ -34,7 +34,8 @@ type CfnTransitGatewayRouteTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	AttrId() *string
+	// Transit Gateway Route Table primary identifier.
+	AttrTransitGatewayRouteTableId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -220,11 +221,11 @@ type jsiiProxy_CfnTransitGatewayRouteTable struct {
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRouteTable) AttrId() *string {
+func (j *jsiiProxy_CfnTransitGatewayRouteTable) AttrTransitGatewayRouteTableId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrTransitGatewayRouteTableId",
 		&returns,
 	)
 	return returns

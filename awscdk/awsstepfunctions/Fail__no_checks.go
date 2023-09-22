@@ -8,7 +8,7 @@ func (f *jsiiProxy_Fail) validateAddBranchParameters(branch StateGraph) error {
 	return nil
 }
 
-func (f *jsiiProxy_Fail) validateAddChoiceParameters(condition Condition, next State) error {
+func (f *jsiiProxy_Fail) validateAddChoiceParameters(condition Condition, next State, options *ChoiceTransitionOptions) error {
 	return nil
 }
 

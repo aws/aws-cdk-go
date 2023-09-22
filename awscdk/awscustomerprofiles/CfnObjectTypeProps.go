@@ -45,6 +45,7 @@ import (
 //   		},
 //   	},
 //   	ObjectTypeName: jsii.String("objectTypeName"),
+//   	SourceLastUpdatedTimestampFormat: jsii.String("sourceLastUpdatedTimestampFormat"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -93,6 +94,10 @@ type CfnObjectTypeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
 	//
 	ObjectTypeName *string `field:"optional" json:"objectTypeName" yaml:"objectTypeName"`
+	// The format of your sourceLastUpdatedTimestamp that was previously set up.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-sourcelastupdatedtimestampformat
+	//
+	SourceLastUpdatedTimestampFormat *string `field:"optional" json:"sourceLastUpdatedTimestampFormat" yaml:"sourceLastUpdatedTimestampFormat"`
 	// The tags used to organize, track, or control access for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
 	//

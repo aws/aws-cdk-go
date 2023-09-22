@@ -10,8 +10,6 @@ package awsevents
 //
 //   cfnConnectionProps := &CfnConnectionProps{
 //   	AuthorizationType: jsii.String("authorizationType"),
-//
-//   	// the properties below are optional
 //   	AuthParameters: &AuthParametersProperty{
 //   		ApiKeyAuthParameters: &ApiKeyAuthParametersProperty{
 //   			ApiKeyName: jsii.String("apiKeyName"),
@@ -102,7 +100,7 @@ type CfnConnectionProps struct {
 	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
 	//
-	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType *string `field:"optional" json:"authorizationType" yaml:"authorizationType"`
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
 	//

@@ -21,6 +21,20 @@ import (
 //   	QueryLogStatus: jsii.String("queryLogStatus"),
 //
 //   	// the properties below are optional
+//   	DefaultResultConfiguration: &MembershipProtectedQueryResultConfigurationProperty{
+//   		OutputConfiguration: &MembershipProtectedQueryOutputConfigurationProperty{
+//   			S3: &ProtectedQueryS3OutputConfigurationProperty{
+//   				Bucket: jsii.String("bucket"),
+//   				ResultFormat: jsii.String("resultFormat"),
+//
+//   				// the properties below are optional
+//   				KeyPrefix: jsii.String("keyPrefix"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		RoleArn: jsii.String("roleArn"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -62,6 +76,9 @@ type CfnMembership interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The default protected query result configuration as specified by the member who can receive results.
+	DefaultResultConfiguration() interface{}
+	SetDefaultResultConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -325,6 +342,16 @@ func (j *jsiiProxy_CfnMembership) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMembership) DefaultResultConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"defaultResultConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMembership) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -440,6 +467,17 @@ func (j *jsiiProxy_CfnMembership)SetCollaborationIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"collaborationIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMembership)SetDefaultResultConfiguration(val interface{}) {
+	if err := j.validateSetDefaultResultConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"defaultResultConfiguration",
 		val,
 	)
 }

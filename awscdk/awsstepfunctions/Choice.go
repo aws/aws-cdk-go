@@ -57,10 +57,10 @@ type Choice interface {
 	StartState() State
 	// Tokenized string that evaluates to the state's ID.
 	StateId() *string
-	// Add a paralle branch to this state.
+	// Add a parallel branch to this state.
 	AddBranch(branch StateGraph)
 	// Add a choice branch to this state.
-	AddChoice(condition Condition, next State)
+	AddChoice(condition Condition, next State, options *ChoiceTransitionOptions)
 	// Add a map iterator to this state.
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -104,7 +104,7 @@ type Choice interface {
 	// Allows the state to validate itself.
 	ValidateState() *[]*string
 	// If the given condition matches, continue execution with the given state.
-	When(condition Condition, next IChainable) Choice
+	When(condition Condition, next IChainable, options *ChoiceTransitionOptions) Choice
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
@@ -419,14 +419,14 @@ func (c *jsiiProxy_Choice) AddBranch(branch StateGraph) {
 	)
 }
 
-func (c *jsiiProxy_Choice) AddChoice(condition Condition, next State) {
-	if err := c.validateAddChoiceParameters(condition, next); err != nil {
+func (c *jsiiProxy_Choice) AddChoice(condition Condition, next State, options *ChoiceTransitionOptions) {
+	if err := c.validateAddChoiceParameters(condition, next, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		c,
 		"addChoice",
-		[]interface{}{condition, next},
+		[]interface{}{condition, next, options},
 	)
 }
 
@@ -647,8 +647,8 @@ func (c *jsiiProxy_Choice) ValidateState() *[]*string {
 	return returns
 }
 
-func (c *jsiiProxy_Choice) When(condition Condition, next IChainable) Choice {
-	if err := c.validateWhenParameters(condition, next); err != nil {
+func (c *jsiiProxy_Choice) When(condition Condition, next IChainable, options *ChoiceTransitionOptions) Choice {
+	if err := c.validateWhenParameters(condition, next, options); err != nil {
 		panic(err)
 	}
 	var returns Choice
@@ -656,7 +656,7 @@ func (c *jsiiProxy_Choice) When(condition Condition, next IChainable) Choice {
 	_jsii_.Invoke(
 		c,
 		"when",
-		[]interface{}{condition, next},
+		[]interface{}{condition, next, options},
 		&returns,
 	)
 

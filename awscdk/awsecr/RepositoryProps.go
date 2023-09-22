@@ -57,6 +57,10 @@ type RepositoryProps struct {
 	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Name for this repository.
+	//
+	// The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+	//
+	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	// Default: Automatically generated name.
 	//
 	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`

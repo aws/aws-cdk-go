@@ -76,6 +76,10 @@ func validateStack_OfParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
+func (j *jsiiProxy_Stack) validateSetTerminationProtectionParameters(val *bool) error {
+	return nil
+}
+
 func validateNewStackParameters(props *StackProps) error {
 	return nil
 }

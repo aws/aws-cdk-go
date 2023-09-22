@@ -172,6 +172,8 @@ type IntegTestCaseStack interface {
 	// Whether termination protection is enabled for this stack.
 	// Experimental.
 	TerminationProtection() *bool
+	// Experimental.
+	SetTerminationProtection(val *bool)
 	// The Amazon domain suffix for the region in which this stack is defined.
 	// Experimental.
 	UrlSuffix() *string
@@ -641,6 +643,17 @@ func NewIntegTestCaseStack_Override(i IntegTestCaseStack, scope constructs.Const
 		"@aws-cdk/integ-tests-alpha.IntegTestCaseStack",
 		[]interface{}{scope, id, props},
 		i,
+	)
+}
+
+func (j *jsiiProxy_IntegTestCaseStack)SetTerminationProtection(val *bool) {
+	if err := j.validateSetTerminationProtectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"terminationProtection",
+		val,
 	)
 }
 

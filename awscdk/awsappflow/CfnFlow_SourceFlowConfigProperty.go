@@ -63,6 +63,14 @@ package awsappflow
 //   		},
 //   		SapoData: &SAPODataSourcePropertiesProperty{
 //   			ObjectPath: jsii.String("objectPath"),
+//
+//   			// the properties below are optional
+//   			PaginationConfig: &SAPODataPaginationConfigProperty{
+//   				MaxPageSize: jsii.Number(123),
+//   			},
+//   			ParallelismConfig: &SAPODataParallelismConfigProperty{
+//   				MaxParallelism: jsii.Number(123),
+//   			},
 //   		},
 //   		ServiceNow: &ServiceNowSourcePropertiesProperty{
 //   			Object: jsii.String("object"),

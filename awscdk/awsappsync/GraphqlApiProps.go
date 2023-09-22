@@ -4,24 +4,22 @@ package awsappsync
 // Properties for an AppSync GraphQL API.
 //
 // Example:
-//   import events "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   api := appsync.NewGraphqlApi(this, jsii.String("EventBridgeApi"), &GraphqlApiProps{
-//   	Name: jsii.String("EventBridgeApi"),
-//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
+//   sourceApi := appsync.NewGraphqlApi(this, jsii.String("FirstSourceAPI"), &GraphqlApiProps{
+//   	Name: jsii.String("FirstSourceAPI"),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.merged-api-1.graphql"))),
 //   })
 //
-//   bus := events.NewEventBus(this, jsii.String("DestinationEventBus"), &EventBusProps{
+//   importedMergedApi := appsync.GraphqlApi_FromGraphqlApiAttributes(this, jsii.String("ImportedMergedApi"), &GraphqlApiAttributes{
+//   	GraphqlApiId: jsii.String("MyApiId"),
+//   	GraphqlApiArn: jsii.String("MyApiArn"),
 //   })
 //
-//   dataSource := api.AddEventBridgeDataSource(jsii.String("NoneDS"), bus)
-//
-//   dataSource.CreateResolver(jsii.String("EventResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Mutation"),
-//   	FieldName: jsii.String("emitEvent"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("request.vtl")),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("response.vtl")),
+//   importedExecutionRole := iam.Role_FromRoleArn(this, jsii.String("ExecutionRole"), jsii.String("arn:aws:iam::ACCOUNT:role/MyExistingRole"))
+//   appsync.NewSourceApiAssociation(this, jsii.String("SourceApiAssociation2"), &SourceApiAssociationProps{
+//   	SourceApi: sourceApi,
+//   	MergedApi: importedMergedApi,
+//   	MergeType: appsync.MergeType_MANUAL_MERGE,
+//   	MergedApiExecutionRole: importedExecutionRole,
 //   })
 //
 type GraphqlApiProps struct {
@@ -49,7 +47,7 @@ type GraphqlApiProps struct {
 	// SchemaFile.fromAsset(filePath: string) allows schema definition through schema.graphql file
 	// Default: - schema will be generated code-first (i.e. addType, addObjectType, etc.)
 	//
-	// Deprecated: use apiSoure.schema instead
+	// Deprecated: use apiSource.schema instead
 	Schema ISchema `field:"optional" json:"schema" yaml:"schema"`
 	// A value indicating whether the API is accessible from anywhere (GLOBAL) or can only be access from a VPC (PRIVATE).
 	// Default: - GLOBAL.

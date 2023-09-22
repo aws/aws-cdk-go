@@ -15,10 +15,10 @@ import (
 //   	Expression: jsii.String("expression"),
 //   	ExpressionType: jsii.String("expressionType"),
 //   	Name: jsii.String("name"),
-//   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	RoleArn: jsii.String("roleArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -42,16 +42,16 @@ type CfnDestinationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ARN of the IAM Role that authorizes the destination.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-rolearn
-	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The description of the new resource.
 	//
 	// Maximum length is 2048 characters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The ARN of the IAM Role that authorizes the destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-rolearn
+	//
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.

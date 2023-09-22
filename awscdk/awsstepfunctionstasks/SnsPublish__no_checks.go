@@ -12,7 +12,7 @@ func (s *jsiiProxy_SnsPublish) validateAddCatchParameters(handler awsstepfunctio
 	return nil
 }
 
-func (s *jsiiProxy_SnsPublish) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (s *jsiiProxy_SnsPublish) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

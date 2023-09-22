@@ -3,7 +3,7 @@ package awsvpclattice
 
 // The action for the default rule.
 //
-// Each listener has a default rule. Each rule consists of a priority, one or more actions, and one or more conditions. The default rule is the rule that's used if no other rules match. Each rule must include exactly one of the following types of actions: `forward` or `fixed-response` , and it must be the last action to be performed.
+// Each listener has a default rule. The default rule is used if no other rules match.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,7 +29,7 @@ package awsvpclattice
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-defaultaction.html
 //
 type CfnListener_DefaultActionProperty struct {
-	// Information about an action that returns a custom HTTP response.
+	// Describes an action that returns a custom HTTP response.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-defaultaction.html#cfn-vpclattice-listener-defaultaction-fixedresponse
 	//
 	FixedResponse interface{} `field:"optional" json:"fixedResponse" yaml:"fixedResponse"`

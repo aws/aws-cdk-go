@@ -92,7 +92,7 @@ func (j *jsiiProxy_CfnDetector) validateSetFeaturesParameters(val interface{}) e
 	return nil
 }
 
-func (j *jsiiProxy_CfnDetector) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+func (j *jsiiProxy_CfnDetector) validateSetTagsRawParameters(val *[]*CfnDetector_TagItemProperty) error {
 	return nil
 }
 

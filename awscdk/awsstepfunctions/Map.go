@@ -63,7 +63,7 @@ type Map interface {
 	StartState() State
 	// Tokenized string that evaluates to the state's ID.
 	StateId() *string
-	// Add a paralle branch to this state.
+	// Add a parallel branch to this state.
 	AddBranch(branch StateGraph)
 	// Add a recovery handler for this state.
 	//
@@ -71,7 +71,7 @@ type Map interface {
 	// handler instead of failing the state machine execution.
 	AddCatch(handler IChainable, props *CatchProps) Map
 	// Add a choice branch to this state.
-	AddChoice(condition Condition, next State)
+	AddChoice(condition Condition, next State, options *ChoiceTransitionOptions)
 	// Add a map iterator to this state.
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -445,14 +445,14 @@ func (m *jsiiProxy_Map) AddCatch(handler IChainable, props *CatchProps) Map {
 	return returns
 }
 
-func (m *jsiiProxy_Map) AddChoice(condition Condition, next State) {
-	if err := m.validateAddChoiceParameters(condition, next); err != nil {
+func (m *jsiiProxy_Map) AddChoice(condition Condition, next State, options *ChoiceTransitionOptions) {
+	if err := m.validateAddChoiceParameters(condition, next, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		m,
 		"addChoice",
-		[]interface{}{condition, next},
+		[]interface{}{condition, next, options},
 	)
 }
 

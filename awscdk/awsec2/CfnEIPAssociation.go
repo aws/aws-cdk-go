@@ -36,6 +36,7 @@ type CfnEIPAssociation interface {
 	// The allocation ID.
 	AllocationId() *string
 	SetAllocationId(val *string)
+	// The ID of the association.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,7 +47,10 @@ type CfnEIPAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The Elastic IP address to associate with the instance.
+	// Deprecated: this property has been deprecated.
 	Eip() *string
+	// Deprecated: this property has been deprecated.
 	SetEip(val *string)
 	// The ID of the instance.
 	InstanceId() *string

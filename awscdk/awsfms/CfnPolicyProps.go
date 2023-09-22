@@ -232,7 +232,7 @@ type CfnPolicyProps struct {
 	//
 	// By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
 	//
-	// This option is not available for Shield Advanced or AWS WAF Classic policies.
+	// This option is not available for AWS WAF Classic policies.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcescleanup
 	//
 	ResourcesCleanUp interface{} `field:"optional" json:"resourcesCleanUp" yaml:"resourcesCleanUp"`

@@ -1,8 +1,5 @@
 package awsguardduty
 
-import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-)
 
 // Properties for defining a `CfnDetector`.
 //
@@ -31,20 +28,22 @@ import (
 //   		},
 //   	},
 //   	Features: []interface{}{
-//   		&FeatureConfigurationsProperty{
+//   		&CFNFeatureConfigurationProperty{
+//   			Name: jsii.String("name"),
+//   			Status: jsii.String("status"),
+//
+//   			// the properties below are optional
 //   			AdditionalConfiguration: []interface{}{
-//   				&FeatureAdditionalConfigurationProperty{
+//   				&CFNFeatureAdditionalConfigurationProperty{
 //   					Name: jsii.String("name"),
 //   					Status: jsii.String("status"),
 //   				},
 //   			},
-//   			Name: jsii.String("name"),
-//   			Status: jsii.String("status"),
 //   		},
 //   	},
 //   	FindingPublishingFrequency: jsii.String("findingPublishingFrequency"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []tagItemProperty{
+//   		&tagItemProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -79,6 +78,6 @@ type CfnDetectorProps struct {
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-tags
 	//
-	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	Tags *[]*CfnDetector_TagItemProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

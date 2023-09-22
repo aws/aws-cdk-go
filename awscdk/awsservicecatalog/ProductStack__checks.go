@@ -182,6 +182,14 @@ func validateProductStack_OfParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
+func (j *jsiiProxy_ProductStack) validateSetTerminationProtectionParameters(val *bool) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewProductStackParameters(scope constructs.Construct, id *string, props *ProductStackProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

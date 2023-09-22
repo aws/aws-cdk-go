@@ -150,6 +150,7 @@ type KubectlProvider interface {
 	TemplateOptions() awscdk.ITemplateOptions
 	// Whether termination protection is enabled for this stack.
 	TerminationProtection() *bool
+	SetTerminationProtection(val *bool)
 	// The Amazon domain suffix for the region in which this stack is defined.
 	UrlSuffix() *string
 	// Add a dependency between this stack and another stack.
@@ -623,6 +624,17 @@ func NewKubectlProvider_Override(k KubectlProvider, scope constructs.Construct, 
 		"aws-cdk-lib.aws_eks.KubectlProvider",
 		[]interface{}{scope, id, props},
 		k,
+	)
+}
+
+func (j *jsiiProxy_KubectlProvider)SetTerminationProtection(val *bool) {
+	if err := j.validateSetTerminationProtectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"terminationProtection",
+		val,
 	)
 }
 

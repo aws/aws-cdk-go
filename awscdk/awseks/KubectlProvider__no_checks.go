@@ -92,6 +92,10 @@ func validateKubectlProvider_OfParameters(construct constructs.IConstruct) error
 	return nil
 }
 
+func (j *jsiiProxy_KubectlProvider) validateSetTerminationProtectionParameters(val *bool) error {
+	return nil
+}
+
 func validateNewKubectlProviderParameters(scope constructs.Construct, id *string, props *KubectlProviderProps) error {
 	return nil
 }

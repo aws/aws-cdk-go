@@ -72,6 +72,7 @@ type CfnDataLakeSettings interface {
 	// Whether to allow Amazon EMR clusters or other third-party query engines to access data managed by Lake Formation .
 	AllowExternalDataFiltering() interface{}
 	SetAllowExternalDataFiltering(val interface{})
+	// Specifies whether query engines and applications can get credentials without IAM session tags if the user has full table access.
 	AllowFullTableExternalDataAccess() interface{}
 	SetAllowFullTableExternalDataAccess(val interface{})
 	AttrId() *string
@@ -106,6 +107,7 @@ type CfnDataLakeSettings interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Specifies whether the data lake settings are updated by adding new values to the current settings ( `APPEND` ) or by replacing the current settings with new settings ( `REPLACE` ).
 	MutationType() *string
 	SetMutationType(val *string)
 	// The tree node.

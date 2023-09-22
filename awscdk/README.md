@@ -836,7 +836,7 @@ awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
 })
 ```
 
-See the [documentation](https://docs.aws.amazon.com/cdk/api/latest/docs/custom-resources-readme.html) for more details.
+See the [documentation](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-cdk-lib.custom_resources-readme.html) for more details.
 
 ## AWS CloudFormation features
 

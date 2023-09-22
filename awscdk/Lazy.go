@@ -43,18 +43,13 @@ import (
 //   })
 //
 //   // Merged API
-//   // Merged API
-//   appsync.NewGraphqlApi(this, jsii.String("MergedAPI"), &GraphqlApiProps{
+//   mergedApi := appsync.NewGraphqlApi(this, jsii.String("MergedAPI"), &GraphqlApiProps{
 //   	Name: jsii.String("MergedAPI"),
 //   	Definition: appsync.Definition_FromSourceApis(&SourceApiOptions{
 //   		SourceApis: []sourceApi{
 //   			&sourceApi{
 //   				SourceApi: firstApi,
 //   				MergeType: appsync.MergeType_MANUAL_MERGE,
-//   			},
-//   			&sourceApi{
-//   				SourceApi: secondApi,
-//   				MergeType: appsync.MergeType_AUTO_MERGE,
 //   			},
 //   		},
 //   	}),

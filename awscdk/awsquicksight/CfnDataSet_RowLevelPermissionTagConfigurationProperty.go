@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// <p>The configuration of tags on a dataset to set row-level security.</p>.
+// The element you can use to define tags for row-level security.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,16 +30,17 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html
 //
 type CfnDataSet_RowLevelPermissionTagConfigurationProperty struct {
-	// <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>.
+	// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration-tagrules
 	//
 	TagRules interface{} `field:"required" json:"tagRules" yaml:"tagRules"`
+	// The status of row-level security tags.
+	//
+	// If enabled, the status is `ENABLED` . If disabled, the status is `DISABLED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// <p>A list of tag configuration rules to apply to a dataset.
-	//
-	// All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
+	// The configuration of tags on a dataset to set row-level security.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration-tagruleconfigurations
 	//
 	TagRuleConfigurations interface{} `field:"optional" json:"tagRuleConfigurations" yaml:"tagRuleConfigurations"`

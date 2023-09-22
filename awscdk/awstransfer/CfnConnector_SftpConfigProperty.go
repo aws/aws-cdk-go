@@ -22,7 +22,7 @@ type CfnConnector_SftpConfigProperty struct {
 	//
 	// You can use the `ssh-keyscan` command against the SFTP server to retrieve the necessary key.
 	//
-	// The three standard SSH public key format elements are `<key type>` , `<body base64>` , and an optional `<comment>` , with spaces between each element.
+	// The three standard SSH public key format elements are `<key type>` , `<body base64>` , and an optional `<comment>` , with spaces between each element. Specify only the `<key type>` and `<body base64>` : do not enter the `<comment>` portion of the key.
 	//
 	// For the trusted host key, AWS Transfer Family accepts RSA and ECDSA keys.
 	//

@@ -40,7 +40,9 @@ type CfnConfigRule_SourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-owner
 	//
 	Owner *string `field:"required" json:"owner" yaml:"owner"`
-	// Custom policy details when rule is custom owned.
+	// Provides the runtime system, policy definition, and whether debug logging is enabled.
+	//
+	// Required when owner is set to `CUSTOM_POLICY` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-custompolicydetails
 	//
 	CustomPolicyDetails interface{} `field:"optional" json:"customPolicyDetails" yaml:"customPolicyDetails"`

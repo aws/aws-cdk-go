@@ -148,6 +148,10 @@ func init() {
 		reflect.TypeOf((*CfnCustomLineItem_CustomLineItemPercentageChargeDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem.LineItemFilterProperty",
+		reflect.TypeOf((*CfnCustomLineItem_LineItemFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItemProps",
 		reflect.TypeOf((*CfnCustomLineItemProps)(nil)).Elem(),
 	)

@@ -54,7 +54,7 @@ type CallApiGatewayHttpApiEndpoint interface {
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
 	TaskPolicies() *[]awsiam.PolicyStatement
-	// Add a paralle branch to this state.
+	// Add a parallel branch to this state.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
@@ -62,7 +62,7 @@ type CallApiGatewayHttpApiEndpoint interface {
 	// handler instead of failing the state machine execution.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
+	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions)
 	// Add a map iterator to this state.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -524,14 +524,14 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) AddCatch(handler awsstepfuncti
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
-	if err := c.validateAddChoiceParameters(condition, next); err != nil {
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) {
+	if err := c.validateAddChoiceParameters(condition, next, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		c,
 		"addChoice",
-		[]interface{}{condition, next},
+		[]interface{}{condition, next, options},
 	)
 }
 

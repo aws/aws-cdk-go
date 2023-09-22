@@ -84,7 +84,7 @@ type CfnInferenceScheduler interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the ML model used for the inference scheduler.
+	// The name of the machine learning model used for the inference scheduler.
 	ModelName() *string
 	SetModelName(val *string)
 	// The tree node.

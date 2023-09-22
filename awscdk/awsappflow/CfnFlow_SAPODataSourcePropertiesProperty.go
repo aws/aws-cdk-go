@@ -10,6 +10,14 @@ package awsappflow
 //
 //   sAPODataSourcePropertiesProperty := &SAPODataSourcePropertiesProperty{
 //   	ObjectPath: jsii.String("objectPath"),
+//
+//   	// the properties below are optional
+//   	PaginationConfig: &SAPODataPaginationConfigProperty{
+//   		MaxPageSize: jsii.Number(123),
+//   	},
+//   	ParallelismConfig: &SAPODataParallelismConfigProperty{
+//   		MaxParallelism: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html
@@ -19,5 +27,13 @@ type CfnFlow_SAPODataSourcePropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-objectpath
 	//
 	ObjectPath *string `field:"required" json:"objectPath" yaml:"objectPath"`
+	// SAP Source connector page size.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-paginationconfig
+	//
+	PaginationConfig interface{} `field:"optional" json:"paginationConfig" yaml:"paginationConfig"`
+	// SAP Source connector parallelism factor.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-parallelismconfig
+	//
+	ParallelismConfig interface{} `field:"optional" json:"parallelismConfig" yaml:"parallelismConfig"`
 }
 

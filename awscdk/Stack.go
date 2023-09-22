@@ -162,6 +162,7 @@ type Stack interface {
 	TemplateOptions() ITemplateOptions
 	// Whether termination protection is enabled for this stack.
 	TerminationProtection() *bool
+	SetTerminationProtection(val *bool)
 	// The Amazon domain suffix for the region in which this stack is defined.
 	UrlSuffix() *string
 	// Add a dependency between this stack and another stack.
@@ -606,6 +607,17 @@ func NewStack_Override(s Stack, scope constructs.Construct, id *string, props *S
 		"aws-cdk-lib.Stack",
 		[]interface{}{scope, id, props},
 		s,
+	)
+}
+
+func (j *jsiiProxy_Stack)SetTerminationProtection(val *bool) {
+	if err := j.validateSetTerminationProtectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"terminationProtection",
+		val,
 	)
 }
 

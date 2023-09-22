@@ -22,6 +22,14 @@ func validateFactName_AdotLambdaLayerParameters(type_ *string, version *string, 
 	return nil
 }
 
+func validateFactName_AppConfigLambdaLayerVersionParameters(version *string) error {
+	if version == nil {
+		return fmt.Errorf("parameter version is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateFactName_CloudwatchLambdaInsightsVersionParameters(version *string) error {
 	if version == nil {
 		return fmt.Errorf("parameter version is required, but nil was provided")

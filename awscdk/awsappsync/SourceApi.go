@@ -14,12 +14,15 @@ package awsappsync
 //   	SourceApi: graphqlApi,
 //
 //   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	MergeType: awscdk.Aws_appsync.MergeType_MANUAL_MERGE,
 //   }
 //
 type SourceApi struct {
 	// Source API that is associated with the merged API.
-	SourceApi GraphqlApi `field:"required" json:"sourceApi" yaml:"sourceApi"`
+	SourceApi IGraphqlApi `field:"required" json:"sourceApi" yaml:"sourceApi"`
+	// Description of the Source API asssociation.
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Merging option used to associate the source API to the Merged API.
 	// Default: - Auto merge. The merge is triggered automatically when the source API has changed
 	//

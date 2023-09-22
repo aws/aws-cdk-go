@@ -12,7 +12,7 @@ func (b *jsiiProxy_BatchSubmitJob) validateAddCatchParameters(handler awsstepfun
 	return nil
 }
 
-func (b *jsiiProxy_BatchSubmitJob) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (b *jsiiProxy_BatchSubmitJob) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

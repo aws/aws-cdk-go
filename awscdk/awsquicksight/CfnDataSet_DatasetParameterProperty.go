@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>.
+// The parameter declarations of the dataset.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -63,19 +63,19 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html
 //
 type CfnDataSet_DatasetParameterProperty struct {
-	// <p>A parameter created in the dataset of date time data type.</p>.
+	// A date time parameter that is created in the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html#cfn-quicksight-dataset-datasetparameter-datetimedatasetparameter
 	//
 	DateTimeDatasetParameter interface{} `field:"optional" json:"dateTimeDatasetParameter" yaml:"dateTimeDatasetParameter"`
-	// <p>A parameter created in the dataset of decimal data type.</p>.
+	// A decimal parameter that is created in the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html#cfn-quicksight-dataset-datasetparameter-decimaldatasetparameter
 	//
 	DecimalDatasetParameter interface{} `field:"optional" json:"decimalDatasetParameter" yaml:"decimalDatasetParameter"`
-	// <p>A parameter created in the dataset of integer data type.</p>.
+	// An integer parameter that is created in the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html#cfn-quicksight-dataset-datasetparameter-integerdatasetparameter
 	//
 	IntegerDatasetParameter interface{} `field:"optional" json:"integerDatasetParameter" yaml:"integerDatasetParameter"`
-	// <p>A parameter created in the dataset of string data type.</p>.
+	// A string parameter that is created in the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html#cfn-quicksight-dataset-datasetparameter-stringdatasetparameter
 	//
 	StringDatasetParameter interface{} `field:"optional" json:"stringDatasetParameter" yaml:"stringDatasetParameter"`

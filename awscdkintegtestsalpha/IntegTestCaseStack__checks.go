@@ -190,6 +190,14 @@ func validateIntegTestCaseStack_OfParameters(construct constructs.IConstruct) er
 	return nil
 }
 
+func (j *jsiiProxy_IntegTestCaseStack) validateSetTerminationProtectionParameters(val *bool) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewIntegTestCaseStackParameters(scope constructs.Construct, id *string, props *IntegTestCaseStackProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

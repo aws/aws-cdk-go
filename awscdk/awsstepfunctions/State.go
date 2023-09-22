@@ -33,10 +33,10 @@ type State interface {
 	StartState() State
 	// Tokenized string that evaluates to the state's ID.
 	StateId() *string
-	// Add a paralle branch to this state.
+	// Add a parallel branch to this state.
 	AddBranch(branch StateGraph)
 	// Add a choice branch to this state.
-	AddChoice(condition Condition, next State)
+	AddChoice(condition Condition, next State, options *ChoiceTransitionOptions)
 	// Add a map iterator to this state.
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -368,14 +368,14 @@ func (s *jsiiProxy_State) AddBranch(branch StateGraph) {
 	)
 }
 
-func (s *jsiiProxy_State) AddChoice(condition Condition, next State) {
-	if err := s.validateAddChoiceParameters(condition, next); err != nil {
+func (s *jsiiProxy_State) AddChoice(condition Condition, next State, options *ChoiceTransitionOptions) {
+	if err := s.validateAddChoiceParameters(condition, next, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		s,
 		"addChoice",
-		[]interface{}{condition, next},
+		[]interface{}{condition, next, options},
 	)
 }
 

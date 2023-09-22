@@ -67,6 +67,11 @@ type BackupPlanRuleProps struct {
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	// Default: - no schedule.
 	//
+	Schedule Schedule `field:"optional" json:"schedule" yaml:"schedule"`
+	// A CRON expression specifying when AWS Backup initiates a backup job.
+	// Default: - no schedule.
+	//
+	// Deprecated: use schedule prop instead.
 	ScheduleExpression awsevents.Schedule `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
 	// The duration after a backup is scheduled before a job is canceled if it doesn't start successfully.
 	// Default: - 8 hours.

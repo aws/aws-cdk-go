@@ -84,6 +84,10 @@ func validateNestedStack_OfParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
+func (j *jsiiProxy_NestedStack) validateSetTerminationProtectionParameters(val *bool) error {
+	return nil
+}
+
 func validateNewNestedStackParameters(scope constructs.Construct, id *string, props *NestedStackProps) error {
 	return nil
 }

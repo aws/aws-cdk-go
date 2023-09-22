@@ -12,7 +12,7 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) validateAddCatchParameters(handle
 	return nil
 }
 
-func (s *jsiiProxy_SageMakerCreateTrainingJob) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (s *jsiiProxy_SageMakerCreateTrainingJob) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

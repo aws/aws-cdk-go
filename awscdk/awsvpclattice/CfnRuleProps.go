@@ -72,8 +72,6 @@ import (
 //
 type CfnRuleProps struct {
 	// Describes the action for a rule.
-	//
-	// Each rule must include exactly one of the following types of actions: `forward` or `fixed-response` , and it must be the last action to be performed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html#cfn-vpclattice-rule-action
 	//
 	Action interface{} `field:"required" json:"action" yaml:"action"`

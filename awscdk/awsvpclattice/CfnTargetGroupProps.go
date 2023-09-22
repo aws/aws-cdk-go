@@ -16,11 +16,6 @@ import (
 //
 //   	// the properties below are optional
 //   	Config: &TargetGroupConfigProperty{
-//   		Port: jsii.Number(123),
-//   		Protocol: jsii.String("protocol"),
-//   		VpcIdentifier: jsii.String("vpcIdentifier"),
-//
-//   		// the properties below are optional
 //   		HealthCheck: &HealthCheckConfigProperty{
 //   			Enabled: jsii.Boolean(false),
 //   			HealthCheckIntervalSeconds: jsii.Number(123),
@@ -36,7 +31,11 @@ import (
 //   			UnhealthyThresholdCount: jsii.Number(123),
 //   		},
 //   		IpAddressType: jsii.String("ipAddressType"),
+//   		LambdaEventStructureVersion: jsii.String("lambdaEventStructureVersion"),
+//   		Port: jsii.Number(123),
+//   		Protocol: jsii.String("protocol"),
 //   		ProtocolVersion: jsii.String("protocolVersion"),
+//   		VpcIdentifier: jsii.String("vpcIdentifier"),
 //   	},
 //   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
@@ -63,8 +62,6 @@ type CfnTargetGroupProps struct {
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The target group configuration.
-	//
-	// If the target group type is `LAMBDA` , this parameter doesn't apply.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html#cfn-vpclattice-targetgroup-config
 	//
 	Config interface{} `field:"optional" json:"config" yaml:"config"`

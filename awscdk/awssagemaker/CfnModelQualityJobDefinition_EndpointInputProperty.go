@@ -51,7 +51,7 @@ type CfnModelQualityJobDefinition_EndpointInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilitythresholdattribute
 	//
 	ProbabilityThresholdAttribute *float64 `field:"optional" json:"probabilityThresholdAttribute" yaml:"probabilityThresholdAttribute"`
-	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an Amazon S3 key.
 	//
 	// Defaults to `FullyReplicated`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3datadistributiontype

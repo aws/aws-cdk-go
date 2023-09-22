@@ -5,7 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// The CA certificate used for this DB instance.
+// The CA certificate used for a DB instance.
 //
 // Example:
 //   var vpc vpc
@@ -16,7 +16,7 @@ import (
 //   		Version: rds.MysqlEngineVersion_VER_8_0_30(),
 //   	}),
 //   	Vpc: Vpc,
-//   	CaCertificate: rds.CaCertificate_RDS_CA_RDS2048_G1(),
+//   	CaCertificate: rds.CaCertificate_Of(jsii.String("future-rds-ca")),
 //   })
 //
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html

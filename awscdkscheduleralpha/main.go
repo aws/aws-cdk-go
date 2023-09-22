@@ -19,10 +19,6 @@ func init() {
 			return &jsiiProxy_ContextAttribute{}
 		},
 	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-scheduler-alpha.CronOptionsWithTimezone",
-		reflect.TypeOf((*CronOptionsWithTimezone)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-scheduler-alpha.Group",
 		reflect.TypeOf((*Group)(nil)).Elem(),
@@ -153,7 +149,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "timeZone", GoGetter: "TimeZone"},
 		},
 		func() interface{} {
-			return &jsiiProxy_ScheduleExpression{}
+			j := jsiiProxy_ScheduleExpression{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkSchedule)
+			return &j
 		},
 	)
 	_jsii_.RegisterStruct(

@@ -8,17 +8,30 @@ package awsevents
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import targets "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fn function
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var role role
 //
-//   rule := events.NewRule(this, jsii.String("Schedule Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Cron(&CronOptions{
+//
+//   ecsTaskTarget := awscdk.NewEcsTask(&EcsTaskProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	Role: Role,
+//   })
+//
+//   awscdk.NewRule(this, jsii.String("ScheduleRule"), &RuleProps{
+//   	Schedule: awscdk.Schedule_Cron(&CronOptions{
 //   		Minute: jsii.String("0"),
 //   		Hour: jsii.String("4"),
 //   	}),
+//   	Targets: []iRuleTarget{
+//   		ecsTaskTarget,
+//   	},
 //   })
-//   rule.AddTarget(targets.NewLambdaFunction(fn))
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html#cron-expressions
 //

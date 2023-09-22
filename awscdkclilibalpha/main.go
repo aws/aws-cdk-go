@@ -40,6 +40,15 @@ func init() {
 		"@aws-cdk/cli-lib-alpha.DestroyOptions",
 		reflect.TypeOf((*DestroyOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/cli-lib-alpha.HotswapMode",
+		reflect.TypeOf((*HotswapMode)(nil)).Elem(),
+		map[string]interface{}{
+			"FALL_BACK": HotswapMode_FALL_BACK,
+			"HOTSWAP_ONLY": HotswapMode_HOTSWAP_ONLY,
+			"FULL_DEPLOYMENT": HotswapMode_FULL_DEPLOYMENT,
+		},
+	)
 	_jsii_.RegisterInterface(
 		"@aws-cdk/cli-lib-alpha.IAwsCdkCli",
 		reflect.TypeOf((*IAwsCdkCli)(nil)).Elem(),

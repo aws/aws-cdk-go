@@ -1171,6 +1171,25 @@ func init() {
 			return &jsiiProxy_ISchemaConfig{}
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_appsync.ISourceApiAssociation",
+		reflect.TypeOf((*ISourceApiAssociation)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "associationArn", GoGetter: "AssociationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "associationId", GoGetter: "AssociationId"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "mergedApi", GoGetter: "MergedApi"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceApi", GoGetter: "SourceApi"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ISourceApiAssociation{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.IamResource",
 		reflect.TypeOf((*IamResource)(nil)).Elem(),
@@ -1422,6 +1441,41 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.SourceApi",
 		reflect.TypeOf((*SourceApi)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.SourceApiAssociation",
+		reflect.TypeOf((*SourceApiAssociation)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "association", GoGetter: "Association"},
+			_jsii_.MemberProperty{JsiiProperty: "associationArn", GoGetter: "AssociationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "associationId", GoGetter: "AssociationId"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "mergedApi", GoGetter: "MergedApi"},
+			_jsii_.MemberProperty{JsiiProperty: "mergeType", GoGetter: "MergeType"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceApi", GoGetter: "SourceApi"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SourceApiAssociation{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISourceApiAssociation)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.SourceApiAssociationAttributes",
+		reflect.TypeOf((*SourceApiAssociationAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.SourceApiAssociationProps",
+		reflect.TypeOf((*SourceApiAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.SourceApiOptions",

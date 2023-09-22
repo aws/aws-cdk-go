@@ -53,6 +53,12 @@ import (
 //   		},
 //   	},
 //   	IsDisabled: jsii.Boolean(false),
+//   	PrivateRegistryAccess: &PrivateRegistryAccessProperty{
+//   		EcrImagePullerRole: &EcrImagePullerRoleProperty{
+//   			IsActive: jsii.Boolean(false),
+//   			PrincipalArn: jsii.String("principalArn"),
+//   		},
+//   	},
 //   	PublicDomainNames: []interface{}{
 //   		&PublicDomainNameProperty{
 //   			CertificateName: jsii.String("certificateName"),
@@ -96,6 +102,10 @@ type CfnContainerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-isdisabled
 	//
 	IsDisabled interface{} `field:"optional" json:"isDisabled" yaml:"isDisabled"`
+	// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-privateregistryaccess
+	//
+	PrivateRegistryAccess interface{} `field:"optional" json:"privateRegistryAccess" yaml:"privateRegistryAccess"`
 	// The public domain name of the container service, such as `example.com` and `www.example.com` .
 	//
 	// You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container that is configured as the public endpoint of your container service.

@@ -56,7 +56,7 @@ type LambdaInvoke interface {
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
 	TaskPolicies() *[]awsiam.PolicyStatement
-	// Add a paralle branch to this state.
+	// Add a parallel branch to this state.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
@@ -64,7 +64,7 @@ type LambdaInvoke interface {
 	// handler instead of failing the state machine execution.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
+	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions)
 	// Add a map iterator to this state.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -495,14 +495,14 @@ func (l *jsiiProxy_LambdaInvoke) AddCatch(handler awsstepfunctions.IChainable, p
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvoke) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
-	if err := l.validateAddChoiceParameters(condition, next); err != nil {
+func (l *jsiiProxy_LambdaInvoke) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) {
+	if err := l.validateAddChoiceParameters(condition, next, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		l,
 		"addChoice",
-		[]interface{}{condition, next},
+		[]interface{}{condition, next, options},
 	)
 }
 

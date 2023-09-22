@@ -115,9 +115,13 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Specifies the version of Grafana to support in the new workspace.
+	// Specifies the version of Grafana to support in the workspace.
 	//
-	// To get a list of supported version, use the `ListVersions` operation.
+	// Defaults to the latest version on create (for example, 9.4), or the current version of the workspace on update.
+	//
+	// Can only be used to upgrade (for example, from 8.4 to 9.4), not downgrade (for example, from 9.4 to 8.4).
+	//
+	// To know what versions are available to upgrade to for a specific workspace, see the [ListVersions](https://docs.aws.amazon.com/grafana/latest/APIReference/API_ListVersions.html) operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-grafanaversion
 	//
 	GrafanaVersion *string `field:"optional" json:"grafanaVersion" yaml:"grafanaVersion"`

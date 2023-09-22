@@ -84,6 +84,7 @@ type CfnApp interface {
 	SetAppTemplateBody(val *string)
 	// The Amazon Resource Name (ARN) of the app.
 	AttrAppArn() *string
+	// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
 	AttrDriftStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -97,6 +98,7 @@ type CfnApp interface {
 	// Optional description for an application.
 	Description() *string
 	SetDescription(val *string)
+	// The list of events you would like to subscribe and get notification for.
 	EventSubscriptions() interface{}
 	SetEventSubscriptions(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -114,6 +116,7 @@ type CfnApp interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 	PermissionModel() interface{}
 	SetPermissionModel(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

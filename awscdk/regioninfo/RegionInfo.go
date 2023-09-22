@@ -43,6 +43,8 @@ type RegionInfo interface {
 	VpcEndpointServiceNamePrefix() *string
 	// The ARN of the ADOT Lambda layer, for the given layer type, version and architecture.
 	AdotLambdaLayerArn(type_ *string, version *string, architecture *string) *string
+	// The ARN of the AppConfig Lambda Layer, for the given version.
+	AppConfigLambdaArn(layerVersion *string, architecture *string) *string
 	// The ARN of the CloudWatch Lambda Insights extension, for the given version.
 	CloudwatchLambdaInsightsArn(insightsVersion *string, architecture *string) *string
 	// The ARN of the Parameters and Secrets Lambda layer for the given lambda architecture.
@@ -271,6 +273,22 @@ func (r *jsiiProxy_RegionInfo) AdotLambdaLayerArn(type_ *string, version *string
 		r,
 		"adotLambdaLayerArn",
 		[]interface{}{type_, version, architecture},
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RegionInfo) AppConfigLambdaArn(layerVersion *string, architecture *string) *string {
+	if err := r.validateAppConfigLambdaArnParameters(layerVersion); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"appConfigLambdaArn",
+		[]interface{}{layerVersion, architecture},
 		&returns,
 	)
 

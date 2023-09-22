@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// <p>A parameter created in the dataset of date time data type.</p>.
+// A date time parameter that is created in the dataset.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,24 +25,27 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html
 //
 type CfnDataSet_DateTimeDatasetParameterProperty struct {
-	// <p>Identifier of the parameter created in the dataset.</p>.
+	// An identifier for the parameter that is created in the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-id
 	//
 	Id *string `field:"required" json:"id" yaml:"id"`
-	// <p>Name of the parameter created in the dataset.</p>.
+	// The name of the date time parameter that is created in the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>.
+	// The value type of the dataset parameter.
+	//
+	// Valid values are `single value` or `multi value` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-valuetype
 	//
 	ValueType *string `field:"required" json:"valueType" yaml:"valueType"`
-	// <p>List of default values defined for a given string date time parameter type.
+	// A list of default values for a given date time parameter.
 	//
-	// Currently only static values are supported.</p>
+	// This structure only accepts static values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-defaultvalues
 	//
 	DefaultValues interface{} `field:"optional" json:"defaultValues" yaml:"defaultValues"`
+	// The time granularity of the date time parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-timegranularity
 	//
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`

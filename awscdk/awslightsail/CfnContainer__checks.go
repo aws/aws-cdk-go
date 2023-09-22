@@ -228,6 +228,30 @@ func (j *jsiiProxy_CfnContainer) validateSetPowerParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnContainer) validateSetPrivateRegistryAccessParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnContainer_PrivateRegistryAccessProperty:
+		val := val.(*CfnContainer_PrivateRegistryAccessProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnContainer_PrivateRegistryAccessProperty:
+		val_ := val.(CfnContainer_PrivateRegistryAccessProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnContainer_PrivateRegistryAccessProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnContainer) validateSetPublicDomainNamesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

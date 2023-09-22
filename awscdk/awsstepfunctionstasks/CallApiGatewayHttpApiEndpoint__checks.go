@@ -32,13 +32,17 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) validateAddCatchParameters(han
 	return nil
 }
 
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	if condition == nil {
 		return fmt.Errorf("parameter condition is required, but nil was provided")
 	}
 
 	if next == nil {
 		return fmt.Errorf("parameter next is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil

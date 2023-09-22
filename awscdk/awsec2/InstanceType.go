@@ -13,17 +13,19 @@ import (
 // Example:
 //   var vpc vpc
 //
-//
-//   mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+//   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	MasterUser: &Login{
+//   		Username: jsii.String("myuser"),
+//   		 // NOTE: 'admin' is reserved by DocumentDB
+//   		ExcludeCharacters: jsii.String("\"@/:"),
+//   		 // optional, defaults to the set "\"@/" and is also used for eventually created rotations
+//   		SecretName: jsii.String("/myapp/mydocdb/masteruser"),
+//   	},
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PUBLIC,
+//   	},
 //   	Vpc: Vpc,
-//   })
-//   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
-//   	Vpc: Vpc,
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux(&AmazonLinuxImageProps{
-//   		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-//   	}),
-//   	SecurityGroup: mySecurityGroup,
 //   })
 //
 type InstanceType interface {

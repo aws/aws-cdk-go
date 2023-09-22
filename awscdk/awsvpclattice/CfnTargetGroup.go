@@ -25,11 +25,6 @@ import (
 //
 //   	// the properties below are optional
 //   	Config: &TargetGroupConfigProperty{
-//   		Port: jsii.Number(123),
-//   		Protocol: jsii.String("protocol"),
-//   		VpcIdentifier: jsii.String("vpcIdentifier"),
-//
-//   		// the properties below are optional
 //   		HealthCheck: &HealthCheckConfigProperty{
 //   			Enabled: jsii.Boolean(false),
 //   			HealthCheckIntervalSeconds: jsii.Number(123),
@@ -45,7 +40,11 @@ import (
 //   			UnhealthyThresholdCount: jsii.Number(123),
 //   		},
 //   		IpAddressType: jsii.String("ipAddressType"),
+//   		LambdaEventStructureVersion: jsii.String("lambdaEventStructureVersion"),
+//   		Port: jsii.Number(123),
+//   		Protocol: jsii.String("protocol"),
 //   		ProtocolVersion: jsii.String("protocolVersion"),
+//   		VpcIdentifier: jsii.String("vpcIdentifier"),
 //   	},
 //   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{

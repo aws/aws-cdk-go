@@ -1,7 +1,7 @@
 package awsvpclattice
 
 
-// The health check configuration of a target group.
+// Describes the health check configuration of a target group.
 //
 // Health check configurations aren't used for target groups of type `LAMBDA` or `ALB` .
 //
@@ -51,8 +51,6 @@ type CfnTargetGroup_HealthCheckConfigProperty struct {
 	//
 	HealthyThresholdCount *float64 `field:"optional" json:"healthyThresholdCount" yaml:"healthyThresholdCount"`
 	// The codes to use when checking for a successful response from a target.
-	//
-	// These are called *Success codes* in the console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-healthcheckconfig.html#cfn-vpclattice-targetgroup-healthcheckconfig-matcher
 	//
 	Matcher interface{} `field:"optional" json:"matcher" yaml:"matcher"`

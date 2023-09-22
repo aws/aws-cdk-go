@@ -12,7 +12,7 @@ func (e *jsiiProxy_EmrAddStep) validateAddCatchParameters(handler awsstepfunctio
 	return nil
 }
 
-func (e *jsiiProxy_EmrAddStep) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (e *jsiiProxy_EmrAddStep) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

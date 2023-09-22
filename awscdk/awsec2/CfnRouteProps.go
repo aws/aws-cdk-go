@@ -15,6 +15,7 @@ package awsec2
 //   	CarrierGatewayId: jsii.String("carrierGatewayId"),
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	DestinationIpv6CidrBlock: jsii.String("destinationIpv6CidrBlock"),
+//   	DestinationPrefixListId: jsii.String("destinationPrefixListId"),
 //   	EgressOnlyInternetGatewayId: jsii.String("egressOnlyInternetGatewayId"),
 //   	GatewayId: jsii.String("gatewayId"),
 //   	InstanceId: jsii.String("instanceId"),
@@ -51,6 +52,10 @@ type CfnRouteProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock
 	//
 	DestinationIpv6CidrBlock *string `field:"optional" json:"destinationIpv6CidrBlock" yaml:"destinationIpv6CidrBlock"`
+	// The ID of managed prefix list, it's a set of one or more CIDR blocks.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationprefixlistid
+	//
+	DestinationPrefixListId *string `field:"optional" json:"destinationPrefixListId" yaml:"destinationPrefixListId"`
 	// [IPv6 traffic only] The ID of an egress-only internet gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid
 	//

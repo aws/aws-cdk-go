@@ -400,8 +400,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrLoRaWanHrAllowed", GoGetter: "AttrLoRaWanHrAllowed"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLoRaWanMinGwDiversity", GoGetter: "AttrLoRaWanMinGwDiversity"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLoRaWanNwkGeoLoc", GoGetter: "AttrLoRaWanNwkGeoLoc"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLoRaWanPrAllowed", GoGetter: "AttrLoRaWanPrAllowed"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLoRaWanRaAllowed", GoGetter: "AttrLoRaWanRaAllowed"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLoRaWanReportDevStatusBattery", GoGetter: "AttrLoRaWanReportDevStatusBattery"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLoRaWanReportDevStatusMargin", GoGetter: "AttrLoRaWanReportDevStatusMargin"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLoRaWanResponse", GoGetter: "AttrLoRaWanResponse"},

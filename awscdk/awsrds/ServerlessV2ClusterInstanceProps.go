@@ -32,6 +32,16 @@ type ServerlessV2ClusterInstanceProps struct {
 	// Default: - true.
 	//
 	AutoMinorVersionUpgrade *bool `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
+	// The identifier of the CA certificate for this DB cluster's instances.
+	//
+	// Specifying or updating this property triggers a reboot.
+	//
+	// For RDS DB engines:.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html
+	//
+	// Default: - RDS will choose a certificate authority.
+	//
+	CaCertificate CaCertificate `field:"optional" json:"caCertificate" yaml:"caCertificate"`
 	// Whether to enable Performance Insights for the DB instance.
 	// Default: - false, unless ``performanceInsightRentention`` or ``performanceInsightEncryptionKey`` is set.
 	//

@@ -70,6 +70,11 @@ type CfnDataLakeSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-allowexternaldatafiltering
 	//
 	AllowExternalDataFiltering interface{} `field:"optional" json:"allowExternalDataFiltering" yaml:"allowExternalDataFiltering"`
+	// Specifies whether query engines and applications can get credentials without IAM session tags if the user has full table access.
+	//
+	// It provides query engines and applications performance benefits as well as simplifies data access. Amazon EMR on Amazon EC2 is able to leverage this setting.
+	//
+	// For more information, see [](https://docs.aws.amazon.com/lake-formation/latest/dg/using-cred-vending.html)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-allowfulltableexternaldataaccess
 	//
 	AllowFullTableExternalDataAccess interface{} `field:"optional" json:"allowFullTableExternalDataAccess" yaml:"allowFullTableExternalDataAccess"`
@@ -103,6 +108,9 @@ type CfnDataLakeSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-externaldatafilteringallowlist
 	//
 	ExternalDataFilteringAllowList interface{} `field:"optional" json:"externalDataFilteringAllowList" yaml:"externalDataFilteringAllowList"`
+	// Specifies whether the data lake settings are updated by adding new values to the current settings ( `APPEND` ) or by replacing the current settings with new settings ( `REPLACE` ).
+	//
+	// > If you choose `REPLACE` , your current data lake settings will be replaced with the new values in your template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-mutationtype
 	//
 	MutationType *string `field:"optional" json:"mutationType" yaml:"mutationType"`

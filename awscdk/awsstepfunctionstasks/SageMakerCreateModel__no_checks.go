@@ -12,7 +12,7 @@ func (s *jsiiProxy_SageMakerCreateModel) validateAddCatchParameters(handler awss
 	return nil
 }
 
-func (s *jsiiProxy_SageMakerCreateModel) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (s *jsiiProxy_SageMakerCreateModel) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

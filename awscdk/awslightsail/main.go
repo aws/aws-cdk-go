@@ -195,6 +195,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrContainerArn", GoGetter: "AttrContainerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPrincipalArn", GoGetter: "AttrPrincipalArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPrivateRegistryAccessEcrImagePullerRolePrincipalArn", GoGetter: "AttrPrivateRegistryAccessEcrImagePullerRolePrincipalArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUrl", GoGetter: "AttrUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -211,6 +213,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "power", GoGetter: "Power"},
+			_jsii_.MemberProperty{JsiiProperty: "privateRegistryAccess", GoGetter: "PrivateRegistryAccess"},
 			_jsii_.MemberProperty{JsiiProperty: "publicDomainNames", GoGetter: "PublicDomainNames"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -244,6 +247,10 @@ func init() {
 		reflect.TypeOf((*CfnContainer_ContainerServiceDeploymentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lightsail.CfnContainer.EcrImagePullerRoleProperty",
+		reflect.TypeOf((*CfnContainer_EcrImagePullerRoleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lightsail.CfnContainer.EnvironmentVariableProperty",
 		reflect.TypeOf((*CfnContainer_EnvironmentVariableProperty)(nil)).Elem(),
 	)
@@ -254,6 +261,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lightsail.CfnContainer.PortInfoProperty",
 		reflect.TypeOf((*CfnContainer_PortInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lightsail.CfnContainer.PrivateRegistryAccessProperty",
+		reflect.TypeOf((*CfnContainer_PrivateRegistryAccessProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lightsail.CfnContainer.PublicDomainNameProperty",

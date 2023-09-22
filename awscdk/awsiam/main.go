@@ -397,7 +397,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrAttachmentCount", GoGetter: "AttrAttachmentCount"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreateDate", GoGetter: "AttrCreateDate"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDefaultVersionId", GoGetter: "AttrDefaultVersionId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIsAttachable", GoGetter: "AttrIsAttachable"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPermissionsBoundaryUsageCount", GoGetter: "AttrPermissionsBoundaryUsageCount"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPolicyArn", GoGetter: "AttrPolicyArn"},

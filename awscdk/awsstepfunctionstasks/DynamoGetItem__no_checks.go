@@ -12,7 +12,7 @@ func (d *jsiiProxy_DynamoGetItem) validateAddCatchParameters(handler awsstepfunc
 	return nil
 }
 
-func (d *jsiiProxy_DynamoGetItem) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (d *jsiiProxy_DynamoGetItem) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

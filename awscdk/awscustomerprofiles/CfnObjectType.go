@@ -50,6 +50,7 @@ import (
 //   		},
 //   	},
 //   	ObjectTypeName: jsii.String("objectTypeName"),
+//   	SourceLastUpdatedTimestampFormat: jsii.String("sourceLastUpdatedTimestampFormat"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -119,6 +120,9 @@ type CfnObjectType interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The format of your sourceLastUpdatedTimestamp that was previously set up.
+	SourceLastUpdatedTimestampFormat() *string
+	SetSourceLastUpdatedTimestampFormat(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -448,6 +452,16 @@ func (j *jsiiProxy_CfnObjectType) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnObjectType) SourceLastUpdatedTimestampFormat() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceLastUpdatedTimestampFormat",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnObjectType) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -608,6 +622,14 @@ func (j *jsiiProxy_CfnObjectType)SetObjectTypeName(val *string) {
 	_jsii_.Set(
 		j,
 		"objectTypeName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnObjectType)SetSourceLastUpdatedTimestampFormat(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceLastUpdatedTimestampFormat",
 		val,
 	)
 }

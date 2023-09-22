@@ -92,7 +92,7 @@ type CfnListener interface {
 	// The listener port.
 	Port() *float64
 	SetPort(val *float64)
-	// The listener protocol HTTP or HTTPS.
+	// The listener protocol.
 	Protocol() *string
 	SetProtocol(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

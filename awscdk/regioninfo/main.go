@@ -48,6 +48,7 @@ func init() {
 		reflect.TypeOf((*RegionInfo)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "adotLambdaLayerArn", GoMethod: "AdotLambdaLayerArn"},
+			_jsii_.MemberMethod{JsiiMethod: "appConfigLambdaArn", GoMethod: "AppConfigLambdaArn"},
 			_jsii_.MemberProperty{JsiiProperty: "appMeshRepositoryAccount", GoGetter: "AppMeshRepositoryAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkMetadataResourceAvailable", GoGetter: "CdkMetadataResourceAvailable"},
 			_jsii_.MemberMethod{JsiiMethod: "cloudwatchLambdaInsightsArn", GoMethod: "CloudwatchLambdaInsightsArn"},

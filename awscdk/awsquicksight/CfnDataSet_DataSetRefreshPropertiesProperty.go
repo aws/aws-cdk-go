@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// <p>The dataset refresh properties for the dataset.</p>.
+// The refresh properties of a dataset.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,7 +23,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html
 //
 type CfnDataSet_DataSetRefreshPropertiesProperty struct {
-	// <p> Refresh Configuration.</p>.
+	// The refresh configuration for a dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html#cfn-quicksight-dataset-datasetrefreshproperties-refreshconfiguration
 	//
 	RefreshConfiguration interface{} `field:"optional" json:"refreshConfiguration" yaml:"refreshConfiguration"`

@@ -3,8 +3,6 @@ package awsvpclattice
 
 // Describes the action for a rule.
 //
-// Each rule must include exactly one of the following types of actions: `forward` or `fixed-response` , and it must be the last action to be performed.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -29,7 +27,9 @@ package awsvpclattice
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-action.html
 //
 type CfnRule_ActionProperty struct {
-	// Describes the rule action that returns a custom HTTP response.
+	// The fixed response action.
+	//
+	// The rule returns a custom HTTP response.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-action.html#cfn-vpclattice-rule-action-fixedresponse
 	//
 	FixedResponse interface{} `field:"optional" json:"fixedResponse" yaml:"fixedResponse"`

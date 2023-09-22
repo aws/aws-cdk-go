@@ -18,6 +18,7 @@ import (
 //   	ResourceType: jsii.String("resourceType"),
 //
 //   	// the properties below are optional
+//   	DeliverCrossAccountRole: jsii.String("deliverCrossAccountRole"),
 //   	DeliverLogsPermissionArn: jsii.String("deliverLogsPermissionArn"),
 //   	DestinationOptions: destinationOptions,
 //   	LogDestination: jsii.String("logDestination"),
@@ -47,6 +48,10 @@ type CfnFlowLogProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
 	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
+	// The ARN of the IAM role that allows the service to publish flow logs across accounts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-delivercrossaccountrole
+	//
+	DeliverCrossAccountRole *string `field:"optional" json:"deliverCrossAccountRole" yaml:"deliverCrossAccountRole"`
 	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
 	//
 	// This parameter is required if the destination type is `cloud-watch-logs` and unsupported otherwise.

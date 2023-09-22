@@ -25,8 +25,10 @@ type CfnEIPAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html#cfn-ec2-eipassociation-allocationid
 	//
 	AllocationId *string `field:"optional" json:"allocationId" yaml:"allocationId"`
+	// The Elastic IP address to associate with the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html#cfn-ec2-eipassociation-eip
 	//
+	// Deprecated: this property has been deprecated.
 	Eip *string `field:"optional" json:"eip" yaml:"eip"`
 	// The ID of the instance.
 	//

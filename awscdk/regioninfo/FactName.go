@@ -67,6 +67,25 @@ func FactName_AdotLambdaLayer(type_ *string, version *string, architecture *stri
 	return returns
 }
 
+// The ARN of AppConfig Lambda Layer for a given version (e.g. 2.0.181).
+func FactName_AppConfigLambdaLayerVersion(version *string, arch *string) *string {
+	_init_.Initialize()
+
+	if err := validateFactName_AppConfigLambdaLayerVersionParameters(version); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.region_info.FactName",
+		"appConfigLambdaLayerVersion",
+		[]interface{}{version, arch},
+		&returns,
+	)
+
+	return returns
+}
+
 // The ARN of CloudWatch Lambda Insights for a version (e.g. 1.0.98.0).
 func FactName_CloudwatchLambdaInsightsVersion(version *string, arch *string) *string {
 	_init_.Initialize()

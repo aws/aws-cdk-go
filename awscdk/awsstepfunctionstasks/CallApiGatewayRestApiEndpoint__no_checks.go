@@ -12,7 +12,7 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateAddCatchParameters(han
 	return nil
 }
 
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

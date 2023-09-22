@@ -4,15 +4,15 @@ package awsstepfunctions
 // Properties for defining a Choice state.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   choiceProps := &ChoiceProps{
-//   	Comment: jsii.String("comment"),
-//   	InputPath: jsii.String("inputPath"),
-//   	OutputPath: jsii.String("outputPath"),
-//   }
+//   choice := sfn.NewChoice(this, jsii.String("What color is it?"), &ChoiceProps{
+//   	Comment: jsii.String("color comment"),
+//   })
+//   handleBlueItem := sfn.NewPass(this, jsii.String("HandleBlueItem"))
+//   handleOtherItemColor := sfn.NewPass(this, jsii.String("HanldeOtherItemColor"))
+//   choice.When(sfn.Condition_StringEquals(jsii.String("$.color"), jsii.String("BLUE")), handleBlueItem, &ChoiceTransitionOptions{
+//   	Comment: jsii.String("blue item comment"),
+//   })
+//   choice.Otherwise(handleOtherItemColor)
 //
 type ChoiceProps struct {
 	// An optional description for this state.

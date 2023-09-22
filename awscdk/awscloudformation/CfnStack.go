@@ -57,9 +57,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnStack := awscdk.Aws_cloudformation.NewCfnStack(this, jsii.String("MyCfnStack"), &CfnStackProps{
-//   	TemplateUrl: jsii.String("templateUrl"),
-//
-//   	// the properties below are optional
 //   	NotificationArns: []*string{
 //   		jsii.String("notificationArns"),
 //   	},
@@ -72,6 +69,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TemplateUrl: jsii.String("templateUrl"),
 //   	TimeoutInMinutes: jsii.Number(123),
 //   })
 //
@@ -81,7 +79,14 @@ type CfnStack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	AttrId() *string
+	AttrChangeSetId() *string
+	AttrCreationTime() *string
+	AttrLastUpdateTime() *string
+	AttrOutputs() awscdk.IResolvable
+	AttrParentId() *string
+	AttrRootId() *string
+	AttrStackId() *string
+	AttrStackStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -276,11 +281,81 @@ type jsiiProxy_CfnStack struct {
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnStack) AttrId() *string {
+func (j *jsiiProxy_CfnStack) AttrChangeSetId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrChangeSetId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) AttrCreationTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) AttrLastUpdateTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastUpdateTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) AttrOutputs() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrOutputs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) AttrParentId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrParentId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) AttrRootId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRootId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) AttrStackId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStackId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) AttrStackStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStackStatus",
 		&returns,
 	)
 	return returns
@@ -505,9 +580,6 @@ func (j *jsiiProxy_CfnStack)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnStack)SetTemplateUrl(val *string) {
-	if err := j.validateSetTemplateUrlParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"templateUrl",

@@ -1210,6 +1210,19 @@ func init() {
 		reflect.TypeOf((*VariableValue)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.VerticalAnnotation",
+		reflect.TypeOf((*VerticalAnnotation)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudwatch.VerticalShading",
+		reflect.TypeOf((*VerticalShading)(nil)).Elem(),
+		map[string]interface{}{
+			"NONE": VerticalShading_NONE,
+			"BEFORE": VerticalShading_BEFORE,
+			"AFTER": VerticalShading_AFTER,
+		},
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.YAxisProps",
 		reflect.TypeOf((*YAxisProps)(nil)).Elem(),
 	)

@@ -233,6 +233,14 @@ func validateKubectlProvider_OfParameters(construct constructs.IConstruct) error
 	return nil
 }
 
+func (j *jsiiProxy_KubectlProvider) validateSetTerminationProtectionParameters(val *bool) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewKubectlProviderParameters(scope constructs.Construct, id *string, props *KubectlProviderProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

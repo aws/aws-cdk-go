@@ -8,6 +8,10 @@ func (r *jsiiProxy_RegionInfo) validateAdotLambdaLayerArnParameters(type_ *strin
 	return nil
 }
 
+func (r *jsiiProxy_RegionInfo) validateAppConfigLambdaArnParameters(layerVersion *string) error {
+	return nil
+}
+
 func (r *jsiiProxy_RegionInfo) validateCloudwatchLambdaInsightsArnParameters(insightsVersion *string) error {
 	return nil
 }

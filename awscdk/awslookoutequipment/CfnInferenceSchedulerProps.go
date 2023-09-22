@@ -50,7 +50,7 @@ type CfnInferenceSchedulerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-datauploadfrequency
 	//
 	DataUploadFrequency *string `field:"required" json:"dataUploadFrequency" yaml:"dataUploadFrequency"`
-	// The name of the ML model used for the inference scheduler.
+	// The name of the machine learning model used for the inference scheduler.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-modelname
 	//
 	ModelName *string `field:"required" json:"modelName" yaml:"modelName"`

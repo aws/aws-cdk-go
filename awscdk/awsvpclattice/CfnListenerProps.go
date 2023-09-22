@@ -46,11 +46,11 @@ import (
 type CfnListenerProps struct {
 	// The action for the default rule.
 	//
-	// Each listener has a default rule. Each rule consists of a priority, one or more actions, and one or more conditions. The default rule is the rule that's used if no other rules match. Each rule must include exactly one of the following types of actions: `forward` or `fixed-response` , and it must be the last action to be performed.
+	// Each listener has a default rule. The default rule is used if no other rules match.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-defaultaction
 	//
 	DefaultAction interface{} `field:"required" json:"defaultAction" yaml:"defaultAction"`
-	// The listener protocol HTTP or HTTPS.
+	// The listener protocol.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-protocol
 	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`

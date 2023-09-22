@@ -1,7 +1,7 @@
 package awsvpclattice
 
 
-// DNS information about the service.
+// The DNS information.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

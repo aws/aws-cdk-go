@@ -27,6 +27,7 @@ import (
 //   	CarrierGatewayId: jsii.String("carrierGatewayId"),
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	DestinationIpv6CidrBlock: jsii.String("destinationIpv6CidrBlock"),
+//   	DestinationPrefixListId: jsii.String("destinationPrefixListId"),
 //   	EgressOnlyInternetGatewayId: jsii.String("egressOnlyInternetGatewayId"),
 //   	GatewayId: jsii.String("gatewayId"),
 //   	InstanceId: jsii.String("instanceId"),
@@ -63,6 +64,9 @@ type CfnRoute interface {
 	// The IPv6 CIDR block used for the destination match.
 	DestinationIpv6CidrBlock() *string
 	SetDestinationIpv6CidrBlock(val *string)
+	// The ID of managed prefix list, it's a set of one or more CIDR blocks.
+	DestinationPrefixListId() *string
+	SetDestinationPrefixListId(val *string)
 	// [IPv6 traffic only] The ID of an egress-only internet gateway.
 	EgressOnlyInternetGatewayId() *string
 	SetEgressOnlyInternetGatewayId(val *string)
@@ -340,6 +344,16 @@ func (j *jsiiProxy_CfnRoute) DestinationIpv6CidrBlock() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRoute) DestinationPrefixListId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"destinationPrefixListId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRoute) EgressOnlyInternetGatewayId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -548,6 +562,14 @@ func (j *jsiiProxy_CfnRoute)SetDestinationIpv6CidrBlock(val *string) {
 	_jsii_.Set(
 		j,
 		"destinationIpv6CidrBlock",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRoute)SetDestinationPrefixListId(val *string) {
+	_jsii_.Set(
+		j,
+		"destinationPrefixListId",
 		val,
 	)
 }

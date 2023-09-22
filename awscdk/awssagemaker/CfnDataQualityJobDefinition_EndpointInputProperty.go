@@ -28,7 +28,7 @@ type CfnDataQualityJobDefinition_EndpointInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-localpath
 	//
 	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
-	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an Amazon S3 key.
 	//
 	// Defaults to `FullyReplicated`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3datadistributiontype

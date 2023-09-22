@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnContainer) validateSetPowerParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnContainer) validateSetPrivateRegistryAccessParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnContainer) validateSetPublicDomainNamesParameters(val interface{}) error {
 	return nil
 }

@@ -203,14 +203,6 @@ func (j *jsiiProxy_CfnDestination) validateSetNameParameters(val *string) error 
 	return nil
 }
 
-func (j *jsiiProxy_CfnDestination) validateSetRoleArnParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnDestination) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

@@ -12,7 +12,7 @@ func (g *jsiiProxy_GlueStartJobRun) validateAddCatchParameters(handler awsstepfu
 	return nil
 }
 
-func (g *jsiiProxy_GlueStartJobRun) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (g *jsiiProxy_GlueStartJobRun) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

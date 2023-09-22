@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnMembership) validateSetCollaborationIdentifierParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnMembership) validateSetDefaultResultConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMembership) validateSetQueryLogStatusParameters(val *string) error {
 	return nil
 }

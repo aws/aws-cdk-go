@@ -43,7 +43,7 @@ type CfnModelExplainabilityJobDefinition_EndpointInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-probabilityattribute
 	//
 	ProbabilityAttribute *string `field:"optional" json:"probabilityAttribute" yaml:"probabilityAttribute"`
-	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an Amazon S3 key.
 	//
 	// Defaults to `FullyReplicated`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3datadistributiontype

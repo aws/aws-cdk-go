@@ -75,6 +75,7 @@ type ScheduledActionProps struct {
 	// For more information, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
 	// Default: - UTC.
 	//
+	// Deprecated: use time zones as part of the schedule prop.
 	TimeZone *string `field:"optional" json:"timeZone" yaml:"timeZone"`
 	// The AutoScalingGroup to apply the scheduled actions to.
 	AutoScalingGroup IAutoScalingGroup `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`

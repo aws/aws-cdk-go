@@ -153,7 +153,7 @@ type CfnWorkspace interface {
 	// The user-defined description of the workspace.
 	Description() *string
 	SetDescription(val *string)
-	// Specifies the version of Grafana to support in the new workspace.
+	// Specifies the version of Grafana to support in the workspace.
 	GrafanaVersion() *string
 	SetGrafanaVersion(val *string)
 	// The logical ID for this CloudFormation stack element.

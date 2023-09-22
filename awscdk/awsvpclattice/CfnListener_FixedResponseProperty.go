@@ -1,7 +1,7 @@
 package awsvpclattice
 
 
-// Information about an action that returns a custom HTTP response.
+// Describes an action that returns a custom HTTP response.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

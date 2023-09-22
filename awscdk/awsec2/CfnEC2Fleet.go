@@ -231,7 +231,7 @@ type CfnEC2Fleet interface {
 	Stack() awscdk.Stack
 	// The key-value pair for tagging the EC2 Fleet request on creation.
 	//
-	// For more information, see [Tagging your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+	// For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 	TagSpecifications() interface{}
 	SetTagSpecifications(val interface{})
 	// The number of units to request.

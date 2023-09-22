@@ -7,3 +7,4 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__awscdkIResolvable = awscdk.IResolvable
 type Type__awscdkIResource = awscdk.IResource
+type Type__awscdkSchedule = awscdk.Schedule

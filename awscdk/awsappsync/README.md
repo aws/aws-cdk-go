@@ -407,8 +407,7 @@ secondApi.AddNoneDataSource(jsii.String("SecondSourceDS"), &DataSourceOptions{
 })
 
 // Merged API
-// Merged API
-appsync.NewGraphqlApi(this, jsii.String("MergedAPI"), &GraphqlApiProps{
+mergedApi := appsync.NewGraphqlApi(this, jsii.String("MergedAPI"), &GraphqlApiProps{
 	Name: jsii.String("MergedAPI"),
 	Definition: appsync.Definition_FromSourceApis(&SourceApiOptions{
 		SourceApis: []sourceApi{
@@ -416,12 +415,32 @@ appsync.NewGraphqlApi(this, jsii.String("MergedAPI"), &GraphqlApiProps{
 				SourceApi: firstApi,
 				MergeType: appsync.MergeType_MANUAL_MERGE,
 			},
-			&sourceApi{
-				SourceApi: secondApi,
-				MergeType: appsync.MergeType_AUTO_MERGE,
-			},
 		},
 	}),
+})
+```
+
+## Merged APIs Across Different Stacks
+
+The SourceApiAssociation construct allows you to define a SourceApiAssociation to a Merged API in a different stack or account. This allows a source API owner the ability to associate it to an existing Merged API itself.
+
+```go
+sourceApi := appsync.NewGraphqlApi(this, jsii.String("FirstSourceAPI"), &GraphqlApiProps{
+	Name: jsii.String("FirstSourceAPI"),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.merged-api-1.graphql"))),
+})
+
+importedMergedApi := appsync.GraphqlApi_FromGraphqlApiAttributes(this, jsii.String("ImportedMergedApi"), &GraphqlApiAttributes{
+	GraphqlApiId: jsii.String("MyApiId"),
+	GraphqlApiArn: jsii.String("MyApiArn"),
+})
+
+importedExecutionRole := iam.Role_FromRoleArn(this, jsii.String("ExecutionRole"), jsii.String("arn:aws:iam::ACCOUNT:role/MyExistingRole"))
+appsync.NewSourceApiAssociation(this, jsii.String("SourceApiAssociation2"), &SourceApiAssociationProps{
+	SourceApi: sourceApi,
+	MergedApi: importedMergedApi,
+	MergeType: appsync.MergeType_MANUAL_MERGE,
+	MergedApiExecutionRole: importedExecutionRole,
 })
 ```
 

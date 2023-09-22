@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// <p>A parameter created in the dataset of decimal data type.</p>.
+// A decimal parameter that is created in the dataset.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,21 +24,23 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html
 //
 type CfnDataSet_DecimalDatasetParameterProperty struct {
-	// <p>Identifier of the parameter created in the dataset.</p>.
+	// An identifier for the decimal parameter created in the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-id
 	//
 	Id *string `field:"required" json:"id" yaml:"id"`
-	// <p>Name of the parameter created in the dataset.</p>.
+	// The name of the decimal parameter that is created in the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>.
+	// The value type of the dataset parameter.
+	//
+	// Valid values are `single value` or `multi value` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-valuetype
 	//
 	ValueType *string `field:"required" json:"valueType" yaml:"valueType"`
-	// <p>List of default values defined for a given decimal dataset parameter type.
+	// A list of default values for a given decimal parameter.
 	//
-	// Currently only static values are supported.</p>
+	// This structure only accepts static values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-defaultvalues
 	//
 	DefaultValues interface{} `field:"optional" json:"defaultValues" yaml:"defaultValues"`

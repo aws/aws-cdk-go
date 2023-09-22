@@ -41,8 +41,6 @@ type CfnEIPProps struct {
 	// Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
 	//
 	// Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
-	//
-	// You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic, you receive an `InvalidParameterCombination` error.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html#cfn-ec2-eip-networkbordergroup
 	//
 	NetworkBorderGroup *string `field:"optional" json:"networkBorderGroup" yaml:"networkBorderGroup"`

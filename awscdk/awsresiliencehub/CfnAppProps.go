@@ -246,9 +246,11 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The list of events you would like to subscribe and get notification for.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-eventsubscriptions
 	//
 	EventSubscriptions interface{} `field:"optional" json:"eventSubscriptions" yaml:"eventSubscriptions"`
+	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-permissionmodel
 	//
 	PermissionModel interface{} `field:"optional" json:"permissionModel" yaml:"permissionModel"`

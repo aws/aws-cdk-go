@@ -107,7 +107,7 @@ type CfnUserPoolUser interface {
 	// The user attributes and attribute values to be set for the user to be created.
 	UserAttributes() interface{}
 	SetUserAttributes(val interface{})
-	// The username for the user.
+	// The value that you want to set as the username sign-in attribute.
 	Username() *string
 	SetUsername(val *string)
 	// The user pool ID for the user pool where the user will be created.

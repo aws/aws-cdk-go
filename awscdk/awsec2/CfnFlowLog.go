@@ -25,6 +25,7 @@ import (
 //   	ResourceType: jsii.String("resourceType"),
 //
 //   	// the properties below are optional
+//   	DeliverCrossAccountRole: jsii.String("deliverCrossAccountRole"),
 //   	DeliverLogsPermissionArn: jsii.String("deliverLogsPermissionArn"),
 //   	DestinationOptions: destinationOptions,
 //   	LogDestination: jsii.String("logDestination"),
@@ -60,6 +61,9 @@ type CfnFlowLog interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The ARN of the IAM role that allows the service to publish flow logs across accounts.
+	DeliverCrossAccountRole() *string
+	SetDeliverCrossAccountRole(val *string)
 	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
 	DeliverLogsPermissionArn() *string
 	SetDeliverLogsPermissionArn(val *string)
@@ -317,6 +321,16 @@ func (j *jsiiProxy_CfnFlowLog) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowLog) DeliverCrossAccountRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deliverCrossAccountRole",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowLog) DeliverLogsPermissionArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -522,6 +536,14 @@ func NewCfnFlowLog_Override(c CfnFlowLog, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_ec2.CfnFlowLog",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowLog)SetDeliverCrossAccountRole(val *string) {
+	_jsii_.Set(
+		j,
+		"deliverCrossAccountRole",
+		val,
 	)
 }
 

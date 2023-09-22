@@ -32,13 +32,17 @@ func (d *jsiiProxy_DynamoPutItem) validateAddCatchParameters(handler awsstepfunc
 	return nil
 }
 
-func (d *jsiiProxy_DynamoPutItem) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (d *jsiiProxy_DynamoPutItem) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	if condition == nil {
 		return fmt.Errorf("parameter condition is required, but nil was provided")
 	}
 
 	if next == nil {
 		return fmt.Errorf("parameter next is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil

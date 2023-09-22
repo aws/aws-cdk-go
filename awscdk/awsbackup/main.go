@@ -517,6 +517,19 @@ func init() {
 		"aws-cdk-lib.aws_backup.LockConfiguration",
 		reflect.TypeOf((*LockConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_backup.Schedule",
+		reflect.TypeOf((*Schedule)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "expressionString", GoGetter: "ExpressionString"},
+			_jsii_.MemberProperty{JsiiProperty: "timeZone", GoGetter: "TimeZone"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Schedule{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkSchedule)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_backup.TagCondition",
 		reflect.TypeOf((*TagCondition)(nil)).Elem(),

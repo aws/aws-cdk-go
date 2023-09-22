@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnFileSystem) validateSetLifecyclePoliciesParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnFileSystem) validateSetReplicationConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnFileSystemParameters(scope constructs.Construct, id *string, props *CfnFileSystemProps) error {
 	return nil
 }

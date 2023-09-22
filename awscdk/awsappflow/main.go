@@ -460,6 +460,14 @@ func init() {
 		reflect.TypeOf((*CfnFlow_SAPODataDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnFlow.SAPODataPaginationConfigProperty",
+		reflect.TypeOf((*CfnFlow_SAPODataPaginationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnFlow.SAPODataParallelismConfigProperty",
+		reflect.TypeOf((*CfnFlow_SAPODataParallelismConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnFlow.SAPODataSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_SAPODataSourcePropertiesProperty)(nil)).Elem(),
 	)

@@ -3,7 +3,7 @@ package awssagemaker
 
 // The input for the model quality monitoring job.
 //
-// Currently endponts are supported for input for model quality monitoring jobs.
+// Currently endpoints are supported for input for model quality monitoring jobs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

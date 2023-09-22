@@ -4,14 +4,23 @@ package awsappsync
 // Attributes for GraphQL imports.
 //
 // Example:
-//   var api graphqlApi
-//   var table table
-//
-//   importedApi := appsync.graphqlApi_FromGraphqlApiAttributes(this, jsii.String("IApi"), &GraphqlApiAttributes{
-//   	GraphqlApiId: api.ApiId,
-//   	GraphqlApiArn: api.Arn,
+//   sourceApi := appsync.NewGraphqlApi(this, jsii.String("FirstSourceAPI"), &GraphqlApiProps{
+//   	Name: jsii.String("FirstSourceAPI"),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.merged-api-1.graphql"))),
 //   })
-//   importedApi.AddDynamoDbDataSource(jsii.String("TableDataSource"), table)
+//
+//   importedMergedApi := appsync.GraphqlApi_FromGraphqlApiAttributes(this, jsii.String("ImportedMergedApi"), &GraphqlApiAttributes{
+//   	GraphqlApiId: jsii.String("MyApiId"),
+//   	GraphqlApiArn: jsii.String("MyApiArn"),
+//   })
+//
+//   importedExecutionRole := iam.Role_FromRoleArn(this, jsii.String("ExecutionRole"), jsii.String("arn:aws:iam::ACCOUNT:role/MyExistingRole"))
+//   appsync.NewSourceApiAssociation(this, jsii.String("SourceApiAssociation2"), &SourceApiAssociationProps{
+//   	SourceApi: sourceApi,
+//   	MergedApi: importedMergedApi,
+//   	MergeType: appsync.MergeType_MANUAL_MERGE,
+//   	MergedApiExecutionRole: importedExecutionRole,
+//   })
 //
 type GraphqlApiAttributes struct {
 	// an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.

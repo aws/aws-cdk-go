@@ -600,7 +600,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrChangeSetId", GoGetter: "AttrChangeSetId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdateTime", GoGetter: "AttrLastUpdateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrOutputs", GoGetter: "AttrOutputs"},
+			_jsii_.MemberProperty{JsiiProperty: "attrParentId", GoGetter: "AttrParentId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRootId", GoGetter: "AttrRootId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStackId", GoGetter: "AttrStackId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStackStatus", GoGetter: "AttrStackStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -637,6 +644,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudformation.CfnStack.OutputProperty",
+		reflect.TypeOf((*CfnStack_OutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudformation.CfnStackProps",

@@ -121,7 +121,7 @@ type CfnMonitoringSchedule_MonitoringJobDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
 	//
 	MonitoringInputs interface{} `field:"required" json:"monitoringInputs" yaml:"monitoringInputs"`
-	// The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage Service (Amazon S3).
+	// The array of outputs from the monitoring job to be uploaded to Amazon S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
 	//
 	MonitoringOutputConfig interface{} `field:"required" json:"monitoringOutputConfig" yaml:"monitoringOutputConfig"`

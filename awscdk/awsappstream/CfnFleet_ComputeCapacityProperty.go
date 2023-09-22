@@ -10,8 +10,6 @@ package awsappstream
 //
 //   computeCapacityProperty := &ComputeCapacityProperty{
 //   	DesiredInstances: jsii.Number(123),
-//
-//   	// the properties below are optional
 //   	DesiredSessions: jsii.Number(123),
 //   }
 //
@@ -21,7 +19,7 @@ type CfnFleet_ComputeCapacityProperty struct {
 	// The desired number of streaming instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html#cfn-appstream-fleet-computecapacity-desiredinstances
 	//
-	DesiredInstances *float64 `field:"required" json:"desiredInstances" yaml:"desiredInstances"`
+	DesiredInstances *float64 `field:"optional" json:"desiredInstances" yaml:"desiredInstances"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html#cfn-appstream-fleet-computecapacity-desiredsessions
 	//
 	DesiredSessions *float64 `field:"optional" json:"desiredSessions" yaml:"desiredSessions"`

@@ -62,6 +62,14 @@ func init() {
 		reflect.TypeOf((*CfnDetector_CFNDataSourceConfigurationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_guardduty.CfnDetector.CFNFeatureAdditionalConfigurationProperty",
+		reflect.TypeOf((*CfnDetector_CFNFeatureAdditionalConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_guardduty.CfnDetector.CFNFeatureConfigurationProperty",
+		reflect.TypeOf((*CfnDetector_CFNFeatureConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_guardduty.CfnDetector.CFNKubernetesAuditLogsConfigurationProperty",
 		reflect.TypeOf((*CfnDetector_CFNKubernetesAuditLogsConfigurationProperty)(nil)).Elem(),
 	)
@@ -82,12 +90,8 @@ func init() {
 		reflect.TypeOf((*CfnDetector_CFNScanEc2InstanceWithFindingsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_guardduty.CfnDetector.FeatureAdditionalConfigurationProperty",
-		reflect.TypeOf((*CfnDetector_FeatureAdditionalConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_guardduty.CfnDetector.FeatureConfigurationsProperty",
-		reflect.TypeOf((*CfnDetector_FeatureConfigurationsProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_guardduty.CfnDetector.TagItemProperty",
+		reflect.TypeOf((*CfnDetector_TagItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_guardduty.CfnDetectorProps",

@@ -43,7 +43,7 @@ type TaskStateBase interface {
 	StateId() *string
 	TaskMetrics() *TaskMetricsConfig
 	TaskPolicies() *[]awsiam.PolicyStatement
-	// Add a paralle branch to this state.
+	// Add a parallel branch to this state.
 	AddBranch(branch StateGraph)
 	// Add a recovery handler for this state.
 	//
@@ -51,7 +51,7 @@ type TaskStateBase interface {
 	// handler instead of failing the state machine execution.
 	AddCatch(handler IChainable, props *CatchProps) TaskStateBase
 	// Add a choice branch to this state.
-	AddChoice(condition Condition, next State)
+	AddChoice(condition Condition, next State, options *ChoiceTransitionOptions)
 	// Add a map iterator to this state.
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -466,14 +466,14 @@ func (t *jsiiProxy_TaskStateBase) AddCatch(handler IChainable, props *CatchProps
 	return returns
 }
 
-func (t *jsiiProxy_TaskStateBase) AddChoice(condition Condition, next State) {
-	if err := t.validateAddChoiceParameters(condition, next); err != nil {
+func (t *jsiiProxy_TaskStateBase) AddChoice(condition Condition, next State, options *ChoiceTransitionOptions) {
+	if err := t.validateAddChoiceParameters(condition, next, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		t,
 		"addChoice",
-		[]interface{}{condition, next},
+		[]interface{}{condition, next, options},
 	)
 }
 

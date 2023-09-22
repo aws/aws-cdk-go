@@ -7,6 +7,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2/internal"
 )
 
 // ScheduleExpression for EventBridge Schedule.
@@ -34,17 +35,18 @@ import (
 //
 // Experimental.
 type ScheduleExpression interface {
+	awscdk.Schedule
 	// Retrieve the expression for this schedule.
 	// Experimental.
 	ExpressionString() *string
-	// Retrieve the expression for this schedule.
+	// The timezone of the expression, if applicable.
 	// Experimental.
 	TimeZone() awscdk.TimeZone
 }
 
 // The jsii proxy struct for ScheduleExpression
 type jsiiProxy_ScheduleExpression struct {
-	_ byte // padding
+	internal.Type__awscdkSchedule
 }
 
 func (j *jsiiProxy_ScheduleExpression) ExpressionString() *string {
@@ -101,7 +103,7 @@ func ScheduleExpression_At(date *time.Time, timeZone awscdk.TimeZone) ScheduleEx
 
 // Create a recurring schedule from a set of cron fields and time zone.
 // Experimental.
-func ScheduleExpression_Cron(options *CronOptionsWithTimezone) ScheduleExpression {
+func ScheduleExpression_Cron(options *awscdk.CronOptions) ScheduleExpression {
 	_init_.Initialize()
 
 	if err := validateScheduleExpression_CronParameters(options); err != nil {
@@ -133,6 +135,88 @@ func ScheduleExpression_Expression(expression *string, timeZone awscdk.TimeZone)
 		"@aws-cdk/aws-scheduler-alpha.ScheduleExpression",
 		"expression",
 		[]interface{}{expression, timeZone},
+		&returns,
+	)
+
+	return returns
+}
+
+// Construct a one-time schedule from a date.
+// Experimental.
+func ScheduleExpression_ProtectedAt(date *time.Time, timeZone awscdk.TimeZone) awscdk.Schedule {
+	_init_.Initialize()
+
+	if err := validateScheduleExpression_ProtectedAtParameters(date); err != nil {
+		panic(err)
+	}
+	var returns awscdk.Schedule
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.ScheduleExpression",
+		"protectedAt",
+		[]interface{}{date, timeZone},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a schedule from a set of cron fields.
+// Experimental.
+func ScheduleExpression_ProtectedCron(options *awscdk.CronOptions, module *string) awscdk.Schedule {
+	_init_.Initialize()
+
+	if err := validateScheduleExpression_ProtectedCronParameters(options); err != nil {
+		panic(err)
+	}
+	var returns awscdk.Schedule
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.ScheduleExpression",
+		"protectedCron",
+		[]interface{}{options, module},
+		&returns,
+	)
+
+	return returns
+}
+
+// Construct a schedule from a literal schedule expression.
+// Experimental.
+func ScheduleExpression_ProtectedExpression(expression *string, timeZone awscdk.TimeZone) awscdk.Schedule {
+	_init_.Initialize()
+
+	if err := validateScheduleExpression_ProtectedExpressionParameters(expression); err != nil {
+		panic(err)
+	}
+	var returns awscdk.Schedule
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.ScheduleExpression",
+		"protectedExpression",
+		[]interface{}{expression, timeZone},
+		&returns,
+	)
+
+	return returns
+}
+
+// Construct a schedule from an interval and a time unit.
+//
+// Rates may be defined with any unit of time, but when converted into minutes, the duration must be a positive whole number of minutes.
+// Experimental.
+func ScheduleExpression_ProtectedRate(duration awscdk.Duration) awscdk.Schedule {
+	_init_.Initialize()
+
+	if err := validateScheduleExpression_ProtectedRateParameters(duration); err != nil {
+		panic(err)
+	}
+	var returns awscdk.Schedule
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.ScheduleExpression",
+		"protectedRate",
+		[]interface{}{duration},
 		&returns,
 	)
 

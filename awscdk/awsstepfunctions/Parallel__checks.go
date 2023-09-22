@@ -30,13 +30,17 @@ func (p *jsiiProxy_Parallel) validateAddCatchParameters(handler IChainable, prop
 	return nil
 }
 
-func (p *jsiiProxy_Parallel) validateAddChoiceParameters(condition Condition, next State) error {
+func (p *jsiiProxy_Parallel) validateAddChoiceParameters(condition Condition, next State, options *ChoiceTransitionOptions) error {
 	if condition == nil {
 		return fmt.Errorf("parameter condition is required, but nil was provided")
 	}
 
 	if next == nil {
 		return fmt.Errorf("parameter next is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil

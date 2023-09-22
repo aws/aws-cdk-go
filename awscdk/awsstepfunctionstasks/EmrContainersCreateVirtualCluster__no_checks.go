@@ -12,7 +12,7 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateAddCatchParameters
 	return nil
 }
 
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

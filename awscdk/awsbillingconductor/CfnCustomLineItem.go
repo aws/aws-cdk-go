@@ -34,6 +34,15 @@ import (
 //   		Flat: &CustomLineItemFlatChargeDetailsProperty{
 //   			ChargeValue: jsii.Number(123),
 //   		},
+//   		LineItemFilters: []interface{}{
+//   			&LineItemFilterProperty{
+//   				Attribute: jsii.String("attribute"),
+//   				MatchOption: jsii.String("matchOption"),
+//   				Values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
 //   		Percentage: &CustomLineItemPercentageChargeDetailsProperty{
 //   			PercentageValue: jsii.Number(123),
 //

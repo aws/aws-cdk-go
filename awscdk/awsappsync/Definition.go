@@ -10,24 +10,22 @@ import (
 // Specify how you want to define your AppSync API.
 //
 // Example:
-//   import events "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   api := appsync.NewGraphqlApi(this, jsii.String("EventBridgeApi"), &GraphqlApiProps{
-//   	Name: jsii.String("EventBridgeApi"),
-//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
+//   sourceApi := appsync.NewGraphqlApi(this, jsii.String("FirstSourceAPI"), &GraphqlApiProps{
+//   	Name: jsii.String("FirstSourceAPI"),
+//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.merged-api-1.graphql"))),
 //   })
 //
-//   bus := events.NewEventBus(this, jsii.String("DestinationEventBus"), &EventBusProps{
+//   importedMergedApi := appsync.GraphqlApi_FromGraphqlApiAttributes(this, jsii.String("ImportedMergedApi"), &GraphqlApiAttributes{
+//   	GraphqlApiId: jsii.String("MyApiId"),
+//   	GraphqlApiArn: jsii.String("MyApiArn"),
 //   })
 //
-//   dataSource := api.AddEventBridgeDataSource(jsii.String("NoneDS"), bus)
-//
-//   dataSource.CreateResolver(jsii.String("EventResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Mutation"),
-//   	FieldName: jsii.String("emitEvent"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("request.vtl")),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("response.vtl")),
+//   importedExecutionRole := iam.Role_FromRoleArn(this, jsii.String("ExecutionRole"), jsii.String("arn:aws:iam::ACCOUNT:role/MyExistingRole"))
+//   appsync.NewSourceApiAssociation(this, jsii.String("SourceApiAssociation2"), &SourceApiAssociationProps{
+//   	SourceApi: sourceApi,
+//   	MergedApi: importedMergedApi,
+//   	MergeType: appsync.MergeType_MANUAL_MERGE,
+//   	MergedApiExecutionRole: importedExecutionRole,
 //   })
 //
 type Definition interface {

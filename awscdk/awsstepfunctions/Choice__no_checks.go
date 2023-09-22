@@ -8,7 +8,7 @@ func (c *jsiiProxy_Choice) validateAddBranchParameters(branch StateGraph) error 
 	return nil
 }
 
-func (c *jsiiProxy_Choice) validateAddChoiceParameters(condition Condition, next State) error {
+func (c *jsiiProxy_Choice) validateAddChoiceParameters(condition Condition, next State, options *ChoiceTransitionOptions) error {
 	return nil
 }
 
@@ -40,7 +40,7 @@ func (c *jsiiProxy_Choice) validateOtherwiseParameters(def IChainable) error {
 	return nil
 }
 
-func (c *jsiiProxy_Choice) validateWhenParameters(condition Condition, next IChainable) error {
+func (c *jsiiProxy_Choice) validateWhenParameters(condition Condition, next IChainable, options *ChoiceTransitionOptions) error {
 	return nil
 }
 

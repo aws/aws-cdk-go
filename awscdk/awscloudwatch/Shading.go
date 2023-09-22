@@ -1,7 +1,7 @@
 package awscloudwatch
 
 
-// Fill shading options that will be used with an annotation.
+// Fill shading options that will be used with a horizontal annotation.
 type Shading string
 
 const (

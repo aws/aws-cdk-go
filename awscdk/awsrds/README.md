@@ -38,7 +38,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 })
 ```
 
-To adopt Aurora I/O-Optimized. Speicify `DBClusterStorageType.AURORA_IOPT1` on the `storageType` property.
+To adopt Aurora I/O-Optimized. Specify `DBClusterStorageType.AURORA_IOPT1` on the `storageType` property.
 
 ```go
 var vpc vpc
@@ -335,6 +335,30 @@ limit of its maximum capacity, Aurora indicates this condition by setting the
 DB instance to a status of `incompatible-parameters`. While the DB instance has
 the incompatible-parameters status, some operations are blocked. For example,
 you can't upgrade the engine version.
+
+#### CA certificate
+
+Use the `caCertificate` property to specify the [CA certificates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html)
+to use for a cluster instances:
+
+```go
+var vpc vpc
+
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
+	}),
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+		CaCertificate: rds.CaCertificate_RDS_CA_RDS2048_G1(),
+	}),
+	Readers: []iClusterInstance{
+		rds.ClusterInstance_ServerlessV2(jsii.String("reader"), &ServerlessV2ClusterInstanceProps{
+			CaCertificate: rds.CaCertificate_Of(jsii.String("custom-ca")),
+		}),
+	},
+	Vpc: Vpc,
+})
+```
 
 ### Migrating from instanceProps
 

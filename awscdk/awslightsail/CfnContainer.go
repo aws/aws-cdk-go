@@ -60,6 +60,12 @@ import (
 //   		},
 //   	},
 //   	IsDisabled: jsii.Boolean(false),
+//   	PrivateRegistryAccess: &PrivateRegistryAccessProperty{
+//   		EcrImagePullerRole: &EcrImagePullerRoleProperty{
+//   			IsActive: jsii.Boolean(false),
+//   			PrincipalArn: jsii.String("principalArn"),
+//   		},
+//   	},
 //   	PublicDomainNames: []interface{}{
 //   		&PublicDomainNameProperty{
 //   			CertificateName: jsii.String("certificateName"),
@@ -84,6 +90,10 @@ type CfnContainer interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the container.
 	AttrContainerArn() *string
+	// The principal ARN of the container service.
+	AttrPrincipalArn() *string
+	// The Amazon Resource Name (ARN) of the role, if it is activated.
+	AttrPrivateRegistryAccessEcrImagePullerRolePrincipalArn() *string
 	// The publicly accessible URL of the container service.
 	//
 	// If no public endpoint is specified in the current deployment, this URL returns a 404 response.
@@ -118,6 +128,9 @@ type CfnContainer interface {
 	// The power specification of the container service.
 	Power() *string
 	SetPower(val *string)
+	// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	PrivateRegistryAccess() interface{}
+	SetPrivateRegistryAccess(val interface{})
 	// The public domain name of the container service, such as `example.com` and `www.example.com` .
 	PublicDomainNames() interface{}
 	SetPublicDomainNames(val interface{})
@@ -298,6 +311,26 @@ func (j *jsiiProxy_CfnContainer) AttrContainerArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContainer) AttrPrincipalArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPrincipalArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainer) AttrPrivateRegistryAccessEcrImagePullerRolePrincipalArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPrivateRegistryAccessEcrImagePullerRolePrincipalArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContainer) AttrUrl() *string {
 	var returns *string
 	_jsii_.Get(
@@ -393,6 +426,16 @@ func (j *jsiiProxy_CfnContainer) Power() *string {
 	_jsii_.Get(
 		j,
 		"power",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainer) PrivateRegistryAccess() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"privateRegistryAccess",
 		&returns,
 	)
 	return returns
@@ -545,6 +588,17 @@ func (j *jsiiProxy_CfnContainer)SetPower(val *string) {
 	_jsii_.Set(
 		j,
 		"power",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContainer)SetPrivateRegistryAccess(val interface{}) {
+	if err := j.validateSetPrivateRegistryAccessParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"privateRegistryAccess",
 		val,
 	)
 }

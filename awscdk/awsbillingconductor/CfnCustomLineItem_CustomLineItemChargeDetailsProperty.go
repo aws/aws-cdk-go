@@ -17,6 +17,15 @@ package awsbillingconductor
 //   	Flat: &CustomLineItemFlatChargeDetailsProperty{
 //   		ChargeValue: jsii.Number(123),
 //   	},
+//   	LineItemFilters: []interface{}{
+//   		&LineItemFilterProperty{
+//   			Attribute: jsii.String("attribute"),
+//   			MatchOption: jsii.String("matchOption"),
+//   			Values: []*string{
+//   				jsii.String("values"),
+//   			},
+//   		},
+//   	},
 //   	Percentage: &CustomLineItemPercentageChargeDetailsProperty{
 //   		PercentageValue: jsii.Number(123),
 //
@@ -38,6 +47,10 @@ type CfnCustomLineItem_CustomLineItemChargeDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-flat
 	//
 	Flat interface{} `field:"optional" json:"flat" yaml:"flat"`
+	// A representation of the line item filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-lineitemfilters
+	//
+	LineItemFilters interface{} `field:"optional" json:"lineItemFilters" yaml:"lineItemFilters"`
 	// A `CustomLineItemPercentageChargeDetails` that describes the charge details of a percentage custom line item.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-percentage
 	//

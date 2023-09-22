@@ -346,6 +346,20 @@ shipTheItem := sfn.NewPass(this, jsii.String("ShipTheItem"))
 choice.Afterwards().Next(shipTheItem)
 ```
 
+You can add comments to `Choice` states as well as conditions that use `choice.when`.
+
+```go
+choice := sfn.NewChoice(this, jsii.String("What color is it?"), &ChoiceProps{
+	Comment: jsii.String("color comment"),
+})
+handleBlueItem := sfn.NewPass(this, jsii.String("HandleBlueItem"))
+handleOtherItemColor := sfn.NewPass(this, jsii.String("HanldeOtherItemColor"))
+choice.When(sfn.Condition_StringEquals(jsii.String("$.color"), jsii.String("BLUE")), handleBlueItem, &ChoiceTransitionOptions{
+	Comment: jsii.String("blue item comment"),
+})
+choice.Otherwise(handleOtherItemColor)
+```
+
 If your `Choice` doesn't have an `otherwise()` and none of the conditions match
 the JSON state, a `NoChoiceMatched` error will be thrown. Wrap the state machine
 in a `Parallel` state if you want to catch and recover from this.

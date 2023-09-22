@@ -12,7 +12,7 @@ func (s *jsiiProxy_SqsSendMessage) validateAddCatchParameters(handler awsstepfun
 	return nil
 }
 
-func (s *jsiiProxy_SqsSendMessage) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (s *jsiiProxy_SqsSendMessage) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

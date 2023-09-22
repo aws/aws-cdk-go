@@ -163,6 +163,8 @@ type DeployOptions struct {
 	//
 	// Experimental.
 	Force *bool `field:"optional" json:"force" yaml:"force"`
+	// Experimental.
+	Hotswap HotswapMode `field:"optional" json:"hotswap" yaml:"hotswap"`
 	// ARNs of SNS topics that CloudFormation will notify with stack related events.
 	// Default: - no notifications.
 	//

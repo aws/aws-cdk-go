@@ -14,19 +14,16 @@ package awsec2
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+//   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 //   	}),
-//   	ServerlessV2MinCapacity: jsii.Number(6.5),
-//   	ServerlessV2MaxCapacity: jsii.Number(64),
 //   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
-//   			ScaleWithWriter: jsii.Boolean(true),
-//   		}),
-//   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),
+//   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 //   	},
+//   	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
+//   	 // Optional - defaults to rds.InstanceUpdateBehaviour.BULK
 //   	Vpc: Vpc,
 //   })
 //
@@ -413,6 +410,14 @@ const (
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
 	InstanceClass_M7GD InstanceClass = "M7GD"
+	// Standard instances with high memory and compute capacity based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
+	InstanceClass_STANDARD7_INTEL InstanceClass = "STANDARD7_INTEL"
+	// Standard instances with high memory and compute capacity based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
+	InstanceClass_M7I InstanceClass = "M7I"
+	// Flexible instances with high memory and compute capacity based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation The M7i-Flex instances deliver a baseline of 40% CPU performance, and can scale up to full CPU performance 95% of the time.
+	InstanceClass_STANDARD7_INTEL_FLEX InstanceClass = "STANDARD7_INTEL_FLEX"
+	// Flexible instances with high memory and compute capacity based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation The M7i-Flex instances deliver a baseline of 40% CPU performance, and can scale up to full CPU performance 95% of the time.
+	InstanceClass_M7I_FLEX InstanceClass = "M7I_FLEX"
 	// High memory and compute capacity instances, 1st generation.
 	InstanceClass_HIGH_COMPUTE_MEMORY1 InstanceClass = "HIGH_COMPUTE_MEMORY1"
 	// High memory and compute capacity instances, 1st generation.

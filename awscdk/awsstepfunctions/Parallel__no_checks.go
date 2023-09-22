@@ -12,7 +12,7 @@ func (p *jsiiProxy_Parallel) validateAddCatchParameters(handler IChainable, prop
 	return nil
 }
 
-func (p *jsiiProxy_Parallel) validateAddChoiceParameters(condition Condition, next State) error {
+func (p *jsiiProxy_Parallel) validateAddChoiceParameters(condition Condition, next State, options *ChoiceTransitionOptions) error {
 	return nil
 }
 

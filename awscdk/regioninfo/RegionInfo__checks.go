@@ -22,6 +22,14 @@ func (r *jsiiProxy_RegionInfo) validateAdotLambdaLayerArnParameters(type_ *strin
 	return nil
 }
 
+func (r *jsiiProxy_RegionInfo) validateAppConfigLambdaArnParameters(layerVersion *string) error {
+	if layerVersion == nil {
+		return fmt.Errorf("parameter layerVersion is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (r *jsiiProxy_RegionInfo) validateCloudwatchLambdaInsightsArnParameters(insightsVersion *string) error {
 	if insightsVersion == nil {
 		return fmt.Errorf("parameter insightsVersion is required, but nil was provided")

@@ -12,6 +12,22 @@ func validateSchedule_ExpressionParameters(expression *string) error {
 	return nil
 }
 
+func validateSchedule_ProtectedAtParameters(date *time.Time) error {
+	return nil
+}
+
+func validateSchedule_ProtectedCronParameters(options *awscdk.CronOptions) error {
+	return nil
+}
+
+func validateSchedule_ProtectedExpressionParameters(expression *string) error {
+	return nil
+}
+
+func validateSchedule_ProtectedRateParameters(duration awscdk.Duration) error {
+	return nil
+}
+
 func validateSchedule_RateParameters(duration awscdk.Duration) error {
 	return nil
 }

@@ -76,6 +76,10 @@ func validateProductStack_OfParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
+func (j *jsiiProxy_ProductStack) validateSetTerminationProtectionParameters(val *bool) error {
+	return nil
+}
+
 func validateNewProductStackParameters(scope constructs.Construct, id *string, props *ProductStackProps) error {
 	return nil
 }

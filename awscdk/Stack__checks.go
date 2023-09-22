@@ -181,6 +181,14 @@ func validateStack_OfParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
+func (j *jsiiProxy_Stack) validateSetTerminationProtectionParameters(val *bool) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewStackParameters(props *StackProps) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err

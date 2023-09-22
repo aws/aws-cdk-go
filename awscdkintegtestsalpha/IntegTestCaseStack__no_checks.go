@@ -80,6 +80,10 @@ func validateIntegTestCaseStack_OfParameters(construct constructs.IConstruct) er
 	return nil
 }
 
+func (j *jsiiProxy_IntegTestCaseStack) validateSetTerminationProtectionParameters(val *bool) error {
+	return nil
+}
+
 func validateNewIntegTestCaseStackParameters(scope constructs.Construct, id *string, props *IntegTestCaseStackProps) error {
 	return nil
 }

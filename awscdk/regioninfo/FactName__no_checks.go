@@ -8,6 +8,10 @@ func validateFactName_AdotLambdaLayerParameters(type_ *string, version *string, 
 	return nil
 }
 
+func validateFactName_AppConfigLambdaLayerVersionParameters(version *string) error {
+	return nil
+}
+
 func validateFactName_CloudwatchLambdaInsightsVersionParameters(version *string) error {
 	return nil
 }

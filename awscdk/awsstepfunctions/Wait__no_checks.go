@@ -8,7 +8,7 @@ func (w *jsiiProxy_Wait) validateAddBranchParameters(branch StateGraph) error {
 	return nil
 }
 
-func (w *jsiiProxy_Wait) validateAddChoiceParameters(condition Condition, next State) error {
+func (w *jsiiProxy_Wait) validateAddChoiceParameters(condition Condition, next State, options *ChoiceTransitionOptions) error {
 	return nil
 }
 

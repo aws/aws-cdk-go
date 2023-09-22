@@ -47,14 +47,21 @@ import (
 type CfnManagedPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The number of entities (users, groups, and roles) that the policy is attached to.
 	AttrAttachmentCount() *float64
+	// The date and time, in ISO 8601 date-time format, when the policy was created.
 	AttrCreateDate() *string
+	// The identifier for the version of the policy that is set as the default version.
 	AttrDefaultVersionId() *string
-	AttrId() *string
+	// Specifies whether the policy can be attached to an IAM user, group, or role.
 	AttrIsAttachable() awscdk.IResolvable
+	// The number of entities (users and roles) for which the policy is used to set the permissions boundary.
 	AttrPermissionsBoundaryUsageCount() *float64
+	// Amazon Resource Name (ARN) of the managed policy.
 	AttrPolicyArn() *string
+	// The stable and unique string identifying the policy.
 	AttrPolicyId() *string
+	// The date and time, in ISO 8601 date-time format, when the policy was last updated.
 	AttrUpdateDate() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -278,16 +285,6 @@ func (j *jsiiProxy_CfnManagedPolicy) AttrDefaultVersionId() *string {
 	_jsii_.Get(
 		j,
 		"attrDefaultVersionId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnManagedPolicy) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

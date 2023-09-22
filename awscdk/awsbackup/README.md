@@ -71,7 +71,7 @@ var plan backupPlan
 plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 	CompletionWindow: awscdk.Duration_Hours(jsii.Number(2)),
 	StartWindow: awscdk.Duration_*Hours(jsii.Number(1)),
-	ScheduleExpression: events.Schedule_Cron(&CronOptions{
+	Schedule: backup.Schedule_Cron(&CronOptions{
 		 // Only cron expressions are supported
 		Day: jsii.String("15"),
 		Hour: jsii.String("3"),

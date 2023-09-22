@@ -12,7 +12,7 @@ func (e *jsiiProxy_EcsRunTask) validateAddCatchParameters(handler awsstepfunctio
 	return nil
 }
 
-func (e *jsiiProxy_EcsRunTask) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (e *jsiiProxy_EcsRunTask) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

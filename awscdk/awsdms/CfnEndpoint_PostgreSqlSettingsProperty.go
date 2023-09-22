@@ -12,7 +12,9 @@ package awsdms
 //
 //   postgreSqlSettingsProperty := &PostgreSqlSettingsProperty{
 //   	AfterConnectScript: jsii.String("afterConnectScript"),
+//   	BabelfishDatabaseName: jsii.String("babelfishDatabaseName"),
 //   	CaptureDdls: jsii.Boolean(false),
+//   	DatabaseMode: jsii.String("databaseMode"),
 //   	DdlArtifactsSchema: jsii.String("ddlArtifactsSchema"),
 //   	ExecuteTimeout: jsii.Number(123),
 //   	FailTasksOnLobTruncation: jsii.Boolean(false),
@@ -36,6 +38,10 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-afterconnectscript
 	//
 	AfterConnectScript *string `field:"optional" json:"afterConnectScript" yaml:"afterConnectScript"`
+	// The Babelfish for Aurora PostgreSQL database name for the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-babelfishdatabasename
+	//
+	BabelfishDatabaseName *string `field:"optional" json:"babelfishDatabaseName" yaml:"babelfishDatabaseName"`
 	// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
 	//
 	// You can later remove these artifacts.
@@ -44,6 +50,10 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-captureddls
 	//
 	CaptureDdls interface{} `field:"optional" json:"captureDdls" yaml:"captureDdls"`
+	// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-databasemode
+	//
+	DatabaseMode *string `field:"optional" json:"databaseMode" yaml:"databaseMode"`
 	// The schema in which the operational DDL database artifacts are created.
 	//
 	// Example: `ddlArtifactsSchema=xyzddlschema;`.

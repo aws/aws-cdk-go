@@ -77,8 +77,6 @@ type CfnServiceProfile interface {
 	AttrLoRaWanMinGwDiversity() *float64
 	// The NwkGeoLoc value.
 	AttrLoRaWanNwkGeoLoc() awscdk.IResolvable
-	AttrLoRaWanPrAllowed() awscdk.IResolvable
-	AttrLoRaWanRaAllowed() awscdk.IResolvable
 	// The ReportDevStatusBattery value.
 	AttrLoRaWanReportDevStatusBattery() awscdk.IResolvable
 	// The ReportDevStatusMargin value.
@@ -395,26 +393,6 @@ func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanNwkGeoLoc() awscdk.IResolvable 
 	_jsii_.Get(
 		j,
 		"attrLoRaWanNwkGeoLoc",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanPrAllowed() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrLoRaWanPrAllowed",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanRaAllowed() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrLoRaWanRaAllowed",
 		&returns,
 	)
 	return returns

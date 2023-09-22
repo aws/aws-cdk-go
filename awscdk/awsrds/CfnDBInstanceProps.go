@@ -46,7 +46,13 @@ import (
 //   	DeleteAutomatedBackups: jsii.Boolean(false),
 //   	DeletionProtection: jsii.Boolean(false),
 //   	Domain: jsii.String("domain"),
+//   	DomainAuthSecretArn: jsii.String("domainAuthSecretArn"),
+//   	DomainDnsIps: []*string{
+//   		jsii.String("domainDnsIps"),
+//   	},
+//   	DomainFqdn: jsii.String("domainFqdn"),
 //   	DomainIamRoleName: jsii.String("domainIamRoleName"),
+//   	DomainOu: jsii.String("domainOu"),
 //   	EnableCloudwatchLogsExports: []*string{
 //   		jsii.String("enableCloudwatchLogsExports"),
 //   	},
@@ -502,6 +508,32 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
+	// The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+	//
+	// Example: `arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domainauthsecretarn
+	//
+	DomainAuthSecretArn *string `field:"optional" json:"domainAuthSecretArn" yaml:"domainAuthSecretArn"`
+	// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+	//
+	// Constraints:
+	//
+	// - Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list.
+	//
+	// Example: `123.124.125.126,234.235.236.237`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domaindnsips
+	//
+	DomainDnsIps *[]*string `field:"optional" json:"domainDnsIps" yaml:"domainDnsIps"`
+	// The fully qualified domain name (FQDN) of an Active Directory domain.
+	//
+	// Constraints:
+	//
+	// - Can't be longer than 64 characters.
+	//
+	// Example: `mymanagedADtest.mymanagedAD.mydomain`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domainfqdn
+	//
+	DomainFqdn *string `field:"optional" json:"domainFqdn" yaml:"domainFqdn"`
 	// The name of the IAM role to use when making API calls to the Directory Service.
 	//
 	// This setting doesn't apply to the following DB instances:
@@ -511,6 +543,17 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domainiamrolename
 	//
 	DomainIamRoleName *string `field:"optional" json:"domainIamRoleName" yaml:"domainIamRoleName"`
+	// The Active Directory organizational unit for your DB instance to join.
+	//
+	// Constraints:
+	//
+	// - Must be in the distinguished name format.
+	// - Can't be longer than 64 characters.
+	//
+	// Example: `OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domainou
+	//
+	DomainOu *string `field:"optional" json:"domainOu" yaml:"domainOu"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	//
 	// The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Relational Database Service User Guide* .

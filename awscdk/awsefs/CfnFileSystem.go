@@ -43,6 +43,16 @@ import (
 //   	},
 //   	PerformanceMode: jsii.String("performanceMode"),
 //   	ProvisionedThroughputInMibps: jsii.Number(123),
+//   	ReplicationConfiguration: &ReplicationConfigurationProperty{
+//   		Destinations: []interface{}{
+//   			&ReplicationDestinationProperty{
+//   				AvailabilityZoneName: jsii.String("availabilityZoneName"),
+//   				FileSystemId: jsii.String("fileSystemId"),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   				Region: jsii.String("region"),
+//   			},
+//   		},
+//   	},
 //   	ThroughputMode: jsii.String("throughputMode"),
 //   })
 //
@@ -116,6 +126,8 @@ type CfnFileSystem interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ReplicationConfiguration() interface{}
+	SetReplicationConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -462,6 +474,16 @@ func (j *jsiiProxy_CfnFileSystem) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFileSystem) ReplicationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"replicationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFileSystem) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -631,6 +653,17 @@ func (j *jsiiProxy_CfnFileSystem)SetProvisionedThroughputInMibps(val *float64) {
 	_jsii_.Set(
 		j,
 		"provisionedThroughputInMibps",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFileSystem)SetReplicationConfiguration(val interface{}) {
+	if err := j.validateSetReplicationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"replicationConfiguration",
 		val,
 	)
 }

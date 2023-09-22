@@ -12,7 +12,7 @@ func (m *jsiiProxy_Map) validateAddCatchParameters(handler IChainable, props *Ca
 	return nil
 }
 
-func (m *jsiiProxy_Map) validateAddChoiceParameters(condition Condition, next State) error {
+func (m *jsiiProxy_Map) validateAddChoiceParameters(condition Condition, next State, options *ChoiceTransitionOptions) error {
 	return nil
 }
 

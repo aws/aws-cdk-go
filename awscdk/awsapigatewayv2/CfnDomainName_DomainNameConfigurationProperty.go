@@ -1,7 +1,7 @@
 package awsapigatewayv2
 
 
-// The `DomainNameConfiguration` property type specifies the configuration for a an API's domain name.
+// The `DomainNameConfiguration` property type specifies the configuration for an API's domain name.
 //
 // `DomainNameConfiguration` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
 //

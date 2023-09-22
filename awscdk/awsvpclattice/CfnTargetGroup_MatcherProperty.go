@@ -1,7 +1,7 @@
 package awsvpclattice
 
 
-// The codes to use when checking for a successful response from a target for health checks.
+// Describes the codes to use when checking for a successful response from a target for health checks.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

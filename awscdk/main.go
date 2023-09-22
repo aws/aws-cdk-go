@@ -1187,7 +1187,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrChangeSetId", GoGetter: "AttrChangeSetId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdateTime", GoGetter: "AttrLastUpdateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrOutputs", GoGetter: "AttrOutputs"},
+			_jsii_.MemberProperty{JsiiProperty: "attrParentId", GoGetter: "AttrParentId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRootId", GoGetter: "AttrRootId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStackId", GoGetter: "AttrStackId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStackStatus", GoGetter: "AttrStackStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -1224,6 +1231,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CfnStack.OutputProperty",
+		reflect.TypeOf((*CfnStack_OutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.CfnStackProps",
@@ -1556,6 +1567,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.CopyOptions",
 		reflect.TypeOf((*CopyOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CronOptions",
+		reflect.TypeOf((*CronOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.CustomResource",
@@ -2578,6 +2593,17 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.RoleOptions",
 		reflect.TypeOf((*RoleOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.Schedule",
+		reflect.TypeOf((*Schedule)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "expressionString", GoGetter: "ExpressionString"},
+			_jsii_.MemberProperty{JsiiProperty: "timeZone", GoGetter: "TimeZone"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Schedule{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.ScopedAws",

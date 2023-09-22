@@ -12,7 +12,7 @@ func (l *jsiiProxy_LambdaInvoke) validateAddCatchParameters(handler awsstepfunct
 	return nil
 }
 
-func (l *jsiiProxy_LambdaInvoke) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (l *jsiiProxy_LambdaInvoke) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

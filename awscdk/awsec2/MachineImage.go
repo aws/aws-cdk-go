@@ -17,9 +17,7 @@ import (
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 //   	Vpc: Vpc,
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux(&AmazonLinuxImageProps{
-//   		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-//   	}),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
 //   	SecurityGroup: mySecurityGroup,
 //   })
 //

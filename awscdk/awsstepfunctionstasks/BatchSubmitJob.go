@@ -52,7 +52,7 @@ type BatchSubmitJob interface {
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
 	TaskPolicies() *[]awsiam.PolicyStatement
-	// Add a paralle branch to this state.
+	// Add a parallel branch to this state.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
@@ -60,7 +60,7 @@ type BatchSubmitJob interface {
 	// handler instead of failing the state machine execution.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
+	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions)
 	// Add a map iterator to this state.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -491,14 +491,14 @@ func (b *jsiiProxy_BatchSubmitJob) AddCatch(handler awsstepfunctions.IChainable,
 	return returns
 }
 
-func (b *jsiiProxy_BatchSubmitJob) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
-	if err := b.validateAddChoiceParameters(condition, next); err != nil {
+func (b *jsiiProxy_BatchSubmitJob) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) {
+	if err := b.validateAddChoiceParameters(condition, next, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		b,
 		"addChoice",
-		[]interface{}{condition, next},
+		[]interface{}{condition, next, options},
 	)
 }
 

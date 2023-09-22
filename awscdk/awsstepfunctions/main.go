@@ -386,6 +386,10 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions.ChoiceProps",
 		reflect.TypeOf((*ChoiceProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.ChoiceTransitionOptions",
+		reflect.TypeOf((*ChoiceTransitionOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.Condition",
 		reflect.TypeOf((*Condition)(nil)).Elem(),

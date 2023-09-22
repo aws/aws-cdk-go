@@ -12,7 +12,7 @@ func (a *jsiiProxy_AthenaGetQueryExecution) validateAddCatchParameters(handler a
 	return nil
 }
 
-func (a *jsiiProxy_AthenaGetQueryExecution) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State) error {
+func (a *jsiiProxy_AthenaGetQueryExecution) validateAddChoiceParameters(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions) error {
 	return nil
 }
 

@@ -1,9 +1,7 @@
 package awsconfig
 
 
-// Provides the runtime system, policy definition, and whether debug logging enabled.
-//
-// You can specify the following CustomPolicyDetails parameter values only for AWS Config Custom Policy rules.
+// Provides the CustomPolicyDetails, the rule owner ( `AWS` for managed rules, `CUSTOM_POLICY` for Custom Policy rules, and `CUSTOM_LAMBDA` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,7 +17,9 @@ package awsconfig
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html
 //
 type CfnConfigRule_CustomPolicyDetailsProperty struct {
-	// Logging toggle for custom policy rule.
+	// The boolean expression for enabling debug logging for your AWS Config Custom Policy rule.
+	//
+	// The default value is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html#cfn-config-configrule-custompolicydetails-enabledebuglogdelivery
 	//
 	EnableDebugLogDelivery interface{} `field:"optional" json:"enableDebugLogDelivery" yaml:"enableDebugLogDelivery"`
@@ -29,7 +29,7 @@ type CfnConfigRule_CustomPolicyDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html#cfn-config-configrule-custompolicydetails-policyruntime
 	//
 	PolicyRuntime *string `field:"optional" json:"policyRuntime" yaml:"policyRuntime"`
-	// Policy definition containing logic for custom policy rule.
+	// The policy definition containing the logic for your AWS Config Custom Policy rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html#cfn-config-configrule-custompolicydetails-policytext
 	//
 	PolicyText *string `field:"optional" json:"policyText" yaml:"policyText"`

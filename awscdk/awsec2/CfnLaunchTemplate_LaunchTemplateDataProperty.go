@@ -199,6 +199,7 @@ package awsec2
 //   			},
 //   			NetworkCardIndex: jsii.Number(123),
 //   			NetworkInterfaceId: jsii.String("networkInterfaceId"),
+//   			PrimaryIpv6: jsii.Boolean(false),
 //   			PrivateIpAddress: jsii.String("privateIpAddress"),
 //   			PrivateIpAddresses: []interface{}{
 //   				&PrivateIpAddProperty{

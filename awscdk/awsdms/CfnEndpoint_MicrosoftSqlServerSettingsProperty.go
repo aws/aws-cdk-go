@@ -13,12 +13,20 @@ package awsdms
 //   microsoftSqlServerSettingsProperty := &MicrosoftSqlServerSettingsProperty{
 //   	BcpPacketSize: jsii.Number(123),
 //   	ControlTablesFileGroup: jsii.String("controlTablesFileGroup"),
+//   	DatabaseName: jsii.String("databaseName"),
+//   	ForceLobLookup: jsii.Boolean(false),
+//   	Password: jsii.String("password"),
+//   	Port: jsii.Number(123),
 //   	QuerySingleAlwaysOnNode: jsii.Boolean(false),
 //   	ReadBackupOnly: jsii.Boolean(false),
 //   	SafeguardPolicy: jsii.String("safeguardPolicy"),
 //   	SecretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   	SecretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   	ServerName: jsii.String("serverName"),
+//   	TlogAccessMode: jsii.String("tlogAccessMode"),
+//   	TrimSpaceInChar: jsii.Boolean(false),
 //   	UseBcpFullLoad: jsii.Boolean(false),
+//   	Username: jsii.String("username"),
 //   	UseThirdPartyBackupDevice: jsii.Boolean(false),
 //   }
 //
@@ -35,6 +43,22 @@ type CfnEndpoint_MicrosoftSqlServerSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-controltablesfilegroup
 	//
 	ControlTablesFileGroup *string `field:"optional" json:"controlTablesFileGroup" yaml:"controlTablesFileGroup"`
+	// Database name for the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-databasename
+	//
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
+	// Forces LOB lookup on inline LOB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-forceloblookup
+	//
+	ForceLobLookup interface{} `field:"optional" json:"forceLobLookup" yaml:"forceLobLookup"`
+	// Endpoint connection password.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-password
+	//
+	Password *string `field:"optional" json:"password" yaml:"password"`
+	// Endpoint TCP port.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-port
+	//
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Cleans and recreates table metadata information on the replication instance when a mismatch occurs.
 	//
 	// An example is a situation where running an alter DDL statement on a table might result in different information about the table cached in the replication instance.
@@ -69,12 +93,32 @@ type CfnEndpoint_MicrosoftSqlServerSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-secretsmanagersecretid
 	//
 	SecretsManagerSecretId *string `field:"optional" json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
+	// Fully qualified domain name of the endpoint.
+	//
+	// For an Amazon RDS SQL Server instance, this is the output of [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) , in the `[Endpoint](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html) .Address` field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-servername
+	//
+	ServerName *string `field:"optional" json:"serverName" yaml:"serverName"`
+	// Indicates the mode used to fetch CDC data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-tlogaccessmode
+	//
+	TlogAccessMode *string `field:"optional" json:"tlogAccessMode" yaml:"tlogAccessMode"`
+	// Use the `TrimSpaceInChar` source endpoint setting to right-trim data on CHAR and NCHAR data types during migration.
+	//
+	// Setting `TrimSpaceInChar` does not left-trim data. The default value is `true` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-trimspaceinchar
+	//
+	TrimSpaceInChar interface{} `field:"optional" json:"trimSpaceInChar" yaml:"trimSpaceInChar"`
 	// Use this to attribute to transfer data for full-load operations using BCP.
 	//
 	// When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-usebcpfullload
 	//
 	UseBcpFullLoad interface{} `field:"optional" json:"useBcpFullLoad" yaml:"useBcpFullLoad"`
+	// Endpoint connection user name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-username
+	//
+	Username *string `field:"optional" json:"username" yaml:"username"`
 	// When this attribute is set to `Y` , DMS processes third-party transaction log backups if they are created in native format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-usethirdpartybackupdevice
 	//

@@ -1,6 +1,8 @@
 package awsresiliencehub
 
 
+// Indicates an event you would like to subscribe and get notification for.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,12 +19,15 @@ package awsresiliencehub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html
 //
 type CfnApp_EventSubscriptionProperty struct {
+	// The type of event you would like to subscribe and get notification for.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html#cfn-resiliencehub-app-eventsubscription-eventtype
 	//
 	EventType *string `field:"required" json:"eventType" yaml:"eventType"`
+	// Unique name to identify an event subscription.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html#cfn-resiliencehub-app-eventsubscription-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html#cfn-resiliencehub-app-eventsubscription-snstopicarn
 	//
 	SnsTopicArn *string `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`

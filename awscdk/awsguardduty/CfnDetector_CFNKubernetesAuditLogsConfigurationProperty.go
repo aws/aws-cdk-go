@@ -18,6 +18,6 @@ type CfnDetector_CFNKubernetesAuditLogsConfigurationProperty struct {
 	// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html#cfn-guardduty-detector-cfnkubernetesauditlogsconfiguration-enable
 	//
-	Enable interface{} `field:"optional" json:"enable" yaml:"enable"`
+	Enable interface{} `field:"required" json:"enable" yaml:"enable"`
 }
 

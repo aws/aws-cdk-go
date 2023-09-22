@@ -40,6 +40,7 @@ package awsec2
 //   	},
 //   	NetworkCardIndex: jsii.Number(123),
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
+//   	PrimaryIpv6: jsii.Boolean(false),
 //   	PrivateIpAddress: jsii.String("privateIpAddress"),
 //   	PrivateIpAddresses: []interface{}{
 //   		&PrivateIpAddProperty{
@@ -136,6 +137,12 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid
 	//
 	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	// The primary IPv6 address of the network interface.
+	//
+	// When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-primaryipv6
+	//
+	PrimaryIpv6 interface{} `field:"optional" json:"primaryIpv6" yaml:"primaryIpv6"`
 	// The primary private IPv4 address of the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddress
 	//

@@ -233,20 +233,20 @@ func (j *jsiiProxy_CfnDetector) validateSetFeaturesParameters(val interface{}) e
 			switch v.(type) {
 			case awscdk.IResolvable:
 				// ok
-			case *CfnDetector_FeatureConfigurationsProperty:
-				v := v.(*CfnDetector_FeatureConfigurationsProperty)
+			case *CfnDetector_CFNFeatureConfigurationProperty:
+				v := v.(*CfnDetector_CFNFeatureConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case CfnDetector_FeatureConfigurationsProperty:
-				v_ := v.(CfnDetector_FeatureConfigurationsProperty)
+			case CfnDetector_CFNFeatureConfigurationProperty:
+				v_ := v.(CfnDetector_CFNFeatureConfigurationProperty)
 				v := &v_
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDetector_FeatureConfigurationsProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDetector_CFNFeatureConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -257,20 +257,20 @@ func (j *jsiiProxy_CfnDetector) validateSetFeaturesParameters(val interface{}) e
 			switch v.(type) {
 			case awscdk.IResolvable:
 				// ok
-			case *CfnDetector_FeatureConfigurationsProperty:
-				v := v.(*CfnDetector_FeatureConfigurationsProperty)
+			case *CfnDetector_CFNFeatureConfigurationProperty:
+				v := v.(*CfnDetector_CFNFeatureConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case CfnDetector_FeatureConfigurationsProperty:
-				v_ := v.(CfnDetector_FeatureConfigurationsProperty)
+			case CfnDetector_CFNFeatureConfigurationProperty:
+				v_ := v.(CfnDetector_CFNFeatureConfigurationProperty)
 				v := &v_
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDetector_FeatureConfigurationsProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDetector_CFNFeatureConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -283,7 +283,7 @@ func (j *jsiiProxy_CfnDetector) validateSetFeaturesParameters(val interface{}) e
 	return nil
 }
 
-func (j *jsiiProxy_CfnDetector) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+func (j *jsiiProxy_CfnDetector) validateSetTagsRawParameters(val *[]*CfnDetector_TagItemProperty) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err

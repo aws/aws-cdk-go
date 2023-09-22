@@ -12,7 +12,7 @@ func (t *jsiiProxy_TaskStateBase) validateAddCatchParameters(handler IChainable,
 	return nil
 }
 
-func (t *jsiiProxy_TaskStateBase) validateAddChoiceParameters(condition Condition, next State) error {
+func (t *jsiiProxy_TaskStateBase) validateAddChoiceParameters(condition Condition, next State, options *ChoiceTransitionOptions) error {
 	return nil
 }
 

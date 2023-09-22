@@ -33,6 +33,16 @@ package awsefs
 //   	},
 //   	PerformanceMode: jsii.String("performanceMode"),
 //   	ProvisionedThroughputInMibps: jsii.Number(123),
+//   	ReplicationConfiguration: &ReplicationConfigurationProperty{
+//   		Destinations: []interface{}{
+//   			&ReplicationDestinationProperty{
+//   				AvailabilityZoneName: jsii.String("availabilityZoneName"),
+//   				FileSystemId: jsii.String("fileSystemId"),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   				Region: jsii.String("region"),
+//   			},
+//   		},
+//   	},
 //   	ThroughputMode: jsii.String("throughputMode"),
 //   }
 //
@@ -115,6 +125,9 @@ type CfnFileSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
 	//
 	ProvisionedThroughputInMibps *float64 `field:"optional" json:"provisionedThroughputInMibps" yaml:"provisionedThroughputInMibps"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-replicationconfiguration
+	//
+	ReplicationConfiguration interface{} `field:"optional" json:"replicationConfiguration" yaml:"replicationConfiguration"`
 	// Specifies the throughput mode for the file system.
 	//
 	// The mode can be `bursting` , `provisioned` , or `elastic` . If you set `ThroughputMode` to `provisioned` , you must also set a value for `ProvisionedThroughputInMibps` . After you create the file system, you can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide* .

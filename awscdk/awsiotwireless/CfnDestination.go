@@ -20,10 +20,10 @@ import (
 //   	Expression: jsii.String("expression"),
 //   	ExpressionType: jsii.String("expressionType"),
 //   	Name: jsii.String("name"),
-//   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	RoleArn: jsii.String("roleArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -487,9 +487,6 @@ func (j *jsiiProxy_CfnDestination)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnDestination)SetRoleArn(val *string) {
-	if err := j.validateSetRoleArnParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"roleArn",

@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnDestination) validateSetNameParameters(val *string) error 
 	return nil
 }
 
-func (j *jsiiProxy_CfnDestination) validateSetRoleArnParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDestination) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

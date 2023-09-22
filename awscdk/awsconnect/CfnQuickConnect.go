@@ -54,6 +54,10 @@ type CfnQuickConnect interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the quick connect.
 	AttrQuickConnectArn() *string
+	// The type of quick connect.
+	//
+	// In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+	AttrQuickConnectType() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -253,6 +257,16 @@ func (j *jsiiProxy_CfnQuickConnect) AttrQuickConnectArn() *string {
 	_jsii_.Get(
 		j,
 		"attrQuickConnectArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQuickConnect) AttrQuickConnectType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrQuickConnectType",
 		&returns,
 	)
 	return returns

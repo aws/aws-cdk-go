@@ -1,5 +1,8 @@
 package awsapplicationautoscaling
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Options to configure a cron expression.
 //
@@ -7,65 +10,61 @@ package awsapplicationautoscaling
 // a field implies '*' or '?', whichever one is appropriate.
 //
 // Example:
-//   var cluster cluster
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
-//   	Cluster: Cluster,
-//   	MemoryLimitMiB: jsii.Number(1024),
-//   	DesiredCount: jsii.Number(1),
-//   	Cpu: jsii.Number(512),
-//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
-//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	},
-//   })
+//   var timeZone timeZone
 //
-//   scalableTarget := loadBalancedFargateService.Service.AutoScaleTaskCount(&EnableScalingProps{
-//   	MinCapacity: jsii.Number(5),
-//   	MaxCapacity: jsii.Number(20),
-//   })
-//
-//   scalableTarget.ScaleOnSchedule(jsii.String("DaytimeScaleDown"), &ScalingSchedule{
-//   	Schedule: appscaling.Schedule_Cron(&CronOptions{
-//   		Hour: jsii.String("8"),
-//   		Minute: jsii.String("0"),
-//   	}),
-//   	MinCapacity: jsii.Number(1),
-//   })
-//
-//   scalableTarget.ScaleOnSchedule(jsii.String("EveningRushScaleUp"), &ScalingSchedule{
-//   	Schedule: appscaling.Schedule_*Cron(&CronOptions{
-//   		Hour: jsii.String("20"),
-//   		Minute: jsii.String("0"),
-//   	}),
-//   	MinCapacity: jsii.Number(10),
-//   })
+//   cronOptions := &CronOptions{
+//   	Day: jsii.String("day"),
+//   	Hour: jsii.String("hour"),
+//   	Minute: jsii.String("minute"),
+//   	Month: jsii.String("month"),
+//   	TimeZone: timeZone,
+//   	WeekDay: jsii.String("weekDay"),
+//   	Year: jsii.String("year"),
+//   }
 //
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions
 //
+// Deprecated: use core.CronOptions instead
 type CronOptions struct {
 	// The day of the month to run this rule at.
 	// Default: - Every day of the month.
 	//
+	// Deprecated: use core.CronOptions instead
 	Day *string `field:"optional" json:"day" yaml:"day"`
 	// The hour to run this rule at.
 	// Default: - Every hour.
 	//
+	// Deprecated: use core.CronOptions instead
 	Hour *string `field:"optional" json:"hour" yaml:"hour"`
 	// The minute to run this rule at.
 	// Default: - Every minute.
 	//
+	// Deprecated: use core.CronOptions instead
 	Minute *string `field:"optional" json:"minute" yaml:"minute"`
 	// The month to run this rule at.
 	// Default: - Every month.
 	//
+	// Deprecated: use core.CronOptions instead
 	Month *string `field:"optional" json:"month" yaml:"month"`
+	// Retrieve the expression for this schedule.
+	// Default: TimeZone.ETC_UTC
+	//
+	// Deprecated: use core.CronOptions instead
+	TimeZone awscdk.TimeZone `field:"optional" json:"timeZone" yaml:"timeZone"`
 	// The day of the week to run this rule at.
 	// Default: - Any day of the week.
 	//
+	// Deprecated: use core.CronOptions instead
 	WeekDay *string `field:"optional" json:"weekDay" yaml:"weekDay"`
 	// The year to run this rule at.
 	// Default: - Every year.
 	//
+	// Deprecated: use core.CronOptions instead
 	Year *string `field:"optional" json:"year" yaml:"year"`
 }
 

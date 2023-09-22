@@ -40,20 +40,22 @@ import (
 //   		},
 //   	},
 //   	Features: []interface{}{
-//   		&FeatureConfigurationsProperty{
+//   		&CFNFeatureConfigurationProperty{
+//   			Name: jsii.String("name"),
+//   			Status: jsii.String("status"),
+//
+//   			// the properties below are optional
 //   			AdditionalConfiguration: []interface{}{
-//   				&FeatureAdditionalConfigurationProperty{
+//   				&CFNFeatureAdditionalConfigurationProperty{
 //   					Name: jsii.String("name"),
 //   					Status: jsii.String("status"),
 //   				},
 //   			},
-//   			Name: jsii.String("name"),
-//   			Status: jsii.String("status"),
 //   		},
 //   	},
 //   	FindingPublishingFrequency: jsii.String("findingPublishingFrequency"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []tagItemProperty{
+//   		&tagItemProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -112,8 +114,8 @@ type CfnDetector interface {
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Specifies tags added to a new detector resource.
-	TagsRaw() *[]*awscdk.CfnTag
-	SetTagsRaw(val *[]*awscdk.CfnTag)
+	TagsRaw() *[]*CfnDetector_TagItemProperty
+	SetTagsRaw(val *[]*CfnDetector_TagItemProperty)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnDetector) Tags() awscdk.TagManager {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDetector) TagsRaw() *[]*awscdk.CfnTag {
-	var returns *[]*awscdk.CfnTag
+func (j *jsiiProxy_CfnDetector) TagsRaw() *[]*CfnDetector_TagItemProperty {
+	var returns *[]*CfnDetector_TagItemProperty
 	_jsii_.Get(
 		j,
 		"tagsRaw",
@@ -500,7 +502,7 @@ func (j *jsiiProxy_CfnDetector)SetFindingPublishingFrequency(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDetector)SetTagsRaw(val *[]*awscdk.CfnTag) {
+func (j *jsiiProxy_CfnDetector)SetTagsRaw(val *[]*CfnDetector_TagItemProperty) {
 	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
 	}

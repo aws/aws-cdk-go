@@ -85,7 +85,13 @@ import (
 //   	DeleteAutomatedBackups: jsii.Boolean(false),
 //   	DeletionProtection: jsii.Boolean(false),
 //   	Domain: jsii.String("domain"),
+//   	DomainAuthSecretArn: jsii.String("domainAuthSecretArn"),
+//   	DomainDnsIps: []*string{
+//   		jsii.String("domainDnsIps"),
+//   	},
+//   	DomainFqdn: jsii.String("domainFqdn"),
 //   	DomainIamRoleName: jsii.String("domainIamRoleName"),
+//   	DomainOu: jsii.String("domainOu"),
 //   	EnableCloudwatchLogsExports: []*string{
 //   		jsii.String("enableCloudwatchLogsExports"),
 //   	},
@@ -269,9 +275,21 @@ type CfnDBInstance interface {
 	// The Active Directory directory ID to create the DB instance in.
 	Domain() *string
 	SetDomain(val *string)
+	// The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+	DomainAuthSecretArn() *string
+	SetDomainAuthSecretArn(val *string)
+	// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+	DomainDnsIps() *[]*string
+	SetDomainDnsIps(val *[]*string)
+	// The fully qualified domain name (FQDN) of an Active Directory domain.
+	DomainFqdn() *string
+	SetDomainFqdn(val *string)
 	// The name of the IAM role to use when making API calls to the Directory Service.
 	DomainIamRoleName() *string
 	SetDomainIamRoleName(val *string)
+	// The Active Directory organizational unit for your DB instance to join.
+	DomainOu() *string
+	SetDomainOu(val *string)
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	EnableCloudwatchLogsExports() *[]*string
 	SetEnableCloudwatchLogsExports(val *[]*string)
@@ -957,11 +975,51 @@ func (j *jsiiProxy_CfnDBInstance) Domain() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) DomainAuthSecretArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domainAuthSecretArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) DomainDnsIps() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"domainDnsIps",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) DomainFqdn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domainFqdn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) DomainIamRoleName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"domainIamRoleName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) DomainOu() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domainOu",
 		&returns,
 	)
 	return returns
@@ -1731,10 +1789,42 @@ func (j *jsiiProxy_CfnDBInstance)SetDomain(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBInstance)SetDomainAuthSecretArn(val *string) {
+	_jsii_.Set(
+		j,
+		"domainAuthSecretArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetDomainDnsIps(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"domainDnsIps",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetDomainFqdn(val *string) {
+	_jsii_.Set(
+		j,
+		"domainFqdn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBInstance)SetDomainIamRoleName(val *string) {
 	_jsii_.Set(
 		j,
 		"domainIamRoleName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetDomainOu(val *string) {
+	_jsii_.Set(
+		j,
+		"domainOu",
 		val,
 	)
 }
