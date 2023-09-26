@@ -117,7 +117,7 @@ type ScheduleTargetConfig struct {
 	// The templated target type for the EventBridge PutEvents API operation.
 	// Experimental.
 	EventBridgeParameters *awsscheduler.CfnSchedule_EventBridgeParametersProperty `field:"optional" json:"eventBridgeParameters" yaml:"eventBridgeParameters"`
-	// What input to pass to the target.
+	// What input to pass to the tatget.
 	// Experimental.
 	Input ScheduleTargetInput `field:"optional" json:"input" yaml:"input"`
 	// The templated target type for the Amazon Kinesis PutRecord API operation.

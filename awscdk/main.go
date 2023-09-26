@@ -1568,10 +1568,6 @@ func init() {
 		"aws-cdk-lib.CopyOptions",
 		reflect.TypeOf((*CopyOptions)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.CronOptions",
-		reflect.TypeOf((*CronOptions)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.CustomResource",
 		reflect.TypeOf((*CustomResource)(nil)).Elem(),
@@ -2593,17 +2589,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.RoleOptions",
 		reflect.TypeOf((*RoleOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.Schedule",
-		reflect.TypeOf((*Schedule)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "expressionString", GoGetter: "ExpressionString"},
-			_jsii_.MemberProperty{JsiiProperty: "timeZone", GoGetter: "TimeZone"},
-		},
-		func() interface{} {
-			return &jsiiProxy_Schedule{}
-		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.ScopedAws",

@@ -20,7 +20,7 @@ import (
 //   })
 //
 //   cronBasedSchedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
-//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Cron(&CronOptions{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Cron(&CronOptionsWithTimezone{
 //   		Minute: jsii.String("0"),
 //   		Hour: jsii.String("23"),
 //   		Day: jsii.String("20"),

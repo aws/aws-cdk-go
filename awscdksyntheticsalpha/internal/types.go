@@ -5,4 +5,3 @@ import (
 )
 type Type__awscdkResource = awscdk.Resource
 type Type__awsec2IConnectable = awsec2.IConnectable
-type Type__awscdkSchedule = awscdk.Schedule

@@ -304,12 +304,9 @@ func init() {
 		reflect.TypeOf((*Schedule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "expressionString", GoGetter: "ExpressionString"},
-			_jsii_.MemberProperty{JsiiProperty: "timeZone", GoGetter: "TimeZone"},
 		},
 		func() interface{} {
-			j := jsiiProxy_Schedule{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkSchedule)
-			return &j
+			return &jsiiProxy_Schedule{}
 		},
 	)
 	_jsii_.RegisterEnum(

@@ -18,5 +18,4 @@ type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awsiamIGrantable = awsiam.IGrantable
 type Type__awscdkIResource = awscdk.IResource
-type Type__awscdkSchedule = awscdk.Schedule
 type Type__constructsConstruct = constructs.Construct

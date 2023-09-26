@@ -8,27 +8,11 @@ func validateScheduleExpression_AtParameters(date *time.Time) error {
 	return nil
 }
 
-func validateScheduleExpression_CronParameters(options *awscdk.CronOptions) error {
+func validateScheduleExpression_CronParameters(options *CronOptionsWithTimezone) error {
 	return nil
 }
 
 func validateScheduleExpression_ExpressionParameters(expression *string) error {
-	return nil
-}
-
-func validateScheduleExpression_ProtectedAtParameters(date *time.Time) error {
-	return nil
-}
-
-func validateScheduleExpression_ProtectedCronParameters(options *awscdk.CronOptions) error {
-	return nil
-}
-
-func validateScheduleExpression_ProtectedExpressionParameters(expression *string) error {
-	return nil
-}
-
-func validateScheduleExpression_ProtectedRateParameters(duration awscdk.Duration) error {
 	return nil
 }
 

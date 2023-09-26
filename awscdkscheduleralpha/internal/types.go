@@ -4,4 +4,3 @@ import (
 )
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkIResource = awscdk.IResource
-type Type__awscdkSchedule = awscdk.Schedule
