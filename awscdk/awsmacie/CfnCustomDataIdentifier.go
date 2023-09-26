@@ -38,6 +38,12 @@ import (
 //   		jsii.String("keywords"),
 //   	},
 //   	MaximumMatchDistance: jsii.Number(123),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html
@@ -101,6 +107,9 @@ type CfnCustomDataIdentifier interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A collection of tags associated with a resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -407,6 +416,16 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomDataIdentifier) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomDataIdentifier) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -505,6 +524,17 @@ func (j *jsiiProxy_CfnCustomDataIdentifier)SetRegex(val *string) {
 	_jsii_.Set(
 		j,
 		"regex",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomDataIdentifier)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

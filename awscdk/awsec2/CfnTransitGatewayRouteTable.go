@@ -34,7 +34,7 @@ type CfnTransitGatewayRouteTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// Transit Gateway Route Table primary identifier.
+	// The ID of the transit gateway route table.
 	AttrTransitGatewayRouteTableId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

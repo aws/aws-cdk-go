@@ -35,7 +35,14 @@ type ScheduleProps struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Indicates whether the schedule is enabled.
+	// Default: true.
+	//
+	// Experimental.
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The schedule's group.
+	// Default: - By default a schedule will be associated with the `default` group.
+	//
 	// Experimental.
 	Group IGroup `field:"optional" json:"group" yaml:"group"`
 	// The name of the schedule.

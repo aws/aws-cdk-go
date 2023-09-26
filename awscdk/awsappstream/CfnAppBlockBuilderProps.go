@@ -59,7 +59,7 @@ type CfnAppBlockBuilderProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The platform of the app block builder.
 	//
-	// *Allowed values* : `WINDOWS_SERVER_2019`.
+	// `WINDOWS_SERVER_2019` is the only valid value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-platform
 	//
 	Platform *string `field:"required" json:"platform" yaml:"platform"`
@@ -67,13 +67,9 @@ type CfnAppBlockBuilderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-vpcconfig
 	//
 	VpcConfig interface{} `field:"required" json:"vpcConfig" yaml:"vpcConfig"`
-	// The access endpoints of the app block builder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-accessendpoints
 	//
 	AccessEndpoints interface{} `field:"optional" json:"accessEndpoints" yaml:"accessEndpoints"`
-	// The ARN of the app block.
-	//
-	// *Maximum* : `1`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-appblockarns
 	//
 	AppBlockArns *[]*string `field:"optional" json:"appBlockArns" yaml:"appBlockArns"`
@@ -93,7 +89,6 @@ type CfnAppBlockBuilderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-iamrolearn
 	//
 	IamRoleArn *string `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
-	// The tags of the app block builder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

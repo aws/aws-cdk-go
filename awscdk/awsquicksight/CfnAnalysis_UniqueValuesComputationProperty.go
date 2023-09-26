@@ -9,6 +9,9 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   uniqueValuesComputationProperty := &UniqueValuesComputationProperty{
+//   	ComputationId: jsii.String("computationId"),
+//
+//   	// the properties below are optional
 //   	Category: &DimensionFieldProperty{
 //   		CategoricalDimensionField: &CategoricalDimensionFieldProperty{
 //   			Column: &ColumnIdentifierProperty{
@@ -250,23 +253,20 @@ package awsquicksight
 //   			HierarchyId: jsii.String("hierarchyId"),
 //   		},
 //   	},
-//   	ComputationId: jsii.String("computationId"),
-//
-//   	// the properties below are optional
 //   	Name: jsii.String("name"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-uniquevaluescomputation.html
 //
 type CfnAnalysis_UniqueValuesComputationProperty struct {
-	// The category field that is used in a computation.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-uniquevaluescomputation.html#cfn-quicksight-analysis-uniquevaluescomputation-category
-	//
-	Category interface{} `field:"required" json:"category" yaml:"category"`
 	// The ID for a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-uniquevaluescomputation.html#cfn-quicksight-analysis-uniquevaluescomputation-computationid
 	//
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
+	// The category field that is used in a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-uniquevaluescomputation.html#cfn-quicksight-analysis-uniquevaluescomputation-category
+	//
+	Category interface{} `field:"optional" json:"category" yaml:"category"`
 	// The name of a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-uniquevaluescomputation.html#cfn-quicksight-analysis-uniquevaluescomputation-name
 	//

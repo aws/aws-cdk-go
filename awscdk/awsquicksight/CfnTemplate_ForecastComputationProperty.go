@@ -13,10 +13,6 @@ type CfnTemplate_ForecastComputationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastcomputation.html#cfn-quicksight-template-forecastcomputation-computationid
 	//
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The time field that is used in a computation.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastcomputation.html#cfn-quicksight-template-forecastcomputation-time
-	//
-	Time interface{} `field:"required" json:"time" yaml:"time"`
 	// The custom seasonality value setup of a forecast computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastcomputation.html#cfn-quicksight-template-forecastcomputation-customseasonalityvalue
 	//
@@ -48,6 +44,10 @@ type CfnTemplate_ForecastComputationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastcomputation.html#cfn-quicksight-template-forecastcomputation-seasonality
 	//
 	Seasonality *string `field:"optional" json:"seasonality" yaml:"seasonality"`
+	// The time field that is used in a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastcomputation.html#cfn-quicksight-template-forecastcomputation-time
+	//
+	Time interface{} `field:"optional" json:"time" yaml:"time"`
 	// The upper boundary setup of a forecast computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastcomputation.html#cfn-quicksight-template-forecastcomputation-upperboundary
 	//

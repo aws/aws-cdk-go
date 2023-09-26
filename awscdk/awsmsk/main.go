@@ -303,6 +303,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestRevisionCreationTime", GoGetter: "AttrLatestRevisionCreationTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestRevisionDescription", GoGetter: "AttrLatestRevisionDescription"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestRevisionRevision", GoGetter: "AttrLatestRevisionRevision"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -312,6 +315,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kafkaVersionsList", GoGetter: "KafkaVersionsList"},
+			_jsii_.MemberProperty{JsiiProperty: "latestRevision", GoGetter: "LatestRevision"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -336,6 +340,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnConfiguration.LatestRevisionProperty",
+		reflect.TypeOf((*CfnConfiguration_LatestRevisionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnConfigurationProps",

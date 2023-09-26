@@ -36,6 +36,11 @@ import (
 //   	KafkaVersionsList: []*string{
 //   		jsii.String("kafkaVersionsList"),
 //   	},
+//   	LatestRevision: &LatestRevisionProperty{
+//   		CreationTime: jsii.String("creationTime"),
+//   		Description: jsii.String("description"),
+//   		Revision: jsii.Number(123),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html
@@ -44,6 +49,9 @@ type CfnConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrArn() *string
+	AttrLatestRevisionCreationTime() *string
+	AttrLatestRevisionDescription() *string
+	AttrLatestRevisionRevision() *float64
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -58,6 +66,8 @@ type CfnConfiguration interface {
 	SetDescription(val *string)
 	KafkaVersionsList() *[]*string
 	SetKafkaVersionsList(val *[]*string)
+	LatestRevision() interface{}
+	SetLatestRevision(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,6 +251,36 @@ func (j *jsiiProxy_CfnConfiguration) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfiguration) AttrLatestRevisionCreationTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestRevisionCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfiguration) AttrLatestRevisionDescription() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestRevisionDescription",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfiguration) AttrLatestRevisionRevision() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrLatestRevisionRevision",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfiguration) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -296,6 +336,16 @@ func (j *jsiiProxy_CfnConfiguration) KafkaVersionsList() *[]*string {
 	_jsii_.Get(
 		j,
 		"kafkaVersionsList",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfiguration) LatestRevision() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"latestRevision",
 		&returns,
 	)
 	return returns
@@ -421,6 +471,17 @@ func (j *jsiiProxy_CfnConfiguration)SetKafkaVersionsList(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"kafkaVersionsList",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfiguration)SetLatestRevision(val interface{}) {
+	if err := j.validateSetLatestRevisionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"latestRevision",
 		val,
 	)
 }

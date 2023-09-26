@@ -17,14 +17,17 @@ package awssagemaker
 type CfnMonitoringSchedule_ScheduleConfigProperty struct {
 	// A cron expression that describes details about the monitoring schedule.
 	//
-	// Currently the only supported cron expressions are:
+	// The supported cron expressions are:
 	//
-	// - If you want to set the job to start every hour, please use the following:
+	// - If you want to set the job to start every hour, use the following:
 	//
 	// `Hourly: cron(0 * ? * * *)`
 	// - If you want to start the job daily:
 	//
 	// `cron(0 [00-23] ? * * *)`
+	// - If you want to run the job one time, immediately, use the following keyword:
+	//
+	// `NOW`
 	//
 	// For example, the following are valid cron expressions:
 	//
@@ -42,6 +45,8 @@ type CfnMonitoringSchedule_ScheduleConfigProperty struct {
 	//
 	// > - Even though the cron expression is set to start at 5PM UTC, note that there could be a delay of 0-20 minutes from the actual requested time to run the execution.
 	// > - We recommend that if you would like a daily schedule, you do not provide this parameter. Amazon SageMaker will pick a time for running every day.
+	//
+	// You can also specify the keyword `NOW` to run the monitoring job immediately, one time, without recurring.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
 	//
 	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`

@@ -17,11 +17,14 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html
 //
 type CfnUserPoolUserToGroupAttachmentProps struct {
-	// The group name.
+	// The name of the group that you want to add your user to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-groupname
 	//
 	GroupName *string `field:"required" json:"groupName" yaml:"groupName"`
-	// The username for the user.
+	// The username of the user that you want to query or modify.
+	//
+	// The value of this parameter is typically your user's
+	// username, but it can be any of their alias attributes. If `username` isn't an alias attribute in your user pool, you can also use their `sub` in this request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-username
 	//
 	Username *string `field:"required" json:"username" yaml:"username"`

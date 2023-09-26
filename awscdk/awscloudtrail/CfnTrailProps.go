@@ -135,7 +135,7 @@ type CfnTrailProps struct {
 	//
 	// You can configure up to five event selectors for a trail.
 	//
-	// For more information about how to configure event selectors, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#aws-resource-cloudtrail-trail--examples) and [Configuring event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-additional-cli-commands.html#configuring-event-selector-examples) in the *AWS CloudTrail User Guide* .
+	// You cannot apply both event selectors and advanced event selectors to a trail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-eventselectors
 	//
 	EventSelectors interface{} `field:"optional" json:"eventSelectors" yaml:"eventSelectors"`

@@ -37,7 +37,7 @@ type CfnUserPoolUserToGroupAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The group name.
+	// The name of the group that you want to add your user to.
 	GroupName() *string
 	SetGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -74,7 +74,7 @@ type CfnUserPoolUserToGroupAttachment interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The username for the user.
+	// The username of the user that you want to query or modify.
 	Username() *string
 	SetUsername(val *string)
 	// The user pool ID for the user pool.

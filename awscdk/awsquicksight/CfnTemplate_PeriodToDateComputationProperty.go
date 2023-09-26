@@ -10,6 +10,10 @@ package awsquicksight
 //
 //   periodToDateComputationProperty := &PeriodToDateComputationProperty{
 //   	ComputationId: jsii.String("computationId"),
+//
+//   	// the properties below are optional
+//   	Name: jsii.String("name"),
+//   	PeriodTimeGranularity: jsii.String("periodTimeGranularity"),
 //   	Time: &DimensionFieldProperty{
 //   		CategoricalDimensionField: &CategoricalDimensionFieldProperty{
 //   			Column: &ColumnIdentifierProperty{
@@ -251,10 +255,6 @@ package awsquicksight
 //   			HierarchyId: jsii.String("hierarchyId"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	Name: jsii.String("name"),
-//   	PeriodTimeGranularity: jsii.String("periodTimeGranularity"),
 //   	Value: &MeasureFieldProperty{
 //   		CalculatedMeasureField: &CalculatedMeasureFieldProperty{
 //   			Expression: jsii.String("expression"),
@@ -513,10 +513,6 @@ type CfnTemplate_PeriodToDateComputationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-periodtodatecomputation.html#cfn-quicksight-template-periodtodatecomputation-computationid
 	//
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The time field that is used in a computation.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-periodtodatecomputation.html#cfn-quicksight-template-periodtodatecomputation-time
-	//
-	Time interface{} `field:"required" json:"time" yaml:"time"`
 	// The name of a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-periodtodatecomputation.html#cfn-quicksight-template-periodtodatecomputation-name
 	//
@@ -528,6 +524,10 @@ type CfnTemplate_PeriodToDateComputationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-periodtodatecomputation.html#cfn-quicksight-template-periodtodatecomputation-periodtimegranularity
 	//
 	PeriodTimeGranularity *string `field:"optional" json:"periodTimeGranularity" yaml:"periodTimeGranularity"`
+	// The time field that is used in a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-periodtodatecomputation.html#cfn-quicksight-template-periodtodatecomputation-time
+	//
+	Time interface{} `field:"optional" json:"time" yaml:"time"`
 	// The value field that is used in a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-periodtodatecomputation.html#cfn-quicksight-template-periodtodatecomputation-value
 	//

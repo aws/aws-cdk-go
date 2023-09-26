@@ -44,7 +44,7 @@ type CfnUserPool_PasswordPolicyProperty struct {
 	RequireUppercase interface{} `field:"optional" json:"requireUppercase" yaml:"requireUppercase"`
 	// The number of days a temporary password is valid in the password policy.
 	//
-	// If the user doesn't sign in during this time, an administrator must reset their password.
+	// If the user doesn't sign in during this time, an administrator must reset their password. Defaults to `7` . If you submit a value of `0` , Amazon Cognito treats it as a null value and sets `TemporaryPasswordValidityDays` to its default value.
 	//
 	// > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-temporarypasswordvaliditydays

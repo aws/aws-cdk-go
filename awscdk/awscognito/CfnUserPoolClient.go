@@ -160,7 +160,7 @@ type CfnUserPoolClient interface {
 	// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool.
 	PreventUserExistenceErrors() *string
 	SetPreventUserExistenceErrors(val *string)
-	// The read attributes.
+	// The list of user attributes that you want your app client to have read-only access to.
 	ReadAttributes() *[]*string
 	SetReadAttributes(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -197,7 +197,7 @@ type CfnUserPoolClient interface {
 	// The user pool ID for the user pool where you want to create a user pool client.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
-	// The user pool attributes that the app client can write to.
+	// The list of user attributes that you want your app client to have write access to.
 	WriteAttributes() *[]*string
 	SetWriteAttributes(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

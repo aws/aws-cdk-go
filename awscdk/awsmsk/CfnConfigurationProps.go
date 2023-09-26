@@ -17,6 +17,11 @@ package awsmsk
 //   	KafkaVersionsList: []*string{
 //   		jsii.String("kafkaVersionsList"),
 //   	},
+//   	LatestRevision: &LatestRevisionProperty{
+//   		CreationTime: jsii.String("creationTime"),
+//   		Description: jsii.String("description"),
+//   		Revision: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html
@@ -39,5 +44,8 @@ type CfnConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-kafkaversionslist
 	//
 	KafkaVersionsList *[]*string `field:"optional" json:"kafkaVersionsList" yaml:"kafkaVersionsList"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-latestrevision
+	//
+	LatestRevision interface{} `field:"optional" json:"latestRevision" yaml:"latestRevision"`
 }
 

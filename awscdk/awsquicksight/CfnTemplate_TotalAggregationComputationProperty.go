@@ -10,6 +10,9 @@ package awsquicksight
 //
 //   totalAggregationComputationProperty := &TotalAggregationComputationProperty{
 //   	ComputationId: jsii.String("computationId"),
+//
+//   	// the properties below are optional
+//   	Name: jsii.String("name"),
 //   	Value: &MeasureFieldProperty{
 //   		CalculatedMeasureField: &CalculatedMeasureFieldProperty{
 //   			Expression: jsii.String("expression"),
@@ -259,9 +262,6 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	Name: jsii.String("name"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html
@@ -271,13 +271,13 @@ type CfnTemplate_TotalAggregationComputationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html#cfn-quicksight-template-totalaggregationcomputation-computationid
 	//
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The value field that is used in a computation.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html#cfn-quicksight-template-totalaggregationcomputation-value
-	//
-	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The name of a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html#cfn-quicksight-template-totalaggregationcomputation-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The value field that is used in a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html#cfn-quicksight-template-totalaggregationcomputation-value
+	//
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

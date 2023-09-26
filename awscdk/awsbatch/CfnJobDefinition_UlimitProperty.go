@@ -1,7 +1,7 @@
 package awsbatch
 
 
-// The `ulimit` settings to pass to the container.
+// The `ulimit` settings to pass to the container. For more information, see [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) .
 //
 // > This object isn't applicable to jobs that are running on Fargate resources.
 //
@@ -24,6 +24,8 @@ type CfnJobDefinition_UlimitProperty struct {
 	//
 	HardLimit *float64 `field:"required" json:"hardLimit" yaml:"hardLimit"`
 	// The `type` of the `ulimit` .
+	//
+	// Valid values are: `core` | `cpu` | `data` | `fsize` | `locks` | `memlock` | `msgqueue` | `nice` | `nofile` | `nproc` | `rss` | `rtprio` | `rttime` | `sigpending` | `stack` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ulimit.html#cfn-batch-jobdefinition-ulimit-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`

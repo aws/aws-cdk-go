@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) validateSetRegexParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnCustomDataIdentifier) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCustomDataIdentifierParameters(scope constructs.Construct, id *string, props *CfnCustomDataIdentifierProps) error {
 	return nil
 }
