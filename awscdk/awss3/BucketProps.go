@@ -120,6 +120,14 @@ type BucketProps struct {
 	// Default: - No metrics configuration.
 	//
 	Metrics *[]*BucketMetrics `field:"optional" json:"metrics" yaml:"metrics"`
+	// Enforces minimum TLS version for requests.
+	//
+	// Requires `enforceSSL` to be enabled.
+	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html#example-object-tls-version
+	//
+	// Default: No minimum TLS version is enforced.
+	//
+	MinimumTLSVersion *float64 `field:"optional" json:"minimumTLSVersion" yaml:"minimumTLSVersion"`
 	// The role to be used by the notifications handler.
 	// Default: - a new role will be created.
 	//

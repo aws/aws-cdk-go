@@ -112,6 +112,34 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-apprunner-alpha.HealthCheck",
+		reflect.TypeOf((*HealthCheck)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "healthCheckProtocolType", GoGetter: "HealthCheckProtocolType"},
+			_jsii_.MemberProperty{JsiiProperty: "healthyThreshold", GoGetter: "HealthyThreshold"},
+			_jsii_.MemberProperty{JsiiProperty: "interval", GoGetter: "Interval"},
+			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
+			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
+			_jsii_.MemberProperty{JsiiProperty: "unhealthyThreshold", GoGetter: "UnhealthyThreshold"},
+		},
+		func() interface{} {
+			return &jsiiProxy_HealthCheck{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-apprunner-alpha.HealthCheckProtocolType",
+		reflect.TypeOf((*HealthCheckProtocolType)(nil)).Elem(),
+		map[string]interface{}{
+			"HTTP": HealthCheckProtocolType_HTTP,
+			"TCP": HealthCheckProtocolType_TCP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-apprunner-alpha.HttpHealthCheckOptions",
+		reflect.TypeOf((*HttpHealthCheckOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-apprunner-alpha.IService",
 		reflect.TypeOf((*IService)(nil)).Elem(),
@@ -257,6 +285,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-apprunner-alpha.SourceConfig",
 		reflect.TypeOf((*SourceConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-apprunner-alpha.TcpHealthCheckOptions",
+		reflect.TypeOf((*TcpHealthCheckOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-apprunner-alpha.VpcConnector",

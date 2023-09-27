@@ -60,6 +60,13 @@ type ServiceProps struct {
 	//
 	// Experimental.
 	Cpu Cpu `field:"optional" json:"cpu" yaml:"cpu"`
+	// Settings for the health check that AWS App Runner performs to monitor the health of a service.
+	//
+	// You can specify it by static methods `HealthCheck.http` or `HealthCheck.tcp`.
+	// Default: - no health check configuration.
+	//
+	// Experimental.
+	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The IAM role that provides permissions to your App Runner service.
 	//
 	// These are permissions that your code needs when it calls any AWS APIs.

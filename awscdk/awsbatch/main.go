@@ -1447,6 +1447,20 @@ func init() {
 		"aws-cdk-lib.aws_batch.MultiNodeJobDefinitionProps",
 		reflect.TypeOf((*MultiNodeJobDefinitionProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_batch.OptimalInstanceType",
+		reflect.TypeOf((*OptimalInstanceType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "architecture", GoGetter: "Architecture"},
+			_jsii_.MemberMethod{JsiiMethod: "sameInstanceClassAs", GoMethod: "SameInstanceClassAs"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_OptimalInstanceType{}
+			_jsii_.InitJsiiProxy(&j.Type__awsec2InstanceType)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.OrderedComputeEnvironment",
 		reflect.TypeOf((*OrderedComputeEnvironment)(nil)).Elem(),

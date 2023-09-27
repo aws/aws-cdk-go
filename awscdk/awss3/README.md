@@ -180,6 +180,15 @@ bucket := s3.NewBucket(this, jsii.String("Bucket"), &BucketProps{
 })
 ```
 
+To require a minimum TLS version for all requests:
+
+```go
+bucket := s3.NewBucket(this, jsii.String("Bucket"), &BucketProps{
+	EnforceSSL: jsii.Boolean(true),
+	MinimumTLSVersion: jsii.Number(1.2),
+})
+```
+
 ## Sharing buckets between stacks
 
 To use a bucket in a different stack in the same CDK application, pass the object to the other stack:

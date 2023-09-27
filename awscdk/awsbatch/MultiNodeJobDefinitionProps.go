@@ -10,6 +10,7 @@ import (
 // Example:
 //   multiNodeJob := batch.NewMultiNodeJobDefinition(this, jsii.String("JobDefinition"), &MultiNodeJobDefinitionProps{
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R4, ec2.InstanceSize_LARGE),
+//   	 // optional, omit to let Batch choose the type for you
 //   	Containers: []multiNodeContainer{
 //   		&multiNodeContainer{
 //   			Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("mainMPIContainer"), &EcsEc2ContainerDefinitionProps{
@@ -69,14 +70,16 @@ type MultiNodeJobDefinitionProps struct {
 	// Default: - no timeout.
 	//
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
-	// The instance type that this job definition will run.
-	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The containers that this multinode job will run.
 	// See: https://aws.amazon.com/blogs/compute/building-a-tightly-coupled-molecular-dynamics-workflow-with-multi-node-parallel-jobs-in-aws-batch/
 	//
 	// Default: none.
 	//
 	Containers *[]*MultiNodeContainer `field:"optional" json:"containers" yaml:"containers"`
+	// The instance type that this job definition will run.
+	// Default: - optimal instance, selected by Batch.
+	//
+	InstanceType awsec2.InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The index of the main node in this job.
 	//
 	// The main node is responsible for orchestration.

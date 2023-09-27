@@ -238,3 +238,27 @@ service := apprunner.NewService(stack, jsii.String("Service"), &ServiceProps{
 
 service.AddSecret(jsii.String("LATER_SECRET"), apprunner.secret_FromSecretsManager(secret, jsii.String("field")))
 ```
+
+## HealthCheck
+
+To configure the health check for the service, use the `healthCheck` attribute.
+
+You can specify it by static methods `HealthCheck.http` or `HealthCheck.tcp`.
+
+```go
+apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
+		},
+		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+	}),
+	HealthCheck: apprunner.HealthCheck_Http(&HttpHealthCheckOptions{
+		HealthyThreshold: jsii.Number(5),
+		Interval: awscdk.Duration_Seconds(jsii.Number(10)),
+		Path: jsii.String("/"),
+		Timeout: awscdk.Duration_*Seconds(jsii.Number(10)),
+		UnhealthyThreshold: jsii.Number(10),
+	}),
+})
+```

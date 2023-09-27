@@ -15,6 +15,7 @@ import (
 // Example:
 //   multiNodeJob := batch.NewMultiNodeJobDefinition(this, jsii.String("JobDefinition"), &MultiNodeJobDefinitionProps{
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R4, ec2.InstanceSize_LARGE),
+//   	 // optional, omit to let Batch choose the type for you
 //   	Containers: []multiNodeContainer{
 //   		&multiNodeContainer{
 //   			Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("mainMPIContainer"), &EcsEc2ContainerDefinitionProps{
@@ -52,7 +53,7 @@ type MultiNodeJobDefinition interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
-	// The instance type that this job definition will run.
+	// If the prop `instanceType` is left `undefined`, then this will hold a fake instance type, for backwards compatibility reasons.
 	InstanceType() awsec2.InstanceType
 	// The ARN of this job definition.
 	JobDefinitionArn() *string

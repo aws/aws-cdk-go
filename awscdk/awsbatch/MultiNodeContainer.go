@@ -6,6 +6,7 @@ package awsbatch
 // Example:
 //   multiNodeJob := batch.NewMultiNodeJobDefinition(this, jsii.String("JobDefinition"), &MultiNodeJobDefinitionProps{
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R4, ec2.InstanceSize_LARGE),
+//   	 // optional, omit to let Batch choose the type for you
 //   	Containers: []multiNodeContainer{
 //   		&multiNodeContainer{
 //   			Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("mainMPIContainer"), &EcsEc2ContainerDefinitionProps{
