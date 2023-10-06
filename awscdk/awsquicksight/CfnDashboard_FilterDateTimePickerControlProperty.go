@@ -16,6 +16,10 @@ package awsquicksight
 //   	// the properties below are optional
 //   	DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
 //   		DateTimeFormat: jsii.String("dateTimeFormat"),
+//   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   			InfoIconText: jsii.String("infoIconText"),
+//   			Visibility: jsii.String("visibility"),
+//   		},
 //   		TitleOptions: &LabelOptionsProperty{
 //   			CustomLabel: jsii.String("customLabel"),
 //   			FontConfiguration: &FontConfigurationProperty{

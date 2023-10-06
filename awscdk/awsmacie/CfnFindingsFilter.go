@@ -100,7 +100,7 @@ type CfnFindingsFilter interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The position of the findings filter in the list of saved filters on the Amazon Macie console.
+	// The position of the findings filter in the list of saved filter rules on the Amazon Macie console.
 	Position() *float64
 	SetPosition(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -112,7 +112,7 @@ type CfnFindingsFilter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of tags associated with a resource.
+	// An array of key-value pairs to apply to the findings filter.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

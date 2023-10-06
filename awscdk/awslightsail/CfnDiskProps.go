@@ -61,7 +61,7 @@ type CfnDiskProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-disk.html#cfn-lightsail-disk-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// Location of a resource.
+	// The AWS Region and Availability Zone where the disk is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-disk.html#cfn-lightsail-disk-location
 	//
 	Location interface{} `field:"optional" json:"location" yaml:"location"`

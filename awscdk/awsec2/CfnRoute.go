@@ -64,7 +64,7 @@ type CfnRoute interface {
 	// The IPv6 CIDR block used for the destination match.
 	DestinationIpv6CidrBlock() *string
 	SetDestinationIpv6CidrBlock(val *string)
-	// The ID of managed prefix list, it's a set of one or more CIDR blocks.
+	// The ID of a prefix list used for the destination match.
 	DestinationPrefixListId() *string
 	SetDestinationPrefixListId(val *string)
 	// [IPv6 traffic only] The ID of an egress-only internet gateway.

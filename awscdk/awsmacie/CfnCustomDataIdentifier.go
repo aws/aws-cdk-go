@@ -107,7 +107,7 @@ type CfnCustomDataIdentifier interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of tags associated with a resource.
+	// An array of key-value pairs to apply to the custom data identifier.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

@@ -10,7 +10,7 @@ package awssynthetics
 //   		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		Handler: jsii.String("index.handler"),
 //   	}),
-//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
+//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_0(),
 //   	EnvironmentVariables: map[string]*string{
 //   		"stage": jsii.String("prod"),
 //   	},

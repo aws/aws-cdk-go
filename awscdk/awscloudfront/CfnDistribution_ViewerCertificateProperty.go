@@ -47,13 +47,11 @@ type CfnDistribution_ViewerCertificateProperty struct {
 	AcmCertificateArn *string `field:"optional" json:"acmCertificateArn" yaml:"acmCertificateArn"`
 	// If the distribution uses the CloudFront domain name such as `d111111abcdef8.cloudfront.net` , set this field to `true` .
 	//
-	// If the distribution uses `Aliases` (alternate domain names or CNAMEs), set this field to `false` and specify values for the following fields:
+	// If the distribution uses `Aliases` (alternate domain names or CNAMEs), omit this field and specify values for the following fields:
 	//
-	// - `ACMCertificateArn` or `IAMCertificateId` (specify a value for one, not both)
-	//
-	// In CloudFormation, these field names are `AcmCertificateArn` and `IamCertificateId` . Note the different capitalization.
+	// - `AcmCertificateArn` or `IamCertificateId` (specify a value for one, not both)
 	// - `MinimumProtocolVersion`
-	// - `SSLSupportMethod` (In CloudFormation, this field name is `SslSupportMethod` . Note the different capitalization.)
+	// - `SslSupportMethod`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
 	//
 	CloudFrontDefaultCertificate interface{} `field:"optional" json:"cloudFrontDefaultCertificate" yaml:"cloudFrontDefaultCertificate"`

@@ -20,7 +20,7 @@ canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
 		Handler: jsii.String("index.handler"),
 	}),
-	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_0(),
 	EnvironmentVariables: map[string]*string{
 		"stage": jsii.String("prod"),
 	},
@@ -110,7 +110,7 @@ canary := synthetics.NewCanary(this, jsii.String("Canary"), &CanaryProps{
 		Code: synthetics.Code_FromInline(jsii.String("/* Synthetics handler code")),
 	}),
 	Cleanup: synthetics.Cleanup_LAMBDA,
-	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_0(),
 })
 ```
 
@@ -139,7 +139,7 @@ synthetics.NewCanary(this, jsii.String("Inline Canary"), &CanaryProps{
 		Code: synthetics.Code_FromInline(jsii.String("/* Synthetics handler code */")),
 		Handler: jsii.String("index.handler"),
 	}),
-	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_0(),
 })
 
 // To supply the code from your local filesystem:
@@ -149,7 +149,7 @@ synthetics.NewCanary(this, jsii.String("Asset Canary"), &CanaryProps{
 		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
 		Handler: jsii.String("index.handler"),
 	}),
-	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_0(),
 })
 bucket := s3.NewBucket(this, jsii.String("Code Bucket"))
 synthetics.NewCanary(this, jsii.String("Bucket Canary"), &CanaryProps{
@@ -157,7 +157,7 @@ synthetics.NewCanary(this, jsii.String("Bucket Canary"), &CanaryProps{
 		Code: synthetics.Code_FromBucket(bucket, jsii.String("canary.zip")),
 		Handler: jsii.String("index.handler"),
 	}),
-	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_0(),
 })
 ```
 
@@ -196,7 +196,7 @@ synthetics.NewCanary(this, jsii.String("Vpc Canary"), &CanaryProps{
 		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
 		Handler: jsii.String("index.handler"),
 	}),
-	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_0(),
 	Vpc: Vpc,
 })
 ```
@@ -244,7 +244,7 @@ canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
 		Handler: jsii.String("index.handler"),
 	}),
-	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_0(),
 	ArtifactsBucketLifecycleRules: []lifecycleRule{
 		&lifecycleRule{
 			Expiration: awscdk.Duration_Days(jsii.Number(30)),

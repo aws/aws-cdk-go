@@ -78,8 +78,6 @@ type CfnNetworkInterfaceProps struct {
 	InterfaceType *string `field:"optional" json:"interfaceType" yaml:"interfaceType"`
 	// The number of IPv4 prefixes to be automatically assigned to the network interface.
 	//
-	// You cannot use this option if you use the `Ipv4Prefix` option.
-	//
 	// When creating a network interface, you can't specify a count of IPv4 prefixes if you've specified one of the following: specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv4prefixcount
 	//
@@ -107,8 +105,6 @@ type CfnNetworkInterfaceProps struct {
 	//
 	Ipv6Addresses interface{} `field:"optional" json:"ipv6Addresses" yaml:"ipv6Addresses"`
 	// The number of IPv6 prefixes to be automatically assigned to the network interface.
-	//
-	// You cannot use this option if you use the `Ipv6Prefix` option.
 	//
 	// When creating a network interface, you can't specify a count of IPv6 prefixes if you've specified one of the following: specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv6prefixcount

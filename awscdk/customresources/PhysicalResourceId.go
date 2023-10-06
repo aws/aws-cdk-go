@@ -12,7 +12,7 @@ import (
 //   	OnCreate: &AwsSdkCall{
 //   		AssumedRoleArn: jsii.String("arn:aws:iam::OTHERACCOUNT:role/CrossAccount/ManageHostedZoneConnections"),
 //   		Service: jsii.String("Route53"),
-//   		Action: jsii.String("associateVPCWithHostedZone"),
+//   		Action: jsii.String("AssociateVPCWithHostedZone"),
 //   		Parameters: map[string]interface{}{
 //   			"HostedZoneId": jsii.String("hz-123"),
 //   			"VPC": map[string]*string{

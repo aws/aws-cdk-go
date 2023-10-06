@@ -296,6 +296,7 @@ import (
 //   	},
 //   	ModelPackageVersion: jsii.Number(123),
 //   	SamplePayloadUrl: jsii.String("samplePayloadUrl"),
+//   	SkipModelValidation: jsii.String("skipModelValidation"),
 //   	SourceAlgorithmSpecification: &SourceAlgorithmSpecificationProperty{
 //   		SourceAlgorithms: []interface{}{
 //   			&SourceAlgorithmProperty{
@@ -464,6 +465,8 @@ type CfnModelPackage interface {
 	// The Amazon Simple Storage Service path where the sample payload are stored.
 	SamplePayloadUrl() *string
 	SetSamplePayloadUrl(val *string)
+	SkipModelValidation() *string
+	SetSkipModelValidation(val *string)
 	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification() interface{}
 	SetSourceAlgorithmSpecification(val interface{})
@@ -919,6 +922,16 @@ func (j *jsiiProxy_CfnModelPackage) SamplePayloadUrl() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnModelPackage) SkipModelValidation() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"skipModelValidation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnModelPackage) SourceAlgorithmSpecification() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1202,6 +1215,14 @@ func (j *jsiiProxy_CfnModelPackage)SetSamplePayloadUrl(val *string) {
 	_jsii_.Set(
 		j,
 		"samplePayloadUrl",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnModelPackage)SetSkipModelValidation(val *string) {
+	_jsii_.Set(
+		j,
+		"skipModelValidation",
 		val,
 	)
 }

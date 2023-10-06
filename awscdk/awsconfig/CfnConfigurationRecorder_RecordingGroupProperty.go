@@ -12,7 +12,7 @@ package awsconfig
 // - *Record all current and future resource types with exclusions* ( `EXCLUSION_BY_RESOURCE_TYPES` ), or
 // - *Record specific resource types* ( `INCLUSION_BY_RESOURCE_TYPES` ).
 //
-// > *Aurora global clusters are automatically globally recorded unless specifically excluded*
+// > *Aurora global clusters are automatically globally recorded*
 // >
 // > The `AWS::RDS::GlobalCluster` resource type will be recorded in all supported AWS Config Regions where the configuration recorder is enabled.
 // >
@@ -71,7 +71,7 @@ type CfnConfigurationRecorder_RecordingGroupProperty struct {
 	// - Israel (Tel Aviv)
 	// - Middle East (UAE)
 	//
-	// > *Aurora global clusters are automatically globally recorded unless specifically excluded*
+	// > *Aurora global clusters are automatically globally recorded*
 	// >
 	// > The `AWS::RDS::GlobalCluster` resource type will be recorded in all supported AWS Config Regions where the configuration recorder is enabled, even if `includeGlobalResourceTypes` is not set to `true` . `includeGlobalResourceTypes` is a legacy field which only applies to IAM users, groups, roles, and customer managed policies.
 	// >

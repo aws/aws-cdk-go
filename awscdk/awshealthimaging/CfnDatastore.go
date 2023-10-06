@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::HealthImaging::Datastore Resource Type.
+// Create a data store.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,12 +31,13 @@ type CfnDatastore interface {
 	awscdk.IInspectable
 	// The timestamp when the data store was created.
 	AttrCreatedAt() *string
-	// The Datastore's ARN.
+	// The Amazon Resource Name (ARN) for the data store.
 	AttrDatastoreArn() *string
+	// The data store identifier.
 	AttrDatastoreId() *string
-	// A string to denote the Datastore's state.
+	// The data store status.
 	AttrDatastoreStatus() *string
-	// The timestamp when the data store was created.
+	// The timestamp when the data store was last updated.
 	AttrUpdatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -47,10 +48,10 @@ type CfnDatastore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// User friendly name for Datastore.
+	// The data store name.
 	DatastoreName() *string
 	SetDatastoreName(val *string)
-	// ARN referencing a KMS key or KMS key alias.
+	// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -74,7 +75,7 @@ type CfnDatastore interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A Map of key value pairs for Tags.
+	// The tags provided when creating a data store.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.

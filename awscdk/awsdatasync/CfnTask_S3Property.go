@@ -1,7 +1,7 @@
 package awsdatasync
 
 
-// Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html) .
+// Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

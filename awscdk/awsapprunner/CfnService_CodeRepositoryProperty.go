@@ -41,6 +41,7 @@ package awsapprunner
 //   			StartCommand: jsii.String("startCommand"),
 //   		},
 //   	},
+//   	SourceDirectory: jsii.String("sourceDirectory"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html
@@ -60,5 +61,8 @@ type CfnService_CodeRepositoryProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
 	//
 	CodeConfiguration interface{} `field:"optional" json:"codeConfiguration" yaml:"codeConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcedirectory
+	//
+	SourceDirectory *string `field:"optional" json:"sourceDirectory" yaml:"sourceDirectory"`
 }
 

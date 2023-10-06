@@ -54,10 +54,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appconfig.CfnApplication.TagsProperty",
-		reflect.TypeOf((*CfnApplication_TagsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appconfig.CfnApplicationProps",
 		reflect.TypeOf((*CfnApplicationProps)(nil)).Elem(),
 	)

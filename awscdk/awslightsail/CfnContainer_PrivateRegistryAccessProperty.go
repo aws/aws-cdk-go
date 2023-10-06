@@ -1,7 +1,9 @@
 package awslightsail
 
 
-// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+// Describes the configuration for an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry ( Amazon ECR ) private repositories.
+//
+// For more information, see [Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service](https://docs.aws.amazon.com/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access) in the *Amazon Lightsail Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,7 +20,9 @@ package awslightsail
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-privateregistryaccess.html
 //
 type CfnContainer_PrivateRegistryAccessProperty struct {
-	// An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	// An object that describes the activation status of the role that you can use to grant a Lightsail container service access to Amazon ECR private repositories.
+	//
+	// If the role is activated, the Amazon Resource Name (ARN) of the role is also listed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-privateregistryaccess.html#cfn-lightsail-container-privateregistryaccess-ecrimagepullerrole
 	//
 	EcrImagePullerRole interface{} `field:"optional" json:"ecrImagePullerRole" yaml:"ecrImagePullerRole"`

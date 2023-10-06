@@ -82,7 +82,7 @@ type CfnApp interface {
 	// A JSON string that provides information about your application structure.
 	AppTemplateBody() *string
 	SetAppTemplateBody(val *string)
-	// The Amazon Resource Name (ARN) of the app.
+	// The Amazon Resource Name (ARN) of the applcation.
 	AttrAppArn() *string
 	// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
 	AttrDriftStatus() *string
@@ -127,7 +127,7 @@ type CfnApp interface {
 	// The Amazon Resource Name (ARN) of the resiliency policy.
 	ResiliencyPolicyArn() *string
 	SetResiliencyPolicyArn(val *string)
-	// An array of ResourceMapping objects.
+	// An array of `ResourceMapping` objects.
 	ResourceMappings() interface{}
 	SetResourceMappings(val interface{})
 	// The stack in which this element is defined.

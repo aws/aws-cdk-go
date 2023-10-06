@@ -19,15 +19,15 @@ package awshealthimaging
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html
 //
 type CfnDatastoreProps struct {
-	// User friendly name for Datastore.
+	// The data store name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html#cfn-healthimaging-datastore-datastorename
 	//
 	DatastoreName *string `field:"optional" json:"datastoreName" yaml:"datastoreName"`
-	// ARN referencing a KMS key or KMS key alias.
+	// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html#cfn-healthimaging-datastore-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// A Map of key value pairs for Tags.
+	// The tags provided when creating a data store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html#cfn-healthimaging-datastore-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

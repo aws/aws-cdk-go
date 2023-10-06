@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// An object containing `FieldField` , `Type` , `GroupName` , and `MatchKey` .
+// An object containing `FieldName` , `Type` , `GroupName` , and `MatchKey` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

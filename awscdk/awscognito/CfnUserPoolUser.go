@@ -16,13 +16,13 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var clientMetadata interface{}
-//
 //   cfnUserPoolUser := awscdk.Aws_cognito.NewCfnUserPoolUser(this, jsii.String("MyCfnUserPoolUser"), &CfnUserPoolUserProps{
 //   	UserPoolId: jsii.String("userPoolId"),
 //
 //   	// the properties below are optional
-//   	ClientMetadata: clientMetadata,
+//   	ClientMetadata: map[string]*string{
+//   		"clientMetadataKey": jsii.String("clientMetadata"),
+//   	},
 //   	DesiredDeliveryMediums: []*string{
 //   		jsii.String("desiredDeliveryMediums"),
 //   	},
@@ -468,6 +468,9 @@ func NewCfnUserPoolUser_Override(c CfnUserPoolUser, scope constructs.Construct, 
 }
 
 func (j *jsiiProxy_CfnUserPoolUser)SetClientMetadata(val interface{}) {
+	if err := j.validateSetClientMetadataParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"clientMetadata",

@@ -14,7 +14,7 @@ import (
 //   	OnUpdate: &AwsSdkCall{
 //   		 // will also be called for a CREATE event
 //   		Service: jsii.String("SSM"),
-//   		Action: jsii.String("getParameter"),
+//   		Action: jsii.String("GetParameter"),
 //   		Parameters: map[string]interface{}{
 //   			"Name": jsii.String("my-parameter"),
 //   			"WithDecryption": jsii.Boolean(true),

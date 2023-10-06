@@ -3,7 +3,7 @@ package awsdatasync
 
 // Specifies how you want to configure a task report, which provides detailed information about for your AWS DataSync transfer.
 //
-// For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html) .
+// For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,7 +44,7 @@ package awsdatasync
 type CfnTask_TaskReportConfigProperty struct {
 	// Specifies the Amazon S3 bucket where DataSync uploads your task report.
 	//
-	// For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html#task-report-access) .
+	// For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html#task-report-access) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfig.html#cfn-datasync-task-taskreportconfig-destination
 	//
 	Destination interface{} `field:"required" json:"destination" yaml:"destination"`

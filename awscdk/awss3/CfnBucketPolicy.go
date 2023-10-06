@@ -41,7 +41,6 @@ import (
 type CfnBucketPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
 	// The name of the Amazon S3 bucket to which the policy applies.
 	Bucket() *string
 	SetBucket(val *string)
@@ -222,16 +221,6 @@ type CfnBucketPolicy interface {
 type jsiiProxy_CfnBucketPolicy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnBucketPolicy) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnBucketPolicy) Bucket() *string {

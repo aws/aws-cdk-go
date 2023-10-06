@@ -938,17 +938,6 @@ func DataIdentifier_PGPPRIVATEKEY() DataIdentifier {
 	return returns
 }
 
-func DataIdentifier_PHONENUMBER() DataIdentifier {
-	_init_.Initialize()
-	var returns DataIdentifier
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_logs.DataIdentifier",
-		"PHONENUMBER",
-		&returns,
-	)
-	return returns
-}
-
 func DataIdentifier_PHONENUMBER_BR() DataIdentifier {
 	_init_.Initialize()
 	var returns DataIdentifier

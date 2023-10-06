@@ -385,20 +385,24 @@ s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithEfsStorage"), &Bucke
 ## Data with deploy-time values
 
 The content passed to `Source.data()`, `Source.jsonData()`, or `Source.yamlData()` can include
-references that will get resolved only during deployment.
+references that will get resolved only during deployment. Only a subset of CloudFormation functions
+are supported however, namely: Ref, Fn::GetAtt, Fn::Join, and Fn::Select (Fn::Split may be nested under Fn::Select).
 
 For example:
 
 ```go
 import sns "github.com/aws/aws-cdk-go/awscdk"
+import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 
 var destinationBucket bucket
 var topic topic
+var tg applicationTargetGroup
 
 
 appConfig := map[string]interface{}{
 	"topic_arn": topic.topicArn,
 	"base_url": jsii.String("https://my-endpoint"),
+	"lb_name": tg.firstLoadBalancerFullName,
 }
 
 s3deploy.NewBucketDeployment(this, jsii.String("BucketDeployment"), &BucketDeploymentProps{

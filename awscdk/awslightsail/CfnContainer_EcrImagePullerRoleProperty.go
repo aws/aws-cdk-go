@@ -1,7 +1,7 @@
 package awslightsail
 
 
-// An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+// Describes the IAM role that you can use to grant a Lightsail container service access to Amazon ECR private repositories.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,11 @@ package awslightsail
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-ecrimagepullerrole.html
 //
 type CfnContainer_EcrImagePullerRoleProperty struct {
-	// A Boolean value that indicates whether to activate the role.
+	// A boolean value that indicates whether the `ECRImagePullerRole` is active.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-ecrimagepullerrole.html#cfn-lightsail-container-ecrimagepullerrole-isactive
 	//
 	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
-	// The Amazon Resource Name (ARN) of the role, if it is activated.
+	// The principle Amazon Resource Name (ARN) of the role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-ecrimagepullerrole.html#cfn-lightsail-container-ecrimagepullerrole-principalarn
 	//
 	PrincipalArn *string `field:"optional" json:"principalArn" yaml:"principalArn"`

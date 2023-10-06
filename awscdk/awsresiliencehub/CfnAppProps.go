@@ -63,7 +63,7 @@ package awsresiliencehub
 type CfnAppProps struct {
 	// A JSON string that provides information about your application structure.
 	//
-	// To learn more about the `appTemplateBody` template, see the sample template provided in the *Examples* section.
+	// To learn more about the `appTemplateBody` template, see the sample template in [Sample appTemplateBody template](https://docs.aws.amazon.com//resilience-hub/latest/APIReference/API_PutDraftAppVersionTemplate.html#API_PutDraftAppVersionTemplate_Examples) .
 	//
 	// The `appTemplateBody` JSON string has the following structure:
 	//
@@ -87,27 +87,27 @@ type CfnAppProps struct {
 	//
 	// - `identifier`
 	//
-	// The identifier of the resource.
+	// Identifier of the resource.
 	//
 	// Type: String
 	// - `logicalStackName`
 	//
-	// The name of the AWS CloudFormation stack this resource belongs to.
+	// Name of the AWS CloudFormation stack this resource belongs to.
 	//
 	// Type: String
 	// - `resourceGroupName`
 	//
-	// The name of the resource group this resource belongs to.
+	// Name of the resource group this resource belongs to.
 	//
 	// Type: String
 	// - `terraformSourceName`
 	//
-	// The name of the Terraform S3 state file this resource belongs to.
+	// Name of the Terraform S3 state file this resource belongs to.
 	//
 	// Type: String
 	// - `eksSourceName`
 	//
-	// The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.
+	// Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.
 	//
 	// > This parameter accepts values in "eks-cluster/namespace" format.
 	//
@@ -119,7 +119,7 @@ type CfnAppProps struct {
 	// Type: string
 	// - *`name`*
 	//
-	// The name of the resource.
+	// Name of the resource.
 	//
 	// Type: String
 	// - `additionalInfo`
@@ -141,7 +141,7 @@ type CfnAppProps struct {
 	//
 	// - `name`
 	//
-	// The name of the AppComponent.
+	// Name of the AppComponent.
 	//
 	// Type: String
 	// - `type`
@@ -195,22 +195,22 @@ type CfnAppProps struct {
 	// Type: String
 	// - `logicalStackName`
 	//
-	// The name of the AWS CloudFormation stack this resource belongs to.
+	// Name of the AWS CloudFormation stack this resource belongs to.
 	//
 	// Type: String
 	// - `resourceGroupName`
 	//
-	// The name of the resource group this resource belongs to.
+	// Name of the resource group this resource belongs to.
 	//
 	// Type: String
 	// - `terraformSourceName`
 	//
-	// The name of the Terraform S3 state file this resource belongs to.
+	// Name of the Terraform S3 state file this resource belongs to.
 	//
 	// Type: String
 	// - `eksSourceName`
 	//
-	// The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.
+	// Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.
 	//
 	// > This parameter accepts values in "eks-cluster/namespace" format.
 	//
@@ -234,7 +234,7 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// An array of ResourceMapping objects.
+	// An array of `ResourceMapping` objects.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resourcemappings
 	//
 	ResourceMappings interface{} `field:"required" json:"resourceMappings" yaml:"resourceMappings"`
@@ -247,6 +247,8 @@ type CfnAppProps struct {
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The list of events you would like to subscribe and get notification for.
+	//
+	// Currently, AWS Resilience Hub supports notifications only for *Drift detected* and *Scheduled assessment failure* events.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-eventsubscriptions
 	//
 	EventSubscriptions interface{} `field:"optional" json:"eventSubscriptions" yaml:"eventSubscriptions"`

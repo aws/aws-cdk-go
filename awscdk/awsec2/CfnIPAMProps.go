@@ -12,8 +12,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnIPAMProps := &CfnIPAMProps{
-//   	DefaultResourceDiscoveryAssociationId: jsii.String("defaultResourceDiscoveryAssociationId"),
-//   	DefaultResourceDiscoveryId: jsii.String("defaultResourceDiscoveryId"),
 //   	Description: jsii.String("description"),
 //   	OperatingRegions: []interface{}{
 //   		&IpamOperatingRegionProperty{
@@ -31,14 +29,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html
 //
 type CfnIPAMProps struct {
-	// The IPAM's default resource discovery association ID.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-defaultresourcediscoveryassociationid
-	//
-	DefaultResourceDiscoveryAssociationId *string `field:"optional" json:"defaultResourceDiscoveryAssociationId" yaml:"defaultResourceDiscoveryAssociationId"`
-	// The IPAM's default resource discovery ID.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-defaultresourcediscoveryid
-	//
-	DefaultResourceDiscoveryId *string `field:"optional" json:"defaultResourceDiscoveryId" yaml:"defaultResourceDiscoveryId"`
 	// The description for the IPAM.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-description
 	//

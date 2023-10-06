@@ -21,8 +21,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnIPAM := awscdk.Aws_ec2.NewCfnIPAM(this, jsii.String("MyCfnIPAM"), &CfnIPAMProps{
-//   	DefaultResourceDiscoveryAssociationId: jsii.String("defaultResourceDiscoveryAssociationId"),
-//   	DefaultResourceDiscoveryId: jsii.String("defaultResourceDiscoveryId"),
 //   	Description: jsii.String("description"),
 //   	OperatingRegions: []interface{}{
 //   		&IpamOperatingRegionProperty{
@@ -45,6 +43,10 @@ type CfnIPAM interface {
 	awscdk.ITaggable
 	// The ARN of the IPAM.
 	AttrArn() *string
+	// The Id of the default association to the default resource discovery, created with this IPAM.
+	AttrDefaultResourceDiscoveryAssociationId() *string
+	// The Id of the default resource discovery, created with this IPAM.
+	AttrDefaultResourceDiscoveryId() *string
 	// The ID of the IPAM.
 	AttrIpamId() *string
 	// The ID of the default private scope.
@@ -64,12 +66,6 @@ type CfnIPAM interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The IPAM's default resource discovery association ID.
-	DefaultResourceDiscoveryAssociationId() *string
-	SetDefaultResourceDiscoveryAssociationId(val *string)
-	// The IPAM's default resource discovery ID.
-	DefaultResourceDiscoveryId() *string
-	SetDefaultResourceDiscoveryId(val *string)
 	// The description for the IPAM.
 	Description() *string
 	SetDescription(val *string)
@@ -259,6 +255,26 @@ func (j *jsiiProxy_CfnIPAM) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAM) AttrDefaultResourceDiscoveryAssociationId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDefaultResourceDiscoveryAssociationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPAM) AttrDefaultResourceDiscoveryId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDefaultResourceDiscoveryId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAM) AttrIpamId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -344,26 +360,6 @@ func (j *jsiiProxy_CfnIPAM) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnIPAM) DefaultResourceDiscoveryAssociationId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"defaultResourceDiscoveryAssociationId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnIPAM) DefaultResourceDiscoveryId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"defaultResourceDiscoveryId",
 		&returns,
 	)
 	return returns
@@ -494,22 +490,6 @@ func NewCfnIPAM_Override(c CfnIPAM, scope constructs.Construct, id *string, prop
 		"aws-cdk-lib.aws_ec2.CfnIPAM",
 		[]interface{}{scope, id, props},
 		c,
-	)
-}
-
-func (j *jsiiProxy_CfnIPAM)SetDefaultResourceDiscoveryAssociationId(val *string) {
-	_jsii_.Set(
-		j,
-		"defaultResourceDiscoveryAssociationId",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnIPAM)SetDefaultResourceDiscoveryId(val *string) {
-	_jsii_.Set(
-		j,
-		"defaultResourceDiscoveryId",
-		val,
 	)
 }
 

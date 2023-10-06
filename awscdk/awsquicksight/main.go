@@ -3278,6 +3278,10 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_PivotTablePaginatedReportOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.PivotTableRowsLabelOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_PivotTableRowsLabelOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.PivotTableSortByProperty",
 		reflect.TypeOf((*CfnDashboard_PivotTableSortByProperty)(nil)).Elem(),
 	)
@@ -3486,6 +3490,10 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_ShapeConditionalFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.SheetControlInfoIconLabelOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_SheetControlInfoIconLabelOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.SheetControlLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_SheetControlLayoutConfigurationProperty)(nil)).Elem(),
 	)
@@ -3536,6 +3544,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.SliderControlDisplayOptionsProperty",
 		reflect.TypeOf((*CfnDashboard_SliderControlDisplayOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.SmallMultiplesAxisPropertiesProperty",
+		reflect.TypeOf((*CfnDashboard_SmallMultiplesAxisPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.SmallMultiplesOptionsProperty",
@@ -3660,6 +3672,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.TableSortConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_TableSortConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.TableStyleTargetProperty",
+		reflect.TypeOf((*CfnDashboard_TableStyleTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.TableUnaggregatedFieldWellsProperty",

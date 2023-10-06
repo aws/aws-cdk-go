@@ -90,9 +90,9 @@ type CfnContainer interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the container.
 	AttrContainerArn() *string
-	// The principal ARN of the container service.
+	// The principle Amazon Resource Name (ARN) of the role.
 	AttrPrincipalArn() *string
-	// The Amazon Resource Name (ARN) of the role, if it is activated.
+	// The principle Amazon Resource Name (ARN) of the role.
 	AttrPrivateRegistryAccessEcrImagePullerRolePrincipalArn() *string
 	// The publicly accessible URL of the container service.
 	//
@@ -128,7 +128,7 @@ type CfnContainer interface {
 	// The power specification of the container service.
 	Power() *string
 	SetPower(val *string)
-	// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	// An object that describes the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry ( Amazon ECR ) private repositories.
 	PrivateRegistryAccess() interface{}
 	SetPrivateRegistryAccess(val interface{})
 	// The public domain name of the container service, such as `example.com` and `www.example.com` .

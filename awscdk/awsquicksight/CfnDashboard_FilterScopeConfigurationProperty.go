@@ -10,7 +10,10 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var allSheets interface{}
+//
 //   filterScopeConfigurationProperty := &FilterScopeConfigurationProperty{
+//   	AllSheets: allSheets,
 //   	SelectedSheets: &SelectedSheetsFilterScopeConfigurationProperty{
 //   		SheetVisualScopingConfigurations: []interface{}{
 //   			&SheetVisualScopingConfigurationProperty{
@@ -29,6 +32,9 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterscopeconfiguration.html
 //
 type CfnDashboard_FilterScopeConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterscopeconfiguration.html#cfn-quicksight-dashboard-filterscopeconfiguration-allsheets
+	//
+	AllSheets interface{} `field:"optional" json:"allSheets" yaml:"allSheets"`
 	// The configuration for applying a filter to specific sheets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterscopeconfiguration.html#cfn-quicksight-dashboard-filterscopeconfiguration-selectedsheets
 	//

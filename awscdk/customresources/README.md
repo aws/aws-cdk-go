@@ -608,7 +608,7 @@ the data returned by the custom resource to specific paths in the API response:
 cr.NewAwsCustomResource(this, jsii.String("ListObjects"), &AwsCustomResourceProps{
 	OnCreate: &AwsSdkCall{
 		Service: jsii.String("s3"),
-		Action: jsii.String("listObjectsV2"),
+		Action: jsii.String("ListObjectsV2"),
 		Parameters: map[string]*string{
 			"Bucket": jsii.String("my-bucket"),
 		},
@@ -636,7 +636,7 @@ getParameter := cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &AwsC
 	OnUpdate: &AwsSdkCall{
 		 // will also be called for a CREATE event
 		Service: jsii.String("SSM"),
-		Action: jsii.String("getParameter"),
+		Action: jsii.String("GetParameter"),
 		Parameters: map[string]interface{}{
 			"Name": jsii.String("my-parameter"),
 			"WithDecryption": jsii.Boolean(true),
@@ -659,7 +659,7 @@ getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHoste
 	OnCreate: &AwsSdkCall{
 		AssumedRoleArn: jsii.String("arn:aws:iam::OTHERACCOUNT:role/CrossAccount/ManageHostedZoneConnections"),
 		Service: jsii.String("Route53"),
-		Action: jsii.String("associateVPCWithHostedZone"),
+		Action: jsii.String("AssociateVPCWithHostedZone"),
 		Parameters: map[string]interface{}{
 			"HostedZoneId": jsii.String("hz-123"),
 			"VPC": map[string]*string{
@@ -678,15 +678,28 @@ getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHoste
 
 #### Using AWS SDK for JavaScript v3
 
-`AwsCustomResource` uses Node 18 and aws sdk v3 by default. You can specify the service as either the name of the sdk module, or just the service name, IE `@aws-sdk/client-ssm` or `SSM`, and the action as either the client method name or the sdk v3 command, `getParameter` or `GetParameterCommand`. It is recommended to use the v3 format for new AwsCustomResources going forward.
+`AwsCustomResource` uses Node 18 and AWS SDK v3 by default. You can specify the service as either the name of the SDK module, or just the service name. Using API Gateway as an example, the following formats are all accepted for `service`:
+
+* The SDKv3 service name: `api-gateway` (recommended)
+* The full SDKv3 package name: `@aws-sdk/client-api-gateway`
+* The SDKv2 constructor name: `APIGateway`
+* The SDKv2 constructor name in all lower case: `apigateway`
+
+The following formats are accepted for `action`:
+
+* The API call name: `GetRestApi` (recommended)
+* The API call name with a lowercase starting letter method name: `getRestApi`
+* The SDKv3 command class name: `GetRestApiCommand`
+
+For readability, we recommend using the short forms going forward:
 
 ```go
 cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &AwsCustomResourceProps{
 	ResourceType: jsii.String("Custom::SSMParameter"),
 	OnUpdate: &AwsSdkCall{
-		Service: jsii.String("@aws-sdk/client-ssm"),
+		Service: jsii.String("ssm"),
 		 // 'SSM' in v2
-		Action: jsii.String("GetParameterCommand"),
+		Action: jsii.String("GetParameter"),
 		 // 'getParameter' in v2
 		Parameters: map[string]interface{}{
 			"Name": jsii.String("foo"),
@@ -712,8 +725,8 @@ cr.NewAwsCustomResource(this, jsii.String("CrossAccount"), &AwsCustomResourcePro
 		AssumedRoleArn: crossAccountRoleArn,
 		Region: callRegion,
 		 // optional
-		Service: jsii.String("@aws-sdk/client-sts"),
-		Action: jsii.String("GetCallerIdentityCommand"),
+		Service: jsii.String("sts"),
+		Action: jsii.String("GetCallerIdentity"),
 		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
 	},
 	Policy: cr.AwsCustomResourcePolicy_FromStatements([]policyStatement{

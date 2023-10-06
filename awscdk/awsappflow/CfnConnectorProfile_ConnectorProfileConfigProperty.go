@@ -124,6 +124,16 @@ package awsappflow
 //   			},
 //   		},
 //   		ServiceNow: &ServiceNowConnectorProfileCredentialsProperty{
+//   			OAuth2Credentials: &OAuth2CredentialsProperty{
+//   				AccessToken: jsii.String("accessToken"),
+//   				ClientId: jsii.String("clientId"),
+//   				ClientSecret: jsii.String("clientSecret"),
+//   				OAuthRequest: &ConnectorOAuthRequestProperty{
+//   					AuthCode: jsii.String("authCode"),
+//   					RedirectUri: jsii.String("redirectUri"),
+//   				},
+//   				RefreshToken: jsii.String("refreshToken"),
+//   			},
 //   			Password: jsii.String("password"),
 //   			Username: jsii.String("username"),
 //   		},

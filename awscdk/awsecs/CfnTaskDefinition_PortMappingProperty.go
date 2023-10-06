@@ -55,7 +55,7 @@ type CfnTaskDefinition_PortMappingProperty struct {
 	// - You can specify a maximum of 100 port ranges per container.
 	// - You do not specify a `hostPortRange` . The value of the `hostPortRange` is set as follows:
 	//
-	// - For containers in a task with the `awsvpc` network mode, the `hostPort` is set to the same value as the `containerPort` . This is a static mapping strategy.
+	// - For containers in a task with the `awsvpc` network mode, the `hostPortRange` is set to the same value as the `containerPortRange` . This is a static mapping strategy.
 	// - For containers in a task with the `bridge` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.
 	// - The `containerPortRange` valid values are between 1 and 65535.
 	// - A port can only be included in one port mapping per container.

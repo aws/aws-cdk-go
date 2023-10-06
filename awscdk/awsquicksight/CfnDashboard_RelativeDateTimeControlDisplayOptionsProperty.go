@@ -10,6 +10,10 @@ package awsquicksight
 //
 //   relativeDateTimeControlDisplayOptionsProperty := &RelativeDateTimeControlDisplayOptionsProperty{
 //   	DateTimeFormat: jsii.String("dateTimeFormat"),
+//   	InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   		InfoIconText: jsii.String("infoIconText"),
+//   		Visibility: jsii.String("visibility"),
+//   	},
 //   	TitleOptions: &LabelOptionsProperty{
 //   		CustomLabel: jsii.String("customLabel"),
 //   		FontConfiguration: &FontConfigurationProperty{
@@ -34,6 +38,9 @@ type CfnDashboard_RelativeDateTimeControlDisplayOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatetimecontroldisplayoptions.html#cfn-quicksight-dashboard-relativedatetimecontroldisplayoptions-datetimeformat
 	//
 	DateTimeFormat *string `field:"optional" json:"dateTimeFormat" yaml:"dateTimeFormat"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatetimecontroldisplayoptions.html#cfn-quicksight-dashboard-relativedatetimecontroldisplayoptions-infoiconlabeloptions
+	//
+	InfoIconLabelOptions interface{} `field:"optional" json:"infoIconLabelOptions" yaml:"infoIconLabelOptions"`
 	// The options to configure the title visibility, name, and font size.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-relativedatetimecontroldisplayoptions.html#cfn-quicksight-dashboard-relativedatetimecontroldisplayoptions-titleoptions
 	//

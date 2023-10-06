@@ -84,8 +84,6 @@ type CfnAppBlockProps struct {
 	//
 	PackagingType *string `field:"optional" json:"packagingType" yaml:"packagingType"`
 	// The post setup script details of the app block.
-	//
-	// This only applies to app blocks with PackagingType `APPSTREAM2` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html#cfn-appstream-appblock-postsetupscriptdetails
 	//
 	PostSetupScriptDetails interface{} `field:"optional" json:"postSetupScriptDetails" yaml:"postSetupScriptDetails"`

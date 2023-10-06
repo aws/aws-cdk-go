@@ -1,6 +1,10 @@
 package awssagemaker
 
 
+// The location of the pipeline definition stored in Amazon S3.
+//
+// If specified, SageMaker will retrieve the pipeline definition from this location.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,21 +22,21 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html
 //
 type CfnPipeline_S3LocationProperty struct {
-	// The name of the S3 bucket where the PipelineDefinition file is stored.
+	// The name of the S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html#cfn-sagemaker-pipeline-s3location-bucket
 	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// The file name of the PipelineDefinition file (Amazon S3 object name).
+	// The object key (or key name) which uniquely identifies the object in an S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html#cfn-sagemaker-pipeline-s3location-key
 	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// The Amazon S3 ETag (a file checksum) of the PipelineDefinition file.
-	//
-	// If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file.
+	// A file checksum of the pipeline definition file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html#cfn-sagemaker-pipeline-s3location-etag
 	//
 	ETag *string `field:"optional" json:"eTag" yaml:"eTag"`
-	// For versioning-enabled buckets, a specific version of the PipelineDefinition file.
+	// The version ID of the pipeline definition file.
+	//
+	// If not specified, Amazon SageMaker will retrieve the latest version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html#cfn-sagemaker-pipeline-s3location-version
 	//
 	Version *string `field:"optional" json:"version" yaml:"version"`

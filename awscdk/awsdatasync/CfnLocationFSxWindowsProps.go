@@ -48,6 +48,10 @@ type CfnLocationFSxWindowsProps struct {
 	//
 	User *string `field:"required" json:"user" yaml:"user"`
 	// Specifies the name of the Windows domain that the FSx for Windows File Server belongs to.
+	//
+	// If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.
+	//
+	// For more information, see [required permissions](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions) for FSx for Windows File Server locations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
@@ -56,6 +60,8 @@ type CfnLocationFSxWindowsProps struct {
 	//
 	FsxFilesystemArn *string `field:"optional" json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
 	// Specifies the password of the user who has the permissions to access files and folders in the file system.
+	//
+	// For more information, see [required permissions](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions) for FSx for Windows File Server locations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-password
 	//
 	Password *string `field:"optional" json:"password" yaml:"password"`

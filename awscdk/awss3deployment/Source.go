@@ -16,8 +16,8 @@ import (
 //     Source.asset('/local/path/to/directory')
 //     Source.asset('/local/path/to/a/file.zip')
 //     Source.data('hello/world/file.txt', 'Hello, world!')
-//     Source.dataJson('config.json', { baz: topic.topicArn })
-//     Source.dataYaml('config.yaml', { baz: topic.topicArn })
+//     Source.jsonData('config.json', { baz: topic.topicArn })
+//     Source.yamlData('config.yaml', { baz: topic.topicArn })
 //
 // Example:
 //   var websiteBucket bucket

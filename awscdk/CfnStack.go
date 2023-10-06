@@ -42,7 +42,7 @@ import (
 // >
 // > - `ChangeSetId`
 // > - `CreationTime`
-// > - `LastUpdateDate`
+// > - `LastUpdateTime`
 // > - `Outputs`
 // > - `ParentId`
 // > - `RootId`

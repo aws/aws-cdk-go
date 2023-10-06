@@ -1,7 +1,7 @@
 package awslightsail
 
 
-// Location of a resource.
+// The AWS Region and Availability Zone where the disk is located.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,13 +16,11 @@ package awslightsail
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-location.html
 //
 type CfnDisk_LocationProperty struct {
-	// The Availability Zone in which to create your disk.
-	//
-	// Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+	// The Availability Zone where the disk is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-location.html#cfn-lightsail-disk-location-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// The Region Name in which to create your disk.
+	// The AWS Region where the disk is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-location.html#cfn-lightsail-disk-location-regionname
 	//
 	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`

@@ -16,11 +16,11 @@ package awsresiliencehub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html
 //
 type CfnResiliencyPolicy_FailurePolicyProperty struct {
-	// The Recovery Point Objective (RPO), in seconds.
+	// Recovery Point Objective (RPO) in seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html#cfn-resiliencehub-resiliencypolicy-failurepolicy-rpoinsecs
 	//
 	RpoInSecs *float64 `field:"required" json:"rpoInSecs" yaml:"rpoInSecs"`
-	// The Recovery Time Objective (RTO), in seconds.
+	// Recovery Time Objective (RTO) in seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html#cfn-resiliencehub-resiliencypolicy-failurepolicy-rtoinsecs
 	//
 	RtoInSecs *float64 `field:"required" json:"rtoInSecs" yaml:"rtoInSecs"`

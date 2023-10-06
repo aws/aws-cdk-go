@@ -8,8 +8,6 @@ package awsssm
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
-//
 //   cfnParameterProps := &CfnParameterProps{
 //   	Type: jsii.String("type"),
 //   	Value: jsii.String("value"),
@@ -20,7 +18,9 @@ package awsssm
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	Policies: jsii.String("policies"),
-//   	Tags: tags,
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   	Tier: jsii.String("tier"),
 //   }
 //
@@ -74,7 +74,7 @@ type CfnParameterProps struct {
 	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a Systems Manager parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-tags
 	//
-	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// The parameter tier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-tier
 	//

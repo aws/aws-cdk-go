@@ -18,8 +18,8 @@ import (
 //   		AssumedRoleArn: crossAccountRoleArn,
 //   		Region: callRegion,
 //   		 // optional
-//   		Service: jsii.String("@aws-sdk/client-sts"),
-//   		Action: jsii.String("GetCallerIdentityCommand"),
+//   		Service: jsii.String("sts"),
+//   		Action: jsii.String("GetCallerIdentity"),
 //   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
 //   	},
 //   	Policy: cr.AwsCustomResourcePolicy_FromStatements([]policyStatement{

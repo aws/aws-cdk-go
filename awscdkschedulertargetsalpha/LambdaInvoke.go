@@ -10,6 +10,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkschedulertargetsalpha/v2/internal"
 )
 
+// Use an AWS Lambda function as a target for AWS EventBridge Scheduler.
+//
 // Example:
 //   var fn function
 //
@@ -34,6 +36,7 @@ type LambdaInvoke interface {
 	TargetArn() *string
 	// Experimental.
 	AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
+	// Create a return a Schedule Target Configuration for the given schedule.
 	// Experimental.
 	Bind(schedule awscdkscheduleralpha.ISchedule) *awscdkscheduleralpha.ScheduleTargetConfig
 	// Experimental.

@@ -625,7 +625,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCanonicalHostedZoneId", GoGetter: "AttrCanonicalHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDnsName", GoGetter: "AttrDnsName"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLoadBalancerArn", GoGetter: "AttrLoadBalancerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLoadBalancerFullName", GoGetter: "AttrLoadBalancerFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLoadBalancerName", GoGetter: "AttrLoadBalancerName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSecurityGroups", GoGetter: "AttrSecurityGroups"},

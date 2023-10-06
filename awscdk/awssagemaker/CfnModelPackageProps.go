@@ -291,6 +291,7 @@ import (
 //   	},
 //   	ModelPackageVersion: jsii.Number(123),
 //   	SamplePayloadUrl: jsii.String("samplePayloadUrl"),
+//   	SkipModelValidation: jsii.String("skipModelValidation"),
 //   	SourceAlgorithmSpecification: &SourceAlgorithmSpecificationProperty{
 //   		SourceAlgorithms: []interface{}{
 //   			&SourceAlgorithmProperty{
@@ -447,6 +448,9 @@ type CfnModelPackageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-samplepayloadurl
 	//
 	SamplePayloadUrl *string `field:"optional" json:"samplePayloadUrl" yaml:"samplePayloadUrl"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-skipmodelvalidation
+	//
+	SkipModelValidation *string `field:"optional" json:"skipModelValidation" yaml:"skipModelValidation"`
 	// A list of algorithms that were used to create a model package.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-sourcealgorithmspecification
 	//

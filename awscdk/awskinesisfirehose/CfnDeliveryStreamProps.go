@@ -62,6 +62,9 @@ type CfnDeliveryStreamProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
 	//
 	KinesisStreamSourceConfiguration interface{} `field:"optional" json:"kinesisStreamSourceConfiguration" yaml:"kinesisStreamSourceConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-msksourceconfiguration
+	//
+	MskSourceConfiguration interface{} `field:"optional" json:"mskSourceConfiguration" yaml:"mskSourceConfiguration"`
 	// An Amazon Redshift destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.

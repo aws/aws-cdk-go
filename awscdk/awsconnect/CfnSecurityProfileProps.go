@@ -44,7 +44,7 @@ type CfnSecurityProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-instancearn
 	//
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// The name of the security profile.
+	// The name for the security profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-securityprofilename
 	//
 	SecurityProfileName *string `field:"required" json:"securityProfileName" yaml:"securityProfileName"`
@@ -57,6 +57,8 @@ type CfnSecurityProfileProps struct {
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Permissions assigned to the security profile.
+	//
+	// For a list of valid permissions, see [List of security profile permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-permissions
 	//
 	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`
@@ -65,6 +67,8 @@ type CfnSecurityProfileProps struct {
 	//
 	TagRestrictedResources *[]*string `field:"optional" json:"tagRestrictedResources" yaml:"tagRestrictedResources"`
 	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

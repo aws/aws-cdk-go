@@ -22,10 +22,23 @@ package customresources
 //
 type AwsSdkCall struct {
 	// The service action to call.
+	//
+	// This is the name of an AWS API call, in one of the following forms:
+	//
+	// - An API call name as found in the API Reference documentation (`GetObject`)
+	// - The API call name starting with a lowercase letter (`getObject`)
+	// - The AWS SDK for JavaScript v3 command class name (`GetObjectCommand`).
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// The service to call.
+	//
+	// This is the name of an AWS service, in one of the following forms:
+	//
+	// - An AWS SDK for JavaScript v3 package name (`@aws-sdk/client-api-gateway`)
+	// - An AWS SDK for JavaScript v3 client name (`api-gateway`)
+	// - An AWS SDK for JavaScript v2 constructor name (`APIGateway`)
+	// - A lowercase AWS SDK for JavaScript v2 constructor name (`apigateway`).
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
 	Service *string `field:"required" json:"service" yaml:"service"`

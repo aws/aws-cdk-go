@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Connect::SecurityProfile.
+// Creates a security profile.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -50,7 +50,7 @@ type CfnSecurityProfile interface {
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags() interface{}
 	SetAllowedAccessControlTags(val interface{})
-	// The Amazon Resource Name (ARN) for the security profile.
+	// The Amazon Resource Name (ARN) of the security profile.
 	AttrSecurityProfileArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -87,7 +87,7 @@ type CfnSecurityProfile interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The name of the security profile.
+	// The name for the security profile.
 	SecurityProfileName() *string
 	SetSecurityProfileName(val *string)
 	// The stack in which this element is defined.

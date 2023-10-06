@@ -35,7 +35,7 @@ type CfnScalingPolicy_StepScalingPolicyConfigurationProperty struct {
 	AdjustmentType *string `field:"optional" json:"adjustmentType" yaml:"adjustmentType"`
 	// The amount of time, in seconds, to wait for a previous scaling activity to take effect.
 	//
-	// If not specified, the default value is 300. For more information, see [Cooldown period](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#step-scaling-cooldown) in the *Application Auto Scaling User Guide* .
+	// If not specified, the default value is 300. For more information, see [Cooldown period](https://docs.aws.amazon.com/autoscaling/application/userguide/step-scaling-policy-overview.html#step-scaling-cooldown) in the *Application Auto Scaling User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-cooldown
 	//
 	Cooldown *float64 `field:"optional" json:"cooldown" yaml:"cooldown"`

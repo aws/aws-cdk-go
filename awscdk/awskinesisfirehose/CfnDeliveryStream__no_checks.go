@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetKinesisStreamSourceConfiguratio
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) validateSetMskSourceConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) validateSetRedshiftDestinationConfigurationParameters(val interface{}) error {
 	return nil
 }

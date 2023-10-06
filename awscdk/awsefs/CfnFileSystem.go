@@ -126,6 +126,7 @@ type CfnFileSystem interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Describes the replication configuration for a specific file system.
 	ReplicationConfiguration() interface{}
 	SetReplicationConfiguration(val interface{})
 	// The stack in which this element is defined.

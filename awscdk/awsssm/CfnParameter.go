@@ -22,8 +22,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
-//
 //   cfnParameter := awscdk.Aws_ssm.NewCfnParameter(this, jsii.String("MyCfnParameter"), &CfnParameterProps{
 //   	Type: jsii.String("type"),
 //   	Value: jsii.String("value"),
@@ -34,7 +32,9 @@ import (
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	Policies: jsii.String("policies"),
-//   	Tags: tags,
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   	Tier: jsii.String("tier"),
 //   })
 //
@@ -99,8 +99,8 @@ type CfnParameter interface {
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs).
-	TagsRaw() interface{}
-	SetTagsRaw(val interface{})
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// The parameter tier.
 	Tier() *string
 	SetTier(val *string)
@@ -427,8 +427,8 @@ func (j *jsiiProxy_CfnParameter) Tags() awscdk.TagManager {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameter) TagsRaw() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnParameter) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
 	_jsii_.Get(
 		j,
 		"tagsRaw",
@@ -555,7 +555,7 @@ func (j *jsiiProxy_CfnParameter)SetPolicies(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnParameter)SetTagsRaw(val interface{}) {
+func (j *jsiiProxy_CfnParameter)SetTagsRaw(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",

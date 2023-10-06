@@ -1,6 +1,10 @@
 package awssagemaker
 
 
+// The definition of the pipeline.
+//
+// This can be either a JSON string or an Amazon S3 location.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +17,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html
 //
 type CfnPipeline_PipelineDefinitionProperty struct {
-	// A specification that defines the pipeline in JSON format.
+	// The [JSON pipeline definition](https://docs.aws.amazon.com/https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html#cfn-sagemaker-pipeline-pipelinedefinition-pipelinedefinitionbody
 	//
 	PipelineDefinitionBody *string `field:"required" json:"pipelineDefinitionBody" yaml:"pipelineDefinitionBody"`

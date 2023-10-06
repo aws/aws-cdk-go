@@ -563,6 +563,50 @@ func InstanceType_INF1_XLARGE() InstanceType {
 	return returns
 }
 
+func InstanceType_INF2_24XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"INF2_24XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_INF2_48XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"INF2_48XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_INF2_8XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"INF2_8XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_INF2_XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"INF2_XLARGE",
+		&returns,
+	)
+	return returns
+}
+
 func InstanceType_M4_10XLARGE() InstanceType {
 	_init_.Initialize()
 	var returns InstanceType

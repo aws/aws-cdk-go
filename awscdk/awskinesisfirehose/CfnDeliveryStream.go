@@ -71,6 +71,8 @@ type CfnDeliveryStream interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	MskSourceConfiguration() interface{}
+	SetMskSourceConfiguration(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// An Amazon Redshift destination for the delivery stream.
@@ -393,6 +395,16 @@ func (j *jsiiProxy_CfnDeliveryStream) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) MskSourceConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"mskSourceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -610,6 +622,17 @@ func (j *jsiiProxy_CfnDeliveryStream)SetKinesisStreamSourceConfiguration(val int
 	_jsii_.Set(
 		j,
 		"kinesisStreamSourceConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryStream)SetMskSourceConfiguration(val interface{}) {
+	if err := j.validateSetMskSourceConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"mskSourceConfiguration",
 		val,
 	)
 }

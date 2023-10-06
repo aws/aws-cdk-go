@@ -10,6 +10,10 @@ package awsquicksight
 //
 //   growthRateComputationProperty := &GrowthRateComputationProperty{
 //   	ComputationId: jsii.String("computationId"),
+//
+//   	// the properties below are optional
+//   	Name: jsii.String("name"),
+//   	PeriodSize: jsii.Number(123),
 //   	Time: &DimensionFieldProperty{
 //   		CategoricalDimensionField: &CategoricalDimensionFieldProperty{
 //   			Column: &ColumnIdentifierProperty{
@@ -251,10 +255,6 @@ package awsquicksight
 //   			HierarchyId: jsii.String("hierarchyId"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	Name: jsii.String("name"),
-//   	PeriodSize: jsii.Number(123),
 //   	Value: &MeasureFieldProperty{
 //   		CalculatedMeasureField: &CalculatedMeasureFieldProperty{
 //   			Expression: jsii.String("expression"),
@@ -513,10 +513,6 @@ type CfnDashboard_GrowthRateComputationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-growthratecomputation.html#cfn-quicksight-dashboard-growthratecomputation-computationid
 	//
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The time field that is used in a computation.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-growthratecomputation.html#cfn-quicksight-dashboard-growthratecomputation-time
-	//
-	Time interface{} `field:"required" json:"time" yaml:"time"`
 	// The name of a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-growthratecomputation.html#cfn-quicksight-dashboard-growthratecomputation-name
 	//
@@ -527,6 +523,10 @@ type CfnDashboard_GrowthRateComputationProperty struct {
 	// Default: - 0.
 	//
 	PeriodSize *float64 `field:"optional" json:"periodSize" yaml:"periodSize"`
+	// The time field that is used in a computation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-growthratecomputation.html#cfn-quicksight-dashboard-growthratecomputation-time
+	//
+	Time interface{} `field:"optional" json:"time" yaml:"time"`
 	// The value field that is used in a computation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-growthratecomputation.html#cfn-quicksight-dashboard-growthratecomputation-value
 	//

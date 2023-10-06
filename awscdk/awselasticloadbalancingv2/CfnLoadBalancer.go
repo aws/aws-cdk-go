@@ -65,7 +65,8 @@ type CfnLoadBalancer interface {
 	//
 	// For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
 	AttrDnsName() *string
-	AttrId() *string
+	// The Amazon Resource Name (ARN) of the load balancer.
+	AttrLoadBalancerArn() *string
 	// The full name of the load balancer.
 	//
 	// For example, `app/my-load-balancer/50dc6c495c0c9188` .
@@ -302,11 +303,11 @@ func (j *jsiiProxy_CfnLoadBalancer) AttrDnsName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoadBalancer) AttrId() *string {
+func (j *jsiiProxy_CfnLoadBalancer) AttrLoadBalancerArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrLoadBalancerArn",
 		&returns,
 	)
 	return returns

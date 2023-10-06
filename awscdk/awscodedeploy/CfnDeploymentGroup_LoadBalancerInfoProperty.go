@@ -51,11 +51,11 @@ package awscodedeploy
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html
 //
 type CfnDeploymentGroup_LoadBalancerInfoProperty struct {
-	// An array that contains information about the load balancer to use for load balancing in a deployment.
+	// An array that contains information about the load balancers to use for load balancing in a deployment.
 	//
-	// In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
+	// If you're using Classic Load Balancers, specify those load balancers in this array.
 	//
-	// > Adding more than one load balancer to the array is not supported.
+	// > You can add up to 10 load balancers to the array. > If you're using Application Load Balancers or Network Load Balancers, use the `targetGroupInfoList` array instead of this one.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-elbinfolist
 	//
 	ElbInfoList interface{} `field:"optional" json:"elbInfoList" yaml:"elbInfoList"`

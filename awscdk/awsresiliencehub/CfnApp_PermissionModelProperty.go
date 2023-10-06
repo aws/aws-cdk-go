@@ -30,10 +30,15 @@ type CfnApp_PermissionModelProperty struct {
 	// Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts.
 	//
 	// These ARNs are used for querying purposes while importing resources and assessing your application.
+	//
+	// > - These ARNs are required only when your resources are in other accounts and you have different role name in these accounts. Else, the invoker role name will be used in the other accounts.
+	// > - These roles must have a trust policy with `iam:AssumeRole` permission to the invoker role in the primary account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-permissionmodel.html#cfn-resiliencehub-app-permissionmodel-crossaccountrolearns
 	//
 	CrossAccountRoleArns *[]*string `field:"optional" json:"crossAccountRoleArns" yaml:"crossAccountRoleArns"`
 	// Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
+	//
+	// > You must have `iam:passRole` permission for this role while creating or updating the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-permissionmodel.html#cfn-resiliencehub-app-permissionmodel-invokerrolename
 	//
 	InvokerRoleName *string `field:"optional" json:"invokerRoleName" yaml:"invokerRoleName"`

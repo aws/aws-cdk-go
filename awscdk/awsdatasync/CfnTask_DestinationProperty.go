@@ -1,7 +1,7 @@
 package awsdatasync
 
 
-// Specifies where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html) .
+// Specifies where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

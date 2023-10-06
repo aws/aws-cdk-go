@@ -559,6 +559,7 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	LanguageCode: jsii.String("languageCode"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	Schedule: jsii.String("schedule"),
 //   	Tags: []cfnTag{
@@ -602,6 +603,10 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The code for a language.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-languagecode
+	//
+	LanguageCode *string `field:"optional" json:"languageCode" yaml:"languageCode"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
 	//
 	// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .

@@ -10,6 +10,8 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var allSheets interface{}
+//
 //   filterGroupProperty := &FilterGroupProperty{
 //   	CrossDataset: jsii.String("crossDataset"),
 //   	FilterGroupId: jsii.String("filterGroupId"),
@@ -233,6 +235,7 @@ package awsquicksight
 //   		},
 //   	},
 //   	ScopeConfiguration: &FilterScopeConfigurationProperty{
+//   		AllSheets: allSheets,
 //   		SelectedSheets: &SelectedSheetsFilterScopeConfigurationProperty{
 //   			SheetVisualScopingConfigurations: []interface{}{
 //   				&SheetVisualScopingConfigurationProperty{

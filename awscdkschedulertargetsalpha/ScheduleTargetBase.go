@@ -8,12 +8,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2"
 )
 
+// Base class for Schedule Targets.
 // Experimental.
 type ScheduleTargetBase interface {
 	// Experimental.
 	TargetArn() *string
 	// Experimental.
 	AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
+	// Create a return a Schedule Target Configuration for the given schedule.
 	// Experimental.
 	Bind(schedule awscdkscheduleralpha.ISchedule) *awscdkscheduleralpha.ScheduleTargetConfig
 	// Experimental.

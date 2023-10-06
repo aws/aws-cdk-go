@@ -68,13 +68,15 @@ type CfnFindingsFilterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The position of the findings filter in the list of saved filters on the Amazon Macie console.
+	// The position of the findings filter in the list of saved filter rules on the Amazon Macie console.
 	//
 	// This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to findings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
 	//
 	Position *float64 `field:"optional" json:"position" yaml:"position"`
-	// A collection of tags associated with a resource.
+	// An array of key-value pairs to apply to the findings filter.
+	//
+	// For more information, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

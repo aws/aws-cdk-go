@@ -51,6 +51,7 @@ import (
 //   					StartCommand: jsii.String("startCommand"),
 //   				},
 //   			},
+//   			SourceDirectory: jsii.String("sourceDirectory"),
 //   		},
 //   		ImageRepository: &ImageRepositoryProperty{
 //   			ImageIdentifier: jsii.String("imageIdentifier"),

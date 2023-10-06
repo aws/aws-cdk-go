@@ -8,13 +8,13 @@ package awscognito
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var clientMetadata interface{}
-//
 //   cfnUserPoolUserProps := &CfnUserPoolUserProps{
 //   	UserPoolId: jsii.String("userPoolId"),
 //
 //   	// the properties below are optional
-//   	ClientMetadata: clientMetadata,
+//   	ClientMetadata: map[string]*string{
+//   		"clientMetadataKey": jsii.String("clientMetadata"),
+//   	},
 //   	DesiredDeliveryMediums: []*string{
 //   		jsii.String("desiredDeliveryMediums"),
 //   	},
