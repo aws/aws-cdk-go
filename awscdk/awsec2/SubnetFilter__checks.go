@@ -30,6 +30,14 @@ func validateSubnetFilter_ByCidrMaskParameters(mask *float64) error {
 	return nil
 }
 
+func validateSubnetFilter_ByCidrRangesParameters(cidrs *[]*string) error {
+	if cidrs == nil {
+		return fmt.Errorf("parameter cidrs is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateSubnetFilter_ByIdsParameters(subnetIds *[]*string) error {
 	if subnetIds == nil {
 		return fmt.Errorf("parameter subnetIds is required, but nil was provided")

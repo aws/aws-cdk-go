@@ -22,10 +22,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type Schedule interface {
 	// The Schedule expression.
-	// Experimental.
+	// Deprecated.
 	ExpressionString() *string
 }
 
@@ -46,7 +46,7 @@ func (j *jsiiProxy_Schedule) ExpressionString() *string {
 
 
 // Create a schedule from a set of cron fields.
-// Experimental.
+// Deprecated.
 func Schedule_Cron(options *CronOptions) Schedule {
 	_init_.Initialize()
 
@@ -69,7 +69,7 @@ func Schedule_Cron(options *CronOptions) Schedule {
 //
 // The expression must be in a `rate(number units)` format.
 // For example, `Schedule.expression('rate(10 minutes)')`
-// Experimental.
+// Deprecated.
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()
 
@@ -89,7 +89,7 @@ func Schedule_Expression(expression *string) Schedule {
 }
 
 // The canary will be executed once.
-// Experimental.
+// Deprecated.
 func Schedule_Once() Schedule {
 	_init_.Initialize()
 
@@ -109,7 +109,7 @@ func Schedule_Once() Schedule {
 //
 // Allowed values: 0 (for a single run) or between 1 and 60 minutes.
 // To specify a single run, you can use `Schedule.once()`.
-// Experimental.
+// Deprecated.
 func Schedule_Rate(interval awscdk.Duration) Schedule {
 	_init_.Initialize()
 

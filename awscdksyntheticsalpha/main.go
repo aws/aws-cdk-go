@@ -1,4 +1,4 @@
-// The CDK Construct Library for AWS::Synthetics
+// This module is deprecated. All constructs are now available under aws-cdk-lib/aws-synthetics
 package awscdksyntheticsalpha
 
 import (

@@ -54,5 +54,9 @@ type PassProps struct {
 	// Default: $.
 	//
 	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 }
 

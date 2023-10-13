@@ -20,13 +20,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type Runtime interface {
 	// The Lambda runtime family.
-	// Experimental.
+	// Deprecated.
 	Family() RuntimeFamily
 	// The name of the runtime version.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 }
 
@@ -56,7 +56,7 @@ func (j *jsiiProxy_Runtime) Name() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewRuntime(name *string, family RuntimeFamily) Runtime {
 	_init_.Initialize()
 
@@ -74,7 +74,7 @@ func NewRuntime(name *string, family RuntimeFamily) Runtime {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewRuntime_Override(r Runtime, name *string, family RuntimeFamily) {
 	_init_.Initialize()
 

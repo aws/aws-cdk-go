@@ -2,18 +2,18 @@ package awscdksyntheticsalpha
 
 
 // All known Lambda runtime families.
-// Experimental.
+// Deprecated.
 type RuntimeFamily string
 
 const (
 	// All Lambda runtimes that depend on Node.js.
-	// Experimental.
+	// Deprecated.
 	RuntimeFamily_NODEJS RuntimeFamily = "NODEJS"
 	// All lambda runtimes that depend on Python.
-	// Experimental.
+	// Deprecated.
 	RuntimeFamily_PYTHON RuntimeFamily = "PYTHON"
 	// Any future runtime family.
-	// Experimental.
+	// Deprecated.
 	RuntimeFamily_OTHER RuntimeFamily = "OTHER"
 )
 

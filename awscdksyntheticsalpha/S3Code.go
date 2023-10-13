@@ -21,11 +21,11 @@ import (
 //
 //   s3Code := synthetics_alpha.NewS3Code(bucket, jsii.String("key"), jsii.String("objectVersion"))
 //
-// Experimental.
+// Deprecated.
 type S3Code interface {
 	Code
 	// Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
+	// Deprecated.
 	Bind(_scope constructs.Construct, _handler *string, _family RuntimeFamily) *CodeConfig
 }
 
@@ -34,7 +34,7 @@ type jsiiProxy_S3Code struct {
 	jsiiProxy_Code
 }
 
-// Experimental.
+// Deprecated.
 func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -52,7 +52,7 @@ func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code 
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersion *string) {
 	_init_.Initialize()
 
@@ -70,7 +70,7 @@ func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersi
 // Returns: `AssetCode` associated with the specified path.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-// Experimental.
+// Deprecated.
 func S3Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -97,7 +97,7 @@ func S3Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) Asse
 // Returns: `S3Code` associated with the specified S3 object.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-// Experimental.
+// Deprecated.
 func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -119,7 +119,7 @@ func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string)
 // Specify code inline.
 //
 // Returns: `InlineCode` with inline code.
-// Experimental.
+// Deprecated.
 func S3Code_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 

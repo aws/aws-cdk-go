@@ -33,8 +33,8 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []tagsProperty{
+//   		&tagsProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -84,8 +84,8 @@ type CfnApplication interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Metadata to assign to the application.
-	Tags() *[]*awscdk.CfnTag
-	SetTags(val *[]*awscdk.CfnTag)
+	Tags() *[]*CfnApplication_TagsProperty
+	SetTags(val *[]*CfnApplication_TagsProperty)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -342,8 +342,8 @@ func (j *jsiiProxy_CfnApplication) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Tags() *[]*awscdk.CfnTag {
-	var returns *[]*awscdk.CfnTag
+func (j *jsiiProxy_CfnApplication) Tags() *[]*CfnApplication_TagsProperty {
+	var returns *[]*CfnApplication_TagsProperty
 	_jsii_.Get(
 		j,
 		"tags",
@@ -419,7 +419,7 @@ func (j *jsiiProxy_CfnApplication)SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnApplication)SetTags(val *[]*awscdk.CfnTag) {
+func (j *jsiiProxy_CfnApplication)SetTags(val *[]*CfnApplication_TagsProperty) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
 	}

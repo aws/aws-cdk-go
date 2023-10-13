@@ -67,10 +67,14 @@ type CfnTrail_DataResourceProperty struct {
 	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
+	// - `AWS::SNS::PlatformEndpoint`
+	// - `AWS::SNS::Topic`
 	// - `AWS::S3::AccessPoint`
 	// - `AWS::S3ObjectLambda::AccessPoint`
 	// - `AWS::S3Outposts::Object`
 	// - `AWS::SSMMessages::ControlChannel`
+	// - `AWS::Timestream::Database`
+	// - `AWS::Timestream::Table`
 	// - `AWS::VerifiedPermissions::PolicyStore`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
 	//

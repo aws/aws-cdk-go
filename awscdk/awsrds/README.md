@@ -18,7 +18,7 @@ var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 	}),
 	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
 	 // Optional - will default to 'admin' username and generated password
@@ -38,7 +38,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 })
 ```
 
-To adopt Aurora I/O-Optimized. Specify `DBClusterStorageType.AURORA_IOPT1` on the `storageType` property.
+To adopt Aurora I/O-Optimized, specify `DBClusterStorageType.AURORA_IOPT1` on the `storageType` property.
 
 ```go
 var vpc vpc
@@ -50,14 +50,17 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 	Credentials: rds.Credentials_FromUsername(jsii.String("adminuser"), &CredentialsFromUsernameOptions{
 		Password: awscdk.SecretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
 	}),
-	InstanceProps: &InstanceProps{
-		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_X2G, ec2.InstanceSize_XLARGE),
-		VpcSubnets: &SubnetSelection{
-			SubnetType: ec2.SubnetType_PUBLIC,
-		},
-		Vpc: *Vpc,
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+		PubliclyAccessible: jsii.Boolean(false),
+	}),
+	Readers: []iClusterInstance{
+		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 	},
 	StorageType: rds.DBClusterStorageType_AURORA_IOPT1,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+	},
+	Vpc: Vpc,
 })
 ```
 
@@ -255,7 +258,7 @@ var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 	}),
 	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
 	Readers: []iClusterInstance{
@@ -307,7 +310,7 @@ var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 	}),
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
 		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),

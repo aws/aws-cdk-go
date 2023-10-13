@@ -22,17 +22,17 @@ import (
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type CodeConfig struct {
 	// Inline code (mutually exclusive with `s3Location`).
 	// Default: - none.
 	//
-	// Experimental.
+	// Deprecated.
 	InlineCode *string `field:"optional" json:"inlineCode" yaml:"inlineCode"`
 	// The location of the code in S3 (mutually exclusive with `inlineCode`).
 	// Default: - none.
 	//
-	// Experimental.
+	// Deprecated.
 	S3Location *awss3.Location `field:"optional" json:"s3Location" yaml:"s3Location"`
 }
 

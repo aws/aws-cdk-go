@@ -15,6 +15,19 @@ package awscloudfront
 //   	},
 //
 //   	// the properties below are optional
+//   	SingleHeaderPolicyConfig: &SingleHeaderPolicyConfigProperty{
+//   		Header: jsii.String("header"),
+//   		Value: jsii.String("value"),
+//   	},
+//   	SingleWeightPolicyConfig: &SingleWeightPolicyConfigProperty{
+//   		Weight: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		SessionStickinessConfig: &SessionStickinessConfigProperty{
+//   			IdleTtl: jsii.Number(123),
+//   			MaximumTtl: jsii.Number(123),
+//   		},
+//   	},
 //   	TrafficConfig: &TrafficConfigProperty{
 //   		Type: jsii.String("type"),
 //
@@ -33,6 +46,7 @@ package awscloudfront
 //   			},
 //   		},
 //   	},
+//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html
@@ -50,9 +64,18 @@ type CfnContinuousDeploymentPolicy_ContinuousDeploymentPolicyConfigProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig-stagingdistributiondnsnames
 	//
 	StagingDistributionDnsNames *[]*string `field:"required" json:"stagingDistributionDnsNames" yaml:"stagingDistributionDnsNames"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig-singleheaderpolicyconfig
+	//
+	SingleHeaderPolicyConfig interface{} `field:"optional" json:"singleHeaderPolicyConfig" yaml:"singleHeaderPolicyConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig-singleweightpolicyconfig
+	//
+	SingleWeightPolicyConfig interface{} `field:"optional" json:"singleWeightPolicyConfig" yaml:"singleWeightPolicyConfig"`
 	// Contains the parameters for routing production traffic from your primary to staging distributions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig-trafficconfig
 	//
 	TrafficConfig interface{} `field:"optional" json:"trafficConfig" yaml:"trafficConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig-type
+	//
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

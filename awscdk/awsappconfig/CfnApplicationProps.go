@@ -1,8 +1,5 @@
 package awsappconfig
 
-import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-)
 
 // Properties for defining a `CfnApplication`.
 //
@@ -16,8 +13,8 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []tagsProperty{
+//   		&tagsProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -40,6 +37,6 @@ type CfnApplicationProps struct {
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html#cfn-appconfig-application-tags
 	//
-	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	Tags *[]*CfnApplication_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

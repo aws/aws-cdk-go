@@ -115,6 +115,7 @@ becomes new the new Data object. This behavior can be modified by supplying valu
 
 These properties impact how each individual step interacts with the state machine data:
 
+* `stateName`: the name of the state in the state machine definition. If not supplied, defaults to the construct id.
 * `inputPath`: the part of the data object that gets passed to the step (`itemsPath` for `Map` states)
 * `resultSelector`: the part of the step result that should be added to the state machine data
 * `resultPath`: where in the state machine data the step result should be inserted
@@ -278,6 +279,8 @@ and also injects a field called `otherData`.
 
 ```go
 pass := sfn.NewPass(this, jsii.String("Filter input and inject data"), &PassProps{
+	StateName: jsii.String("my-pass-state"),
+	 // the custom state name for the Pass state, defaults to 'Filter input and inject data' as the state name
 	Parameters: map[string]interface{}{
 		 // input to the pass state
 		"input": sfn.JsonPath_stringAt(jsii.String("$.input.greeting")),

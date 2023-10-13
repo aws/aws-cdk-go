@@ -22,6 +22,10 @@ import (
 //   			ObjectKey: jsii.String("folder"),
 //   		},
 //   	},
+//   	ExecutionParameters: []*string{
+//   		jsii.String("param1"),
+//   		jsii.String("param2"),
+//   	},
 //   })
 //
 type AthenaStartQueryExecutionProps struct {
@@ -90,6 +94,10 @@ type AthenaStartQueryExecutionProps struct {
 	// Default: - None.
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 	// Timeout for the task.
 	//
 	// [disable-awslint:duration-prop-type] is needed because all props interface in
@@ -108,6 +116,13 @@ type AthenaStartQueryExecutionProps struct {
 	// Default: - No client request token.
 	//
 	ClientRequestToken *string `field:"optional" json:"clientRequestToken" yaml:"clientRequestToken"`
+	// A list of values for the parameters in a query.
+	//
+	// The values are applied sequentially to the parameters in the query in the order
+	// in which the parameters occur.
+	// Default: - No parameters.
+	//
+	ExecutionParameters *[]*string `field:"optional" json:"executionParameters" yaml:"executionParameters"`
 	// Database within which query executes.
 	// Default: - No query execution context.
 	//

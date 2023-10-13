@@ -61,6 +61,9 @@ type CfnService_CodeRepositoryProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
 	//
 	CodeConfiguration interface{} `field:"optional" json:"codeConfiguration" yaml:"codeConfiguration"`
+	// The path of the directory that stores source code and configuration files.
+	//
+	// The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcedirectory
 	//
 	SourceDirectory *string `field:"optional" json:"sourceDirectory" yaml:"sourceDirectory"`

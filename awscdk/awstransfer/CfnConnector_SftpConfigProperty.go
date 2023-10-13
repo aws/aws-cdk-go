@@ -18,7 +18,7 @@ package awstransfer
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html
 //
 type CfnConnector_SftpConfigProperty struct {
-	// The public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.
+	// The public portion of the host key, or keys, that are used to identify the external server to which you are connecting.
 	//
 	// You can use the `ssh-keyscan` command against the SFTP server to retrieve the necessary key.
 	//
@@ -26,8 +26,8 @@ type CfnConnector_SftpConfigProperty struct {
 	//
 	// For the trusted host key, AWS Transfer Family accepts RSA and ECDSA keys.
 	//
-	// - For RSA keys, the key type is `ssh-rsa` .
-	// - For ECDSA keys, the key type is either `ecdsa-sha2-nistp256` , `ecdsa-sha2-nistp384` , or `ecdsa-sha2-nistp521` , depending on the size of the key you generated.
+	// - For RSA keys, the `<key type>` string is `ssh-rsa` .
+	// - For ECDSA keys, the `<key type>` string is either `ecdsa-sha2-nistp256` , `ecdsa-sha2-nistp384` , or `ecdsa-sha2-nistp521` , depending on the size of the key you generated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-trustedhostkeys
 	//
 	TrustedHostKeys *[]*string `field:"optional" json:"trustedHostKeys" yaml:"trustedHostKeys"`

@@ -21,6 +21,8 @@ type CfnContainer_EcrImagePullerRoleProperty struct {
 	//
 	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
 	// The principle Amazon Resource Name (ARN) of the role.
+	//
+	// This property is read-only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-ecrimagepullerrole.html#cfn-lightsail-container-ecrimagepullerrole-principalarn
 	//
 	PrincipalArn *string `field:"optional" json:"principalArn" yaml:"principalArn"`

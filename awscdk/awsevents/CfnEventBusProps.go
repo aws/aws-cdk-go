@@ -8,11 +8,14 @@ package awsevents
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policy interface{}
+//
 //   cfnEventBusProps := &CfnEventBusProps{
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	EventSourceName: jsii.String("eventSourceName"),
+//   	Policy: policy,
 //   	Tags: []tagEntryProperty{
 //   		&tagEntryProperty{
 //   			Key: jsii.String("key"),
@@ -36,6 +39,9 @@ type CfnEventBusProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-eventsourcename
 	//
 	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-policy
+	//
+	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
 	// Tags to associate with the event bus.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-tags
 	//

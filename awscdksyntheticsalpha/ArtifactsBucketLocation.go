@@ -24,17 +24,17 @@ import (
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type ArtifactsBucketLocation struct {
 	// The s3 location that stores the data of each run.
-	// Experimental.
+	// Deprecated.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The S3 bucket prefix.
 	//
 	// Specify this if you want a more specific path within the artifacts bucket.
 	// Default: - no prefix.
 	//
-	// Experimental.
+	// Deprecated.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

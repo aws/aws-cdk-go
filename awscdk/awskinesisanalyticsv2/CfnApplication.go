@@ -11,7 +11,7 @@ import (
 
 // Creates an Amazon Kinesis Data Analytics application.
 //
-// For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html) .
+// For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

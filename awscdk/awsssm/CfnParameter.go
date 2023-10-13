@@ -47,7 +47,6 @@ type CfnParameter interface {
 	// A regular expression used to validate the parameter value.
 	AllowedPattern() *string
 	SetAllowedPattern(val *string)
-	AttrId() *string
 	// Returns the type of the parameter.
 	//
 	// Valid values are `String` or `StringList` .
@@ -262,16 +261,6 @@ func (j *jsiiProxy_CfnParameter) AllowedPattern() *string {
 	_jsii_.Get(
 		j,
 		"allowedPattern",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnParameter) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

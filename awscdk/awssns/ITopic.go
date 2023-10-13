@@ -63,6 +63,8 @@ type ITopic interface {
 	//
 	// Sum over 5 minutes.
 	MetricSMSSuccessRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Enables content-based deduplication for FIFO topics.
+	ContentBasedDeduplication() *bool
 	// Whether this topic is an Amazon SNS FIFO queue.
 	//
 	// If false, this is a standard topic.
@@ -311,6 +313,16 @@ func (i *jsiiProxy_ITopic) BindAsNotificationRuleTarget(scope constructs.Constru
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_ITopic) ContentBasedDeduplication() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"contentBasedDeduplication",
+		&returns,
+	)
 	return returns
 }
 

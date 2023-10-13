@@ -1,7 +1,9 @@
 package awsec2
 
 
-// Describes a Verified Access trust provider.
+// A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices.
+//
+// When an application request is made, the identity information sent by the trust provider is evaluated by Verified Access before allowing or denying the application request.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

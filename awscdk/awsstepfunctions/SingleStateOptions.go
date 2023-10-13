@@ -20,6 +20,7 @@ package awsstepfunctions
 //   		"resultSelectorKey": resultSelector,
 //   	},
 //   	StateId: jsii.String("stateId"),
+//   	StateName: jsii.String("stateName"),
 //   }
 //
 type SingleStateOptions struct {
@@ -57,6 +58,10 @@ type SingleStateOptions struct {
 	// Default: - None.
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 	// String to prefix all stateIds in the state machine with.
 	// Default: stateId.
 	//

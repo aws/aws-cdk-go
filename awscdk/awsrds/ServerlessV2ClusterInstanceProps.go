@@ -11,7 +11,7 @@ import (
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+//   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
 //   	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
 //   	Readers: []iClusterInstance{

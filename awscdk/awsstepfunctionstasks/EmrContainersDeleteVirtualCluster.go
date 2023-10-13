@@ -43,6 +43,7 @@ type EmrContainersDeleteVirtualCluster interface {
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
 	StateId() *string
+	StateName() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a parallel branch to this state.
@@ -280,6 +281,16 @@ func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) StateId() *string {
 	_jsii_.Get(
 		j,
 		"stateId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) StateName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateName",
 		&returns,
 	)
 	return returns

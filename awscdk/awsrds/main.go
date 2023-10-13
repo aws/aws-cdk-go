@@ -353,6 +353,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointHostedZoneId", GoGetter: "AttrEndpointHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointPort", GoGetter: "AttrEndpointPort"},
 			_jsii_.MemberProperty{JsiiProperty: "attrMasterUserSecretSecretArn", GoGetter: "AttrMasterUserSecretSecretArn"},
+			_jsii_.MemberProperty{JsiiProperty: "automaticBackupReplicationRegion", GoGetter: "AutomaticBackupReplicationRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "autoMinorVersionUpgrade", GoGetter: "AutoMinorVersionUpgrade"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "backupRetentionPeriod", GoGetter: "BackupRetentionPeriod"},

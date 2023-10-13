@@ -161,5 +161,10 @@ type BundlingOptions struct {
 	//
 	// Experimental.
 	PoetryIncludeHashes *bool `field:"optional" json:"poetryIncludeHashes" yaml:"poetryIncludeHashes"`
+	// Whether to export Poetry dependencies with source repository urls.
+	// Default: URLs are included in the exported `requirements.txt` file.
+	//
+	// Experimental.
+	PoetryWithoutUrls *bool `field:"optional" json:"poetryWithoutUrls" yaml:"poetryWithoutUrls"`
 }
 

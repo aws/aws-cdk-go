@@ -16,15 +16,15 @@ package awscdksyntheticsalpha
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type CustomTestOptions struct {
 	// The code of the canary script.
-	// Experimental.
+	// Deprecated.
 	Code Code `field:"required" json:"code" yaml:"code"`
 	// The handler for the code.
 	//
 	// Must end with `.handler`.
-	// Experimental.
+	// Deprecated.
 	Handler *string `field:"required" json:"handler" yaml:"handler"`
 }
 

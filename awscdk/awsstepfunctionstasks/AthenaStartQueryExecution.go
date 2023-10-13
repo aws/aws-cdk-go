@@ -28,6 +28,10 @@ import (
 //   			ObjectKey: jsii.String("folder"),
 //   		},
 //   	},
+//   	ExecutionParameters: []*string{
+//   		jsii.String("param1"),
+//   		jsii.String("param2"),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-athena.html
@@ -55,6 +59,7 @@ type AthenaStartQueryExecution interface {
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
 	StateId() *string
+	StateName() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a parallel branch to this state.
@@ -292,6 +297,16 @@ func (j *jsiiProxy_AthenaStartQueryExecution) StateId() *string {
 	_jsii_.Get(
 		j,
 		"stateId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution) StateName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateName",
 		&returns,
 	)
 	return returns

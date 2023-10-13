@@ -20,13 +20,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type Test interface {
 	// The code that the canary should run.
-	// Experimental.
+	// Deprecated.
 	Code() Code
 	// The handler of the canary.
-	// Experimental.
+	// Deprecated.
 	Handler() *string
 }
 
@@ -59,7 +59,7 @@ func (j *jsiiProxy_Test) Handler() *string {
 // Specify a custom test with your own code.
 //
 // Returns: `Test` associated with the specified Code object.
-// Experimental.
+// Deprecated.
 func Test_Custom(options *CustomTestOptions) Test {
 	_init_.Initialize()
 

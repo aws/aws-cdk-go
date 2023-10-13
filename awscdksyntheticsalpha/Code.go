@@ -24,12 +24,12 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type Code interface {
 	// Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
 	//
 	// Returns: a bound `CodeConfig`.
-	// Experimental.
+	// Deprecated.
 	Bind(scope constructs.Construct, handler *string, family RuntimeFamily) *CodeConfig
 }
 
@@ -38,7 +38,7 @@ type jsiiProxy_Code struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated.
 func NewCode_Override(c Code) {
 	_init_.Initialize()
 
@@ -56,7 +56,7 @@ func NewCode_Override(c Code) {
 // Returns: `AssetCode` associated with the specified path.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-// Experimental.
+// Deprecated.
 func Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -83,7 +83,7 @@ func Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) AssetC
 // Returns: `S3Code` associated with the specified S3 object.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-// Experimental.
+// Deprecated.
 func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -105,7 +105,7 @@ func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S
 // Specify code inline.
 //
 // Returns: `InlineCode` with inline code.
-// Experimental.
+// Deprecated.
 func Code_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 

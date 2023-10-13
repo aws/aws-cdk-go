@@ -65,9 +65,11 @@ type CfnDashboard_SmallMultiplesOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-smallmultiplesoptions.html#cfn-quicksight-dashboard-smallmultiplesoptions-panelconfiguration
 	//
 	PanelConfiguration interface{} `field:"optional" json:"panelConfiguration" yaml:"panelConfiguration"`
+	// The properties of a small multiples X axis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-smallmultiplesoptions.html#cfn-quicksight-dashboard-smallmultiplesoptions-xaxis
 	//
 	XAxis interface{} `field:"optional" json:"xAxis" yaml:"xAxis"`
+	// The properties of a small multiples Y axis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-smallmultiplesoptions.html#cfn-quicksight-dashboard-smallmultiplesoptions-yaxis
 	//
 	YAxis interface{} `field:"optional" json:"yAxis" yaml:"yAxis"`

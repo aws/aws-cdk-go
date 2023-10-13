@@ -33,6 +33,9 @@ import (
 //   				SuggestedPresentationDelaySeconds: jsii.Number(123),
 //   			},
 //   			HlsPlaylistSettings: &HlsPlaylistSettingsProperty{
+//   				AdMarkupType: []*string{
+//   					jsii.String("adMarkupType"),
+//   				},
 //   				ManifestWindowSeconds: jsii.Number(123),
 //   			},
 //   		},

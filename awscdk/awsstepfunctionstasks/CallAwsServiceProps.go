@@ -9,21 +9,17 @@ import (
 // Properties for calling an AWS service's API action from your state machine.
 //
 // Example:
-//   detectLabels := tasks.NewCallAwsService(this, jsii.String("DetectLabels"), &CallAwsServiceProps{
-//   	Service: jsii.String("rekognition"),
-//   	Action: jsii.String("detectLabels"),
-//   	IamResources: []*string{
-//   		jsii.String("*"),
+//   var myBucket bucket
+//
+//   getObject := tasks.NewCallAwsService(this, jsii.String("GetObject"), &CallAwsServiceProps{
+//   	Service: jsii.String("s3"),
+//   	Action: jsii.String("getObject"),
+//   	Parameters: map[string]interface{}{
+//   		"Bucket": myBucket.bucketName,
+//   		"Key": sfn.JsonPath_stringAt(jsii.String("$.key")),
 //   	},
-//   	AdditionalIamStatements: []policyStatement{
-//   		iam.NewPolicyStatement(&PolicyStatementProps{
-//   			Actions: []*string{
-//   				jsii.String("s3:getObject"),
-//   			},
-//   			Resources: []*string{
-//   				jsii.String("arn:aws:s3:::my-bucket/*"),
-//   			},
-//   		}),
+//   	IamResources: []*string{
+//   		myBucket.ArnForObjects(jsii.String("*")),
 //   	},
 //   })
 //
@@ -95,6 +91,10 @@ type CallAwsServiceProps struct {
 	// Default: - None.
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 	// Timeout for the task.
 	//
 	// [disable-awslint:duration-prop-type] is needed because all props interface in

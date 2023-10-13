@@ -46,7 +46,6 @@ type CfnDomainName interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	AttrId() *string
 	// The domain name associated with the regional endpoint for this custom domain name.
 	//
 	// You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
@@ -242,16 +241,6 @@ type jsiiProxy_CfnDomainName struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
-}
-
-func (j *jsiiProxy_CfnDomainName) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnDomainName) AttrRegionalDomainName() *string {

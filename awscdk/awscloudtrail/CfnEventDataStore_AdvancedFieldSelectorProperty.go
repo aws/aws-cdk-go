@@ -75,10 +75,14 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
+	// - `AWS::SNS::PlatformEndpoint`
+	// - `AWS::SNS::Topic`
 	// - `AWS::S3::AccessPoint`
 	// - `AWS::S3ObjectLambda::AccessPoint`
 	// - `AWS::S3Outposts::Object`
 	// - `AWS::SSMMessages::ControlChannel`
+	// - `AWS::Timestream::Database`
+	// - `AWS::Timestream::Table`
 	// - `AWS::VerifiedPermissions::PolicyStore`
 	//
 	// You can have only one `resources.type` ﬁeld per selector. To log data events on more than one resource type, add another selector.
@@ -169,6 +173,14 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:sagemaker:<region>:<account_ID>:feature-group/<feature_group_name>`
 	//
+	// When `resources.type` equals `AWS::SNS::PlatformEndpoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:sns:<region>:<account_ID>:endpoint/<endpoint_type>/<endpoint_name>/<endpoint_ID>`
+	//
+	// When `resources.type` equals `AWS::SNS::Topic` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:sns:<region>:<account_ID>:<topic_name>`
+	//
 	// When `resources.type` equals `AWS::S3::AccessPoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in one of the following formats. To log events on all objects in an S3 access point, we recommend that you use only the access point ARN, don’t include the object path, and use the `StartsWith` or `NotStartsWith` operators.
 	//
 	// - `arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name>`
@@ -185,6 +197,14 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::SSMMessages::ControlChannel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID>`
+	//
+	// When `resources.type` equals `AWS::Timestream::Database` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:timestream:<region>:<account_ID>:database/<database_name>`
+	//
+	// When `resources.type` equals `AWS::Timestream::Table` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:timestream:<region>:<account_ID>:database/<database_name>/table/<table_name>`
 	//
 	// When resources.type equals `AWS::VerifiedPermissions::PolicyStore` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

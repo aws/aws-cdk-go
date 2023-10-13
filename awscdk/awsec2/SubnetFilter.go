@@ -74,6 +74,25 @@ func SubnetFilter_ByCidrMask(mask *float64) SubnetFilter {
 	return returns
 }
 
+// Chooses subnets which are inside any of the specified CIDR range.
+func SubnetFilter_ByCidrRanges(cidrs *[]*string) SubnetFilter {
+	_init_.Initialize()
+
+	if err := validateSubnetFilter_ByCidrRangesParameters(cidrs); err != nil {
+		panic(err)
+	}
+	var returns SubnetFilter
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.SubnetFilter",
+		"byCidrRanges",
+		[]interface{}{cidrs},
+		&returns,
+	)
+
+	return returns
+}
+
 // Chooses subnets by id.
 func SubnetFilter_ByIds(subnetIds *[]*string) SubnetFilter {
 	_init_.Initialize()

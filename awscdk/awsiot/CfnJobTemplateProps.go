@@ -22,6 +22,9 @@ import (
 //
 //   	// the properties below are optional
 //   	AbortConfig: abortConfig,
+//   	DestinationPackageVersions: []*string{
+//   		jsii.String("destinationPackageVersions"),
+//   	},
 //   	Document: jsii.String("document"),
 //   	DocumentSource: jsii.String("documentSource"),
 //   	JobArn: jsii.String("jobArn"),
@@ -67,6 +70,9 @@ type CfnJobTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-abortconfig
 	//
 	AbortConfig interface{} `field:"optional" json:"abortConfig" yaml:"abortConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-destinationpackageversions
+	//
+	DestinationPackageVersions *[]*string `field:"optional" json:"destinationPackageVersions" yaml:"destinationPackageVersions"`
 	// The job document.
 	//
 	// Required if you don't specify a value for `documentSource` .

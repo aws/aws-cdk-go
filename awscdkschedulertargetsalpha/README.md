@@ -24,6 +24,7 @@ number of supported AWS Services.
 The following targets are supported:
 
 1. `targets.LambdaInvoke`: [Invoke an AWS Lambda function](#invoke-a-lambda-function))
+2. `targets.StepFunctionsStartExecution`: [Start an AWS Step Function](#start-an-aws-step-function)
 
 ## Invoke a Lambda function
 
@@ -59,5 +60,48 @@ target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
 schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
 	Target: Target,
+})
+```
+
+## Start an AWS Step Function
+
+Use the `StepFunctionsStartExecution` target to start a new execution on a StepFunction.
+
+The code snippet below creates an event rule with a Step Function as a target
+called every hour by Event Bridge Scheduler with a custom payload.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import tasks "github.com/aws/aws-cdk-go/awscdk"
+
+
+payload := map[string]*string{
+	"Name": jsii.String("MyParameter"),
+	"Value": jsii.String("🌥️"),
+}
+
+putParameterStep := tasks.NewCallAwsService(this, jsii.String("PutParameter"), &CallAwsServiceProps{
+	Service: jsii.String("ssm"),
+	Action: jsii.String("putParameter"),
+	IamResources: []*string{
+		jsii.String("*"),
+	},
+	Parameters: map[string]interface{}{
+		"Name.$": jsii.String("$.Name"),
+		"Value.$": jsii.String("$.Value"),
+		"Type": jsii.String("String"),
+		"Overwrite": jsii.Boolean(true),
+	},
+})
+
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	DefinitionBody: sfn.DefinitionBody_FromChainable(putParameterStep),
+})
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
+	Target: targets.NewStepFunctionsStartExecution(stateMachine, &ScheduleTargetBaseProps{
+		Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(payload),
+	}),
 })
 ```

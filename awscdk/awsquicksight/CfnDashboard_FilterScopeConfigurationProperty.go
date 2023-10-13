@@ -32,6 +32,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterscopeconfiguration.html
 //
 type CfnDashboard_FilterScopeConfigurationProperty struct {
+	// The configuration for applying a filter to all sheets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterscopeconfiguration.html#cfn-quicksight-dashboard-filterscopeconfiguration-allsheets
 	//
 	AllSheets interface{} `field:"optional" json:"allSheets" yaml:"allSheets"`

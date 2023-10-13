@@ -33,6 +33,7 @@ type State interface {
 	StartState() State
 	// Tokenized string that evaluates to the state's ID.
 	StateId() *string
+	StateName() *string
 	// Add a parallel branch to this state.
 	AddBranch(branch StateGraph)
 	// Add a choice branch to this state.
@@ -217,6 +218,16 @@ func (j *jsiiProxy_State) StateId() *string {
 	_jsii_.Get(
 		j,
 		"stateId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_State) StateName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateName",
 		&returns,
 	)
 	return returns

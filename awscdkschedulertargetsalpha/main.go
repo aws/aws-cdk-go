@@ -41,4 +41,20 @@ func init() {
 		"@aws-cdk/aws-scheduler-targets-alpha.ScheduleTargetBaseProps",
 		reflect.TypeOf((*ScheduleTargetBaseProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-scheduler-targets-alpha.StepFunctionsStartExecution",
+		reflect.TypeOf((*StepFunctionsStartExecution)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addTargetActionToRole", GoMethod: "AddTargetActionToRole"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bindBaseTargetConfig", GoMethod: "BindBaseTargetConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "targetArn", GoGetter: "TargetArn"},
+		},
+		func() interface{} {
+			j := jsiiProxy_StepFunctionsStartExecution{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ScheduleTargetBase)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkscheduleralphaIScheduleTarget)
+			return &j
+		},
+	)
 }

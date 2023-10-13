@@ -41,6 +41,7 @@ import (
 //   	ResultSelector: map[string]interface{}{
 //   		"resultSelectorKey": resultSelector,
 //   	},
+//   	StateName: jsii.String("stateName"),
 //   	TaskTimeout: timeout,
 //   	Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   }
@@ -111,6 +112,10 @@ type CallApiGatewayEndpointBaseProps struct {
 	// Default: - None.
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 	// Timeout for the task.
 	//
 	// [disable-awslint:duration-prop-type] is needed because all props interface in

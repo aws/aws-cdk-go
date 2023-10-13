@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Describes a Verified Access instance.
+// An AWS Verified Access instance is a regional entity that evaluates application requests and grants access only when your security requirements are met.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

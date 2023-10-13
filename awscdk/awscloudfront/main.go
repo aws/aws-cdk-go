@@ -278,8 +278,16 @@ func init() {
 		reflect.TypeOf((*CfnContinuousDeploymentPolicy_SingleHeaderConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy.SingleHeaderPolicyConfigProperty",
+		reflect.TypeOf((*CfnContinuousDeploymentPolicy_SingleHeaderPolicyConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy.SingleWeightConfigProperty",
 		reflect.TypeOf((*CfnContinuousDeploymentPolicy_SingleWeightConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy.SingleWeightPolicyConfigProperty",
+		reflect.TypeOf((*CfnContinuousDeploymentPolicy_SingleWeightPolicyConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy.TrafficConfigProperty",

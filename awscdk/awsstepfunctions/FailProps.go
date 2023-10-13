@@ -30,5 +30,9 @@ type FailProps struct {
 	// Default: - No error path.
 	//
 	ErrorPath *string `field:"optional" json:"errorPath" yaml:"errorPath"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 }
 

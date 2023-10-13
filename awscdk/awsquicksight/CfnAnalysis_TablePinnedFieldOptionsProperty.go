@@ -1,0 +1,22 @@
+package awsquicksight
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   tablePinnedFieldOptionsProperty := &TablePinnedFieldOptionsProperty{
+//   	PinnedLeftFields: []*string{
+//   		jsii.String("pinnedLeftFields"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablepinnedfieldoptions.html
+//
+type CfnAnalysis_TablePinnedFieldOptionsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tablepinnedfieldoptions.html#cfn-quicksight-analysis-tablepinnedfieldoptions-pinnedleftfields
+	//
+	PinnedLeftFields *[]*string `field:"optional" json:"pinnedLeftFields" yaml:"pinnedLeftFields"`
+}
+

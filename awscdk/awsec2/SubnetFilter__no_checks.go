@@ -16,6 +16,10 @@ func validateSubnetFilter_ByCidrMaskParameters(mask *float64) error {
 	return nil
 }
 
+func validateSubnetFilter_ByCidrRangesParameters(cidrs *[]*string) error {
+	return nil
+}
+
 func validateSubnetFilter_ByIdsParameters(subnetIds *[]*string) error {
 	return nil
 }

@@ -11,6 +11,96 @@ package awsquicksight
 //   kPIConditionalFormattingProperty := &KPIConditionalFormattingProperty{
 //   	ConditionalFormattingOptions: []interface{}{
 //   		&KPIConditionalFormattingOptionProperty{
+//   			ActualValue: &KPIActualValueConditionalFormattingProperty{
+//   				Icon: &ConditionalFormattingIconProperty{
+//   					CustomCondition: &ConditionalFormattingCustomIconConditionProperty{
+//   						Expression: jsii.String("expression"),
+//   						IconOptions: &ConditionalFormattingCustomIconOptionsProperty{
+//   							Icon: jsii.String("icon"),
+//   							UnicodeIcon: jsii.String("unicodeIcon"),
+//   						},
+//
+//   						// the properties below are optional
+//   						Color: jsii.String("color"),
+//   						DisplayConfiguration: &ConditionalFormattingIconDisplayConfigurationProperty{
+//   							IconDisplayOption: jsii.String("iconDisplayOption"),
+//   						},
+//   					},
+//   					IconSet: &ConditionalFormattingIconSetProperty{
+//   						Expression: jsii.String("expression"),
+//
+//   						// the properties below are optional
+//   						IconSetType: jsii.String("iconSetType"),
+//   					},
+//   				},
+//   				TextColor: &ConditionalFormattingColorProperty{
+//   					Gradient: &ConditionalFormattingGradientColorProperty{
+//   						Color: &GradientColorProperty{
+//   							Stops: []interface{}{
+//   								&GradientStopProperty{
+//   									GradientOffset: jsii.Number(123),
+//
+//   									// the properties below are optional
+//   									Color: jsii.String("color"),
+//   									DataValue: jsii.Number(123),
+//   								},
+//   							},
+//   						},
+//   						Expression: jsii.String("expression"),
+//   					},
+//   					Solid: &ConditionalFormattingSolidColorProperty{
+//   						Expression: jsii.String("expression"),
+//
+//   						// the properties below are optional
+//   						Color: jsii.String("color"),
+//   					},
+//   				},
+//   			},
+//   			ComparisonValue: &KPIComparisonValueConditionalFormattingProperty{
+//   				Icon: &ConditionalFormattingIconProperty{
+//   					CustomCondition: &ConditionalFormattingCustomIconConditionProperty{
+//   						Expression: jsii.String("expression"),
+//   						IconOptions: &ConditionalFormattingCustomIconOptionsProperty{
+//   							Icon: jsii.String("icon"),
+//   							UnicodeIcon: jsii.String("unicodeIcon"),
+//   						},
+//
+//   						// the properties below are optional
+//   						Color: jsii.String("color"),
+//   						DisplayConfiguration: &ConditionalFormattingIconDisplayConfigurationProperty{
+//   							IconDisplayOption: jsii.String("iconDisplayOption"),
+//   						},
+//   					},
+//   					IconSet: &ConditionalFormattingIconSetProperty{
+//   						Expression: jsii.String("expression"),
+//
+//   						// the properties below are optional
+//   						IconSetType: jsii.String("iconSetType"),
+//   					},
+//   				},
+//   				TextColor: &ConditionalFormattingColorProperty{
+//   					Gradient: &ConditionalFormattingGradientColorProperty{
+//   						Color: &GradientColorProperty{
+//   							Stops: []interface{}{
+//   								&GradientStopProperty{
+//   									GradientOffset: jsii.Number(123),
+//
+//   									// the properties below are optional
+//   									Color: jsii.String("color"),
+//   									DataValue: jsii.Number(123),
+//   								},
+//   							},
+//   						},
+//   						Expression: jsii.String("expression"),
+//   					},
+//   					Solid: &ConditionalFormattingSolidColorProperty{
+//   						Expression: jsii.String("expression"),
+//
+//   						// the properties below are optional
+//   						Color: jsii.String("color"),
+//   					},
+//   				},
+//   			},
 //   			PrimaryValue: &KPIPrimaryValueConditionalFormattingProperty{
 //   				Icon: &ConditionalFormattingIconProperty{
 //   					CustomCondition: &ConditionalFormattingCustomIconConditionProperty{

@@ -13,7 +13,7 @@ package awscdksyntheticsalpha
 //   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_4_0(),
 //   })
 //
-// Experimental.
+// Deprecated.
 type Cleanup string
 
 const (
@@ -21,14 +21,14 @@ const (
 	//
 	// The user is responsible for cleaning up
 	// all resources left behind by the Canary.
-	// Experimental.
+	// Deprecated.
 	Cleanup_NOTHING Cleanup = "NOTHING"
 	// Clean up the underlying Lambda function only.
 	//
 	// The user is
 	// responsible for cleaning up all other resources left behind
 	// by the Canary.
-	// Experimental.
+	// Deprecated.
 	Cleanup_LAMBDA Cleanup = "LAMBDA"
 )
 

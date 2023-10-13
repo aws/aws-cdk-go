@@ -282,7 +282,7 @@ type CfnDashboard_PivotTableOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-columnnamesvisibility
 	//
 	ColumnNamesVisibility *string `field:"optional" json:"columnNamesVisibility" yaml:"columnNamesVisibility"`
-	// String based length that is composed of value and unit in px.
+	// The default cell width of the pivot table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-defaultcellwidth
 	//
 	DefaultCellWidth *string `field:"optional" json:"defaultCellWidth" yaml:"defaultCellWidth"`
@@ -302,9 +302,16 @@ type CfnDashboard_PivotTableOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowheaderstyle
 	//
 	RowHeaderStyle interface{} `field:"optional" json:"rowHeaderStyle" yaml:"rowHeaderStyle"`
+	// The options for the label that is located above the row headers.
+	//
+	// This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowslabeloptions
 	//
 	RowsLabelOptions interface{} `field:"optional" json:"rowsLabelOptions" yaml:"rowsLabelOptions"`
+	// The layout for the row dimension headers of a pivot table. Choose one of the following options.
+	//
+	// - `TABULAR` : (Default) Each row field is displayed in a separate column.
+	// - `HIERARCHY` : All row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowslayout
 	//
 	RowsLayout *string `field:"optional" json:"rowsLayout" yaml:"rowsLayout"`

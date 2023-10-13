@@ -59,6 +59,7 @@ import (
 //   			RoleArn: jsii.String("roleArn"),
 //   		},
 //   	},
+//   	AutomaticBackupReplicationRegion: jsii.String("automaticBackupReplicationRegion"),
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	BackupRetentionPeriod: jsii.Number(123),
@@ -203,6 +204,9 @@ type CfnDBInstance interface {
 	AttrEndpointPort() *string
 	// The Amazon Resource Name (ARN) of the secret.
 	AttrMasterUserSecretSecretArn() *string
+	// Enables replication of automated backups to a different Amazon Web Services Region.
+	AutomaticBackupReplicationRegion() *string
+	SetAutomaticBackupReplicationRegion(val *string)
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
@@ -402,7 +406,7 @@ type CfnDBInstance interface {
 	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica.
 	SourceDbClusterIdentifier() *string
 	SetSourceDbClusterIdentifier(val *string)
-	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, `arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE` .
+	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, `arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE` .
 	SourceDbInstanceAutomatedBackupsArn() *string
 	SetSourceDbInstanceAutomatedBackupsArn(val *string)
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
@@ -465,7 +469,7 @@ type CfnDBInstance interface {
 	// Specifies whether the DB instance class of the DB instance uses its default processor features.
 	UseDefaultProcessorFeatures() interface{}
 	SetUseDefaultProcessorFeatures(val interface{})
-	// A value that indicates whether the DB instance is restored from the latest backup time.
+	// Specifies whether the DB instance is restored from the latest backup time.
 	UseLatestRestorableTime() interface{}
 	SetUseLatestRestorableTime(val interface{})
 	// A list of the VPC security group IDs to assign to the DB instance.
@@ -720,6 +724,16 @@ func (j *jsiiProxy_CfnDBInstance) AttrMasterUserSecretSecretArn() *string {
 	_jsii_.Get(
 		j,
 		"attrMasterUserSecretSecretArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AutomaticBackupReplicationRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"automaticBackupReplicationRegion",
 		&returns,
 	)
 	return returns
@@ -1599,6 +1613,14 @@ func (j *jsiiProxy_CfnDBInstance)SetAssociatedRoles(val interface{}) {
 	_jsii_.Set(
 		j,
 		"associatedRoles",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetAutomaticBackupReplicationRegion(val *string) {
+	_jsii_.Set(
+		j,
+		"automaticBackupReplicationRegion",
 		val,
 	)
 }

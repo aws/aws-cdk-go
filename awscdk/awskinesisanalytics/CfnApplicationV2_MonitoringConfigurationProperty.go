@@ -3,7 +3,7 @@ package awskinesisanalytics
 
 // Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application.
 //
-// For more information about CloudWatch logging, see [Monitoring](https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview) .
+// For more information about CloudWatch logging, see [Monitoring](https://docs.aws.amazon.com/managed-flink/latest/java/monitoring-overview) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

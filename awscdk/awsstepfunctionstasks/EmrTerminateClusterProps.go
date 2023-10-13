@@ -78,6 +78,10 @@ type EmrTerminateClusterProps struct {
 	// Default: - None.
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 	// Timeout for the task.
 	//
 	// [disable-awslint:duration-prop-type] is needed because all props interface in

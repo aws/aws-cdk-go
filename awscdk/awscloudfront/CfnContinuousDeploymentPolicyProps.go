@@ -16,6 +16,19 @@ package awscloudfront
 //   		},
 //
 //   		// the properties below are optional
+//   		SingleHeaderPolicyConfig: &SingleHeaderPolicyConfigProperty{
+//   			Header: jsii.String("header"),
+//   			Value: jsii.String("value"),
+//   		},
+//   		SingleWeightPolicyConfig: &SingleWeightPolicyConfigProperty{
+//   			Weight: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			SessionStickinessConfig: &SessionStickinessConfigProperty{
+//   				IdleTtl: jsii.Number(123),
+//   				MaximumTtl: jsii.Number(123),
+//   			},
+//   		},
 //   		TrafficConfig: &TrafficConfigProperty{
 //   			Type: jsii.String("type"),
 //
@@ -34,6 +47,7 @@ package awscloudfront
 //   				},
 //   			},
 //   		},
+//   		Type: jsii.String("type"),
 //   	},
 //   }
 //

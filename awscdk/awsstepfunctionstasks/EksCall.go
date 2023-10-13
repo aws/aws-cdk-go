@@ -53,6 +53,7 @@ type EksCall interface {
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
 	StateId() *string
+	StateName() *string
 	// No policies are required due to eks:call is an Http service integration and does not call and EKS API directly.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-eks.html#connect-eks-permissions
 	//
@@ -293,6 +294,16 @@ func (j *jsiiProxy_EksCall) StateId() *string {
 	_jsii_.Get(
 		j,
 		"stateId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EksCall) StateName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateName",
 		&returns,
 	)
 	return returns

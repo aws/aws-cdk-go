@@ -27,6 +27,7 @@ type CfnDashboard_RowAlternateColorOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-rowalternatecoloroptions.html#cfn-quicksight-dashboard-rowalternatecoloroptions-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
+	// The primary background color options for alternate rows.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-rowalternatecoloroptions.html#cfn-quicksight-dashboard-rowalternatecoloroptions-useprimarybackgroundcolor
 	//
 	UsePrimaryBackgroundColor *string `field:"optional" json:"usePrimaryBackgroundColor" yaml:"usePrimaryBackgroundColor"`

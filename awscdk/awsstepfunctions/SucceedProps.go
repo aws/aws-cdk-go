@@ -12,6 +12,7 @@ package awsstepfunctions
 //   	Comment: jsii.String("comment"),
 //   	InputPath: jsii.String("inputPath"),
 //   	OutputPath: jsii.String("outputPath"),
+//   	StateName: jsii.String("stateName"),
 //   }
 //
 type SucceedProps struct {
@@ -33,5 +34,9 @@ type SucceedProps struct {
 	// Default: $.
 	//
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 }
 

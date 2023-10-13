@@ -24,14 +24,7 @@ import (
 //
 // Create a component from an AWS Lambda function that runs on AWS IoT Greengrass . This creates a recipe and artifacts from the Lambda function's deployment package. You can use this operation to migrate Lambda functions from AWS IoT Greengrass V1 to AWS IoT Greengrass V2 .
 //
-// This function only accepts Lambda functions that use the following runtimes:
-//
-// - Python 2.7 – `python2.7`
-// - Python 3.7 – `python3.7`
-// - Python 3.8 – `python3.8`
-// - Java 8 – `java8`
-// - Node.js 10 – `nodejs10.x`
-// - Node.js 12 – `nodejs12.x`
+// This function accepts Lambda functions in all supported versions of Python, Node.js, and Java runtimes. AWS IoT Greengrass doesn't apply any additional restrictions on deprecated Lambda runtime versions.
 //
 // To create a component from a Lambda function, specify `lambdaFunction` when you call this operation.
 //

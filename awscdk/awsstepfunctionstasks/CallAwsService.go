@@ -14,21 +14,17 @@ import (
 // A StepFunctions task to call an AWS service API.
 //
 // Example:
-//   detectLabels := tasks.NewCallAwsService(this, jsii.String("DetectLabels"), &CallAwsServiceProps{
-//   	Service: jsii.String("rekognition"),
-//   	Action: jsii.String("detectLabels"),
-//   	IamResources: []*string{
-//   		jsii.String("*"),
+//   var myBucket bucket
+//
+//   getObject := tasks.NewCallAwsService(this, jsii.String("GetObject"), &CallAwsServiceProps{
+//   	Service: jsii.String("s3"),
+//   	Action: jsii.String("getObject"),
+//   	Parameters: map[string]interface{}{
+//   		"Bucket": myBucket.bucketName,
+//   		"Key": sfn.JsonPath_stringAt(jsii.String("$.key")),
 //   	},
-//   	AdditionalIamStatements: []policyStatement{
-//   		iam.NewPolicyStatement(&PolicyStatementProps{
-//   			Actions: []*string{
-//   				jsii.String("s3:getObject"),
-//   			},
-//   			Resources: []*string{
-//   				jsii.String("arn:aws:s3:::my-bucket/*"),
-//   			},
-//   		}),
+//   	IamResources: []*string{
+//   		myBucket.ArnForObjects(jsii.String("*")),
 //   	},
 //   })
 //
@@ -55,6 +51,7 @@ type CallAwsService interface {
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
 	StateId() *string
+	StateName() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a parallel branch to this state.
@@ -292,6 +289,16 @@ func (j *jsiiProxy_CallAwsService) StateId() *string {
 	_jsii_.Get(
 		j,
 		"stateId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallAwsService) StateName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateName",
 		&returns,
 	)
 	return returns

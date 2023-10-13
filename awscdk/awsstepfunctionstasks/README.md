@@ -281,6 +281,10 @@ startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("
 			ObjectKey: jsii.String("folder"),
 		},
 	},
+	ExecutionParameters: []*string{
+		jsii.String("param1"),
+		jsii.String("param2"),
+	},
 })
 ```
 

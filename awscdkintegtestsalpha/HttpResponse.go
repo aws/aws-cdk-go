@@ -8,23 +8,24 @@ package awscdkintegtestsalpha
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //
+//   var body interface{}
 //   var headers interface{}
-//   var responseJson interface{}
 //
 //   httpResponse := &HttpResponse{
+//   	Body: body,
 //   	Headers: map[string]interface{}{
 //   		"headersKey": headers,
 //   	},
 //   	Ok: jsii.Boolean(false),
-//   	ResponseJson: map[string]interface{}{
-//   		"responseJsonKey": responseJson,
-//   	},
 //   	Status: jsii.Number(123),
 //   	StatusText: jsii.String("statusText"),
 //   }
 //
 // Experimental.
 type HttpResponse struct {
+	// The response, either as parsed JSON or a string literal.
+	// Experimental.
+	Body interface{} `field:"optional" json:"body" yaml:"body"`
 	// Headers associated with the response.
 	// Experimental.
 	Headers *map[string]interface{} `field:"optional" json:"headers" yaml:"headers"`
@@ -33,9 +34,6 @@ type HttpResponse struct {
 	// status range 200-299.
 	// Experimental.
 	Ok *bool `field:"optional" json:"ok" yaml:"ok"`
-	// The response as JSON.
-	// Experimental.
-	ResponseJson *map[string]interface{} `field:"optional" json:"responseJson" yaml:"responseJson"`
 	// Status code of the response.
 	// Experimental.
 	Status *float64 `field:"optional" json:"status" yaml:"status"`

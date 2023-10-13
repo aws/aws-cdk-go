@@ -18,14 +18,17 @@ import (
 //   	Credentials: rds.Credentials_FromUsername(jsii.String("adminuser"), &CredentialsFromUsernameOptions{
 //   		Password: awscdk.SecretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
 //   	}),
-//   	InstanceProps: &InstanceProps{
-//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_X2G, ec2.InstanceSize_XLARGE),
-//   		VpcSubnets: &SubnetSelection{
-//   			SubnetType: ec2.SubnetType_PUBLIC,
-//   		},
-//   		Vpc: *Vpc,
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   		PubliclyAccessible: jsii.Boolean(false),
+//   	}),
+//   	Readers: []iClusterInstance{
+//   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 //   	},
 //   	StorageType: rds.DBClusterStorageType_AURORA_IOPT1,
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	},
+//   	Vpc: Vpc,
 //   })
 //
 type CredentialsFromUsernameOptions struct {

@@ -22,17 +22,17 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type CanaryProps struct {
 	// Specify the runtime version to use for the canary.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html
 	//
-	// Experimental.
+	// Deprecated.
 	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// The type of test that you want your canary to run.
 	//
 	// Use `Test.custom()` to specify the test to run.
-	// Experimental.
+	// Deprecated.
 	Test Test `field:"required" json:"test" yaml:"test"`
 	// Lifecycle rules for the generated canary artifact bucket.
 	//
@@ -42,12 +42,12 @@ type CanaryProps struct {
 	// itself.
 	// Default: - no rules applied to the generated bucket.
 	//
-	// Experimental.
+	// Deprecated.
 	ArtifactsBucketLifecycleRules *[]*awss3.LifecycleRule `field:"optional" json:"artifactsBucketLifecycleRules" yaml:"artifactsBucketLifecycleRules"`
 	// The s3 location that stores the data of the canary runs.
 	// Default: - A new s3 bucket will be created without a prefix.
 	//
-	// Experimental.
+	// Deprecated.
 	ArtifactsBucketLocation *ArtifactsBucketLocation `field:"optional" json:"artifactsBucketLocation" yaml:"artifactsBucketLocation"`
 	// The name of the canary.
 	//
@@ -60,14 +60,14 @@ type CanaryProps struct {
 	//
 	// Default: - A unique name will be generated from the construct ID.
 	//
-	// Experimental.
+	// Deprecated.
 	CanaryName *string `field:"optional" json:"canaryName" yaml:"canaryName"`
 	// Specify the underlying resources to be cleaned up when the canary is deleted.
 	//
 	// Using `Cleanup.LAMBDA` will create a Custom Resource to achieve this.
 	// Default: Cleanup.NOTHING
 	//
-	// Experimental.
+	// Deprecated.
 	Cleanup Cleanup `field:"optional" json:"cleanup" yaml:"cleanup"`
 	// Whether or not to delete the lambda resources when the canary is deleted.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-deletelambdaresourcesoncanarydeletion
@@ -83,12 +83,12 @@ type CanaryProps struct {
 	// Canary script source code.
 	// Default: - No environment variables.
 	//
-	// Experimental.
+	// Deprecated.
 	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// How many days should failed runs be retained.
 	// Default: Duration.days(31)
 	//
-	// Experimental.
+	// Deprecated.
 	FailureRetentionPeriod awscdk.Duration `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
 	// Canary execution role.
 	//
@@ -103,7 +103,7 @@ type CanaryProps struct {
 	// Default: - A unique role will be generated for this canary.
 	// You can add permissions to roles by calling 'addToRolePolicy'.
 	//
-	// Experimental.
+	// Deprecated.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Specify the schedule for how often the canary runs.
 	//
@@ -111,7 +111,7 @@ type CanaryProps struct {
 	// You can set the schedule with `Schedule.rate(Duration)` (recommended) or you can specify an expression using `Schedule.expression()`.
 	// Default: 'rate(5 minutes)'.
 	//
-	// Experimental.
+	// Deprecated.
 	Schedule Schedule `field:"optional" json:"schedule" yaml:"schedule"`
 	// The list of security groups to associate with the canary's network interfaces.
 	//
@@ -119,17 +119,17 @@ type CanaryProps struct {
 	// Default: - If the canary is placed within a VPC and a security group is
 	// not specified a dedicated security group will be created for this canary.
 	//
-	// Experimental.
+	// Deprecated.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Whether or not the canary should start after creation.
 	// Default: true.
 	//
-	// Experimental.
+	// Deprecated.
 	StartAfterCreation *bool `field:"optional" json:"startAfterCreation" yaml:"startAfterCreation"`
 	// How many days should successful runs be retained.
 	// Default: Duration.days(31)
 	//
-	// Experimental.
+	// Deprecated.
 	SuccessRetentionPeriod awscdk.Duration `field:"optional" json:"successRetentionPeriod" yaml:"successRetentionPeriod"`
 	// How long the canary will be in a 'RUNNING' state.
 	//
@@ -137,21 +137,21 @@ type CanaryProps struct {
 	// your canary will run at 10 minute intervals for an hour, for a total of 6 times.
 	// Default: - no limit.
 	//
-	// Experimental.
+	// Deprecated.
 	TimeToLive awscdk.Duration `field:"optional" json:"timeToLive" yaml:"timeToLive"`
 	// The VPC where this canary is run.
 	//
 	// Specify this if the canary needs to access resources in a VPC.
 	// Default: - Not in VPC.
 	//
-	// Experimental.
+	// Deprecated.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// You must provide `vpc` when using this prop.
 	// Default: - the Vpc default strategy if not specified.
 	//
-	// Experimental.
+	// Deprecated.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

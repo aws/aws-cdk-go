@@ -15,7 +15,7 @@ import (
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+//   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
 //   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
 //   	 // Optional - will default to 'admin' username and generated password

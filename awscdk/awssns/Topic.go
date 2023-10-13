@@ -34,6 +34,8 @@ type Topic interface {
 	//
 	// Set by subclasses.
 	AutoCreatePolicy() *bool
+	// Enables content-based deduplication for FIFO topics.
+	ContentBasedDeduplication() *bool
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -151,6 +153,16 @@ func (j *jsiiProxy_Topic) AutoCreatePolicy() *bool {
 	_jsii_.Get(
 		j,
 		"autoCreatePolicy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Topic) ContentBasedDeduplication() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"contentBasedDeduplication",
 		&returns,
 	)
 	return returns

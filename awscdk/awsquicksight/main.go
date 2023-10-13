@@ -968,6 +968,14 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_ItemsLimitConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.KPIActualValueConditionalFormattingProperty",
+		reflect.TypeOf((*CfnAnalysis_KPIActualValueConditionalFormattingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.KPIComparisonValueConditionalFormattingProperty",
+		reflect.TypeOf((*CfnAnalysis_KPIComparisonValueConditionalFormattingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.KPIConditionalFormattingOptionProperty",
 		reflect.TypeOf((*CfnAnalysis_KPIConditionalFormattingOptionProperty)(nil)).Elem(),
 	)
@@ -1000,8 +1008,20 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_KPISortConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.KPISparklineOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_KPISparklineOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.KPIVisualLayoutOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_KPIVisualLayoutOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.KPIVisualProperty",
 		reflect.TypeOf((*CfnAnalysis_KPIVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.KPIVisualStandardLayoutProperty",
+		reflect.TypeOf((*CfnAnalysis_KPIVisualStandardLayoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.LabelOptionsProperty",
@@ -1698,6 +1718,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TablePaginatedReportOptionsProperty",
 		reflect.TypeOf((*CfnAnalysis_TablePaginatedReportOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TablePinnedFieldOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_TablePinnedFieldOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TableRowConditionalFormattingProperty",
@@ -2922,6 +2946,14 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_ItemsLimitConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.KPIActualValueConditionalFormattingProperty",
+		reflect.TypeOf((*CfnDashboard_KPIActualValueConditionalFormattingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.KPIComparisonValueConditionalFormattingProperty",
+		reflect.TypeOf((*CfnDashboard_KPIComparisonValueConditionalFormattingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.KPIConditionalFormattingOptionProperty",
 		reflect.TypeOf((*CfnDashboard_KPIConditionalFormattingOptionProperty)(nil)).Elem(),
 	)
@@ -2954,8 +2986,20 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_KPISortConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.KPISparklineOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_KPISparklineOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.KPIVisualLayoutOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_KPIVisualLayoutOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.KPIVisualProperty",
 		reflect.TypeOf((*CfnDashboard_KPIVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.KPIVisualStandardLayoutProperty",
+		reflect.TypeOf((*CfnDashboard_KPIVisualStandardLayoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.LabelOptionsProperty",
@@ -3660,6 +3704,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.TablePaginatedReportOptionsProperty",
 		reflect.TypeOf((*CfnDashboard_TablePaginatedReportOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.TablePinnedFieldOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_TablePinnedFieldOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.TableRowConditionalFormattingProperty",
@@ -5319,6 +5367,14 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_ItemsLimitConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.KPIActualValueConditionalFormattingProperty",
+		reflect.TypeOf((*CfnTemplate_KPIActualValueConditionalFormattingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.KPIComparisonValueConditionalFormattingProperty",
+		reflect.TypeOf((*CfnTemplate_KPIComparisonValueConditionalFormattingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.KPIConditionalFormattingOptionProperty",
 		reflect.TypeOf((*CfnTemplate_KPIConditionalFormattingOptionProperty)(nil)).Elem(),
 	)
@@ -5351,8 +5407,20 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_KPISortConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.KPISparklineOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_KPISparklineOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.KPIVisualLayoutOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_KPIVisualLayoutOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.KPIVisualProperty",
 		reflect.TypeOf((*CfnTemplate_KPIVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.KPIVisualStandardLayoutProperty",
+		reflect.TypeOf((*CfnTemplate_KPIVisualStandardLayoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.LabelOptionsProperty",
@@ -6041,6 +6109,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.TablePaginatedReportOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_TablePaginatedReportOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.TablePinnedFieldOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_TablePinnedFieldOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.TableRowConditionalFormattingProperty",

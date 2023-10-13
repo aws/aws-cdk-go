@@ -55,9 +55,7 @@ type CfnDeploymentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The AWS KMS key identifier (key ID, key alias, or key ARN).
-	//
-	// AWS AppConfig uses this ID to encrypt the configuration data using a customer managed key.
+	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-kmskeyidentifier
 	//
 	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`

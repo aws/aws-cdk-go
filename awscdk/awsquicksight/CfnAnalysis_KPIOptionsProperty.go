@@ -84,8 +84,21 @@ package awsquicksight
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
+//   	Sparkline: &KPISparklineOptionsProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		Color: jsii.String("color"),
+//   		TooltipVisibility: jsii.String("tooltipVisibility"),
+//   		Visibility: jsii.String("visibility"),
+//   	},
 //   	TrendArrows: &TrendArrowOptionsProperty{
 //   		Visibility: jsii.String("visibility"),
+//   	},
+//   	VisualLayoutOptions: &KPIVisualLayoutOptionsProperty{
+//   		StandardLayout: &KPIVisualStandardLayoutProperty{
+//   			Type: jsii.String("type"),
+//   		},
 //   	},
 //   }
 //
@@ -116,9 +129,15 @@ type CfnAnalysis_KPIOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpioptions.html#cfn-quicksight-analysis-kpioptions-secondaryvaluefontconfiguration
 	//
 	SecondaryValueFontConfiguration interface{} `field:"optional" json:"secondaryValueFontConfiguration" yaml:"secondaryValueFontConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpioptions.html#cfn-quicksight-analysis-kpioptions-sparkline
+	//
+	Sparkline interface{} `field:"optional" json:"sparkline" yaml:"sparkline"`
 	// The options that determine the presentation of trend arrows in a KPI visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpioptions.html#cfn-quicksight-analysis-kpioptions-trendarrows
 	//
 	TrendArrows interface{} `field:"optional" json:"trendArrows" yaml:"trendArrows"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpioptions.html#cfn-quicksight-analysis-kpioptions-visuallayoutoptions
+	//
+	VisualLayoutOptions interface{} `field:"optional" json:"visualLayoutOptions" yaml:"visualLayoutOptions"`
 }
 

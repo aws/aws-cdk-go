@@ -51,7 +51,7 @@ type CfnPortalProps struct {
 	//
 	// 4. Add an `IdentityProvider` resource to your CloudFormation template.
 	//
-	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center (successor to AWS Single Sign-On) . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
+	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-authenticationtype
 	//
 	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`

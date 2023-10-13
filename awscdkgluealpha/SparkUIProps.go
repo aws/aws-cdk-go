@@ -27,13 +27,13 @@ type SparkUIProps struct {
 	// Experimental.
 	Enabled *bool `field:"required" json:"enabled" yaml:"enabled"`
 	// The bucket where the Glue job stores the logs.
-	// Default: a new bucket will be created.
+	// Default: - a new bucket will be created.
 	//
 	// Experimental.
 	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
 	//
-	// Use format `'/foo/bar'`.
+	// Use format `'foo/bar/'`.
 	// Default: - the logs will be written at the root of the bucket.
 	//
 	// Experimental.

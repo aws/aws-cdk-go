@@ -8,18 +8,16 @@ package awscdkintegtestsalpha
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //
+//   var body interface{}
 //   var headers interface{}
-//   var responseJson interface{}
 //
 //   httpResponseWrapper := &HttpResponseWrapper{
 //   	ApiCallResponse: &HttpResponse{
+//   		Body: body,
 //   		Headers: map[string]interface{}{
 //   			"headersKey": headers,
 //   		},
 //   		Ok: jsii.Boolean(false),
-//   		ResponseJson: map[string]interface{}{
-//   			"responseJsonKey": responseJson,
-//   		},
 //   		Status: jsii.Number(123),
 //   		StatusText: jsii.String("statusText"),
 //   	},

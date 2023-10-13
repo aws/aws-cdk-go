@@ -101,6 +101,10 @@ type SnsPublishProps struct {
 	// Default: - None.
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 	// Timeout for the task.
 	//
 	// [disable-awslint:duration-prop-type] is needed because all props interface in
@@ -130,6 +134,26 @@ type SnsPublishProps struct {
 	// Default: {}.
 	//
 	MessageAttributes *map[string]*MessageAttribute `field:"optional" json:"messageAttributes" yaml:"messageAttributes"`
+	// This parameter applies only to FIFO topics.
+	//
+	// Every message must have a unique MessageDeduplicationId, which is a token used for deduplication of sent messages.
+	// If a message with a particular MessageDeduplicationId is sent successfully, any message sent with the same MessageDeduplicationId
+	// during the 5-minute deduplication interval is treated as a duplicate.
+	//
+	// If the topic has ContentBasedDeduplication set, the system generates a MessageDeduplicationId
+	// based on the contents of the message. Your MessageDeduplicationId overrides the generated one.
+	// Default: - Not used for standard topics, required for FIFO topics with ContentBasedDeduplication disabled.
+	//
+	MessageDeduplicationId *string `field:"optional" json:"messageDeduplicationId" yaml:"messageDeduplicationId"`
+	// This parameter applies only to FIFO topics.
+	//
+	// The MessageGroupId is a tag that specifies that a message belongs to a specific message group.
+	// Messages that belong to the same message group are processed in a FIFO manner
+	// (however, messages in different message groups might be processed out of order).
+	// Every message must include a MessageGroupId.
+	// Default: - Not used for standard topics, required for FIFO topics.
+	//
+	MessageGroupId *string `field:"optional" json:"messageGroupId" yaml:"messageGroupId"`
 	// Send different messages for each transport protocol.
 	//
 	// For example, you might want to send a shorter message to SMS subscribers

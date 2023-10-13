@@ -70,11 +70,11 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type AssetCode interface {
 	Code
 	// Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
+	// Deprecated.
 	Bind(scope constructs.Construct, handler *string, family RuntimeFamily) *CodeConfig
 }
 
@@ -83,7 +83,7 @@ type jsiiProxy_AssetCode struct {
 	jsiiProxy_Code
 }
 
-// Experimental.
+// Deprecated.
 func NewAssetCode(assetPath *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -101,7 +101,7 @@ func NewAssetCode(assetPath *string, options *awss3assets.AssetOptions) AssetCod
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewAssetCode_Override(a AssetCode, assetPath *string, options *awss3assets.AssetOptions) {
 	_init_.Initialize()
 
@@ -119,7 +119,7 @@ func NewAssetCode_Override(a AssetCode, assetPath *string, options *awss3assets.
 // Returns: `AssetCode` associated with the specified path.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-// Experimental.
+// Deprecated.
 func AssetCode_FromAsset(assetPath *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -146,7 +146,7 @@ func AssetCode_FromAsset(assetPath *string, options *awss3assets.AssetOptions) A
 // Returns: `S3Code` associated with the specified S3 object.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-// Experimental.
+// Deprecated.
 func AssetCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -168,7 +168,7 @@ func AssetCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *stri
 // Specify code inline.
 //
 // Returns: `InlineCode` with inline code.
-// Experimental.
+// Deprecated.
 func AssetCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 

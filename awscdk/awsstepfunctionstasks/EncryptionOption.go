@@ -18,6 +18,10 @@ package awsstepfunctionstasks
 //   			ObjectKey: jsii.String("folder"),
 //   		},
 //   	},
+//   	ExecutionParameters: []*string{
+//   		jsii.String("param1"),
+//   		jsii.String("param2"),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_EncryptionConfiguration.html#athena-Type-EncryptionConfiguration-EncryptionOption

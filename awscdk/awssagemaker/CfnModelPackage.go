@@ -465,6 +465,7 @@ type CfnModelPackage interface {
 	// The Amazon Simple Storage Service path where the sample payload are stored.
 	SamplePayloadUrl() *string
 	SetSamplePayloadUrl(val *string)
+	// Indicates if you want to skip model validation.
 	SkipModelValidation() *string
 	SetSkipModelValidation(val *string)
 	// A list of algorithms that were used to create a model package.

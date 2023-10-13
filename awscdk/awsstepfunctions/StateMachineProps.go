@@ -39,7 +39,7 @@ type StateMachineProps struct {
 	Definition IChainable `field:"optional" json:"definition" yaml:"definition"`
 	// Definition for this state machine.
 	DefinitionBody DefinitionBody `field:"optional" json:"definitionBody" yaml:"definitionBody"`
-	// substitutions for the definition body aas a key-value map.
+	// substitutions for the definition body as a key-value map.
 	DefinitionSubstitutions *map[string]*string `field:"optional" json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
 	// Defines what execution history events are logged and where they are logged.
 	// Default: No logging.

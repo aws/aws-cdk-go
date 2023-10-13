@@ -43,9 +43,9 @@ type CfnIPAM interface {
 	awscdk.ITaggable
 	// The ARN of the IPAM.
 	AttrArn() *string
-	// The Id of the default association to the default resource discovery, created with this IPAM.
+	// The ID of the default resource discovery association.
 	AttrDefaultResourceDiscoveryAssociationId() *string
-	// The Id of the default resource discovery, created with this IPAM.
+	// The ID of the default resource discovery.
 	AttrDefaultResourceDiscoveryId() *string
 	// The ID of the IPAM.
 	AttrIpamId() *string

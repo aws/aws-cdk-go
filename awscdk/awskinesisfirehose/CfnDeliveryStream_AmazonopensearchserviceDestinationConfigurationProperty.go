@@ -115,6 +115,9 @@ type CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty s
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-clusterendpoint
 	//
 	ClusterEndpoint *string `field:"optional" json:"clusterEndpoint" yaml:"clusterEndpoint"`
+	// Indicates the method for setting up document ID.
+	//
+	// The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-documentidoptions
 	//
 	DocumentIdOptions interface{} `field:"optional" json:"documentIdOptions" yaml:"documentIdOptions"`

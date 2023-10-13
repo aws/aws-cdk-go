@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Describes a Verified Access group.
+// An AWS Verified Access group is a collection of AWS Verified Access endpoints who's associated applications have similar security requirements.
+//
+// Each instance within a Verified Access group shares an Verified Access policy. For example, you can group all Verified Access instances associated with "sales" applications together and use one common Verified Access policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

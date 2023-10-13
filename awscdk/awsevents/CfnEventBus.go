@@ -18,11 +18,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policy interface{}
+//
 //   cfnEventBus := awscdk.Aws_events.NewCfnEventBus(this, jsii.String("MyCfnEventBus"), &CfnEventBusProps{
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	EventSourceName: jsii.String("eventSourceName"),
+//   	Policy: policy,
 //   	Tags: []tagEntryProperty{
 //   		&tagEntryProperty{
 //   			Key: jsii.String("key"),
@@ -70,6 +73,8 @@ type CfnEventBus interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	Policy() interface{}
+	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -348,6 +353,16 @@ func (j *jsiiProxy_CfnEventBus) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventBus) Policy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"policy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventBus) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -441,6 +456,14 @@ func (j *jsiiProxy_CfnEventBus)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventBus)SetPolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"policy",
 		val,
 	)
 }

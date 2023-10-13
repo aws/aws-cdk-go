@@ -18,6 +18,7 @@ package awsstepfunctions
 //   	ResultSelector: map[string]interface{}{
 //   		"resultSelectorKey": resultSelector,
 //   	},
+//   	StateName: jsii.String("stateName"),
 //   }
 //
 type ParallelProps struct {
@@ -55,5 +56,9 @@ type ParallelProps struct {
 	// Default: - None.
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 }
 

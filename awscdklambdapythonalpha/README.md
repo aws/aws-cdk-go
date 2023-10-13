@@ -112,7 +112,7 @@ Packaging is executed using the `Packaging` class, which:
 
 **Excluding source files**
 
-You can exclude files from being copied using the optional bundling string array parameter `assetExcludes`
+You can exclude files from being copied using the optional bundling string array parameter `assetExcludes`:
 
 ```go
 python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
@@ -123,6 +123,34 @@ python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
 		AssetExcludes: []*string{
 			jsii.String(".venv"),
 		},
+	},
+})
+```
+
+**Including hashes**
+
+You can include hashes in `poetry` using the optional boolean parameter `poetryIncludeHashes`:
+
+```go
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String("/path/to/poetry-function"),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		PoetryIncludeHashes: jsii.Boolean(true),
+	},
+})
+```
+
+**Excluding URLs**
+
+You can exclude URLs in `poetry` using the optional boolean parameter `poetryWithoutUrls`:
+
+```go
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String("/path/to/poetry-function"),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		PoetryWithoutUrls: jsii.Boolean(true),
 	},
 })
 ```

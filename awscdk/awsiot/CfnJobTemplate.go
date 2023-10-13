@@ -27,6 +27,9 @@ import (
 //
 //   	// the properties below are optional
 //   	AbortConfig: abortConfig,
+//   	DestinationPackageVersions: []*string{
+//   		jsii.String("destinationPackageVersions"),
+//   	},
 //   	Document: jsii.String("document"),
 //   	DocumentSource: jsii.String("documentSource"),
 //   	JobArn: jsii.String("jobArn"),
@@ -78,6 +81,8 @@ type CfnJobTemplate interface {
 	// A description of the job template.
 	Description() *string
 	SetDescription(val *string)
+	DestinationPackageVersions() *[]*string
+	SetDestinationPackageVersions(val *[]*string)
 	// The job document.
 	Document() *string
 	SetDocument(val *string)
@@ -348,6 +353,16 @@ func (j *jsiiProxy_CfnJobTemplate) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobTemplate) DestinationPackageVersions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"destinationPackageVersions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobTemplate) Document() *string {
 	var returns *string
 	_jsii_.Get(
@@ -561,6 +576,14 @@ func (j *jsiiProxy_CfnJobTemplate)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobTemplate)SetDestinationPackageVersions(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"destinationPackageVersions",
 		val,
 	)
 }

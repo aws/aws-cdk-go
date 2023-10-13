@@ -37,5 +37,9 @@ type WaitProps struct {
 	// Default: No comment.
 	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 }
 

@@ -20,6 +20,7 @@ import (
 //   			RoleArn: jsii.String("roleArn"),
 //   		},
 //   	},
+//   	AutomaticBackupReplicationRegion: jsii.String("automaticBackupReplicationRegion"),
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	BackupRetentionPeriod: jsii.Number(123),
@@ -199,6 +200,10 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-associatedroles
 	//
 	AssociatedRoles interface{} `field:"optional" json:"associatedRoles" yaml:"associatedRoles"`
+	// Enables replication of automated backups to a different Amazon Web Services Region.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationregion
+	//
+	AutomaticBackupReplicationRegion *string `field:"optional" json:"automaticBackupReplicationRegion" yaml:"automaticBackupReplicationRegion"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	//
 	// By default, minor engine upgrades are applied automatically.
@@ -988,12 +993,11 @@ type CfnDBInstanceProps struct {
 	ReplicaMode *string `field:"optional" json:"replicaMode" yaml:"replicaMode"`
 	// The date and time to restore from.
 	//
-	// Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
-	//
 	// Constraints:
 	//
-	// - Must be before the latest restorable time for the DB instance
-	// - Can't be specified if the `UseLatestRestorableTime` parameter is enabled
+	// - Must be a time in Universal Coordinated Time (UTC) format.
+	// - Must be before the latest restorable time for the DB instance.
+	// - Can't be specified if the `UseLatestRestorableTime` parameter is enabled.
 	//
 	// Example: `2009-09-07T23:45:00Z`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-restoretime
@@ -1012,7 +1016,7 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbclusteridentifier
 	//
 	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, `arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE` .
+	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, `arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE` .
 	//
 	// This setting doesn't apply to RDS Custom.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbinstanceautomatedbackupsarn
@@ -1109,11 +1113,13 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-usedefaultprocessorfeatures
 	//
 	UseDefaultProcessorFeatures interface{} `field:"optional" json:"useDefaultProcessorFeatures" yaml:"useDefaultProcessorFeatures"`
-	// A value that indicates whether the DB instance is restored from the latest backup time.
+	// Specifies whether the DB instance is restored from the latest backup time.
 	//
 	// By default, the DB instance isn't restored from the latest backup time.
 	//
-	// Constraints: Can't be specified if the `RestoreTime` parameter is provided.
+	// Constraints:
+	//
+	// - Can't be specified if the `RestoreTime` parameter is provided.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-uselatestrestorabletime
 	//
 	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`

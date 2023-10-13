@@ -81,7 +81,7 @@ type CfnDeployment interface {
 	// The environment ID.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
-	// The AWS KMS key identifier (key ID, key alias, or key ARN).
+	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.

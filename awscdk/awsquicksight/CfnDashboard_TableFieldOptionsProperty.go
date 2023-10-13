@@ -12,6 +12,11 @@ package awsquicksight
 //   	Order: []*string{
 //   		jsii.String("order"),
 //   	},
+//   	PinnedFieldOptions: &TablePinnedFieldOptionsProperty{
+//   		PinnedLeftFields: []*string{
+//   			jsii.String("pinnedLeftFields"),
+//   		},
+//   	},
 //   	SelectedFieldOptions: []interface{}{
 //   		&TableFieldOptionProperty{
 //   			FieldId: jsii.String("fieldId"),
@@ -62,6 +67,9 @@ type CfnDashboard_TableFieldOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tablefieldoptions.html#cfn-quicksight-dashboard-tablefieldoptions-order
 	//
 	Order *[]*string `field:"optional" json:"order" yaml:"order"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tablefieldoptions.html#cfn-quicksight-dashboard-tablefieldoptions-pinnedfieldoptions
+	//
+	PinnedFieldOptions interface{} `field:"optional" json:"pinnedFieldOptions" yaml:"pinnedFieldOptions"`
 	// The field options to be configured to a table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tablefieldoptions.html#cfn-quicksight-dashboard-tablefieldoptions-selectedfieldoptions
 	//
