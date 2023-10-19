@@ -71,7 +71,7 @@ type CfnUserProps struct {
 	//
 	// A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
 	//
-	// > The `HomeDirectory` parameter is only used if `HomeDirectoryType` is set to `LOGICAL` .
+	// > The `HomeDirectory` parameter is only used if `HomeDirectoryType` is set to `PATH` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-homedirectory
 	//
 	HomeDirectory *string `field:"optional" json:"homeDirectory" yaml:"homeDirectory"`

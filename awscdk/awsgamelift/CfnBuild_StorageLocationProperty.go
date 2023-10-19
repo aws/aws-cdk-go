@@ -1,6 +1,8 @@
 package awsgamelift
 
 
+// The location in Amazon S3 where build or script files are stored for access by Amazon GameLift.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,9 +20,9 @@ package awsgamelift
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html
 //
 type CfnBuild_StorageLocationProperty struct {
-	// An Amazon S3 bucket identifier.
+	// An Amazon S3 bucket identifier. Thename of the S3 bucket.
 	//
-	// This is the name of the S3 bucket.
+	// > Amazon GameLift doesn't support uploading from Amazon S3 buckets with names that contain a dot (.).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storagelocation-bucket
 	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
@@ -28,7 +30,7 @@ type CfnBuild_StorageLocationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storagelocation-key
 	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storagelocation-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`

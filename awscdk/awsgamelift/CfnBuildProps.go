@@ -40,7 +40,9 @@ type CfnBuildProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-operatingsystem
 	//
 	OperatingSystem *string `field:"optional" json:"operatingSystem" yaml:"operatingSystem"`
-	// The Amazon GameLift Server SDK version used to develop your game server.
+	// A server SDK version you used when integrating your game server build with Amazon GameLift.
+	//
+	// For more information see [Integrate games with custom game servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html) . By default Amazon GameLift sets this value to `4.0.2` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-serversdkversion
 	//
 	ServerSdkVersion *string `field:"optional" json:"serverSdkVersion" yaml:"serverSdkVersion"`

@@ -62,8 +62,6 @@ type CfnPortfolioPrincipalAssociation interface {
 	PrincipalArn() *string
 	SetPrincipalArn(val *string)
 	// The principal type.
-	//
-	// The supported value is `IAM` .
 	PrincipalType() *string
 	SetPrincipalType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

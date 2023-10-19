@@ -15,6 +15,7 @@ package awslambda
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   vpcConfigProperty := &VpcConfigProperty{
+//   	Ipv6AllowedForDualStack: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -26,6 +27,10 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
 //
 type CfnFunction_VpcConfigProperty struct {
+	// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-ipv6allowedfordualstack
+	//
+	Ipv6AllowedForDualStack interface{} `field:"optional" json:"ipv6AllowedForDualStack" yaml:"ipv6AllowedForDualStack"`
 	// A list of VPC security group IDs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-securitygroupids
 	//

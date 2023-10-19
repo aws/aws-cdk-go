@@ -54,7 +54,7 @@ type CfnEventSubscription interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A value that indicates whether to activate the subscription.
+	// Specifies whether to activate the subscription.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// A list of event categories for a particular source type ( `SourceType` ) that you want to subscribe to.

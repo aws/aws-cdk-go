@@ -84,7 +84,7 @@ type CfnDBProxy interface {
 	// The identifier for the proxy.
 	DbProxyName() *string
 	SetDbProxyName(val *string)
-	// Whether the proxy includes detailed information about SQL statements in its logs.
+	// Specifies whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging() interface{}
 	SetDebugLogging(val interface{})
 	// The kinds of databases that the proxy can connect to.
@@ -110,7 +110,7 @@ type CfnDBProxy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+	// Specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	RequireTls() interface{}
 	SetRequireTls(val interface{})
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.

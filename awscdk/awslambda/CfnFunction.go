@@ -100,6 +100,7 @@ import (
 //   		Mode: jsii.String("mode"),
 //   	},
 //   	VpcConfig: &VpcConfigProperty{
+//   		Ipv6AllowedForDualStack: jsii.Boolean(false),
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},

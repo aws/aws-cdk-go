@@ -40,6 +40,7 @@ type CfnSite interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	AttrCreatedAt() *string
 	// The ARN of the site.
 	//
 	// For example, `arn:aws:networkmanager::123456789012:site/global-network-01231231231231231/site-444555aaabbb11223` .
@@ -48,6 +49,7 @@ type CfnSite interface {
 	//
 	// For example, `site-444555aaabbb11223` .
 	AttrSiteId() *string
+	AttrState() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -239,6 +241,16 @@ type jsiiProxy_CfnSite struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnSite) AttrCreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSite) AttrSiteArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -254,6 +266,16 @@ func (j *jsiiProxy_CfnSite) AttrSiteId() *string {
 	_jsii_.Get(
 		j,
 		"attrSiteId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSite) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
 		&returns,
 	)
 	return returns

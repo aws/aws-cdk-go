@@ -149,9 +149,6 @@ import (
 //   				DbUser: jsii.String("dbUser"),
 //   				SecretManagerArn: jsii.String("secretManagerArn"),
 //   				Sql: jsii.String("sql"),
-//   				Sqls: []*string{
-//   					jsii.String("sqls"),
-//   				},
 //   				StatementName: jsii.String("statementName"),
 //   				WithEvent: jsii.Boolean(false),
 //   			},

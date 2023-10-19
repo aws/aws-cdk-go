@@ -587,6 +587,10 @@ func init() {
 		reflect.TypeOf((*CfnRule_SqsParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.CfnRule.TagProperty",
+		reflect.TypeOf((*CfnRule_TagProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.CfnRule.TargetProperty",
 		reflect.TypeOf((*CfnRule_TargetProperty)(nil)).Elem(),
 	)

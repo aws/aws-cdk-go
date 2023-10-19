@@ -96,6 +96,7 @@ type CfnMonitor interface {
 	CreationStack() *[]*string
 	HealthEventsConfig() interface{}
 	SetHealthEventsConfig(val interface{})
+	// Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket.
 	InternetMeasurementsLogDelivery() interface{}
 	SetInternetMeasurementsLogDelivery(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -142,6 +143,7 @@ type CfnMonitor interface {
 	// The tags for a monitor, listed as a set of *key:value* pairs.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The percentage of the internet-facing traffic for your application that you want to monitor.
 	TrafficPercentageToMonitor() *float64
 	SetTrafficPercentageToMonitor(val *float64)
 	// Deprecated.

@@ -71,7 +71,7 @@ type jsiiProxy_AlbTarget struct {
 	jsiiProxy_AlbArnTarget
 }
 
-func NewAlbTarget(alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *float64) AlbTarget {
+func NewAlbTarget(alb awselasticloadbalancingv2.IApplicationLoadBalancer, port *float64) AlbTarget {
 	_init_.Initialize()
 
 	if err := validateNewAlbTargetParameters(alb, port); err != nil {
@@ -88,7 +88,7 @@ func NewAlbTarget(alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *f
 	return &j
 }
 
-func NewAlbTarget_Override(a AlbTarget, alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *float64) {
+func NewAlbTarget_Override(a AlbTarget, alb awselasticloadbalancingv2.IApplicationLoadBalancer, port *float64) {
 	_init_.Initialize()
 
 	_jsii_.Create(

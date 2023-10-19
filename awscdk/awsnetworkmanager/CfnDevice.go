@@ -59,6 +59,7 @@ type CfnDevice interface {
 	//
 	// For example, `device-07f6fd08867abc123` .
 	AttrDeviceId() *string
+	AttrState() *string
 	// The Amazon Web Services location of the device, if applicable.
 	AwsLocation() interface{}
 	SetAwsLocation(val interface{})
@@ -293,6 +294,16 @@ func (j *jsiiProxy_CfnDevice) AttrDeviceId() *string {
 	_jsii_.Get(
 		j,
 		"attrDeviceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDevice) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
 		&returns,
 	)
 	return returns

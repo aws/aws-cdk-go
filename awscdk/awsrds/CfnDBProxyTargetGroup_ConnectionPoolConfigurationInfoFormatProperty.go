@@ -23,11 +23,13 @@ package awsrds
 type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct {
 	// The number of seconds for a proxy to wait for a connection to become available in the connection pool.
 	//
-	// Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+	// This setting only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions. For an unlimited wait time, specify `0` .
 	//
-	// Default: 120
+	// Default: `120`
 	//
-	// Constraints: between 1 and 3600, or 0 representing unlimited.
+	// Constraints:
+	//
+	// - Must be between 0 and 3600.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
 	//
 	ConnectionBorrowTimeout *float64 `field:"optional" json:"connectionBorrowTimeout" yaml:"connectionBorrowTimeout"`
@@ -45,21 +47,25 @@ type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct 
 	//
 	// If you specify `MaxIdleConnectionsPercent` , then you must also include a value for this parameter.
 	//
-	// Default: 10 for RDS for Microsoft SQL Server, and 100 for all other engines
+	// Default: `10` for RDS for Microsoft SQL Server, and `100` for all other engines
 	//
-	// Constraints: Must be between 1 and 100.
+	// Constraints:
+	//
+	// - Must be between 1 and 100.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
 	//
 	MaxConnectionsPercent *float64 `field:"optional" json:"maxConnectionsPercent" yaml:"maxConnectionsPercent"`
-	// Controls how actively the proxy closes idle database connections in the connection pool.
+	// A value that controls how actively the proxy closes idle database connections in the connection pool.
 	//
 	// The value is expressed as a percentage of the `max_connections` setting for the RDS DB instance or Aurora DB cluster used by the target group. With a high value, the proxy leaves a high percentage of idle database connections open. A low value causes the proxy to close more idle connections and return them to the database.
 	//
 	// If you specify this parameter, then you must also include a value for `MaxConnectionsPercent` .
 	//
-	// Default: The default value is half of the value of `MaxConnectionsPercent` . For example, if `MaxConnectionsPercent` is 80, then the default value of `MaxIdleConnectionsPercent` is 40. If the value of `MaxConnectionsPercent` isn't specified, then for SQL Server, `MaxIdleConnectionsPercent` is 5, and for all other engines, the default is 50.
+	// Default: The default value is half of the value of `MaxConnectionsPercent` . For example, if `MaxConnectionsPercent` is 80, then the default value of `MaxIdleConnectionsPercent` is 40. If the value of `MaxConnectionsPercent` isn't specified, then for SQL Server, `MaxIdleConnectionsPercent` is `5` , and for all other engines, the default is `50` .
 	//
-	// Constraints: Must be between 0 and the value of `MaxConnectionsPercent` .
+	// Constraints:
+	//
+	// - Must be between 0 and the value of `MaxConnectionsPercent` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
 	//
 	MaxIdleConnectionsPercent *float64 `field:"optional" json:"maxIdleConnectionsPercent" yaml:"maxIdleConnectionsPercent"`

@@ -28,9 +28,9 @@ type CfnPortfolioPrincipalAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioprincipalassociation.html#cfn-servicecatalog-portfolioprincipalassociation-principalarn
 	//
 	PrincipalArn *string `field:"required" json:"principalArn" yaml:"principalArn"`
-	// The principal type. The supported value is `IAM` .
+	// The principal type.
 	//
-	// *Allowed Values* : `IAM`.
+	// The supported values are `IAM` and `IAM_PATTERN` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioprincipalassociation.html#cfn-servicecatalog-portfolioprincipalassociation-principaltype
 	//
 	PrincipalType *string `field:"required" json:"principalType" yaml:"principalType"`

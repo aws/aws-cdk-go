@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -274,6 +275,210 @@ func Schedule_IsResource(construct constructs.IConstruct) *bool {
 		"@aws-cdk/aws-scheduler-alpha.Schedule",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return the given named metric for all schedules.
+// Default: - sum over 5 minutes.
+//
+// Experimental.
+func Schedule_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	_init_.Initialize()
+
+	if err := validateSchedule_MetricAllParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.Schedule",
+		"metricAll",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for all invocation attempts across all schedules.
+// Default: - sum over 5 minutes.
+//
+// Experimental.
+func Schedule_MetricAllAttempts(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	_init_.Initialize()
+
+	if err := validateSchedule_MetricAllAttemptsParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.Schedule",
+		"metricAllAttempts",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for dropped invocations when EventBridge Scheduler stops attempting to invoke the target after a schedule's retry policy has been exhausted.
+//
+// Metric is calculated for all schedules.
+// Default: - sum over 5 minutes.
+//
+// Experimental.
+func Schedule_MetricAllDropped(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	_init_.Initialize()
+
+	if err := validateSchedule_MetricAllDroppedParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.Schedule",
+		"metricAllDropped",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Emitted when the target returns an exception after EventBridge Scheduler calls the target API across all schedules.
+// Default: - sum over 5 minutes.
+//
+// Experimental.
+func Schedule_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	_init_.Initialize()
+
+	if err := validateSchedule_MetricAllErrorsParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.Schedule",
+		"metricAllErrors",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for failed invocations that also failed to deliver to DLQ across all schedules.
+// Default: - sum over 5 minutes.
+//
+// Experimental.
+func Schedule_MetricAllFailedToBeSentToDLQ(errorCode *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	_init_.Initialize()
+
+	if err := validateSchedule_MetricAllFailedToBeSentToDLQParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.Schedule",
+		"metricAllFailedToBeSentToDLQ",
+		[]interface{}{errorCode, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for invocations delivered to the DLQ across all schedules.
+// Default: - sum over 5 minutes.
+//
+// Experimental.
+func Schedule_MetricAllSentToDLQ(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	_init_.Initialize()
+
+	if err := validateSchedule_MetricAllSentToDLQParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.Schedule",
+		"metricAllSentToDLQ",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for delivery of failed invocations to DLQ when the payload of the event sent to the DLQ exceeds the maximum size allowed by Amazon SQS.
+//
+// Metric is calculated for all schedules.
+// Default: - sum over 5 minutes.
+//
+// Experimental.
+func Schedule_MetricAllSentToDLQTrunacted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	_init_.Initialize()
+
+	if err := validateSchedule_MetricAllSentToDLQTrunactedParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.Schedule",
+		"metricAllSentToDLQTrunacted",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for invocation failures due to API throttling by the target across all schedules.
+// Default: - sum over 5 minutes.
+//
+// Experimental.
+func Schedule_MetricAllTargetThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	_init_.Initialize()
+
+	if err := validateSchedule_MetricAllTargetThrottledParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.Schedule",
+		"metricAllTargetThrottled",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of invocations that were throttled across all schedules.
+// See: https://docs.aws.amazon.com/scheduler/latest/UserGuide/scheduler-quotas.html
+//
+// Default: - sum over 5 minutes.
+//
+// Experimental.
+func Schedule_MetricAllThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	_init_.Initialize()
+
+	if err := validateSchedule_MetricAllThrottledParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-scheduler-alpha.Schedule",
+		"metricAllThrottled",
+		[]interface{}{props},
 		&returns,
 	)
 

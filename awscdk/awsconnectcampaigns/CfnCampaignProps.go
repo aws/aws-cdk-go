@@ -14,22 +14,31 @@ import (
 //   cfnCampaignProps := &CfnCampaignProps{
 //   	ConnectInstanceArn: jsii.String("connectInstanceArn"),
 //   	DialerConfig: &DialerConfigProperty{
+//   		AgentlessDialerConfig: &AgentlessDialerConfigProperty{
+//   			DialingCapacity: jsii.Number(123),
+//   		},
 //   		PredictiveDialerConfig: &PredictiveDialerConfigProperty{
 //   			BandwidthAllocation: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			DialingCapacity: jsii.Number(123),
 //   		},
 //   		ProgressiveDialerConfig: &ProgressiveDialerConfigProperty{
 //   			BandwidthAllocation: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			DialingCapacity: jsii.Number(123),
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
 //   	OutboundCallConfig: &OutboundCallConfigProperty{
 //   		ConnectContactFlowArn: jsii.String("connectContactFlowArn"),
-//   		ConnectQueueArn: jsii.String("connectQueueArn"),
 //
 //   		// the properties below are optional
 //   		AnswerMachineDetectionConfig: &AnswerMachineDetectionConfigProperty{
 //   			EnableAnswerMachineDetection: jsii.Boolean(false),
 //   		},
+//   		ConnectQueueArn: jsii.String("connectQueueArn"),
 //   		ConnectSourcePhoneNumber: jsii.String("connectSourcePhoneNumber"),
 //   	},
 //

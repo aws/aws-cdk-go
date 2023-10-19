@@ -44,7 +44,6 @@ type CfnEventBus interface {
 	AttrId() *string
 	// The name of the event bus, such as `PartnerName/acct1/repo1` .
 	AttrName() *string
-	// The policy for the event bus in JSON form.
 	AttrPolicy() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

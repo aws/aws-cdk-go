@@ -18,8 +18,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
-//
 //   cfnDomainName := awscdk.Aws_apigatewayv2.NewCfnDomainName(this, jsii.String("MyCfnDomainName"), &CfnDomainNameProps{
 //   	DomainName: jsii.String("domainName"),
 //
@@ -37,7 +35,9 @@ import (
 //   		TruststoreUri: jsii.String("truststoreUri"),
 //   		TruststoreVersion: jsii.String("truststoreVersion"),
 //   	},
-//   	Tags: tags,
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html
@@ -94,8 +94,8 @@ type CfnDomainName interface {
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// The collection of tags associated with a domain name.
-	TagsRaw() interface{}
-	SetTagsRaw(val interface{})
+	TagsRaw() *map[string]*string
+	SetTagsRaw(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -383,8 +383,8 @@ func (j *jsiiProxy_CfnDomainName) Tags() awscdk.TagManager {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainName) TagsRaw() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnDomainName) TagsRaw() *map[string]*string {
+	var returns *map[string]*string
 	_jsii_.Get(
 		j,
 		"tagsRaw",
@@ -474,7 +474,7 @@ func (j *jsiiProxy_CfnDomainName)SetMutualTlsAuthentication(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDomainName)SetTagsRaw(val interface{}) {
+func (j *jsiiProxy_CfnDomainName)SetTagsRaw(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",

@@ -202,13 +202,9 @@ type CfnStackSetProps struct {
 	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`
 	// Location of file containing the template body.
 	//
-	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket.
+	// The URL must point to a template that's located in an Amazon S3 bucket or a Systems Manager document. For more information, go to [Template Anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
 	//
-	// You must include either `TemplateURL` or `TemplateBody` in a StackSet, but you can't use both.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `1024`.
+	// Conditional: You must specify only one of the following parameters: `TemplateBody` , `TemplateURL` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
 	//
 	TemplateUrl *string `field:"optional" json:"templateUrl" yaml:"templateUrl"`

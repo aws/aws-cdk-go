@@ -26,7 +26,7 @@ package awsrds
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html
 //
 type CfnDBCluster_ScalingConfigurationProperty struct {
-	// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in `serverless` DB engine mode.
+	// Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in `serverless` DB engine mode.
 	//
 	// A DB cluster can be paused only when it's idle (it has no connections).
 	//

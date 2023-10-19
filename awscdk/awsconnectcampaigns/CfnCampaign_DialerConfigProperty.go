@@ -9,17 +9,29 @@ package awsconnectcampaigns
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dialerConfigProperty := &DialerConfigProperty{
+//   	AgentlessDialerConfig: &AgentlessDialerConfigProperty{
+//   		DialingCapacity: jsii.Number(123),
+//   	},
 //   	PredictiveDialerConfig: &PredictiveDialerConfigProperty{
 //   		BandwidthAllocation: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		DialingCapacity: jsii.Number(123),
 //   	},
 //   	ProgressiveDialerConfig: &ProgressiveDialerConfigProperty{
 //   		BandwidthAllocation: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		DialingCapacity: jsii.Number(123),
 //   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html
 //
 type CfnCampaign_DialerConfigProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-agentlessdialerconfig
+	//
+	AgentlessDialerConfig interface{} `field:"optional" json:"agentlessDialerConfig" yaml:"agentlessDialerConfig"`
 	// The configuration of the predictive dialer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-predictivedialerconfig
 	//

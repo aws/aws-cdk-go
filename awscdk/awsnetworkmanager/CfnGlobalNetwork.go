@@ -17,7 +17,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnGlobalNetwork := awscdk.Aws_networkmanager.NewCfnGlobalNetwork(this, jsii.String("MyCfnGlobalNetwork"), &CfnGlobalNetworkProps{
+//   	CreatedAt: jsii.String("createdAt"),
 //   	Description: jsii.String("description"),
+//   	State: jsii.String("state"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -45,6 +47,8 @@ type CfnGlobalNetwork interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	CreatedAt() *string
+	SetCreatedAt(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -73,6 +77,8 @@ type CfnGlobalNetwork interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	State() *string
+	SetState(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// The tags for the global network.
@@ -275,6 +281,16 @@ func (j *jsiiProxy_CfnGlobalNetwork) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalNetwork) CreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"createdAt",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalNetwork) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -330,6 +346,16 @@ func (j *jsiiProxy_CfnGlobalNetwork) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGlobalNetwork) State() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"state",
 		&returns,
 	)
 	return returns
@@ -403,10 +429,26 @@ func NewCfnGlobalNetwork_Override(c CfnGlobalNetwork, scope constructs.Construct
 	)
 }
 
+func (j *jsiiProxy_CfnGlobalNetwork)SetCreatedAt(val *string) {
+	_jsii_.Set(
+		j,
+		"createdAt",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnGlobalNetwork)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalNetwork)SetState(val *string) {
+	_jsii_.Set(
+		j,
+		"state",
 		val,
 	)
 }

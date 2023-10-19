@@ -28,6 +28,42 @@ func validateSchedule_IsResourceParameters(construct constructs.IConstruct) erro
 	return nil
 }
 
+func validateSchedule_MetricAllParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func validateSchedule_MetricAllAttemptsParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func validateSchedule_MetricAllDroppedParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func validateSchedule_MetricAllErrorsParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func validateSchedule_MetricAllFailedToBeSentToDLQParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func validateSchedule_MetricAllSentToDLQParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func validateSchedule_MetricAllSentToDLQTrunactedParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func validateSchedule_MetricAllTargetThrottledParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func validateSchedule_MetricAllThrottledParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func validateNewScheduleParameters(scope constructs.Construct, id *string, props *ScheduleProps) error {
 	return nil
 }

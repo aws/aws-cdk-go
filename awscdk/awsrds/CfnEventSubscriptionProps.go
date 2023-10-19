@@ -41,7 +41,7 @@ type CfnEventSubscriptionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-snstopicarn
 	//
 	SnsTopicArn *string `field:"required" json:"snsTopicArn" yaml:"snsTopicArn"`
-	// A value that indicates whether to activate the subscription.
+	// Specifies whether to activate the subscription.
 	//
 	// If the event notification subscription isn't activated, the subscription is created but not active.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-enabled

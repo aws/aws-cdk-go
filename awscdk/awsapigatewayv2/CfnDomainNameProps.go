@@ -8,8 +8,6 @@ package awsapigatewayv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
-//
 //   cfnDomainNameProps := &CfnDomainNameProps{
 //   	DomainName: jsii.String("domainName"),
 //
@@ -27,7 +25,9 @@ package awsapigatewayv2
 //   		TruststoreUri: jsii.String("truststoreUri"),
 //   		TruststoreVersion: jsii.String("truststoreVersion"),
 //   	},
-//   	Tags: tags,
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html
@@ -50,6 +50,6 @@ type CfnDomainNameProps struct {
 	// The collection of tags associated with a domain name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
 	//
-	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

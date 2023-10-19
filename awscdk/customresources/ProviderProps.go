@@ -84,7 +84,7 @@ type ProviderProps struct {
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Total timeout for the entire operation.
 	//
-	// The maximum timeout is 2 hours (yes, it can exceed the AWS Lambda 15 minutes).
+	// The maximum timeout is 1 hour (yes, it can exceed the AWS Lambda 15 minutes).
 	// Default: Duration.minutes(30)
 	//
 	TotalTimeout awscdk.Duration `field:"optional" json:"totalTimeout" yaml:"totalTimeout"`
