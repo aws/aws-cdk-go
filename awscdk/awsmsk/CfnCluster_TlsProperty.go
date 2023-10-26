@@ -18,7 +18,7 @@ package awsmsk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html
 //
 type CfnCluster_TlsProperty struct {
-	// List of AWS Private CA ARNs.
+	// List of AWS Private CA Amazon Resource Name (ARN)s.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html#cfn-msk-cluster-tls-certificateauthorityarnlist
 	//
 	CertificateAuthorityArnList *[]*string `field:"optional" json:"certificateAuthorityArnList" yaml:"certificateAuthorityArnList"`

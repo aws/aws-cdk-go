@@ -23,6 +23,7 @@ import (
 //   	InsideCidrBlocks: []*string{
 //   		jsii.String("insideCidrBlocks"),
 //   	},
+//   	SubnetArn: jsii.String("subnetArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -42,7 +43,7 @@ type CfnConnectPeerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-peeraddress
 	//
 	PeerAddress *string `field:"required" json:"peerAddress" yaml:"peerAddress"`
-	// Bgp options.
+	// Describes the BGP options.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-bgpoptions
 	//
 	BgpOptions interface{} `field:"optional" json:"bgpOptions" yaml:"bgpOptions"`
@@ -54,6 +55,10 @@ type CfnConnectPeerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-insidecidrblocks
 	//
 	InsideCidrBlocks *[]*string `field:"optional" json:"insideCidrBlocks" yaml:"insideCidrBlocks"`
+	// The subnet ARN for the connect peer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-subnetarn
+	//
+	SubnetArn *string `field:"optional" json:"subnetArn" yaml:"subnetArn"`
 	// The list of key-value tags associated with the Connect peer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-tags
 	//

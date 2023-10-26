@@ -50,6 +50,8 @@ type CompositePrincipal interface {
 	// Can be a Token - in that case,
 	// it's assumed to be AWS::AccountId.
 	PrincipalAccount() *string
+	// Returns the principals that make up the CompositePrincipal.
+	Principals() *[]IPrincipal
 	// Adds IAM principals to the composite principal.
 	//
 	// Composite principals cannot have
@@ -125,6 +127,16 @@ func (j *jsiiProxy_CompositePrincipal) PrincipalAccount() *string {
 	_jsii_.Get(
 		j,
 		"principalAccount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CompositePrincipal) Principals() *[]IPrincipal {
+	var returns *[]IPrincipal
+	_jsii_.Get(
+		j,
+		"principals",
 		&returns,
 	)
 	return returns

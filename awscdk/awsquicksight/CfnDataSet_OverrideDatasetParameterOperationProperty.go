@@ -32,7 +32,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html
 //
 type CfnDataSet_OverrideDatasetParameterOperationProperty struct {
-	// <p>Name of the parameter created in the dataset.</p>.
+	// The name of the parameter to be overridden with different values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html#cfn-quicksight-dataset-overridedatasetparameteroperation-parametername
 	//
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`

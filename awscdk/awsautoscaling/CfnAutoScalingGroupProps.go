@@ -166,6 +166,14 @@ package awsautoscaling
 //   		},
 //   	},
 //   	NewInstancesProtectedFromScaleIn: jsii.Boolean(false),
+//   	NotificationConfiguration: &NotificationConfigurationProperty{
+//   		TopicArn: jsii.String("topicArn"),
+//
+//   		// the properties below are optional
+//   		NotificationTypes: []*string{
+//   			jsii.String("notificationTypes"),
+//   		},
+//   	},
 //   	NotificationConfigurations: []interface{}{
 //   		&NotificationConfigurationProperty{
 //   			TopicArn: jsii.String("topicArn"),
@@ -345,6 +353,10 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-newinstancesprotectedfromscalein
 	//
 	NewInstancesProtectedFromScaleIn interface{} `field:"optional" json:"newInstancesProtectedFromScaleIn" yaml:"newInstancesProtectedFromScaleIn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-notificationconfiguration
+	//
+	// Deprecated: this property has been deprecated.
+	NotificationConfiguration interface{} `field:"optional" json:"notificationConfiguration" yaml:"notificationConfiguration"`
 	// Configures an Auto Scaling group to send notifications when specified events take place.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-notificationconfigurations
 	//

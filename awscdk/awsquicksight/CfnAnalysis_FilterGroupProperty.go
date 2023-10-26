@@ -49,6 +49,7 @@ package awsquicksight
 //   						CategoryValues: []*string{
 //   							jsii.String("categoryValues"),
 //   						},
+//   						NullOption: jsii.String("nullOption"),
 //   						SelectAllOptions: jsii.String("selectAllOptions"),
 //   					},
 //   				},
@@ -152,6 +153,12 @@ package awsquicksight
 //
 //   				// the properties below are optional
 //   				ParameterName: jsii.String("parameterName"),
+//   				RollingDate: &RollingDateConfigurationProperty{
+//   					Expression: jsii.String("expression"),
+//
+//   					// the properties below are optional
+//   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				},
 //   				TimeGranularity: jsii.String("timeGranularity"),
 //   				Value: jsii.String("value"),
 //   			},

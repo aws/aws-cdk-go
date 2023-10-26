@@ -43,7 +43,6 @@ type CfnGroup interface {
 	//
 	// For example: `arn:aws:iam::123456789012:group/mystack-mygroup-1DZETITOWEKVO` .
 	AttrArn() *string
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -241,16 +240,6 @@ func (j *jsiiProxy_CfnGroup) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnGroup) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

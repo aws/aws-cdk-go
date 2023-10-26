@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) validateSetPolicyReferenceNam
 	return nil
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) validateSetSseSpecificationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

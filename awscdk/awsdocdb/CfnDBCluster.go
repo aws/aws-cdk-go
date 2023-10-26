@@ -150,13 +150,18 @@ type CfnDBCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The date and time to restore the cluster to.
 	RestoreToTime() *string
 	SetRestoreToTime(val *string)
+	// The type of restore to be performed.
+	//
+	// You can specify one of the following values:.
 	RestoreType() *string
 	SetRestoreType(val *string)
 	// The identifier for the snapshot or cluster snapshot to restore from.
 	SnapshotIdentifier() *string
 	SetSnapshotIdentifier(val *string)
+	// The identifier of the source cluster from which to restore.
 	SourceDbClusterIdentifier() *string
 	SetSourceDbClusterIdentifier(val *string)
 	// The stack in which this element is defined.
@@ -184,6 +189,7 @@ type CfnDBCluster interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// A value that is set to `true` to restore the cluster to the latest restorable backup time, and `false` otherwise.
 	UseLatestRestorableTime() interface{}
 	SetUseLatestRestorableTime(val interface{})
 	// A list of EC2 VPC security groups to associate with this cluster.

@@ -92,6 +92,11 @@ package awsdlm
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html
 //
 type CfnLifecyclePolicy_ScheduleProperty struct {
+	// *[Snapshot policies that target volumes only]* The snapshot archiving rule for the schedule.
+	//
+	// When you specify an archiving rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's retention threshold is met. Snapshots are then retained in the archive tier for the archive retention period that you specify.
+	//
+	// For more information about using snapshot archiving, see [Considerations for snapshot lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-archiverule
 	//
 	ArchiveRule interface{} `field:"optional" json:"archiveRule" yaml:"archiveRule"`
@@ -109,6 +114,7 @@ type CfnLifecyclePolicy_ScheduleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-crossregioncopyrules
 	//
 	CrossRegionCopyRules interface{} `field:"optional" json:"crossRegionCopyRules" yaml:"crossRegionCopyRules"`
+	// *[AMI policies only]* The AMI deprecation rule for the schedule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-deprecaterule
 	//
 	DeprecateRule interface{} `field:"optional" json:"deprecateRule" yaml:"deprecateRule"`

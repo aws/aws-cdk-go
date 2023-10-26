@@ -42,6 +42,7 @@ import (
 type CfnLayerVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the layer version.
 	AttrLayerVersionArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -347,10 +347,10 @@ type CfnDataSet interface {
 	// An ID for the dataset that you want to create.
 	DataSetId() *string
 	SetDataSetId(val *string)
-	// <p>The parameters declared in the dataset.</p>.
+	// The parameters that are declared in a dataset.
 	DatasetParameters() interface{}
 	SetDatasetParameters(val interface{})
-	// <p>The dataset refresh properties for the dataset.</p>.
+	// The refresh properties of a dataset.
 	DataSetRefreshProperties() interface{}
 	SetDataSetRefreshProperties(val interface{})
 	// The usage configuration to apply to child datasets that reference this dataset as a source.

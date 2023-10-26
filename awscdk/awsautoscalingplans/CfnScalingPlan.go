@@ -19,7 +19,7 @@ import (
 // - Amazon DynamoDB tables and global secondary indexes
 // - Amazon Aurora Replicas
 //
-// For more information, see the [AWS Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html) .
+// For more information, see the [Scaling Plans User Guide](https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-a-scaling-plan.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

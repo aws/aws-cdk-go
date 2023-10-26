@@ -122,24 +122,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings.AdminsProperty",
-		reflect.TypeOf((*CfnDataLakeSettings_AdminsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings.CreateDatabaseDefaultPermissionsProperty",
-		reflect.TypeOf((*CfnDataLakeSettings_CreateDatabaseDefaultPermissionsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings.CreateTableDefaultPermissionsProperty",
-		reflect.TypeOf((*CfnDataLakeSettings_CreateTableDefaultPermissionsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings.DataLakePrincipalProperty",
 		reflect.TypeOf((*CfnDataLakeSettings_DataLakePrincipalProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings.ExternalDataFilteringAllowListProperty",
-		reflect.TypeOf((*CfnDataLakeSettings_ExternalDataFilteringAllowListProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings.PrincipalPermissionsProperty",

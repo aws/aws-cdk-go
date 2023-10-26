@@ -80,6 +80,10 @@ func validateCfnNode_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnNode) validateSetMemberIdParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnNode) validateSetNetworkIdParameters(val *string) error {
 	return nil
 }

@@ -18,6 +18,7 @@ import (
 //
 //   cfnVerifiedAccessInstance := awscdk.Aws_ec2.NewCfnVerifiedAccessInstance(this, jsii.String("MyCfnVerifiedAccessInstance"), &CfnVerifiedAccessInstanceProps{
 //   	Description: jsii.String("description"),
+//   	FipsEnabled: jsii.Boolean(false),
 //   	LoggingConfigurations: &VerifiedAccessLogsProperty{
 //   		CloudWatchLogs: &CloudWatchLogsProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -80,6 +81,9 @@ type CfnVerifiedAccessInstance interface {
 	// A description for the AWS Verified Access instance.
 	Description() *string
 	SetDescription(val *string)
+	// Describes whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.
+	FipsEnabled() interface{}
+	SetFipsEnabled(val interface{})
 	// The current logging configuration for the Verified Access instances.
 	LoggingConfigurations() interface{}
 	SetLoggingConfigurations(val interface{})
@@ -342,6 +346,16 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessInstance) FipsEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"fipsEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessInstance) LoggingConfigurations() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -484,6 +498,17 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessInstance)SetFipsEnabled(val interface{}) {
+	if err := j.validateSetFipsEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"fipsEnabled",
 		val,
 	)
 }

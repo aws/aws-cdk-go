@@ -292,7 +292,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
-			_jsii_.MemberProperty{JsiiProperty: "replicationConfigArn", GoGetter: "ReplicationConfigArn"},
 			_jsii_.MemberProperty{JsiiProperty: "replicationConfigIdentifier", GoGetter: "ReplicationConfigIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "replicationSettings", GoGetter: "ReplicationSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "replicationType", GoGetter: "ReplicationType"},

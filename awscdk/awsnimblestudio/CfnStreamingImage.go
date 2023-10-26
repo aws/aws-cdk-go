@@ -36,11 +36,9 @@ type CfnStreamingImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// <p>TODO</p>.
+	// The encryption configuration.
 	AttrEncryptionConfiguration() awscdk.IResolvable
-	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>.
 	AttrEncryptionConfigurationKeyArn() *string
-	// <p/>.
 	AttrEncryptionConfigurationKeyType() *string
 	// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
 	AttrEulaIds() *[]*string

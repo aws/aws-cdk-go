@@ -9,14 +9,12 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Create an environment template for AWS Proton .
-//
-// For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide* .
+// Create an environment template for . For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *User Guide* .
 //
 // You can create an environment template in one of the two following ways:
 //
-// - Register and publish a *standard* environment template that instructs AWS Proton to deploy and manage environment infrastructure.
-// - Register and publish a *customer managed* environment template that connects AWS Proton to your existing provisioned infrastructure that you manage. AWS Proton *doesn't* manage your existing provisioned infrastructure. To create an environment template for customer provisioned and managed infrastructure, include the `provisioning` parameter and set the value to `CUSTOMER_MANAGED` . For more information, see [Register and publish an environment template](https://docs.aws.amazon.com/proton/latest/userguide/template-create.html) in the *AWS Proton User Guide* .
+// - Register and publish a *standard* environment template that instructs to deploy and manage environment infrastructure.
+// - Register and publish a *customer managed* environment template that connects to your existing provisioned infrastructure that you manage. *doesn't* manage your existing provisioned infrastructure. To create an environment template for customer provisioned and managed infrastructure, include the `provisioning` parameter and set the value to `CUSTOMER_MANAGED` . For more information, see [Register and publish an environment template](https://docs.aws.amazon.com/proton/latest/userguide/template-create.html) in the *User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -92,7 +90,7 @@ type CfnEnvironmentTemplate interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An optional list of metadata items that you can associate with the AWS Proton environment template.
+	// An optional list of metadata items that you can associate with the environment template.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

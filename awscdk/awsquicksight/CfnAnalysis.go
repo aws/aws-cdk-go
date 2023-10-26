@@ -104,6 +104,9 @@ type CfnAnalysis interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects.
+	ValidationStrategy() interface{}
+	SetValidationStrategy(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -508,6 +511,16 @@ func (j *jsiiProxy_CfnAnalysis) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnalysis) ValidationStrategy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"validationStrategy",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisProps) CfnAnalysis {
 	_init_.Initialize()
@@ -636,6 +649,17 @@ func (j *jsiiProxy_CfnAnalysis)SetThemeArn(val *string) {
 	_jsii_.Set(
 		j,
 		"themeArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnalysis)SetValidationStrategy(val interface{}) {
+	if err := j.validateSetValidationStrategyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"validationStrategy",
 		val,
 	)
 }

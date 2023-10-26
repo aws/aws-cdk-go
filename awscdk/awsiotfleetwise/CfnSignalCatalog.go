@@ -98,15 +98,10 @@ type CfnSignalCatalog interface {
 	AttrCreationTime() *string
 	// The time the signal catalog was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrLastModificationTime() *string
-	// The total number of nodes in a vehicle network that represent actuators.
 	AttrNodeCountsTotalActuators() awscdk.IResolvable
-	// The total number of nodes in a vehicle network that represent attributes.
 	AttrNodeCountsTotalAttributes() awscdk.IResolvable
-	// The total number of nodes in a vehicle network that represent branches.
 	AttrNodeCountsTotalBranches() awscdk.IResolvable
-	// The total number of nodes in a vehicle network.
 	AttrNodeCountsTotalNodes() awscdk.IResolvable
-	// The total number of nodes in a vehicle network that represent sensors.
 	AttrNodeCountsTotalSensors() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

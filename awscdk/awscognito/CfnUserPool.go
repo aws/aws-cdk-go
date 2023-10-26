@@ -169,6 +169,7 @@ type CfnUserPool interface {
 	AttrProviderName() *string
 	// The URL of the provider of the Amazon Cognito user pool, specified as a `String` .
 	AttrProviderUrl() *string
+	AttrUserPoolId() *string
 	// The attributes to be auto-verified.
 	AutoVerifiedAttributes() *[]*string
 	SetAutoVerifiedAttributes(val *[]*string)
@@ -480,6 +481,16 @@ func (j *jsiiProxy_CfnUserPool) AttrProviderUrl() *string {
 	_jsii_.Get(
 		j,
 		"attrProviderUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPool) AttrUserPoolId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUserPoolId",
 		&returns,
 	)
 	return returns

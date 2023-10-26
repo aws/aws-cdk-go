@@ -47,6 +47,7 @@ type CfnStep interface {
 	// This specifies what action to take when the cluster step fails.
 	ActionOnFailure() *string
 	SetActionOnFailure(val *string)
+	// The identifier of the cluster step.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

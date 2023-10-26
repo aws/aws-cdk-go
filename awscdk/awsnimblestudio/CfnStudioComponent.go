@@ -129,11 +129,13 @@ type CfnStudioComponent interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
 	RuntimeRoleArn() *string
 	SetRuntimeRoleArn(val *string)
 	// Parameters for the studio component scripts.
 	ScriptParameters() interface{}
 	SetScriptParameters(val interface{})
+	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
 	SecureInitializationRoleArn() *string
 	SetSecureInitializationRoleArn(val *string)
 	// The stack in which this element is defined.

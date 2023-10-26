@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Serverless::Function.
+// https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,16 +32,18 @@ import (
 //   		Type: jsii.String("type"),
 //   	},
 //   	DeploymentPreference: &DeploymentPreferenceProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
 //   		Alarms: []*string{
 //   			jsii.String("alarms"),
 //   		},
-//   		Enabled: jsii.Boolean(false),
 //   		Hooks: &HooksProperty{
 //   			PostTraffic: jsii.String("postTraffic"),
 //   			PreTraffic: jsii.String("preTraffic"),
 //   		},
 //   		Role: jsii.String("role"),
-//   		Type: jsii.String("type"),
 //   	},
 //   	Description: jsii.String("description"),
 //   	Environment: &FunctionEnvironmentProperty{

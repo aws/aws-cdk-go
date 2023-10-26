@@ -1,7 +1,7 @@
 package awsnimblestudio
 
 
-// <p>TODO</p>.
+// Specifies how a streaming image is encrypted.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,11 +18,11 @@ package awsnimblestudio
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-streamingimage-streamingimageencryptionconfiguration.html
 //
 type CfnStreamingImage_StreamingImageEncryptionConfigurationProperty struct {
-	// <p/>.
+	// The type of KMS key that is used to encrypt studio data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-streamingimage-streamingimageencryptionconfiguration.html#cfn-nimblestudio-streamingimage-streamingimageencryptionconfiguration-keytype
 	//
 	KeyType *string `field:"required" json:"keyType" yaml:"keyType"`
-	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>.
+	// The ARN for a KMS key that is used to encrypt studio data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-streamingimage-streamingimageencryptionconfiguration.html#cfn-nimblestudio-streamingimage-streamingimageencryptionconfiguration-keyarn
 	//
 	KeyArn *string `field:"optional" json:"keyArn" yaml:"keyArn"`

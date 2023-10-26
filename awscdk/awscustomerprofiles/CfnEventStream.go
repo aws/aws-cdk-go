@@ -39,11 +39,7 @@ type CfnEventStream interface {
 	AttrCreatedAt() *string
 	// Details regarding the Kinesis stream.
 	AttrDestinationDetails() awscdk.IResolvable
-	// The status of enabling the Kinesis stream as a destination for export.
 	AttrDestinationDetailsStatus() *string
-	// The StreamARN of the destination to deliver profile events to.
-	//
-	// For example, arn:aws:kinesis:region:account-id:stream/stream-name.
 	AttrDestinationDetailsUri() *string
 	// A unique identifier for the event stream.
 	AttrEventStreamArn() *string

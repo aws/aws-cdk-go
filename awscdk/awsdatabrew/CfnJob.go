@@ -254,7 +254,7 @@ type CfnJob interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Output location.
+	// The location in Amazon S3 where the job writes its output.
 	OutputLocation() interface{}
 	SetOutputLocation(val interface{})
 	// One or more artifacts that represent output from running the job.

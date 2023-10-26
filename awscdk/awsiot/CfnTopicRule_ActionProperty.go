@@ -140,6 +140,12 @@ package awsiot
 //   		Topic: jsii.String("topic"),
 //
 //   		// the properties below are optional
+//   		Headers: []interface{}{
+//   			&KafkaActionHeaderProperty{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   		Key: jsii.String("key"),
 //   		Partition: jsii.String("partition"),
 //   	},

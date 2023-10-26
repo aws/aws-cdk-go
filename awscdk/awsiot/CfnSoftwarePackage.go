@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// resource definition.
+// Use the `AWS::IoT::SoftwarePackage` resource to create a software package.
+//
+// For information about working with software packages, see [AWS IoT Device Management Software Package Catalog](https://docs.aws.amazon.com/iot/latest/developerguide/software-package-catalog) and [Creating a software package and package version](https://docs.aws.amazon.com/iot/latest/developerguide/creating-pacakge-and-version) in the *AWS IoT Developer Guide* . See also, [CreatePackage](https://docs.aws.amazon.com/iot/latest/apireference/API_CreatePackage.html) in the *API Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,6 +34,7 @@ import (
 type CfnSoftwarePackage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) for the package.
 	AttrPackageArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -42,6 +45,7 @@ type CfnSoftwarePackage interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A summary of the package being created.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -56,6 +60,7 @@ type CfnSoftwarePackage interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The name of the new software package.
 	PackageName() *string
 	SetPackageName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -67,7 +72,7 @@ type CfnSoftwarePackage interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// Metadata that can be used to manage the package.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

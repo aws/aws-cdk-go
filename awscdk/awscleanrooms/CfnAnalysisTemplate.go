@@ -73,9 +73,6 @@ type CfnAnalysisTemplate interface {
 	AttrMembershipArn() *string
 	// Returns the entire [schema object](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html) .
 	AttrSchema() awscdk.IResolvable
-	// Returns the tables referenced in the analysis schema.
-	//
-	// Example: `[ table1, table2 ]`.
 	AttrSchemaReferencedTables() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -30,36 +30,21 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html
 //
 type CfnModelCard_MetricDataItemsProperty struct {
-	// The names of the metrics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// You must specify one of the following data types:.
-	//
-	// - Bar Chart `bar_char`
-	// - Boolean `boolean`
-	// - Linear Graph `linear_graph`
-	// - Matrix `matrix`
-	// - Number `number`
-	// - String `string`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// The datatype of the metric.
-	//
-	// The metric's *value* must be compatible with the metric's *type* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-value
 	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`
-	// Any notes to add to the metric.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-notes
 	//
 	Notes *string `field:"optional" json:"notes" yaml:"notes"`
-	// The name of the x axis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-xaxisname
 	//
 	XAxisName *[]*string `field:"optional" json:"xAxisName" yaml:"xAxisName"`
-	// The name of the y axis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-yaxisname
 	//
 	YAxisName *[]*string `field:"optional" json:"yAxisName" yaml:"yAxisName"`

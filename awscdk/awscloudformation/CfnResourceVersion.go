@@ -43,13 +43,15 @@ import (
 type CfnResourceVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) of the resource version.
+	// The Amazon Resource Name (ARN) of the extension.
 	AttrArn() *string
-	// Whether the resource version is set as the default version.
-	AttrIsDefaultVersion() awscdk.IResolvable
-	// The provisioning behavior of the resource type.
+	// Whether the specified extension version is set as the default version.
 	//
-	// CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
+	// This applies only to private extensions you have registered in your account, and extensions published by AWS . For public third-party extensions, whether they are activated in your account, CloudFormation returns `null` .
+	AttrIsDefaultVersion() awscdk.IResolvable
+	// For resource type extensions, the provisioning behavior of the resource type.
+	//
+	// AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
 	//
 	// Valid values include:
 	//
@@ -61,18 +63,20 @@ type CfnResourceVersion interface {
 	// - read
 	// - delete.
 	AttrProvisioningType() *string
-	// The Amazon Resource Name (ARN) of the resource.
+	// The Amazon Resource Name (ARN) of the extension.
 	AttrTypeArn() *string
-	// The ID of a specific version of the resource.
+	// The ID of a specific version of the extension.
 	//
-	// The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the resource version when it is registered.
+	// The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the extension version when it is registered.
+	//
+	// If you specify a `VersionId` , `DescribeType` returns information about that specific extension version. Otherwise, it returns information about the default extension version.
 	AttrVersionId() *string
-	// The scope at which the resource is visible and usable in CloudFormation operations.
+	// The scope at which the extension is visible and usable in CloudFormation operations.
 	//
 	// Valid values include:
 	//
-	// - `PRIVATE` : The resource is only visible and usable within the account in which it's registered. CloudFormation marks any resources you register as `PRIVATE` .
-	// - `PUBLIC` : The resource is publicly visible and usable within any Amazon account.
+	// - `PRIVATE` : The extension is only visible and usable within the account in which it is registered. AWS CloudFormation marks any extensions you register as `PRIVATE` .
+	// - `PUBLIC` : The extension is publicly visible and usable within any AWS account.
 	AttrVisibility() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -598,6 +598,7 @@ type CfnCluster interface {
 	// The applications to install on this cluster, for example, Spark, Flink, Oozie, Zeppelin, and so on.
 	Applications() interface{}
 	SetApplications(val interface{})
+	// The unique identifier for the cluster.
 	AttrId() *string
 	// The public DNS name of the master node (instance), such as `ec2-12-123-123-123.us-west-2.compute.amazonaws.com` .
 	AttrMasterPublicDns() *string

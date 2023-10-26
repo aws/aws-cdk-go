@@ -67,6 +67,7 @@ package awsquicksight
 //   					},
 //   					IsIncludedInTopic: jsii.Boolean(false),
 //   					NeverAggregateInFilter: jsii.Boolean(false),
+//   					NonAdditive: jsii.Boolean(false),
 //   					NotAllowedAggregations: []*string{
 //   						jsii.String("notAllowedAggregations"),
 //   					},
@@ -140,6 +141,7 @@ package awsquicksight
 //   					},
 //   					IsIncludedInTopic: jsii.Boolean(false),
 //   					NeverAggregateInFilter: jsii.Boolean(false),
+//   					NonAdditive: jsii.Boolean(false),
 //   					NotAllowedAggregations: []*string{
 //   						jsii.String("notAllowedAggregations"),
 //   					},

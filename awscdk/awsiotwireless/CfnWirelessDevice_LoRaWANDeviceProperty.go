@@ -42,7 +42,6 @@ package awsiotwireless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html
 //
 type CfnWirelessDevice_LoRaWANDeviceProperty struct {
-	// LoRaWAN object for create APIs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv10x
 	//
 	AbpV10X interface{} `field:"optional" json:"abpV10X" yaml:"abpV10X"`

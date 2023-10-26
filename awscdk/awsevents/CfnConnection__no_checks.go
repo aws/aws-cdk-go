@@ -80,6 +80,10 @@ func validateCfnConnection_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnection) validateSetAuthorizationTypeParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnection) validateSetAuthParametersParameters(val interface{}) error {
 	return nil
 }

@@ -3861,8 +3861,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv4NetmaskLength", GoGetter: "Ipv4NetmaskLength"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6CidrBlock", GoGetter: "Ipv6CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6Native", GoGetter: "Ipv6Native"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv6NetmaskLength", GoGetter: "Ipv6NetmaskLength"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "mapPublicIpOnLaunch", GoGetter: "MapPublicIpOnLaunch"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -5733,6 +5735,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupIds", GoGetter: "SecurityGroupIds"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "sseSpecification", GoGetter: "SseSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
@@ -5757,6 +5760,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessEndpoint.NetworkInterfaceOptionsProperty",
 		reflect.TypeOf((*CfnVerifiedAccessEndpoint_NetworkInterfaceOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessEndpoint.SseSpecificationProperty",
+		reflect.TypeOf((*CfnVerifiedAccessEndpoint_SseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessEndpointProps",
@@ -5799,6 +5806,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "sseSpecification", GoGetter: "SseSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
@@ -5815,6 +5823,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessGroup.SseSpecificationProperty",
+		reflect.TypeOf((*CfnVerifiedAccessGroup_SseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessGroupProps",
@@ -5840,6 +5852,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "fipsEnabled", GoGetter: "FipsEnabled"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -5933,6 +5946,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "sseSpecification", GoGetter: "SseSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
@@ -5958,6 +5972,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessTrustProvider.OidcOptionsProperty",
 		reflect.TypeOf((*CfnVerifiedAccessTrustProvider_OidcOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessTrustProvider.SseSpecificationProperty",
+		reflect.TypeOf((*CfnVerifiedAccessTrustProvider_SseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessTrustProviderProps",
@@ -7268,6 +7286,8 @@ func init() {
 			"R7G": InstanceClass_R7G,
 			"MEMORY7_GRAVITON3_NVME_DRIVE": InstanceClass_MEMORY7_GRAVITON3_NVME_DRIVE,
 			"R7GD": InstanceClass_R7GD,
+			"MEMORY7_INTEL": InstanceClass_MEMORY7_INTEL,
+			"R7IZ": InstanceClass_R7IZ,
 			"COMPUTE3": InstanceClass_COMPUTE3,
 			"C3": InstanceClass_C3,
 			"COMPUTE4": InstanceClass_COMPUTE4,
@@ -7302,6 +7322,8 @@ func init() {
 			"C6GN": InstanceClass_C6GN,
 			"COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH": InstanceClass_COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH,
 			"C7GN": InstanceClass_C7GN,
+			"COMPUTE7_INTEL": InstanceClass_COMPUTE7_INTEL,
+			"C7I": InstanceClass_C7I,
 			"STORAGE2": InstanceClass_STORAGE2,
 			"D2": InstanceClass_D2,
 			"STORAGE3": InstanceClass_STORAGE3,
@@ -7316,6 +7338,8 @@ func init() {
 			"I3EN": InstanceClass_I3EN,
 			"IO4_INTEL": InstanceClass_IO4_INTEL,
 			"I4I": InstanceClass_I4I,
+			"STORAGE4_GRAVITON": InstanceClass_STORAGE4_GRAVITON,
+			"I4G": InstanceClass_I4G,
 			"STORAGE4_GRAVITON_NETWORK_OPTIMIZED": InstanceClass_STORAGE4_GRAVITON_NETWORK_OPTIMIZED,
 			"IM4GN": InstanceClass_IM4GN,
 			"STORAGE4_GRAVITON_NETWORK_STORAGE_OPTIMIZED": InstanceClass_STORAGE4_GRAVITON_NETWORK_STORAGE_OPTIMIZED,

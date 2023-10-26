@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Describes an instance's Amazon EBS volume.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

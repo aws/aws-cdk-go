@@ -85,6 +85,14 @@ func (i *jsiiProxy_IFunction) validateGrantInvokeParameters(identity awsiam.IGra
 	return nil
 }
 
+func (i *jsiiProxy_IFunction) validateGrantInvokeCompositePrincipalParameters(compositePrincipal awsiam.CompositePrincipal) error {
+	if compositePrincipal == nil {
+		return fmt.Errorf("parameter compositePrincipal is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IFunction) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
 	if identity == nil {
 		return fmt.Errorf("parameter identity is required, but nil was provided")

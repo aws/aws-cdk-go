@@ -20,6 +20,9 @@ type CfnFlow_AggregationConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
 	//
 	AggregationType *string `field:"optional" json:"aggregationType" yaml:"aggregationType"`
+	// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination.
+	//
+	// For each file, Amazon AppFlow attempts to achieve the size that you specify. The actual file sizes might differ from this target based on the number and size of the records that each file contains.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-targetfilesize
 	//
 	TargetFileSize *float64 `field:"optional" json:"targetFileSize" yaml:"targetFileSize"`

@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::MSK::ServerlessCluster.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -56,6 +56,7 @@ type CfnServerlessCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Includes all client authentication information.
 	ClientAuthentication() interface{}
 	SetClientAuthentication(val interface{})
 	ClusterName() *string

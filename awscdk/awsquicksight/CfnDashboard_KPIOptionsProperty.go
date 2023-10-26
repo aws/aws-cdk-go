@@ -129,6 +129,7 @@ type CfnDashboard_KPIOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpioptions.html#cfn-quicksight-dashboard-kpioptions-secondaryvaluefontconfiguration
 	//
 	SecondaryValueFontConfiguration interface{} `field:"optional" json:"secondaryValueFontConfiguration" yaml:"secondaryValueFontConfiguration"`
+	// The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpioptions.html#cfn-quicksight-dashboard-kpioptions-sparkline
 	//
 	Sparkline interface{} `field:"optional" json:"sparkline" yaml:"sparkline"`
@@ -136,6 +137,7 @@ type CfnDashboard_KPIOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpioptions.html#cfn-quicksight-dashboard-kpioptions-trendarrows
 	//
 	TrendArrows interface{} `field:"optional" json:"trendArrows" yaml:"trendArrows"`
+	// The options that determine the layout a KPI visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpioptions.html#cfn-quicksight-dashboard-kpioptions-visuallayoutoptions
 	//
 	VisualLayoutOptions interface{} `field:"optional" json:"visualLayoutOptions" yaml:"visualLayoutOptions"`

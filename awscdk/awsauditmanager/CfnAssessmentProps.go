@@ -104,10 +104,6 @@ type CfnAssessmentProps struct {
 	//
 	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`
 	// The overall status of the assessment.
-	//
-	// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
-	//
-	// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

@@ -122,6 +122,7 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
 	//
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
+	// The connector-specific properties required by Salesforce Pardot.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-pardot
 	//
 	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`

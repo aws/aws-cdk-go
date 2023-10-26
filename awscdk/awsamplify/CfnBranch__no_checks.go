@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnBranch) validateSetAppIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnBranch) validateSetBackendParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnBranch) validateSetBasicAuthConfigParameters(val interface{}) error {
 	return nil
 }

@@ -36,21 +36,15 @@ package awsiotfleetwise
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html
 //
 type CfnDecoderManifest_NetworkInterfacesItemsProperty struct {
-	// The ID of the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-interfaceid
 	//
 	InterfaceId *string `field:"required" json:"interfaceId" yaml:"interfaceId"`
-	// The network protocol for the vehicle.
-	//
-	// For example, `CAN_SIGNAL` specifies a protocol that defines how data is communicated between electronic control units (ECUs). `OBD_SIGNAL` specifies a protocol that defines how self-diagnostic data is communicated between ECUs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// (Optional) Information about a network interface specified by the Controller Area Network (CAN) protocol.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-caninterface
 	//
 	CanInterface interface{} `field:"optional" json:"canInterface" yaml:"canInterface"`
-	// (Optional) Information about a network interface specified by the On-board diagnostic (OBD) II protocol.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-obdinterface
 	//
 	ObdInterface interface{} `field:"optional" json:"obdInterface" yaml:"obdInterface"`

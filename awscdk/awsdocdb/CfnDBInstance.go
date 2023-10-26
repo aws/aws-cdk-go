@@ -75,6 +75,7 @@ type CfnDBInstance interface {
 	// This parameter is stored as a lowercase string.
 	DbInstanceIdentifier() *string
 	SetDbInstanceIdentifier(val *string)
+	// A value that indicates whether to enable Performance Insights for the DB Instance.
 	EnablePerformanceInsights() interface{}
 	SetEnablePerformanceInsights(val interface{})
 	// The logical ID for this CloudFormation stack element.

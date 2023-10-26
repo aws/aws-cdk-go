@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup) validateSetPolicyEnabledParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessGroup) validateSetSseSpecificationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

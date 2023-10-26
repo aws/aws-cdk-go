@@ -197,7 +197,7 @@ type CfnScalingPolicy interface {
 	// Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage).
 	AdjustmentType() *string
 	SetAdjustmentType(val *string)
-	// The ARN of the AutoScaling scaling policy.
+	// Returns the ARN of a scaling policy.
 	AttrArn() *string
 	// Returns the name of a scaling policy.
 	AttrPolicyName() *string

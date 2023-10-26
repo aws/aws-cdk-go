@@ -54,6 +54,7 @@ type CfnCluster interface {
 	AdminUserPassword() *string
 	SetAdminUserPassword(val *string)
 	AttrClusterArn() *string
+	// The URL used to connect to the elastic cluster.
 	AttrClusterEndpoint() *string
 	// The authentication type used to determine where to fetch the password used for accessing the elastic cluster.
 	AuthType() *string

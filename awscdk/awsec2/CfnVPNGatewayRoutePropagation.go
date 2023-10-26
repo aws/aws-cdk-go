@@ -30,6 +30,7 @@ import (
 type CfnVPNGatewayRoutePropagation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the VPN gateway.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -49,9 +49,7 @@ type CfnServiceNetworkServiceAssociation interface {
 	AttrArn() *string
 	// The date and time that the association was created, specified in ISO-8601 format.
 	AttrCreatedAt() *string
-	// The domain name of the service.
 	AttrDnsEntryDomainName() *string
-	// The ID of the hosted zone.
 	AttrDnsEntryHostedZoneId() *string
 	// The ID of the of the association between the service network and the service.
 	AttrId() *string

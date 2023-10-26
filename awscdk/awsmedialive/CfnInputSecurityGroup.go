@@ -39,6 +39,7 @@ type CfnInputSecurityGroup interface {
 	//
 	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:inputSecurityGroup:1234567.
 	AttrArn() *string
+	// The Id of the Input Security Group.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

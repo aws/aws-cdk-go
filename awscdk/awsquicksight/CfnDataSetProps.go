@@ -320,11 +320,11 @@ type CfnDataSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
 	//
 	DataSetId *string `field:"optional" json:"dataSetId" yaml:"dataSetId"`
-	// <p>The parameters declared in the dataset.</p>.
+	// The parameters that are declared in a dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetparameters
 	//
 	DatasetParameters interface{} `field:"optional" json:"datasetParameters" yaml:"datasetParameters"`
-	// <p>The dataset refresh properties for the dataset.</p>.
+	// The refresh properties of a dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetrefreshproperties
 	//
 	DataSetRefreshProperties interface{} `field:"optional" json:"dataSetRefreshProperties" yaml:"dataSetRefreshProperties"`

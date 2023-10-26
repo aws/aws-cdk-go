@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnTemplate) validateSetTemplateIdParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnTemplate) validateSetValidationStrategyParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnTemplateParameters(scope constructs.Construct, id *string, props *CfnTemplateProps) error {
 	return nil
 }

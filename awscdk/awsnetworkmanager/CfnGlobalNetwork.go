@@ -47,6 +47,7 @@ type CfnGlobalNetwork interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The date and time that the global network was created.
 	CreatedAt() *string
 	SetCreatedAt(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -77,6 +78,7 @@ type CfnGlobalNetwork interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The state of the global network.
 	State() *string
 	SetState(val *string)
 	// Tag Manager which manages the tags for this resource.

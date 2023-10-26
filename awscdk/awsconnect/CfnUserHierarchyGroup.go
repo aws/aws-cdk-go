@@ -22,6 +22,12 @@ import (
 //
 //   	// the properties below are optional
 //   	ParentGroupArn: jsii.String("parentGroupArn"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html
@@ -70,6 +76,9 @@ type CfnUserHierarchyGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// One or more tags.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -336,6 +345,16 @@ func (j *jsiiProxy_CfnUserHierarchyGroup) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserHierarchyGroup) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserHierarchyGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -410,6 +429,17 @@ func (j *jsiiProxy_CfnUserHierarchyGroup)SetParentGroupArn(val *string) {
 	_jsii_.Set(
 		j,
 		"parentGroupArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserHierarchyGroup)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

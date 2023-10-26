@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -45,6 +46,9 @@ type Schedule interface {
 	// The schedule group associated with this schedule.
 	// Experimental.
 	Group() IGroup
+	// The customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
+	// Experimental.
+	Key() awskms.IKey
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -120,6 +124,16 @@ func (j *jsiiProxy_Schedule) Group() IGroup {
 	_jsii_.Get(
 		j,
 		"group",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Schedule) Key() awskms.IKey {
+	var returns awskms.IKey
+	_jsii_.Get(
+		j,
+		"key",
 		&returns,
 	)
 	return returns

@@ -49,9 +49,7 @@ type CfnTransitGatewayPeeringAttachment interface {
 	AttrState() *string
 	// The status of the transit gateway peering attachment.
 	AttrStatus() awscdk.IResolvable
-	// The status code.
 	AttrStatusCode() *string
-	// The status message.
 	AttrStatusMessage() *string
 	// The ID of the transit gateway peering attachment.
 	AttrTransitGatewayAttachmentId() *string

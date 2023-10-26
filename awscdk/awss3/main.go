@@ -296,6 +296,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainName", GoGetter: "AttrDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDualStackDomainName", GoGetter: "AttrDualStackDomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRegionalDomainName", GoGetter: "AttrRegionalDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWebsiteUrl", GoGetter: "AttrWebsiteUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketEncryption", GoGetter: "BucketEncryption"},

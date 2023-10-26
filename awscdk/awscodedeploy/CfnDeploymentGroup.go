@@ -252,6 +252,7 @@ type CfnDeploymentGroup interface {
 	// Information about groups of tags applied to on-premises instances.
 	OnPremisesTagSet() interface{}
 	SetOnPremisesTagSet(val interface{})
+	// Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision.
 	OutdatedInstancesStrategy() *string
 	SetOutdatedInstancesStrategy(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -268,6 +269,7 @@ type CfnDeploymentGroup interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Information about triggers associated with the deployment group.

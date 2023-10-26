@@ -16,6 +16,9 @@ import (
 //   	BranchName: jsii.String("branchName"),
 //
 //   	// the properties below are optional
+//   	Backend: &BackendProperty{
+//   		StackArn: jsii.String("stackArn"),
+//   	},
 //   	BasicAuthConfig: &BasicAuthConfigProperty{
 //   		Password: jsii.String("password"),
 //   		Username: jsii.String("username"),
@@ -64,6 +67,9 @@ type CfnBranchProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
 	//
 	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-backend
+	//
+	Backend interface{} `field:"optional" json:"backend" yaml:"backend"`
 	// The basic authorization credentials for a branch of an Amplify app.
 	//
 	// You must base64-encode the authorization credentials and provide them in the format `user:password` .

@@ -12,6 +12,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnStackProps := &CfnStackProps{
+//   	TemplateUrl: jsii.String("templateUrl"),
+//
+//   	// the properties below are optional
 //   	NotificationArns: []*string{
 //   		jsii.String("notificationArns"),
 //   	},
@@ -24,13 +27,20 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	TemplateUrl: jsii.String("templateUrl"),
 //   	TimeoutInMinutes: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html
 //
 type CfnStackProps struct {
+	// Location of file containing the template body.
+	//
+	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket. For more information, see [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) .
+	//
+	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html#cfn-cloudformation-stack-templateurl
+	//
+	TemplateUrl *string `field:"required" json:"templateUrl" yaml:"templateUrl"`
 	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events.
 	//
 	// You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
@@ -55,14 +65,6 @@ type CfnStackProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html#cfn-cloudformation-stack-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// Location of file containing the template body.
-	//
-	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket. For more information, see [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) .
-	//
-	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html#cfn-cloudformation-stack-templateurl
-	//
-	TemplateUrl *string `field:"optional" json:"templateUrl" yaml:"templateUrl"`
 	// The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state.
 	//
 	// The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.

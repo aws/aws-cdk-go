@@ -45,7 +45,7 @@ type CfnDeviceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
 	//
 	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
-	// The Amazon Web Services location of the device, if applicable.
+	// The AWS location of the device.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-awslocation
 	//
 	AwsLocation interface{} `field:"optional" json:"awsLocation" yaml:"awsLocation"`

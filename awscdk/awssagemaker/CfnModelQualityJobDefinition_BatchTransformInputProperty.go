@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The batch transform input for a monitoring job.
+// Input object for the batch transform job.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,46 +34,51 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html
 //
 type CfnModelQualityJobDefinition_BatchTransformInputProperty struct {
-	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	// The Amazon S3 location being used to capture the data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-datacaptureddestinations3uri
 	//
 	DataCapturedDestinationS3Uri *string `field:"required" json:"dataCapturedDestinationS3Uri" yaml:"dataCapturedDestinationS3Uri"`
-	// The dataset format of the data to monitor.
+	// The dataset format for your batch transform job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-datasetformat
 	//
 	DatasetFormat interface{} `field:"required" json:"datasetFormat" yaml:"datasetFormat"`
-	// Path to the filesystem where the endpoint data is available to the container.
+	// Path to the filesystem where the batch transform data is available to the container.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-localpath
 	//
 	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
-	// The time offsets in ISO duration format.
+	// If specified, monitoring jobs subtract this time from the end time.
+	//
+	// For information about using offsets for scheduling monitoring jobs, see [Schedule Model Quality Monitoring Jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-endtimeoffset
 	//
 	EndTimeOffset *string `field:"optional" json:"endTimeOffset" yaml:"endTimeOffset"`
-	// Index or JSONpath to locate predicted label(s).
+	// The attribute of the input data that represents the ground truth label.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-inferenceattribute
 	//
 	InferenceAttribute *string `field:"optional" json:"inferenceAttribute" yaml:"inferenceAttribute"`
-	// Index or JSONpath to locate probabilities.
+	// In a classification problem, the attribute that represents the class probability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-probabilityattribute
 	//
 	ProbabilityAttribute *string `field:"optional" json:"probabilityAttribute" yaml:"probabilityAttribute"`
+	// The threshold for the class probability to be evaluated as a positive result.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-probabilitythresholdattribute
 	//
 	ProbabilityThresholdAttribute *float64 `field:"optional" json:"probabilityThresholdAttribute" yaml:"probabilityThresholdAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
 	//
-	// Defauts to FullyReplicated.
+	// Defaults to `FullyReplicated`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-s3datadistributiontype
 	//
 	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
-	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job.
+	// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job.
 	//
-	// Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	// `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-s3inputmode
 	//
 	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`
-	// The time offsets in ISO duration format.
+	// If specified, monitoring jobs substract this time from the start time.
+	//
+	// For information about using offsets for scheduling monitoring jobs, see [Schedule Model Quality Monitoring Jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelqualityjobdefinition-batchtransforminput-starttimeoffset
 	//
 	StartTimeOffset *string `field:"optional" json:"startTimeOffset" yaml:"startTimeOffset"`

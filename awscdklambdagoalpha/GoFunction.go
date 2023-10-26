@@ -223,6 +223,9 @@ type GoFunction interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
+	// Experimental.
+	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
@@ -1033,6 +1036,22 @@ func (g *jsiiProxy_GoFunction) GrantInvoke(grantee awsiam.IGrantable) awsiam.Gra
 		g,
 		"grantInvoke",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (g *jsiiProxy_GoFunction) GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant {
+	if err := g.validateGrantInvokeCompositePrincipalParameters(compositePrincipal); err != nil {
+		panic(err)
+	}
+	var returns *[]awsiam.Grant
+
+	_jsii_.Invoke(
+		g,
+		"grantInvokeCompositePrincipal",
+		[]interface{}{compositePrincipal},
 		&returns,
 	)
 

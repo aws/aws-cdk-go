@@ -1,7 +1,7 @@
 package awsfrauddetector
 
 
-// A model to associate with a detector.
+// The model.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,6 +15,7 @@ package awsfrauddetector
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
 //
 type CfnDetector_ModelProperty struct {
+	// The ARN of the model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
 	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`

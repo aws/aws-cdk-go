@@ -176,8 +176,6 @@ package awsappflow
 //
 type CfnFlow_DestinationFlowConfigProperty struct {
 	// The type of destination connector, such as Sales force, Amazon S3, and so on.
-	//
-	// *Allowed Values* : `EventBridge | Redshift | S3 | Salesforce | Snowflake`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype
 	//
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`

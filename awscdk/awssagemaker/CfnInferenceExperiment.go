@@ -93,13 +93,8 @@ type CfnInferenceExperiment interface {
 	AttrCreationTime() *string
 	// The metadata of the endpoint on which the inference experiment ran.
 	AttrEndpointMetadata() awscdk.IResolvable
-	// The name of the endpoint configuration.
 	AttrEndpointMetadataEndpointConfigName() *string
-	// The name of the endpoint used to run the inference experiment.
 	AttrEndpointMetadataEndpointName() *string
-	// The status of the endpoint.
-	//
-	// For possible values of the status of an endpoint.
 	AttrEndpointMetadataEndpointStatus() *string
 	// The timestamp at which you last modified the inference experiment.
 	AttrLastModifiedTime() *string

@@ -67,6 +67,7 @@ type CfnTemplate_TableFieldOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldoptions.html#cfn-quicksight-template-tablefieldoptions-order
 	//
 	Order *[]*string `field:"optional" json:"order" yaml:"order"`
+	// The settings for the pinned columns of a table visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldoptions.html#cfn-quicksight-template-tablefieldoptions-pinnedfieldoptions
 	//
 	PinnedFieldOptions interface{} `field:"optional" json:"pinnedFieldOptions" yaml:"pinnedFieldOptions"`

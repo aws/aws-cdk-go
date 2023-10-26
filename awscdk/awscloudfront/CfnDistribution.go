@@ -31,7 +31,9 @@ type CfnDistribution interface {
 	awscdk.ITaggable
 	// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
 	AttrDomainName() *string
-	// The identifier for the distribution, for example `EDFDVBD632BHDS5` .
+	// The distribution's identifier.
+	//
+	// For example: `E1U5RQF7T870K0` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

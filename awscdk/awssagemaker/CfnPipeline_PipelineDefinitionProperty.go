@@ -12,6 +12,16 @@ package awssagemaker
 //
 //   pipelineDefinitionProperty := &PipelineDefinitionProperty{
 //   	PipelineDefinitionBody: jsii.String("pipelineDefinitionBody"),
+//
+//   	// the properties below are optional
+//   	PipelineDefinitionS3Location: &S3LocationProperty{
+//   		Bucket: jsii.String("bucket"),
+//   		Key: jsii.String("key"),
+//
+//   		// the properties below are optional
+//   		ETag: jsii.String("eTag"),
+//   		Version: jsii.String("version"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html
@@ -21,5 +31,11 @@ type CfnPipeline_PipelineDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html#cfn-sagemaker-pipeline-pipelinedefinition-pipelinedefinitionbody
 	//
 	PipelineDefinitionBody *string `field:"required" json:"pipelineDefinitionBody" yaml:"pipelineDefinitionBody"`
+	// The location of the pipeline definition stored in Amazon S3.
+	//
+	// If specified, SageMaker retrieves the pipeline definition from this location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html#cfn-sagemaker-pipeline-pipelinedefinition-pipelinedefinitions3location
+	//
+	PipelineDefinitionS3Location interface{} `field:"optional" json:"pipelineDefinitionS3Location" yaml:"pipelineDefinitionS3Location"`
 }
 

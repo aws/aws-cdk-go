@@ -23,7 +23,6 @@ type CfnMasterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-detectorid
 	//
 	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
-	// The AWS account ID of the account designated as the GuardDuty administrator account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-masterid
 	//
 	MasterId *string `field:"required" json:"masterId" yaml:"masterId"`

@@ -57,11 +57,11 @@ type CfnApp_PhysicalResourceIdProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// The AWS account that owns the physical resource.
+	// The account that owns the physical resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-awsaccountid
 	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
-	// The AWS Region that the physical resource is located in.
+	// The that the physical resource is located in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-awsregion
 	//
 	AwsRegion *string `field:"optional" json:"awsRegion" yaml:"awsRegion"`

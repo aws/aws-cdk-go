@@ -7,7 +7,7 @@ import (
 // Additional API configuration for creating a AppSync Merged API.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   // first source API
@@ -15,27 +15,11 @@ import (
 //   	Name: jsii.String("FirstSourceAPI"),
 //   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.merged-api-1.graphql"))),
 //   })
-//   firstApi.AddNoneDataSource(jsii.String("FirstSourceDS"), &DataSourceOptions{
-//   	Name: cdk.Lazy_String(map[string]interface{}{
-//   		(MethodDeclaration produce(): string { return 'FirstSourceDS'; }
-//   				produce
-//   				string
-//   				{return jsii.String("FirstSourceDS")}),
-//   	}),
-//   })
 //
 //   // second source API
 //   secondApi := appsync.NewGraphqlApi(this, jsii.String("SecondSourceAPI"), &GraphqlApiProps{
 //   	Name: jsii.String("SecondSourceAPI"),
 //   	Definition: appsync.Definition_*FromFile(path.join(__dirname, jsii.String("appsync.merged-api-2.graphql"))),
-//   })
-//   secondApi.AddNoneDataSource(jsii.String("SecondSourceDS"), &DataSourceOptions{
-//   	Name: cdk.Lazy_*String(map[string]interface{}{
-//   		(MethodDeclaration produce(): string { return 'SecondSourceDS'; }
-//   				produce
-//   				string
-//   				{return jsii.String("SecondSourceDS")}),
-//   	}),
 //   })
 //
 //   // Merged API
@@ -46,6 +30,10 @@ import (
 //   			&sourceApi{
 //   				SourceApi: firstApi,
 //   				MergeType: appsync.MergeType_MANUAL_MERGE,
+//   			},
+//   			&sourceApi{
+//   				SourceApi: secondApi,
+//   				MergeType: appsync.MergeType_AUTO_MERGE,
 //   			},
 //   		},
 //   	}),

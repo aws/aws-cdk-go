@@ -1,7 +1,7 @@
 package awsnetworkmanager
 
 
-// The Amazon Web Services location of the device, if applicable.
+// Specifies a location in AWS .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

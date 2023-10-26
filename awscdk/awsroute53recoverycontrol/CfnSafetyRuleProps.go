@@ -47,7 +47,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html
 //
 type CfnSafetyRuleProps struct {
-	// The Amazon Resource Name (ARN) for the control panel.
+	// The Amazon Resource Name (ARN) of the control panel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
 	//
 	ControlPanelArn *string `field:"required" json:"controlPanelArn" yaml:"controlPanelArn"`
@@ -75,7 +75,7 @@ type CfnSafetyRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
 	//
 	GatingRule interface{} `field:"optional" json:"gatingRule" yaml:"gatingRule"`
-	// The value for a tag.
+	// The tags associated with the safety rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

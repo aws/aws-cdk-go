@@ -81,6 +81,7 @@ type CfnJobTemplate interface {
 	// A description of the job template.
 	Description() *string
 	SetDescription(val *string)
+	// The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
 	DestinationPackageVersions() *[]*string
 	SetDestinationPackageVersions(val *[]*string)
 	// The job document.

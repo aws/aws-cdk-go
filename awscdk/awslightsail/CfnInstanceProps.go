@@ -74,7 +74,9 @@ import (
 //   		},
 //
 //   		// the properties below are optional
-//   		MonthlyTransfer: jsii.Number(123),
+//   		MonthlyTransfer: &MonthlyTransferProperty{
+//   			GbPerMonthAllocated: jsii.String("gbPerMonthAllocated"),
+//   		},
 //   	},
 //   	State: &StateProperty{
 //   		Code: jsii.Number(123),

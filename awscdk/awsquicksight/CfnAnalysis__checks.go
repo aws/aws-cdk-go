@@ -345,6 +345,30 @@ func (j *jsiiProxy_CfnAnalysis) validateSetTagsRawParameters(val *[]*awscdk.CfnT
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnalysis) validateSetValidationStrategyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAnalysis_ValidationStrategyProperty:
+		val := val.(*CfnAnalysis_ValidationStrategyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAnalysis_ValidationStrategyProperty:
+		val_ := val.(CfnAnalysis_ValidationStrategyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_ValidationStrategyProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnAnalysisParameters(scope constructs.Construct, id *string, props *CfnAnalysisProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -49,7 +49,6 @@ package awsssm
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
 //
 type CfnResourceDataSyncProps struct {
-	// A name for the resource data sync.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
 	//
 	SyncName *string `field:"required" json:"syncName" yaml:"syncName"`

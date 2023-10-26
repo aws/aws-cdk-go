@@ -83,6 +83,7 @@ type CfnTrustAnchor interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// A list of notification settings to be associated to the trust anchor.
 	NotificationSettings() interface{}
 	SetNotificationSettings(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -45,20 +45,24 @@ import (
 //   	LaunchType: jsii.String("launchType"),
 //   	LoadBalancers: []interface{}{
 //   		&LoadBalancerProperty{
-//   			ContainerName: jsii.String("containerName"),
 //   			ContainerPort: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			ContainerName: jsii.String("containerName"),
 //   			LoadBalancerName: jsii.String("loadBalancerName"),
 //   			TargetGroupArn: jsii.String("targetGroupArn"),
 //   		},
 //   	},
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
 //   		AwsvpcConfiguration: &AwsVpcConfigurationProperty{
+//   			Subnets: []*string{
+//   				jsii.String("subnets"),
+//   			},
+//
+//   			// the properties below are optional
 //   			AssignPublicIp: jsii.String("assignPublicIp"),
 //   			SecurityGroups: []*string{
 //   				jsii.String("securityGroups"),
-//   			},
-//   			Subnets: []*string{
-//   				jsii.String("subnets"),
 //   			},
 //   		},
 //   	},

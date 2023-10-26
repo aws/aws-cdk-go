@@ -57,7 +57,7 @@ type CfnSequenceStore interface {
 	// A description for the store.
 	Description() *string
 	SetDescription(val *string)
-	// An S3 URI representing the bucket and folder to store failed read set uploads.
+	// An S3 location that is used to store files that have failed a direct upload.
 	FallbackLocation() *string
 	SetFallbackLocation(val *string)
 	// The logical ID for this CloudFormation stack element.

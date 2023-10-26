@@ -58,9 +58,7 @@ type CfnFHIRDatastore interface {
 	awscdk.ITaggable
 	// The time that a Data Store was created.
 	AttrCreatedAt() awscdk.IResolvable
-	// Nanoseconds.
 	AttrCreatedAtNanos() *float64
-	// Seconds since epoch.
 	AttrCreatedAtSeconds() *string
 	// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
 	AttrDatastoreArn() *string
@@ -89,7 +87,7 @@ type CfnFHIRDatastore interface {
 	// The FHIR version of the data store.
 	DatastoreTypeVersion() *string
 	SetDatastoreTypeVersion(val *string)
-	// The identity provider configuration for the datastore.
+	// The identity provider configuration that you gave when the data store was created.
 	IdentityProviderConfiguration() interface{}
 	SetIdentityProviderConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -192,15 +192,11 @@ type CfnDBInstance interface {
 	//
 	// This setting is valid for RDS Custom only.
 	AttrDbSystemId() *string
-	// The connection endpoint for the database. For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`.
-	//
-	// For Aurora Serverless DB clusters, the connection endpoint only applies to the DB cluster.
+	// Specifies the DNS address of the DB instance.
 	AttrEndpointAddress() *string
-	// The ID that Amazon Route 53 assigns when you create a hosted zone.
+	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 	AttrEndpointHostedZoneId() *string
-	// The port number on which the database accepts connections.
-	//
-	// For example: `3306`.
+	// Specifies the port that the database engine is listening on.
 	AttrEndpointPort() *string
 	// The Amazon Resource Name (ARN) of the secret.
 	AttrMasterUserSecretSecretArn() *string

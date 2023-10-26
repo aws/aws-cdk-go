@@ -43,6 +43,7 @@ import (
 //   			LocalPath: jsii.String("localPath"),
 //
 //   			// the properties below are optional
+//   			ExcludeFeaturesAttribute: jsii.String("excludeFeaturesAttribute"),
 //   			S3DataDistributionType: jsii.String("s3DataDistributionType"),
 //   			S3InputMode: jsii.String("s3InputMode"),
 //   		},
@@ -51,6 +52,7 @@ import (
 //   			LocalPath: jsii.String("localPath"),
 //
 //   			// the properties below are optional
+//   			ExcludeFeaturesAttribute: jsii.String("excludeFeaturesAttribute"),
 //   			S3DataDistributionType: jsii.String("s3DataDistributionType"),
 //   			S3InputMode: jsii.String("s3InputMode"),
 //   		},

@@ -81,7 +81,9 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-minlatency
 	//
 	MinLatency *float64 `field:"optional" json:"minLatency" yaml:"minLatency"`
-	// The name of the VPC interface.
+	// The name of the output.
+	//
+	// This value must be unique within the current flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

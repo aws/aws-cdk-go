@@ -71,6 +71,7 @@ type CfnJob interface {
 	// Use `MaxCapacity` instead.
 	AllocatedCapacity() *float64
 	SetAllocatedCapacity(val *float64)
+	// The ID of this job run.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

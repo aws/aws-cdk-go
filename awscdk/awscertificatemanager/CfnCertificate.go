@@ -80,6 +80,7 @@ type CfnCertificate interface {
 	// Domain information that domain name registrars use to verify your identity.
 	DomainValidationOptions() interface{}
 	SetDomainValidationOptions(val interface{})
+	// Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
 	KeyAlgorithm() *string
 	SetKeyAlgorithm(val *string)
 	// The logical ID for this CloudFormation stack element.

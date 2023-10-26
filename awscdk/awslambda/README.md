@@ -261,6 +261,20 @@ servicePrincipalWithConditions := servicePrincipal.WithConditions(map[string]int
 fn.GrantInvoke(servicePrincipalWithConditions)
 ```
 
+### Grant function access to a CompositePrincipal
+
+To grant invoke permissions to a `CompositePrincipal` use the `grantInvokeCompositePrincipal` method:
+
+```go
+var fn function
+
+compositePrincipal := iam.NewCompositePrincipal(
+iam.NewOrganizationPrincipal(jsii.String("o-zzzzzzzzzz")),
+iam.NewServicePrincipal(jsii.String("apigateway.amazonaws.com")))
+
+fn.GrantInvokeCompositePrincipal(compositePrincipal)
+```
+
 ## Versions
 
 You can use

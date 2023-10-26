@@ -140,6 +140,14 @@ func (a *jsiiProxy_Alias) validateGrantInvokeParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
+func (a *jsiiProxy_Alias) validateGrantInvokeCompositePrincipalParameters(compositePrincipal awsiam.CompositePrincipal) error {
+	if compositePrincipal == nil {
+		return fmt.Errorf("parameter compositePrincipal is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_Alias) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")

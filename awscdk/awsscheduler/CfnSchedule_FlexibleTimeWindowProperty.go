@@ -20,7 +20,9 @@ package awsscheduler
 type CfnSchedule_FlexibleTimeWindowProperty struct {
 	// Determines whether the schedule is invoked within a flexible time window.
 	//
-	// *Allowed Values* : `OFF` | `FLEXIBLE`.
+	// You must use quotation marks when you specify this value in your JSON or YAML template.
+	//
+	// *Allowed Values* : `"OFF"` | `"FLEXIBLE"`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-flexibletimewindow.html#cfn-scheduler-schedule-flexibletimewindow-mode
 	//
 	Mode *string `field:"required" json:"mode" yaml:"mode"`

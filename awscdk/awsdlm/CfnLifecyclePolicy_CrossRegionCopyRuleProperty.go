@@ -47,6 +47,7 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-copytags
 	//
 	CopyTags interface{} `field:"optional" json:"copyTags" yaml:"copyTags"`
+	// *[AMI policies only]* The AMI deprecation rule for cross-Region AMI copies created by the rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-deprecaterule
 	//
 	DeprecateRule interface{} `field:"optional" json:"deprecateRule" yaml:"deprecateRule"`

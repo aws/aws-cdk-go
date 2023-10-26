@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Serverless::StateMachine.
+// https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

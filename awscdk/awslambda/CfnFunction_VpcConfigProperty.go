@@ -27,7 +27,7 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
 //
 type CfnFunction_VpcConfigProperty struct {
-	// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets.
+	// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-ipv6allowedfordualstack
 	//
 	Ipv6AllowedForDualStack interface{} `field:"optional" json:"ipv6AllowedForDualStack" yaml:"ipv6AllowedForDualStack"`

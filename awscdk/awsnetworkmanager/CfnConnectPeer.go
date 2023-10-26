@@ -30,6 +30,7 @@ import (
 //   	InsideCidrBlocks: []*string{
 //   		jsii.String("insideCidrBlocks"),
 //   	},
+//   	SubnetArn: jsii.String("subnetArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -46,13 +47,9 @@ type CfnConnectPeer interface {
 	awscdk.ITaggable
 	AttrConfiguration() awscdk.IResolvable
 	AttrConfigurationBgpConfigurations() awscdk.IResolvable
-	// The IP address of a core network.
 	AttrConfigurationCoreNetworkAddress() *string
-	// The inside IP addresses used for a Connect peer configuration.
 	AttrConfigurationInsideCidrBlocks() *[]*string
-	// The IP address of the Connect peer.
 	AttrConfigurationPeerAddress() *string
-	// Tunnel protocol type (Only support GRE for now).
 	AttrConfigurationProtocol() *string
 	// The ID of the Connect peer.
 	AttrConnectPeerId() *string
@@ -60,13 +57,13 @@ type CfnConnectPeer interface {
 	AttrCoreNetworkId() *string
 	// The timestamp when the Connect peer was created.
 	AttrCreatedAt() *string
-	// The Region where the edge is located.
+	// The Connect peer Regions where edges are located.
 	AttrEdgeLocation() *string
 	// The state of the Connect peer.
 	//
 	// This will be: `REJECTED` | `PENDING_ATTACHMENT_ACCEPTANCE` | `CREATING` | `FAILED` | `AVAILABLE` | `UPDATING` | `PENDING_NETWORK_UPDATE` | `PENDING_TAG_ACCEPTANCE` | `DELETING` .
 	AttrState() *string
-	// Bgp options.
+	// Describes the BGP options.
 	BgpOptions() interface{}
 	SetBgpOptions(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -111,6 +108,9 @@ type CfnConnectPeer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The subnet ARN for the connect peer.
+	SubnetArn() *string
+	SetSubnetArn(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// The list of key-value tags associated with the Connect peer.
@@ -503,6 +503,16 @@ func (j *jsiiProxy_CfnConnectPeer) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnectPeer) SubnetArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"subnetArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnectPeer) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -616,6 +626,14 @@ func (j *jsiiProxy_CfnConnectPeer)SetPeerAddress(val *string) {
 	_jsii_.Set(
 		j,
 		"peerAddress",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnectPeer)SetSubnetArn(val *string) {
+	_jsii_.Set(
+		j,
+		"subnetArn",
 		val,
 	)
 }

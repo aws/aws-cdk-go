@@ -88,7 +88,7 @@ type CfnJobTemplate interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the job template you are creating.
+	// Name of the output group.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

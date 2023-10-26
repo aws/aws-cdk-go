@@ -59,6 +59,7 @@ type CfnFlow_ConnectorOperatorProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-marketo
 	//
 	Marketo *string `field:"optional" json:"marketo" yaml:"marketo"`
+	// The operation to be performed on the provided Salesforce Pardot source fields.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-pardot
 	//
 	Pardot *string `field:"optional" json:"pardot" yaml:"pardot"`

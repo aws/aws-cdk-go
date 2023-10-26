@@ -25,6 +25,10 @@ import (
 //   	Description: jsii.String("description"),
 //   	PolicyDocument: jsii.String("policyDocument"),
 //   	PolicyEnabled: jsii.Boolean(false),
+//   	SseSpecification: &SseSpecificationProperty{
+//   		CustomerManagedKeyEnabled: jsii.Boolean(false),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -84,6 +88,9 @@ type CfnVerifiedAccessGroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The options for additional server side encryption.
+	SseSpecification() interface{}
+	SetSseSpecification(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -393,6 +400,16 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessGroup) SseSpecification() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sseSpecification",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessGroup) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -504,6 +521,17 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup)SetPolicyEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"policyEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessGroup)SetSseSpecification(val interface{}) {
+	if err := j.validateSetSseSpecificationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sseSpecification",
 		val,
 	)
 }

@@ -136,7 +136,6 @@ type CfnApp interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// Tags assigned to the resource.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
 	// Deprecated.

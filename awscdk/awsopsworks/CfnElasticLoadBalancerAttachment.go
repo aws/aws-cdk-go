@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Attaches an Elastic Load Balancing load balancer to an AWS OpsWorks layer that you specify.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

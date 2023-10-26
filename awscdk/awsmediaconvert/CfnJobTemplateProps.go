@@ -69,7 +69,7 @@ type CfnJobTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-hopdestinations
 	//
 	HopDestinations interface{} `field:"optional" json:"hopDestinations" yaml:"hopDestinations"`
-	// The name of the job template you are creating.
+	// Name of the output group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

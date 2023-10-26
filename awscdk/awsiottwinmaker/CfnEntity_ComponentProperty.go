@@ -59,7 +59,7 @@ type CfnEntity_ComponentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-componentname
 	//
 	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`
-	// The ID of the ComponentType.
+	// The ID of the component type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-componenttypeid
 	//
 	ComponentTypeId *string `field:"optional" json:"componentTypeId" yaml:"componentTypeId"`

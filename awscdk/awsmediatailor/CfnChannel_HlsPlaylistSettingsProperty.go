@@ -18,9 +18,9 @@ package awsmediatailor
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-hlsplaylistsettings.html
 //
 type CfnChannel_HlsPlaylistSettingsProperty struct {
-	// <p>Determines the type of SCTE 35 tags to use in ad markup.
+	// Determines the type of SCTE 35 tags to use in ad markup.
 	//
-	// Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+	// Specify `DATERANGE` to use `DATERANGE` tags (for live or VOD content). Specify `SCTE35_ENHANCED` to use `EXT-X-CUE-OUT` and `EXT-X-CUE-IN` tags (for VOD content only).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-hlsplaylistsettings.html#cfn-mediatailor-channel-hlsplaylistsettings-admarkuptype
 	//
 	AdMarkupType *[]*string `field:"optional" json:"adMarkupType" yaml:"adMarkupType"`

@@ -43,6 +43,7 @@ type CfnChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-loglevel
 	//
 	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
+	// Maintenance settings for this channel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-maintenance
 	//
 	Maintenance interface{} `field:"optional" json:"maintenance" yaml:"maintenance"`

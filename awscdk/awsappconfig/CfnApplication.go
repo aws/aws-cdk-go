@@ -46,6 +46,8 @@ import (
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The application Id.
+	AttrApplicationId() *string
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -230,6 +232,16 @@ type CfnApplication interface {
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnApplication) AttrApplicationId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApplicationId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnApplication) AttrId() *string {

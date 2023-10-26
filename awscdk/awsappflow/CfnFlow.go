@@ -399,7 +399,7 @@ type CfnFlow interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Configurations of metadata catalog of the flow.
+	// Specifies the configuration that Amazon AppFlow uses when it catalogs your data.
 	MetadataCatalogConfig() interface{}
 	SetMetadataCatalogConfig(val interface{})
 	// The tree node.

@@ -60,7 +60,9 @@ type CfnVpcAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-options
 	//
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
-	// The attachment to move from one segment to another.
+	// Describes a proposed segment change.
+	//
+	// In some cases, the segment change must first be evaluated and accepted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-proposedsegmentchange
 	//
 	ProposedSegmentChange interface{} `field:"optional" json:"proposedSegmentChange" yaml:"proposedSegmentChange"`

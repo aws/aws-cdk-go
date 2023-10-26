@@ -29,6 +29,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AgentAvailabilityTimer: jsii.String("agentAvailabilityTimer"),
 //   	QueueConfigs: []interface{}{
 //   		&RoutingProfileQueueConfigProperty{
 //   			Delay: jsii.Number(123),
@@ -70,6 +71,10 @@ type CfnRoutingProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Whether agents with this routing profile will have their routing order calculated based on *time since their last inbound contact* or *longest idle time* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-agentavailabilitytimer
+	//
+	AgentAvailabilityTimer *string `field:"optional" json:"agentAvailabilityTimer" yaml:"agentAvailabilityTimer"`
 	// The inbound queues associated with the routing profile.
 	//
 	// If no queue is added, the agent can make only outbound calls.

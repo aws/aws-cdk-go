@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnVersion) validateSetProvisionedConcurrencyConfigParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnVersion) validateSetRuntimePolicyParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnVersionParameters(scope constructs.Construct, id *string, props *CfnVersionProps) error {
 	return nil
 }

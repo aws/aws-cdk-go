@@ -21,14 +21,10 @@ package awsfis
 //
 type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 	// The source for the stop condition.
-	//
-	// Specify `aws:cloudwatch:alarm` if the stop condition is defined by a CloudWatch alarm. Specify `none` if there is no stop condition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-source
 	//
 	Source *string `field:"required" json:"source" yaml:"source"`
-	// The Amazon Resource Name (ARN) of the CloudWatch alarm.
-	//
-	// This is required if the source is a CloudWatch alarm.
+	// The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-value
 	//
 	Value *string `field:"optional" json:"value" yaml:"value"`

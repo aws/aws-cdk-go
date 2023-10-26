@@ -13,6 +13,8 @@ import (
 //
 // You specify a name, data source connector type and description for your data source. You also specify configuration information for the data source connector.
 //
+// > `CreateDataSource` does *not* support connectors which [require a `TemplateConfiguration` object](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) for connecting to Amazon Kendra .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

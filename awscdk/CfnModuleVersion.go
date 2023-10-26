@@ -30,26 +30,30 @@ import (
 type CfnModuleVersion interface {
 	CfnResource
 	IInspectable
-	// The Amazon Resource Name (ARN) of the module.
+	// The Amazon Resource Name (ARN) of the extension.
 	AttrArn() *string
-	// The description of the module.
+	// The description of the extension.
 	AttrDescription() *string
 	// The URL of a page providing detailed documentation for this module.
 	AttrDocumentationUrl() *string
-	// Whether the specified module version is set as the default version.
+	// Whether the specified extension version is set as the default version.
+	//
+	// This applies only to private extensions you have registered in your account, and extensions published by AWS . For public third-party extensions, whether they are activated in your account, CloudFormation returns `null` .
 	AttrIsDefaultVersion() IResolvable
-	// The schema that defines the module.
+	// The schema that defines the extension.
+	//
+	// For more information about extension schemas, see [Resource Provider Schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html) in the *CloudFormation CLI User Guide* .
 	AttrSchema() *string
-	// When the specified module version was registered.
+	// When the specified private extension version was registered or activated in your account.
 	AttrTimeCreated() *string
 	// The ID of this version of the module.
 	AttrVersionId() *string
-	// The scope at which the module is visible and usable in CloudFormation operations.
+	// The scope at which the extension is visible and usable in CloudFormation operations.
 	//
 	// Valid values include:
 	//
-	// - `PRIVATE` : The module is only visible and usable within the account in which it's registered.
-	// - `PUBLIC` : The module is publicly visible and usable within any Amazon account.
+	// - `PRIVATE` : The extension is only visible and usable within the account in which it is registered. AWS CloudFormation marks any extensions you register as `PRIVATE` .
+	// - `PUBLIC` : The extension is publicly visible and usable within any AWS account.
 	AttrVisibility() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions

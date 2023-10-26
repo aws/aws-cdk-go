@@ -84,7 +84,7 @@ type CfnProject interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Provisioned ServiceCatalog  Details.
+	// Details of a provisioned service catalog product.
 	ServiceCatalogProvisionedProductDetails() interface{}
 	SetServiceCatalogProvisionedProductDetails(val interface{})
 	// The product ID and provisioning artifact ID to provision a service catalog.

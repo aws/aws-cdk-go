@@ -25,6 +25,7 @@ type CfnDatabase_DatabaseIdentifierProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
 	//
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
+	// Region of the target database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-region
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`

@@ -38,6 +38,7 @@ import (
 type CfnClusterSecurityGroupIngress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Specifies an inbound (ingress) rule for an Amazon Redshift security group.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -169,9 +169,29 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-preferredmaintenancewindow
 	//
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	// The date and time to restore the cluster to.
+	//
+	// Valid values: A time in Universal Coordinated Time (UTC) format.
+	//
+	// Constraints:
+	//
+	// - Must be before the latest restorable time for the instance.
+	// - Must be specified if the `UseLatestRestorableTime` parameter is not provided.
+	// - Cannot be specified if the `UseLatestRestorableTime` parameter is `true` .
+	// - Cannot be specified if the `RestoreType` parameter is `copy-on-write` .
+	//
+	// Example: `2015-03-07T23:45:00Z`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-restoretotime
 	//
 	RestoreToTime *string `field:"optional" json:"restoreToTime" yaml:"restoreToTime"`
+	// The type of restore to be performed. You can specify one of the following values:.
+	//
+	// - `full-copy` - The new DB cluster is restored as a full copy of the source DB cluster.
+	// - `copy-on-write` - The new DB cluster is restored as a clone of the source DB cluster.
+	//
+	// Constraints: You can't specify `copy-on-write` if the engine version of the source DB cluster is earlier than 1.11.
+	//
+	// If you don't specify a `RestoreType` value, then the new DB cluster is restored as a full copy of the source DB cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-restoretype
 	//
 	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
@@ -185,6 +205,11 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-snapshotidentifier
 	//
 	SnapshotIdentifier *string `field:"optional" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
+	// The identifier of the source cluster from which to restore.
+	//
+	// Constraints:
+	//
+	// - Must match the identifier of an existing `DBCluster` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-sourcedbclusteridentifier
 	//
 	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
@@ -196,6 +221,11 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// A value that is set to `true` to restore the cluster to the latest restorable backup time, and `false` otherwise.
+	//
+	// Default: `false`
+	//
+	// Constraints: Cannot be specified if the `RestoreToTime` parameter is provided.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-uselatestrestorabletime
 	//
 	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`

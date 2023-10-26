@@ -18,6 +18,85 @@ import (
 //   	DeadLetterQueueUrl: jsii.String("deadLetterQueueUrl"),
 //   	DefaultEncryptionKey: jsii.String("defaultEncryptionKey"),
 //   	DefaultExpirationDays: jsii.Number(123),
+//   	Matching: &MatchingProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		AutoMerging: &AutoMergingProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			ConflictResolution: &ConflictResolutionProperty{
+//   				ConflictResolvingModel: jsii.String("conflictResolvingModel"),
+//
+//   				// the properties below are optional
+//   				SourceName: jsii.String("sourceName"),
+//   			},
+//   			Consolidation: &ConsolidationProperty{
+//   				MatchingAttributesList: []interface{}{
+//   					[]*string{
+//   						jsii.String("matchingAttributesList"),
+//   					},
+//   				},
+//   			},
+//   			MinAllowedConfidenceScoreForMerging: jsii.Number(123),
+//   		},
+//   		ExportingConfig: &ExportingConfigProperty{
+//   			S3Exporting: &S3ExportingConfigProperty{
+//   				S3BucketName: jsii.String("s3BucketName"),
+//
+//   				// the properties below are optional
+//   				S3KeyName: jsii.String("s3KeyName"),
+//   			},
+//   		},
+//   		JobSchedule: &JobScheduleProperty{
+//   			DayOfTheWeek: jsii.String("dayOfTheWeek"),
+//   			Time: jsii.String("time"),
+//   		},
+//   	},
+//   	RuleBasedMatching: &RuleBasedMatchingProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		AttributeTypesSelector: &AttributeTypesSelectorProperty{
+//   			AttributeMatchingModel: jsii.String("attributeMatchingModel"),
+//
+//   			// the properties below are optional
+//   			Address: []*string{
+//   				jsii.String("address"),
+//   			},
+//   			EmailAddress: []*string{
+//   				jsii.String("emailAddress"),
+//   			},
+//   			PhoneNumber: []*string{
+//   				jsii.String("phoneNumber"),
+//   			},
+//   		},
+//   		ConflictResolution: &ConflictResolutionProperty{
+//   			ConflictResolvingModel: jsii.String("conflictResolvingModel"),
+//
+//   			// the properties below are optional
+//   			SourceName: jsii.String("sourceName"),
+//   		},
+//   		ExportingConfig: &ExportingConfigProperty{
+//   			S3Exporting: &S3ExportingConfigProperty{
+//   				S3BucketName: jsii.String("s3BucketName"),
+//
+//   				// the properties below are optional
+//   				S3KeyName: jsii.String("s3KeyName"),
+//   			},
+//   		},
+//   		MatchingRules: []interface{}{
+//   			&MatchingRuleProperty{
+//   				Rule: []*string{
+//   					jsii.String("rule"),
+//   				},
+//   			},
+//   		},
+//   		MaxAllowedRuleLevelForMatching: jsii.Number(123),
+//   		MaxAllowedRuleLevelForMerging: jsii.Number(123),
+//   		Status: jsii.String("status"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -49,6 +128,18 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
 	//
 	DefaultExpirationDays *float64 `field:"optional" json:"defaultExpirationDays" yaml:"defaultExpirationDays"`
+	// The process of matching duplicate profiles.
+	//
+	// If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-matching
+	//
+	Matching interface{} `field:"optional" json:"matching" yaml:"matching"`
+	// The process of matching duplicate profiles using the Rule-Based matching.
+	//
+	// If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-rulebasedmatching
+	//
+	RuleBasedMatching interface{} `field:"optional" json:"ruleBasedMatching" yaml:"ruleBasedMatching"`
 	// The tags used to organize, track, or control access for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
 	//

@@ -98,6 +98,9 @@ type CfnIndexProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	// Specifies additional capacity units configured for your Enterprise Edition index.
+	//
+	// You can add and remove capacity units to fit your usage requirements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
 	//
 	CapacityUnits interface{} `field:"optional" json:"capacityUnits" yaml:"capacityUnits"`

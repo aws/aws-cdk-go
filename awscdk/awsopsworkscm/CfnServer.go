@@ -73,6 +73,7 @@ type CfnServer interface {
 	//
 	// Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
 	AttrEndpoint() *string
+	// The name of the server.
 	AttrServerName() *string
 	// If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
 	BackupId() *string

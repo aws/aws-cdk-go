@@ -17,6 +17,12 @@ package awslambda
 //   	ProvisionedConcurrencyConfig: &ProvisionedConcurrencyConfigurationProperty{
 //   		ProvisionedConcurrentExecutions: jsii.Number(123),
 //   	},
+//   	RuntimePolicy: &RuntimePolicyProperty{
+//   		UpdateRuntimeOn: jsii.String("updateRuntimeOn"),
+//
+//   		// the properties below are optional
+//   		RuntimeVersionArn: jsii.String("runtimeVersionArn"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
@@ -50,5 +56,9 @@ type CfnVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-provisionedconcurrencyconfig
 	//
 	ProvisionedConcurrencyConfig interface{} `field:"optional" json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
+	// Runtime Management Config of a function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-runtimepolicy
+	//
+	RuntimePolicy interface{} `field:"optional" json:"runtimePolicy" yaml:"runtimePolicy"`
 }
 

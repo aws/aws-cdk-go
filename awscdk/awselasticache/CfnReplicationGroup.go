@@ -253,9 +253,6 @@ type CfnReplicationGroup interface {
 	// A user-created description for the replication group.
 	ReplicationGroupDescription() *string
 	SetReplicationGroupDescription(val *string)
-	// The replication group identifier.
-	//
-	// This parameter is stored as a lowercase string.
 	ReplicationGroupId() *string
 	SetReplicationGroupId(val *string)
 	// One or more Amazon VPC security groups associated with this replication group.

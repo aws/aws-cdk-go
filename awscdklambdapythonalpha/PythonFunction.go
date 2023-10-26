@@ -230,6 +230,9 @@ type PythonFunction interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
+	// Experimental.
+	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
@@ -1029,6 +1032,22 @@ func (p *jsiiProxy_PythonFunction) GrantInvoke(grantee awsiam.IGrantable) awsiam
 		p,
 		"grantInvoke",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PythonFunction) GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant {
+	if err := p.validateGrantInvokeCompositePrincipalParameters(compositePrincipal); err != nil {
+		panic(err)
+	}
+	var returns *[]awsiam.Grant
+
+	_jsii_.Invoke(
+		p,
+		"grantInvokeCompositePrincipal",
+		[]interface{}{compositePrincipal},
 		&returns,
 	)
 

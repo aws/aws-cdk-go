@@ -43,9 +43,6 @@ type CfnEndpointAccess interface {
 	AttrPort() *float64
 	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
 	AttrVpcEndpoint() awscdk.IResolvable
-	// One or more network interfaces of the endpoint.
-	//
-	// Also known as an interface endpoint.
 	AttrVpcEndpointNetworkInterfaces() awscdk.IResolvable
 	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
 	AttrVpcEndpointVpcEndpointId() *string

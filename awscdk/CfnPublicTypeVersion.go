@@ -46,6 +46,8 @@ type CfnPublicTypeVersion interface {
 	// The Amazon Resource Number (ARN) assigned to the public extension upon publication.
 	AttrPublicTypeArn() *string
 	// The publisher ID of the extension publisher.
+	//
+	// This applies only to public third-party extensions. For private registered extensions, and extensions provided by AWS , CloudFormation returns `null` .
 	AttrPublisherId() *string
 	// The Amazon Resource Number (ARN) assigned to this version of the extension.
 	AttrTypeVersionArn() *string

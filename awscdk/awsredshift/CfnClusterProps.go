@@ -125,6 +125,8 @@ type CfnClusterProps struct {
 	MasterUsername *string `field:"required" json:"masterUsername" yaml:"masterUsername"`
 	// The password associated with the admin user account for the cluster that is being created.
 	//
+	// You can't use `MasterUserPassword` if `ManageMasterPassword` is `true` .
+	//
 	// Constraints:
 	//
 	// - Must be between 8 and 64 characters in length.

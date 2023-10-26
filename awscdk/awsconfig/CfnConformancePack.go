@@ -90,7 +90,7 @@ type CfnConformancePack interface {
 	// Location of file containing the template body (s3://bucketname/prefix).
 	TemplateS3Uri() *string
 	SetTemplateS3Uri(val *string)
-	// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+	// An object that contains the name or Amazon Resource Name (ARN) of the AWS Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.
 	TemplateSsmDocumentDetails() interface{}
 	SetTemplateSsmDocumentDetails(val interface{})
 	// Deprecated.

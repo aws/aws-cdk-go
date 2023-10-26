@@ -85,13 +85,11 @@ type CfnFlow interface {
 	//
 	// These options are limited to the Availability Zones within the current AWS Region.
 	AttrFlowAvailabilityZone() *string
-	// The IP address that the flow listens on for incoming content.
+	// The IP address that the flow will be listening on for incoming content.
 	AttrSourceIngestIp() *string
 	// The ARN of the source.
 	AttrSourceSourceArn() *string
-	// The port that the flow listens on for incoming content.
-	//
-	// If the protocol of the source is Zixi, the port must be set to 2088.
+	// The port that the flow will be listening on for incoming content.(ReadOnly).
 	AttrSourceSourceIngestPort() *string
 	// The Availability Zone that you want to create the flow in.
 	AvailabilityZone() *string

@@ -11,7 +11,7 @@ import (
 
 // Create a service template.
 //
-// The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline. Developers, in turn, select the service template from AWS Proton . If the selected service template includes a service pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by the selected service template. For more information, see [AWS Proton templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide* .
+// The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline. Developers, in turn, select the service template from . If the selected service template includes a service pipeline definition, they provide a link to their source code repository. then deploys and manages the infrastructure defined by the selected service template. For more information, see [templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -39,6 +39,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	RetrievalRoleArn: jsii.String("retrievalRoleArn"),
 //   	Tags: []tagsProperty{
 //   		&tagsProperty{
@@ -63,6 +64,7 @@ type CfnConfigurationProfile interface {
 	// The application ID.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// The ID of the configuration profile.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -76,6 +78,8 @@ type CfnConfigurationProfile interface {
 	// A description of the configuration profile.
 	Description() *string
 	SetDescription(val *string)
+	KmsKeyIdentifier() *string
+	SetKmsKeyIdentifier(val *string)
 	// A URI to locate the configuration.
 	//
 	// You can specify the following:.
@@ -333,6 +337,16 @@ func (j *jsiiProxy_CfnConfigurationProfile) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigurationProfile) KmsKeyIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationProfile) LocationUri() *string {
 	var returns *string
 	_jsii_.Get(
@@ -496,6 +510,14 @@ func (j *jsiiProxy_CfnConfigurationProfile)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationProfile)SetKmsKeyIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyIdentifier",
 		val,
 	)
 }

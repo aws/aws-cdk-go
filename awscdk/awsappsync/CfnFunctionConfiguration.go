@@ -66,7 +66,6 @@ type CfnFunctionConfiguration interface {
 	AttrFunctionArn() *string
 	// The unique ID of this function.
 	AttrFunctionId() *string
-	AttrId() *string
 	// The name of the function.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -319,16 +318,6 @@ func (j *jsiiProxy_CfnFunctionConfiguration) AttrFunctionId() *string {
 	_jsii_.Get(
 		j,
 		"attrFunctionId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnFunctionConfiguration) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

@@ -57,6 +57,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnStack := awscdk.Aws_cloudformation.NewCfnStack(this, jsii.String("MyCfnStack"), &CfnStackProps{
+//   	TemplateUrl: jsii.String("templateUrl"),
+//
+//   	// the properties below are optional
 //   	NotificationArns: []*string{
 //   		jsii.String("notificationArns"),
 //   	},
@@ -69,7 +72,6 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	TemplateUrl: jsii.String("templateUrl"),
 //   	TimeoutInMinutes: jsii.Number(123),
 //   })
 //
@@ -79,13 +81,29 @@ type CfnStack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// Returns the unique ID of the change set.
 	AttrChangeSetId() *string
+	// Returns The time at which the stack was created.
 	AttrCreationTime() *string
+	// Returns the time the stack was last updated.
+	//
+	// This will only be returned if the stack has been updated at least once.
 	AttrLastUpdateTime() *string
+	// Returns a list of output structures.
 	AttrOutputs() awscdk.IResolvable
+	// For nested stacks--stacks created as resources for another stack--returns the stack ID of the direct parent of this stack.
+	//
+	// For the first level of nested stacks, the root stack is also the parent stack.
+	//
+	// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
 	AttrParentId() *string
+	// For nested stacks--stacks created as resources for another stack--returns the stack ID of the top-level stack to which the nested stack ultimately belongs.
+	//
+	// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
 	AttrRootId() *string
+	// Returns the unique identifier of the stack.
 	AttrStackId() *string
+	// Returns a success or failure message associated with the stack status.
 	AttrStackStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -580,6 +598,9 @@ func (j *jsiiProxy_CfnStack)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnStack)SetTemplateUrl(val *string) {
+	if err := j.validateSetTemplateUrlParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"templateUrl",

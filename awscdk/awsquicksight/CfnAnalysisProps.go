@@ -67,5 +67,11 @@ type CfnAnalysisProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
 	//
 	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects.
+	//
+	// When you set this value to `LENIENT` , validation is skipped for specific errors.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-validationstrategy
+	//
+	ValidationStrategy interface{} `field:"optional" json:"validationStrategy" yaml:"validationStrategy"`
 }
 

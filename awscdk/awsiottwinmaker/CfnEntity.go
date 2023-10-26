@@ -88,13 +88,9 @@ type CfnEntity interface {
 	AttrHasChildEntities() awscdk.IResolvable
 	// The entity status.
 	AttrStatus() awscdk.IResolvable
-	// The error.
 	AttrStatusError() awscdk.IResolvable
-	// The error code.
 	AttrStatusErrorCode() *string
-	// The error message.
 	AttrStatusErrorMessage() *string
-	// The state ofthe entity, component type, or workspace.
 	AttrStatusState() *string
 	// The date and time when the component type was last updated.
 	AttrUpdateDateTime() *string
@@ -113,7 +109,7 @@ type CfnEntity interface {
 	// The description of the entity.
 	Description() *string
 	SetDescription(val *string)
-	// The entity ID.
+	// The ID of the entity.
 	EntityId() *string
 	SetEntityId(val *string)
 	// The entity name.

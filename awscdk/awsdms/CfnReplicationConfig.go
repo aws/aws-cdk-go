@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A replication configuration that you later provide to configure and start a AWS DMS Serverless replication.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,7 +36,6 @@ import (
 //   			jsii.String("vpcSecurityGroupIds"),
 //   		},
 //   	},
-//   	ReplicationConfigArn: jsii.String("replicationConfigArn"),
 //   	ReplicationConfigIdentifier: jsii.String("replicationConfigIdentifier"),
 //   	ReplicationSettings: replicationSettings,
 //   	ReplicationType: jsii.String("replicationType"),
@@ -89,9 +88,6 @@ type CfnReplicationConfig interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon Resource Name (ARN) of this AWS DMS Serverless replication configuration.
-	ReplicationConfigArn() *string
-	SetReplicationConfigArn(val *string)
 	// A unique identifier that you want to use to create a `ReplicationConfigArn` that is returned as part of the output from this action.
 	ReplicationConfigIdentifier() *string
 	SetReplicationConfigIdentifier(val *string)
@@ -359,16 +355,6 @@ func (j *jsiiProxy_CfnReplicationConfig) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationConfig) ReplicationConfigArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"replicationConfigArn",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnReplicationConfig) ReplicationConfigIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -524,14 +510,6 @@ func (j *jsiiProxy_CfnReplicationConfig)SetComputeConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"computeConfig",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnReplicationConfig)SetReplicationConfigArn(val *string) {
-	_jsii_.Set(
-		j,
-		"replicationConfigArn",
 		val,
 	)
 }

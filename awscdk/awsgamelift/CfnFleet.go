@@ -43,6 +43,7 @@ import (
 //   	Ec2InstanceType: jsii.String("ec2InstanceType"),
 //   	FleetType: jsii.String("fleetType"),
 //   	InstanceRoleArn: jsii.String("instanceRoleArn"),
+//   	InstanceRoleCredentialsProvider: jsii.String("instanceRoleCredentialsProvider"),
 //   	Locations: []interface{}{
 //   		&LocationConfigurationProperty{
 //   			Location: jsii.String("location"),
@@ -93,7 +94,7 @@ import (
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Configuration for Anywhere fleet.
+	// Amazon GameLift Anywhere configuration options for your Anywhere fleets.
 	AnywhereConfiguration() interface{}
 	SetAnywhereConfiguration(val interface{})
 	// A unique identifier for the fleet.
@@ -134,6 +135,9 @@ type CfnFleet interface {
 	// A unique identifier for an IAM role that manages access to your AWS services.
 	InstanceRoleArn() *string
 	SetInstanceRoleArn(val *string)
+	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+	InstanceRoleCredentialsProvider() *string
+	SetInstanceRoleCredentialsProvider(val *string)
 	// A set of remote locations to deploy additional instances to and manage as part of the fleet.
 	Locations() interface{}
 	SetLocations(val interface{})
@@ -499,6 +503,16 @@ func (j *jsiiProxy_CfnFleet) InstanceRoleArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) InstanceRoleCredentialsProvider() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"instanceRoleCredentialsProvider",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) Locations() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -812,6 +826,14 @@ func (j *jsiiProxy_CfnFleet)SetInstanceRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetInstanceRoleCredentialsProvider(val *string) {
+	_jsii_.Set(
+		j,
+		"instanceRoleCredentialsProvider",
 		val,
 	)
 }

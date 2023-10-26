@@ -59,6 +59,12 @@ type CfnLaunchProfile_StreamConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
 	//
 	StreamingImageIds *[]*string `field:"required" json:"streamingImageIds" yaml:"streamingImageIds"`
+	// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+	//
+	// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
+	// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
+	//
+	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-automaticterminationmode
 	//
 	AutomaticTerminationMode *string `field:"optional" json:"automaticTerminationMode" yaml:"automaticTerminationMode"`
@@ -84,10 +90,13 @@ type CfnLaunchProfile_StreamConfigurationProperty struct {
 	// Default: - 0.
 	//
 	MaxStoppedSessionLengthInMinutes *float64 `field:"optional" json:"maxStoppedSessionLengthInMinutes" yaml:"maxStoppedSessionLengthInMinutes"`
-	// <p>Configures how streaming sessions are backed up when launched from this launch             profile.</p>.
+	// Information about the streaming session backup.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-sessionbackup
 	//
 	SessionBackup interface{} `field:"optional" json:"sessionBackup" yaml:"sessionBackup"`
+	// Determine if a streaming session created from this launch profile can configure persistent storage.
+	//
+	// This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-sessionpersistencemode
 	//
 	SessionPersistenceMode *string `field:"optional" json:"sessionPersistenceMode" yaml:"sessionPersistenceMode"`
@@ -95,7 +104,9 @@ type CfnLaunchProfile_StreamConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-sessionstorage
 	//
 	SessionStorage interface{} `field:"optional" json:"sessionStorage" yaml:"sessionStorage"`
-	// <p>Custom volume configuration for the root volumes that are attached to streaming             sessions.</p>          <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is                 <code>ACTIVATED</code>.</p>.
+	// Custom volume configuration for the root volumes that are attached to streaming sessions.
+	//
+	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-volumeconfiguration
 	//
 	VolumeConfiguration interface{} `field:"optional" json:"volumeConfiguration" yaml:"volumeConfiguration"`

@@ -75,7 +75,7 @@ type CfnAssistant interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The KMS key used for encryption.
+	// The configuration information for the customer managed key used for encryption.
 	ServerSideEncryptionConfiguration() interface{}
 	SetServerSideEncryptionConfiguration(val interface{})
 	// The stack in which this element is defined.

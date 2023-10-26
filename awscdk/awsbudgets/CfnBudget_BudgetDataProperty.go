@@ -85,7 +85,7 @@ type CfnBudget_BudgetDataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname
 	//
 	BudgetName *string `field:"optional" json:"budgetName" yaml:"budgetName"`
-	// The cost filters, such as `Region` , `Service` , `member account` , `Tag` , or `Cost Category` , that are applied to a budget.
+	// The cost filters, such as `Region` , `Service` , `LinkedAccount` , `Tag` , or `CostCategory` , that are applied to a budget.
 	//
 	// AWS Budgets supports the following services as a `Service` filter for RI budgets:
 	//

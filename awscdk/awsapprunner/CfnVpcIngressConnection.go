@@ -47,7 +47,7 @@ type CfnVpcIngressConnection interface {
 	AttrDomainName() *string
 	// The current status of the VPC Ingress Connection.
 	//
-	// The VPC Ingress Connection displays one of the following statuses: `AVAILABLE` , `PENDING_CREATION` , `PENDING_DELETION` , `FAILED_CREATION` , `FAILED_DELETION` , `PENDNG_UPDATE` , `FAILED_UPDATE` , and `DELETED` .
+	// The VPC Ingress Connection displays one of the following statuses: `AVAILABLE` , `PENDING_CREATION` , `PENDING_UPDATE` , `PENDING_DELETION` , `FAILED_CREATION` , `FAILED_UPDATE` , `FAILED_DELETION` , and `DELETED` ..
 	AttrStatus() *string
 	// The Amazon Resource Name (ARN) of the VPC Ingress Connection.
 	AttrVpcIngressConnectionArn() *string

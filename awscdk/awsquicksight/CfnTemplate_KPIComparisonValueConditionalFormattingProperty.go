@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The conditional formatting for the comparison value of a KPI visual.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -55,9 +57,11 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpicomparisonvalueconditionalformatting.html
 //
 type CfnTemplate_KPIComparisonValueConditionalFormattingProperty struct {
+	// The conditional formatting of the comparison value's icon.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpicomparisonvalueconditionalformatting.html#cfn-quicksight-template-kpicomparisonvalueconditionalformatting-icon
 	//
 	Icon interface{} `field:"optional" json:"icon" yaml:"icon"`
+	// The conditional formatting of the comparison value's text color.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpicomparisonvalueconditionalformatting.html#cfn-quicksight-template-kpicomparisonvalueconditionalformatting-textcolor
 	//
 	TextColor interface{} `field:"optional" json:"textColor" yaml:"textColor"`

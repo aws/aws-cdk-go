@@ -228,9 +228,7 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationname
 	//
 	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
-	// Identifies the run configuration (start parameters) of a Kinesis Data Analytics application.
-	//
-	// This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
+	// Describes the starting parameters for an Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runconfiguration
 	//
 	RunConfiguration interface{} `field:"optional" json:"runConfiguration" yaml:"runConfiguration"`

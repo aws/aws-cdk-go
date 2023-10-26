@@ -67,7 +67,7 @@ type CfnBridgeSource interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the network source.
+	// The name of the flow source.
 	Name() *string
 	SetName(val *string)
 	// Add a network source to an existing bridge.

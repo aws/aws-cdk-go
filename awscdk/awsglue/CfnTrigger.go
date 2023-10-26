@@ -72,6 +72,7 @@ type CfnTrigger interface {
 	// The actions initiated by this trigger.
 	Actions() interface{}
 	SetActions(val interface{})
+	// Reserved for future use.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

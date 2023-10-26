@@ -30,10 +30,6 @@ package awssagemaker
 //
 type CfnImageVersionProps struct {
 	// The container image that the SageMaker image version is based on.
-	//
-	// *Length Constraints* : Minimum length of 1. Maximum length of 255.
-	//
-	// *Pattern* : `.*`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
 	//
 	BaseImage *string `field:"required" json:"baseImage" yaml:"baseImage"`

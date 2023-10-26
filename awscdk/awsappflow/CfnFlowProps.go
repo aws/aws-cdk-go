@@ -392,7 +392,9 @@ type CfnFlowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
 	//
 	KmsArn *string `field:"optional" json:"kmsArn" yaml:"kmsArn"`
-	// Configurations of metadata catalog of the flow.
+	// Specifies the configuration that Amazon AppFlow uses when it catalogs your data.
+	//
+	// When Amazon AppFlow catalogs your data, it stores metadata in a data catalog.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-metadatacatalogconfig
 	//
 	MetadataCatalogConfig interface{} `field:"optional" json:"metadataCatalogConfig" yaml:"metadataCatalogConfig"`

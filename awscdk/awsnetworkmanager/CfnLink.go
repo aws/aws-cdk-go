@@ -42,6 +42,8 @@ type CfnLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The date and time that the link was created.
+	AttrCreatedAt() *string
 	// The ARN of the link.
 	//
 	// For example, `arn:aws:networkmanager::123456789012:link/global-network-01231231231231231/link-11112222aaaabbbb1` .
@@ -50,6 +52,8 @@ type CfnLink interface {
 	//
 	// For example, `link-11112222aaaabbbb1` .
 	AttrLinkId() *string
+	// The state of the link.
+	AttrState() *string
 	// The bandwidth for the link.
 	Bandwidth() interface{}
 	SetBandwidth(val interface{})
@@ -250,6 +254,16 @@ type jsiiProxy_CfnLink struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnLink) AttrCreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLink) AttrLinkArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -265,6 +279,16 @@ func (j *jsiiProxy_CfnLink) AttrLinkId() *string {
 	_jsii_.Get(
 		j,
 		"attrLinkId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLink) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
 		&returns,
 	)
 	return returns

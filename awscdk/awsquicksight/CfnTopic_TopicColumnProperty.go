@@ -59,6 +59,7 @@ package awsquicksight
 //   	},
 //   	IsIncludedInTopic: jsii.Boolean(false),
 //   	NeverAggregateInFilter: jsii.Boolean(false),
+//   	NonAdditive: jsii.Boolean(false),
 //   	NotAllowedAggregations: []*string{
 //   		jsii.String("notAllowedAggregations"),
 //   	},
@@ -139,6 +140,12 @@ type CfnTopic_TopicColumnProperty struct {
 	// Default: - false.
 	//
 	NeverAggregateInFilter interface{} `field:"optional" json:"neverAggregateInFilter" yaml:"neverAggregateInFilter"`
+	// The non additive value for the column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html#cfn-quicksight-topic-topiccolumn-nonadditive
+	//
+	// Default: - false.
+	//
+	NonAdditive interface{} `field:"optional" json:"nonAdditive" yaml:"nonAdditive"`
 	// The list of aggregation types that are not allowed for the column.
 	//
 	// Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .

@@ -21,12 +21,6 @@ type CfnAliasProps struct {
 	// > If you change the value of the `AliasName` property, the existing alias is deleted and a new alias is created for the specified KMS key. This change can disrupt applications that use the alias. It can also allow or deny access to a KMS key affected by attribute-based access control (ABAC).
 	//
 	// The alias must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with `alias/aws/` . The `alias/aws/` prefix is reserved for [AWS managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) .
-	//
-	// *Pattern* : `^alias/[a-zA-Z0-9/_-]+$`
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `256`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
 	//
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`

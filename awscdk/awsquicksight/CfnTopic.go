@@ -75,6 +75,7 @@ import (
 //   					},
 //   					IsIncludedInTopic: jsii.Boolean(false),
 //   					NeverAggregateInFilter: jsii.Boolean(false),
+//   					NonAdditive: jsii.Boolean(false),
 //   					NotAllowedAggregations: []*string{
 //   						jsii.String("notAllowedAggregations"),
 //   					},
@@ -148,6 +149,7 @@ import (
 //   					},
 //   					IsIncludedInTopic: jsii.Boolean(false),
 //   					NeverAggregateInFilter: jsii.Boolean(false),
+//   					NonAdditive: jsii.Boolean(false),
 //   					NotAllowedAggregations: []*string{
 //   						jsii.String("notAllowedAggregations"),
 //   					},

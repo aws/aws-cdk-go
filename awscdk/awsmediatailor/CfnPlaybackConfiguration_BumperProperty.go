@@ -3,7 +3,7 @@ package awsmediatailor
 
 // The configuration for bumpers.
 //
-// Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+// Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

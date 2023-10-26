@@ -55,9 +55,9 @@ type CfnFeatureGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// A timestamp of FeatureGroup creation time.
+	// The time a `FeatureGroup` was created.
 	AttrCreationTime() *string
-	// The status of the feature group.
+	// A `FeatureGroup` status.
 	AttrFeatureGroupStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

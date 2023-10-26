@@ -31,7 +31,6 @@ import (
 //   			jsii.String("vpcSecurityGroupIds"),
 //   		},
 //   	},
-//   	ReplicationConfigArn: jsii.String("replicationConfigArn"),
 //   	ReplicationConfigIdentifier: jsii.String("replicationConfigIdentifier"),
 //   	ReplicationSettings: replicationSettings,
 //   	ReplicationType: jsii.String("replicationType"),
@@ -55,10 +54,6 @@ type CfnReplicationConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-computeconfig
 	//
 	ComputeConfig interface{} `field:"optional" json:"computeConfig" yaml:"computeConfig"`
-	// The Amazon Resource Name (ARN) of this AWS DMS Serverless replication configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-replicationconfigarn
-	//
-	ReplicationConfigArn *string `field:"optional" json:"replicationConfigArn" yaml:"replicationConfigArn"`
 	// A unique identifier that you want to use to create a `ReplicationConfigArn` that is returned as part of the output from this action.
 	//
 	// You can then pass this output `ReplicationConfigArn` as the value of the `ReplicationConfigArn` option for other actions to identify both AWS DMS Serverless replications and replication configurations that you want those actions to operate on. For some actions, you can also use either this unique identifier or a corresponding ARN in action filters to identify the specific replication and replication configuration to operate on.

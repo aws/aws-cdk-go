@@ -39,6 +39,17 @@ import (
 //   		},
 //   	},
 //   	ResolutionTechniques: &ResolutionTechniquesProperty{
+//   		ProviderProperties: &ProviderPropertiesProperty{
+//   			ProviderServiceArn: jsii.String("providerServiceArn"),
+//
+//   			// the properties below are optional
+//   			IntermediateSourceConfiguration: &IntermediateSourceConfigurationProperty{
+//   				IntermediateS3Path: jsii.String("intermediateS3Path"),
+//   			},
+//   			ProviderConfiguration: map[string]*string{
+//   				"providerConfigurationKey": jsii.String("providerConfiguration"),
+//   			},
+//   		},
 //   		ResolutionType: jsii.String("resolutionType"),
 //   		RuleBasedProperties: &RuleBasedPropertiesProperty{
 //   			AttributeMatchingModel: jsii.String("attributeMatchingModel"),
@@ -82,13 +93,13 @@ type CfnMatchingWorkflowProps struct {
 	ResolutionTechniques interface{} `field:"required" json:"resolutionTechniques" yaml:"resolutionTechniques"`
 	// The Amazon Resource Name (ARN) of the IAM role.
 	//
-	// Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+	// AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html#cfn-entityresolution-matchingworkflow-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the workflow.
 	//
-	// There cannot be multiple `DataIntegrationWorkflows` with the same name.
+	// There can't be multiple `MatchingWorkflows` with the same name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html#cfn-entityresolution-matchingworkflow-workflowname
 	//
 	WorkflowName *string `field:"required" json:"workflowName" yaml:"workflowName"`

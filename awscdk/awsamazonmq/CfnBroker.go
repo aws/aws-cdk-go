@@ -135,6 +135,9 @@ type CfnBroker interface {
 	//
 	// `1`.
 	AttrConfigurationRevision() *float64
+	// Required.
+	//
+	// The unique ID that Amazon MQ generates for the configuration.
 	AttrId() *string
 	// The IP addresses of each broker instance as a list of strings. Does not apply to RabbitMQ brokers.
 	//
@@ -177,8 +180,10 @@ type CfnBroker interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Defines whether this broker is a part of a data replication pair.
 	DataReplicationMode() *string
 	SetDataReplicationMode(val *string)
+	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker.
 	DataReplicationPrimaryBrokerArn() *string
 	SetDataReplicationPrimaryBrokerArn(val *string)
 	// The deployment mode of the broker.

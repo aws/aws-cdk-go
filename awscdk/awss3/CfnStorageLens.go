@@ -121,9 +121,7 @@ type CfnStorageLens interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// This property contains the details of the ARN of the S3 Storage Lens configuration.
-	//
-	// This property is read-only.
+	// The ARN for the Amazon S3 Storage Lens configuration.
 	AttrStorageLensConfigurationStorageLensArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

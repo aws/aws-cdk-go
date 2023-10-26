@@ -13,8 +13,10 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   loadBalancerProperty := &LoadBalancerProperty{
-//   	ContainerName: jsii.String("containerName"),
 //   	ContainerPort: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	ContainerName: jsii.String("containerName"),
 //   	LoadBalancerName: jsii.String("loadBalancerName"),
 //   	TargetGroupArn: jsii.String("targetGroupArn"),
 //   }
@@ -22,16 +24,16 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html
 //
 type CfnService_LoadBalancerProperty struct {
-	// The name of the container (as it appears in a container definition) to associate with the load balancer.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
-	//
-	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The port on the container to associate with the load balancer.
 	//
 	// This port must correspond to a `containerPort` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the `hostPort` of the port mapping.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport
 	//
-	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
+	ContainerPort *float64 `field:"required" json:"containerPort" yaml:"containerPort"`
+	// The name of the container (as it appears in a container definition) to associate with the load balancer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
+	//
+	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The name of the load balancer to associate with the Amazon ECS service or task set.
 	//
 	// If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.

@@ -173,6 +173,7 @@ type CfnEndpointConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname
 	//
 	EndpointConfigName *string `field:"optional" json:"endpointConfigName" yaml:"endpointConfigName"`
+	// A parameter to activate explainers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-explainerconfig
 	//
 	ExplainerConfig interface{} `field:"optional" json:"explainerConfig" yaml:"explainerConfig"`

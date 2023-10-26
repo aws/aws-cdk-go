@@ -29,6 +29,7 @@ package awsconnectcampaigns
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html
 //
 type CfnCampaign_DialerConfigProperty struct {
+	// The configuration of the agentless dialer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-agentlessdialerconfig
 	//
 	AgentlessDialerConfig interface{} `field:"optional" json:"agentlessDialerConfig" yaml:"agentlessDialerConfig"`

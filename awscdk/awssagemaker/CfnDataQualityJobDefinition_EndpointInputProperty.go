@@ -13,6 +13,7 @@ package awssagemaker
 //   	LocalPath: jsii.String("localPath"),
 //
 //   	// the properties below are optional
+//   	ExcludeFeaturesAttribute: jsii.String("excludeFeaturesAttribute"),
 //   	S3DataDistributionType: jsii.String("s3DataDistributionType"),
 //   	S3InputMode: jsii.String("s3InputMode"),
 //   }
@@ -28,6 +29,10 @@ type CfnDataQualityJobDefinition_EndpointInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-localpath
 	//
 	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
+	// The attributes of the input data to exclude from the analysis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-excludefeaturesattribute
+	//
+	ExcludeFeaturesAttribute *string `field:"optional" json:"excludeFeaturesAttribute" yaml:"excludeFeaturesAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an Amazon S3 key.
 	//
 	// Defaults to `FullyReplicated`.

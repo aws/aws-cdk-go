@@ -37,6 +37,9 @@ import (
 type CfnGatewayResponse interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID for the gateway response.
+	//
+	// For example: `abc123` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

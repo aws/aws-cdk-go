@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policy interface{}
+//
 //   cfnFunctionProps := &CfnFunctionProps{
 //   	Code: &CodeProperty{
 //   		ImageUri: jsii.String("imageUri"),
@@ -61,6 +63,7 @@ import (
 //   	},
 //   	MemorySize: jsii.Number(123),
 //   	PackageType: jsii.String("packageType"),
+//   	Policy: policy,
 //   	ReservedConcurrentExecutions: jsii.Number(123),
 //   	Runtime: jsii.String("runtime"),
 //   	RuntimeManagementConfig: &RuntimeManagementConfigProperty{
@@ -183,6 +186,10 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
 	//
 	PackageType *string `field:"optional" json:"packageType" yaml:"packageType"`
+	// The resource policy of your function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-policy
+	//
+	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
 	// The number of simultaneous executions to reserve for the function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
 	//

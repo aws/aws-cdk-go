@@ -66,6 +66,7 @@ type CfnConfiguration interface {
 	SetDescription(val *string)
 	KafkaVersionsList() *[]*string
 	SetKafkaVersionsList(val *[]*string)
+	// Latest revision of the configuration.
 	LatestRevision() interface{}
 	SetLatestRevision(val interface{})
 	// The logical ID for this CloudFormation stack element.

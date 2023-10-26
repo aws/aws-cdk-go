@@ -34,6 +34,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AgentAvailabilityTimer: jsii.String("agentAvailabilityTimer"),
 //   	QueueConfigs: []interface{}{
 //   		&RoutingProfileQueueConfigProperty{
 //   			Delay: jsii.Number(123),
@@ -57,6 +58,9 @@ import (
 type CfnRoutingProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Whether agents with this routing profile will have their routing order calculated based on *time since their last inbound contact* or *longest idle time* .
+	AgentAvailabilityTimer() *string
+	SetAgentAvailabilityTimer(val *string)
 	// The Amazon Resource Name (ARN) of the routing profile.
 	AttrRoutingProfileArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -254,6 +258,16 @@ type CfnRoutingProfile interface {
 type jsiiProxy_CfnRoutingProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnRoutingProfile) AgentAvailabilityTimer() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"agentAvailabilityTimer",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnRoutingProfile) AttrRoutingProfileArn() *string {
@@ -461,6 +475,14 @@ func NewCfnRoutingProfile_Override(c CfnRoutingProfile, scope constructs.Constru
 		"aws-cdk-lib.aws_connect.CfnRoutingProfile",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnRoutingProfile)SetAgentAvailabilityTimer(val *string) {
+	_jsii_.Set(
+		j,
+		"agentAvailabilityTimer",
+		val,
 	)
 }
 

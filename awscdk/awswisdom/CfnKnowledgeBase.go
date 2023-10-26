@@ -94,7 +94,7 @@ type CfnKnowledgeBase interface {
 	// Information about how to render the content.
 	RenderingConfiguration() interface{}
 	SetRenderingConfiguration(val interface{})
-	// The KMS key used for encryption.
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom.
 	ServerSideEncryptionConfiguration() interface{}
 	SetServerSideEncryptionConfiguration(val interface{})
 	// The source of the knowledge base content.

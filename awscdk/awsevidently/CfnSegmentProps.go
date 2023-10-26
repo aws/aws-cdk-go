@@ -38,7 +38,7 @@ type CfnSegmentProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The pattern to use for the segment.
 	//
-	// For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
+	// For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-segment.html#cfn-evidently-segment-pattern
 	//
 	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`

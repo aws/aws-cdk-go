@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnUserHierarchyGroup) validateSetNameParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserHierarchyGroup) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnUserHierarchyGroupParameters(scope constructs.Construct, id *string, props *CfnUserHierarchyGroupProps) error {
 	return nil
 }

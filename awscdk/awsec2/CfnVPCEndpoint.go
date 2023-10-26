@@ -131,7 +131,6 @@ type CfnVPCEndpoint interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The type of endpoint.
 	VpcEndpointType() *string
 	SetVpcEndpointType(val *string)
 	// The ID of the VPC.

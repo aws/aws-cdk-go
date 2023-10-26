@@ -38,9 +38,6 @@ type CfnDiscoverer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// Defines whether event schemas from other accounts are discovered.
-	//
-	// Default is True.
 	AttrCrossAccount() awscdk.IResolvable
 	// The ARN of the discoverer.
 	AttrDiscovererArn() *string

@@ -25,15 +25,15 @@ package awss3outposts
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html
 //
 type CfnEndpointProps struct {
-	// The ID of the Outpost.
+	// The id of the customer outpost on which the bucket resides.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
 	//
 	OutpostId *string `field:"required" json:"outpostId" yaml:"outpostId"`
-	// The ID of the security group to use with the endpoint.
+	// The ID of the security group used for the endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-securitygroupid
 	//
 	SecurityGroupId *string `field:"required" json:"securityGroupId" yaml:"securityGroupId"`
-	// The ID of the subnet.
+	// The ID of the subnet used for the endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid
 	//
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
@@ -53,6 +53,7 @@ type CfnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-customerownedipv4pool
 	//
 	CustomerOwnedIpv4Pool *string `field:"optional" json:"customerOwnedIpv4Pool" yaml:"customerOwnedIpv4Pool"`
+	// The failure reason, if any, for a create or delete endpoint operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-failedreason
 	//
 	FailedReason interface{} `field:"optional" json:"failedReason" yaml:"failedReason"`

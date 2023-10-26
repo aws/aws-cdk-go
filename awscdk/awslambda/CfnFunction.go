@@ -28,6 +28,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policy interface{}
+//
 //   cfnFunction := awscdk.Aws_lambda.NewCfnFunction(this, jsii.String("MyCfnFunction"), &CfnFunctionProps{
 //   	Code: &CodeProperty{
 //   		ImageUri: jsii.String("imageUri"),
@@ -78,6 +80,7 @@ import (
 //   	},
 //   	MemorySize: jsii.Number(123),
 //   	PackageType: jsii.String("packageType"),
+//   	Policy: policy,
 //   	ReservedConcurrentExecutions: jsii.Number(123),
 //   	Runtime: jsii.String("runtime"),
 //   	RuntimeManagementConfig: &RuntimeManagementConfigProperty{
@@ -192,6 +195,9 @@ type CfnFunction interface {
 	// The type of deployment package.
 	PackageType() *string
 	SetPackageType(val *string)
+	// The resource policy of your function.
+	Policy() interface{}
+	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -627,6 +633,16 @@ func (j *jsiiProxy_CfnFunction) PackageType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) Policy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"policy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -929,6 +945,14 @@ func (j *jsiiProxy_CfnFunction)SetPackageType(val *string) {
 	_jsii_.Set(
 		j,
 		"packageType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetPolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"policy",
 		val,
 	)
 }

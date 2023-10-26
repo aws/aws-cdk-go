@@ -127,6 +127,7 @@ type CfnFlow_SourceConnectorPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
 	//
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
+	// Specifies the information that is required for querying Salesforce Pardot.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-pardot
 	//
 	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`

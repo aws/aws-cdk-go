@@ -9,6 +9,17 @@ package awsentityresolution
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   resolutionTechniquesProperty := &ResolutionTechniquesProperty{
+//   	ProviderProperties: &ProviderPropertiesProperty{
+//   		ProviderServiceArn: jsii.String("providerServiceArn"),
+//
+//   		// the properties below are optional
+//   		IntermediateSourceConfiguration: &IntermediateSourceConfigurationProperty{
+//   			IntermediateS3Path: jsii.String("intermediateS3Path"),
+//   		},
+//   		ProviderConfiguration: map[string]*string{
+//   			"providerConfigurationKey": jsii.String("providerConfiguration"),
+//   		},
+//   	},
 //   	ResolutionType: jsii.String("resolutionType"),
 //   	RuleBasedProperties: &RuleBasedPropertiesProperty{
 //   		AttributeMatchingModel: jsii.String("attributeMatchingModel"),
@@ -26,6 +37,10 @@ package awsentityresolution
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html
 //
 type CfnMatchingWorkflow_ResolutionTechniquesProperty struct {
+	// The properties of the provider service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-providerproperties
+	//
+	ProviderProperties interface{} `field:"optional" json:"providerProperties" yaml:"providerProperties"`
 	// The type of matching.
 	//
 	// There are two types of matching: `RULE_MATCHING` and `ML_MATCHING` .

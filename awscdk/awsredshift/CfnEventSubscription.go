@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

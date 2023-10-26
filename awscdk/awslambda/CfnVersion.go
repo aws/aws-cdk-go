@@ -25,6 +25,12 @@ import (
 //   	ProvisionedConcurrencyConfig: &ProvisionedConcurrencyConfigurationProperty{
 //   		ProvisionedConcurrentExecutions: jsii.Number(123),
 //   	},
+//   	RuntimePolicy: &RuntimePolicyProperty{
+//   		UpdateRuntimeOn: jsii.String("updateRuntimeOn"),
+//
+//   		// the properties below are optional
+//   		RuntimeVersionArn: jsii.String("runtimeVersionArn"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
@@ -32,7 +38,8 @@ import (
 type CfnVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
+	// The ARN of the version.
+	AttrFunctionArn() *string
 	// The version number.
 	AttrVersion() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -73,6 +80,9 @@ type CfnVersion interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Runtime Management Config of a function.
+	RuntimePolicy() interface{}
+	SetRuntimePolicy(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -223,11 +233,11 @@ type jsiiProxy_CfnVersion struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnVersion) AttrId() *string {
+func (j *jsiiProxy_CfnVersion) AttrFunctionArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrFunctionArn",
 		&returns,
 	)
 	return returns
@@ -353,6 +363,16 @@ func (j *jsiiProxy_CfnVersion) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVersion) RuntimePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"runtimePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVersion) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -445,6 +465,17 @@ func (j *jsiiProxy_CfnVersion)SetProvisionedConcurrencyConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"provisionedConcurrencyConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVersion)SetRuntimePolicy(val interface{}) {
+	if err := j.validateSetRuntimePolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"runtimePolicy",
 		val,
 	)
 }

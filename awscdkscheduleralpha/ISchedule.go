@@ -4,6 +4,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2/internal"
 )
 
@@ -14,6 +15,9 @@ type ISchedule interface {
 	// The schedule group associated with this schedule.
 	// Experimental.
 	Group() IGroup
+	// The customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
+	// Experimental.
+	Key() awskms.IKey
 	// The arn of the schedule.
 	// Experimental.
 	ScheduleArn() *string
@@ -32,6 +36,16 @@ func (j *jsiiProxy_ISchedule) Group() IGroup {
 	_jsii_.Get(
 		j,
 		"group",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISchedule) Key() awskms.IKey {
+	var returns awskms.IKey
+	_jsii_.Get(
+		j,
+		"key",
 		&returns,
 	)
 	return returns

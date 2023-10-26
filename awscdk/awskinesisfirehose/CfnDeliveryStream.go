@@ -22,6 +22,7 @@ type CfnDeliveryStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
 	AmazonOpenSearchServerlessDestinationConfiguration() interface{}
 	SetAmazonOpenSearchServerlessDestinationConfiguration(val interface{})
 	// The destination in Amazon OpenSearch Service.
@@ -71,6 +72,7 @@ type CfnDeliveryStream interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
 	MskSourceConfiguration() interface{}
 	SetMskSourceConfiguration(val interface{})
 	// The tree node.

@@ -39,6 +39,7 @@ package awsquicksight
 //   				},
 //   			},
 //   		},
+//   		SeriesType: jsii.String("seriesType"),
 //   		StaticConfiguration: &ReferenceLineStaticDataConfigurationProperty{
 //   			Value: jsii.Number(123),
 //   		},

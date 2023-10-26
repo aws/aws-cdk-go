@@ -100,6 +100,7 @@ type CfnIndex interface {
 	//
 	// For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
 	AttrId() *string
+	// Specifies additional capacity units configured for your Enterprise Edition index.
 	CapacityUnits() interface{}
 	SetCapacityUnits(val interface{})
 	// Options for this resource, such as condition, update policy etc.

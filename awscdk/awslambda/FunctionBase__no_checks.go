@@ -48,6 +48,10 @@ func (f *jsiiProxy_FunctionBase) validateGrantInvokeParameters(grantee awsiam.IG
 	return nil
 }
 
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeCompositePrincipalParameters(compositePrincipal awsiam.CompositePrincipal) error {
+	return nil
+}
+
 func (f *jsiiProxy_FunctionBase) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

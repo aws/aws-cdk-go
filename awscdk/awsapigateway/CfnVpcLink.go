@@ -40,7 +40,9 @@ type CfnVpcLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The ID of the instance that backs VPC link.
+	// The ID for the VPC link.
+	//
+	// For example: `abc123` .
 	AttrVpcLinkId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

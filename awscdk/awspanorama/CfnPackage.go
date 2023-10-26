@@ -43,7 +43,7 @@ type CfnPackage interface {
 	awscdk.ITaggable
 	// The package's ARN.
 	AttrArn() *string
-	// The item's created time.
+	// When the package was created.
 	AttrCreatedTime() *float64
 	// The package's ID.
 	AttrPackageId() *string
@@ -85,6 +85,7 @@ type CfnPackage interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A storage location.
 	StorageLocation() interface{}
 	SetStorageLocation(val interface{})
 	// Tag Manager which manages the tags for this resource.

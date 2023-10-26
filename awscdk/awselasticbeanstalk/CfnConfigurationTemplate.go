@@ -53,6 +53,8 @@ type CfnConfigurationTemplate interface {
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// The name of the configuration template.
+	//
+	// Constraint: This name must be unique per application.
 	AttrTemplateName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

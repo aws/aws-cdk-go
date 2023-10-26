@@ -176,6 +176,8 @@ type Version interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
+	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
@@ -704,6 +706,22 @@ func (v *jsiiProxy_Version) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant 
 		v,
 		"grantInvoke",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_Version) GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant {
+	if err := v.validateGrantInvokeCompositePrincipalParameters(compositePrincipal); err != nil {
+		panic(err)
+	}
+	var returns *[]awsiam.Grant
+
+	_jsii_.Invoke(
+		v,
+		"grantInvokeCompositePrincipal",
+		[]interface{}{compositePrincipal},
 		&returns,
 	)
 

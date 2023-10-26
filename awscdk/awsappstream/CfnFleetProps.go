@@ -157,8 +157,6 @@ type CfnFleetProps struct {
 	// The platform of the fleet.
 	//
 	// Platform is a required setting for Elastic fleets, and is not used for other fleet types.
-	//
-	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-platform
 	//
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`

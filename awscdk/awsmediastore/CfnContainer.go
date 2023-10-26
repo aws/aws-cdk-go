@@ -105,6 +105,7 @@ type CfnContainer interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The metric policy that is associated with the container.
 	MetricPolicy() interface{}
 	SetMetricPolicy(val interface{})
 	// The tree node.

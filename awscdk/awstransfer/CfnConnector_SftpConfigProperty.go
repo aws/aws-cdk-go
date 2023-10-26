@@ -33,7 +33,7 @@ type CfnConnector_SftpConfigProperty struct {
 	TrustedHostKeys *[]*string `field:"optional" json:"trustedHostKeys" yaml:"trustedHostKeys"`
 	// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both.
 	//
-	// The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+	// The identifier must be the Amazon Resource Name (ARN) of the secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-usersecretid
 	//
 	UserSecretId *string `field:"optional" json:"userSecretId" yaml:"userSecretId"`

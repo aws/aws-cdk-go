@@ -65,7 +65,7 @@ type CfnAnalyzer interface {
 	// Specifies the archive rules to add for the analyzer.
 	ArchiveRules() interface{}
 	SetArchiveRules(val interface{})
-	// Amazon Resource Name (ARN) of the analyzer.
+	// The ARN of the analyzer that was created.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

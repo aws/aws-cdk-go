@@ -46,6 +46,10 @@ import (
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
+//   	SseSpecification: &SseSpecificationProperty{
+//   		CustomerManagedKeyEnabled: jsii.Boolean(false),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -133,6 +137,9 @@ type CfnVerifiedAccessEndpoint interface {
 	// The IDs of the security groups for the endpoint.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
+	// The options for additional server side encryption.
+	SseSpecification() interface{}
+	SetSseSpecification(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -542,6 +549,16 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) SecurityGroupIds() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) SseSpecification() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sseSpecification",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -738,6 +755,17 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetSecurityGroupIds(val *[]*string)
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetSseSpecification(val interface{}) {
+	if err := j.validateSetSseSpecificationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sseSpecification",
 		val,
 	)
 }

@@ -40,6 +40,7 @@ type CfnSite interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The time that the site was created.
 	AttrCreatedAt() *string
 	// The ARN of the site.
 	//
@@ -49,6 +50,7 @@ type CfnSite interface {
 	//
 	// For example, `site-444555aaabbb11223` .
 	AttrSiteId() *string
+	// The current state of the site.
 	AttrState() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

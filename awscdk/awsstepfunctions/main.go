@@ -171,10 +171,6 @@ func init() {
 		reflect.TypeOf((*CfnStateMachine_CloudWatchLogsLogGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine.DefinitionProperty",
-		reflect.TypeOf((*CfnStateMachine_DefinitionProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine.LogDestinationProperty",
 		reflect.TypeOf((*CfnStateMachine_LogDestinationProperty)(nil)).Elem(),
 	)

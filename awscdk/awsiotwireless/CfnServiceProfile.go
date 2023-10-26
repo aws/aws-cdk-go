@@ -57,38 +57,22 @@ type CfnServiceProfile interface {
 	AttrArn() *string
 	// The ID of the service profile created.
 	AttrId() *string
-	// The ChannelMask value.
 	AttrLoRaWanChannelMask() *string
-	// The DevStatusReqFreq value.
 	AttrLoRaWanDevStatusReqFreq() *float64
-	// The DLBucketSize value.
 	AttrLoRaWanDlBucketSize() *float64
-	// The DLRate value.
 	AttrLoRaWanDlRate() *float64
-	// The DLRatePolicy value.
 	AttrLoRaWanDlRatePolicy() *string
-	// The DRMax value.
 	AttrLoRaWanDrMax() *float64
-	// The DRMin value.
 	AttrLoRaWanDrMin() *float64
-	// The HRAllowed value that describes whether handover roaming is allowed.
 	AttrLoRaWanHrAllowed() awscdk.IResolvable
-	// The MinGwDiversity value.
 	AttrLoRaWanMinGwDiversity() *float64
-	// The NwkGeoLoc value.
 	AttrLoRaWanNwkGeoLoc() awscdk.IResolvable
-	// The ReportDevStatusBattery value.
 	AttrLoRaWanReportDevStatusBattery() awscdk.IResolvable
-	// The ReportDevStatusMargin value.
 	AttrLoRaWanReportDevStatusMargin() awscdk.IResolvable
 	AttrLoRaWanResponse() awscdk.IResolvable
-	// The TargetPer value.
 	AttrLoRaWanTargetPer() *float64
-	// The UlBucketSize value.
 	AttrLoRaWanUlBucketSize() *float64
-	// The ULRate value.
 	AttrLoRaWanUlRate() *float64
-	// The ULRatePolicy value.
 	AttrLoRaWanUlRatePolicy() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

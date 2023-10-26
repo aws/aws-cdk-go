@@ -66,6 +66,7 @@ type CfnEndpoint interface {
 	// The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint.
 	CustomerOwnedIpv4Pool() *string
 	SetCustomerOwnedIpv4Pool(val *string)
+	// The failure reason, if any, for a create or delete endpoint operation.
 	FailedReason() interface{}
 	SetFailedReason(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -80,7 +81,7 @@ type CfnEndpoint interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The ID of the Outpost.
+	// The id of the customer outpost on which the bucket resides.
 	OutpostId() *string
 	SetOutpostId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -88,14 +89,14 @@ type CfnEndpoint interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID of the security group to use with the endpoint.
+	// The ID of the security group used for the endpoint.
 	SecurityGroupId() *string
 	SetSecurityGroupId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The ID of the subnet.
+	// The ID of the subnet used for the endpoint.
 	SubnetId() *string
 	SetSubnetId(val *string)
 	// Deprecated.

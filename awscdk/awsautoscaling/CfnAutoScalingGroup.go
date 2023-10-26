@@ -178,6 +178,14 @@ import (
 //   		},
 //   	},
 //   	NewInstancesProtectedFromScaleIn: jsii.Boolean(false),
+//   	NotificationConfiguration: &NotificationConfigurationProperty{
+//   		TopicArn: jsii.String("topicArn"),
+//
+//   		// the properties below are optional
+//   		NotificationTypes: []*string{
+//   			jsii.String("notificationTypes"),
+//   		},
+//   	},
 //   	NotificationConfigurations: []interface{}{
 //   		&NotificationConfigurationProperty{
 //   			TopicArn: jsii.String("topicArn"),
@@ -214,7 +222,6 @@ type CfnAutoScalingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	AttrId() *string
 	// The name of the Auto Scaling group.
 	//
 	// This name must be unique per Region per account.
@@ -301,6 +308,10 @@ type CfnAutoScalingGroup interface {
 	SetNewInstancesProtectedFromScaleIn(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// Deprecated: this property has been deprecated.
+	NotificationConfiguration() interface{}
+	// Deprecated: this property has been deprecated.
+	SetNotificationConfiguration(val interface{})
 	// Configures an Auto Scaling group to send notifications when specified events take place.
 	NotificationConfigurations() interface{}
 	SetNotificationConfigurations(val interface{})
@@ -478,16 +489,6 @@ type jsiiProxy_CfnAutoScalingGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
-}
-
-func (j *jsiiProxy_CfnAutoScalingGroup) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnAutoScalingGroup) AutoScalingGroupName() *string {
@@ -755,6 +756,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) NotificationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"notificationConfiguration",
 		&returns,
 	)
 	return returns
@@ -1096,6 +1107,17 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetNewInstancesProtectedFromScaleIn(val i
 	_jsii_.Set(
 		j,
 		"newInstancesProtectedFromScaleIn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetNotificationConfiguration(val interface{}) {
+	if err := j.validateSetNotificationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"notificationConfiguration",
 		val,
 	)
 }

@@ -40,6 +40,7 @@ type CfnPortfolio interface {
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	// The portfolio identifier.
 	AttrId() *string
 	// The name of the portfolio.
 	AttrPortfolioName() *string

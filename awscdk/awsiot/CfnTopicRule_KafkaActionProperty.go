@@ -16,6 +16,12 @@ package awsiot
 //   	Topic: jsii.String("topic"),
 //
 //   	// the properties below are optional
+//   	Headers: []interface{}{
+//   		&KafkaActionHeaderProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Key: jsii.String("key"),
 //   	Partition: jsii.String("partition"),
 //   }
@@ -35,6 +41,10 @@ type CfnTopicRule_KafkaActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
 	//
 	Topic *string `field:"required" json:"topic" yaml:"topic"`
+	// The list of Kafka headers that you specify.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-headers
+	//
+	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
 	// The Kafka message key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key
 	//

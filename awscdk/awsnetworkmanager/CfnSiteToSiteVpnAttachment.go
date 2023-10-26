@@ -95,7 +95,7 @@ type CfnSiteToSiteVpnAttachment interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The attachment to move from one segment to another.
+	// Describes a proposed segment change.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

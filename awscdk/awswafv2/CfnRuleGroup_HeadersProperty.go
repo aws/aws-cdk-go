@@ -45,7 +45,9 @@ type CfnRuleGroup_HeadersProperty struct {
 	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
 	// The parts of the headers to match with the rule inspection criteria.
 	//
-	// If you specify `All` , AWS WAF inspects both keys and values.
+	// If you specify `ALL` , AWS WAF inspects both keys and values.
+	//
+	// `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-matchscope
 	//
 	MatchScope *string `field:"required" json:"matchScope" yaml:"matchScope"`

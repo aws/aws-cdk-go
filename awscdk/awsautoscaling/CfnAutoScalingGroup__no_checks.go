@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNewInstancesProtectedFromScal
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsParameters(val interface{}) error {
 	return nil
 }

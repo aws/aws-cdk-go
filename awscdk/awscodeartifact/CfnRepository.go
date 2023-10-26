@@ -71,7 +71,7 @@ type CfnRepository interface {
 	// The name of the domain that contains the repository.
 	DomainName() *string
 	SetDomainName(val *string)
-	// The 12-digit account number of the AWS account that owns the domain that contains the repository.
+	// The 12-digit account ID of the AWS account that owns the domain.
 	DomainOwner() *string
 	SetDomainOwner(val *string)
 	// An array of external connections associated with the repository.

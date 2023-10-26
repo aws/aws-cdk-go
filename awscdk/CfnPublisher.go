@@ -33,17 +33,15 @@ type CfnPublisher interface {
 	// Whether you accept the [Terms and Conditions](https://docs.aws.amazon.com/https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf) for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to register to publish public extensions to the CloudFormation registry.
 	AcceptTermsAndConditions() interface{}
 	SetAcceptTermsAndConditions(val interface{})
-	// The type of account used as the identity provider when registering this publisher with CloudFormation .
-	//
-	// Values include: `AWS_Marketplace` | `Bitbucket` | `GitHub` .
+	// The type of account used as the identity provider when registering this publisher with CloudFormation.
 	AttrIdentityProvider() *string
 	// The ID of the extension publisher.
-	//
-	// This publisher ID applies to your account in all AWS Regions .
 	AttrPublisherId() *string
 	// The URL to the publisher's profile with the identity provider.
 	AttrPublisherProfile() *string
 	// Whether the publisher is verified.
+	//
+	// Currently, all registered publishers are verified.
 	AttrPublisherStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions

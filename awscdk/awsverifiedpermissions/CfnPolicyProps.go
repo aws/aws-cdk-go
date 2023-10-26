@@ -44,7 +44,7 @@ type CfnPolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-definition
 	//
 	Definition interface{} `field:"required" json:"definition" yaml:"definition"`
-	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+	// Specifies the `PolicyStoreId` of the you want to store the policy in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-policystoreid
 	//
 	PolicyStoreId *string `field:"optional" json:"policyStoreId" yaml:"policyStoreId"`

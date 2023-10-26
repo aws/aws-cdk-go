@@ -186,6 +186,7 @@ type CfnEndpointConfig interface {
 	// The name of the endpoint configuration.
 	EndpointConfigName() *string
 	SetEndpointConfigName(val *string)
+	// A parameter to activate explainers.
 	ExplainerConfig() interface{}
 	SetExplainerConfig(val interface{})
 	// The Amazon Resource Name (ARN) of an AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.

@@ -56,6 +56,10 @@ func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeParameters(grantee aw
 	return nil
 }
 
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeCompositePrincipalParameters(compositePrincipal awsiam.CompositePrincipal) error {
+	return nil
+}
+
 func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

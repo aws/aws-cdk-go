@@ -320,14 +320,6 @@ func init() {
 		reflect.TypeOf((*CfnServer_ProtocolDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_transfer.CfnServer.ProtocolProperty",
-		reflect.TypeOf((*CfnServer_ProtocolProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_transfer.CfnServer.StructuredLogDestinationProperty",
-		reflect.TypeOf((*CfnServer_StructuredLogDestinationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnServer.WorkflowDetailProperty",
 		reflect.TypeOf((*CfnServer_WorkflowDetailProperty)(nil)).Elem(),
 	)
@@ -404,10 +396,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnUser.PosixProfileProperty",
 		reflect.TypeOf((*CfnUser_PosixProfileProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_transfer.CfnUser.SshPublicKeyProperty",
-		reflect.TypeOf((*CfnUser_SshPublicKeyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnUserProps",

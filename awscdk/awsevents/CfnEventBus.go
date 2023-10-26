@@ -41,7 +41,6 @@ type CfnEventBus interface {
 	awscdk.IInspectable
 	// The ARN of the event bus, such as `arn:aws:events:us-east-2:123456789012:event-bus/aws.partner/PartnerName/acct1/repo1` .
 	AttrArn() *string
-	AttrId() *string
 	// The name of the event bus, such as `PartnerName/acct1/repo1` .
 	AttrName() *string
 	AttrPolicy() *string
@@ -72,6 +71,7 @@ type CfnEventBus interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -237,16 +237,6 @@ func (j *jsiiProxy_CfnEventBus) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnEventBus) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

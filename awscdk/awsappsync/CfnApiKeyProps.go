@@ -12,7 +12,6 @@ package awsappsync
 //   	ApiId: jsii.String("apiId"),
 //
 //   	// the properties below are optional
-//   	ApiKeyId: jsii.String("apiKeyId"),
 //   	Description: jsii.String("description"),
 //   	Expires: jsii.Number(123),
 //   }
@@ -24,10 +23,6 @@ type CfnApiKeyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apiid
 	//
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
-	// The API key ID.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apikeyid
-	//
-	ApiKeyId *string `field:"optional" json:"apiKeyId" yaml:"apiKeyId"`
 	// Unique description of your API key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-description
 	//

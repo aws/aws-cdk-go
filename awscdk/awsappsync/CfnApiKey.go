@@ -20,7 +20,6 @@ import (
 //   	ApiId: jsii.String("apiId"),
 //
 //   	// the properties below are optional
-//   	ApiKeyId: jsii.String("apiKeyId"),
 //   	Description: jsii.String("description"),
 //   	Expires: jsii.Number(123),
 //   })
@@ -33,11 +32,9 @@ type CfnApiKey interface {
 	// Unique AWS AppSync GraphQL API ID for this API key.
 	ApiId() *string
 	SetApiId(val *string)
-	// The API key ID.
-	ApiKeyId() *string
-	SetApiKeyId(val *string)
 	// The API key.
 	AttrApiKey() *string
+	// The API key ID.
 	AttrApiKeyId() *string
 	// The Amazon Resource Name (ARN) of the API key, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/apikey/apikeya1bzhi` .
 	AttrArn() *string
@@ -233,16 +230,6 @@ func (j *jsiiProxy_CfnApiKey) ApiId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApiKey) ApiKeyId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"apiKeyId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnApiKey) AttrApiKey() *string {
 	var returns *string
 	_jsii_.Get(
@@ -428,14 +415,6 @@ func (j *jsiiProxy_CfnApiKey)SetApiId(val *string) {
 	_jsii_.Set(
 		j,
 		"apiId",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnApiKey)SetApiKeyId(val *string) {
-	_jsii_.Set(
-		j,
-		"apiKeyId",
 		val,
 	)
 }

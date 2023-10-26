@@ -1,8 +1,6 @@
 package awspipes
 
 
-// The overrides that are sent to a container.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

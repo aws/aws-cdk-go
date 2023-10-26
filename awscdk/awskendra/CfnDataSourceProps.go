@@ -604,6 +604,8 @@ type CfnDataSourceProps struct {
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The code for a language.
+	//
+	// This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-languagecode
 	//
 	LanguageCode *string `field:"optional" json:"languageCode" yaml:"languageCode"`

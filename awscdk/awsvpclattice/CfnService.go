@@ -47,9 +47,7 @@ type CfnService interface {
 	AttrArn() *string
 	// The date and time that the service was created, specified in ISO-8601 format.
 	AttrCreatedAt() *string
-	// The domain name of the service.
 	AttrDnsEntryDomainName() *string
-	// The ID of the hosted zone.
 	AttrDnsEntryHostedZoneId() *string
 	// The ID of the service.
 	AttrId() *string

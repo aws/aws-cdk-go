@@ -27,6 +27,7 @@ import (
 //   			// the properties below are optional
 //   			GroupName: jsii.String("groupName"),
 //   			MatchKey: jsii.String("matchKey"),
+//   			SubType: jsii.String("subType"),
 //   		},
 //   	},
 //   	SchemaName: jsii.String("schemaName"),

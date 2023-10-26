@@ -70,8 +70,6 @@ type CfnDocumentProps struct {
 	//
 	DocumentFormat *string `field:"optional" json:"documentFormat" yaml:"documentFormat"`
 	// The type of document to create.
-	//
-	// *Allowed Values* : `ApplicationConfigurationSchema` | `Automation` | `Automation.ChangeTemplate` | `Command` | `DeploymentStrategy` | `Package` | `Policy` | `Session`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
 	//
 	DocumentType *string `field:"optional" json:"documentType" yaml:"documentType"`

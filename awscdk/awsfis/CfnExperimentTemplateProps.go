@@ -81,15 +81,15 @@ package awsfis
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
 //
 type CfnExperimentTemplateProps struct {
-	// A description for the experiment template.
+	// The description for the experiment template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
 	//
 	Description *string `field:"required" json:"description" yaml:"description"`
-	// The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// The stop conditions.
+	// The stop conditions for the experiment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
 	//
 	StopConditions interface{} `field:"required" json:"stopConditions" yaml:"stopConditions"`
@@ -105,7 +105,7 @@ type CfnExperimentTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-logconfiguration
 	//
 	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
-	// The tags to apply to the experiment template.
+	// The tags for the experiment template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

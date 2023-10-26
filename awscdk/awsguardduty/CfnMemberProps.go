@@ -30,7 +30,6 @@ type CfnMemberProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-email
 	//
 	Email *string `field:"required" json:"email" yaml:"email"`
-	// The AWS account ID of the account to designate as a member.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-memberid
 	//
 	MemberId *string `field:"required" json:"memberId" yaml:"memberId"`

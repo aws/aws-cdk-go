@@ -55,7 +55,7 @@ type CfnEndpoint interface {
 	AttrEndpointId() *string
 	// The URL of the endpoint.
 	AttrEndpointUrl() *string
-	// The current state of the endpoint.
+	// The main Region of the endpoint.
 	AttrState() *string
 	// The reason the endpoint is in its current state.
 	AttrStateReason() *string

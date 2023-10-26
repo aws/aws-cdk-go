@@ -114,7 +114,7 @@ type CfnExperimentTemplate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description for the experiment template.
+	// The description for the experiment template.
 	Description() *string
 	SetDescription(val *string)
 	// The configuration for experiment logging.
@@ -137,19 +137,19 @@ type CfnExperimentTemplate interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The stop conditions.
+	// The stop conditions for the experiment.
 	StopConditions() interface{}
 	SetStopConditions(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The tags to apply to the experiment template.
+	// The tags for the experiment template.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
 	// The targets for the experiment.

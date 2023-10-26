@@ -190,6 +190,7 @@ type CfnInstance interface {
 	//
 	// You can retrieve a list of all Availability Zones for a Region by using the [Fn::GetAZs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getavailabilityzones.html) intrinsic function.
 	AttrAvailabilityZone() *string
+	// The ID of the instance.
 	AttrId() *string
 	// The private DNS name of the specified instance.
 	//

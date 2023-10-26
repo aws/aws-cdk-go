@@ -18,9 +18,11 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var archivePolicy interface{}
 //   var dataProtectionPolicy interface{}
 //
 //   cfnTopic := awscdk.Aws_sns.NewCfnTopic(this, jsii.String("MyCfnTopic"), &CfnTopicProps{
+//   	ArchivePolicy: archivePolicy,
 //   	ContentBasedDeduplication: jsii.Boolean(false),
 //   	DataProtectionPolicy: dataProtectionPolicy,
 //   	DisplayName: jsii.String("displayName"),
@@ -49,6 +51,9 @@ type CfnTopic interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The archive policy determines the number of days Amazon SNS retains messages.
+	ArchivePolicy() interface{}
+	SetArchivePolicy(val interface{})
 	// Returns the ARN of an Amazon SNS topic.
 	AttrTopicArn() *string
 	// Returns the name of an Amazon SNS topic.
@@ -260,6 +265,16 @@ type jsiiProxy_CfnTopic struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnTopic) ArchivePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"archivePolicy",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnTopic) AttrTopicArn() *string {
@@ -517,6 +532,14 @@ func NewCfnTopic_Override(c CfnTopic, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_sns.CfnTopic",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetArchivePolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"archivePolicy",
+		val,
 	)
 }
 

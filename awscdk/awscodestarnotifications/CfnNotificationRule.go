@@ -48,6 +48,7 @@ type CfnNotificationRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The Amazon Resource Name (ARN) of the notification rule.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

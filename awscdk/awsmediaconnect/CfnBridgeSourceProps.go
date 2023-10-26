@@ -36,7 +36,7 @@ type CfnBridgeSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-bridgearn
 	//
 	BridgeArn *string `field:"required" json:"bridgeArn" yaml:"bridgeArn"`
-	// The name of the network source.
+	// The name of the flow source.
 	//
 	// This name is used to reference the source and must be unique among sources in this bridge.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-name

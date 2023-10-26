@@ -80,6 +80,10 @@ func validateCfnVerifiedAccessInstance_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessInstance) validateSetFipsEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessInstance) validateSetLoggingConfigurationsParameters(val interface{}) error {
 	return nil
 }

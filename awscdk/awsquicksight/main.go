@@ -58,6 +58,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "validationStrategy", GoGetter: "ValidationStrategy"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnAnalysis{}
@@ -450,6 +451,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DataPathSortProperty",
 		reflect.TypeOf((*CfnAnalysis_DataPathSortProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DataPathTypeProperty",
+		reflect.TypeOf((*CfnAnalysis_DataPathTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DataPathValueProperty",
@@ -1812,6 +1817,14 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_TotalAggregationComputationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TotalAggregationFunctionProperty",
+		reflect.TypeOf((*CfnAnalysis_TotalAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TotalAggregationOptionProperty",
+		reflect.TypeOf((*CfnAnalysis_TotalAggregationOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TotalOptionsProperty",
 		reflect.TypeOf((*CfnAnalysis_TotalOptionsProperty)(nil)).Elem(),
 	)
@@ -1846,6 +1859,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.UniqueValuesComputationProperty",
 		reflect.TypeOf((*CfnAnalysis_UniqueValuesComputationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ValidationStrategyProperty",
+		reflect.TypeOf((*CfnAnalysis_ValidationStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.VisibleRangeOptionsProperty",
@@ -1995,6 +2012,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "validationStrategy", GoGetter: "ValidationStrategy"},
 			_jsii_.MemberProperty{JsiiProperty: "versionDescription", GoGetter: "VersionDescription"},
 		},
 		func() interface{} {
@@ -2404,6 +2422,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DataPathSortProperty",
 		reflect.TypeOf((*CfnDashboard_DataPathSortProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DataPathTypeProperty",
+		reflect.TypeOf((*CfnDashboard_DataPathTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DataPathValueProperty",
@@ -3798,6 +3820,14 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_TotalAggregationComputationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.TotalAggregationFunctionProperty",
+		reflect.TypeOf((*CfnDashboard_TotalAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.TotalAggregationOptionProperty",
+		reflect.TypeOf((*CfnDashboard_TotalAggregationOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.TotalOptionsProperty",
 		reflect.TypeOf((*CfnDashboard_TotalOptionsProperty)(nil)).Elem(),
 	)
@@ -3832,6 +3862,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.UniqueValuesComputationProperty",
 		reflect.TypeOf((*CfnDashboard_UniqueValuesComputationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.ValidationStrategyProperty",
+		reflect.TypeOf((*CfnDashboard_ValidationStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.VisibleRangeOptionsProperty",
@@ -4468,6 +4502,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "validationStrategy", GoGetter: "ValidationStrategy"},
 			_jsii_.MemberProperty{JsiiProperty: "versionDescription", GoGetter: "VersionDescription"},
 		},
 		func() interface{} {
@@ -4857,6 +4892,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.DataPathSortProperty",
 		reflect.TypeOf((*CfnTemplate_DataPathSortProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DataPathTypeProperty",
+		reflect.TypeOf((*CfnTemplate_DataPathTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.DataPathValueProperty",
@@ -6227,6 +6266,14 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_TotalAggregationComputationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.TotalAggregationFunctionProperty",
+		reflect.TypeOf((*CfnTemplate_TotalAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.TotalAggregationOptionProperty",
+		reflect.TypeOf((*CfnTemplate_TotalAggregationOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.TotalOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_TotalOptionsProperty)(nil)).Elem(),
 	)
@@ -6261,6 +6308,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.UniqueValuesComputationProperty",
 		reflect.TypeOf((*CfnTemplate_UniqueValuesComputationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.ValidationStrategyProperty",
+		reflect.TypeOf((*CfnTemplate_ValidationStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.VisibleRangeOptionsProperty",

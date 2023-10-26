@@ -1,6 +1,8 @@
 package awsglue
 
 
+// A structure representing an open format table.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,6 +18,7 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-opentableformatinput.html
 //
 type CfnTable_OpenTableFormatInputProperty struct {
+	// Specifies an `IcebergInput` structure that defines an Apache Iceberg metadata table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-opentableformatinput.html#cfn-glue-table-opentableformatinput-iceberginput
 	//
 	IcebergInput interface{} `field:"optional" json:"icebergInput" yaml:"icebergInput"`

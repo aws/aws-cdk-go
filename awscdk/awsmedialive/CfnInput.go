@@ -74,6 +74,7 @@ type CfnInput interface {
 	//
 	// The destinations are the URLs of locations on MediaLive where the upstream system pushes the content to, for this input. MediaLive creates these addresses when it creates the input.
 	AttrDestinations() *[]*string
+	// The unique ID for the device.
 	AttrId() *string
 	// For a pull input, the source or sources for the input.
 	//

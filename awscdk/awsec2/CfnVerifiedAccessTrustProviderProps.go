@@ -30,6 +30,10 @@ import (
 //   		TokenEndpoint: jsii.String("tokenEndpoint"),
 //   		UserInfoEndpoint: jsii.String("userInfoEndpoint"),
 //   	},
+//   	SseSpecification: &SseSpecificationProperty{
+//   		CustomerManagedKeyEnabled: jsii.Boolean(false),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -66,6 +70,10 @@ type CfnVerifiedAccessTrustProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-oidcoptions
 	//
 	OidcOptions interface{} `field:"optional" json:"oidcOptions" yaml:"oidcOptions"`
+	// The options for additional server side encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-ssespecification
+	//
+	SseSpecification interface{} `field:"optional" json:"sseSpecification" yaml:"sseSpecification"`
 	// The tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-tags
 	//

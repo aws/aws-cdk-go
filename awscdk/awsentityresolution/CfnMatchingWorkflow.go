@@ -46,6 +46,17 @@ import (
 //   		},
 //   	},
 //   	ResolutionTechniques: &ResolutionTechniquesProperty{
+//   		ProviderProperties: &ProviderPropertiesProperty{
+//   			ProviderServiceArn: jsii.String("providerServiceArn"),
+//
+//   			// the properties below are optional
+//   			IntermediateSourceConfiguration: &IntermediateSourceConfigurationProperty{
+//   				IntermediateS3Path: jsii.String("intermediateS3Path"),
+//   			},
+//   			ProviderConfiguration: map[string]*string{
+//   				"providerConfigurationKey": jsii.String("providerConfiguration"),
+//   			},
+//   		},
 //   		ResolutionType: jsii.String("resolutionType"),
 //   		RuleBasedProperties: &RuleBasedPropertiesProperty{
 //   			AttributeMatchingModel: jsii.String("attributeMatchingModel"),

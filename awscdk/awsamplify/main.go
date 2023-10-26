@@ -105,6 +105,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrBranchName", GoGetter: "AttrBranchName"},
+			_jsii_.MemberProperty{JsiiProperty: "backend", GoGetter: "Backend"},
 			_jsii_.MemberProperty{JsiiProperty: "basicAuthConfig", GoGetter: "BasicAuthConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "branchName", GoGetter: "BranchName"},
 			_jsii_.MemberProperty{JsiiProperty: "buildSpec", GoGetter: "BuildSpec"},
@@ -148,6 +149,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_amplify.CfnBranch.BackendProperty",
+		reflect.TypeOf((*CfnBranch_BackendProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_amplify.CfnBranch.BasicAuthConfigProperty",

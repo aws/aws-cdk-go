@@ -85,16 +85,10 @@ type CfnAssessment interface {
 	AssessmentReportsDestination() interface{}
 	SetAssessmentReportsDestination(val interface{})
 	// The Amazon Resource Name (ARN) of the assessment.
-	//
-	// For example, `arn:aws:auditmanager:us-east-1:123456789012:assessment/111A1A1A-22B2-33C3-DDD4-55E5E5E555E5` .
 	AttrArn() *string
-	// The unique identifier for the assessment.
-	//
-	// For example, `111A1A1A-22B2-33C3-DDD4-55E5E5E555E5` .
+	// The unique identifier for the associated assessment.
 	AttrAssessmentId() *string
-	// The time when the assessment was created.
-	//
-	// For example, `1607582033.373` .
+	// Specifies when the assessment was created.
 	AttrCreationTime() awscdk.IResolvable
 	// The AWS account that's associated with the assessment.
 	AwsAccount() interface{}

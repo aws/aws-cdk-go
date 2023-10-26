@@ -39,6 +39,8 @@ type IFunction interface {
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// Grant the given identity permissions to invoke this Lambda.
 	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
+	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
+	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Lambda Return the given named metric for this Function.
@@ -188,6 +190,22 @@ func (i *jsiiProxy_IFunction) GrantInvoke(identity awsiam.IGrantable) awsiam.Gra
 		i,
 		"grantInvoke",
 		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IFunction) GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant {
+	if err := i.validateGrantInvokeCompositePrincipalParameters(compositePrincipal); err != nil {
+		panic(err)
+	}
+	var returns *[]awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantInvokeCompositePrincipal",
+		[]interface{}{compositePrincipal},
 		&returns,
 	)
 

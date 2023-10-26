@@ -48,7 +48,9 @@ type CfnProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
 	//
 	ProjectDescription *string `field:"optional" json:"projectDescription" yaml:"projectDescription"`
-	// Provisioned ServiceCatalog  Details.
+	// Details of a provisioned service catalog product.
+	//
+	// For information about service catalog, see [What is AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisionedproductdetails
 	//
 	ServiceCatalogProvisionedProductDetails interface{} `field:"optional" json:"serviceCatalogProvisionedProductDetails" yaml:"serviceCatalogProvisionedProductDetails"`

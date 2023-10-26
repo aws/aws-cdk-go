@@ -89,7 +89,7 @@ type CfnEntityProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The entity ID.
+	// The ID of the entity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-entityid
 	//
 	EntityId *string `field:"optional" json:"entityId" yaml:"entityId"`

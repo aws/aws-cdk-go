@@ -48,13 +48,9 @@ type CfnAccessPoint interface {
 	awscdk.IInspectable
 	// The alias of the Object Lambda Access Point.
 	AttrAlias() awscdk.IResolvable
-	// The status of the Object Lambda Access Point alias.
-	//
-	// Valid Values: `PROVISIONING` | `READY` .
+	// The status of the Object Lambda alias.
 	AttrAliasStatus() *string
-	// The alias name value of the Object Lambda Access Point.
-	//
-	// For example: `myolap-1a4n8yjrb3kda96f67zwrwiiuse1a--ol-s3` .
+	// The value of the Object Lambda alias.
 	AttrAliasValue() *string
 	// Specifies the ARN for the Object Lambda Access Point.
 	AttrArn() *string
@@ -69,26 +65,9 @@ type CfnAccessPoint interface {
 	//
 	// All public access to Object lambda Access Points are blocked by default, and any policy that would give public access to them will be also blocked. This behavior cannot be changed for Object lambda Access Points.
 	AttrPublicAccessBlockConfiguration() awscdk.IResolvable
-	// Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point.
-	//
-	// Setting this element to TRUE causes the following behavior:
-	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-	//  - PUT Object calls fail if the request includes a public ACL.
-	// . - PUT Bucket calls fail if the request includes a public ACL.
-	// Enabling this setting doesn't affect existing policies or ACLs.
 	AttrPublicAccessBlockConfigurationBlockPublicAcls() awscdk.IResolvable
-	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account.
-	//
-	// Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 	AttrPublicAccessBlockConfigurationBlockPublicPolicy() awscdk.IResolvable
-	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account.
-	//
-	// Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 	AttrPublicAccessBlockConfigurationIgnorePublicAcls() awscdk.IResolvable
-	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
-	//
-	// Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
-	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 	AttrPublicAccessBlockConfigurationRestrictPublicBuckets() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -45,6 +45,7 @@ import (
 type CfnNetworkAclEntry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the network ACL entry.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

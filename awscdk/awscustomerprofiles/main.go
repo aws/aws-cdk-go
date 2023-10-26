@@ -97,6 +97,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdatedAt", GoGetter: "AttrLastUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRuleBasedMatchingStatus", GoGetter: "AttrRuleBasedMatchingStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStats", GoGetter: "AttrStats"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -109,6 +111,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "matching", GoGetter: "Matching"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -117,6 +120,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleBasedMatching", GoGetter: "RuleBasedMatching"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -133,6 +137,50 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.AttributeTypesSelectorProperty",
+		reflect.TypeOf((*CfnDomain_AttributeTypesSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.AutoMergingProperty",
+		reflect.TypeOf((*CfnDomain_AutoMergingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.ConflictResolutionProperty",
+		reflect.TypeOf((*CfnDomain_ConflictResolutionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.ConsolidationProperty",
+		reflect.TypeOf((*CfnDomain_ConsolidationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.DomainStatsProperty",
+		reflect.TypeOf((*CfnDomain_DomainStatsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.ExportingConfigProperty",
+		reflect.TypeOf((*CfnDomain_ExportingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.JobScheduleProperty",
+		reflect.TypeOf((*CfnDomain_JobScheduleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.MatchingProperty",
+		reflect.TypeOf((*CfnDomain_MatchingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.MatchingRuleProperty",
+		reflect.TypeOf((*CfnDomain_MatchingRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.RuleBasedMatchingProperty",
+		reflect.TypeOf((*CfnDomain_RuleBasedMatchingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.S3ExportingConfigProperty",
+		reflect.TypeOf((*CfnDomain_S3ExportingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnDomainProps",

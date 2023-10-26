@@ -1,8 +1,6 @@
 package awspipes
 
 
-// The parameters for using an CloudWatch Logs log stream as a target.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

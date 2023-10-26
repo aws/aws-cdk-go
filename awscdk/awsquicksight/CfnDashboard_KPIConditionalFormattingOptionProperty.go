@@ -173,9 +173,11 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiconditionalformattingoption.html
 //
 type CfnDashboard_KPIConditionalFormattingOptionProperty struct {
+	// The conditional formatting for the actual value of a KPI visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiconditionalformattingoption.html#cfn-quicksight-dashboard-kpiconditionalformattingoption-actualvalue
 	//
 	ActualValue interface{} `field:"optional" json:"actualValue" yaml:"actualValue"`
+	// The conditional formatting for the comparison value of a KPI visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiconditionalformattingoption.html#cfn-quicksight-dashboard-kpiconditionalformattingoption-comparisonvalue
 	//
 	ComparisonValue interface{} `field:"optional" json:"comparisonValue" yaml:"comparisonValue"`

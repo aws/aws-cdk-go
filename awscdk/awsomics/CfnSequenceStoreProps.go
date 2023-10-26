@@ -36,7 +36,7 @@ type CfnSequenceStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html#cfn-omics-sequencestore-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// An S3 URI representing the bucket and folder to store failed read set uploads.
+	// An S3 location that is used to store files that have failed a direct upload.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html#cfn-omics-sequencestore-fallbacklocation
 	//
 	FallbackLocation *string `field:"optional" json:"fallbackLocation" yaml:"fallbackLocation"`

@@ -143,9 +143,6 @@ type CfnDomain interface {
 	// Specifies options for fine-grained access control and SAML authentication.
 	AdvancedSecurityOptions() interface{}
 	SetAdvancedSecurityOptions(val interface{})
-	// Date and time when the migration period will be disabled.
-	//
-	// Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 	AttrAdvancedSecurityOptionsAnonymousAuthDisableDate() *string
 	// The Amazon Resource Name (ARN) of the domain, such as `arn:aws:es:us-west-2:123456789012:domain/mystack-1ab2cdefghij` .
 	AttrArn() *string
@@ -158,29 +155,13 @@ type CfnDomain interface {
 	AttrId() *string
 	// The current status of the service software for a domain.
 	AttrServiceSoftwareOptions() awscdk.IResolvable
-	// The timestamp, in Epoch time, until which you can manually request a service software update.
-	//
-	// After this date, we automatically update your service software.
 	AttrServiceSoftwareOptionsAutomatedUpdateDate() *string
-	// True if you're able to cancel your service software version update.
-	//
-	// False if you can't cancel your service software update.
 	AttrServiceSoftwareOptionsCancellable() awscdk.IResolvable
-	// The current service software version present on the domain.
 	AttrServiceSoftwareOptionsCurrentVersion() *string
-	// A description of the service software update status.
 	AttrServiceSoftwareOptionsDescription() *string
-	// The new service software version, if one is available.
 	AttrServiceSoftwareOptionsNewVersion() *string
-	// True if a service software is never automatically updated.
-	//
-	// False if a service software is automatically updated after the automated update date.
 	AttrServiceSoftwareOptionsOptionalDeployment() awscdk.IResolvable
-	// True if you're able to update your service software version.
-	//
-	// False if you can't update your service software version.
 	AttrServiceSoftwareOptionsUpdateAvailable() awscdk.IResolvable
-	// The status of your service software update.
 	AttrServiceSoftwareOptionsUpdateStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

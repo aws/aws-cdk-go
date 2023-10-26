@@ -162,6 +162,10 @@ const (
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
 	InstanceClass_R7GD InstanceClass = "R7GD"
+	// Memory optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
+	InstanceClass_MEMORY7_INTEL InstanceClass = "MEMORY7_INTEL"
+	// Memory optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
+	InstanceClass_R7IZ InstanceClass = "R7IZ"
 	// Compute optimized instances, 3rd generation.
 	InstanceClass_COMPUTE3 InstanceClass = "COMPUTE3"
 	// Compute optimized instances, 3rd generation.
@@ -234,6 +238,10 @@ const (
 	InstanceClass_COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH InstanceClass = "COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH"
 	// Compute optimized instances for high performance computing, 7th generation with Graviton3 processors and high network bandwidth capabilities.
 	InstanceClass_C7GN InstanceClass = "C7GN"
+	// Compute optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
+	InstanceClass_COMPUTE7_INTEL InstanceClass = "COMPUTE7_INTEL"
+	// Compute optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
+	InstanceClass_C7I InstanceClass = "C7I"
 	// Storage-optimized instances, 2nd generation.
 	InstanceClass_STORAGE2 InstanceClass = "STORAGE2"
 	// Storage-optimized instances, 2nd generation.
@@ -262,6 +270,10 @@ const (
 	InstanceClass_IO4_INTEL InstanceClass = "IO4_INTEL"
 	// I/O-optimized instances with local NVME drive powered by Intel Xeon Scalable processors (code named Ice Lake), 4th generation.
 	InstanceClass_I4I InstanceClass = "I4I"
+	// Storage optimized instances powered by Graviton2 processor, 4th generation.
+	InstanceClass_STORAGE4_GRAVITON InstanceClass = "STORAGE4_GRAVITON"
+	// Storage optimized instances powered by Graviton2 processor, 4th generation.
+	InstanceClass_I4G InstanceClass = "I4G"
 	// Storage optimized instances powered by Graviton2 processor, 4th generation.
 	InstanceClass_STORAGE4_GRAVITON_NETWORK_OPTIMIZED InstanceClass = "STORAGE4_GRAVITON_NETWORK_OPTIMIZED"
 	// Storage optimized instances powered by Graviton2 processor, 4th generation.

@@ -15,7 +15,7 @@ package awss3outposts
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html
 //
 type CfnAccessPoint_VpcConfigurationProperty struct {
-	// The ID of the VPC configuration.
+	// Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
 	//
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`

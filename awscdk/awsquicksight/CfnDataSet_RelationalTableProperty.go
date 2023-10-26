@@ -38,7 +38,7 @@ type CfnDataSet_RelationalTableProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// <p>The catalog associated with a table.</p>.
+	// The catalog associated with a table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog
 	//
 	Catalog *string `field:"optional" json:"catalog" yaml:"catalog"`

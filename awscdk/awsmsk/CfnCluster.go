@@ -158,7 +158,7 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Includes all client authentication related information.
+	// VPC connection control settings for brokers.
 	ClientAuthentication() interface{}
 	SetClientAuthentication(val interface{})
 	// The name of the cluster.

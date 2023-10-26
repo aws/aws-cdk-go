@@ -19,8 +19,6 @@ package awsconnect
 //
 type CfnRule_RuleTriggerEventSourceProperty struct {
 	// The name of the event source.
-	//
-	// *Allowed values* : `OnPostCallAnalysisAvailable` | `OnRealTimeCallAnalysisAvailable` | `OnPostChatAnalysisAvailable` | `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-ruletriggereventsource.html#cfn-connect-rule-ruletriggereventsource-eventsourcename
 	//
 	EventSourceName *string `field:"required" json:"eventSourceName" yaml:"eventSourceName"`

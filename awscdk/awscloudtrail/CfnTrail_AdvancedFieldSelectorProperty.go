@@ -58,6 +58,7 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::Lambda::Function`
 	// - `AWS::S3::Object`
 	// - `AWS::CloudTrail::Channel`
+	// - `AWS::CodeWhisperer::Customization`
 	// - `AWS::CodeWhisperer::Profile`
 	// - `AWS::Cognito::IdentityPool`
 	// - `AWS::DynamoDB::Stream`
@@ -104,6 +105,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When resources.type equals `AWS::CloudTrail::Channel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:cloudtrail:<region>:<account_ID>:channel/<channel_UUID>`
+	//
+	// When resources.type equals `AWS::CodeWhisperer::Customization` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:codewhisperer:<region>:<account_ID>:customization/<customization_ID>`
 	//
 	// When resources.type equals `AWS::CodeWhisperer::Profile` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

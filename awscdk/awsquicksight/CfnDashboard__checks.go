@@ -369,6 +369,30 @@ func (j *jsiiProxy_CfnDashboard) validateSetTagsRawParameters(val *[]*awscdk.Cfn
 	return nil
 }
 
+func (j *jsiiProxy_CfnDashboard) validateSetValidationStrategyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDashboard_ValidationStrategyProperty:
+		val := val.(*CfnDashboard_ValidationStrategyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDashboard_ValidationStrategyProperty:
+		val_ := val.(CfnDashboard_ValidationStrategyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDashboard_ValidationStrategyProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnDashboardParameters(scope constructs.Construct, id *string, props *CfnDashboardProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

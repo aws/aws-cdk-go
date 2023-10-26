@@ -39,8 +39,6 @@ type CfnAppProps struct {
 	//
 	AppName *string `field:"required" json:"appName" yaml:"appName"`
 	// The type of app.
-	//
-	// *Allowed Values* : `JupyterServer | KernelGateway | RSessionGateway | RStudioServerPro | TensorBoard | Canvas`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
 	//
 	AppType *string `field:"required" json:"appType" yaml:"appType"`

@@ -284,6 +284,8 @@ type SingletonFunction interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
+	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
@@ -801,6 +803,22 @@ func (s *jsiiProxy_SingletonFunction) GrantInvoke(grantee awsiam.IGrantable) aws
 		s,
 		"grantInvoke",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SingletonFunction) GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant {
+	if err := s.validateGrantInvokeCompositePrincipalParameters(compositePrincipal); err != nil {
+		panic(err)
+	}
+	var returns *[]awsiam.Grant
+
+	_jsii_.Invoke(
+		s,
+		"grantInvokeCompositePrincipal",
+		[]interface{}{compositePrincipal},
 		&returns,
 	)
 

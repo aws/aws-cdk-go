@@ -211,6 +211,30 @@ func (j *jsiiProxy_CfnVersion) validateSetProvisionedConcurrencyConfigParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnVersion) validateSetRuntimePolicyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnVersion_RuntimePolicyProperty:
+		val := val.(*CfnVersion_RuntimePolicyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnVersion_RuntimePolicyProperty:
+		val_ := val.(CfnVersion_RuntimePolicyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVersion_RuntimePolicyProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnVersionParameters(scope constructs.Construct, id *string, props *CfnVersionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

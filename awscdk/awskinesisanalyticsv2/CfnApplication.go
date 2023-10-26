@@ -247,7 +247,7 @@ type CfnApplication interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Identifies the run configuration (start parameters) of a Kinesis Data Analytics application.
+	// Describes the starting parameters for an Managed Service for Apache Flink application.
 	RunConfiguration() interface{}
 	SetRunConfiguration(val interface{})
 	// The runtime environment for the application.

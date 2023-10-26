@@ -17,6 +17,12 @@ package awsquicksight
 //
 //   	// the properties below are optional
 //   	ParameterName: jsii.String("parameterName"),
+//   	RollingDate: &RollingDateConfigurationProperty{
+//   		Expression: jsii.String("expression"),
+//
+//   		// the properties below are optional
+//   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   	},
 //   	TimeGranularity: jsii.String("timeGranularity"),
 //   	Value: jsii.String("value"),
 //   }
@@ -34,17 +40,20 @@ type CfnTemplate_TimeEqualityFilterProperty struct {
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
 	// The parameter whose value should be used for the filter value.
 	//
-	// This field is mutually exclusive to `Value` .
+	// This field is mutually exclusive to `Value` and `RollingDate` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-parametername
 	//
 	ParameterName *string `field:"optional" json:"parameterName" yaml:"parameterName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-rollingdate
+	//
+	RollingDate interface{} `field:"optional" json:"rollingDate" yaml:"rollingDate"`
 	// The level of time precision that is used to aggregate `DateTime` values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-timegranularity
 	//
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`
 	// The value of a `TimeEquality` filter.
 	//
-	// This field is mutually exclusive to `ParameterName` .
+	// This field is mutually exclusive to `RollingDate` and `ParameterName` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-value
 	//
 	Value *string `field:"optional" json:"value" yaml:"value"`

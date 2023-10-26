@@ -18,6 +18,10 @@ import (
 //   	Description: jsii.String("description"),
 //   	PolicyDocument: jsii.String("policyDocument"),
 //   	PolicyEnabled: jsii.Boolean(false),
+//   	SseSpecification: &SseSpecificationProperty{
+//   		CustomerManagedKeyEnabled: jsii.Boolean(false),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -45,6 +49,10 @@ type CfnVerifiedAccessGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessgroup.html#cfn-ec2-verifiedaccessgroup-policyenabled
 	//
 	PolicyEnabled interface{} `field:"optional" json:"policyEnabled" yaml:"policyEnabled"`
+	// The options for additional server side encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessgroup.html#cfn-ec2-verifiedaccessgroup-ssespecification
+	//
+	SseSpecification interface{} `field:"optional" json:"sseSpecification" yaml:"sseSpecification"`
 	// The tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessgroup.html#cfn-ec2-verifiedaccessgroup-tags
 	//

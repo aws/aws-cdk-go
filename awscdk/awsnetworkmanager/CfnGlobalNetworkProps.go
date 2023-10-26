@@ -26,6 +26,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html
 //
 type CfnGlobalNetworkProps struct {
+	// The date and time that the global network was created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-createdat
 	//
 	CreatedAt *string `field:"optional" json:"createdAt" yaml:"createdAt"`
@@ -35,6 +36,7 @@ type CfnGlobalNetworkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The state of the global network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-state
 	//
 	State *string `field:"optional" json:"state" yaml:"state"`

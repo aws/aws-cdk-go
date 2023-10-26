@@ -3,7 +3,7 @@ package awscleanrooms
 
 // A pointer to the dataset that underlies this table.
 //
-// Currently, this can only be an AWS Glue table.
+// Currently, this can only be an table.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -67,6 +67,12 @@ type CfnDashboardProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-themearn
 	//
 	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects.
+	//
+	// When you set this value to `LENIENT` , validation is skipped for specific errors.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-validationstrategy
+	//
+	ValidationStrategy interface{} `field:"optional" json:"validationStrategy" yaml:"validationStrategy"`
 	// A description for the first version of the dashboard being created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-versiondescription
 	//

@@ -49,6 +49,12 @@ type CfnTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects.
+	//
+	// When you set this value to `LENIENT` , validation is skipped for specific errors.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-validationstrategy
+	//
+	ValidationStrategy interface{} `field:"optional" json:"validationStrategy" yaml:"validationStrategy"`
 	// A description of the current template version being created.
 	//
 	// This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.

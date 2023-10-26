@@ -31,10 +31,6 @@ import (
 //
 //   cfnPipeline := awscdk.Aws_datapipeline.NewCfnPipeline(this, jsii.String("MyCfnPipeline"), &CfnPipelineProps{
 //   	Name: jsii.String("name"),
-//
-//   	// the properties below are optional
-//   	Activate: jsii.Boolean(false),
-//   	Description: jsii.String("description"),
 //   	ParameterObjects: []interface{}{
 //   		&ParameterObjectProperty{
 //   			Attributes: []interface{}{
@@ -46,6 +42,10 @@ import (
 //   			Id: jsii.String("id"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	Activate: jsii.Boolean(false),
+//   	Description: jsii.String("description"),
 //   	ParameterValues: []interface{}{
 //   		&ParameterValueProperty{
 //   			Id: jsii.String("id"),
@@ -83,6 +83,8 @@ type CfnPipeline interface {
 	// Indicates whether to validate and start the pipeline or stop an active pipeline.
 	Activate() interface{}
 	SetActivate(val interface{})
+	AttrId() *string
+	// The ID of the pipeline.
 	AttrPipelineId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -283,6 +285,16 @@ func (j *jsiiProxy_CfnPipeline) Activate() interface{} {
 	_jsii_.Get(
 		j,
 		"activate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPipeline) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns

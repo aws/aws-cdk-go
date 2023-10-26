@@ -106,6 +106,9 @@ type CfnTemplate interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects.
+	ValidationStrategy() interface{}
+	SetValidationStrategy(val interface{})
 	// A description of the current template version being created.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
@@ -553,6 +556,16 @@ func (j *jsiiProxy_CfnTemplate) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTemplate) ValidationStrategy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"validationStrategy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTemplate) VersionDescription() *string {
 	var returns *string
 	_jsii_.Get(
@@ -661,6 +674,17 @@ func (j *jsiiProxy_CfnTemplate)SetTemplateId(val *string) {
 	_jsii_.Set(
 		j,
 		"templateId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTemplate)SetValidationStrategy(val interface{}) {
+	if err := j.validateSetValidationStrategyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"validationStrategy",
 		val,
 	)
 }

@@ -1,6 +1,8 @@
 package awsiotfleetwise
 
 
+// A list of information about signal decoders.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,6 +36,7 @@ type CfnDecoderManifest_ObdSignalDecoderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignaldecoder.html#cfn-iotfleetwise-decodermanifest-obdsignaldecoder-interfaceid
 	//
 	InterfaceId *string `field:"required" json:"interfaceId" yaml:"interfaceId"`
+	// Information about signal messages using the on-board diagnostics (OBD) II protocol in a vehicle.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignaldecoder.html#cfn-iotfleetwise-decodermanifest-obdsignaldecoder-obdsignal
 	//
 	ObdSignal interface{} `field:"required" json:"obdSignal" yaml:"obdSignal"`

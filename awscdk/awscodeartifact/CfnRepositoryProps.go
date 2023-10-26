@@ -50,9 +50,7 @@ type CfnRepositoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The 12-digit account number of the AWS account that owns the domain that contains the repository.
-	//
-	// It does not include dashes or spaces.
+	// The 12-digit account ID of the AWS account that owns the domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
 	//
 	DomainOwner *string `field:"optional" json:"domainOwner" yaml:"domainOwner"`

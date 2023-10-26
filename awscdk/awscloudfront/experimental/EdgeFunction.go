@@ -148,6 +148,8 @@ type EdgeFunction interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
 	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
+	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
+	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Lambda Return the given named metric for this Function.
@@ -617,6 +619,22 @@ func (e *jsiiProxy_EdgeFunction) GrantInvoke(identity awsiam.IGrantable) awsiam.
 		e,
 		"grantInvoke",
 		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EdgeFunction) GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant {
+	if err := e.validateGrantInvokeCompositePrincipalParameters(compositePrincipal); err != nil {
+		panic(err)
+	}
+	var returns *[]awsiam.Grant
+
+	_jsii_.Invoke(
+		e,
+		"grantInvokeCompositePrincipal",
+		[]interface{}{compositePrincipal},
 		&returns,
 	)
 

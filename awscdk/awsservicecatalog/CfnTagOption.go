@@ -34,6 +34,7 @@ type CfnTagOption interface {
 	// The TagOption active state.
 	Active() interface{}
 	SetActive(val interface{})
+	// The TagOption identifier.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

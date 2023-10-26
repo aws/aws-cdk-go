@@ -55,9 +55,7 @@ type CfnVPCConnection interface {
 	AttrNetworkInterfaces() awscdk.IResolvable
 	// The HTTP status of the request.
 	AttrStatus() *string
-	// The ID of the VPC connection that you're creating.
-	//
-	// This ID is a unique identifier for each AWS Region in an AWS account.
+	// The Amazon EC2 VPC ID associated with the VPC connection.
 	AttrVpcId() *string
 	// The availability status of the VPC connection.
 	AvailabilityStatus() *string

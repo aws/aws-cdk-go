@@ -127,13 +127,9 @@ type CfnComponentType interface {
 	AttrIsSchemaInitialized() awscdk.IResolvable
 	// The component type status.
 	AttrStatus() awscdk.IResolvable
-	// The component type error.
 	AttrStatusError() awscdk.IResolvable
-	// component type error code.
 	AttrStatusErrorCode() *string
-	// The component type error message.
 	AttrStatusErrorMessage() *string
-	// The component type state.
 	AttrStatusState() *string
 	// The component type the update time.
 	AttrUpdateDateTime() *string
@@ -206,7 +202,7 @@ type CfnComponentType interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ID of the workspace.
+	// The ID of the workspace that contains the component type.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

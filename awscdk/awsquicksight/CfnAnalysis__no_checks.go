@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnAnalysis) validateSetTagsRawParameters(val *[]*awscdk.CfnT
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnalysis) validateSetValidationStrategyParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnAnalysisParameters(scope constructs.Construct, id *string, props *CfnAnalysisProps) error {
 	return nil
 }

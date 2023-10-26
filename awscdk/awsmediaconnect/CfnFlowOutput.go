@@ -95,7 +95,7 @@ type CfnFlowOutput interface {
 	// The minimum latency in milliseconds for SRT-based streams.
 	MinLatency() *float64
 	SetMinLatency(val *float64)
-	// The name of the VPC interface.
+	// The name of the output.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

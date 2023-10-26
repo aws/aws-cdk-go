@@ -39,6 +39,7 @@ type CfnEventBusProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-eventsourcename
 	//
 	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
+	// The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-policy
 	//
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`

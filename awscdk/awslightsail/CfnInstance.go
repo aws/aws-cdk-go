@@ -79,7 +79,9 @@ import (
 //   		},
 //
 //   		// the properties below are optional
-//   		MonthlyTransfer: jsii.Number(123),
+//   		MonthlyTransfer: &MonthlyTransferProperty{
+//   			GbPerMonthAllocated: jsii.String("gbPerMonthAllocated"),
+//   		},
 //   	},
 //   	State: &StateProperty{
 //   		Code: jsii.Number(123),
@@ -103,19 +105,21 @@ type CfnInstance interface {
 	// An array of add-ons for the instance.
 	AddOns() interface{}
 	SetAddOns(val interface{})
-	// The number of vCPUs the instance has.
+	// CPU count of the Instance.
 	AttrHardwareCpuCount() *float64
-	// The amount of RAM in GB on the instance (for example, `1.0` ).
+	// RAM Size of the Instance.
 	AttrHardwareRamSizeInGb() *float64
 	// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 	AttrInstanceArn() *string
 	// A Boolean value indicating whether the instance has a static IP assigned to it.
 	AttrIsStaticIp() awscdk.IResolvable
-	// The AWS Region and Availability Zone where the instance is located.
+	// The Availability Zone in which to create your instance.
+	//
+	// Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 	AttrLocationAvailabilityZone() *string
-	// The AWS Region of the instance.
+	// The Region Name in which to create your instance.
 	AttrLocationRegionName() *string
-	// The amount of allocated monthly data transfer (in GB) for an instance.
+	// GbPerMonthAllocated of the Instance.
 	AttrNetworkingMonthlyTransferGbPerMonthAllocated() *string
 	// The private IP address of the instance.
 	AttrPrivateIpAddress() *string
@@ -125,9 +129,9 @@ type CfnInstance interface {
 	AttrResourceType() *string
 	// The name of the SSH key pair used by the instance.
 	AttrSshKeyName() *string
-	// The status code of the instance.
+	// Status code of the Instance.
 	AttrStateCode() *float64
-	// The state of the instance (for example, `running` or `pending` ).
+	// Status code of the Instance.
 	AttrStateName() *string
 	// The support code of the instance.
 	//

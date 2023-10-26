@@ -23,6 +23,7 @@ package awssagemaker
 //   		LocalPath: jsii.String("localPath"),
 //
 //   		// the properties below are optional
+//   		ExcludeFeaturesAttribute: jsii.String("excludeFeaturesAttribute"),
 //   		S3DataDistributionType: jsii.String("s3DataDistributionType"),
 //   		S3InputMode: jsii.String("s3InputMode"),
 //   	},
@@ -31,6 +32,7 @@ package awssagemaker
 //   		LocalPath: jsii.String("localPath"),
 //
 //   		// the properties below are optional
+//   		ExcludeFeaturesAttribute: jsii.String("excludeFeaturesAttribute"),
 //   		S3DataDistributionType: jsii.String("s3DataDistributionType"),
 //   		S3InputMode: jsii.String("s3InputMode"),
 //   	},
@@ -39,7 +41,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
 //
 type CfnMonitoringSchedule_MonitoringInputProperty struct {
-	// The batch transform input for a monitoring job.
+	// Input object for the batch transform job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-batchtransforminput
 	//
 	BatchTransformInput interface{} `field:"optional" json:"batchTransformInput" yaml:"batchTransformInput"`

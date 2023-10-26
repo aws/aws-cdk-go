@@ -33,11 +33,11 @@ type CfnSceneProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-contentlocation
 	//
 	ContentLocation *string `field:"required" json:"contentLocation" yaml:"contentLocation"`
-	// The scene ID.
+	// The ID of the scene.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-sceneid
 	//
 	SceneId *string `field:"required" json:"sceneId" yaml:"sceneId"`
-	// The ID of the workspace.
+	// The ID of the scene.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-workspaceid
 	//
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`

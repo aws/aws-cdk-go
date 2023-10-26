@@ -375,7 +375,7 @@ ds.CreateResolver(jsii.String("QueryGetTestsResolver"), &BaseResolverProps{
 AppSync supports [Merged APIs](https://docs.aws.amazon.com/appsync/latest/devguide/merged-api.html) which can be used to merge multiple source APIs into a single API.
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
 
 
 // first source API
@@ -383,27 +383,11 @@ firstApi := appsync.NewGraphqlApi(this, jsii.String("FirstSourceAPI"), &GraphqlA
 	Name: jsii.String("FirstSourceAPI"),
 	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.merged-api-1.graphql"))),
 })
-firstApi.AddNoneDataSource(jsii.String("FirstSourceDS"), &DataSourceOptions{
-	Name: cdk.Lazy_String(map[string]interface{}{
-		(MethodDeclaration produce(): string { return 'FirstSourceDS'; }
-				produce
-				string
-				{return jsii.String("FirstSourceDS")}),
-	}),
-})
 
 // second source API
 secondApi := appsync.NewGraphqlApi(this, jsii.String("SecondSourceAPI"), &GraphqlApiProps{
 	Name: jsii.String("SecondSourceAPI"),
 	Definition: appsync.Definition_*FromFile(path.join(__dirname, jsii.String("appsync.merged-api-2.graphql"))),
-})
-secondApi.AddNoneDataSource(jsii.String("SecondSourceDS"), &DataSourceOptions{
-	Name: cdk.Lazy_*String(map[string]interface{}{
-		(MethodDeclaration produce(): string { return 'SecondSourceDS'; }
-				produce
-				string
-				{return jsii.String("SecondSourceDS")}),
-	}),
 })
 
 // Merged API
@@ -414,6 +398,10 @@ mergedApi := appsync.NewGraphqlApi(this, jsii.String("MergedAPI"), &GraphqlApiPr
 			&sourceApi{
 				SourceApi: firstApi,
 				MergeType: appsync.MergeType_MANUAL_MERGE,
+			},
+			&sourceApi{
+				SourceApi: secondApi,
+				MergeType: appsync.MergeType_AUTO_MERGE,
 			},
 		},
 	}),
@@ -443,6 +431,11 @@ appsync.NewSourceApiAssociation(this, jsii.String("SourceApiAssociation2"), &Sou
 	MergedApiExecutionRole: importedExecutionRole,
 })
 ```
+
+## Merge Source API Update Within CDK Deployment
+
+The SourceApiAssociationMergeOperation construct available in the [awscdk-appsync-utils](https://github.com/cdklabs/awscdk-appsync-utils) package provides the ability to merge a source API to a Merged API via a custom
+resource. If the merge operation fails with a conflict, the stack update will fail and rollback the changes to the source API in the stack in order to prevent merge conflicts and ensure the source API changes are always propagated to the Merged API.
 
 ## Custom Domain Names
 

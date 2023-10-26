@@ -52,19 +52,9 @@ type CfnIdentitySource interface {
 	awscdk.IInspectable
 	// A structure that contains information about the configuration of the identity source.
 	AttrDetails() awscdk.IResolvable
-	// The application client IDs associated with the specified Amazon Cognito user pool that are enabled for this identity source.
 	AttrDetailsClientIds() *[]*string
-	// The well-known URL that points to this user pool's OIDC discovery endpoint.
-	//
-	// This is a URL string in the following format. This URL replaces the placeholders for both the AWS Region and the user pool identifier with those appropriate for this user pool.
-	//
-	// `https://cognito-idp.<region>.amazonaws.com/<user-pool-id>/.well-known/openid-configuration`
 	AttrDetailsDiscoveryUrl() *string
-	// A string that identifies the type of OIDC service represented by this identity source.
-	//
-	// At this time, the only valid value is `cognito` .
 	AttrDetailsOpenIdIssuer() *string
-	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool whose identities are accessible to this Verified Permissions policy store.
 	AttrDetailsUserPoolArn() *string
 	// The unique ID of the new or updated identity store.
 	AttrIdentitySourceId() *string
@@ -73,7 +63,7 @@ type CfnIdentitySource interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Contains configuration information used when creating or updating an identity source.
+	// Contains configuration information used when creating a new .
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -92,10 +82,10 @@ type CfnIdentitySource interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the ID of the policy store in which you want to store this identity source.
+	// Specifies the ID of the in which you want to store this .
 	PolicyStoreId() *string
 	SetPolicyStoreId(val *string)
-	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+	// Specifies the namespace and data type of the principals generated for identities authenticated by the new .
 	PrincipalEntityType() *string
 	SetPrincipalEntityType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnStack) validateSetTagsRawParameters(val *[]*CfnTag) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnStack) validateSetTemplateUrlParameters(val *string) error {
+	return nil
+}
+
 func validateNewCfnStackParameters(scope constructs.Construct, id *string, props *CfnStackProps) error {
 	return nil
 }

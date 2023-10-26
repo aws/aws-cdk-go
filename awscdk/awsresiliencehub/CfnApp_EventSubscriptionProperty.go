@@ -33,7 +33,7 @@ type CfnApp_EventSubscriptionProperty struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
 	//
-	// The format for this ARN is: `arn:partition:sns:region:account:topic-name` . For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* guide.
+	// The format for this ARN is: `arn:partition:sns:region:account:topic-name` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html#cfn-resiliencehub-app-eventsubscription-snstopicarn
 	//
 	SnsTopicArn *string `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`

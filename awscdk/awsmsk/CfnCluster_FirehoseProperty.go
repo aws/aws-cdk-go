@@ -18,7 +18,7 @@ package awsmsk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html
 //
 type CfnCluster_FirehoseProperty struct {
-	// Specifies whether broker logs get send to the specified Kinesis Data Firehose delivery stream.
+	// Specifies whether broker logs get sent to the specified Kinesis Data Firehose delivery stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html#cfn-msk-cluster-firehose-enabled
 	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`

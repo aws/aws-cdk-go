@@ -79,7 +79,7 @@ type CfnSafetyRule interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The Amazon Resource Name (ARN) for the control panel.
+	// The Amazon Resource Name (ARN) of the control panel.
 	ControlPanelArn() *string
 	SetControlPanelArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -118,7 +118,7 @@ type CfnSafetyRule interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The value for a tag.
+	// The tags associated with the safety rule.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

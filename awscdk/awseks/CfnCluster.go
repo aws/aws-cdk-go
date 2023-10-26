@@ -112,7 +112,7 @@ type CfnCluster interface {
 	//
 	// This property isn't available for an Amazon EKS cluster on the AWS cloud.
 	AttrId() *string
-	// The CIDR block that Kubernetes Service IP addresses are assigned from if you created a `1.21` or later cluster with version `>1.10.1` or later of the Amazon VPC CNI add-on and specified `ipv6` for *ipFamily* when you created the cluster. Kubernetes assigns Service addresses from the unique local address range ( `fc00::/7` ) because you can't specify a custom `IPv6` CIDR block when you create the cluster.
+	// The CIDR block to assign Kubernetes service IP addresses from.
 	AttrKubernetesNetworkConfigServiceIpv6Cidr() *string
 	// The issuer URL for the OIDC identity provider.
 	AttrOpenIdConnectIssuerUrl() *string

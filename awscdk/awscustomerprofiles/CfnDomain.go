@@ -23,6 +23,85 @@ import (
 //   	DeadLetterQueueUrl: jsii.String("deadLetterQueueUrl"),
 //   	DefaultEncryptionKey: jsii.String("defaultEncryptionKey"),
 //   	DefaultExpirationDays: jsii.Number(123),
+//   	Matching: &MatchingProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		AutoMerging: &AutoMergingProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			ConflictResolution: &ConflictResolutionProperty{
+//   				ConflictResolvingModel: jsii.String("conflictResolvingModel"),
+//
+//   				// the properties below are optional
+//   				SourceName: jsii.String("sourceName"),
+//   			},
+//   			Consolidation: &ConsolidationProperty{
+//   				MatchingAttributesList: []interface{}{
+//   					[]*string{
+//   						jsii.String("matchingAttributesList"),
+//   					},
+//   				},
+//   			},
+//   			MinAllowedConfidenceScoreForMerging: jsii.Number(123),
+//   		},
+//   		ExportingConfig: &ExportingConfigProperty{
+//   			S3Exporting: &S3ExportingConfigProperty{
+//   				S3BucketName: jsii.String("s3BucketName"),
+//
+//   				// the properties below are optional
+//   				S3KeyName: jsii.String("s3KeyName"),
+//   			},
+//   		},
+//   		JobSchedule: &JobScheduleProperty{
+//   			DayOfTheWeek: jsii.String("dayOfTheWeek"),
+//   			Time: jsii.String("time"),
+//   		},
+//   	},
+//   	RuleBasedMatching: &RuleBasedMatchingProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		AttributeTypesSelector: &AttributeTypesSelectorProperty{
+//   			AttributeMatchingModel: jsii.String("attributeMatchingModel"),
+//
+//   			// the properties below are optional
+//   			Address: []*string{
+//   				jsii.String("address"),
+//   			},
+//   			EmailAddress: []*string{
+//   				jsii.String("emailAddress"),
+//   			},
+//   			PhoneNumber: []*string{
+//   				jsii.String("phoneNumber"),
+//   			},
+//   		},
+//   		ConflictResolution: &ConflictResolutionProperty{
+//   			ConflictResolvingModel: jsii.String("conflictResolvingModel"),
+//
+//   			// the properties below are optional
+//   			SourceName: jsii.String("sourceName"),
+//   		},
+//   		ExportingConfig: &ExportingConfigProperty{
+//   			S3Exporting: &S3ExportingConfigProperty{
+//   				S3BucketName: jsii.String("s3BucketName"),
+//
+//   				// the properties below are optional
+//   				S3KeyName: jsii.String("s3KeyName"),
+//   			},
+//   		},
+//   		MatchingRules: []interface{}{
+//   			&MatchingRuleProperty{
+//   				Rule: []*string{
+//   					jsii.String("rule"),
+//   				},
+//   			},
+//   		},
+//   		MaxAllowedRuleLevelForMatching: jsii.Number(123),
+//   		MaxAllowedRuleLevelForMerging: jsii.Number(123),
+//   		Status: jsii.String("status"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -41,6 +120,9 @@ type CfnDomain interface {
 	AttrCreatedAt() *string
 	// The timestamp of when the domain was most recently edited.
 	AttrLastUpdatedAt() *string
+	AttrRuleBasedMatchingStatus() *string
+	// Usage-specific statistics about the domain.
+	AttrStats() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -72,6 +154,9 @@ type CfnDomain interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The process of matching duplicate profiles.
+	Matching() interface{}
+	SetMatching(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -79,6 +164,9 @@ type CfnDomain interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The process of matching duplicate profiles using the Rule-Based matching.
+	RuleBasedMatching() interface{}
+	SetRuleBasedMatching(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -255,6 +343,26 @@ func (j *jsiiProxy_CfnDomain) AttrLastUpdatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) AttrRuleBasedMatchingStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRuleBasedMatchingStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) AttrStats() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrStats",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -345,6 +453,16 @@ func (j *jsiiProxy_CfnDomain) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) Matching() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"matching",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -360,6 +478,16 @@ func (j *jsiiProxy_CfnDomain) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) RuleBasedMatching() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ruleBasedMatching",
 		&returns,
 	)
 	return returns
@@ -474,6 +602,28 @@ func (j *jsiiProxy_CfnDomain)SetDomainName(val *string) {
 	_jsii_.Set(
 		j,
 		"domainName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetMatching(val interface{}) {
+	if err := j.validateSetMatchingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"matching",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetRuleBasedMatching(val interface{}) {
+	if err := j.validateSetRuleBasedMatchingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ruleBasedMatching",
 		val,
 	)
 }

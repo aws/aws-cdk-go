@@ -42,6 +42,7 @@ package awsquicksight
 //   			CategoryValues: []*string{
 //   				jsii.String("categoryValues"),
 //   			},
+//   			NullOption: jsii.String("nullOption"),
 //   			SelectAllOptions: jsii.String("selectAllOptions"),
 //   		},
 //   	},

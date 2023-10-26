@@ -14,9 +14,15 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html
 //
 type CfnChannel_MaintenanceCreateSettingsProperty struct {
+	// Choose one day of the week for maintenance.
+	//
+	// The chosen day is used for all future maintenance windows.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html#cfn-medialive-channel-maintenancecreatesettings-maintenanceday
 	//
 	MaintenanceDay *string `field:"optional" json:"maintenanceDay" yaml:"maintenanceDay"`
+	// Choose the hour that maintenance will start.
+	//
+	// The chosen time is used for all future maintenance windows.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html#cfn-medialive-channel-maintenancecreatesettings-maintenancestarttime
 	//
 	MaintenanceStartTime *string `field:"optional" json:"maintenanceStartTime" yaml:"maintenanceStartTime"`

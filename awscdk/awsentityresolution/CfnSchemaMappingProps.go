@@ -20,6 +20,7 @@ import (
 //   			// the properties below are optional
 //   			GroupName: jsii.String("groupName"),
 //   			MatchKey: jsii.String("matchKey"),
+//   			SubType: jsii.String("subType"),
 //   		},
 //   	},
 //   	SchemaName: jsii.String("schemaName"),
@@ -45,7 +46,7 @@ type CfnSchemaMappingProps struct {
 	MappedInputFields interface{} `field:"required" json:"mappedInputFields" yaml:"mappedInputFields"`
 	// The name of the schema.
 	//
-	// There cannot be multiple `SchemaMappings` with the same name.
+	// There can't be multiple `SchemaMappings` with the same name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html#cfn-entityresolution-schemamapping-schemaname
 	//
 	SchemaName *string `field:"required" json:"schemaName" yaml:"schemaName"`

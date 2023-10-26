@@ -60,7 +60,7 @@ type CfnDomain interface {
 	// A string that specifies the name of the requested domain.
 	DomainName() *string
 	SetDomainName(val *string)
-	// The key used to encrypt the domain.
+	// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
 	// The logical ID for this CloudFormation stack element.

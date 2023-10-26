@@ -9,7 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// resource definition.
+// Use the `AWS::IoT::SoftwarePackageVersion` resource to create a software package version.
+//
+// For information about working with software package versions, see [AWS IoT Device Management Software Package Catalog](https://docs.aws.amazon.com/iot/latest/developerguide/software-package-catalog) and [Creating a software package and package version](https://docs.aws.amazon.com/iot/latest/developerguide/creating-pacakge-and-version) in the *AWS IoT Developer Guide* . See also, [CreatePackageVersion](https://docs.aws.amazon.com/iot/latest/apireference/API_CreatePackageVersion.html) in the *API Guide* .
+//
+// > The associated software package must exist before the package version is created. If you create a software package and package version in the same CloudFormation template, set the software package as a [dependency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) of the package version. If they are created out of sequence, you will receive an error.
+// >
+// > Package versions and created in a `draft` state, for more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) . To change the package version state after it’s created, use the [UpdatePackageVersionAPI](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdatePackageVersion.html) command.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,10 +44,16 @@ import (
 type CfnSoftwarePackageVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Error reason for a package version failure during creation or update.
 	AttrErrorReason() *string
+	// Metadata that can be used to define a package version’s configuration.
 	Attributes() interface{}
 	SetAttributes(val interface{})
+	// The Amazon Resource Name (ARN) for the package.
 	AttrPackageVersionArn() *string
+	// The status of the package version.
+	//
+	// For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -52,6 +64,7 @@ type CfnSoftwarePackageVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A summary of the package version being created.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -66,6 +79,7 @@ type CfnSoftwarePackageVersion interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The name of the associated software package.
 	PackageName() *string
 	SetPackageName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -77,7 +91,7 @@ type CfnSoftwarePackageVersion interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// Metadata that can be used to manage the package version.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -93,6 +107,7 @@ type CfnSoftwarePackageVersion interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The name of the new package version.
 	VersionName() *string
 	SetVersionName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

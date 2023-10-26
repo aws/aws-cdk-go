@@ -20,6 +20,7 @@ import (
 //
 //   cfnSimpleAD := awscdk.Aws_directoryservice.NewCfnSimpleAD(this, jsii.String("MyCfnSimpleAD"), &CfnSimpleADProps{
 //   	Name: jsii.String("name"),
+//   	Password: jsii.String("password"),
 //   	Size: jsii.String("size"),
 //   	VpcSettings: &VpcSettingsProperty{
 //   		SubnetIds: []*string{
@@ -32,7 +33,6 @@ import (
 //   	CreateAlias: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	EnableSso: jsii.Boolean(false),
-//   	Password: jsii.String("password"),
 //   	ShortName: jsii.String("shortName"),
 //   })
 //
@@ -49,6 +49,7 @@ type CfnSimpleAD interface {
 	AttrDirectoryId() *string
 	// The IP addresses of the DNS servers for the directory, such as `[ "172.31.3.154", "172.31.63.203" ]` .
 	AttrDnsIpAddresses() *[]*string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -274,6 +275,16 @@ func (j *jsiiProxy_CfnSimpleAD) AttrDnsIpAddresses() *[]*string {
 	_jsii_.Get(
 		j,
 		"attrDnsIpAddresses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSimpleAD) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -529,6 +540,9 @@ func (j *jsiiProxy_CfnSimpleAD)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnSimpleAD)SetPassword(val *string) {
+	if err := j.validateSetPasswordParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"password",

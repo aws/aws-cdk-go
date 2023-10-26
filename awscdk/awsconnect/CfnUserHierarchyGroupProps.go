@@ -1,5 +1,8 @@
 package awsconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnUserHierarchyGroup`.
 //
@@ -14,6 +17,12 @@ package awsconnect
 //
 //   	// the properties below are optional
 //   	ParentGroupArn: jsii.String("parentGroupArn"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html
@@ -31,5 +40,9 @@ type CfnUserHierarchyGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-parentgrouparn
 	//
 	ParentGroupArn *string `field:"optional" json:"parentGroupArn" yaml:"parentGroupArn"`
+	// One or more tags.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

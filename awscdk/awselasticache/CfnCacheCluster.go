@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::ElastiCache::CacheCluster type creates an Amazon ElastiCache cache cluster.
+// The `AWS::ElastiCache::CacheCluster` type creates an Amazon ElastiCache cache cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -87,6 +87,7 @@ type CfnCacheCluster interface {
 	//
 	// > Redis (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
 	AttrConfigurationEndpointPort() *string
+	// The resource name.
 	AttrId() *string
 	// The DNS address of the configuration endpoint for the Redis cache cluster.
 	AttrRedisEndpointAddress() *string

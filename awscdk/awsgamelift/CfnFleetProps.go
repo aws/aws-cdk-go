@@ -33,6 +33,7 @@ package awsgamelift
 //   	Ec2InstanceType: jsii.String("ec2InstanceType"),
 //   	FleetType: jsii.String("fleetType"),
 //   	InstanceRoleArn: jsii.String("instanceRoleArn"),
+//   	InstanceRoleCredentialsProvider: jsii.String("instanceRoleCredentialsProvider"),
 //   	Locations: []interface{}{
 //   		&LocationConfigurationProperty{
 //   			Location: jsii.String("location"),
@@ -87,7 +88,7 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Configuration for Anywhere fleet.
+	// Amazon GameLift Anywhere configuration options for your Anywhere fleets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-anywhereconfiguration
 	//
 	AnywhereConfiguration interface{} `field:"optional" json:"anywhereConfiguration" yaml:"anywhereConfiguration"`
@@ -143,10 +144,14 @@ type CfnFleetProps struct {
 	FleetType *string `field:"optional" json:"fleetType" yaml:"fleetType"`
 	// A unique identifier for an IAM role that manages access to your AWS services.
 	//
-	// With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN by using the [IAM dashboard](https://docs.aws.amazon.com/iam/) in the AWS Management Console . Learn more about using on-box credentials for your game servers at [Access external resources from a game server](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) . This property cannot be changed after the fleet is created.
+	// With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN by using the [IAM dashboard](https://docs.aws.amazon.com/iam/) in the AWS Management Console . Learn more about using on-box credentials for your game servers at [Access external resources from a game server](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
 	//
 	InstanceRoleArn *string `field:"optional" json:"instanceRoleArn" yaml:"instanceRoleArn"`
+	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolecredentialsprovider
+	//
+	InstanceRoleCredentialsProvider *string `field:"optional" json:"instanceRoleCredentialsProvider" yaml:"instanceRoleCredentialsProvider"`
 	// A set of remote locations to deploy additional instances to and manage as part of the fleet.
 	//
 	// This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code such as `us-west-2` . To create a fleet with instances in the home Region only, don't use this parameter.

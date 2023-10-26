@@ -116,6 +116,9 @@ type CfnDashboard interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects.
+	ValidationStrategy() interface{}
+	SetValidationStrategy(val interface{})
 	// A description for the first version of the dashboard being created.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
@@ -613,6 +616,16 @@ func (j *jsiiProxy_CfnDashboard) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDashboard) ValidationStrategy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"validationStrategy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDashboard) VersionDescription() *string {
 	var returns *string
 	_jsii_.Get(
@@ -754,6 +767,17 @@ func (j *jsiiProxy_CfnDashboard)SetThemeArn(val *string) {
 	_jsii_.Set(
 		j,
 		"themeArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDashboard)SetValidationStrategy(val interface{}) {
+	if err := j.validateSetValidationStrategyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"validationStrategy",
 		val,
 	)
 }

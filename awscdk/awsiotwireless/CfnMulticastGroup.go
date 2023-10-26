@@ -52,9 +52,13 @@ type CfnMulticastGroup interface {
 	AttrArn() *string
 	// The ID of the multicast group.
 	AttrId() *string
-	// The number of devices that are associated to the multicast group.
+	// Multicast group number of devices in group.
+	//
+	// Returned after successful read.
 	AttrLoRaWanNumberOfDevicesInGroup() *float64
-	// The number of devices that are requested to be associated with the multicast group.
+	// Multicast group number of devices requested.
+	//
+	// Returned after successful read.
 	AttrLoRaWanNumberOfDevicesRequested() *float64
 	// The status of a multicast group.
 	AttrStatus() *string

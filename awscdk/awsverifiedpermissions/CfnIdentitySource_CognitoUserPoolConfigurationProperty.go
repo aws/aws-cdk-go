@@ -24,7 +24,7 @@ type CfnIdentitySource_CognitoUserPoolConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html#cfn-verifiedpermissions-identitysource-cognitouserpoolconfiguration-userpoolarn
 	//
 	UserPoolArn *string `field:"required" json:"userPoolArn" yaml:"userPoolArn"`
-	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+	// The unique application client IDs that are associated with the specified user pool.
 	//
 	// Example: `"ClientIds": ["&ExampleCogClientId;"]`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html#cfn-verifiedpermissions-identitysource-cognitouserpoolconfiguration-clientids

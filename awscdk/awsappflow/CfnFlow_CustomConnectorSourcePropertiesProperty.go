@@ -32,6 +32,7 @@ type CfnFlow_CustomConnectorSourcePropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-customproperties
 	//
 	CustomProperties interface{} `field:"optional" json:"customProperties" yaml:"customProperties"`
+	// The API of the connector application that Amazon AppFlow uses to transfer your data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-datatransferapi
 	//
 	DataTransferApi interface{} `field:"optional" json:"dataTransferApi" yaml:"dataTransferApi"`

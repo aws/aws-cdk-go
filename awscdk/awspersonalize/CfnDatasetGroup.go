@@ -71,7 +71,7 @@ type CfnDatasetGroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ARN of the IAM role that has permissions to create the dataset group.
+	// The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.

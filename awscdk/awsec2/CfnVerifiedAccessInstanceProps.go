@@ -13,6 +13,7 @@ import (
 //
 //   cfnVerifiedAccessInstanceProps := &CfnVerifiedAccessInstanceProps{
 //   	Description: jsii.String("description"),
+//   	FipsEnabled: jsii.Boolean(false),
 //   	LoggingConfigurations: &VerifiedAccessLogsProperty{
 //   		CloudWatchLogs: &CloudWatchLogsProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -58,6 +59,10 @@ type CfnVerifiedAccessInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Describes whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-fipsenabled
+	//
+	FipsEnabled interface{} `field:"optional" json:"fipsEnabled" yaml:"fipsEnabled"`
 	// The current logging configuration for the Verified Access instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-loggingconfigurations
 	//

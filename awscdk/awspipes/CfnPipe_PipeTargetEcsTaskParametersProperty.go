@@ -4,8 +4,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
-// The parameters for using an Amazon ECS task as a target.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -158,7 +156,6 @@ type CfnPipe_PipeTargetEcsTaskParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetecstaskparameters.html#cfn-pipes-pipe-pipetargetecstaskparameters-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
-	// The overrides that are associated with a task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetecstaskparameters.html#cfn-pipes-pipe-pipetargetecstaskparameters-overrides
 	//
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`

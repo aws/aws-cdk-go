@@ -64,7 +64,7 @@ type CfnGateway interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the gateway.
+	// The name of the network.
 	Name() *string
 	SetName(val *string)
 	// The list of networks that you want to add.

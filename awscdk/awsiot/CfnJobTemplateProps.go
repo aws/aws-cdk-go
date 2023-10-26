@@ -70,6 +70,11 @@ type CfnJobTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-abortconfig
 	//
 	AbortConfig interface{} `field:"optional" json:"abortConfig" yaml:"abortConfig"`
+	// The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
+	//
+	// *Note:* Up to 25 package version ARNS are allowed.
+	//
+	// > The CloudFormation `DestinationPackageVersions` parameter is available in the Beijing (cn-north-1) Region and other Regions where Service Package Catalog has been deployed except for the the Ningxia (cn-northest-1) Region. We will launch to Ningxia region as quickly as possible.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-destinationpackageversions
 	//
 	DestinationPackageVersions *[]*string `field:"optional" json:"destinationPackageVersions" yaml:"destinationPackageVersions"`

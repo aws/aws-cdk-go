@@ -99,6 +99,7 @@ type CfnUserPoolClient interface {
 	// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 	AnalyticsConfiguration() interface{}
 	SetAnalyticsConfiguration(val interface{})
+	AttrClientId() *string
 	AttrClientSecret() *string
 	AttrId() *string
 	AttrName() *string
@@ -378,6 +379,16 @@ func (j *jsiiProxy_CfnUserPoolClient) AnalyticsConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"analyticsConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPoolClient) AttrClientId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrClientId",
 		&returns,
 	)
 	return returns

@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The batch transform input for a monitoring job.
+// Input object for the batch transform job.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,39 +32,39 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-batchtransforminput.html
 //
 type CfnModelExplainabilityJobDefinition_BatchTransformInputProperty struct {
-	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	// The Amazon S3 location being used to capture the data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelexplainabilityjobdefinition-batchtransforminput-datacaptureddestinations3uri
 	//
 	DataCapturedDestinationS3Uri *string `field:"required" json:"dataCapturedDestinationS3Uri" yaml:"dataCapturedDestinationS3Uri"`
-	// The dataset format of the data to monitor.
+	// The dataset format for your batch transform job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelexplainabilityjobdefinition-batchtransforminput-datasetformat
 	//
 	DatasetFormat interface{} `field:"required" json:"datasetFormat" yaml:"datasetFormat"`
-	// Path to the filesystem where the endpoint data is available to the container.
+	// Path to the filesystem where the batch transform data is available to the container.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelexplainabilityjobdefinition-batchtransforminput-localpath
 	//
 	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
-	// JSONpath to locate features in JSONlines dataset.
+	// The attributes of the input data that are the input features.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelexplainabilityjobdefinition-batchtransforminput-featuresattribute
 	//
 	FeaturesAttribute *string `field:"optional" json:"featuresAttribute" yaml:"featuresAttribute"`
-	// Index or JSONpath to locate predicted label(s).
+	// The attribute of the input data that represents the ground truth label.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelexplainabilityjobdefinition-batchtransforminput-inferenceattribute
 	//
 	InferenceAttribute *string `field:"optional" json:"inferenceAttribute" yaml:"inferenceAttribute"`
-	// Index or JSONpath to locate probabilities.
+	// In a classification problem, the attribute that represents the class probability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelexplainabilityjobdefinition-batchtransforminput-probabilityattribute
 	//
 	ProbabilityAttribute *string `field:"optional" json:"probabilityAttribute" yaml:"probabilityAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
 	//
-	// Defauts to FullyReplicated.
+	// Defaults to `FullyReplicated`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelexplainabilityjobdefinition-batchtransforminput-s3datadistributiontype
 	//
 	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
-	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job.
+	// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job.
 	//
-	// Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	// `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-batchtransforminput.html#cfn-sagemaker-modelexplainabilityjobdefinition-batchtransforminput-s3inputmode
 	//
 	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`

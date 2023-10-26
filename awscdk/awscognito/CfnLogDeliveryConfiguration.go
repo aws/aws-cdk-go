@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Cognito::LogDeliveryConfiguration.
+// The logging parameters of a user pool.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,6 +36,7 @@ import (
 type CfnLogDeliveryConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A user pool ID, for example `us-east-1_EXAMPLE` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,6 +47,7 @@ type CfnLogDeliveryConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The detailed activity logging destination of a user pool.
 	LogConfigurations() interface{}
 	SetLogConfigurations(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -82,6 +84,7 @@ type CfnLogDeliveryConfiguration interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The ID of the user pool where you configured detailed activity logging.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

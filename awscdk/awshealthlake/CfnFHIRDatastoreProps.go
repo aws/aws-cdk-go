@@ -56,7 +56,7 @@ type CfnFHIRDatastoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastorename
 	//
 	DatastoreName *string `field:"optional" json:"datastoreName" yaml:"datastoreName"`
-	// The identity provider configuration for the datastore.
+	// The identity provider configuration that you gave when the data store was created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration
 	//
 	IdentityProviderConfiguration interface{} `field:"optional" json:"identityProviderConfiguration" yaml:"identityProviderConfiguration"`

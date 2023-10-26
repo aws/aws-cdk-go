@@ -38,6 +38,7 @@ type CfnFlow_ScheduledTriggerPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-firstexecutionfrom
 	//
 	FirstExecutionFrom *float64 `field:"optional" json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
+	// Defines how many times a scheduled flow fails consecutively before Amazon AppFlow deactivates it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-flowerrordeactivationthreshold
 	//
 	FlowErrorDeactivationThreshold *float64 `field:"optional" json:"flowErrorDeactivationThreshold" yaml:"flowErrorDeactivationThreshold"`

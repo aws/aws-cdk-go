@@ -74,7 +74,6 @@ type CfnUserPoolUserToGroupAttachment interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The username of the user that you want to query or modify.
 	Username() *string
 	SetUsername(val *string)
 	// The user pool ID for the user pool.

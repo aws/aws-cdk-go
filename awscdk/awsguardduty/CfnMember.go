@@ -62,7 +62,6 @@ type CfnMember interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The AWS account ID of the account to designate as a member.
 	MemberId() *string
 	SetMemberId(val *string)
 	// The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.

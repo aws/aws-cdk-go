@@ -12,6 +12,14 @@ package awsquicksight
 //   	CustomLabel: jsii.String("customLabel"),
 //   	Placement: jsii.String("placement"),
 //   	ScrollStatus: jsii.String("scrollStatus"),
+//   	TotalAggregationOptions: []interface{}{
+//   		&TotalAggregationOptionProperty{
+//   			FieldId: jsii.String("fieldId"),
+//   			TotalAggregationFunction: &TotalAggregationFunctionProperty{
+//   				SimpleTotalAggregationFunction: jsii.String("simpleTotalAggregationFunction"),
+//   			},
+//   		},
+//   	},
 //   	TotalCellStyle: &TableCellStyleProperty{
 //   		BackgroundColor: jsii.String("backgroundColor"),
 //   		Border: &GlobalTableBorderOptionsProperty{
@@ -88,6 +96,9 @@ type CfnDashboard_TotalOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-totaloptions.html#cfn-quicksight-dashboard-totaloptions-scrollstatus
 	//
 	ScrollStatus *string `field:"optional" json:"scrollStatus" yaml:"scrollStatus"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-totaloptions.html#cfn-quicksight-dashboard-totaloptions-totalaggregationoptions
+	//
+	TotalAggregationOptions interface{} `field:"optional" json:"totalAggregationOptions" yaml:"totalAggregationOptions"`
 	// Cell styling options for the total cells.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-totaloptions.html#cfn-quicksight-dashboard-totaloptions-totalcellstyle
 	//

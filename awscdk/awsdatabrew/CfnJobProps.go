@@ -253,7 +253,7 @@ type CfnJobProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
 	//
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
-	// Output location.
+	// The location in Amazon S3 where the job writes its output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
 	//
 	OutputLocation interface{} `field:"optional" json:"outputLocation" yaml:"outputLocation"`

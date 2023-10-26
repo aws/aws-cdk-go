@@ -41,7 +41,7 @@ import (
 type CfnTypeActivation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Number (ARN) of the activated extension, in this account and Region.
+	// The Amazon Resource Name (ARN) of the activated extension, in this account and Region.
 	AttrArn() *string
 	// Whether to automatically update the extension in this account and Region when a new *minor* version is published by the extension publisher.
 	AutoUpdate() interface{}

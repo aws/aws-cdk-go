@@ -111,9 +111,9 @@ type CfnFileSystemProps struct {
 	LifecyclePolicies interface{} `field:"optional" json:"lifecyclePolicies" yaml:"lifecyclePolicies"`
 	// The performance mode of the file system.
 	//
-	// We recommend `generalPurpose` performance mode for most file systems. File systems using the `maxIO` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created.
+	// We recommend `generalPurpose` performance mode for all file systems. File systems using the `maxIO` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The `maxIO` mode is not supported on file systems using One Zone storage classes.
 	//
-	// > The `maxIO` mode is not supported on file systems using One Zone storage classes.
+	// > Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
 	//
 	// Default is `generalPurpose` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode

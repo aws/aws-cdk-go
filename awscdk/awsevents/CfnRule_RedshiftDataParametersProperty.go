@@ -15,6 +15,9 @@ package awsevents
 //   	DbUser: jsii.String("dbUser"),
 //   	SecretManagerArn: jsii.String("secretManagerArn"),
 //   	Sql: jsii.String("sql"),
+//   	Sqls: []*string{
+//   		jsii.String("sqls"),
+//   	},
 //   	StatementName: jsii.String("statementName"),
 //   	WithEvent: jsii.Boolean(false),
 //   }
@@ -44,6 +47,12 @@ type CfnRule_RedshiftDataParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
 	//
 	Sql *string `field:"optional" json:"sql" yaml:"sql"`
+	// One or more SQL statements to run.
+	//
+	// The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sqls
+	//
+	Sqls *[]*string `field:"optional" json:"sqls" yaml:"sqls"`
 	// The name of the SQL statement.
 	//
 	// You can name the SQL statement when you create it to identify the query.

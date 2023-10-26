@@ -15,6 +15,7 @@ package awsquicksight
 //   	CategoryValues: []*string{
 //   		jsii.String("categoryValues"),
 //   	},
+//   	NullOption: jsii.String("nullOption"),
 //   	SelectAllOptions: jsii.String("selectAllOptions"),
 //   }
 //
@@ -29,6 +30,14 @@ type CfnDashboard_FilterListConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterlistconfiguration.html#cfn-quicksight-dashboard-filterlistconfiguration-categoryvalues
 	//
 	CategoryValues *[]*string `field:"optional" json:"categoryValues" yaml:"categoryValues"`
+	// This option determines how null values should be treated when filtering data.
+	//
+	// - `ALL_VALUES` : Include null values in filtered results.
+	// - `NULLS_ONLY` : Only include null values in filtered results.
+	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterlistconfiguration.html#cfn-quicksight-dashboard-filterlistconfiguration-nulloption
+	//
+	NullOption *string `field:"optional" json:"nullOption" yaml:"nullOption"`
 	// Select all of the values. Null is not the assigned value of select all.
 	//
 	// - `FILTER_ALL_VALUES`.

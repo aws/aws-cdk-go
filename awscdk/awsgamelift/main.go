@@ -147,6 +147,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceRoleArn", GoGetter: "InstanceRoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceRoleCredentialsProvider", GoGetter: "InstanceRoleCredentialsProvider"},
 			_jsii_.MemberProperty{JsiiProperty: "locations", GoGetter: "Locations"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "logPaths", GoGetter: "LogPaths"},

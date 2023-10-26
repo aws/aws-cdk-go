@@ -37,6 +37,7 @@ type CfnPackageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-packagename
 	//
 	PackageName *string `field:"required" json:"packageName" yaml:"packageName"`
+	// A storage location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-storagelocation
 	//
 	StorageLocation interface{} `field:"optional" json:"storageLocation" yaml:"storageLocation"`

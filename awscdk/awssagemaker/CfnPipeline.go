@@ -65,6 +65,7 @@ type CfnPipeline interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The parallelism configuration applied to the pipeline.
 	ParallelismConfiguration() interface{}
 	SetParallelismConfiguration(val interface{})
 	// The definition of the pipeline.

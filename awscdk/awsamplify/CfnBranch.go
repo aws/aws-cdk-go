@@ -21,6 +21,9 @@ import (
 //   	BranchName: jsii.String("branchName"),
 //
 //   	// the properties below are optional
+//   	Backend: &BackendProperty{
+//   		StackArn: jsii.String("stackArn"),
+//   	},
 //   	BasicAuthConfig: &BasicAuthConfigProperty{
 //   		Password: jsii.String("password"),
 //   		Username: jsii.String("username"),
@@ -63,6 +66,8 @@ type CfnBranch interface {
 	AttrArn() *string
 	// Name for a branch, part of an Amplify App.
 	AttrBranchName() *string
+	Backend() interface{}
+	SetBackend(val interface{})
 	// The basic authorization credentials for a branch of an Amplify app.
 	BasicAuthConfig() interface{}
 	SetBasicAuthConfig(val interface{})
@@ -303,6 +308,16 @@ func (j *jsiiProxy_CfnBranch) AttrBranchName() *string {
 	_jsii_.Get(
 		j,
 		"attrBranchName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBranch) Backend() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"backend",
 		&returns,
 	)
 	return returns
@@ -573,6 +588,17 @@ func (j *jsiiProxy_CfnBranch)SetAppId(val *string) {
 	_jsii_.Set(
 		j,
 		"appId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBranch)SetBackend(val interface{}) {
+	if err := j.validateSetBackendParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"backend",
 		val,
 	)
 }

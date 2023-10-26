@@ -31,7 +31,9 @@ package awslightsail
 //   	},
 //
 //   	// the properties below are optional
-//   	MonthlyTransfer: jsii.Number(123),
+//   	MonthlyTransfer: &MonthlyTransferProperty{
+//   		GbPerMonthAllocated: jsii.String("gbPerMonthAllocated"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html
@@ -44,6 +46,6 @@ type CfnInstance_NetworkingProperty struct {
 	// The monthly amount of data transfer, in GB, allocated for the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html#cfn-lightsail-instance-networking-monthlytransfer
 	//
-	MonthlyTransfer *float64 `field:"optional" json:"monthlyTransfer" yaml:"monthlyTransfer"`
+	MonthlyTransfer interface{} `field:"optional" json:"monthlyTransfer" yaml:"monthlyTransfer"`
 }
 

@@ -1,5 +1,8 @@
 package awscdkscheduleralpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+)
 
 // Construction properties for `Schedule`.
 //
@@ -45,6 +48,11 @@ type ScheduleProps struct {
 	//
 	// Experimental.
 	Group IGroup `field:"optional" json:"group" yaml:"group"`
+	// The customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
+	// Default: - All events in Scheduler are encrypted with a key that AWS owns and manages.
+	//
+	// Experimental.
+	Key awskms.IKey `field:"optional" json:"key" yaml:"key"`
 	// The name of the schedule.
 	//
 	// Up to 64 letters (uppercase and lowercase), numbers, hyphens, underscores and dots are allowed.

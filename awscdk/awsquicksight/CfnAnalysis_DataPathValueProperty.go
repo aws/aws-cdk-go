@@ -11,6 +11,11 @@ package awsquicksight
 //   dataPathValueProperty := &DataPathValueProperty{
 //   	FieldId: jsii.String("fieldId"),
 //   	FieldValue: jsii.String("fieldValue"),
+//
+//   	// the properties below are optional
+//   	DataPathType: &DataPathTypeProperty{
+//   		PivotTableDataPathType: jsii.String("pivotTableDataPathType"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html
@@ -24,5 +29,8 @@ type CfnAnalysis_DataPathValueProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html#cfn-quicksight-analysis-datapathvalue-fieldvalue
 	//
 	FieldValue *string `field:"required" json:"fieldValue" yaml:"fieldValue"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html#cfn-quicksight-analysis-datapathvalue-datapathtype
+	//
+	DataPathType interface{} `field:"optional" json:"dataPathType" yaml:"dataPathType"`
 }
 

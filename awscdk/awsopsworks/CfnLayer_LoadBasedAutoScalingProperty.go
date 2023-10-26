@@ -1,8 +1,6 @@
 package awsopsworks
 
 
-// Describes a layer's load-based auto scaling configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

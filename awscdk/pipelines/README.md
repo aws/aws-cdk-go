@@ -54,13 +54,13 @@ example creates a CodePipeline that deploys an application from GitHub:
   */
 type databaseStack struct {
 	stack
-	table table
+	table tableV2
 }
 
 func newDatabaseStack(scope construct, id *string) *databaseStack {
 	this := &databaseStack{}
 	newStack_Override(this, scope, id)
-	this.table = dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+	this.table = dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 		PartitionKey: &Attribute{
 			Name: jsii.String("id"),
 			Type: dynamodb.AttributeType_STRING,
@@ -70,7 +70,7 @@ func newDatabaseStack(scope construct, id *string) *databaseStack {
 }
 
 type computeProps struct {
-	table *table
+	table *tableV2
 }
 
 type computeStack struct {
@@ -232,7 +232,7 @@ engine, read the section
 ### Synth and sources
 
 To define a pipeline, instantiate a `CodePipeline` construct from the
-`@aws-cdk/pipelines` module. It takes one argument, a `synth` step, which is
+`aws-cdk-lib/pipelines` module. It takes one argument, a `synth` step, which is
 expected to produce the CDK Cloud Assembly as its single output (the contents of
 the `cdk.out` directory after running `cdk synth`). "Steps" are arbitrary
 actions in the pipeline, typically used to run scripts or commands.
@@ -1666,7 +1666,7 @@ following:
 ```json
 {
   "context": {
-    "@aws-cdk/aws-iam:minimizePolicies": true
+    "aws-cdk-lib/aws-iam:minimizePolicies": true
   }
 }
 ```

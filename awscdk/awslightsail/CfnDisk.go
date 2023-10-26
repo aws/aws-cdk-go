@@ -54,7 +54,7 @@ type CfnDisk interface {
 	// An array of add-ons for the disk.
 	AddOns() interface{}
 	SetAddOns(val interface{})
-	// The instance to which the disk is attached.
+	// The resources to which the disk is attached.
 	AttrAttachedTo() *string
 	// (Deprecated) The attachment state of the disk.
 	//
@@ -64,13 +64,15 @@ type CfnDisk interface {
 	AttrDiskArn() *string
 	// The input/output operations per second (IOPS) of the disk.
 	AttrIops() *float64
-	// A Boolean value indicating whether the disk is attached to an instance.
+	// A Boolean value indicating whether the disk is attached.
 	AttrIsAttached() awscdk.IResolvable
-	// The Availability Zone where the disk is located.
+	// The Availability Zone in which to create your disk.
+	//
+	// Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 	AttrLocationAvailabilityZone() *string
-	// The AWS Region where the disk is located.
+	// The Region Name in which to create your disk.
 	AttrLocationRegionName() *string
-	// The path of the disk.
+	// The disk path.
 	AttrPath() *string
 	// The resource type of the disk (for example, `Disk` ).
 	AttrResourceType() *string

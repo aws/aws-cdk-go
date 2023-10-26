@@ -26,7 +26,7 @@ type CfnConfiguredTable_AnalysisRuleCustomProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-allowedanalyses
 	//
 	AllowedAnalyses *[]*string `field:"required" json:"allowedAnalyses" yaml:"allowedAnalyses"`
-	// The AWS accounts that are allowed to query by the custom analysis rule.
+	// The accounts that are allowed to query by the custom analysis rule.
 	//
 	// Required when `allowedAnalyses` is `ANY_QUERY` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-allowedanalysisproviders

@@ -339,49 +339,36 @@ package awspipes
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html
 //
 type CfnPipeProps struct {
-	// The ARN of the role that allows the pipe to send data to the target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// The ARN of the source resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-source
 	//
 	Source *string `field:"required" json:"source" yaml:"source"`
-	// The ARN of the target resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-target
 	//
 	Target *string `field:"required" json:"target" yaml:"target"`
-	// A description of the pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The state the pipe should be in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-desiredstate
 	//
 	DesiredState *string `field:"optional" json:"desiredState" yaml:"desiredState"`
-	// The ARN of the enrichment resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichment
 	//
 	Enrichment *string `field:"optional" json:"enrichment" yaml:"enrichment"`
-	// The parameters required to set up enrichment on your pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichmentparameters
 	//
 	EnrichmentParameters interface{} `field:"optional" json:"enrichmentParameters" yaml:"enrichmentParameters"`
-	// The name of the pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The parameters required to set up a source for your pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-sourceparameters
 	//
 	SourceParameters interface{} `field:"optional" json:"sourceParameters" yaml:"sourceParameters"`
-	// The list of key-value pairs to associate with the pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// The parameters required to set up a target for your pipe.
-	//
-	// For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-targetparameters
 	//
 	TargetParameters interface{} `field:"optional" json:"targetParameters" yaml:"targetParameters"`

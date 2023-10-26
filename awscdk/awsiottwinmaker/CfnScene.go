@@ -83,7 +83,7 @@ type CfnScene interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The scene ID.
+	// The ID of the scene.
 	SceneId() *string
 	SetSceneId(val *string)
 	// The scene metadata.
@@ -111,7 +111,7 @@ type CfnScene interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ID of the workspace.
+	// The ID of the scene.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

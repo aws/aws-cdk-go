@@ -49,7 +49,7 @@ type CfnDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The date and time that the device was created.
+	// The time that the device was created.
 	AttrCreatedAt() *string
 	// The ARN of the device.
 	//
@@ -59,8 +59,9 @@ type CfnDevice interface {
 	//
 	// For example, `device-07f6fd08867abc123` .
 	AttrDeviceId() *string
+	// The state of the device.
 	AttrState() *string
-	// The Amazon Web Services location of the device, if applicable.
+	// The AWS location of the device.
 	AwsLocation() interface{}
 	SetAwsLocation(val interface{})
 	// Options for this resource, such as condition, update policy etc.

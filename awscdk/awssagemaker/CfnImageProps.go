@@ -46,10 +46,6 @@ type CfnImageProps struct {
 	//
 	ImageRoleArn *string `field:"required" json:"imageRoleArn" yaml:"imageRoleArn"`
 	// The description of the image.
-	//
-	// *Length Constraints* : Minimum length of 1. Maximum length of 512.
-	//
-	// *Pattern* : `.*`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedescription
 	//
 	ImageDescription *string `field:"optional" json:"imageDescription" yaml:"imageDescription"`

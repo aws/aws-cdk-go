@@ -32,6 +32,8 @@ package awscognito
 //
 type CfnUserPool_SchemaAttributeProperty struct {
 	// The data format of the values for your attribute.
+	//
+	// When you choose an `AttributeDataType` , Amazon Cognito validates the input against the data type. A custom attribute value in your user's ID token is always a string, for example `"custom:isMember" : "true"` or `"custom:YearsAsMember" : "12"` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-attributedatatype
 	//
 	AttributeDataType *string `field:"optional" json:"attributeDataType" yaml:"attributeDataType"`
@@ -47,7 +49,9 @@ type CfnUserPool_SchemaAttributeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-mutable
 	//
 	Mutable interface{} `field:"optional" json:"mutable" yaml:"mutable"`
-	// The name of your user pool attribute, for example `username` or `custom:costcenter` .
+	// The name of your user pool attribute.
+	//
+	// When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a `Name` value of `MyAttribute` , Amazon Cognito creates the custom attribute `custom:MyAttribute` . When `DeveloperOnlyAttribute` is `true` , Amazon Cognito creates your attribute as `dev:MyAttribute` . In an operation that describes a user pool, Amazon Cognito returns this value as `value` for standard attributes, `custom:value` for custom attributes, and `dev:value` for developer-only attributes..
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

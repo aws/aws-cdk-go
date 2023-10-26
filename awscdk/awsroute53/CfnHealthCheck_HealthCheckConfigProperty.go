@@ -201,6 +201,9 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-resourcepath
 	//
 	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
+	// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control.
+	//
+	// For more information about Route 53 Application Recovery Controller, see [Route 53 Application Recovery Controller Developer Guide.](https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-routingcontrolarn
 	//
 	RoutingControlArn *string `field:"optional" json:"routingControlArn" yaml:"routingControlArn"`

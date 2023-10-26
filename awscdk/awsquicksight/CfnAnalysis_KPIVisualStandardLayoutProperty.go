@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The standard layout of the KPI visual.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpivisualstandardlayout.html
 //
 type CfnAnalysis_KPIVisualStandardLayoutProperty struct {
+	// The standard layout type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpivisualstandardlayout.html#cfn-quicksight-analysis-kpivisualstandardlayout-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

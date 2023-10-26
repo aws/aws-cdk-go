@@ -142,6 +142,7 @@ type CfnTable interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// A structure representing an open format table.
 	OpenTableFormatInput() interface{}
 	SetOpenTableFormatInput(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

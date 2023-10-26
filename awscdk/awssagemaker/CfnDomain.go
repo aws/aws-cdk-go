@@ -205,7 +205,7 @@ type CfnDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A collection of settings that apply to spaces of Amazon SageMaker Studio.
+	// A collection of settings that apply to spaces created in the Domain.
 	DefaultSpaceSettings() interface{}
 	SetDefaultSpaceSettings(val interface{})
 	// The default user settings.

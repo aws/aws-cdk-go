@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Detailed data of an AWS Proton environment account connection resource.
+// Detailed data of an environment account connection resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -48,10 +48,10 @@ type CfnEnvironmentAccountConnection interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The Amazon Resource Name (ARN) of an IAM service role in the environment account.
+	// The Amazon Resource Name (ARN) of an service role in the environment account.
 	CodebuildRoleArn() *string
 	SetCodebuildRoleArn(val *string)
-	// The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account.
+	// The Amazon Resource Name (ARN) of the service role that uses when provisioning directly defined components in the associated environment account.
 	ComponentRoleArn() *string
 	SetComponentRoleArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -93,7 +93,7 @@ type CfnEnvironmentAccountConnection interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An optional list of metadata items that you can associate with the AWS Proton environment account connection.
+	// An optional list of metadata items that you can associate with the environment account connection.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

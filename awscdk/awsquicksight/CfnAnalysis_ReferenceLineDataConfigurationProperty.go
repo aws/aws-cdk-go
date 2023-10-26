@@ -38,6 +38,7 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
+//   	SeriesType: jsii.String("seriesType"),
 //   	StaticConfiguration: &ReferenceLineStaticDataConfigurationProperty{
 //   		Value: jsii.Number(123),
 //   	},
@@ -48,8 +49,8 @@ package awsquicksight
 type CfnAnalysis_ReferenceLineDataConfigurationProperty struct {
 	// The axis binding type of the reference line. Choose one of the following options:.
 	//
-	// - PrimaryY
-	// - SecondaryY.
+	// - `PrimaryY`
+	// - `SecondaryY`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedataconfiguration.html#cfn-quicksight-analysis-referencelinedataconfiguration-axisbinding
 	//
 	AxisBinding *string `field:"optional" json:"axisBinding" yaml:"axisBinding"`
@@ -57,6 +58,9 @@ type CfnAnalysis_ReferenceLineDataConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedataconfiguration.html#cfn-quicksight-analysis-referencelinedataconfiguration-dynamicconfiguration
 	//
 	DynamicConfiguration interface{} `field:"optional" json:"dynamicConfiguration" yaml:"dynamicConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedataconfiguration.html#cfn-quicksight-analysis-referencelinedataconfiguration-seriestype
+	//
+	SeriesType *string `field:"optional" json:"seriesType" yaml:"seriesType"`
 	// The static data configuration of the reference line data configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedataconfiguration.html#cfn-quicksight-analysis-referencelinedataconfiguration-staticconfiguration
 	//

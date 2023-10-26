@@ -49,9 +49,9 @@ type CfnFeatureGroup_OfflineStoreConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html#cfn-sagemaker-featuregroup-offlinestoreconfig-disablegluetablecreation
 	//
 	DisableGlueTableCreation interface{} `field:"optional" json:"disableGlueTableCreation" yaml:"disableGlueTableCreation"`
-	// Format for the offline store feature group.
+	// Format for the offline store table.
 	//
-	// Iceberg is the optimal format for feature groups shared between offline and online stores.
+	// Supported formats are Glue (Default) and [Apache Iceberg](https://docs.aws.amazon.com/https://iceberg.apache.org/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html#cfn-sagemaker-featuregroup-offlinestoreconfig-tableformat
 	//
 	TableFormat *string `field:"optional" json:"tableFormat" yaml:"tableFormat"`

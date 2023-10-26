@@ -110,7 +110,7 @@ type CfnComponentTypeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-componenttypeid
 	//
 	ComponentTypeId *string `field:"required" json:"componentTypeId" yaml:"componentTypeId"`
-	// The ID of the workspace.
+	// The ID of the workspace that contains the component type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-workspaceid
 	//
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`

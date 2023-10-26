@@ -50,6 +50,7 @@ type CfnTrail_DataResourceProperty struct {
 	// The following resource types are also available through *advanced* event selectors. Basic event selector resource types are valid in advanced event selectors, but advanced event selector resource types are not valid in basic event selectors. For more information, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) .
 	//
 	// - `AWS::CloudTrail::Channel`
+	// - `AWS::CodeWhisperer::Customization`
 	// - `AWS::CodeWhisperer::Profile`
 	// - `AWS::Cognito::IdentityPool`
 	// - `AWS::DynamoDB::Stream`

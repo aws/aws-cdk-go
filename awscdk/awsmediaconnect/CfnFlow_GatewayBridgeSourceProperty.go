@@ -24,7 +24,7 @@ type CfnFlow_GatewayBridgeSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-gatewaybridgesource.html#cfn-mediaconnect-flow-gatewaybridgesource-bridgearn
 	//
 	BridgeArn *string `field:"required" json:"bridgeArn" yaml:"bridgeArn"`
-	// The settings for attaching a VPC interface to an resource.
+	// The name of the VPC interface attachment to use for this bridge source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-gatewaybridgesource.html#cfn-mediaconnect-flow-gatewaybridgesource-vpcinterfaceattachment
 	//
 	VpcInterfaceAttachment interface{} `field:"optional" json:"vpcInterfaceAttachment" yaml:"vpcInterfaceAttachment"`

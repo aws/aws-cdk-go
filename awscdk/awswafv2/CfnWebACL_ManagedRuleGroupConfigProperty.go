@@ -135,6 +135,9 @@ package awswafv2
 //   	},
 //   	AwsManagedRulesBotControlRuleSet: &AWSManagedRulesBotControlRuleSetProperty{
 //   		InspectionLevel: jsii.String("inspectionLevel"),
+//
+//   		// the properties below are optional
+//   		EnableMachineLearning: jsii.Boolean(false),
 //   	},
 //   	LoginPath: jsii.String("loginPath"),
 //   	PasswordField: &FieldIdentifierProperty{

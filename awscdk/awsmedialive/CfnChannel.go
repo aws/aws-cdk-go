@@ -26,6 +26,9 @@ type CfnChannel interface {
 	//
 	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:channel:1234567.
 	AttrArn() *string
+	// User-specified id.
+	//
+	// This is used in an output group or an output.
 	AttrId() *string
 	// The inputs that are attached to this channel.
 	//
@@ -71,6 +74,7 @@ type CfnChannel interface {
 	// The verbosity for logging activity for this channel.
 	LogLevel() *string
 	SetLogLevel(val *string)
+	// Maintenance settings for this channel.
 	Maintenance() interface{}
 	SetMaintenance(val interface{})
 	// A name for this audio selector.

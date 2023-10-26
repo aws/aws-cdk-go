@@ -48,6 +48,7 @@ type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The identifier of the WorkSpace, returned as a string.
 	AttrId() *string
 	// The identifier of the bundle for the WorkSpace.
 	BundleId() *string
