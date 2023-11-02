@@ -1,6 +1,8 @@
 package awspipes
 
 
+// The parameters for using an AWS Batch job as a target.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -61,9 +63,13 @@ type CfnPipe_PipeTargetBatchJobParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-jobname
 	//
 	JobName *string `field:"required" json:"jobName" yaml:"jobName"`
+	// The array properties for the submitted job, such as the size of the array.
+	//
+	// The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-arrayproperties
 	//
 	ArrayProperties interface{} `field:"optional" json:"arrayProperties" yaml:"arrayProperties"`
+	// The overrides that are sent to a container.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-containeroverrides
 	//
 	ContainerOverrides interface{} `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`

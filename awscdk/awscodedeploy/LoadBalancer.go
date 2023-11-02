@@ -14,16 +14,17 @@ import (
 // `#classic`, `#application` and `#network`.
 //
 // Example:
-//   import elb "github.com/aws/aws-cdk-go/awscdk"
+//   var alb applicationLoadBalancer
 //
-//   var lb loadBalancer
-//
-//   lb.AddListener(&LoadBalancerListener{
-//   	ExternalPort: jsii.Number(80),
+//   listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   targetGroup := listener.AddTargets(jsii.String("Fleet"), &AddApplicationTargetsProps{
+//   	Port: jsii.Number(80),
 //   })
 //
 //   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
-//   	LoadBalancer: codedeploy.LoadBalancer_Classic(lb),
+//   	LoadBalancer: codedeploy.LoadBalancer_Application(targetGroup),
 //   })
 //
 type LoadBalancer interface {

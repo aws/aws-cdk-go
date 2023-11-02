@@ -19,6 +19,11 @@ package awsec2
 type CfnInstance_HibernationOptionsProperty struct {
 	// Set to `true` to enable your instance for hibernation.
 	//
+	// For Spot Instances, if you set `Configured` to `true` , either omit the `InstanceInterruptionBehavior` parameter (for [`SpotMarketOptions`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotMarketOptions.html) ), or set it to `hibernate` . When `Configured` is true:
+	//
+	// - If you omit `InstanceInterruptionBehavior` , it defaults to `hibernate` .
+	// - If you set `InstanceInterruptionBehavior` to a value other than `hibernate` , you'll get an error.
+	//
 	// Default: `false`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
 	//

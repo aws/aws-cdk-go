@@ -48,6 +48,8 @@ import (
 //   		Version: jsii.String("version"),
 //   	},
 //   	MaxSize: jsii.Number(123),
+//   	MaxUnavailable: jsii.Number(123),
+//   	MaxUnavailablePercentage: jsii.Number(123),
 //   	MinSize: jsii.Number(123),
 //   	NodegroupName: jsii.String("nodegroupName"),
 //   	NodeRole: role,

@@ -1,6 +1,7 @@
 package awsdynamodb
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 )
 
@@ -55,6 +56,10 @@ type ReplicaTableProps struct {
 	// Default: TableClass.STANDARD
 	//
 	TableClass TableClass `field:"optional" json:"tableClass" yaml:"tableClass"`
+	// Tags to be applied to the table or replica table.
+	// Default: - no tags.
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The region that the replica table will be created in.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// Options used to configure global secondary index properties.

@@ -90,6 +90,14 @@ const (
 	InstanceClass_MEMORY6_INTEL_NVME_DRIVE InstanceClass = "MEMORY6_INTEL_NVME_DRIVE"
 	// Memory optimized instances with local NVME drive, 6th generation with Intel Xeon Scalable processors (3rd generation processors code named Ice Lake).
 	InstanceClass_R6ID InstanceClass = "R6ID"
+	// Memory optimized instances for high performance computing powered by Intel Xeon Scalable processors (code named Ice Lake), 6th generation.
+	InstanceClass_MEMORY6_INTEL_HIGH_PERFORMANCE InstanceClass = "MEMORY6_INTEL_HIGH_PERFORMANCE"
+	// Memory optimized instances for high performance computing powered by Intel Xeon Scalable processors (code named Ice Lake), 6th generation.
+	InstanceClass_R6IN InstanceClass = "R6IN"
+	// Memory optimized instances with local NVME drive for high performance computing powered by Intel Xeon Scalable processors (code named Ice Lake), 6th generation.
+	InstanceClass_MEMORY6_INTEL_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "MEMORY6_INTEL_NVME_DRIVE_HIGH_PERFORMANCE"
+	// Memory optimized instances with local NVME drive for high performance computing powered by Intel Xeon Scalable processors (code named Ice Lake), 6th generation.
+	InstanceClass_R6IDN InstanceClass = "R6IDN"
 	// Memory optimized instances for high performance computing, 5th generation.
 	InstanceClass_MEMORY5_HIGH_PERFORMANCE InstanceClass = "MEMORY5_HIGH_PERFORMANCE"
 	// Memory optimized instances for high performance computing, 5th generation.
@@ -382,6 +390,10 @@ const (
 	InstanceClass_PARALLEL4 InstanceClass = "PARALLEL4"
 	// Parallel-processing optimized instances, 4th generation.
 	InstanceClass_P4D InstanceClass = "P4D"
+	// Parallel-processing optimized instances, 5th generation.
+	InstanceClass_PARALLEL5 InstanceClass = "PARALLEL5"
+	// Parallel-processing optimized instances, 5th generation.
+	InstanceClass_P5 InstanceClass = "P5"
 	// Arm processor based instances, 1st generation.
 	InstanceClass_ARM1 InstanceClass = "ARM1"
 	// Arm processor based instances, 1st generation.
@@ -398,6 +410,14 @@ const (
 	InstanceClass_STANDARD6_INTEL_NVME_DRIVE InstanceClass = "STANDARD6_INTEL_NVME_DRIVE"
 	// Standard instances based on Intel (Ice Lake) with local NVME drive, 6th generation.
 	InstanceClass_M6ID InstanceClass = "M6ID"
+	// Standard instances for high performance computing powered by Intel Xeon Scalable processors (code named Ice Lake), 6th generation.
+	InstanceClass_STANDARD6_INTEL_HIGH_PERFORMANCE InstanceClass = "STANDARD6_INTEL_HIGH_PERFORMANCE"
+	// Standard instances for high performance computing powered by Intel Xeon Scalable processors (code named Ice Lake), 6th generation.
+	InstanceClass_M6IN InstanceClass = "M6IN"
+	// Standard instances with local NVME drive for high performance computing powered by Intel Xeon Scalable processors (code named Ice Lake), 6th generation.
+	InstanceClass_STANDARD6_INTEL_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "STANDARD6_INTEL_NVME_DRIVE_HIGH_PERFORMANCE"
+	// Standard instances with local NVME drive for high performance computing powered by Intel Xeon Scalable processors (code named Ice Lake), 6th generation.
+	InstanceClass_M6IDN InstanceClass = "M6IDN"
 	// Standard instances based on 3rd Gen AMD EPYC processors, 6th generation.
 	InstanceClass_STANDARD6_AMD InstanceClass = "STANDARD6_AMD"
 	// Standard instances based on 3rd Gen AMD EPYC processors, 6th generation.

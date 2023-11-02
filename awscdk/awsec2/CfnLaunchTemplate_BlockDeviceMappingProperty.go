@@ -1,7 +1,9 @@
 package awsec2
 
 
-// Information about a block device mapping for an Amazon EC2 launch template.
+// Specifies a block device mapping for a launch template.
+//
+// You must specify `DeviceName` plus exactly one of the following properties: `Ebs` , `NoDevice` , or `VirtualName` .
 //
 // `BlockDeviceMapping` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //

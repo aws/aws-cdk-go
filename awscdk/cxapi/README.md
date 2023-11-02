@@ -223,3 +223,21 @@ Functions defined previously will continue to function correctly as long as they
   }
 }
 ```
+
+* `@aws-cdk/aws-codepipeline-actions:useNewDefaultBranchForCodeCommitSource`
+
+Enable this feature flag to update the default branch for CodeCommit source actions to `main`.
+
+Previously, the default branch for CodeCommit source actions was set to `master`.
+However, this convention is no longer supported, and repositories created after March 2021 now have `main` as
+their default branch.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-codepipeline-actions:useNewDefaultBranchForCodeCommitSource": true
+  }
+}
+```

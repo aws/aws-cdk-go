@@ -43,6 +43,8 @@ import (
 //   		Version: jsii.String("version"),
 //   	},
 //   	MaxSize: jsii.Number(123),
+//   	MaxUnavailable: jsii.Number(123),
+//   	MaxUnavailablePercentage: jsii.Number(123),
 //   	MinSize: jsii.Number(123),
 //   	NodegroupName: jsii.String("nodegroupName"),
 //   	NodeRole: role,
@@ -134,6 +136,26 @@ type NodegroupProps struct {
 	// Default: - desiredSize.
 	//
 	MaxSize *float64 `field:"optional" json:"maxSize" yaml:"maxSize"`
+	// The maximum number of nodes unavailable at once during a version update.
+	//
+	// Nodes will be updated in parallel. The maximum number is 100.
+	//
+	// This value or `maxUnavailablePercentage` is required to have a value for custom update configurations to be applied.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailable
+	//
+	// Default: 1.
+	//
+	MaxUnavailable *float64 `field:"optional" json:"maxUnavailable" yaml:"maxUnavailable"`
+	// The maximum percentage of nodes unavailable during a version update.
+	//
+	// This percentage of nodes will be updated in parallel, up to 100 nodes at once.
+	//
+	// This value or `maxUnavailable` is required to have a value for custom update configurations to be applied.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailablepercentage
+	//
+	// Default: undefined - node groups will update instances one at a time.
+	//
+	MaxUnavailablePercentage *float64 `field:"optional" json:"maxUnavailablePercentage" yaml:"maxUnavailablePercentage"`
 	// The minimum number of worker nodes that the managed node group can scale in to.
 	//
 	// This number must be greater than or equal to zero.

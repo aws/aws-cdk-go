@@ -96,6 +96,7 @@ type CfnDashboard_TotalOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-totaloptions.html#cfn-quicksight-dashboard-totaloptions-scrollstatus
 	//
 	ScrollStatus *string `field:"optional" json:"scrollStatus" yaml:"scrollStatus"`
+	// The total aggregation settings for each value field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-totaloptions.html#cfn-quicksight-dashboard-totaloptions-totalaggregationoptions
 	//
 	TotalAggregationOptions interface{} `field:"optional" json:"totalAggregationOptions" yaml:"totalAggregationOptions"`

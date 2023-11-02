@@ -1,6 +1,8 @@
 package awscdkamplifyalpha
 
 
+// Available hosting platforms to use on the App.
+//
 // Example:
 //   amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
 //   	Platform: amplify.Platform_WEB_COMPUTE,

@@ -1,9 +1,9 @@
 package awscustomerprofiles
 
 
-// The process of matching duplicate profiles using the Rule-Based matching.
+// The process of matching duplicate profiles using Rule-Based matching.
 //
-// If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+// If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,27 +57,27 @@ package awscustomerprofiles
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html
 //
 type CfnDomain_RuleBasedMatchingProperty struct {
-	// The flag that enables the rule-based matching process of duplicate profiles.
+	// The flag that enables the matching process of duplicate profiles.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-enabled
 	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
-	// Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+	// Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-attributetypesselector
 	//
 	AttributeTypesSelector interface{} `field:"optional" json:"attributeTypesSelector" yaml:"attributeTypesSelector"`
-	// How the auto-merging process should resolve conflicts between different profiles.
+	// Determines how the auto-merging process should resolve conflicts between different profiles.
 	//
-	// For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
+	// For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-conflictresolution
 	//
 	ConflictResolution interface{} `field:"optional" json:"conflictResolution" yaml:"conflictResolution"`
-	// Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+	// The S3 location where Identity Resolution Jobs write result files.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-exportingconfig
 	//
 	ExportingConfig interface{} `field:"optional" json:"exportingConfig" yaml:"exportingConfig"`
 	// Configures how the rule-based matching process should match profiles.
 	//
-	// You can have up to 15 MatchingRule in the MatchingRules.
+	// You can have up to 15 `MatchingRule` in the `MatchingRules` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-matchingrules
 	//
 	MatchingRules interface{} `field:"optional" json:"matchingRules" yaml:"matchingRules"`
@@ -89,6 +89,7 @@ type CfnDomain_RuleBasedMatchingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-maxallowedrulelevelformerging
 	//
 	MaxAllowedRuleLevelForMerging *float64 `field:"optional" json:"maxAllowedRuleLevelForMerging" yaml:"maxAllowedRuleLevelForMerging"`
+	// The status of rule-based matching rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

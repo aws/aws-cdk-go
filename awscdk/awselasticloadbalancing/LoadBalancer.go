@@ -15,21 +15,25 @@ import (
 // Routes to a fleet of of instances in a VPC.
 //
 // Example:
-//   var vpc iVpc
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
 //
-//   var myAutoScalingGroup autoScalingGroup
+//   service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   })
 //
 //   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
 //   	Vpc: Vpc,
-//   	InternetFacing: jsii.Boolean(true),
-//   	HealthCheck: &HealthCheck{
-//   		Port: jsii.Number(80),
-//   	},
 //   })
-//   lb.AddTarget(myAutoScalingGroup)
 //   lb.AddListener(&LoadBalancerListener{
 //   	ExternalPort: jsii.Number(80),
 //   })
+//   lb.AddTarget(service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+//   	ContainerName: jsii.String("MyContainer"),
+//   	ContainerPort: jsii.Number(80),
+//   }))
 //
 type LoadBalancer interface {
 	awscdk.Resource

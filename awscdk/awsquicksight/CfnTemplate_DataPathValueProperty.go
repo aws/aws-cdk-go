@@ -29,6 +29,7 @@ type CfnTemplate_DataPathValueProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathvalue.html#cfn-quicksight-template-datapathvalue-fieldvalue
 	//
 	FieldValue *string `field:"required" json:"fieldValue" yaml:"fieldValue"`
+	// The type configuration of the field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathvalue.html#cfn-quicksight-template-datapathvalue-datapathtype
 	//
 	DataPathType interface{} `field:"optional" json:"dataPathType" yaml:"dataPathType"`

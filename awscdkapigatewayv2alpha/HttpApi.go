@@ -40,6 +40,14 @@ type HttpApi interface {
 	// The identifier of this API Gateway API.
 	// Experimental.
 	ApiId() *string
+	// Default OIDC scopes attached to all routes in the gateway, unless explicitly configured on the route.
+	//
+	// The scopes are used with a COGNITO_USER_POOLS authorizer to authorize the method invocation.
+	// Experimental.
+	DefaultAuthorizationScopes() *[]*string
+	// Default Authorizer applied to all routes in the gateway.
+	// Experimental.
+	DefaultAuthorizer() IHttpRouteAuthorizer
 	// The default stage of this API.
 	// Experimental.
 	DefaultStage() IHttpStage
@@ -174,6 +182,26 @@ func (j *jsiiProxy_HttpApi) ApiId() *string {
 	_jsii_.Get(
 		j,
 		"apiId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpApi) DefaultAuthorizationScopes() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"defaultAuthorizationScopes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpApi) DefaultAuthorizer() IHttpRouteAuthorizer {
+	var returns IHttpRouteAuthorizer
+	_jsii_.Get(
+		j,
+		"defaultAuthorizer",
 		&returns,
 	)
 	return returns

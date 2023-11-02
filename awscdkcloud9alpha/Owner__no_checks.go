@@ -8,6 +8,14 @@ func validateOwner_AccountRootParameters(accountId *string) error {
 	return nil
 }
 
+func validateOwner_AssumedRoleParameters(accountId *string, roleName *string) error {
+	return nil
+}
+
+func validateOwner_FederatedUserParameters(accountId *string, userName *string) error {
+	return nil
+}
+
 func validateOwner_UserParameters(user awsiam.IUser) error {
 	return nil
 }

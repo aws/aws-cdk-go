@@ -46,7 +46,7 @@ import (
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The application Id.
+	// The application ID.
 	AttrApplicationId() *string
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.

@@ -62,9 +62,13 @@ type HostedConfigurationProps struct {
 	// Experimental.
 	Content ConfigurationContent `field:"required" json:"content" yaml:"content"`
 	// The latest version number of the hosted configuration.
+	// Default: - None.
+	//
 	// Experimental.
 	LatestVersionNumber *float64 `field:"optional" json:"latestVersionNumber" yaml:"latestVersionNumber"`
 	// The version label of the hosted configuration.
+	// Default: - None.
+	//
 	// Experimental.
 	VersionLabel *string `field:"optional" json:"versionLabel" yaml:"versionLabel"`
 }

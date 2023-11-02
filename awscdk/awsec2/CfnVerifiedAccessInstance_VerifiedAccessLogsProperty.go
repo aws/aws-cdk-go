@@ -34,7 +34,7 @@ type CfnVerifiedAccessInstance_VerifiedAccessLogsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-cloudwatchlogs
 	//
 	CloudWatchLogs interface{} `field:"optional" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
-	// Include trust data sent by trust providers into the logs.
+	// Indicates whether to include trust data sent by trust providers in the logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-includetrustcontext
 	//
 	IncludeTrustContext interface{} `field:"optional" json:"includeTrustContext" yaml:"includeTrustContext"`
@@ -42,7 +42,7 @@ type CfnVerifiedAccessInstance_VerifiedAccessLogsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-kinesisdatafirehose
 	//
 	KinesisDataFirehose interface{} `field:"optional" json:"kinesisDataFirehose" yaml:"kinesisDataFirehose"`
-	// The logging version to use.
+	// The logging version.
 	//
 	// Valid values: `ocsf-0.1` | `ocsf-1.0.0-rc.2`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-logversion

@@ -92,7 +92,7 @@ type AppProps struct {
 	// Set to WEB for static site
 	// generated (SSG) apps (i.e. a Create React App or Gatsby) and WEB_COMPUTE
 	// for server side rendered (SSR) apps (i.e. NextJS).
-	// Default: - WEB.
+	// Default: Platform.WEB
 	//
 	// Experimental.
 	Platform Platform `field:"optional" json:"platform" yaml:"platform"`

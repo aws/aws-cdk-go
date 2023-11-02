@@ -1,6 +1,8 @@
 package awspipes
 
 
+// These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

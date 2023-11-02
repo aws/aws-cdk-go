@@ -55,7 +55,7 @@ type CfnConnectPeerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-insidecidrblocks
 	//
 	InsideCidrBlocks *[]*string `field:"optional" json:"insideCidrBlocks" yaml:"insideCidrBlocks"`
-	// The subnet ARN for the connect peer.
+	// The subnet ARN of the Connect peer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-subnetarn
 	//
 	SubnetArn *string `field:"optional" json:"subnetArn" yaml:"subnetArn"`

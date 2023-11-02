@@ -288,6 +288,24 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 })
 ```
 
+When changing the billing for a table from provisioned to on-demand or from on-demand to provisioned, `seedCapacity` must be configured for each autoscaled resource:
+
+```go
+globalTable := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Billing: dynamodb.Billing_Provisioned(&ThroughputProps{
+		ReadCapacity: dynamodb.Capacity_Fixed(jsii.Number(10)),
+		WriteCapacity: dynamodb.Capacity_Autoscaled(&AutoscaledCapacityOptions{
+			MaxCapacity: jsii.Number(10),
+			SeedCapacity: jsii.Number(20),
+		}),
+	}),
+})
+```
+
 Further reading:
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html
 
@@ -825,6 +843,48 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 
 Further reading:
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.TableClasses.html
+
+## Tags
+
+You can add tags to a `TableV2` in several ways. By adding the tags to the construct itself it will apply the tags to the
+primary table.
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Tags: []cfnTag{
+		&cfnTag{
+			Key: jsii.String("primaryTableTagKey"),
+			Value: jsii.String("primaryTableTagValue"),
+		},
+	},
+})
+```
+
+You can also add tags to replica tables by specifying them within the replica table properties.
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-west-1"),
+			Tags: []cfnTag{
+				&cfnTag{
+					Key: jsii.String("replicaTableTagKey"),
+					Value: jsii.String("replicaTableTagValue"),
+				},
+			},
+		},
+	},
+})
+```
 
 ## Referencing Existing Global Tables
 

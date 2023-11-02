@@ -1,7 +1,7 @@
 package awscustomerprofiles
 
 
-// Specifies how does the rule-based matching process should match profiles.
+// Specifies how the rule-based matching process should match profiles.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,7 @@ package awscustomerprofiles
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matchingrule.html
 //
 type CfnDomain_MatchingRuleProperty struct {
-	// A single rule level of the MatchRules.
+	// A single rule level of the `MatchRules` .
 	//
 	// Configures how the rule-based matching process should match profiles.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matchingrule.html#cfn-customerprofiles-domain-matchingrule-rule

@@ -38,6 +38,8 @@ type CfnOutpostResolverProps struct {
 	//
 	OutpostArn *string `field:"required" json:"outpostArn" yaml:"outpostArn"`
 	// The Amazon EC2 instance type.
+	//
+	// If you specify this, you must also specify a value for the `OutpostArn` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html#cfn-route53resolver-outpostresolver-preferredinstancetype
 	//
 	PreferredInstanceType *string `field:"required" json:"preferredInstanceType" yaml:"preferredInstanceType"`

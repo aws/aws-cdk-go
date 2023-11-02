@@ -81,10 +81,10 @@ type CfnVerifiedAccessInstance interface {
 	// A description for the AWS Verified Access instance.
 	Description() *string
 	SetDescription(val *string)
-	// Describes whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.
+	// Indicates whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.
 	FipsEnabled() interface{}
 	SetFipsEnabled(val interface{})
-	// The current logging configuration for the Verified Access instances.
+	// The logging configuration for the Verified Access instances.
 	LoggingConfigurations() interface{}
 	SetLoggingConfigurations(val interface{})
 	// The logical ID for this CloudFormation stack element.

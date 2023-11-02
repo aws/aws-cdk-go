@@ -312,7 +312,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "aliasAttributes", GoGetter: "AliasAttributes"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrProviderName", GoGetter: "AttrProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrProviderUrl", GoGetter: "AttrProviderUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUserPoolId", GoGetter: "AttrUserPoolId"},

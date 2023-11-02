@@ -164,7 +164,6 @@ type CfnUserPool interface {
 	SetAliasAttributes(val *[]*string)
 	// The Amazon Resource Name (ARN) of the user pool, such as `arn:aws:cognito-idp:us-east-1:123412341234:userpool/us-east-1_123412341` .
 	AttrArn() *string
-	AttrId() *string
 	// The provider name of the Amazon Cognito user pool, specified as a `String` .
 	AttrProviderName() *string
 	// The URL of the provider of the Amazon Cognito user pool, specified as a `String` .
@@ -451,16 +450,6 @@ func (j *jsiiProxy_CfnUserPool) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnUserPool) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

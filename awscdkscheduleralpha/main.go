@@ -176,4 +176,8 @@ func init() {
 			return &jsiiProxy_ScheduleTargetInput{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-scheduler-alpha.ScheduleTargetProps",
+		reflect.TypeOf((*ScheduleTargetProps)(nil)).Elem(),
+	)
 }

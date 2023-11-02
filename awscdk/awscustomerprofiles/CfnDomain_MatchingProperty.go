@@ -3,7 +3,7 @@ package awscustomerprofiles
 
 // The process of matching duplicate profiles.
 //
-// If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+// If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -58,7 +58,7 @@ type CfnDomain_MatchingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matching.html#cfn-customerprofiles-domain-matching-automerging
 	//
 	AutoMerging interface{} `field:"optional" json:"autoMerging" yaml:"autoMerging"`
-	// Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+	// The S3 location where Identity Resolution Jobs write result files.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matching.html#cfn-customerprofiles-domain-matching-exportingconfig
 	//
 	ExportingConfig interface{} `field:"optional" json:"exportingConfig" yaml:"exportingConfig"`

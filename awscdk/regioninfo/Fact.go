@@ -24,6 +24,22 @@ type jsiiProxy_Fact struct {
 	_ byte // padding
 }
 
+// Return all pairs of (region, factName) that are defined.
+func Fact_DefinedFacts() *[]*[]*string {
+	_init_.Initialize()
+
+	var returns *[]*[]*string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.region_info.Fact",
+		"definedFacts",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Retrieves a fact from this Fact database.
 //
 // Returns: the fact value if it is known, and `undefined` otherwise.
@@ -93,6 +109,17 @@ func Fact_Unregister(region *string, name *string, value *string) {
 		"unregister",
 		[]interface{}{region, name, value},
 	)
+}
+
+func Fact_Names() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.region_info.Fact",
+		"names",
+		&returns,
+	)
+	return returns
 }
 
 func Fact_Regions() *[]*string {

@@ -61,7 +61,6 @@ type CfnBucket interface {
 	//
 	// For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
 	AttrDualStackDomainName() *string
-	AttrId() *string
 	// Returns the regional domain name of the specified bucket.
 	//
 	// Example: `DOC-EXAMPLE-BUCKET.s3.us-east-2.amazonaws.com`
@@ -357,16 +356,6 @@ func (j *jsiiProxy_CfnBucket) AttrDualStackDomainName() *string {
 	_jsii_.Get(
 		j,
 		"attrDualStackDomainName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnBucket) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

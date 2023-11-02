@@ -1,6 +1,7 @@
 package awsdynamodb
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 )
 
@@ -20,6 +21,12 @@ import (
 //   	KinesisStream: stream,
 //   	PointInTimeRecovery: jsii.Boolean(false),
 //   	TableClass: awscdk.Aws_dynamodb.TableClass_STANDARD,
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 type TableOptionsV2 struct {
@@ -43,5 +50,9 @@ type TableOptionsV2 struct {
 	// Default: TableClass.STANDARD
 	//
 	TableClass TableClass `field:"optional" json:"tableClass" yaml:"tableClass"`
+	// Tags to be applied to the table or replica table.
+	// Default: - no tags.
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

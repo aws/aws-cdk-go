@@ -9,16 +9,17 @@ import (
 // Construction properties for `ServerDeploymentGroup`.
 //
 // Example:
-//   import elb "github.com/aws/aws-cdk-go/awscdk"
+//   var alb applicationLoadBalancer
 //
-//   var lb loadBalancer
-//
-//   lb.AddListener(&LoadBalancerListener{
-//   	ExternalPort: jsii.Number(80),
+//   listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   targetGroup := listener.AddTargets(jsii.String("Fleet"), &AddApplicationTargetsProps{
+//   	Port: jsii.Number(80),
 //   })
 //
 //   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
-//   	LoadBalancer: codedeploy.LoadBalancer_Classic(lb),
+//   	LoadBalancer: codedeploy.LoadBalancer_Application(targetGroup),
 //   })
 //
 type ServerDeploymentGroupProps struct {
@@ -79,7 +80,15 @@ type ServerDeploymentGroupProps struct {
 	// or an Application Load Balancer / Network Load Balancer Target Group.
 	// Default: - Deployment Group will not have a load balancer defined.
 	//
+	// Deprecated: - Use `loadBalancers` instead.
 	LoadBalancer LoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
+	// CodeDeploy supports the deployment to multiple load balancers.
+	//
+	// Specify either multiple Classic Load Balancers, or
+	// Application Load Balancers / Network Load Balancers Target Groups.
+	// Default: - Deployment Group will not have load balancers defined.
+	//
+	LoadBalancers *[]LoadBalancer `field:"optional" json:"loadBalancers" yaml:"loadBalancers"`
 	// All on-premise instances matching the given set of tags when a deployment occurs will be added to this Deployment Group.
 	// Default: - No additional on-premise instances will be added to the Deployment Group.
 	//

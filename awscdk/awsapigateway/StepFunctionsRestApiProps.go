@@ -9,16 +9,12 @@ import (
 // Properties for StepFunctionsRestApi.
 //
 // Example:
-//   stateMachineDefinition := stepfunctions.NewPass(this, jsii.String("PassState"))
+//   var machine iStateMachine
 //
-//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-//   	Definition: stateMachineDefinition,
-//   	StateMachineType: stepfunctions.StateMachineType_EXPRESS,
-//   })
 //
 //   apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &StepFunctionsRestApiProps{
-//   	Deploy: jsii.Boolean(true),
-//   	StateMachine: stateMachine,
+//   	StateMachine: machine,
+//   	UseDefaultMethodResponses: jsii.Boolean(false),
 //   })
 //
 type StepFunctionsRestApiProps struct {
@@ -238,5 +234,9 @@ type StepFunctionsRestApiProps struct {
 	// Default: - a new role is created.
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// Whether to add default response models with 200, 400, and 500 status codes to the method.
+	// Default: true.
+	//
+	UseDefaultMethodResponses *bool `field:"optional" json:"useDefaultMethodResponses" yaml:"useDefaultMethodResponses"`
 }
 

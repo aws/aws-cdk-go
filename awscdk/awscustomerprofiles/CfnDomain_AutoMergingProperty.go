@@ -35,9 +35,9 @@ type CfnDomain_AutoMergingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html#cfn-customerprofiles-domain-automerging-enabled
 	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
-	// How the auto-merging process should resolve conflicts between different profiles.
+	// Determines how the auto-merging process should resolve conflicts between different profiles.
 	//
-	// For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
+	// For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html#cfn-customerprofiles-domain-automerging-conflictresolution
 	//
 	ConflictResolution interface{} `field:"optional" json:"conflictResolution" yaml:"conflictResolution"`
@@ -49,7 +49,7 @@ type CfnDomain_AutoMergingProperty struct {
 	Consolidation interface{} `field:"optional" json:"consolidation" yaml:"consolidation"`
 	// A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process.
 	//
-	// A higher score means higher similarity required to merge profiles.
+	// A higher score means that a higher similarity is required to merge profiles.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html#cfn-customerprofiles-domain-automerging-minallowedconfidencescoreformerging
 	//
 	MinAllowedConfidenceScoreForMerging *float64 `field:"optional" json:"minAllowedConfidenceScoreForMerging" yaml:"minAllowedConfidenceScoreForMerging"`

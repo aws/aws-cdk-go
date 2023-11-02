@@ -12,16 +12,12 @@ import (
 // Defines an API Gateway REST API with a Synchrounous Express State Machine as a proxy integration.
 //
 // Example:
-//   stateMachineDefinition := stepfunctions.NewPass(this, jsii.String("PassState"))
+//   var machine iStateMachine
 //
-//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-//   	Definition: stateMachineDefinition,
-//   	StateMachineType: stepfunctions.StateMachineType_EXPRESS,
-//   })
 //
 //   apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &StepFunctionsRestApiProps{
-//   	Deploy: jsii.Boolean(true),
-//   	StateMachine: stateMachine,
+//   	StateMachine: machine,
+//   	UseDefaultMethodResponses: jsii.Boolean(false),
 //   })
 //
 type StepFunctionsRestApi interface {

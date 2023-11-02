@@ -73,6 +73,7 @@ import (
 //   		"requestTemplatesKey": jsii.String("requestTemplates"),
 //   	},
 //   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   	UseDefaultMethodResponses: jsii.Boolean(false),
 //   	VpcLink: vpcLink,
 //   }
 //
@@ -219,5 +220,9 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	// Default: - all parameters within request context will be set as false.
 	//
 	RequestContext *RequestContext `field:"optional" json:"requestContext" yaml:"requestContext"`
+	// Whether to add default response models with 200, 400, and 500 status codes to the method.
+	// Default: true.
+	//
+	UseDefaultMethodResponses *bool `field:"optional" json:"useDefaultMethodResponses" yaml:"useDefaultMethodResponses"`
 }
 

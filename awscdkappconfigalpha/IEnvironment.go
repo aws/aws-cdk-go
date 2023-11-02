@@ -54,7 +54,7 @@ type IEnvironment interface {
 	EnvironmentId() *string
 	// The monitors for the environment.
 	// Experimental.
-	Monitors() *[]*Monitor
+	Monitors() *[]Monitor
 	// The name of the environment.
 	// Experimental.
 	Name() *string
@@ -214,8 +214,8 @@ func (j *jsiiProxy_IEnvironment) EnvironmentId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IEnvironment) Monitors() *[]*Monitor {
-	var returns *[]*Monitor
+func (j *jsiiProxy_IEnvironment) Monitors() *[]Monitor {
+	var returns *[]Monitor
 	_jsii_.Get(
 		j,
 		"monitors",

@@ -115,7 +115,16 @@ Every Cloud9 Environment has an **owner**. An owner has full control over the en
 
 By default, the owner will be the identity that creates the Environment, which is most likely your CloudFormation Execution Role when the Environment is created using CloudFormation. Provider a value for the `owner` property to assign a different owner, either a specific IAM User or the AWS Account Root User.
 
-`Owner` is a user that owns a Cloud9 environment . `Owner` has their own access permissions, resources. And we can specify an `Owner`in an Ec2 environment which could be of two types, 1. AccountRoot and 2. Iam User. It allows AWS to determine who has permissions to manage the environment, either an IAM user or the account root user (but using the account root user is not recommended, see [environment sharing best practices](https://docs.aws.amazon.com/cloud9/latest/user-guide/share-environment.html#share-environment-best-practices)).
+`Owner` is an IAM entity that owns a Cloud9 environment. `Owner` has their own access permissions, and resources. You can specify an `Owner`in an EC2 environment which could be of the following types:
+
+1. Account Root
+2. IAM User
+3. IAM Federated User
+4. IAM Assumed Role
+
+The ARN of the owner must satisfy the following regular expression: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(iam|sts)::\d+:(root|(user\/[\w+=/:,.@-]{1,64}|federated-user\/[\w+=/:,.@-]{2,32}|assumed-role\/[\w+=:,.@-]{1,64}\/[\w+=,.@-]{1,64}))$`
+
+Note: Using the account root user is not recommended, see [environment sharing best practices](https://docs.aws.amazon.com/cloud9/latest/user-guide/share-environment.html#share-environment-best-practices).
 
 To specify the AWS Account Root User as the environment owner, use `Owner.accountRoot()`
 
@@ -125,12 +134,13 @@ var vpc vpc
 cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 	Vpc: Vpc,
 	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
-
 	Owner: cloud9.Owner_AccountRoot(jsii.String("111111111")),
 })
 ```
 
 To specify a specific IAM User as the environment owner, use `Owner.user()`. The user should have the `AWSCloud9Administrator` managed policy
+
+The user should have the `AWSCloud9User` (preferred) or `AWSCloud9Administrator` managed policy attached.
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
@@ -147,9 +157,41 @@ cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 })
 ```
 
+To specify a specific IAM Federated User as the environment owner, use `Owner.federatedUser(accountId, userName)`.
+
+The user should have the `AWSCloud9User` (preferred) or `AWSCloud9Administrator` managed policy attached.
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+
+var vpc vpc
+
+cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
+	Vpc: Vpc,
+	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
+	Owner: cloud9.Owner_FederatedUser(awscdk.*stack_Of(this).Account, jsii.String("Admin/johndoe")),
+})
+```
+
+To specify an IAM Assumed Role as the environment owner, use `Owner.assumedRole(accountId: string, roleName: string)`.
+
+The role should have the `AWSCloud9User` (preferred) or `AWSCloud9Administrator` managed policy attached.
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+
+var vpc vpc
+
+cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
+	Vpc: Vpc,
+	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
+	Owner: cloud9.Owner_AssumedRole(awscdk.*stack_Of(this).Account, jsii.String("Admin/johndoe-role")),
+})
+```
+
 ## Auto-Hibernation
 
-A Cloud9 environemnt can automatically start and stop the associated EC2 instance to reduce costs.
+A Cloud9 environment can automatically start and stop the associated EC2 instance to reduce costs.
 
 Use `automaticStop` to specify the number of minutes until the running instance is shut down after the environment was last used.
 

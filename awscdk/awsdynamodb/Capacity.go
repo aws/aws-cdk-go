@@ -8,7 +8,17 @@ import (
 // Represents the amount of read and write operations supported by a DynamoDB table.
 //
 // Example:
-//   table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+//   	Env: &Environment{
+//   		Region: jsii.String("us-west-2"),
+//   	},
+//   })
+//
+//   globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("pk"),
 //   		Type: dynamodb.AttributeType_STRING,
@@ -16,27 +26,18 @@ import (
 //   	Billing: dynamodb.Billing_Provisioned(&ThroughputProps{
 //   		ReadCapacity: dynamodb.Capacity_Fixed(jsii.Number(10)),
 //   		WriteCapacity: dynamodb.Capacity_Autoscaled(&AutoscaledCapacityOptions{
-//   			MaxCapacity: jsii.Number(10),
+//   			MaxCapacity: jsii.Number(15),
 //   		}),
 //   	}),
-//   	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
-//   		&globalSecondaryIndexPropsV2{
-//   			IndexName: jsii.String("gsi1"),
-//   			PartitionKey: &Attribute{
-//   				Name: jsii.String("pk"),
-//   				Type: dynamodb.AttributeType_STRING,
-//   			},
-//   			ReadCapacity: dynamodb.Capacity_*Fixed(jsii.Number(15)),
+//   	Replicas: []replicaTableProps{
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-1"),
 //   		},
-//   		&globalSecondaryIndexPropsV2{
-//   			IndexName: jsii.String("gsi2"),
-//   			PartitionKey: &Attribute{
-//   				Name: jsii.String("pk"),
-//   				Type: dynamodb.AttributeType_STRING,
-//   			},
-//   			WriteCapacity: dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
-//   				MinCapacity: jsii.Number(5),
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-2"),
+//   			ReadCapacity: dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
 //   				MaxCapacity: jsii.Number(20),
+//   				TargetUtilizationPercent: jsii.Number(50),
 //   			}),
 //   		},
 //   	},

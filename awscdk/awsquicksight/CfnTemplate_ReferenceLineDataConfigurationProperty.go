@@ -58,6 +58,10 @@ type CfnTemplate_ReferenceLineDataConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinedataconfiguration.html#cfn-quicksight-template-referencelinedataconfiguration-dynamicconfiguration
 	//
 	DynamicConfiguration interface{} `field:"optional" json:"dynamicConfiguration" yaml:"dynamicConfiguration"`
+	// The series type of the reference line data configuration. Choose one of the following options:.
+	//
+	// - `BAR`
+	// - `LINE`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinedataconfiguration.html#cfn-quicksight-template-referencelinedataconfiguration-seriestype
 	//
 	SeriesType *string `field:"optional" json:"seriesType" yaml:"seriesType"`

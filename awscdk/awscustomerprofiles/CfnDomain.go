@@ -120,6 +120,7 @@ type CfnDomain interface {
 	AttrCreatedAt() *string
 	// The timestamp of when the domain was most recently edited.
 	AttrLastUpdatedAt() *string
+	// The status of rule-based matching rule.
 	AttrRuleBasedMatchingStatus() *string
 	// Usage-specific statistics about the domain.
 	AttrStats() awscdk.IResolvable
@@ -164,7 +165,7 @@ type CfnDomain interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The process of matching duplicate profiles using the Rule-Based matching.
+	// The process of matching duplicate profiles using Rule-Based matching.
 	RuleBasedMatching() interface{}
 	SetRuleBasedMatching(val interface{})
 	// The stack in which this element is defined.

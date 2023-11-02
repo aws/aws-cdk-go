@@ -41,12 +41,14 @@ type HttpApiProps struct {
 	// Experimental.
 	CreateDefaultStage *bool `field:"optional" json:"createDefaultStage" yaml:"createDefaultStage"`
 	// Default OIDC scopes attached to all routes in the gateway, unless explicitly configured on the route.
+	//
+	// The scopes are used with a COGNITO_USER_POOLS authorizer to authorize the method invocation.
 	// Default: - no default authorization scopes.
 	//
 	// Experimental.
 	DefaultAuthorizationScopes *[]*string `field:"optional" json:"defaultAuthorizationScopes" yaml:"defaultAuthorizationScopes"`
-	// Default Authorizer to applied to all routes in the gateway.
-	// Default: - No authorizer.
+	// Default Authorizer applied to all routes in the gateway.
+	// Default: - no default authorizer.
 	//
 	// Experimental.
 	DefaultAuthorizer IHttpRouteAuthorizer `field:"optional" json:"defaultAuthorizer" yaml:"defaultAuthorizer"`

@@ -371,12 +371,16 @@ type CfnPipe interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A description of the pipe.
 	Description() *string
 	SetDescription(val *string)
+	// The state the pipe should be in.
 	DesiredState() *string
 	SetDesiredState(val *string)
+	// The ARN of the enrichment resource.
 	Enrichment() *string
 	SetEnrichment(val *string)
+	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters() interface{}
 	SetEnrichmentParameters(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -389,6 +393,7 @@ type CfnPipe interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the pipe.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -398,10 +403,13 @@ type CfnPipe interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The ARN of the role that allows the pipe to send data to the target.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// The ARN of the source resource.
 	Source() *string
 	SetSource(val *string)
+	// The parameters required to set up a source for your pipe.
 	SourceParameters() interface{}
 	SetSourceParameters(val interface{})
 	// The stack in which this element is defined.
@@ -410,10 +418,13 @@ type CfnPipe interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// The list of key-value pairs to associate with the pipe.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
+	// The ARN of the target resource.
 	Target() *string
 	SetTarget(val *string)
+	// The parameters required to set up a target for your pipe.
 	TargetParameters() interface{}
 	SetTargetParameters(val interface{})
 	// Deprecated.

@@ -60,5 +60,8 @@ type ScheduleProps struct {
 	//
 	// Experimental.
 	ScheduleName *string `field:"optional" json:"scheduleName" yaml:"scheduleName"`
+	// Allows to override target properties when creating a new schedule.
+	// Experimental.
+	TargetOverrides *ScheduleTargetProps `field:"optional" json:"targetOverrides" yaml:"targetOverrides"`
 }
 

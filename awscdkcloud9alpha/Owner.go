@@ -10,13 +10,14 @@ import (
 // An environment owner.
 //
 // Example:
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var vpc vpc
 //
 //   cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 //   	Vpc: Vpc,
 //   	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
-//
-//   	Owner: cloud9.Owner_AccountRoot(jsii.String("111111111")),
+//   	Owner: cloud9.Owner_FederatedUser(awscdk.*stack_Of(this).Account, jsii.String("Admin/johndoe")),
 //   })
 //
 // Experimental.
@@ -56,6 +57,46 @@ func Owner_AccountRoot(accountId *string) Owner {
 		"@aws-cdk/aws-cloud9-alpha.Owner",
 		"accountRoot",
 		[]interface{}{accountId},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an IAM assumed role the environment owner.
+// Experimental.
+func Owner_AssumedRole(accountId *string, roleName *string) Owner {
+	_init_.Initialize()
+
+	if err := validateOwner_AssumedRoleParameters(accountId, roleName); err != nil {
+		panic(err)
+	}
+	var returns Owner
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-cloud9-alpha.Owner",
+		"assumedRole",
+		[]interface{}{accountId, roleName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an IAM federated user the environment owner.
+// Experimental.
+func Owner_FederatedUser(accountId *string, userName *string) Owner {
+	_init_.Initialize()
+
+	if err := validateOwner_FederatedUserParameters(accountId, userName); err != nil {
+		panic(err)
+	}
+	var returns Owner
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-cloud9-alpha.Owner",
+		"federatedUser",
+		[]interface{}{accountId, userName},
 		&returns,
 	)
 

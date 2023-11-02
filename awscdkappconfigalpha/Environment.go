@@ -19,9 +19,7 @@ import (
 //   appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
 //   	Application: Application,
 //   	Monitors: []monitor{
-//   		&monitor{
-//   			Alarm: *Alarm,
-//   		},
+//   		appconfig.*monitor_FromCloudWatchAlarm(alarm),
 //   	},
 //   })
 //
@@ -63,7 +61,7 @@ type Environment interface {
 	SetExtensible(val ExtensibleBase)
 	// The monitors for the environment.
 	// Experimental.
-	Monitors() *[]*Monitor
+	Monitors() *[]Monitor
 	// The name of the environment.
 	// Experimental.
 	Name() *string
@@ -219,8 +217,8 @@ func (j *jsiiProxy_Environment) Extensible() ExtensibleBase {
 	return returns
 }
 
-func (j *jsiiProxy_Environment) Monitors() *[]*Monitor {
-	var returns *[]*Monitor
+func (j *jsiiProxy_Environment) Monitors() *[]Monitor {
+	var returns *[]Monitor
 	_jsii_.Get(
 		j,
 		"monitors",

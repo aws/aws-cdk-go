@@ -5,21 +5,13 @@ package awscdkappconfigalpha
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var alarm alarm
-//   var role role
+//   var monitor monitor
 //
 //   environmentOptions := &EnvironmentOptions{
 //   	Description: jsii.String("description"),
-//   	Monitors: []monitor{
-//   		&monitor{
-//   			Alarm: alarm,
-//
-//   			// the properties below are optional
-//   			AlarmRole: role,
-//   		},
+//   	Monitors: []*monitor{
+//   		monitor,
 //   	},
 //   	Name: jsii.String("name"),
 //   }
@@ -35,7 +27,7 @@ type EnvironmentOptions struct {
 	// Default: - No monitors.
 	//
 	// Experimental.
-	Monitors *[]*Monitor `field:"optional" json:"monitors" yaml:"monitors"`
+	Monitors *[]Monitor `field:"optional" json:"monitors" yaml:"monitors"`
 	// The name of the environment.
 	// Default: - A name is generated.
 	//

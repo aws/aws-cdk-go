@@ -44,6 +44,9 @@ type CfnAnalysis_TimeEqualityFilterProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timeequalityfilter.html#cfn-quicksight-analysis-timeequalityfilter-parametername
 	//
 	ParameterName *string `field:"optional" json:"parameterName" yaml:"parameterName"`
+	// The rolling date input for the `TimeEquality` filter.
+	//
+	// This field is mutually exclusive to `Value` and `ParameterName` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timeequalityfilter.html#cfn-quicksight-analysis-timeequalityfilter-rollingdate
 	//
 	RollingDate interface{} `field:"optional" json:"rollingDate" yaml:"rollingDate"`

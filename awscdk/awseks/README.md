@@ -227,6 +227,33 @@ cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions
 })
 ```
 
+To define the maximum number of instances which can be simultaneously replaced in a node group during a version update you can set `maxUnavailable` or `maxUnavailablePercentage` options.
+
+> For more details visit [Updating a managed node group](https://docs.aws.amazon.com/eks/latest/userguide/update-managed-node-group.html)
+
+```go
+var cluster cluster
+
+cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+	InstanceTypes: []instanceType{
+		ec2.NewInstanceType(jsii.String("m5.large")),
+	},
+	MaxSize: jsii.Number(5),
+	MaxUnavailable: jsii.Number(2),
+})
+```
+
+```go
+var cluster cluster
+
+cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+	InstanceTypes: []instanceType{
+		ec2.NewInstanceType(jsii.String("m5.large")),
+	},
+	MaxUnavailablePercentage: jsii.Number(33),
+})
+```
+
 #### Node Groups with IPv6 Support
 
 Node groups are available with IPv6 configured networks.  For custom roles assigned to node groups additional permissions are necessary in order for pods to obtain an IPv6 address.  The default node role will include these permissions.

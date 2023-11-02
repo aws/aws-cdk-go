@@ -45,6 +45,18 @@ type IHttpApi interface {
 	//
 	// Experimental.
 	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Default OIDC scopes attached to all routes in the gateway, unless explicitly configured on the route.
+	//
+	// The scopes are used with a COGNITO_USER_POOLS authorizer to authorize the method invocation.
+	// Default: - no default authorization scopes.
+	//
+	// Experimental.
+	DefaultAuthorizationScopes() *[]*string
+	// Default Authorizer applied to all routes in the gateway.
+	// Default: - no default authorizer.
+	//
+	// Experimental.
+	DefaultAuthorizer() IHttpRouteAuthorizer
 	// The identifier of this API Gateway HTTP API.
 	// Deprecated: - use apiId instead.
 	HttpApiId() *string
@@ -164,6 +176,26 @@ func (i *jsiiProxy_IHttpApi) MetricServerError(props *awscloudwatch.MetricOption
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IHttpApi) DefaultAuthorizationScopes() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"defaultAuthorizationScopes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpApi) DefaultAuthorizer() IHttpRouteAuthorizer {
+	var returns IHttpRouteAuthorizer
+	_jsii_.Get(
+		j,
+		"defaultAuthorizer",
+		&returns,
+	)
 	return returns
 }
 

@@ -108,7 +108,7 @@ type CfnConnectPeer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The subnet ARN for the connect peer.
+	// The subnet ARN of the Connect peer.
 	SubnetArn() *string
 	SetSubnetArn(val *string)
 	// Tag Manager which manages the tags for this resource.

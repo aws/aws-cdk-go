@@ -1,9 +1,9 @@
 package awscustomerprofiles
 
 
-// How the auto-merging process should resolve conflicts between different profiles.
+// Determines how the auto-merging process should resolve conflicts between different profiles.
 //
-// For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
+// For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,7 +24,7 @@ type CfnDomain_ConflictResolutionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-conflictresolution.html#cfn-customerprofiles-domain-conflictresolution-conflictresolvingmodel
 	//
 	ConflictResolvingModel *string `field:"required" json:"conflictResolvingModel" yaml:"conflictResolvingModel"`
-	// The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+	// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-conflictresolution.html#cfn-customerprofiles-domain-conflictresolution-sourcename
 	//
 	SourceName *string `field:"optional" json:"sourceName" yaml:"sourceName"`

@@ -348,12 +348,12 @@ var alarm alarm
 appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
 	Application: Application,
 	Monitors: []monitor{
-		&monitor{
-			Alarm: *Alarm,
-		},
+		appconfig.*monitor_FromCloudWatchAlarm(alarm),
 	},
 })
 ```
+
+Environment monitors also support L1 CfnEnvironment.MonitorsProperty constructs. However, this is not the recommended approach for CloudWatch alarms because a role will not be auto-generated if not provided.
 
 ## Extension
 

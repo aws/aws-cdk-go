@@ -11,19 +11,35 @@ import (
 // Define a Network Target Group.
 //
 // Example:
-//   var listener networkListener
-//   var asg1 autoScalingGroup
-//   var asg2 autoScalingGroup
+//   import elb "github.com/aws/aws-cdk-go/awscdk"
+//   import elb2 "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var clb loadBalancer
+//   var alb applicationLoadBalancer
+//   var nlb networkLoadBalancer
 //
 //
-//   group := listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
-//   	Port: jsii.Number(443),
-//   	Targets: []iNetworkLoadBalancerTarget{
-//   		asg1,
-//   	},
+//   albListener := alb.AddListener(jsii.String("ALBListener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   albTargetGroup := albListener.AddTargets(jsii.String("ALBFleet"), &AddApplicationTargetsProps{
+//   	Port: jsii.Number(80),
 //   })
 //
-//   group.AddTarget(asg2)
+//   nlbListener := nlb.AddListener(jsii.String("NLBListener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   nlbTargetGroup := nlbListener.AddTargets(jsii.String("NLBFleet"), &AddNetworkTargetsProps{
+//   	Port: jsii.Number(80),
+//   })
+//
+//   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
+//   	LoadBalancers: []loadBalancer{
+//   		codedeploy.*loadBalancer_Classic(clb),
+//   		codedeploy.*loadBalancer_Application(albTargetGroup),
+//   		codedeploy.*loadBalancer_Network(nlbTargetGroup),
+//   	},
+//   })
 //
 type NetworkTargetGroup interface {
 	TargetGroupBase

@@ -164,6 +164,40 @@ deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("Deploy
 })
 ```
 
+The `loadBalancer` property has been deprecated. To provide multiple Elastic Load Balancers as target groups use the `loadBalancers` parameter:
+
+```go
+import elb "github.com/aws/aws-cdk-go/awscdk"
+import elb2 "github.com/aws/aws-cdk-go/awscdk"
+
+var clb loadBalancer
+var alb applicationLoadBalancer
+var nlb networkLoadBalancer
+
+
+albListener := alb.AddListener(jsii.String("ALBListener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(80),
+})
+albTargetGroup := albListener.AddTargets(jsii.String("ALBFleet"), &AddApplicationTargetsProps{
+	Port: jsii.Number(80),
+})
+
+nlbListener := nlb.AddListener(jsii.String("NLBListener"), &BaseNetworkListenerProps{
+	Port: jsii.Number(80),
+})
+nlbTargetGroup := nlbListener.AddTargets(jsii.String("NLBFleet"), &AddNetworkTargetsProps{
+	Port: jsii.Number(80),
+})
+
+deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
+	LoadBalancers: []loadBalancer{
+		codedeploy.*loadBalancer_Classic(clb),
+		codedeploy.*loadBalancer_Application(albTargetGroup),
+		codedeploy.*loadBalancer_Network(nlbTargetGroup),
+	},
+})
+```
+
 ## EC2/on-premise Deployment Configurations
 
 You can also pass a Deployment Configuration when creating the Deployment Group:

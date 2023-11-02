@@ -54,6 +54,8 @@ type ApplicationLoadBalancerProps struct {
 	//
 	DomainZone awsroute53.IHostedZone `field:"optional" json:"domainZone" yaml:"domainZone"`
 	// The load balancer idle timeout, in seconds.
+	//
+	// Can be between 1 and 4000 seconds.
 	// Default: - CloudFormation sets idle timeout to 60 seconds.
 	//
 	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`

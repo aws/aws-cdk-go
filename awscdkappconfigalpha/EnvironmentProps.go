@@ -9,9 +9,7 @@ package awscdkappconfigalpha
 //   appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
 //   	Application: Application,
 //   	Monitors: []monitor{
-//   		&monitor{
-//   			Alarm: *Alarm,
-//   		},
+//   		appconfig.*monitor_FromCloudWatchAlarm(alarm),
 //   	},
 //   })
 //
@@ -26,7 +24,7 @@ type EnvironmentProps struct {
 	// Default: - No monitors.
 	//
 	// Experimental.
-	Monitors *[]*Monitor `field:"optional" json:"monitors" yaml:"monitors"`
+	Monitors *[]Monitor `field:"optional" json:"monitors" yaml:"monitors"`
 	// The name of the environment.
 	// Default: - A name is generated.
 	//

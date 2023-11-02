@@ -56,6 +56,10 @@ type TablePropsV2 struct {
 	// Default: TableClass.STANDARD
 	//
 	TableClass TableClass `field:"optional" json:"tableClass" yaml:"tableClass"`
+	// Tags to be applied to the table or replica table.
+	// Default: - no tags.
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Partition key attribute definition.
 	PartitionKey *Attribute `field:"required" json:"partitionKey" yaml:"partitionKey"`
 	// The billing mode and capacity settings to apply to the table.

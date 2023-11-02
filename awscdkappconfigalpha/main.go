@@ -558,9 +558,25 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterStruct(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-appconfig-alpha.Monitor",
 		reflect.TypeOf((*Monitor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "alarmArn", GoGetter: "AlarmArn"},
+			_jsii_.MemberProperty{JsiiProperty: "alarmRoleArn", GoGetter: "AlarmRoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "monitorType", GoGetter: "MonitorType"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Monitor{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-appconfig-alpha.MonitorType",
+		reflect.TypeOf((*MonitorType)(nil)).Elem(),
+		map[string]interface{}{
+			"CLOUDWATCH": MonitorType_CLOUDWATCH,
+			"CFN_MONITORS_PROPERTY": MonitorType_CFN_MONITORS_PROPERTY,
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-appconfig-alpha.Parameter",
