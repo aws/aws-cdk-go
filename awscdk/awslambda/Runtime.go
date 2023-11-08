@@ -419,6 +419,17 @@ func Runtime_PROVIDED_AL2() Runtime {
 	return returns
 }
 
+func Runtime_PROVIDED_AL2023() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"PROVIDED_AL2023",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_PYTHON_2_7() Runtime {
 	_init_.Initialize()
 	var returns Runtime
